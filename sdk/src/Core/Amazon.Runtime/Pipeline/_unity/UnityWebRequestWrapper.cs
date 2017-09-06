@@ -1,79 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
-using System.Reflection;
 using System.Net;
+using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Amazon.Runtime.Internal
 {
     /// <summary>
-    /// This class is used to wrap around <see cref="UnityEngine.Experimental.Networking.UnityWebRequest"/>
-    /// so that we can be backward compatible with unity 4.6
+    /// Wraps UnityWebRequest. Rewritten to use the Unity 2017 UnityWebRequest
     /// </summary>
     public class UnityWebRequestWrapper : IDisposable
     {
-        private static Type unityWebRequestType;
-
-        private static PropertyInfo[] unityWebRequestProperties;
-        private static MethodInfo[] unityWebRequestMethods;
-
-        //all methods
-        private static MethodInfo setRequestHeaderMethod;
-        private static MethodInfo sendMethod;
-        private static MethodInfo getResponseHeadersMethod;
-        private static MethodInfo isDoneGetMethod;
-        private static MethodInfo downloadProgressGetMethod;
-        private static MethodInfo uploadProgressGetMethod;
-        private static MethodInfo isErrorGetMethod;
-        private static MethodInfo downloadedBytesGetMethod;
-        private static MethodInfo responseCodeGetMethod;
-        private static MethodInfo downloadHandlerSetMethod;
-        private static MethodInfo uploadHandlerSetMethod;
-        private static MethodInfo errorGetMethod;
-
-        // the instance of the unitywebrequest
-        private object unityWebRequestInstance;
-
-
-        private DownloadHandlerBufferWrapper downloadHandler;
-        private UploadHandlerRawWrapper uploadHandler;
-
-        static UnityWebRequestWrapper()
-        {
-            unityWebRequestType = Type.GetType("UnityEngine.Networking.UnityWebRequest, UnityEngine");
-            if (unityWebRequestType == null)
-            {
-                unityWebRequestType = Type.GetType("UnityEngine.Experimental.Networking.UnityWebRequest, UnityEngine");
-            }
-            unityWebRequestMethods = unityWebRequestType.GetMethods();
-            unityWebRequestProperties = unityWebRequestType.GetProperties();
-
-            PropertyInfo isDoneProperty = unityWebRequestType.GetProperty("isDone");
-            PropertyInfo downloadProgressProperty = unityWebRequestType.GetProperty("downloadProgress");
-            PropertyInfo uploadProgressProperty = unityWebRequestType.GetProperty("uploadProgress");
-            PropertyInfo isErrorProperty = unityWebRequestType.GetProperty("isError");
-            PropertyInfo downloadedBytesProperty = unityWebRequestType.GetProperty("downloadedBytes");
-            PropertyInfo responseCodeProperty = unityWebRequestType.GetProperty("responseCode");
-            PropertyInfo downloadHandlerPropery = unityWebRequestType.GetProperty("downloadHandler");
-            PropertyInfo uploadHandlerPropery = unityWebRequestType.GetProperty("uploadHandler");
-            PropertyInfo errorProperty = unityWebRequestType.GetProperty("error");
-
-            setRequestHeaderMethod = unityWebRequestType.GetMethod("SetRequestHeader");
-            sendMethod = unityWebRequestType.GetMethod("Send");
-            getResponseHeadersMethod = unityWebRequestType.GetMethod("GetResponseHeaders");
-
-            isDoneGetMethod = isDoneProperty.GetGetMethod();
-            isErrorGetMethod = isErrorProperty.GetGetMethod();
-            uploadProgressGetMethod = uploadProgressProperty.GetGetMethod();
-            downloadProgressGetMethod = downloadProgressProperty.GetGetMethod();
-            downloadedBytesGetMethod = downloadedBytesProperty.GetGetMethod();
-            responseCodeGetMethod = responseCodeProperty.GetGetMethod();
-            downloadHandlerSetMethod = downloadHandlerPropery.GetSetMethod();
-            uploadHandlerSetMethod = uploadHandlerPropery.GetSetMethod();
-            errorGetMethod = errorProperty.GetGetMethod();
-        }
+        UnityWebRequest instance;
+        DownloadHandlerBufferWrapper downloadHandler;
+        UploadHandlerRawWrapper uploadHandler;
 
         /// <summary>
         /// Create an instance of UnityWebRequestWrapper
@@ -81,9 +21,10 @@ namespace Amazon.Runtime.Internal
         public UnityWebRequestWrapper()
         {
             if (!AWSConfigs.UnityWebRequestInitialized)
+            {
                 throw new InvalidOperationException("UnityWebRequest is not supported in the current version of unity");
-
-            unityWebRequestInstance = Activator.CreateInstance(unityWebRequestType);
+            }
+            instance = new UnityWebRequest();
         }
 
         /// <summary>
@@ -93,7 +34,7 @@ namespace Amazon.Runtime.Internal
         /// <param name="method">The HTTP Methods</param>
         public UnityWebRequestWrapper(string url, string method)
         {
-            unityWebRequestInstance = Activator.CreateInstance(unityWebRequestType, url, method);
+            instance = new UnityWebRequest(url, method);
         }
 
         /// <summary>
@@ -106,25 +47,22 @@ namespace Amazon.Runtime.Internal
         public UnityWebRequestWrapper(string url, string method, DownloadHandlerBufferWrapper downloadHandler, UploadHandlerRawWrapper uploadHandler)
         {
             if (downloadHandler == null)
-                throw new ArgumentNullException("downloadHandler");
+            {
+                throw new ArgumentNullException(nameof(downloadHandler));
+            }
 
             if (uploadHandler == null)
-                throw new ArgumentNullException("uploadHandler");
+            {
+                throw new ArgumentNullException(nameof(uploadHandler));
+            }
 
-            unityWebRequestInstance = Activator.CreateInstance(unityWebRequestType, url, method, downloadHandler.Instance, uploadHandler.Instance);
+            instance = new UnityWebRequest(url, method, downloadHandler.Instance, uploadHandler.Instance);
         }
 
         /// <summary>
         /// A flag that indicates is the UnityWebRequest is supported or not.
         /// </summary>
-        internal static bool IsUnityWebRequestSupported
-        {
-            get
-            {
-                return unityWebRequestType != null;
-            }
-        }
-        
+        internal static bool IsUnityWebRequestSupported => true;
 
         /// <summary>
         /// Get and Sets an instance of Download Handler
@@ -134,15 +72,13 @@ namespace Amazon.Runtime.Internal
             set
             {
                 if (value == null)
-                    throw new ArgumentNullException("value");
-
-                downloadHandlerSetMethod.Invoke(unityWebRequestInstance, new object[] { value.Instance });
-                this.downloadHandler = value;
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
+                instance.downloadHandler = value.Instance;
+                downloadHandler = value;
             }
-            get
-            {
-                return this.downloadHandler;
-            }
+            get => downloadHandler;
         }
 
         /// <summary>
@@ -153,15 +89,13 @@ namespace Amazon.Runtime.Internal
             set
             {
                 if (value == null)
-                    throw new ArgumentNullException("value");
-
-                uploadHandlerSetMethod.Invoke(unityWebRequestInstance, new object[] { value.Instance });
-                this.uploadHandler = value;
+                {
+                    throw new ArgumentNullException(nameof(value));
+                }
+                instance.uploadHandler = value.Instance;
+                uploadHandler = value;
             }
-            get
-            {
-                return this.uploadHandler;
-            }
+            get => uploadHandler;
         }
 
         /// <summary>
@@ -171,9 +105,8 @@ namespace Amazon.Runtime.Internal
         /// <param name="value">the header value</param>
         public void SetRequestHeader(string key, string value)
         {
-            setRequestHeaderMethod.Invoke(unityWebRequestInstance, new object[] { key, value });
+            instance.SetRequestHeader(key, value);
         }
-
 
         /// <summary>
         /// Make the http call
@@ -181,64 +114,33 @@ namespace Amazon.Runtime.Internal
         /// <returns></returns>
         public AsyncOperation Send()
         {
-            return (AsyncOperation)sendMethod.Invoke(unityWebRequestInstance, null);
+            return instance.Send();
         }
 
         /// <summary>
         /// Boolean value indicating if the http operation is complete
         /// </summary>
-        public bool IsDone
-        {
-            get
-            {
-                return (bool)isDoneGetMethod.Invoke(unityWebRequestInstance, null);
-            }
-        }
+        public bool IsDone => instance.isDone;
 
         /// <summary>
         /// The download progress
         /// </summary>
-        public float DownloadProgress
-        {
-            get
-            {
-                return (float)downloadProgressGetMethod.Invoke(unityWebRequestInstance, null);
-            }
-        }
+        public float DownloadProgress => instance.downloadProgress;
 
         /// <summary>
         /// The upload Progress
         /// </summary>
-        public float UploadProgress
-        {
-            get
-            {
-                return (float)uploadProgressGetMethod.Invoke(unityWebRequestInstance, null);
-            }
-        }
+        public float UploadProgress => instance.uploadProgress;
 
         /// <summary>
         /// Number of bytes downloaded
         /// </summary>
-        public ulong DownloadedBytes
-        {
-            get
-            {
-                return (ulong)downloadedBytesGetMethod.Invoke(unityWebRequestInstance, null);
-            }
-        }
+        public ulong DownloadedBytes => instance.downloadedBytes;
 
         /// <summary>
         /// The response headers
         /// </summary>
-        public Dictionary<string, string> ResponseHeaders
-        {
-            get
-            {
-
-                return (Dictionary<string, string>)getResponseHeadersMethod.Invoke(unityWebRequestInstance, null);
-            }
-        }
+        public Dictionary<string, string> ResponseHeaders => instance.GetResponseHeaders();
 
         /// <summary>
         /// The http status code
@@ -247,159 +149,82 @@ namespace Amazon.Runtime.Internal
         {
             get
             {
-                object responseCodeObject = responseCodeGetMethod.Invoke(unityWebRequestInstance, null);
-                long responseCode = (long)responseCodeObject;
-                if (responseCode == -1)
+                if (instance.responseCode == -1)
+                {
                     return null;
-
-                return (HttpStatusCode)responseCode;
+                }
+                return (HttpStatusCode)instance.responseCode;
             }
         }
 
         /// <summary>
         /// returns if the http operation ended with an error
         /// </summary>
-        public bool IsError
-        {
-            get
-            {
-                return (bool)isErrorGetMethod.Invoke(unityWebRequestInstance, null);
-            }
-        }
+        public bool IsError => instance.isNetworkError;
 
         /// <summary>
         /// returns the error string in case the http operation ended with an error
         /// </summary>
-        public string Error
-        {
-            get
-            {
-                return (string)errorGetMethod.Invoke(unityWebRequestInstance, null);
-            }
-        }
+        public string Error => instance.error;
 
         #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
 
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                    var disposableWebRequest = unityWebRequestInstance as IDisposable;
-                    if (disposableWebRequest != null)
-                        disposableWebRequest.Dispose();
-                }
-
-                unityWebRequestInstance = null;
-                disposedValue = true;
-            }
-        }
-        
         // This code added to correctly implement the disposable pattern.
         public void Dispose()
         {
-            Dispose(true);
+            if (instance == null)
+            {
+                return;
+            }
+            instance.Dispose();
+            instance = null;
         }
+
         #endregion
     }
 
     public class DownloadHandlerBufferWrapper : IDisposable
     {
-        private static Type downloadHandlerBufferType;
-        private static PropertyInfo[] downloadHandlerBufferProperties;
-        private static MethodInfo[] downloadHandlerBufferMethods;
-
-        private static PropertyInfo dataProperty;
-
-        private static MethodInfo dataGetMethod;
-
         /// <summary>
-        /// Instance of <see cref="UnityEngine.Experimental.Networking.DownloadHandlerBuffer"/>
+        /// Instance of <see cref="UnityEngine.Networking.DownloadHandlerBuffer"/>
         /// </summary>
-        public object Instance { get; private set; }
-
-        static DownloadHandlerBufferWrapper()
-        {
-            downloadHandlerBufferType = Type.GetType("UnityEngine.Networking.DownloadHandlerBuffer, UnityEngine");
-            if(downloadHandlerBufferType == null)
-            {
-                downloadHandlerBufferType = Type.GetType("UnityEngine.Experimental.Networking.DownloadHandlerBuffer, UnityEngine");
-            }
-            downloadHandlerBufferMethods = downloadHandlerBufferType.GetMethods();
-            downloadHandlerBufferProperties = downloadHandlerBufferType.GetProperties();
-
-            dataProperty = downloadHandlerBufferType.GetProperty("data");
-
-            dataGetMethod = dataProperty.GetGetMethod();
-        }
+        public DownloadHandlerBuffer Instance { get; private set; }
 
         /// <summary>
         /// Creates an new instance of <see cref="DownloadHandlerBufferWrapper"/>
         /// </summary>
         public DownloadHandlerBufferWrapper()
         {
-            Instance = Activator.CreateInstance(downloadHandlerBufferType);
+            Instance = new DownloadHandlerBuffer();
         }
 
         /// <summary>
         /// Returns the response data as a array of bytes
         /// </summary>
-        public byte[] Data
-        {
-            get
-            {
-                return (byte[])dataGetMethod.Invoke(Instance, null);
-            }
-        }
+        public byte[] Data => Instance.data;
 
         #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                    var disposableHandler = Instance as IDisposable;
-                    if (disposableHandler != null)
-                        disposableHandler.Dispose();
-                }
-
-                Instance = null;
-
-                disposedValue = true;
-            }
-        }
 
         // This code added to correctly implement the disposable pattern.
         public void Dispose()
         {
-            Dispose(true);
+            if (Instance == null)
+            {
+                return;
+            }
+            Instance.Dispose();
+            Instance = null;
         }
-        #endregion
 
+        #endregion
     }
 
     public class UploadHandlerRawWrapper : IDisposable
     {
-        private static Type uploadHandlerRawType;
-
         /// <summary>
-        /// Instance of <see cref="UnityEngine.Experimental.Networking.UploadHandlerRaw"/>
+        /// Instance of <see cref="UnityEngine.Networking.UploadHandlerRaw"/>
         /// </summary>
-        public object Instance { get; private set; }
-
-        static UploadHandlerRawWrapper()
-        {
-            uploadHandlerRawType = Type.GetType("UnityEngine.Networking.UploadHandlerRaw, UnityEngine");
-            if(uploadHandlerRawType == null)
-            {
-                uploadHandlerRawType = Type.GetType("UnityEngine.Experimental.Networking.UploadHandlerRaw, UnityEngine");
-            }
-        }
+        public UploadHandlerRaw Instance { get; private set; }
 
         /// <summary>
         /// Creates an instance of <see cref="UploadHandlerRawWrapper"/>
@@ -407,34 +232,22 @@ namespace Amazon.Runtime.Internal
         /// <param name="data"></param>
         public UploadHandlerRawWrapper(byte[] data)
         {
-            Instance = Activator.CreateInstance(uploadHandlerRawType, data);
+            Instance = new UploadHandlerRaw(data);
         }
 
         #region IDisposable Support
-        private bool disposedValue = false; // To detect redundant calls
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!disposedValue)
-            {
-                if (disposing)
-                {
-                    var disposableHandler = Instance as IDisposable;
-                    if (disposableHandler != null)
-                        disposableHandler.Dispose();
-                }
-                Instance = null;
-
-                disposedValue = true;
-            }
-        }
 
         // This code added to correctly implement the disposable pattern.
         public void Dispose()
         {
-            Dispose(true);
+            if (Instance == null)
+            {
+                return;
+            }
+            Instance.Dispose();
+            Instance = null;
         }
-        #endregion
 
+        #endregion
     }
 }
