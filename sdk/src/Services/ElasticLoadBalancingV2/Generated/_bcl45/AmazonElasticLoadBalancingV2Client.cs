@@ -49,19 +49,28 @@ namespace Amazon.ElasticLoadBalancingV2
     /// </para>
     ///  
     /// <para>
-    /// Elastic Load Balancing supports two types of load balancers: Classic Load Balancers
-    /// and Application Load Balancers. A Classic Load Balancer makes routing and load balancing
-    /// decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS),
-    /// and supports either EC2-Classic or a VPC. An Application Load Balancer makes routing
-    /// and load balancing decisions at the application layer (HTTP/HTTPS), supports path-based
-    /// routing, and can route requests to one or more ports on each EC2 instance or container
-    /// instance in your virtual private cloud (VPC). For more information, see the <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic
+    /// Elastic Load Balancing supports the following types of load balancers: Application
+    /// Load Balancers, Network Load Balancers, and Classic Load Balancers.
+    /// </para>
+    ///  
+    /// <para>
+    /// An Application Load Balancer makes routing and load balancing decisions at the application
+    /// layer (HTTP/HTTPS). A Network Load Balancer makes routing and load balancing decisions
+    /// at the transport layer (TCP). Both Application Load Balancers and Network Load Balancers
+    /// can route requests to one or more ports on each EC2 instance or container instance
+    /// in your virtual private cloud (VPC).
+    /// </para>
+    ///  
+    /// <para>
+    /// A Classic Load Balancer makes routing and load balancing decisions either at the transport
+    /// layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic
+    /// or a VPC. For more information, see the <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic
     /// Load Balancing User Guide</a>.
     /// </para>
     ///  
     /// <para>
-    /// This reference covers the 2015-12-01 API, which supports Application Load Balancers.
-    /// The 2012-06-01 API supports Classic Load Balancers.
+    /// This reference covers the 2015-12-01 API, which supports Application Load Balancers
+    /// and Network Load Balancers. The 2012-06-01 API supports Classic Load Balancers.
     /// </para>
     ///  
     /// <para>
@@ -69,7 +78,7 @@ namespace Amazon.ElasticLoadBalancingV2
     /// </para>
     ///  <ol> <li> 
     /// <para>
-    /// Create an Application Load Balancer using <a>CreateLoadBalancer</a>.
+    /// Create a load balancer using <a>CreateLoadBalancer</a>.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -83,14 +92,9 @@ namespace Amazon.ElasticLoadBalancingV2
     /// <para>
     /// Create one or more listeners for your load balancer using <a>CreateListener</a>.
     /// </para>
-    ///  </li> <li> 
-    /// <para>
-    /// (Optional) Create one or more rules for content routing based on URL using <a>CreateRule</a>.
-    /// </para>
     ///  </li> </ol> 
     /// <para>
-    /// To delete an Application Load Balancer and its related resources, complete the following
-    /// tasks:
+    /// To delete a load balancer and its related resources, complete the following tasks:
     /// </para>
     ///  <ol> <li> 
     /// <para>
@@ -293,12 +297,71 @@ namespace Amazon.ElasticLoadBalancingV2
         #endregion
 
         
+        #region  AddListenerCertificates
+
+
+        /// <summary>
+        /// Adds the specified certificate to the specified secure listener.
+        /// 
+        ///  
+        /// <para>
+        /// If the certificate was already added, the call is successful but the certificate is
+        /// not added again.
+        /// </para>
+        ///  
+        /// <para>
+        /// To list the certificates for your listener, use <a>DescribeListenerCertificates</a>.
+        /// To remove certificates from your listener, use <a>RemoveListenerCertificates</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AddListenerCertificates service method.</param>
+        /// 
+        /// <returns>The response from the AddListenerCertificates service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.CertificateNotFoundException">
+        /// The specified certificate does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.ListenerNotFoundException">
+        /// The specified listener does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyCertificatesException">
+        /// You've reached the limit on the number of certificates per load balancer.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/AddListenerCertificates">REST API Reference for AddListenerCertificates Operation</seealso>
+        public virtual AddListenerCertificatesResponse AddListenerCertificates(AddListenerCertificatesRequest request)
+        {
+            var marshaller = new AddListenerCertificatesRequestMarshaller();
+            var unmarshaller = AddListenerCertificatesResponseUnmarshaller.Instance;
+
+            return Invoke<AddListenerCertificatesRequest,AddListenerCertificatesResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AddListenerCertificates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AddListenerCertificates operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/AddListenerCertificates">REST API Reference for AddListenerCertificates Operation</seealso>
+        public virtual Task<AddListenerCertificatesResponse> AddListenerCertificatesAsync(AddListenerCertificatesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new AddListenerCertificatesRequestMarshaller();
+            var unmarshaller = AddListenerCertificatesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AddListenerCertificatesRequest,AddListenerCertificatesResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  AddTags
 
 
         /// <summary>
-        /// Adds the specified tags to the specified resource. You can tag your Application Load
-        /// Balancers and your target groups.
+        /// Adds the specified tags to the specified Elastic Load Balancing resource. You can
+        /// tag your Application Load Balancers, Network Load Balancers, and your target groups.
         /// 
         ///  
         /// <para>
@@ -327,7 +390,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// You've reached the limit on the number of tags per load balancer.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/AddTags">REST API Reference for AddTags Operation</seealso>
-        public AddTagsResponse AddTags(AddTagsRequest request)
+        public virtual AddTagsResponse AddTags(AddTagsRequest request)
         {
             var marshaller = new AddTagsRequestMarshaller();
             var unmarshaller = AddTagsResponseUnmarshaller.Instance;
@@ -345,7 +408,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/AddTags">REST API Reference for AddTags Operation</seealso>
-        public Task<AddTagsResponse> AddTagsAsync(AddTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<AddTagsResponse> AddTagsAsync(AddTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new AddTagsRequestMarshaller();
             var unmarshaller = AddTagsResponseUnmarshaller.Instance;
@@ -360,7 +423,7 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Creates a listener for the specified Application Load Balancer.
+        /// Creates a listener for the specified Application Load Balancer or Network Load Balancer.
         /// 
         ///  
         /// <para>
@@ -375,7 +438,9 @@ namespace Amazon.ElasticLoadBalancingV2
         ///  
         /// <para>
         /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners
-        /// for Your Application Load Balancers</a> in the <i>Application Load Balancers Guide</i>.
+        /// for Your Application Load Balancers</a> in the <i>Application Load Balancers Guide</i>
+        /// and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners
+        /// for Your Network Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateListener service method.</param>
@@ -406,7 +471,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified target group does not exist.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyCertificatesException">
-        /// You've reached the limit on the number of certificates per listener.
+        /// You've reached the limit on the number of certificates per load balancer.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyListenersException">
         /// You've reached the limit on the number of listeners per load balancer.
@@ -415,11 +480,14 @@ namespace Amazon.ElasticLoadBalancingV2
         /// You've reached the limit on the number of times a target can be registered with a
         /// load balancer.
         /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetsException">
+        /// You've reached the limit on the number of targets.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.UnsupportedProtocolException">
         /// The specified protocol is not supported.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/CreateListener">REST API Reference for CreateListener Operation</seealso>
-        public CreateListenerResponse CreateListener(CreateListenerRequest request)
+        public virtual CreateListenerResponse CreateListener(CreateListenerRequest request)
         {
             var marshaller = new CreateListenerRequestMarshaller();
             var unmarshaller = CreateListenerResponseUnmarshaller.Instance;
@@ -437,7 +505,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/CreateListener">REST API Reference for CreateListener Operation</seealso>
-        public Task<CreateListenerResponse> CreateListenerAsync(CreateListenerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateListenerResponse> CreateListenerAsync(CreateListenerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateListenerRequestMarshaller();
             var unmarshaller = CreateListenerResponseUnmarshaller.Instance;
@@ -452,7 +520,7 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Creates an Application Load Balancer.
+        /// Creates an Application Load Balancer or a Network Load Balancer.
         /// 
         ///  
         /// <para>
@@ -471,17 +539,26 @@ namespace Amazon.ElasticLoadBalancingV2
         /// You can create up to 20 load balancers per region per account. You can request an
         /// increase for the number of load balancers for your account. For more information,
         /// see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Limits
-        /// for Your Application Load Balancer</a> in the <i>Application Load Balancers Guide</i>.
+        /// for Your Application Load Balancer</a> in the <i>Application Load Balancers Guide</i>
+        /// and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Limits
+        /// for Your Network Load Balancer</a> in the <i>Network Load Balancers Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html">Application
-        /// Load Balancers</a> in the <i>Application Load Balancers Guide</i>.
+        /// Load Balancers</a> in the <i>Application Load Balancers Guide</i> and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html">Network
+        /// Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLoadBalancer service method.</param>
         /// 
         /// <returns>The response from the CreateLoadBalancer service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.AllocationIdNotFoundException">
+        /// The specified allocation ID does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.AvailabilityZoneNotSupportedException">
+        /// The specified Availability Zone is not supported.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.DuplicateLoadBalancerNameException">
         /// A load balancer with the specified name already exists.
         /// </exception>
@@ -500,6 +577,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidSubnetException">
         /// The specified subnet is out of available addresses.
         /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.ResourceInUseException">
+        /// A specified resource is in use.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.SubnetNotFoundException">
         /// The specified subnet does not exist.
         /// </exception>
@@ -510,7 +590,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// You've reached the limit on the number of tags per load balancer.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer">REST API Reference for CreateLoadBalancer Operation</seealso>
-        public CreateLoadBalancerResponse CreateLoadBalancer(CreateLoadBalancerRequest request)
+        public virtual CreateLoadBalancerResponse CreateLoadBalancer(CreateLoadBalancerRequest request)
         {
             var marshaller = new CreateLoadBalancerRequestMarshaller();
             var unmarshaller = CreateLoadBalancerResponseUnmarshaller.Instance;
@@ -528,7 +608,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/CreateLoadBalancer">REST API Reference for CreateLoadBalancer Operation</seealso>
-        public Task<CreateLoadBalancerResponse> CreateLoadBalancerAsync(CreateLoadBalancerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateLoadBalancerResponse> CreateLoadBalancerAsync(CreateLoadBalancerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateLoadBalancerRequestMarshaller();
             var unmarshaller = CreateLoadBalancerResponseUnmarshaller.Instance;
@@ -543,14 +623,14 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Creates a rule for the specified listener.
+        /// Creates a rule for the specified listener. The listener must be associated with an
+        /// Application Load Balancer.
         /// 
         ///  
         /// <para>
-        /// Each rule can have one action and one condition. Rules are evaluated in priority order,
-        /// from the lowest value to the highest value. When the condition for a rule is met,
-        /// the specified action is taken. If no conditions are met, the default action for the
-        /// default rule is taken. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener
+        /// Rules are evaluated in priority order, from the lowest value to the highest value.
+        /// When the condition for a rule is met, the specified action is taken. If no conditions
+        /// are met, the action for the default rule is taken. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener
         /// Rules</a> in the <i>Application Load Balancers Guide</i>.
         /// </para>
         ///  
@@ -563,6 +643,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <param name="request">Container for the necessary parameters to execute the CreateRule service method.</param>
         /// 
         /// <returns>The response from the CreateRule service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.IncompatibleProtocolsException">
+        /// The specified configuration is not valid with this protocol.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidConfigurationRequestException">
         /// The requested configuration is not valid.
         /// </exception>
@@ -588,8 +671,11 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetGroupsException">
         /// You've reached the limit on the number of target groups for your AWS account.
         /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetsException">
+        /// You've reached the limit on the number of targets.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/CreateRule">REST API Reference for CreateRule Operation</seealso>
-        public CreateRuleResponse CreateRule(CreateRuleRequest request)
+        public virtual CreateRuleResponse CreateRule(CreateRuleRequest request)
         {
             var marshaller = new CreateRuleRequestMarshaller();
             var unmarshaller = CreateRuleResponseUnmarshaller.Instance;
@@ -607,7 +693,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/CreateRule">REST API Reference for CreateRule Operation</seealso>
-        public Task<CreateRuleResponse> CreateRuleAsync(CreateRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateRuleResponse> CreateRuleAsync(CreateRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateRuleRequestMarshaller();
             var unmarshaller = CreateRuleResponseUnmarshaller.Instance;
@@ -643,7 +729,8 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <para>
         /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html">Target
         /// Groups for Your Application Load Balancers</a> in the <i>Application Load Balancers
-        /// Guide</i>.
+        /// Guide</i> or <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html">Target
+        /// Groups for Your Network Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateTargetGroup service method.</param>
@@ -652,11 +739,14 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.DuplicateTargetGroupNameException">
         /// A target group with the specified name already exists.
         /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidConfigurationRequestException">
+        /// The requested configuration is not valid.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetGroupsException">
         /// You've reached the limit on the number of target groups for your AWS account.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/CreateTargetGroup">REST API Reference for CreateTargetGroup Operation</seealso>
-        public CreateTargetGroupResponse CreateTargetGroup(CreateTargetGroupRequest request)
+        public virtual CreateTargetGroupResponse CreateTargetGroup(CreateTargetGroupRequest request)
         {
             var marshaller = new CreateTargetGroupRequestMarshaller();
             var unmarshaller = CreateTargetGroupResponseUnmarshaller.Instance;
@@ -674,7 +764,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/CreateTargetGroup">REST API Reference for CreateTargetGroup Operation</seealso>
-        public Task<CreateTargetGroupResponse> CreateTargetGroupAsync(CreateTargetGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateTargetGroupResponse> CreateTargetGroupAsync(CreateTargetGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateTargetGroupRequestMarshaller();
             var unmarshaller = CreateTargetGroupResponseUnmarshaller.Instance;
@@ -704,7 +794,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified listener does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DeleteListener">REST API Reference for DeleteListener Operation</seealso>
-        public DeleteListenerResponse DeleteListener(DeleteListenerRequest request)
+        public virtual DeleteListenerResponse DeleteListener(DeleteListenerRequest request)
         {
             var marshaller = new DeleteListenerRequestMarshaller();
             var unmarshaller = DeleteListenerResponseUnmarshaller.Instance;
@@ -722,7 +812,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DeleteListener">REST API Reference for DeleteListener Operation</seealso>
-        public Task<DeleteListenerResponse> DeleteListenerAsync(DeleteListenerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteListenerResponse> DeleteListenerAsync(DeleteListenerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteListenerRequestMarshaller();
             var unmarshaller = DeleteListenerResponseUnmarshaller.Instance;
@@ -737,7 +827,8 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Deletes the specified Application Load Balancer and its attached listeners.
+        /// Deletes the specified Application Load Balancer or Network Load Balancer and its attached
+        /// listeners.
         /// 
         ///  
         /// <para>
@@ -761,7 +852,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// This operation is not allowed.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer">REST API Reference for DeleteLoadBalancer Operation</seealso>
-        public DeleteLoadBalancerResponse DeleteLoadBalancer(DeleteLoadBalancerRequest request)
+        public virtual DeleteLoadBalancerResponse DeleteLoadBalancer(DeleteLoadBalancerRequest request)
         {
             var marshaller = new DeleteLoadBalancerRequestMarshaller();
             var unmarshaller = DeleteLoadBalancerResponseUnmarshaller.Instance;
@@ -779,7 +870,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer">REST API Reference for DeleteLoadBalancer Operation</seealso>
-        public Task<DeleteLoadBalancerResponse> DeleteLoadBalancerAsync(DeleteLoadBalancerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteLoadBalancerResponse> DeleteLoadBalancerAsync(DeleteLoadBalancerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteLoadBalancerRequestMarshaller();
             var unmarshaller = DeleteLoadBalancerResponseUnmarshaller.Instance;
@@ -806,7 +897,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified rule does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DeleteRule">REST API Reference for DeleteRule Operation</seealso>
-        public DeleteRuleResponse DeleteRule(DeleteRuleRequest request)
+        public virtual DeleteRuleResponse DeleteRule(DeleteRuleRequest request)
         {
             var marshaller = new DeleteRuleRequestMarshaller();
             var unmarshaller = DeleteRuleResponseUnmarshaller.Instance;
@@ -824,7 +915,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DeleteRule">REST API Reference for DeleteRule Operation</seealso>
-        public Task<DeleteRuleResponse> DeleteRuleAsync(DeleteRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteRuleResponse> DeleteRuleAsync(DeleteRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteRuleRequestMarshaller();
             var unmarshaller = DeleteRuleResponseUnmarshaller.Instance;
@@ -854,7 +945,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// A specified resource is in use.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup">REST API Reference for DeleteTargetGroup Operation</seealso>
-        public DeleteTargetGroupResponse DeleteTargetGroup(DeleteTargetGroupRequest request)
+        public virtual DeleteTargetGroupResponse DeleteTargetGroup(DeleteTargetGroupRequest request)
         {
             var marshaller = new DeleteTargetGroupRequestMarshaller();
             var unmarshaller = DeleteTargetGroupResponseUnmarshaller.Instance;
@@ -872,7 +963,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DeleteTargetGroup">REST API Reference for DeleteTargetGroup Operation</seealso>
-        public Task<DeleteTargetGroupResponse> DeleteTargetGroupAsync(DeleteTargetGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteTargetGroupResponse> DeleteTargetGroupAsync(DeleteTargetGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteTargetGroupRequestMarshaller();
             var unmarshaller = DeleteTargetGroupResponseUnmarshaller.Instance;
@@ -900,7 +991,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified target group does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DeregisterTargets">REST API Reference for DeregisterTargets Operation</seealso>
-        public DeregisterTargetsResponse DeregisterTargets(DeregisterTargetsRequest request)
+        public virtual DeregisterTargetsResponse DeregisterTargets(DeregisterTargetsRequest request)
         {
             var marshaller = new DeregisterTargetsRequestMarshaller();
             var unmarshaller = DeregisterTargetsResponseUnmarshaller.Instance;
@@ -918,7 +1009,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DeregisterTargets">REST API Reference for DeregisterTargets Operation</seealso>
-        public Task<DeregisterTargetsResponse> DeregisterTargetsAsync(DeregisterTargetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeregisterTargetsResponse> DeregisterTargetsAsync(DeregisterTargetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeregisterTargetsRequestMarshaller();
             var unmarshaller = DeregisterTargetsResponseUnmarshaller.Instance;
@@ -938,14 +1029,16 @@ namespace Amazon.ElasticLoadBalancingV2
         ///  
         /// <para>
         /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Limits
-        /// for Your Application Load Balancer</a> in the <i>Application Load Balancer Guide</i>.
+        /// for Your Application Load Balancers</a> in the <i>Application Load Balancer Guide</i>
+        /// or <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Limits
+        /// for Your Network Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAccountLimits service method.</param>
         /// 
         /// <returns>The response from the DescribeAccountLimits service method, as returned by ElasticLoadBalancingV2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeAccountLimits">REST API Reference for DescribeAccountLimits Operation</seealso>
-        public DescribeAccountLimitsResponse DescribeAccountLimits(DescribeAccountLimitsRequest request)
+        public virtual DescribeAccountLimitsResponse DescribeAccountLimits(DescribeAccountLimitsRequest request)
         {
             var marshaller = new DescribeAccountLimitsRequestMarshaller();
             var unmarshaller = DescribeAccountLimitsResponseUnmarshaller.Instance;
@@ -963,7 +1056,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeAccountLimits">REST API Reference for DescribeAccountLimits Operation</seealso>
-        public Task<DescribeAccountLimitsResponse> DescribeAccountLimitsAsync(DescribeAccountLimitsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeAccountLimitsResponse> DescribeAccountLimitsAsync(DescribeAccountLimitsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeAccountLimitsRequestMarshaller();
             var unmarshaller = DescribeAccountLimitsResponseUnmarshaller.Instance;
@@ -974,12 +1067,55 @@ namespace Amazon.ElasticLoadBalancingV2
 
         #endregion
         
+        #region  DescribeListenerCertificates
+
+
+        /// <summary>
+        /// Describes the certificates for the specified secure listener.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeListenerCertificates service method.</param>
+        /// 
+        /// <returns>The response from the DescribeListenerCertificates service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.ListenerNotFoundException">
+        /// The specified listener does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeListenerCertificates">REST API Reference for DescribeListenerCertificates Operation</seealso>
+        public virtual DescribeListenerCertificatesResponse DescribeListenerCertificates(DescribeListenerCertificatesRequest request)
+        {
+            var marshaller = new DescribeListenerCertificatesRequestMarshaller();
+            var unmarshaller = DescribeListenerCertificatesResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeListenerCertificatesRequest,DescribeListenerCertificatesResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeListenerCertificates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeListenerCertificates operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeListenerCertificates">REST API Reference for DescribeListenerCertificates Operation</seealso>
+        public virtual Task<DescribeListenerCertificatesResponse> DescribeListenerCertificatesAsync(DescribeListenerCertificatesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DescribeListenerCertificatesRequestMarshaller();
+            var unmarshaller = DescribeListenerCertificatesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeListenerCertificatesRequest,DescribeListenerCertificatesResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DescribeListeners
 
 
         /// <summary>
         /// Describes the specified listeners or the listeners for the specified Application Load
-        /// Balancer. You must specify either a load balancer or one or more listeners.
+        /// Balancer or Network Load Balancer. You must specify either a load balancer or one
+        /// or more listeners.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeListeners service method.</param>
         /// 
@@ -991,7 +1127,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified load balancer does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeListeners">REST API Reference for DescribeListeners Operation</seealso>
-        public DescribeListenersResponse DescribeListeners(DescribeListenersRequest request)
+        public virtual DescribeListenersResponse DescribeListeners(DescribeListenersRequest request)
         {
             var marshaller = new DescribeListenersRequestMarshaller();
             var unmarshaller = DescribeListenersResponseUnmarshaller.Instance;
@@ -1009,7 +1145,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeListeners">REST API Reference for DescribeListeners Operation</seealso>
-        public Task<DescribeListenersResponse> DescribeListenersAsync(DescribeListenersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeListenersResponse> DescribeListenersAsync(DescribeListenersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeListenersRequestMarshaller();
             var unmarshaller = DescribeListenersResponseUnmarshaller.Instance;
@@ -1024,7 +1160,8 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Describes the attributes for the specified Application Load Balancer.
+        /// Describes the attributes for the specified Application Load Balancer or Network Load
+        /// Balancer.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLoadBalancerAttributes service method.</param>
         /// 
@@ -1033,7 +1170,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified load balancer does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancerAttributes">REST API Reference for DescribeLoadBalancerAttributes Operation</seealso>
-        public DescribeLoadBalancerAttributesResponse DescribeLoadBalancerAttributes(DescribeLoadBalancerAttributesRequest request)
+        public virtual DescribeLoadBalancerAttributesResponse DescribeLoadBalancerAttributes(DescribeLoadBalancerAttributesRequest request)
         {
             var marshaller = new DescribeLoadBalancerAttributesRequestMarshaller();
             var unmarshaller = DescribeLoadBalancerAttributesResponseUnmarshaller.Instance;
@@ -1051,7 +1188,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancerAttributes">REST API Reference for DescribeLoadBalancerAttributes Operation</seealso>
-        public Task<DescribeLoadBalancerAttributesResponse> DescribeLoadBalancerAttributesAsync(DescribeLoadBalancerAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeLoadBalancerAttributesResponse> DescribeLoadBalancerAttributesAsync(DescribeLoadBalancerAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeLoadBalancerAttributesRequestMarshaller();
             var unmarshaller = DescribeLoadBalancerAttributesResponseUnmarshaller.Instance;
@@ -1066,8 +1203,7 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Describes the specified Application Load Balancers or all of your Application Load
-        /// Balancers.
+        /// Describes the specified load balancers or all of your load balancers.
         /// 
         ///  
         /// <para>
@@ -1082,7 +1218,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified load balancer does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers">REST API Reference for DescribeLoadBalancers Operation</seealso>
-        public DescribeLoadBalancersResponse DescribeLoadBalancers(DescribeLoadBalancersRequest request)
+        public virtual DescribeLoadBalancersResponse DescribeLoadBalancers(DescribeLoadBalancersRequest request)
         {
             var marshaller = new DescribeLoadBalancersRequestMarshaller();
             var unmarshaller = DescribeLoadBalancersResponseUnmarshaller.Instance;
@@ -1100,7 +1236,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeLoadBalancers">REST API Reference for DescribeLoadBalancers Operation</seealso>
-        public Task<DescribeLoadBalancersResponse> DescribeLoadBalancersAsync(DescribeLoadBalancersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeLoadBalancersResponse> DescribeLoadBalancersAsync(DescribeLoadBalancersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeLoadBalancersRequestMarshaller();
             var unmarshaller = DescribeLoadBalancersResponseUnmarshaller.Instance;
@@ -1128,7 +1264,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified rule does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeRules">REST API Reference for DescribeRules Operation</seealso>
-        public DescribeRulesResponse DescribeRules(DescribeRulesRequest request)
+        public virtual DescribeRulesResponse DescribeRules(DescribeRulesRequest request)
         {
             var marshaller = new DescribeRulesRequestMarshaller();
             var unmarshaller = DescribeRulesResponseUnmarshaller.Instance;
@@ -1146,7 +1282,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeRules">REST API Reference for DescribeRules Operation</seealso>
-        public Task<DescribeRulesResponse> DescribeRulesAsync(DescribeRulesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeRulesResponse> DescribeRulesAsync(DescribeRulesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeRulesRequestMarshaller();
             var unmarshaller = DescribeRulesResponseUnmarshaller.Instance;
@@ -1176,7 +1312,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified SSL policy does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeSSLPolicies">REST API Reference for DescribeSSLPolicies Operation</seealso>
-        public DescribeSSLPoliciesResponse DescribeSSLPolicies(DescribeSSLPoliciesRequest request)
+        public virtual DescribeSSLPoliciesResponse DescribeSSLPolicies(DescribeSSLPoliciesRequest request)
         {
             var marshaller = new DescribeSSLPoliciesRequestMarshaller();
             var unmarshaller = DescribeSSLPoliciesResponseUnmarshaller.Instance;
@@ -1194,7 +1330,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeSSLPolicies">REST API Reference for DescribeSSLPolicies Operation</seealso>
-        public Task<DescribeSSLPoliciesResponse> DescribeSSLPoliciesAsync(DescribeSSLPoliciesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeSSLPoliciesResponse> DescribeSSLPoliciesAsync(DescribeSSLPoliciesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeSSLPoliciesRequestMarshaller();
             var unmarshaller = DescribeSSLPoliciesResponseUnmarshaller.Instance;
@@ -1210,7 +1346,7 @@ namespace Amazon.ElasticLoadBalancingV2
 
         /// <summary>
         /// Describes the tags for the specified resources. You can describe the tags for one
-        /// or more Application Load Balancers and target groups.
+        /// or more Application Load Balancers, Network Load Balancers, and target groups.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeTags service method.</param>
         /// 
@@ -1228,7 +1364,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified target group does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeTags">REST API Reference for DescribeTags Operation</seealso>
-        public DescribeTagsResponse DescribeTags(DescribeTagsRequest request)
+        public virtual DescribeTagsResponse DescribeTags(DescribeTagsRequest request)
         {
             var marshaller = new DescribeTagsRequestMarshaller();
             var unmarshaller = DescribeTagsResponseUnmarshaller.Instance;
@@ -1246,7 +1382,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeTags">REST API Reference for DescribeTags Operation</seealso>
-        public Task<DescribeTagsResponse> DescribeTagsAsync(DescribeTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeTagsResponse> DescribeTagsAsync(DescribeTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeTagsRequestMarshaller();
             var unmarshaller = DescribeTagsResponseUnmarshaller.Instance;
@@ -1270,7 +1406,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified target group does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeTargetGroupAttributes">REST API Reference for DescribeTargetGroupAttributes Operation</seealso>
-        public DescribeTargetGroupAttributesResponse DescribeTargetGroupAttributes(DescribeTargetGroupAttributesRequest request)
+        public virtual DescribeTargetGroupAttributesResponse DescribeTargetGroupAttributes(DescribeTargetGroupAttributesRequest request)
         {
             var marshaller = new DescribeTargetGroupAttributesRequestMarshaller();
             var unmarshaller = DescribeTargetGroupAttributesResponseUnmarshaller.Instance;
@@ -1288,7 +1424,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeTargetGroupAttributes">REST API Reference for DescribeTargetGroupAttributes Operation</seealso>
-        public Task<DescribeTargetGroupAttributesResponse> DescribeTargetGroupAttributesAsync(DescribeTargetGroupAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeTargetGroupAttributesResponse> DescribeTargetGroupAttributesAsync(DescribeTargetGroupAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeTargetGroupAttributesRequestMarshaller();
             var unmarshaller = DescribeTargetGroupAttributesResponseUnmarshaller.Instance;
@@ -1324,7 +1460,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified target group does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeTargetGroups">REST API Reference for DescribeTargetGroups Operation</seealso>
-        public DescribeTargetGroupsResponse DescribeTargetGroups(DescribeTargetGroupsRequest request)
+        public virtual DescribeTargetGroupsResponse DescribeTargetGroups(DescribeTargetGroupsRequest request)
         {
             var marshaller = new DescribeTargetGroupsRequestMarshaller();
             var unmarshaller = DescribeTargetGroupsResponseUnmarshaller.Instance;
@@ -1342,7 +1478,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeTargetGroups">REST API Reference for DescribeTargetGroups Operation</seealso>
-        public Task<DescribeTargetGroupsResponse> DescribeTargetGroupsAsync(DescribeTargetGroupsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeTargetGroupsResponse> DescribeTargetGroupsAsync(DescribeTargetGroupsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeTargetGroupsRequestMarshaller();
             var unmarshaller = DescribeTargetGroupsResponseUnmarshaller.Instance;
@@ -1372,7 +1508,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified target group does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth">REST API Reference for DescribeTargetHealth Operation</seealso>
-        public DescribeTargetHealthResponse DescribeTargetHealth(DescribeTargetHealthRequest request)
+        public virtual DescribeTargetHealthResponse DescribeTargetHealth(DescribeTargetHealthRequest request)
         {
             var marshaller = new DescribeTargetHealthRequestMarshaller();
             var unmarshaller = DescribeTargetHealthResponseUnmarshaller.Instance;
@@ -1390,7 +1526,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeTargetHealth">REST API Reference for DescribeTargetHealth Operation</seealso>
-        public Task<DescribeTargetHealthResponse> DescribeTargetHealthAsync(DescribeTargetHealthRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeTargetHealthResponse> DescribeTargetHealthAsync(DescribeTargetHealthRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeTargetHealthRequestMarshaller();
             var unmarshaller = DescribeTargetHealthResponseUnmarshaller.Instance;
@@ -1443,7 +1579,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified target group does not exist.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyCertificatesException">
-        /// You've reached the limit on the number of certificates per listener.
+        /// You've reached the limit on the number of certificates per load balancer.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyListenersException">
         /// You've reached the limit on the number of listeners per load balancer.
@@ -1452,11 +1588,14 @@ namespace Amazon.ElasticLoadBalancingV2
         /// You've reached the limit on the number of times a target can be registered with a
         /// load balancer.
         /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetsException">
+        /// You've reached the limit on the number of targets.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.UnsupportedProtocolException">
         /// The specified protocol is not supported.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/ModifyListener">REST API Reference for ModifyListener Operation</seealso>
-        public ModifyListenerResponse ModifyListener(ModifyListenerRequest request)
+        public virtual ModifyListenerResponse ModifyListener(ModifyListenerRequest request)
         {
             var marshaller = new ModifyListenerRequestMarshaller();
             var unmarshaller = ModifyListenerResponseUnmarshaller.Instance;
@@ -1474,7 +1613,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/ModifyListener">REST API Reference for ModifyListener Operation</seealso>
-        public Task<ModifyListenerResponse> ModifyListenerAsync(ModifyListenerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ModifyListenerResponse> ModifyListenerAsync(ModifyListenerRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ModifyListenerRequestMarshaller();
             var unmarshaller = ModifyListenerResponseUnmarshaller.Instance;
@@ -1489,7 +1628,8 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Modifies the specified attributes of the specified Application Load Balancer.
+        /// Modifies the specified attributes of the specified Application Load Balancer or Network
+        /// Load Balancer.
         /// 
         ///  
         /// <para>
@@ -1507,7 +1647,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified load balancer does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/ModifyLoadBalancerAttributes">REST API Reference for ModifyLoadBalancerAttributes Operation</seealso>
-        public ModifyLoadBalancerAttributesResponse ModifyLoadBalancerAttributes(ModifyLoadBalancerAttributesRequest request)
+        public virtual ModifyLoadBalancerAttributesResponse ModifyLoadBalancerAttributes(ModifyLoadBalancerAttributesRequest request)
         {
             var marshaller = new ModifyLoadBalancerAttributesRequestMarshaller();
             var unmarshaller = ModifyLoadBalancerAttributesResponseUnmarshaller.Instance;
@@ -1525,7 +1665,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/ModifyLoadBalancerAttributes">REST API Reference for ModifyLoadBalancerAttributes Operation</seealso>
-        public Task<ModifyLoadBalancerAttributesResponse> ModifyLoadBalancerAttributesAsync(ModifyLoadBalancerAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ModifyLoadBalancerAttributesResponse> ModifyLoadBalancerAttributesAsync(ModifyLoadBalancerAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ModifyLoadBalancerAttributesRequestMarshaller();
             var unmarshaller = ModifyLoadBalancerAttributesResponseUnmarshaller.Instance;
@@ -1554,6 +1694,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <param name="request">Container for the necessary parameters to execute the ModifyRule service method.</param>
         /// 
         /// <returns>The response from the ModifyRule service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.IncompatibleProtocolsException">
+        /// The specified configuration is not valid with this protocol.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.OperationNotPermittedException">
         /// This operation is not allowed.
         /// </exception>
@@ -1574,7 +1717,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// You've reached the limit on the number of targets.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/ModifyRule">REST API Reference for ModifyRule Operation</seealso>
-        public ModifyRuleResponse ModifyRule(ModifyRuleRequest request)
+        public virtual ModifyRuleResponse ModifyRule(ModifyRuleRequest request)
         {
             var marshaller = new ModifyRuleRequestMarshaller();
             var unmarshaller = ModifyRuleResponseUnmarshaller.Instance;
@@ -1592,7 +1735,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/ModifyRule">REST API Reference for ModifyRule Operation</seealso>
-        public Task<ModifyRuleResponse> ModifyRuleAsync(ModifyRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ModifyRuleResponse> ModifyRuleAsync(ModifyRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ModifyRuleRequestMarshaller();
             var unmarshaller = ModifyRuleResponseUnmarshaller.Instance;
@@ -1618,11 +1761,14 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <param name="request">Container for the necessary parameters to execute the ModifyTargetGroup service method.</param>
         /// 
         /// <returns>The response from the ModifyTargetGroup service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidConfigurationRequestException">
+        /// The requested configuration is not valid.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TargetGroupNotFoundException">
         /// The specified target group does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/ModifyTargetGroup">REST API Reference for ModifyTargetGroup Operation</seealso>
-        public ModifyTargetGroupResponse ModifyTargetGroup(ModifyTargetGroupRequest request)
+        public virtual ModifyTargetGroupResponse ModifyTargetGroup(ModifyTargetGroupRequest request)
         {
             var marshaller = new ModifyTargetGroupRequestMarshaller();
             var unmarshaller = ModifyTargetGroupResponseUnmarshaller.Instance;
@@ -1640,7 +1786,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/ModifyTargetGroup">REST API Reference for ModifyTargetGroup Operation</seealso>
-        public Task<ModifyTargetGroupResponse> ModifyTargetGroupAsync(ModifyTargetGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ModifyTargetGroupResponse> ModifyTargetGroupAsync(ModifyTargetGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ModifyTargetGroupRequestMarshaller();
             var unmarshaller = ModifyTargetGroupResponseUnmarshaller.Instance;
@@ -1660,11 +1806,14 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <param name="request">Container for the necessary parameters to execute the ModifyTargetGroupAttributes service method.</param>
         /// 
         /// <returns>The response from the ModifyTargetGroupAttributes service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidConfigurationRequestException">
+        /// The requested configuration is not valid.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TargetGroupNotFoundException">
         /// The specified target group does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/ModifyTargetGroupAttributes">REST API Reference for ModifyTargetGroupAttributes Operation</seealso>
-        public ModifyTargetGroupAttributesResponse ModifyTargetGroupAttributes(ModifyTargetGroupAttributesRequest request)
+        public virtual ModifyTargetGroupAttributesResponse ModifyTargetGroupAttributes(ModifyTargetGroupAttributesRequest request)
         {
             var marshaller = new ModifyTargetGroupAttributesRequestMarshaller();
             var unmarshaller = ModifyTargetGroupAttributesResponseUnmarshaller.Instance;
@@ -1682,7 +1831,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/ModifyTargetGroupAttributes">REST API Reference for ModifyTargetGroupAttributes Operation</seealso>
-        public Task<ModifyTargetGroupAttributesResponse> ModifyTargetGroupAttributesAsync(ModifyTargetGroupAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ModifyTargetGroupAttributesResponse> ModifyTargetGroupAttributesAsync(ModifyTargetGroupAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ModifyTargetGroupAttributesRequestMarshaller();
             var unmarshaller = ModifyTargetGroupAttributesResponseUnmarshaller.Instance;
@@ -1701,15 +1850,21 @@ namespace Amazon.ElasticLoadBalancingV2
         /// 
         ///  
         /// <para>
-        /// By default, the load balancer routes requests to registered targets using the protocol
-        /// and port number for the target group. Alternatively, you can override the port for
-        /// a target when you register it.
+        /// You can register targets by instance ID or by IP address. If the target is an EC2
+        /// instance, it must be in the <code>running</code> state when you register it.
         /// </para>
         ///  
         /// <para>
-        /// The target must be in the virtual private cloud (VPC) that you specified for the target
-        /// group. If the target is an EC2 instance, it must be in the <code>running</code> state
-        /// when you register it.
+        /// By default, the load balancer routes requests to registered targets using the protocol
+        /// and port for the target group. Alternatively, you can override the port for a target
+        /// when you register it. You can register each EC2 instance or IP address with the same
+        /// target group multiple times using different ports.
+        /// </para>
+        ///  
+        /// <para>
+        /// With a Network Load Balancer, you cannot register instances by instance ID if they
+        /// have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1,
+        /// HS1, M1, M2, M3, and T1. You can register instances of these types by IP address.
         /// </para>
         ///  
         /// <para>
@@ -1733,7 +1888,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// You've reached the limit on the number of targets.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/RegisterTargets">REST API Reference for RegisterTargets Operation</seealso>
-        public RegisterTargetsResponse RegisterTargets(RegisterTargetsRequest request)
+        public virtual RegisterTargetsResponse RegisterTargets(RegisterTargetsRequest request)
         {
             var marshaller = new RegisterTargetsRequestMarshaller();
             var unmarshaller = RegisterTargetsResponseUnmarshaller.Instance;
@@ -1751,7 +1906,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/RegisterTargets">REST API Reference for RegisterTargets Operation</seealso>
-        public Task<RegisterTargetsResponse> RegisterTargetsAsync(RegisterTargetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<RegisterTargetsResponse> RegisterTargetsAsync(RegisterTargetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new RegisterTargetsRequestMarshaller();
             var unmarshaller = RegisterTargetsResponseUnmarshaller.Instance;
@@ -1762,11 +1917,66 @@ namespace Amazon.ElasticLoadBalancingV2
 
         #endregion
         
+        #region  RemoveListenerCertificates
+
+
+        /// <summary>
+        /// Removes the specified certificate from the specified secure listener.
+        /// 
+        ///  
+        /// <para>
+        /// You can't remove the default certificate for a listener. To replace the default certificate,
+        /// call <a>ModifyListener</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// To list the certificates for your listener, use <a>DescribeListenerCertificates</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RemoveListenerCertificates service method.</param>
+        /// 
+        /// <returns>The response from the RemoveListenerCertificates service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.ListenerNotFoundException">
+        /// The specified listener does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.OperationNotPermittedException">
+        /// This operation is not allowed.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/RemoveListenerCertificates">REST API Reference for RemoveListenerCertificates Operation</seealso>
+        public virtual RemoveListenerCertificatesResponse RemoveListenerCertificates(RemoveListenerCertificatesRequest request)
+        {
+            var marshaller = new RemoveListenerCertificatesRequestMarshaller();
+            var unmarshaller = RemoveListenerCertificatesResponseUnmarshaller.Instance;
+
+            return Invoke<RemoveListenerCertificatesRequest,RemoveListenerCertificatesResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the RemoveListenerCertificates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the RemoveListenerCertificates operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/RemoveListenerCertificates">REST API Reference for RemoveListenerCertificates Operation</seealso>
+        public virtual Task<RemoveListenerCertificatesResponse> RemoveListenerCertificatesAsync(RemoveListenerCertificatesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new RemoveListenerCertificatesRequestMarshaller();
+            var unmarshaller = RemoveListenerCertificatesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<RemoveListenerCertificatesRequest,RemoveListenerCertificatesResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  RemoveTags
 
 
         /// <summary>
-        /// Removes the specified tags from the specified resource.
+        /// Removes the specified tags from the specified Elastic Load Balancing resource.
         /// 
         ///  
         /// <para>
@@ -1792,7 +2002,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// You've reached the limit on the number of tags per load balancer.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/RemoveTags">REST API Reference for RemoveTags Operation</seealso>
-        public RemoveTagsResponse RemoveTags(RemoveTagsRequest request)
+        public virtual RemoveTagsResponse RemoveTags(RemoveTagsRequest request)
         {
             var marshaller = new RemoveTagsRequestMarshaller();
             var unmarshaller = RemoveTagsResponseUnmarshaller.Instance;
@@ -1810,7 +2020,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/RemoveTags">REST API Reference for RemoveTags Operation</seealso>
-        public Task<RemoveTagsResponse> RemoveTagsAsync(RemoveTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<RemoveTagsResponse> RemoveTagsAsync(RemoveTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new RemoveTagsRequestMarshaller();
             var unmarshaller = RemoveTagsResponseUnmarshaller.Instance;
@@ -1826,7 +2036,12 @@ namespace Amazon.ElasticLoadBalancingV2
 
         /// <summary>
         /// Sets the type of IP addresses used by the subnets of the specified Application Load
-        /// Balancer.
+        /// Balancer or Network Load Balancer.
+        /// 
+        ///  
+        /// <para>
+        /// Note that Network Load Balancers must use <code>ipv4</code>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SetIpAddressType service method.</param>
         /// 
@@ -1841,7 +2056,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified load balancer does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/SetIpAddressType">REST API Reference for SetIpAddressType Operation</seealso>
-        public SetIpAddressTypeResponse SetIpAddressType(SetIpAddressTypeRequest request)
+        public virtual SetIpAddressTypeResponse SetIpAddressType(SetIpAddressTypeRequest request)
         {
             var marshaller = new SetIpAddressTypeRequestMarshaller();
             var unmarshaller = SetIpAddressTypeResponseUnmarshaller.Instance;
@@ -1859,7 +2074,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/SetIpAddressType">REST API Reference for SetIpAddressType Operation</seealso>
-        public Task<SetIpAddressTypeResponse> SetIpAddressTypeAsync(SetIpAddressTypeRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SetIpAddressTypeResponse> SetIpAddressTypeAsync(SetIpAddressTypeRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SetIpAddressTypeRequestMarshaller();
             var unmarshaller = SetIpAddressTypeResponseUnmarshaller.Instance;
@@ -1895,7 +2110,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified rule does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/SetRulePriorities">REST API Reference for SetRulePriorities Operation</seealso>
-        public SetRulePrioritiesResponse SetRulePriorities(SetRulePrioritiesRequest request)
+        public virtual SetRulePrioritiesResponse SetRulePriorities(SetRulePrioritiesRequest request)
         {
             var marshaller = new SetRulePrioritiesRequestMarshaller();
             var unmarshaller = SetRulePrioritiesResponseUnmarshaller.Instance;
@@ -1913,7 +2128,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/SetRulePriorities">REST API Reference for SetRulePriorities Operation</seealso>
-        public Task<SetRulePrioritiesResponse> SetRulePrioritiesAsync(SetRulePrioritiesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SetRulePrioritiesResponse> SetRulePrioritiesAsync(SetRulePrioritiesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SetRulePrioritiesRequestMarshaller();
             var unmarshaller = SetRulePrioritiesResponseUnmarshaller.Instance;
@@ -1928,8 +2143,13 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Associates the specified security groups with the specified load balancer. The specified
-        /// security groups override the previously associated security groups.
+        /// Associates the specified security groups with the specified Application Load Balancer.
+        /// The specified security groups override the previously associated security groups.
+        /// 
+        ///  
+        /// <para>
+        /// Note that you can't specify a security group for a Network Load Balancer.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SetSecurityGroups service method.</param>
         /// 
@@ -1944,7 +2164,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified load balancer does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/SetSecurityGroups">REST API Reference for SetSecurityGroups Operation</seealso>
-        public SetSecurityGroupsResponse SetSecurityGroups(SetSecurityGroupsRequest request)
+        public virtual SetSecurityGroupsResponse SetSecurityGroups(SetSecurityGroupsRequest request)
         {
             var marshaller = new SetSecurityGroupsRequestMarshaller();
             var unmarshaller = SetSecurityGroupsResponseUnmarshaller.Instance;
@@ -1962,7 +2182,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/SetSecurityGroups">REST API Reference for SetSecurityGroups Operation</seealso>
-        public Task<SetSecurityGroupsResponse> SetSecurityGroupsAsync(SetSecurityGroupsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SetSecurityGroupsResponse> SetSecurityGroupsAsync(SetSecurityGroupsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SetSecurityGroupsRequestMarshaller();
             var unmarshaller = SetSecurityGroupsResponseUnmarshaller.Instance;
@@ -1977,12 +2197,23 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Enables the Availability Zone for the specified subnets for the specified load balancer.
-        /// The specified subnets replace the previously enabled subnets.
+        /// Enables the Availability Zone for the specified subnets for the specified Application
+        /// Load Balancer. The specified subnets replace the previously enabled subnets.
+        /// 
+        ///  
+        /// <para>
+        /// Note that you can't change the subnets for a Network Load Balancer.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SetSubnets service method.</param>
         /// 
         /// <returns>The response from the SetSubnets service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.AllocationIdNotFoundException">
+        /// The specified allocation ID does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.AvailabilityZoneNotSupportedException">
+        /// The specified Availability Zone is not supported.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidConfigurationRequestException">
         /// The requested configuration is not valid.
         /// </exception>
@@ -1996,7 +2227,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified subnet does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/SetSubnets">REST API Reference for SetSubnets Operation</seealso>
-        public SetSubnetsResponse SetSubnets(SetSubnetsRequest request)
+        public virtual SetSubnetsResponse SetSubnets(SetSubnetsRequest request)
         {
             var marshaller = new SetSubnetsRequestMarshaller();
             var unmarshaller = SetSubnetsResponseUnmarshaller.Instance;
@@ -2014,7 +2245,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/SetSubnets">REST API Reference for SetSubnets Operation</seealso>
-        public Task<SetSubnetsResponse> SetSubnetsAsync(SetSubnetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SetSubnetsResponse> SetSubnetsAsync(SetSubnetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SetSubnetsRequestMarshaller();
             var unmarshaller = SetSubnetsResponseUnmarshaller.Instance;

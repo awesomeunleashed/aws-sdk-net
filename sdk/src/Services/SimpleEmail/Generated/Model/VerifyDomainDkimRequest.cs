@@ -38,12 +38,12 @@ namespace Amazon.SimpleEmail.Model
     /// 
     ///  
     /// <para>
-    /// This action is throttled at one request per second.
+    /// You can execute this operation no more than once per second.
     /// </para>
     ///  
     /// <para>
     /// To enable or disable Easy DKIM signing for a domain, use the <code>SetIdentityDkimEnabled</code>
-    /// action.
+    /// operation.
     /// </para>
     ///  
     /// <para>

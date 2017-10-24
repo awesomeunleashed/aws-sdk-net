@@ -248,7 +248,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AcceptReservedInstancesExchangeQuote service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AcceptReservedInstancesExchangeQuote">REST API Reference for AcceptReservedInstancesExchangeQuote Operation</seealso>
-        public AcceptReservedInstancesExchangeQuoteResponse AcceptReservedInstancesExchangeQuote(AcceptReservedInstancesExchangeQuoteRequest request)
+        public virtual AcceptReservedInstancesExchangeQuoteResponse AcceptReservedInstancesExchangeQuote(AcceptReservedInstancesExchangeQuoteRequest request)
         {
             var marshaller = new AcceptReservedInstancesExchangeQuoteRequestMarshaller();
             var unmarshaller = AcceptReservedInstancesExchangeQuoteResponseUnmarshaller.Instance;
@@ -268,7 +268,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAcceptReservedInstancesExchangeQuote
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AcceptReservedInstancesExchangeQuote">REST API Reference for AcceptReservedInstancesExchangeQuote Operation</seealso>
-        public IAsyncResult BeginAcceptReservedInstancesExchangeQuote(AcceptReservedInstancesExchangeQuoteRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAcceptReservedInstancesExchangeQuote(AcceptReservedInstancesExchangeQuoteRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AcceptReservedInstancesExchangeQuoteRequestMarshaller();
             var unmarshaller = AcceptReservedInstancesExchangeQuoteResponseUnmarshaller.Instance;
@@ -285,7 +285,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AcceptReservedInstancesExchangeQuoteResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AcceptReservedInstancesExchangeQuote">REST API Reference for AcceptReservedInstancesExchangeQuote Operation</seealso>
-        public  AcceptReservedInstancesExchangeQuoteResponse EndAcceptReservedInstancesExchangeQuote(IAsyncResult asyncResult)
+        public virtual AcceptReservedInstancesExchangeQuoteResponse EndAcceptReservedInstancesExchangeQuote(IAsyncResult asyncResult)
         {
             return EndInvoke<AcceptReservedInstancesExchangeQuoteResponse>(asyncResult);
         }
@@ -304,7 +304,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AcceptVpcPeeringConnection service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AcceptVpcPeeringConnection">REST API Reference for AcceptVpcPeeringConnection Operation</seealso>
-        public AcceptVpcPeeringConnectionResponse AcceptVpcPeeringConnection(AcceptVpcPeeringConnectionRequest request)
+        public virtual AcceptVpcPeeringConnectionResponse AcceptVpcPeeringConnection(AcceptVpcPeeringConnectionRequest request)
         {
             var marshaller = new AcceptVpcPeeringConnectionRequestMarshaller();
             var unmarshaller = AcceptVpcPeeringConnectionResponseUnmarshaller.Instance;
@@ -324,7 +324,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAcceptVpcPeeringConnection
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AcceptVpcPeeringConnection">REST API Reference for AcceptVpcPeeringConnection Operation</seealso>
-        public IAsyncResult BeginAcceptVpcPeeringConnection(AcceptVpcPeeringConnectionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAcceptVpcPeeringConnection(AcceptVpcPeeringConnectionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AcceptVpcPeeringConnectionRequestMarshaller();
             var unmarshaller = AcceptVpcPeeringConnectionResponseUnmarshaller.Instance;
@@ -341,7 +341,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AcceptVpcPeeringConnectionResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AcceptVpcPeeringConnection">REST API Reference for AcceptVpcPeeringConnection Operation</seealso>
-        public  AcceptVpcPeeringConnectionResponse EndAcceptVpcPeeringConnection(IAsyncResult asyncResult)
+        public virtual AcceptVpcPeeringConnectionResponse EndAcceptVpcPeeringConnection(IAsyncResult asyncResult)
         {
             return EndInvoke<AcceptVpcPeeringConnectionResponse>(asyncResult);
         }
@@ -375,7 +375,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AllocateAddress service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AllocateAddress">REST API Reference for AllocateAddress Operation</seealso>
-        public AllocateAddressResponse AllocateAddress()
+        public virtual AllocateAddressResponse AllocateAddress()
         {
             return AllocateAddress(new AllocateAddressRequest());
         }
@@ -406,7 +406,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AllocateAddress service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AllocateAddress">REST API Reference for AllocateAddress Operation</seealso>
-        public AllocateAddressResponse AllocateAddress(AllocateAddressRequest request)
+        public virtual AllocateAddressResponse AllocateAddress(AllocateAddressRequest request)
         {
             var marshaller = new AllocateAddressRequestMarshaller();
             var unmarshaller = AllocateAddressResponseUnmarshaller.Instance;
@@ -426,7 +426,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAllocateAddress
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AllocateAddress">REST API Reference for AllocateAddress Operation</seealso>
-        public IAsyncResult BeginAllocateAddress(AllocateAddressRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAllocateAddress(AllocateAddressRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AllocateAddressRequestMarshaller();
             var unmarshaller = AllocateAddressResponseUnmarshaller.Instance;
@@ -443,7 +443,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AllocateAddressResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AllocateAddress">REST API Reference for AllocateAddress Operation</seealso>
-        public  AllocateAddressResponse EndAllocateAddress(IAsyncResult asyncResult)
+        public virtual AllocateAddressResponse EndAllocateAddress(IAsyncResult asyncResult)
         {
             return EndInvoke<AllocateAddressResponse>(asyncResult);
         }
@@ -460,7 +460,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AllocateHosts service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AllocateHosts">REST API Reference for AllocateHosts Operation</seealso>
-        public AllocateHostsResponse AllocateHosts(AllocateHostsRequest request)
+        public virtual AllocateHostsResponse AllocateHosts(AllocateHostsRequest request)
         {
             var marshaller = new AllocateHostsRequestMarshaller();
             var unmarshaller = AllocateHostsResponseUnmarshaller.Instance;
@@ -480,7 +480,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAllocateHosts
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AllocateHosts">REST API Reference for AllocateHosts Operation</seealso>
-        public IAsyncResult BeginAllocateHosts(AllocateHostsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAllocateHosts(AllocateHostsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AllocateHostsRequestMarshaller();
             var unmarshaller = AllocateHostsResponseUnmarshaller.Instance;
@@ -497,7 +497,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AllocateHostsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AllocateHosts">REST API Reference for AllocateHosts Operation</seealso>
-        public  AllocateHostsResponse EndAllocateHosts(IAsyncResult asyncResult)
+        public virtual AllocateHostsResponse EndAllocateHosts(IAsyncResult asyncResult)
         {
             return EndInvoke<AllocateHostsResponse>(asyncResult);
         }
@@ -519,7 +519,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AssignIpv6Addresses service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssignIpv6Addresses">REST API Reference for AssignIpv6Addresses Operation</seealso>
-        public AssignIpv6AddressesResponse AssignIpv6Addresses(AssignIpv6AddressesRequest request)
+        public virtual AssignIpv6AddressesResponse AssignIpv6Addresses(AssignIpv6AddressesRequest request)
         {
             var marshaller = new AssignIpv6AddressesRequestMarshaller();
             var unmarshaller = AssignIpv6AddressesResponseUnmarshaller.Instance;
@@ -539,7 +539,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAssignIpv6Addresses
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssignIpv6Addresses">REST API Reference for AssignIpv6Addresses Operation</seealso>
-        public IAsyncResult BeginAssignIpv6Addresses(AssignIpv6AddressesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAssignIpv6Addresses(AssignIpv6AddressesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AssignIpv6AddressesRequestMarshaller();
             var unmarshaller = AssignIpv6AddressesResponseUnmarshaller.Instance;
@@ -556,7 +556,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AssignIpv6AddressesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssignIpv6Addresses">REST API Reference for AssignIpv6Addresses Operation</seealso>
-        public  AssignIpv6AddressesResponse EndAssignIpv6Addresses(IAsyncResult asyncResult)
+        public virtual AssignIpv6AddressesResponse EndAssignIpv6Addresses(IAsyncResult asyncResult)
         {
             return EndInvoke<AssignIpv6AddressesResponse>(asyncResult);
         }
@@ -584,7 +584,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AssignPrivateIpAddresses service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssignPrivateIpAddresses">REST API Reference for AssignPrivateIpAddresses Operation</seealso>
-        public AssignPrivateIpAddressesResponse AssignPrivateIpAddresses(AssignPrivateIpAddressesRequest request)
+        public virtual AssignPrivateIpAddressesResponse AssignPrivateIpAddresses(AssignPrivateIpAddressesRequest request)
         {
             var marshaller = new AssignPrivateIpAddressesRequestMarshaller();
             var unmarshaller = AssignPrivateIpAddressesResponseUnmarshaller.Instance;
@@ -604,7 +604,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAssignPrivateIpAddresses
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssignPrivateIpAddresses">REST API Reference for AssignPrivateIpAddresses Operation</seealso>
-        public IAsyncResult BeginAssignPrivateIpAddresses(AssignPrivateIpAddressesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAssignPrivateIpAddresses(AssignPrivateIpAddressesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AssignPrivateIpAddressesRequestMarshaller();
             var unmarshaller = AssignPrivateIpAddressesResponseUnmarshaller.Instance;
@@ -621,7 +621,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AssignPrivateIpAddressesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssignPrivateIpAddresses">REST API Reference for AssignPrivateIpAddresses Operation</seealso>
-        public  AssignPrivateIpAddressesResponse EndAssignPrivateIpAddresses(IAsyncResult asyncResult)
+        public virtual AssignPrivateIpAddressesResponse EndAssignPrivateIpAddresses(IAsyncResult asyncResult)
         {
             return EndInvoke<AssignPrivateIpAddressesResponse>(asyncResult);
         }
@@ -668,7 +668,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AssociateAddress service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateAddress">REST API Reference for AssociateAddress Operation</seealso>
-        public AssociateAddressResponse AssociateAddress(AssociateAddressRequest request)
+        public virtual AssociateAddressResponse AssociateAddress(AssociateAddressRequest request)
         {
             var marshaller = new AssociateAddressRequestMarshaller();
             var unmarshaller = AssociateAddressResponseUnmarshaller.Instance;
@@ -688,7 +688,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAssociateAddress
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateAddress">REST API Reference for AssociateAddress Operation</seealso>
-        public IAsyncResult BeginAssociateAddress(AssociateAddressRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAssociateAddress(AssociateAddressRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AssociateAddressRequestMarshaller();
             var unmarshaller = AssociateAddressResponseUnmarshaller.Instance;
@@ -705,7 +705,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AssociateAddressResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateAddress">REST API Reference for AssociateAddress Operation</seealso>
-        public  AssociateAddressResponse EndAssociateAddress(IAsyncResult asyncResult)
+        public virtual AssociateAddressResponse EndAssociateAddress(IAsyncResult asyncResult)
         {
             return EndInvoke<AssociateAddressResponse>(asyncResult);
         }
@@ -736,7 +736,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AssociateDhcpOptions service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateDhcpOptions">REST API Reference for AssociateDhcpOptions Operation</seealso>
-        public AssociateDhcpOptionsResponse AssociateDhcpOptions(AssociateDhcpOptionsRequest request)
+        public virtual AssociateDhcpOptionsResponse AssociateDhcpOptions(AssociateDhcpOptionsRequest request)
         {
             var marshaller = new AssociateDhcpOptionsRequestMarshaller();
             var unmarshaller = AssociateDhcpOptionsResponseUnmarshaller.Instance;
@@ -756,7 +756,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAssociateDhcpOptions
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateDhcpOptions">REST API Reference for AssociateDhcpOptions Operation</seealso>
-        public IAsyncResult BeginAssociateDhcpOptions(AssociateDhcpOptionsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAssociateDhcpOptions(AssociateDhcpOptionsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AssociateDhcpOptionsRequestMarshaller();
             var unmarshaller = AssociateDhcpOptionsResponseUnmarshaller.Instance;
@@ -773,7 +773,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AssociateDhcpOptionsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateDhcpOptions">REST API Reference for AssociateDhcpOptions Operation</seealso>
-        public  AssociateDhcpOptionsResponse EndAssociateDhcpOptions(IAsyncResult asyncResult)
+        public virtual AssociateDhcpOptionsResponse EndAssociateDhcpOptions(IAsyncResult asyncResult)
         {
             return EndInvoke<AssociateDhcpOptionsResponse>(asyncResult);
         }
@@ -790,7 +790,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AssociateIamInstanceProfile service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateIamInstanceProfile">REST API Reference for AssociateIamInstanceProfile Operation</seealso>
-        public AssociateIamInstanceProfileResponse AssociateIamInstanceProfile(AssociateIamInstanceProfileRequest request)
+        public virtual AssociateIamInstanceProfileResponse AssociateIamInstanceProfile(AssociateIamInstanceProfileRequest request)
         {
             var marshaller = new AssociateIamInstanceProfileRequestMarshaller();
             var unmarshaller = AssociateIamInstanceProfileResponseUnmarshaller.Instance;
@@ -810,7 +810,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAssociateIamInstanceProfile
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateIamInstanceProfile">REST API Reference for AssociateIamInstanceProfile Operation</seealso>
-        public IAsyncResult BeginAssociateIamInstanceProfile(AssociateIamInstanceProfileRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAssociateIamInstanceProfile(AssociateIamInstanceProfileRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AssociateIamInstanceProfileRequestMarshaller();
             var unmarshaller = AssociateIamInstanceProfileResponseUnmarshaller.Instance;
@@ -827,7 +827,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AssociateIamInstanceProfileResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateIamInstanceProfile">REST API Reference for AssociateIamInstanceProfile Operation</seealso>
-        public  AssociateIamInstanceProfileResponse EndAssociateIamInstanceProfile(IAsyncResult asyncResult)
+        public virtual AssociateIamInstanceProfileResponse EndAssociateIamInstanceProfile(IAsyncResult asyncResult)
         {
             return EndInvoke<AssociateIamInstanceProfileResponse>(asyncResult);
         }
@@ -853,7 +853,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AssociateRouteTable service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateRouteTable">REST API Reference for AssociateRouteTable Operation</seealso>
-        public AssociateRouteTableResponse AssociateRouteTable(AssociateRouteTableRequest request)
+        public virtual AssociateRouteTableResponse AssociateRouteTable(AssociateRouteTableRequest request)
         {
             var marshaller = new AssociateRouteTableRequestMarshaller();
             var unmarshaller = AssociateRouteTableResponseUnmarshaller.Instance;
@@ -873,7 +873,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAssociateRouteTable
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateRouteTable">REST API Reference for AssociateRouteTable Operation</seealso>
-        public IAsyncResult BeginAssociateRouteTable(AssociateRouteTableRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAssociateRouteTable(AssociateRouteTableRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AssociateRouteTableRequestMarshaller();
             var unmarshaller = AssociateRouteTableResponseUnmarshaller.Instance;
@@ -890,7 +890,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AssociateRouteTableResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateRouteTable">REST API Reference for AssociateRouteTable Operation</seealso>
-        public  AssociateRouteTableResponse EndAssociateRouteTable(IAsyncResult asyncResult)
+        public virtual AssociateRouteTableResponse EndAssociateRouteTable(IAsyncResult asyncResult)
         {
             return EndInvoke<AssociateRouteTableResponse>(asyncResult);
         }
@@ -907,7 +907,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AssociateSubnetCidrBlock service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateSubnetCidrBlock">REST API Reference for AssociateSubnetCidrBlock Operation</seealso>
-        public AssociateSubnetCidrBlockResponse AssociateSubnetCidrBlock(AssociateSubnetCidrBlockRequest request)
+        public virtual AssociateSubnetCidrBlockResponse AssociateSubnetCidrBlock(AssociateSubnetCidrBlockRequest request)
         {
             var marshaller = new AssociateSubnetCidrBlockRequestMarshaller();
             var unmarshaller = AssociateSubnetCidrBlockResponseUnmarshaller.Instance;
@@ -927,7 +927,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAssociateSubnetCidrBlock
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateSubnetCidrBlock">REST API Reference for AssociateSubnetCidrBlock Operation</seealso>
-        public IAsyncResult BeginAssociateSubnetCidrBlock(AssociateSubnetCidrBlockRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAssociateSubnetCidrBlock(AssociateSubnetCidrBlockRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AssociateSubnetCidrBlockRequestMarshaller();
             var unmarshaller = AssociateSubnetCidrBlockResponseUnmarshaller.Instance;
@@ -944,7 +944,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AssociateSubnetCidrBlockResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateSubnetCidrBlock">REST API Reference for AssociateSubnetCidrBlock Operation</seealso>
-        public  AssociateSubnetCidrBlockResponse EndAssociateSubnetCidrBlock(IAsyncResult asyncResult)
+        public virtual AssociateSubnetCidrBlockResponse EndAssociateSubnetCidrBlock(IAsyncResult asyncResult)
         {
             return EndInvoke<AssociateSubnetCidrBlockResponse>(asyncResult);
         }
@@ -969,7 +969,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AssociateVpcCidrBlock service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateVpcCidrBlock">REST API Reference for AssociateVpcCidrBlock Operation</seealso>
-        public AssociateVpcCidrBlockResponse AssociateVpcCidrBlock(AssociateVpcCidrBlockRequest request)
+        public virtual AssociateVpcCidrBlockResponse AssociateVpcCidrBlock(AssociateVpcCidrBlockRequest request)
         {
             var marshaller = new AssociateVpcCidrBlockRequestMarshaller();
             var unmarshaller = AssociateVpcCidrBlockResponseUnmarshaller.Instance;
@@ -989,7 +989,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAssociateVpcCidrBlock
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateVpcCidrBlock">REST API Reference for AssociateVpcCidrBlock Operation</seealso>
-        public IAsyncResult BeginAssociateVpcCidrBlock(AssociateVpcCidrBlockRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAssociateVpcCidrBlock(AssociateVpcCidrBlockRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AssociateVpcCidrBlockRequestMarshaller();
             var unmarshaller = AssociateVpcCidrBlockResponseUnmarshaller.Instance;
@@ -1006,7 +1006,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AssociateVpcCidrBlockResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AssociateVpcCidrBlock">REST API Reference for AssociateVpcCidrBlock Operation</seealso>
-        public  AssociateVpcCidrBlockResponse EndAssociateVpcCidrBlock(IAsyncResult asyncResult)
+        public virtual AssociateVpcCidrBlockResponse EndAssociateVpcCidrBlock(IAsyncResult asyncResult)
         {
             return EndInvoke<AssociateVpcCidrBlockResponse>(asyncResult);
         }
@@ -1037,7 +1037,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AttachClassicLinkVpc service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachClassicLinkVpc">REST API Reference for AttachClassicLinkVpc Operation</seealso>
-        public AttachClassicLinkVpcResponse AttachClassicLinkVpc(AttachClassicLinkVpcRequest request)
+        public virtual AttachClassicLinkVpcResponse AttachClassicLinkVpc(AttachClassicLinkVpcRequest request)
         {
             var marshaller = new AttachClassicLinkVpcRequestMarshaller();
             var unmarshaller = AttachClassicLinkVpcResponseUnmarshaller.Instance;
@@ -1057,7 +1057,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAttachClassicLinkVpc
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachClassicLinkVpc">REST API Reference for AttachClassicLinkVpc Operation</seealso>
-        public IAsyncResult BeginAttachClassicLinkVpc(AttachClassicLinkVpcRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAttachClassicLinkVpc(AttachClassicLinkVpcRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AttachClassicLinkVpcRequestMarshaller();
             var unmarshaller = AttachClassicLinkVpcResponseUnmarshaller.Instance;
@@ -1074,7 +1074,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AttachClassicLinkVpcResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachClassicLinkVpc">REST API Reference for AttachClassicLinkVpc Operation</seealso>
-        public  AttachClassicLinkVpcResponse EndAttachClassicLinkVpc(IAsyncResult asyncResult)
+        public virtual AttachClassicLinkVpcResponse EndAttachClassicLinkVpc(IAsyncResult asyncResult)
         {
             return EndInvoke<AttachClassicLinkVpcResponse>(asyncResult);
         }
@@ -1093,7 +1093,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AttachInternetGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachInternetGateway">REST API Reference for AttachInternetGateway Operation</seealso>
-        public AttachInternetGatewayResponse AttachInternetGateway(AttachInternetGatewayRequest request)
+        public virtual AttachInternetGatewayResponse AttachInternetGateway(AttachInternetGatewayRequest request)
         {
             var marshaller = new AttachInternetGatewayRequestMarshaller();
             var unmarshaller = AttachInternetGatewayResponseUnmarshaller.Instance;
@@ -1113,7 +1113,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAttachInternetGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachInternetGateway">REST API Reference for AttachInternetGateway Operation</seealso>
-        public IAsyncResult BeginAttachInternetGateway(AttachInternetGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAttachInternetGateway(AttachInternetGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AttachInternetGatewayRequestMarshaller();
             var unmarshaller = AttachInternetGatewayResponseUnmarshaller.Instance;
@@ -1130,7 +1130,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AttachInternetGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachInternetGateway">REST API Reference for AttachInternetGateway Operation</seealso>
-        public  AttachInternetGatewayResponse EndAttachInternetGateway(IAsyncResult asyncResult)
+        public virtual AttachInternetGatewayResponse EndAttachInternetGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<AttachInternetGatewayResponse>(asyncResult);
         }
@@ -1146,7 +1146,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AttachNetworkInterface service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachNetworkInterface">REST API Reference for AttachNetworkInterface Operation</seealso>
-        public AttachNetworkInterfaceResponse AttachNetworkInterface(AttachNetworkInterfaceRequest request)
+        public virtual AttachNetworkInterfaceResponse AttachNetworkInterface(AttachNetworkInterfaceRequest request)
         {
             var marshaller = new AttachNetworkInterfaceRequestMarshaller();
             var unmarshaller = AttachNetworkInterfaceResponseUnmarshaller.Instance;
@@ -1166,7 +1166,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAttachNetworkInterface
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachNetworkInterface">REST API Reference for AttachNetworkInterface Operation</seealso>
-        public IAsyncResult BeginAttachNetworkInterface(AttachNetworkInterfaceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAttachNetworkInterface(AttachNetworkInterfaceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AttachNetworkInterfaceRequestMarshaller();
             var unmarshaller = AttachNetworkInterfaceResponseUnmarshaller.Instance;
@@ -1183,7 +1183,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AttachNetworkInterfaceResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachNetworkInterface">REST API Reference for AttachNetworkInterface Operation</seealso>
-        public  AttachNetworkInterfaceResponse EndAttachNetworkInterface(IAsyncResult asyncResult)
+        public virtual AttachNetworkInterfaceResponse EndAttachNetworkInterface(IAsyncResult asyncResult)
         {
             return EndInvoke<AttachNetworkInterfaceResponse>(asyncResult);
         }
@@ -1246,7 +1246,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AttachVolume service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachVolume">REST API Reference for AttachVolume Operation</seealso>
-        public AttachVolumeResponse AttachVolume(AttachVolumeRequest request)
+        public virtual AttachVolumeResponse AttachVolume(AttachVolumeRequest request)
         {
             var marshaller = new AttachVolumeRequestMarshaller();
             var unmarshaller = AttachVolumeResponseUnmarshaller.Instance;
@@ -1266,7 +1266,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAttachVolume
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachVolume">REST API Reference for AttachVolume Operation</seealso>
-        public IAsyncResult BeginAttachVolume(AttachVolumeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAttachVolume(AttachVolumeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AttachVolumeRequestMarshaller();
             var unmarshaller = AttachVolumeResponseUnmarshaller.Instance;
@@ -1283,7 +1283,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AttachVolumeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachVolume">REST API Reference for AttachVolume Operation</seealso>
-        public  AttachVolumeResponse EndAttachVolume(IAsyncResult asyncResult)
+        public virtual AttachVolumeResponse EndAttachVolume(IAsyncResult asyncResult)
         {
             return EndInvoke<AttachVolumeResponse>(asyncResult);
         }
@@ -1298,16 +1298,15 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AttachVpnGateway service method.</param>
         /// 
         /// <returns>The response from the AttachVpnGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachVpnGateway">REST API Reference for AttachVpnGateway Operation</seealso>
-        public AttachVpnGatewayResponse AttachVpnGateway(AttachVpnGatewayRequest request)
+        public virtual AttachVpnGatewayResponse AttachVpnGateway(AttachVpnGatewayRequest request)
         {
             var marshaller = new AttachVpnGatewayRequestMarshaller();
             var unmarshaller = AttachVpnGatewayResponseUnmarshaller.Instance;
@@ -1327,7 +1326,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAttachVpnGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachVpnGateway">REST API Reference for AttachVpnGateway Operation</seealso>
-        public IAsyncResult BeginAttachVpnGateway(AttachVpnGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAttachVpnGateway(AttachVpnGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AttachVpnGatewayRequestMarshaller();
             var unmarshaller = AttachVpnGatewayResponseUnmarshaller.Instance;
@@ -1344,7 +1343,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AttachVpnGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AttachVpnGateway">REST API Reference for AttachVpnGateway Operation</seealso>
-        public  AttachVpnGatewayResponse EndAttachVpnGateway(IAsyncResult asyncResult)
+        public virtual AttachVpnGatewayResponse EndAttachVpnGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<AttachVpnGatewayResponse>(asyncResult);
         }
@@ -1368,7 +1367,8 @@ namespace Amazon.EC2
         /// Each rule consists of the protocol (for example, TCP), plus either a CIDR range or
         /// a source group. For the TCP and UDP protocols, you must also specify the destination
         /// port or port range. For the ICMP protocol, you must also specify the ICMP type and
-        /// code. You can use -1 for the type or code to mean all types or all codes.
+        /// code. You can use -1 for the type or code to mean all types or all codes. You can
+        /// optionally specify a description for the rule.
         /// </para>
         ///  
         /// <para>
@@ -1380,7 +1380,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the AuthorizeSecurityGroupEgress service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AuthorizeSecurityGroupEgress">REST API Reference for AuthorizeSecurityGroupEgress Operation</seealso>
-        public AuthorizeSecurityGroupEgressResponse AuthorizeSecurityGroupEgress(AuthorizeSecurityGroupEgressRequest request)
+        public virtual AuthorizeSecurityGroupEgressResponse AuthorizeSecurityGroupEgress(AuthorizeSecurityGroupEgressRequest request)
         {
             var marshaller = new AuthorizeSecurityGroupEgressRequestMarshaller();
             var unmarshaller = AuthorizeSecurityGroupEgressResponseUnmarshaller.Instance;
@@ -1400,7 +1400,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAuthorizeSecurityGroupEgress
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AuthorizeSecurityGroupEgress">REST API Reference for AuthorizeSecurityGroupEgress Operation</seealso>
-        public IAsyncResult BeginAuthorizeSecurityGroupEgress(AuthorizeSecurityGroupEgressRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAuthorizeSecurityGroupEgress(AuthorizeSecurityGroupEgressRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AuthorizeSecurityGroupEgressRequestMarshaller();
             var unmarshaller = AuthorizeSecurityGroupEgressResponseUnmarshaller.Instance;
@@ -1417,7 +1417,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AuthorizeSecurityGroupEgressResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AuthorizeSecurityGroupEgress">REST API Reference for AuthorizeSecurityGroupEgress Operation</seealso>
-        public  AuthorizeSecurityGroupEgressResponse EndAuthorizeSecurityGroupEgress(IAsyncResult asyncResult)
+        public virtual AuthorizeSecurityGroupEgressResponse EndAuthorizeSecurityGroupEgress(IAsyncResult asyncResult)
         {
             return EndInvoke<AuthorizeSecurityGroupEgressResponse>(asyncResult);
         }
@@ -1451,12 +1451,16 @@ namespace Amazon.EC2
         /// For more information about VPC security group limits, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon
         /// VPC Limits</a>.
         /// </para>
+        ///  
+        /// <para>
+        /// You can optionally specify a description for the security group rule.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AuthorizeSecurityGroupIngress service method.</param>
         /// 
         /// <returns>The response from the AuthorizeSecurityGroupIngress service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AuthorizeSecurityGroupIngress">REST API Reference for AuthorizeSecurityGroupIngress Operation</seealso>
-        public AuthorizeSecurityGroupIngressResponse AuthorizeSecurityGroupIngress(AuthorizeSecurityGroupIngressRequest request)
+        public virtual AuthorizeSecurityGroupIngressResponse AuthorizeSecurityGroupIngress(AuthorizeSecurityGroupIngressRequest request)
         {
             var marshaller = new AuthorizeSecurityGroupIngressRequestMarshaller();
             var unmarshaller = AuthorizeSecurityGroupIngressResponseUnmarshaller.Instance;
@@ -1476,7 +1480,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAuthorizeSecurityGroupIngress
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AuthorizeSecurityGroupIngress">REST API Reference for AuthorizeSecurityGroupIngress Operation</seealso>
-        public IAsyncResult BeginAuthorizeSecurityGroupIngress(AuthorizeSecurityGroupIngressRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAuthorizeSecurityGroupIngress(AuthorizeSecurityGroupIngressRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AuthorizeSecurityGroupIngressRequestMarshaller();
             var unmarshaller = AuthorizeSecurityGroupIngressResponseUnmarshaller.Instance;
@@ -1493,7 +1497,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  AuthorizeSecurityGroupIngressResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AuthorizeSecurityGroupIngress">REST API Reference for AuthorizeSecurityGroupIngress Operation</seealso>
-        public  AuthorizeSecurityGroupIngressResponse EndAuthorizeSecurityGroupIngress(IAsyncResult asyncResult)
+        public virtual AuthorizeSecurityGroupIngressResponse EndAuthorizeSecurityGroupIngress(IAsyncResult asyncResult)
         {
             return EndInvoke<AuthorizeSecurityGroupIngressResponse>(asyncResult);
         }
@@ -1525,7 +1529,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the BundleInstance service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/BundleInstance">REST API Reference for BundleInstance Operation</seealso>
-        public BundleInstanceResponse BundleInstance(BundleInstanceRequest request)
+        public virtual BundleInstanceResponse BundleInstance(BundleInstanceRequest request)
         {
             var marshaller = new BundleInstanceRequestMarshaller();
             var unmarshaller = BundleInstanceResponseUnmarshaller.Instance;
@@ -1545,7 +1549,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndBundleInstance
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/BundleInstance">REST API Reference for BundleInstance Operation</seealso>
-        public IAsyncResult BeginBundleInstance(BundleInstanceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginBundleInstance(BundleInstanceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new BundleInstanceRequestMarshaller();
             var unmarshaller = BundleInstanceResponseUnmarshaller.Instance;
@@ -1562,7 +1566,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  BundleInstanceResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/BundleInstance">REST API Reference for BundleInstance Operation</seealso>
-        public  BundleInstanceResponse EndBundleInstance(IAsyncResult asyncResult)
+        public virtual BundleInstanceResponse EndBundleInstance(IAsyncResult asyncResult)
         {
             return EndInvoke<BundleInstanceResponse>(asyncResult);
         }
@@ -1578,7 +1582,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CancelBundleTask service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelBundleTask">REST API Reference for CancelBundleTask Operation</seealso>
-        public CancelBundleTaskResponse CancelBundleTask(CancelBundleTaskRequest request)
+        public virtual CancelBundleTaskResponse CancelBundleTask(CancelBundleTaskRequest request)
         {
             var marshaller = new CancelBundleTaskRequestMarshaller();
             var unmarshaller = CancelBundleTaskResponseUnmarshaller.Instance;
@@ -1598,7 +1602,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelBundleTask
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelBundleTask">REST API Reference for CancelBundleTask Operation</seealso>
-        public IAsyncResult BeginCancelBundleTask(CancelBundleTaskRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCancelBundleTask(CancelBundleTaskRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CancelBundleTaskRequestMarshaller();
             var unmarshaller = CancelBundleTaskResponseUnmarshaller.Instance;
@@ -1615,7 +1619,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CancelBundleTaskResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelBundleTask">REST API Reference for CancelBundleTask Operation</seealso>
-        public  CancelBundleTaskResponse EndCancelBundleTask(IAsyncResult asyncResult)
+        public virtual CancelBundleTaskResponse EndCancelBundleTask(IAsyncResult asyncResult)
         {
             return EndInvoke<CancelBundleTaskResponse>(asyncResult);
         }
@@ -1640,7 +1644,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CancelConversionTask service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelConversionTask">REST API Reference for CancelConversionTask Operation</seealso>
-        public CancelConversionTaskResponse CancelConversionTask(CancelConversionTaskRequest request)
+        public virtual CancelConversionTaskResponse CancelConversionTask(CancelConversionTaskRequest request)
         {
             var marshaller = new CancelConversionTaskRequestMarshaller();
             var unmarshaller = CancelConversionTaskResponseUnmarshaller.Instance;
@@ -1660,7 +1664,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelConversionTask
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelConversionTask">REST API Reference for CancelConversionTask Operation</seealso>
-        public IAsyncResult BeginCancelConversionTask(CancelConversionTaskRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCancelConversionTask(CancelConversionTaskRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CancelConversionTaskRequestMarshaller();
             var unmarshaller = CancelConversionTaskResponseUnmarshaller.Instance;
@@ -1677,7 +1681,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CancelConversionTaskResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelConversionTask">REST API Reference for CancelConversionTask Operation</seealso>
-        public  CancelConversionTaskResponse EndCancelConversionTask(IAsyncResult asyncResult)
+        public virtual CancelConversionTaskResponse EndCancelConversionTask(IAsyncResult asyncResult)
         {
             return EndInvoke<CancelConversionTaskResponse>(asyncResult);
         }
@@ -1695,7 +1699,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CancelExportTask service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelExportTask">REST API Reference for CancelExportTask Operation</seealso>
-        public CancelExportTaskResponse CancelExportTask(CancelExportTaskRequest request)
+        public virtual CancelExportTaskResponse CancelExportTask(CancelExportTaskRequest request)
         {
             var marshaller = new CancelExportTaskRequestMarshaller();
             var unmarshaller = CancelExportTaskResponseUnmarshaller.Instance;
@@ -1715,7 +1719,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelExportTask
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelExportTask">REST API Reference for CancelExportTask Operation</seealso>
-        public IAsyncResult BeginCancelExportTask(CancelExportTaskRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCancelExportTask(CancelExportTaskRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CancelExportTaskRequestMarshaller();
             var unmarshaller = CancelExportTaskResponseUnmarshaller.Instance;
@@ -1732,7 +1736,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CancelExportTaskResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelExportTask">REST API Reference for CancelExportTask Operation</seealso>
-        public  CancelExportTaskResponse EndCancelExportTask(IAsyncResult asyncResult)
+        public virtual CancelExportTaskResponse EndCancelExportTask(IAsyncResult asyncResult)
         {
             return EndInvoke<CancelExportTaskResponse>(asyncResult);
         }
@@ -1748,7 +1752,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CancelImportTask service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelImportTask">REST API Reference for CancelImportTask Operation</seealso>
-        public CancelImportTaskResponse CancelImportTask(CancelImportTaskRequest request)
+        public virtual CancelImportTaskResponse CancelImportTask(CancelImportTaskRequest request)
         {
             var marshaller = new CancelImportTaskRequestMarshaller();
             var unmarshaller = CancelImportTaskResponseUnmarshaller.Instance;
@@ -1768,7 +1772,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelImportTask
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelImportTask">REST API Reference for CancelImportTask Operation</seealso>
-        public IAsyncResult BeginCancelImportTask(CancelImportTaskRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCancelImportTask(CancelImportTaskRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CancelImportTaskRequestMarshaller();
             var unmarshaller = CancelImportTaskResponseUnmarshaller.Instance;
@@ -1785,7 +1789,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CancelImportTaskResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelImportTask">REST API Reference for CancelImportTask Operation</seealso>
-        public  CancelImportTaskResponse EndCancelImportTask(IAsyncResult asyncResult)
+        public virtual CancelImportTaskResponse EndCancelImportTask(IAsyncResult asyncResult)
         {
             return EndInvoke<CancelImportTaskResponse>(asyncResult);
         }
@@ -1807,7 +1811,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CancelReservedInstancesListing service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelReservedInstancesListing">REST API Reference for CancelReservedInstancesListing Operation</seealso>
-        public CancelReservedInstancesListingResponse CancelReservedInstancesListing(CancelReservedInstancesListingRequest request)
+        public virtual CancelReservedInstancesListingResponse CancelReservedInstancesListing(CancelReservedInstancesListingRequest request)
         {
             var marshaller = new CancelReservedInstancesListingRequestMarshaller();
             var unmarshaller = CancelReservedInstancesListingResponseUnmarshaller.Instance;
@@ -1827,7 +1831,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelReservedInstancesListing
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelReservedInstancesListing">REST API Reference for CancelReservedInstancesListing Operation</seealso>
-        public IAsyncResult BeginCancelReservedInstancesListing(CancelReservedInstancesListingRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCancelReservedInstancesListing(CancelReservedInstancesListingRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CancelReservedInstancesListingRequestMarshaller();
             var unmarshaller = CancelReservedInstancesListingResponseUnmarshaller.Instance;
@@ -1844,7 +1848,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CancelReservedInstancesListingResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelReservedInstancesListing">REST API Reference for CancelReservedInstancesListing Operation</seealso>
-        public  CancelReservedInstancesListingResponse EndCancelReservedInstancesListing(IAsyncResult asyncResult)
+        public virtual CancelReservedInstancesListingResponse EndCancelReservedInstancesListing(IAsyncResult asyncResult)
         {
             return EndInvoke<CancelReservedInstancesListingResponse>(asyncResult);
         }
@@ -1870,7 +1874,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CancelSpotFleetRequests service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelSpotFleetRequests">REST API Reference for CancelSpotFleetRequests Operation</seealso>
-        public CancelSpotFleetRequestsResponse CancelSpotFleetRequests(CancelSpotFleetRequestsRequest request)
+        public virtual CancelSpotFleetRequestsResponse CancelSpotFleetRequests(CancelSpotFleetRequestsRequest request)
         {
             var marshaller = new CancelSpotFleetRequestsRequestMarshaller();
             var unmarshaller = CancelSpotFleetRequestsResponseUnmarshaller.Instance;
@@ -1890,7 +1894,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelSpotFleetRequests
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelSpotFleetRequests">REST API Reference for CancelSpotFleetRequests Operation</seealso>
-        public IAsyncResult BeginCancelSpotFleetRequests(CancelSpotFleetRequestsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCancelSpotFleetRequests(CancelSpotFleetRequestsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CancelSpotFleetRequestsRequestMarshaller();
             var unmarshaller = CancelSpotFleetRequestsResponseUnmarshaller.Instance;
@@ -1907,7 +1911,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CancelSpotFleetRequestsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelSpotFleetRequests">REST API Reference for CancelSpotFleetRequests Operation</seealso>
-        public  CancelSpotFleetRequestsResponse EndCancelSpotFleetRequests(IAsyncResult asyncResult)
+        public virtual CancelSpotFleetRequestsResponse EndCancelSpotFleetRequests(IAsyncResult asyncResult)
         {
             return EndInvoke<CancelSpotFleetRequestsResponse>(asyncResult);
         }
@@ -1934,7 +1938,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CancelSpotInstanceRequests service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelSpotInstanceRequests">REST API Reference for CancelSpotInstanceRequests Operation</seealso>
-        public CancelSpotInstanceRequestsResponse CancelSpotInstanceRequests(CancelSpotInstanceRequestsRequest request)
+        public virtual CancelSpotInstanceRequestsResponse CancelSpotInstanceRequests(CancelSpotInstanceRequestsRequest request)
         {
             var marshaller = new CancelSpotInstanceRequestsRequestMarshaller();
             var unmarshaller = CancelSpotInstanceRequestsResponseUnmarshaller.Instance;
@@ -1954,7 +1958,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelSpotInstanceRequests
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelSpotInstanceRequests">REST API Reference for CancelSpotInstanceRequests Operation</seealso>
-        public IAsyncResult BeginCancelSpotInstanceRequests(CancelSpotInstanceRequestsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCancelSpotInstanceRequests(CancelSpotInstanceRequestsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CancelSpotInstanceRequestsRequestMarshaller();
             var unmarshaller = CancelSpotInstanceRequestsResponseUnmarshaller.Instance;
@@ -1971,7 +1975,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CancelSpotInstanceRequestsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CancelSpotInstanceRequests">REST API Reference for CancelSpotInstanceRequests Operation</seealso>
-        public  CancelSpotInstanceRequestsResponse EndCancelSpotInstanceRequests(IAsyncResult asyncResult)
+        public virtual CancelSpotInstanceRequestsResponse EndCancelSpotInstanceRequests(IAsyncResult asyncResult)
         {
             return EndInvoke<CancelSpotInstanceRequestsResponse>(asyncResult);
         }
@@ -1983,13 +1987,13 @@ namespace Amazon.EC2
         /// <summary>
         /// Determines whether a product code is associated with an instance. This action can
         /// only be used by the owner of the product code. It is useful when a product code owner
-        /// needs to verify whether another user's instance is eligible for support.
+        /// must verify whether another user's instance is eligible for support.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ConfirmProductInstance service method.</param>
         /// 
         /// <returns>The response from the ConfirmProductInstance service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ConfirmProductInstance">REST API Reference for ConfirmProductInstance Operation</seealso>
-        public ConfirmProductInstanceResponse ConfirmProductInstance(ConfirmProductInstanceRequest request)
+        public virtual ConfirmProductInstanceResponse ConfirmProductInstance(ConfirmProductInstanceRequest request)
         {
             var marshaller = new ConfirmProductInstanceRequestMarshaller();
             var unmarshaller = ConfirmProductInstanceResponseUnmarshaller.Instance;
@@ -2009,7 +2013,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndConfirmProductInstance
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ConfirmProductInstance">REST API Reference for ConfirmProductInstance Operation</seealso>
-        public IAsyncResult BeginConfirmProductInstance(ConfirmProductInstanceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginConfirmProductInstance(ConfirmProductInstanceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ConfirmProductInstanceRequestMarshaller();
             var unmarshaller = ConfirmProductInstanceResponseUnmarshaller.Instance;
@@ -2026,9 +2030,62 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ConfirmProductInstanceResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ConfirmProductInstance">REST API Reference for ConfirmProductInstance Operation</seealso>
-        public  ConfirmProductInstanceResponse EndConfirmProductInstance(IAsyncResult asyncResult)
+        public virtual ConfirmProductInstanceResponse EndConfirmProductInstance(IAsyncResult asyncResult)
         {
             return EndInvoke<ConfirmProductInstanceResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  CopyFpgaImage
+
+        /// <summary>
+        /// Copies the specified Amazon FPGA Image (AFI) to the current region.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CopyFpgaImage service method.</param>
+        /// 
+        /// <returns>The response from the CopyFpgaImage service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopyFpgaImage">REST API Reference for CopyFpgaImage Operation</seealso>
+        public virtual CopyFpgaImageResponse CopyFpgaImage(CopyFpgaImageRequest request)
+        {
+            var marshaller = new CopyFpgaImageRequestMarshaller();
+            var unmarshaller = CopyFpgaImageResponseUnmarshaller.Instance;
+
+            return Invoke<CopyFpgaImageRequest,CopyFpgaImageResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CopyFpgaImage operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CopyFpgaImage operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCopyFpgaImage
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopyFpgaImage">REST API Reference for CopyFpgaImage Operation</seealso>
+        public virtual IAsyncResult BeginCopyFpgaImage(CopyFpgaImageRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new CopyFpgaImageRequestMarshaller();
+            var unmarshaller = CopyFpgaImageResponseUnmarshaller.Instance;
+
+            return BeginInvoke<CopyFpgaImageRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CopyFpgaImage operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCopyFpgaImage.</param>
+        /// 
+        /// <returns>Returns a  CopyFpgaImageResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopyFpgaImage">REST API Reference for CopyFpgaImage Operation</seealso>
+        public virtual CopyFpgaImageResponse EndCopyFpgaImage(IAsyncResult asyncResult)
+        {
+            return EndInvoke<CopyFpgaImageResponse>(asyncResult);
         }
 
         #endregion
@@ -2050,7 +2107,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CopyImage service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopyImage">REST API Reference for CopyImage Operation</seealso>
-        public CopyImageResponse CopyImage(CopyImageRequest request)
+        public virtual CopyImageResponse CopyImage(CopyImageRequest request)
         {
             var marshaller = new CopyImageRequestMarshaller();
             var unmarshaller = CopyImageResponseUnmarshaller.Instance;
@@ -2070,7 +2127,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCopyImage
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopyImage">REST API Reference for CopyImage Operation</seealso>
-        public IAsyncResult BeginCopyImage(CopyImageRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCopyImage(CopyImageRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CopyImageRequestMarshaller();
             var unmarshaller = CopyImageResponseUnmarshaller.Instance;
@@ -2087,7 +2144,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CopyImageResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopyImage">REST API Reference for CopyImage Operation</seealso>
-        public  CopyImageResponse EndCopyImage(IAsyncResult asyncResult)
+        public virtual CopyImageResponse EndCopyImage(IAsyncResult asyncResult)
         {
             return EndInvoke<CopyImageResponse>(asyncResult);
         }
@@ -2130,7 +2187,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CopySnapshot service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopySnapshot">REST API Reference for CopySnapshot Operation</seealso>
-        public CopySnapshotResponse CopySnapshot(CopySnapshotRequest request)
+        public virtual CopySnapshotResponse CopySnapshot(CopySnapshotRequest request)
         {
             var marshaller = new CopySnapshotRequestMarshaller();
             var unmarshaller = CopySnapshotResponseUnmarshaller.Instance;
@@ -2150,7 +2207,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCopySnapshot
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopySnapshot">REST API Reference for CopySnapshot Operation</seealso>
-        public IAsyncResult BeginCopySnapshot(CopySnapshotRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCopySnapshot(CopySnapshotRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CopySnapshotRequestMarshaller();
             var unmarshaller = CopySnapshotResponseUnmarshaller.Instance;
@@ -2167,7 +2224,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CopySnapshotResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopySnapshot">REST API Reference for CopySnapshot Operation</seealso>
-        public  CopySnapshotResponse EndCopySnapshot(IAsyncResult asyncResult)
+        public virtual CopySnapshotResponse EndCopySnapshot(IAsyncResult asyncResult)
         {
             return EndInvoke<CopySnapshotResponse>(asyncResult);
         }
@@ -2198,9 +2255,8 @@ namespace Amazon.EC2
         /// </para>
         ///  </note> 
         /// <para>
-        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         ///  <important> 
         /// <para>
@@ -2216,7 +2272,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateCustomerGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateCustomerGateway">REST API Reference for CreateCustomerGateway Operation</seealso>
-        public CreateCustomerGatewayResponse CreateCustomerGateway(CreateCustomerGatewayRequest request)
+        public virtual CreateCustomerGatewayResponse CreateCustomerGateway(CreateCustomerGatewayRequest request)
         {
             var marshaller = new CreateCustomerGatewayRequestMarshaller();
             var unmarshaller = CreateCustomerGatewayResponseUnmarshaller.Instance;
@@ -2236,7 +2292,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateCustomerGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateCustomerGateway">REST API Reference for CreateCustomerGateway Operation</seealso>
-        public IAsyncResult BeginCreateCustomerGateway(CreateCustomerGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateCustomerGateway(CreateCustomerGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateCustomerGatewayRequestMarshaller();
             var unmarshaller = CreateCustomerGatewayResponseUnmarshaller.Instance;
@@ -2253,7 +2309,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateCustomerGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateCustomerGateway">REST API Reference for CreateCustomerGateway Operation</seealso>
-        public  CreateCustomerGatewayResponse EndCreateCustomerGateway(IAsyncResult asyncResult)
+        public virtual CreateCustomerGatewayResponse EndCreateCustomerGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateCustomerGatewayResponse>(asyncResult);
         }
@@ -2287,7 +2343,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateDefaultVpc service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateDefaultVpc">REST API Reference for CreateDefaultVpc Operation</seealso>
-        public CreateDefaultVpcResponse CreateDefaultVpc(CreateDefaultVpcRequest request)
+        public virtual CreateDefaultVpcResponse CreateDefaultVpc(CreateDefaultVpcRequest request)
         {
             var marshaller = new CreateDefaultVpcRequestMarshaller();
             var unmarshaller = CreateDefaultVpcResponseUnmarshaller.Instance;
@@ -2307,7 +2363,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateDefaultVpc
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateDefaultVpc">REST API Reference for CreateDefaultVpc Operation</seealso>
-        public IAsyncResult BeginCreateDefaultVpc(CreateDefaultVpcRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateDefaultVpc(CreateDefaultVpcRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateDefaultVpcRequestMarshaller();
             var unmarshaller = CreateDefaultVpcResponseUnmarshaller.Instance;
@@ -2324,7 +2380,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateDefaultVpcResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateDefaultVpc">REST API Reference for CreateDefaultVpc Operation</seealso>
-        public  CreateDefaultVpcResponse EndCreateDefaultVpc(IAsyncResult asyncResult)
+        public virtual CreateDefaultVpcResponse EndCreateDefaultVpc(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateDefaultVpcResponse>(asyncResult);
         }
@@ -2391,7 +2447,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateDhcpOptions service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateDhcpOptions">REST API Reference for CreateDhcpOptions Operation</seealso>
-        public CreateDhcpOptionsResponse CreateDhcpOptions(CreateDhcpOptionsRequest request)
+        public virtual CreateDhcpOptionsResponse CreateDhcpOptions(CreateDhcpOptionsRequest request)
         {
             var marshaller = new CreateDhcpOptionsRequestMarshaller();
             var unmarshaller = CreateDhcpOptionsResponseUnmarshaller.Instance;
@@ -2411,7 +2467,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateDhcpOptions
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateDhcpOptions">REST API Reference for CreateDhcpOptions Operation</seealso>
-        public IAsyncResult BeginCreateDhcpOptions(CreateDhcpOptionsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateDhcpOptions(CreateDhcpOptionsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateDhcpOptionsRequestMarshaller();
             var unmarshaller = CreateDhcpOptionsResponseUnmarshaller.Instance;
@@ -2428,7 +2484,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateDhcpOptionsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateDhcpOptions">REST API Reference for CreateDhcpOptions Operation</seealso>
-        public  CreateDhcpOptionsResponse EndCreateDhcpOptions(IAsyncResult asyncResult)
+        public virtual CreateDhcpOptionsResponse EndCreateDhcpOptions(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateDhcpOptionsResponse>(asyncResult);
         }
@@ -2447,7 +2503,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateEgressOnlyInternetGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateEgressOnlyInternetGateway">REST API Reference for CreateEgressOnlyInternetGateway Operation</seealso>
-        public CreateEgressOnlyInternetGatewayResponse CreateEgressOnlyInternetGateway(CreateEgressOnlyInternetGatewayRequest request)
+        public virtual CreateEgressOnlyInternetGatewayResponse CreateEgressOnlyInternetGateway(CreateEgressOnlyInternetGatewayRequest request)
         {
             var marshaller = new CreateEgressOnlyInternetGatewayRequestMarshaller();
             var unmarshaller = CreateEgressOnlyInternetGatewayResponseUnmarshaller.Instance;
@@ -2467,7 +2523,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateEgressOnlyInternetGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateEgressOnlyInternetGateway">REST API Reference for CreateEgressOnlyInternetGateway Operation</seealso>
-        public IAsyncResult BeginCreateEgressOnlyInternetGateway(CreateEgressOnlyInternetGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateEgressOnlyInternetGateway(CreateEgressOnlyInternetGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateEgressOnlyInternetGatewayRequestMarshaller();
             var unmarshaller = CreateEgressOnlyInternetGatewayResponseUnmarshaller.Instance;
@@ -2484,7 +2540,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateEgressOnlyInternetGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateEgressOnlyInternetGateway">REST API Reference for CreateEgressOnlyInternetGateway Operation</seealso>
-        public  CreateEgressOnlyInternetGatewayResponse EndCreateEgressOnlyInternetGateway(IAsyncResult asyncResult)
+        public virtual CreateEgressOnlyInternetGatewayResponse EndCreateEgressOnlyInternetGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateEgressOnlyInternetGatewayResponse>(asyncResult);
         }
@@ -2511,7 +2567,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateFlowLogs service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateFlowLogs">REST API Reference for CreateFlowLogs Operation</seealso>
-        public CreateFlowLogsResponse CreateFlowLogs(CreateFlowLogsRequest request)
+        public virtual CreateFlowLogsResponse CreateFlowLogs(CreateFlowLogsRequest request)
         {
             var marshaller = new CreateFlowLogsRequestMarshaller();
             var unmarshaller = CreateFlowLogsResponseUnmarshaller.Instance;
@@ -2531,7 +2587,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateFlowLogs
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateFlowLogs">REST API Reference for CreateFlowLogs Operation</seealso>
-        public IAsyncResult BeginCreateFlowLogs(CreateFlowLogsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateFlowLogs(CreateFlowLogsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateFlowLogsRequestMarshaller();
             var unmarshaller = CreateFlowLogsResponseUnmarshaller.Instance;
@@ -2548,7 +2604,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateFlowLogsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateFlowLogs">REST API Reference for CreateFlowLogs Operation</seealso>
-        public  CreateFlowLogsResponse EndCreateFlowLogs(IAsyncResult asyncResult)
+        public virtual CreateFlowLogsResponse EndCreateFlowLogs(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateFlowLogsResponse>(asyncResult);
         }
@@ -2576,7 +2632,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateFpgaImage service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateFpgaImage">REST API Reference for CreateFpgaImage Operation</seealso>
-        public CreateFpgaImageResponse CreateFpgaImage(CreateFpgaImageRequest request)
+        public virtual CreateFpgaImageResponse CreateFpgaImage(CreateFpgaImageRequest request)
         {
             var marshaller = new CreateFpgaImageRequestMarshaller();
             var unmarshaller = CreateFpgaImageResponseUnmarshaller.Instance;
@@ -2596,7 +2652,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateFpgaImage
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateFpgaImage">REST API Reference for CreateFpgaImage Operation</seealso>
-        public IAsyncResult BeginCreateFpgaImage(CreateFpgaImageRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateFpgaImage(CreateFpgaImageRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateFpgaImageRequestMarshaller();
             var unmarshaller = CreateFpgaImageResponseUnmarshaller.Instance;
@@ -2613,7 +2669,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateFpgaImageResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateFpgaImage">REST API Reference for CreateFpgaImage Operation</seealso>
-        public  CreateFpgaImageResponse EndCreateFpgaImage(IAsyncResult asyncResult)
+        public virtual CreateFpgaImageResponse EndCreateFpgaImage(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateFpgaImageResponse>(asyncResult);
         }
@@ -2643,7 +2699,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateImage service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateImage">REST API Reference for CreateImage Operation</seealso>
-        public CreateImageResponse CreateImage(CreateImageRequest request)
+        public virtual CreateImageResponse CreateImage(CreateImageRequest request)
         {
             var marshaller = new CreateImageRequestMarshaller();
             var unmarshaller = CreateImageResponseUnmarshaller.Instance;
@@ -2663,7 +2719,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateImage
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateImage">REST API Reference for CreateImage Operation</seealso>
-        public IAsyncResult BeginCreateImage(CreateImageRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateImage(CreateImageRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateImageRequestMarshaller();
             var unmarshaller = CreateImageResponseUnmarshaller.Instance;
@@ -2680,7 +2736,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateImageResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateImage">REST API Reference for CreateImage Operation</seealso>
-        public  CreateImageResponse EndCreateImage(IAsyncResult asyncResult)
+        public virtual CreateImageResponse EndCreateImage(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateImageResponse>(asyncResult);
         }
@@ -2703,7 +2759,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateInstanceExportTask service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInstanceExportTask">REST API Reference for CreateInstanceExportTask Operation</seealso>
-        public CreateInstanceExportTaskResponse CreateInstanceExportTask(CreateInstanceExportTaskRequest request)
+        public virtual CreateInstanceExportTaskResponse CreateInstanceExportTask(CreateInstanceExportTaskRequest request)
         {
             var marshaller = new CreateInstanceExportTaskRequestMarshaller();
             var unmarshaller = CreateInstanceExportTaskResponseUnmarshaller.Instance;
@@ -2723,7 +2779,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateInstanceExportTask
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInstanceExportTask">REST API Reference for CreateInstanceExportTask Operation</seealso>
-        public IAsyncResult BeginCreateInstanceExportTask(CreateInstanceExportTaskRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateInstanceExportTask(CreateInstanceExportTaskRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateInstanceExportTaskRequestMarshaller();
             var unmarshaller = CreateInstanceExportTaskResponseUnmarshaller.Instance;
@@ -2740,7 +2796,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateInstanceExportTaskResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInstanceExportTask">REST API Reference for CreateInstanceExportTask Operation</seealso>
-        public  CreateInstanceExportTaskResponse EndCreateInstanceExportTask(IAsyncResult asyncResult)
+        public virtual CreateInstanceExportTaskResponse EndCreateInstanceExportTask(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateInstanceExportTaskResponse>(asyncResult);
         }
@@ -2762,7 +2818,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateInternetGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInternetGateway">REST API Reference for CreateInternetGateway Operation</seealso>
-        public CreateInternetGatewayResponse CreateInternetGateway()
+        public virtual CreateInternetGatewayResponse CreateInternetGateway()
         {
             return CreateInternetGateway(new CreateInternetGatewayRequest());
         }
@@ -2781,7 +2837,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateInternetGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInternetGateway">REST API Reference for CreateInternetGateway Operation</seealso>
-        public CreateInternetGatewayResponse CreateInternetGateway(CreateInternetGatewayRequest request)
+        public virtual CreateInternetGatewayResponse CreateInternetGateway(CreateInternetGatewayRequest request)
         {
             var marshaller = new CreateInternetGatewayRequestMarshaller();
             var unmarshaller = CreateInternetGatewayResponseUnmarshaller.Instance;
@@ -2801,7 +2857,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateInternetGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInternetGateway">REST API Reference for CreateInternetGateway Operation</seealso>
-        public IAsyncResult BeginCreateInternetGateway(CreateInternetGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateInternetGateway(CreateInternetGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateInternetGatewayRequestMarshaller();
             var unmarshaller = CreateInternetGatewayResponseUnmarshaller.Instance;
@@ -2818,7 +2874,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateInternetGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateInternetGateway">REST API Reference for CreateInternetGateway Operation</seealso>
-        public  CreateInternetGatewayResponse EndCreateInternetGateway(IAsyncResult asyncResult)
+        public virtual CreateInternetGatewayResponse EndCreateInternetGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateInternetGatewayResponse>(asyncResult);
         }
@@ -2852,7 +2908,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateKeyPair service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateKeyPair">REST API Reference for CreateKeyPair Operation</seealso>
-        public CreateKeyPairResponse CreateKeyPair(CreateKeyPairRequest request)
+        public virtual CreateKeyPairResponse CreateKeyPair(CreateKeyPairRequest request)
         {
             var marshaller = new CreateKeyPairRequestMarshaller();
             var unmarshaller = CreateKeyPairResponseUnmarshaller.Instance;
@@ -2872,7 +2928,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateKeyPair
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateKeyPair">REST API Reference for CreateKeyPair Operation</seealso>
-        public IAsyncResult BeginCreateKeyPair(CreateKeyPairRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateKeyPair(CreateKeyPairRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateKeyPairRequestMarshaller();
             var unmarshaller = CreateKeyPairResponseUnmarshaller.Instance;
@@ -2889,7 +2945,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateKeyPairResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateKeyPair">REST API Reference for CreateKeyPair Operation</seealso>
-        public  CreateKeyPairResponse EndCreateKeyPair(IAsyncResult asyncResult)
+        public virtual CreateKeyPairResponse EndCreateKeyPair(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateKeyPairResponse>(asyncResult);
         }
@@ -2909,7 +2965,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateNatGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNatGateway">REST API Reference for CreateNatGateway Operation</seealso>
-        public CreateNatGatewayResponse CreateNatGateway(CreateNatGatewayRequest request)
+        public virtual CreateNatGatewayResponse CreateNatGateway(CreateNatGatewayRequest request)
         {
             var marshaller = new CreateNatGatewayRequestMarshaller();
             var unmarshaller = CreateNatGatewayResponseUnmarshaller.Instance;
@@ -2929,7 +2985,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateNatGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNatGateway">REST API Reference for CreateNatGateway Operation</seealso>
-        public IAsyncResult BeginCreateNatGateway(CreateNatGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateNatGateway(CreateNatGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateNatGatewayRequestMarshaller();
             var unmarshaller = CreateNatGatewayResponseUnmarshaller.Instance;
@@ -2946,7 +3002,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateNatGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNatGateway">REST API Reference for CreateNatGateway Operation</seealso>
-        public  CreateNatGatewayResponse EndCreateNatGateway(IAsyncResult asyncResult)
+        public virtual CreateNatGatewayResponse EndCreateNatGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateNatGatewayResponse>(asyncResult);
         }
@@ -2969,7 +3025,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateNetworkAcl service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkAcl">REST API Reference for CreateNetworkAcl Operation</seealso>
-        public CreateNetworkAclResponse CreateNetworkAcl(CreateNetworkAclRequest request)
+        public virtual CreateNetworkAclResponse CreateNetworkAcl(CreateNetworkAclRequest request)
         {
             var marshaller = new CreateNetworkAclRequestMarshaller();
             var unmarshaller = CreateNetworkAclResponseUnmarshaller.Instance;
@@ -2989,7 +3045,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateNetworkAcl
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkAcl">REST API Reference for CreateNetworkAcl Operation</seealso>
-        public IAsyncResult BeginCreateNetworkAcl(CreateNetworkAclRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateNetworkAcl(CreateNetworkAclRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateNetworkAclRequestMarshaller();
             var unmarshaller = CreateNetworkAclResponseUnmarshaller.Instance;
@@ -3006,7 +3062,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateNetworkAclResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkAcl">REST API Reference for CreateNetworkAcl Operation</seealso>
-        public  CreateNetworkAclResponse EndCreateNetworkAcl(IAsyncResult asyncResult)
+        public virtual CreateNetworkAclResponse EndCreateNetworkAcl(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateNetworkAclResponse>(asyncResult);
         }
@@ -3045,7 +3101,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateNetworkAclEntry service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkAclEntry">REST API Reference for CreateNetworkAclEntry Operation</seealso>
-        public CreateNetworkAclEntryResponse CreateNetworkAclEntry(CreateNetworkAclEntryRequest request)
+        public virtual CreateNetworkAclEntryResponse CreateNetworkAclEntry(CreateNetworkAclEntryRequest request)
         {
             var marshaller = new CreateNetworkAclEntryRequestMarshaller();
             var unmarshaller = CreateNetworkAclEntryResponseUnmarshaller.Instance;
@@ -3065,7 +3121,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateNetworkAclEntry
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkAclEntry">REST API Reference for CreateNetworkAclEntry Operation</seealso>
-        public IAsyncResult BeginCreateNetworkAclEntry(CreateNetworkAclEntryRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateNetworkAclEntry(CreateNetworkAclEntryRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateNetworkAclEntryRequestMarshaller();
             var unmarshaller = CreateNetworkAclEntryResponseUnmarshaller.Instance;
@@ -3082,7 +3138,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateNetworkAclEntryResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkAclEntry">REST API Reference for CreateNetworkAclEntry Operation</seealso>
-        public  CreateNetworkAclEntryResponse EndCreateNetworkAclEntry(IAsyncResult asyncResult)
+        public virtual CreateNetworkAclEntryResponse EndCreateNetworkAclEntry(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateNetworkAclEntryResponse>(asyncResult);
         }
@@ -3104,7 +3160,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateNetworkInterface service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkInterface">REST API Reference for CreateNetworkInterface Operation</seealso>
-        public CreateNetworkInterfaceResponse CreateNetworkInterface(CreateNetworkInterfaceRequest request)
+        public virtual CreateNetworkInterfaceResponse CreateNetworkInterface(CreateNetworkInterfaceRequest request)
         {
             var marshaller = new CreateNetworkInterfaceRequestMarshaller();
             var unmarshaller = CreateNetworkInterfaceResponseUnmarshaller.Instance;
@@ -3124,7 +3180,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateNetworkInterface
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkInterface">REST API Reference for CreateNetworkInterface Operation</seealso>
-        public IAsyncResult BeginCreateNetworkInterface(CreateNetworkInterfaceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateNetworkInterface(CreateNetworkInterfaceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateNetworkInterfaceRequestMarshaller();
             var unmarshaller = CreateNetworkInterfaceResponseUnmarshaller.Instance;
@@ -3141,7 +3197,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateNetworkInterfaceResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkInterface">REST API Reference for CreateNetworkInterface Operation</seealso>
-        public  CreateNetworkInterfaceResponse EndCreateNetworkInterface(IAsyncResult asyncResult)
+        public virtual CreateNetworkInterfaceResponse EndCreateNetworkInterface(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateNetworkInterfaceResponse>(asyncResult);
         }
@@ -3163,7 +3219,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateNetworkInterfacePermission service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkInterfacePermission">REST API Reference for CreateNetworkInterfacePermission Operation</seealso>
-        public CreateNetworkInterfacePermissionResponse CreateNetworkInterfacePermission(CreateNetworkInterfacePermissionRequest request)
+        public virtual CreateNetworkInterfacePermissionResponse CreateNetworkInterfacePermission(CreateNetworkInterfacePermissionRequest request)
         {
             var marshaller = new CreateNetworkInterfacePermissionRequestMarshaller();
             var unmarshaller = CreateNetworkInterfacePermissionResponseUnmarshaller.Instance;
@@ -3183,7 +3239,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateNetworkInterfacePermission
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkInterfacePermission">REST API Reference for CreateNetworkInterfacePermission Operation</seealso>
-        public IAsyncResult BeginCreateNetworkInterfacePermission(CreateNetworkInterfacePermissionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateNetworkInterfacePermission(CreateNetworkInterfacePermissionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateNetworkInterfacePermissionRequestMarshaller();
             var unmarshaller = CreateNetworkInterfacePermissionResponseUnmarshaller.Instance;
@@ -3200,7 +3256,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateNetworkInterfacePermissionResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateNetworkInterfacePermission">REST API Reference for CreateNetworkInterfacePermission Operation</seealso>
-        public  CreateNetworkInterfacePermissionResponse EndCreateNetworkInterfacePermission(IAsyncResult asyncResult)
+        public virtual CreateNetworkInterfacePermissionResponse EndCreateNetworkInterfacePermission(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateNetworkInterfacePermissionResponse>(asyncResult);
         }
@@ -3210,8 +3266,8 @@ namespace Amazon.EC2
         #region  CreatePlacementGroup
 
         /// <summary>
-        /// Creates a placement group that you launch cluster instances into. You must give the
-        /// group a name that's unique within the scope of your account.
+        /// Creates a placement group that you launch cluster instances into. Give the group a
+        /// name that's unique within the scope of your account.
         /// 
         ///  
         /// <para>
@@ -3223,7 +3279,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreatePlacementGroup service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreatePlacementGroup">REST API Reference for CreatePlacementGroup Operation</seealso>
-        public CreatePlacementGroupResponse CreatePlacementGroup(CreatePlacementGroupRequest request)
+        public virtual CreatePlacementGroupResponse CreatePlacementGroup(CreatePlacementGroupRequest request)
         {
             var marshaller = new CreatePlacementGroupRequestMarshaller();
             var unmarshaller = CreatePlacementGroupResponseUnmarshaller.Instance;
@@ -3243,7 +3299,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreatePlacementGroup
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreatePlacementGroup">REST API Reference for CreatePlacementGroup Operation</seealso>
-        public IAsyncResult BeginCreatePlacementGroup(CreatePlacementGroupRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreatePlacementGroup(CreatePlacementGroupRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreatePlacementGroupRequestMarshaller();
             var unmarshaller = CreatePlacementGroupResponseUnmarshaller.Instance;
@@ -3260,7 +3316,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreatePlacementGroupResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreatePlacementGroup">REST API Reference for CreatePlacementGroup Operation</seealso>
-        public  CreatePlacementGroupResponse EndCreatePlacementGroup(IAsyncResult asyncResult)
+        public virtual CreatePlacementGroupResponse EndCreatePlacementGroup(IAsyncResult asyncResult)
         {
             return EndInvoke<CreatePlacementGroupResponse>(asyncResult);
         }
@@ -3308,7 +3364,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateReservedInstancesListing service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateReservedInstancesListing">REST API Reference for CreateReservedInstancesListing Operation</seealso>
-        public CreateReservedInstancesListingResponse CreateReservedInstancesListing(CreateReservedInstancesListingRequest request)
+        public virtual CreateReservedInstancesListingResponse CreateReservedInstancesListing(CreateReservedInstancesListingRequest request)
         {
             var marshaller = new CreateReservedInstancesListingRequestMarshaller();
             var unmarshaller = CreateReservedInstancesListingResponseUnmarshaller.Instance;
@@ -3328,7 +3384,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateReservedInstancesListing
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateReservedInstancesListing">REST API Reference for CreateReservedInstancesListing Operation</seealso>
-        public IAsyncResult BeginCreateReservedInstancesListing(CreateReservedInstancesListingRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateReservedInstancesListing(CreateReservedInstancesListingRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateReservedInstancesListingRequestMarshaller();
             var unmarshaller = CreateReservedInstancesListingResponseUnmarshaller.Instance;
@@ -3345,7 +3401,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateReservedInstancesListingResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateReservedInstancesListing">REST API Reference for CreateReservedInstancesListing Operation</seealso>
-        public  CreateReservedInstancesListingResponse EndCreateReservedInstancesListing(IAsyncResult asyncResult)
+        public virtual CreateReservedInstancesListingResponse EndCreateReservedInstancesListing(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateReservedInstancesListingResponse>(asyncResult);
         }
@@ -3393,7 +3449,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateRoute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateRoute">REST API Reference for CreateRoute Operation</seealso>
-        public CreateRouteResponse CreateRoute(CreateRouteRequest request)
+        public virtual CreateRouteResponse CreateRoute(CreateRouteRequest request)
         {
             var marshaller = new CreateRouteRequestMarshaller();
             var unmarshaller = CreateRouteResponseUnmarshaller.Instance;
@@ -3413,7 +3469,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateRoute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateRoute">REST API Reference for CreateRoute Operation</seealso>
-        public IAsyncResult BeginCreateRoute(CreateRouteRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateRoute(CreateRouteRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateRouteRequestMarshaller();
             var unmarshaller = CreateRouteResponseUnmarshaller.Instance;
@@ -3430,7 +3486,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateRouteResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateRoute">REST API Reference for CreateRoute Operation</seealso>
-        public  CreateRouteResponse EndCreateRoute(IAsyncResult asyncResult)
+        public virtual CreateRouteResponse EndCreateRoute(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateRouteResponse>(asyncResult);
         }
@@ -3453,7 +3509,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateRouteTable service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateRouteTable">REST API Reference for CreateRouteTable Operation</seealso>
-        public CreateRouteTableResponse CreateRouteTable(CreateRouteTableRequest request)
+        public virtual CreateRouteTableResponse CreateRouteTable(CreateRouteTableRequest request)
         {
             var marshaller = new CreateRouteTableRequestMarshaller();
             var unmarshaller = CreateRouteTableResponseUnmarshaller.Instance;
@@ -3473,7 +3529,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateRouteTable
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateRouteTable">REST API Reference for CreateRouteTable Operation</seealso>
-        public IAsyncResult BeginCreateRouteTable(CreateRouteTableRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateRouteTable(CreateRouteTableRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateRouteTableRequestMarshaller();
             var unmarshaller = CreateRouteTableResponseUnmarshaller.Instance;
@@ -3490,7 +3546,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateRouteTableResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateRouteTable">REST API Reference for CreateRouteTable Operation</seealso>
-        public  CreateRouteTableResponse EndCreateRouteTable(IAsyncResult asyncResult)
+        public virtual CreateRouteTableResponse EndCreateRouteTable(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateRouteTableResponse>(asyncResult);
         }
@@ -3543,7 +3599,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateSecurityGroup service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSecurityGroup">REST API Reference for CreateSecurityGroup Operation</seealso>
-        public CreateSecurityGroupResponse CreateSecurityGroup(CreateSecurityGroupRequest request)
+        public virtual CreateSecurityGroupResponse CreateSecurityGroup(CreateSecurityGroupRequest request)
         {
             var marshaller = new CreateSecurityGroupRequestMarshaller();
             var unmarshaller = CreateSecurityGroupResponseUnmarshaller.Instance;
@@ -3563,7 +3619,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateSecurityGroup
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSecurityGroup">REST API Reference for CreateSecurityGroup Operation</seealso>
-        public IAsyncResult BeginCreateSecurityGroup(CreateSecurityGroupRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateSecurityGroup(CreateSecurityGroupRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateSecurityGroupRequestMarshaller();
             var unmarshaller = CreateSecurityGroupResponseUnmarshaller.Instance;
@@ -3580,7 +3636,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateSecurityGroupResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSecurityGroup">REST API Reference for CreateSecurityGroup Operation</seealso>
-        public  CreateSecurityGroupResponse EndCreateSecurityGroup(IAsyncResult asyncResult)
+        public virtual CreateSecurityGroupResponse EndCreateSecurityGroup(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateSecurityGroupResponse>(asyncResult);
         }
@@ -3632,7 +3688,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateSnapshot service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSnapshot">REST API Reference for CreateSnapshot Operation</seealso>
-        public CreateSnapshotResponse CreateSnapshot(CreateSnapshotRequest request)
+        public virtual CreateSnapshotResponse CreateSnapshot(CreateSnapshotRequest request)
         {
             var marshaller = new CreateSnapshotRequestMarshaller();
             var unmarshaller = CreateSnapshotResponseUnmarshaller.Instance;
@@ -3652,7 +3708,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateSnapshot
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSnapshot">REST API Reference for CreateSnapshot Operation</seealso>
-        public IAsyncResult BeginCreateSnapshot(CreateSnapshotRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateSnapshot(CreateSnapshotRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateSnapshotRequestMarshaller();
             var unmarshaller = CreateSnapshotResponseUnmarshaller.Instance;
@@ -3669,7 +3725,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateSnapshotResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSnapshot">REST API Reference for CreateSnapshot Operation</seealso>
-        public  CreateSnapshotResponse EndCreateSnapshot(IAsyncResult asyncResult)
+        public virtual CreateSnapshotResponse EndCreateSnapshot(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateSnapshotResponse>(asyncResult);
         }
@@ -3687,7 +3743,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateSpotDatafeedSubscription service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSpotDatafeedSubscription">REST API Reference for CreateSpotDatafeedSubscription Operation</seealso>
-        public CreateSpotDatafeedSubscriptionResponse CreateSpotDatafeedSubscription(CreateSpotDatafeedSubscriptionRequest request)
+        public virtual CreateSpotDatafeedSubscriptionResponse CreateSpotDatafeedSubscription(CreateSpotDatafeedSubscriptionRequest request)
         {
             var marshaller = new CreateSpotDatafeedSubscriptionRequestMarshaller();
             var unmarshaller = CreateSpotDatafeedSubscriptionResponseUnmarshaller.Instance;
@@ -3707,7 +3763,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateSpotDatafeedSubscription
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSpotDatafeedSubscription">REST API Reference for CreateSpotDatafeedSubscription Operation</seealso>
-        public IAsyncResult BeginCreateSpotDatafeedSubscription(CreateSpotDatafeedSubscriptionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateSpotDatafeedSubscription(CreateSpotDatafeedSubscriptionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateSpotDatafeedSubscriptionRequestMarshaller();
             var unmarshaller = CreateSpotDatafeedSubscriptionResponseUnmarshaller.Instance;
@@ -3724,7 +3780,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateSpotDatafeedSubscriptionResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSpotDatafeedSubscription">REST API Reference for CreateSpotDatafeedSubscription Operation</seealso>
-        public  CreateSpotDatafeedSubscriptionResponse EndCreateSpotDatafeedSubscription(IAsyncResult asyncResult)
+        public virtual CreateSpotDatafeedSubscriptionResponse EndCreateSpotDatafeedSubscription(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateSpotDatafeedSubscriptionResponse>(asyncResult);
         }
@@ -3779,7 +3835,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateSubnet service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSubnet">REST API Reference for CreateSubnet Operation</seealso>
-        public CreateSubnetResponse CreateSubnet(CreateSubnetRequest request)
+        public virtual CreateSubnetResponse CreateSubnet(CreateSubnetRequest request)
         {
             var marshaller = new CreateSubnetRequestMarshaller();
             var unmarshaller = CreateSubnetResponseUnmarshaller.Instance;
@@ -3799,7 +3855,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateSubnet
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSubnet">REST API Reference for CreateSubnet Operation</seealso>
-        public IAsyncResult BeginCreateSubnet(CreateSubnetRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateSubnet(CreateSubnetRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateSubnetRequestMarshaller();
             var unmarshaller = CreateSubnetResponseUnmarshaller.Instance;
@@ -3816,7 +3872,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateSubnetResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateSubnet">REST API Reference for CreateSubnet Operation</seealso>
-        public  CreateSubnetResponse EndCreateSubnet(IAsyncResult asyncResult)
+        public virtual CreateSubnetResponse EndCreateSubnet(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateSubnetResponse>(asyncResult);
         }
@@ -3844,7 +3900,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateTags service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags">REST API Reference for CreateTags Operation</seealso>
-        public CreateTagsResponse CreateTags(CreateTagsRequest request)
+        public virtual CreateTagsResponse CreateTags(CreateTagsRequest request)
         {
             var marshaller = new CreateTagsRequestMarshaller();
             var unmarshaller = CreateTagsResponseUnmarshaller.Instance;
@@ -3864,7 +3920,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateTags
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags">REST API Reference for CreateTags Operation</seealso>
-        public IAsyncResult BeginCreateTags(CreateTagsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateTags(CreateTagsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateTagsRequestMarshaller();
             var unmarshaller = CreateTagsResponseUnmarshaller.Instance;
@@ -3881,7 +3937,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateTagsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateTags">REST API Reference for CreateTags Operation</seealso>
-        public  CreateTagsResponse EndCreateTags(IAsyncResult asyncResult)
+        public virtual CreateTagsResponse EndCreateTags(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateTagsResponse>(asyncResult);
         }
@@ -3924,7 +3980,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateVolume service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVolume">REST API Reference for CreateVolume Operation</seealso>
-        public CreateVolumeResponse CreateVolume(CreateVolumeRequest request)
+        public virtual CreateVolumeResponse CreateVolume(CreateVolumeRequest request)
         {
             var marshaller = new CreateVolumeRequestMarshaller();
             var unmarshaller = CreateVolumeResponseUnmarshaller.Instance;
@@ -3944,7 +4000,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateVolume
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVolume">REST API Reference for CreateVolume Operation</seealso>
-        public IAsyncResult BeginCreateVolume(CreateVolumeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateVolume(CreateVolumeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateVolumeRequestMarshaller();
             var unmarshaller = CreateVolumeResponseUnmarshaller.Instance;
@@ -3961,7 +4017,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateVolumeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVolume">REST API Reference for CreateVolume Operation</seealso>
-        public  CreateVolumeResponse EndCreateVolume(IAsyncResult asyncResult)
+        public virtual CreateVolumeResponse EndCreateVolume(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateVolumeResponse>(asyncResult);
         }
@@ -4000,7 +4056,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateVpc service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpc">REST API Reference for CreateVpc Operation</seealso>
-        public CreateVpcResponse CreateVpc(CreateVpcRequest request)
+        public virtual CreateVpcResponse CreateVpc(CreateVpcRequest request)
         {
             var marshaller = new CreateVpcRequestMarshaller();
             var unmarshaller = CreateVpcResponseUnmarshaller.Instance;
@@ -4020,7 +4076,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateVpc
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpc">REST API Reference for CreateVpc Operation</seealso>
-        public IAsyncResult BeginCreateVpc(CreateVpcRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateVpc(CreateVpcRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateVpcRequestMarshaller();
             var unmarshaller = CreateVpcResponseUnmarshaller.Instance;
@@ -4037,7 +4093,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateVpcResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpc">REST API Reference for CreateVpc Operation</seealso>
-        public  CreateVpcResponse EndCreateVpc(IAsyncResult asyncResult)
+        public virtual CreateVpcResponse EndCreateVpc(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateVpcResponse>(asyncResult);
         }
@@ -4062,7 +4118,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateVpcEndpoint service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpcEndpoint">REST API Reference for CreateVpcEndpoint Operation</seealso>
-        public CreateVpcEndpointResponse CreateVpcEndpoint(CreateVpcEndpointRequest request)
+        public virtual CreateVpcEndpointResponse CreateVpcEndpoint(CreateVpcEndpointRequest request)
         {
             var marshaller = new CreateVpcEndpointRequestMarshaller();
             var unmarshaller = CreateVpcEndpointResponseUnmarshaller.Instance;
@@ -4082,7 +4138,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateVpcEndpoint
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpcEndpoint">REST API Reference for CreateVpcEndpoint Operation</seealso>
-        public IAsyncResult BeginCreateVpcEndpoint(CreateVpcEndpointRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateVpcEndpoint(CreateVpcEndpointRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateVpcEndpointRequestMarshaller();
             var unmarshaller = CreateVpcEndpointResponseUnmarshaller.Instance;
@@ -4099,7 +4155,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateVpcEndpointResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpcEndpoint">REST API Reference for CreateVpcEndpoint Operation</seealso>
-        public  CreateVpcEndpointResponse EndCreateVpcEndpoint(IAsyncResult asyncResult)
+        public virtual CreateVpcEndpointResponse EndCreateVpcEndpoint(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateVpcEndpointResponse>(asyncResult);
         }
@@ -4129,7 +4185,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the CreateVpcPeeringConnection service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpcPeeringConnection">REST API Reference for CreateVpcPeeringConnection Operation</seealso>
-        public CreateVpcPeeringConnectionResponse CreateVpcPeeringConnection(CreateVpcPeeringConnectionRequest request)
+        public virtual CreateVpcPeeringConnectionResponse CreateVpcPeeringConnection(CreateVpcPeeringConnectionRequest request)
         {
             var marshaller = new CreateVpcPeeringConnectionRequestMarshaller();
             var unmarshaller = CreateVpcPeeringConnectionResponseUnmarshaller.Instance;
@@ -4149,7 +4205,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateVpcPeeringConnection
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpcPeeringConnection">REST API Reference for CreateVpcPeeringConnection Operation</seealso>
-        public IAsyncResult BeginCreateVpcPeeringConnection(CreateVpcPeeringConnectionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateVpcPeeringConnection(CreateVpcPeeringConnectionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateVpcPeeringConnectionRequestMarshaller();
             var unmarshaller = CreateVpcPeeringConnectionResponseUnmarshaller.Instance;
@@ -4166,7 +4222,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateVpcPeeringConnectionResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpcPeeringConnection">REST API Reference for CreateVpcPeeringConnection Operation</seealso>
-        public  CreateVpcPeeringConnectionResponse EndCreateVpcPeeringConnection(IAsyncResult asyncResult)
+        public virtual CreateVpcPeeringConnectionResponse EndCreateVpcPeeringConnection(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateVpcPeeringConnectionResponse>(asyncResult);
         }
@@ -4202,16 +4258,15 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnConnection service method.</param>
         /// 
         /// <returns>The response from the CreateVpnConnection service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnection">REST API Reference for CreateVpnConnection Operation</seealso>
-        public CreateVpnConnectionResponse CreateVpnConnection(CreateVpnConnectionRequest request)
+        public virtual CreateVpnConnectionResponse CreateVpnConnection(CreateVpnConnectionRequest request)
         {
             var marshaller = new CreateVpnConnectionRequestMarshaller();
             var unmarshaller = CreateVpnConnectionResponseUnmarshaller.Instance;
@@ -4231,7 +4286,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateVpnConnection
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnection">REST API Reference for CreateVpnConnection Operation</seealso>
-        public IAsyncResult BeginCreateVpnConnection(CreateVpnConnectionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateVpnConnection(CreateVpnConnectionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateVpnConnectionRequestMarshaller();
             var unmarshaller = CreateVpnConnectionResponseUnmarshaller.Instance;
@@ -4248,7 +4303,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateVpnConnectionResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnection">REST API Reference for CreateVpnConnection Operation</seealso>
-        public  CreateVpnConnectionResponse EndCreateVpnConnection(IAsyncResult asyncResult)
+        public virtual CreateVpnConnectionResponse EndCreateVpnConnection(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateVpnConnectionResponse>(asyncResult);
         }
@@ -4264,16 +4319,15 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnConnectionRoute service method.</param>
         /// 
         /// <returns>The response from the CreateVpnConnectionRoute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnectionRoute">REST API Reference for CreateVpnConnectionRoute Operation</seealso>
-        public CreateVpnConnectionRouteResponse CreateVpnConnectionRoute(CreateVpnConnectionRouteRequest request)
+        public virtual CreateVpnConnectionRouteResponse CreateVpnConnectionRoute(CreateVpnConnectionRouteRequest request)
         {
             var marshaller = new CreateVpnConnectionRouteRequestMarshaller();
             var unmarshaller = CreateVpnConnectionRouteResponseUnmarshaller.Instance;
@@ -4293,7 +4347,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateVpnConnectionRoute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnectionRoute">REST API Reference for CreateVpnConnectionRoute Operation</seealso>
-        public IAsyncResult BeginCreateVpnConnectionRoute(CreateVpnConnectionRouteRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateVpnConnectionRoute(CreateVpnConnectionRouteRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateVpnConnectionRouteRequestMarshaller();
             var unmarshaller = CreateVpnConnectionRouteResponseUnmarshaller.Instance;
@@ -4310,7 +4364,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateVpnConnectionRouteResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnConnectionRoute">REST API Reference for CreateVpnConnectionRoute Operation</seealso>
-        public  CreateVpnConnectionRouteResponse EndCreateVpnConnectionRoute(IAsyncResult asyncResult)
+        public virtual CreateVpnConnectionRouteResponse EndCreateVpnConnectionRoute(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateVpnConnectionRouteResponse>(asyncResult);
         }
@@ -4326,16 +4380,15 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnGateway service method.</param>
         /// 
         /// <returns>The response from the CreateVpnGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnGateway">REST API Reference for CreateVpnGateway Operation</seealso>
-        public CreateVpnGatewayResponse CreateVpnGateway(CreateVpnGatewayRequest request)
+        public virtual CreateVpnGatewayResponse CreateVpnGateway(CreateVpnGatewayRequest request)
         {
             var marshaller = new CreateVpnGatewayRequestMarshaller();
             var unmarshaller = CreateVpnGatewayResponseUnmarshaller.Instance;
@@ -4355,7 +4408,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateVpnGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnGateway">REST API Reference for CreateVpnGateway Operation</seealso>
-        public IAsyncResult BeginCreateVpnGateway(CreateVpnGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateVpnGateway(CreateVpnGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateVpnGatewayRequestMarshaller();
             var unmarshaller = CreateVpnGatewayResponseUnmarshaller.Instance;
@@ -4372,7 +4425,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  CreateVpnGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpnGateway">REST API Reference for CreateVpnGateway Operation</seealso>
-        public  CreateVpnGatewayResponse EndCreateVpnGateway(IAsyncResult asyncResult)
+        public virtual CreateVpnGatewayResponse EndCreateVpnGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateVpnGatewayResponse>(asyncResult);
         }
@@ -4389,7 +4442,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteCustomerGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteCustomerGateway">REST API Reference for DeleteCustomerGateway Operation</seealso>
-        public DeleteCustomerGatewayResponse DeleteCustomerGateway(DeleteCustomerGatewayRequest request)
+        public virtual DeleteCustomerGatewayResponse DeleteCustomerGateway(DeleteCustomerGatewayRequest request)
         {
             var marshaller = new DeleteCustomerGatewayRequestMarshaller();
             var unmarshaller = DeleteCustomerGatewayResponseUnmarshaller.Instance;
@@ -4409,7 +4462,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteCustomerGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteCustomerGateway">REST API Reference for DeleteCustomerGateway Operation</seealso>
-        public IAsyncResult BeginDeleteCustomerGateway(DeleteCustomerGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteCustomerGateway(DeleteCustomerGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteCustomerGatewayRequestMarshaller();
             var unmarshaller = DeleteCustomerGatewayResponseUnmarshaller.Instance;
@@ -4426,7 +4479,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteCustomerGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteCustomerGateway">REST API Reference for DeleteCustomerGateway Operation</seealso>
-        public  DeleteCustomerGatewayResponse EndDeleteCustomerGateway(IAsyncResult asyncResult)
+        public virtual DeleteCustomerGatewayResponse EndDeleteCustomerGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteCustomerGatewayResponse>(asyncResult);
         }
@@ -4444,7 +4497,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteDhcpOptions service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteDhcpOptions">REST API Reference for DeleteDhcpOptions Operation</seealso>
-        public DeleteDhcpOptionsResponse DeleteDhcpOptions(DeleteDhcpOptionsRequest request)
+        public virtual DeleteDhcpOptionsResponse DeleteDhcpOptions(DeleteDhcpOptionsRequest request)
         {
             var marshaller = new DeleteDhcpOptionsRequestMarshaller();
             var unmarshaller = DeleteDhcpOptionsResponseUnmarshaller.Instance;
@@ -4464,7 +4517,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteDhcpOptions
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteDhcpOptions">REST API Reference for DeleteDhcpOptions Operation</seealso>
-        public IAsyncResult BeginDeleteDhcpOptions(DeleteDhcpOptionsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteDhcpOptions(DeleteDhcpOptionsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteDhcpOptionsRequestMarshaller();
             var unmarshaller = DeleteDhcpOptionsResponseUnmarshaller.Instance;
@@ -4481,7 +4534,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteDhcpOptionsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteDhcpOptions">REST API Reference for DeleteDhcpOptions Operation</seealso>
-        public  DeleteDhcpOptionsResponse EndDeleteDhcpOptions(IAsyncResult asyncResult)
+        public virtual DeleteDhcpOptionsResponse EndDeleteDhcpOptions(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteDhcpOptionsResponse>(asyncResult);
         }
@@ -4497,7 +4550,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteEgressOnlyInternetGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteEgressOnlyInternetGateway">REST API Reference for DeleteEgressOnlyInternetGateway Operation</seealso>
-        public DeleteEgressOnlyInternetGatewayResponse DeleteEgressOnlyInternetGateway(DeleteEgressOnlyInternetGatewayRequest request)
+        public virtual DeleteEgressOnlyInternetGatewayResponse DeleteEgressOnlyInternetGateway(DeleteEgressOnlyInternetGatewayRequest request)
         {
             var marshaller = new DeleteEgressOnlyInternetGatewayRequestMarshaller();
             var unmarshaller = DeleteEgressOnlyInternetGatewayResponseUnmarshaller.Instance;
@@ -4517,7 +4570,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteEgressOnlyInternetGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteEgressOnlyInternetGateway">REST API Reference for DeleteEgressOnlyInternetGateway Operation</seealso>
-        public IAsyncResult BeginDeleteEgressOnlyInternetGateway(DeleteEgressOnlyInternetGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteEgressOnlyInternetGateway(DeleteEgressOnlyInternetGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteEgressOnlyInternetGatewayRequestMarshaller();
             var unmarshaller = DeleteEgressOnlyInternetGatewayResponseUnmarshaller.Instance;
@@ -4534,7 +4587,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteEgressOnlyInternetGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteEgressOnlyInternetGateway">REST API Reference for DeleteEgressOnlyInternetGateway Operation</seealso>
-        public  DeleteEgressOnlyInternetGatewayResponse EndDeleteEgressOnlyInternetGateway(IAsyncResult asyncResult)
+        public virtual DeleteEgressOnlyInternetGatewayResponse EndDeleteEgressOnlyInternetGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteEgressOnlyInternetGatewayResponse>(asyncResult);
         }
@@ -4550,7 +4603,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteFlowLogs service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteFlowLogs">REST API Reference for DeleteFlowLogs Operation</seealso>
-        public DeleteFlowLogsResponse DeleteFlowLogs(DeleteFlowLogsRequest request)
+        public virtual DeleteFlowLogsResponse DeleteFlowLogs(DeleteFlowLogsRequest request)
         {
             var marshaller = new DeleteFlowLogsRequestMarshaller();
             var unmarshaller = DeleteFlowLogsResponseUnmarshaller.Instance;
@@ -4570,7 +4623,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteFlowLogs
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteFlowLogs">REST API Reference for DeleteFlowLogs Operation</seealso>
-        public IAsyncResult BeginDeleteFlowLogs(DeleteFlowLogsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteFlowLogs(DeleteFlowLogsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteFlowLogsRequestMarshaller();
             var unmarshaller = DeleteFlowLogsResponseUnmarshaller.Instance;
@@ -4587,9 +4640,62 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteFlowLogsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteFlowLogs">REST API Reference for DeleteFlowLogs Operation</seealso>
-        public  DeleteFlowLogsResponse EndDeleteFlowLogs(IAsyncResult asyncResult)
+        public virtual DeleteFlowLogsResponse EndDeleteFlowLogs(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteFlowLogsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DeleteFpgaImage
+
+        /// <summary>
+        /// Deletes the specified Amazon FPGA Image (AFI).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteFpgaImage service method.</param>
+        /// 
+        /// <returns>The response from the DeleteFpgaImage service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteFpgaImage">REST API Reference for DeleteFpgaImage Operation</seealso>
+        public virtual DeleteFpgaImageResponse DeleteFpgaImage(DeleteFpgaImageRequest request)
+        {
+            var marshaller = new DeleteFpgaImageRequestMarshaller();
+            var unmarshaller = DeleteFpgaImageResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteFpgaImageRequest,DeleteFpgaImageResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteFpgaImage operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteFpgaImage operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteFpgaImage
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteFpgaImage">REST API Reference for DeleteFpgaImage Operation</seealso>
+        public virtual IAsyncResult BeginDeleteFpgaImage(DeleteFpgaImageRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new DeleteFpgaImageRequestMarshaller();
+            var unmarshaller = DeleteFpgaImageResponseUnmarshaller.Instance;
+
+            return BeginInvoke<DeleteFpgaImageRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteFpgaImage operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteFpgaImage.</param>
+        /// 
+        /// <returns>Returns a  DeleteFpgaImageResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteFpgaImage">REST API Reference for DeleteFpgaImage Operation</seealso>
+        public virtual DeleteFpgaImageResponse EndDeleteFpgaImage(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteFpgaImageResponse>(asyncResult);
         }
 
         #endregion
@@ -4604,7 +4710,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteInternetGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteInternetGateway">REST API Reference for DeleteInternetGateway Operation</seealso>
-        public DeleteInternetGatewayResponse DeleteInternetGateway(DeleteInternetGatewayRequest request)
+        public virtual DeleteInternetGatewayResponse DeleteInternetGateway(DeleteInternetGatewayRequest request)
         {
             var marshaller = new DeleteInternetGatewayRequestMarshaller();
             var unmarshaller = DeleteInternetGatewayResponseUnmarshaller.Instance;
@@ -4624,7 +4730,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteInternetGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteInternetGateway">REST API Reference for DeleteInternetGateway Operation</seealso>
-        public IAsyncResult BeginDeleteInternetGateway(DeleteInternetGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteInternetGateway(DeleteInternetGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteInternetGatewayRequestMarshaller();
             var unmarshaller = DeleteInternetGatewayResponseUnmarshaller.Instance;
@@ -4641,7 +4747,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteInternetGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteInternetGateway">REST API Reference for DeleteInternetGateway Operation</seealso>
-        public  DeleteInternetGatewayResponse EndDeleteInternetGateway(IAsyncResult asyncResult)
+        public virtual DeleteInternetGatewayResponse EndDeleteInternetGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteInternetGatewayResponse>(asyncResult);
         }
@@ -4657,7 +4763,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteKeyPair service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteKeyPair">REST API Reference for DeleteKeyPair Operation</seealso>
-        public DeleteKeyPairResponse DeleteKeyPair(DeleteKeyPairRequest request)
+        public virtual DeleteKeyPairResponse DeleteKeyPair(DeleteKeyPairRequest request)
         {
             var marshaller = new DeleteKeyPairRequestMarshaller();
             var unmarshaller = DeleteKeyPairResponseUnmarshaller.Instance;
@@ -4677,7 +4783,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteKeyPair
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteKeyPair">REST API Reference for DeleteKeyPair Operation</seealso>
-        public IAsyncResult BeginDeleteKeyPair(DeleteKeyPairRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteKeyPair(DeleteKeyPairRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteKeyPairRequestMarshaller();
             var unmarshaller = DeleteKeyPairResponseUnmarshaller.Instance;
@@ -4694,7 +4800,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteKeyPairResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteKeyPair">REST API Reference for DeleteKeyPair Operation</seealso>
-        public  DeleteKeyPairResponse EndDeleteKeyPair(IAsyncResult asyncResult)
+        public virtual DeleteKeyPairResponse EndDeleteKeyPair(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteKeyPairResponse>(asyncResult);
         }
@@ -4712,7 +4818,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteNatGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNatGateway">REST API Reference for DeleteNatGateway Operation</seealso>
-        public DeleteNatGatewayResponse DeleteNatGateway(DeleteNatGatewayRequest request)
+        public virtual DeleteNatGatewayResponse DeleteNatGateway(DeleteNatGatewayRequest request)
         {
             var marshaller = new DeleteNatGatewayRequestMarshaller();
             var unmarshaller = DeleteNatGatewayResponseUnmarshaller.Instance;
@@ -4732,7 +4838,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteNatGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNatGateway">REST API Reference for DeleteNatGateway Operation</seealso>
-        public IAsyncResult BeginDeleteNatGateway(DeleteNatGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteNatGateway(DeleteNatGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteNatGatewayRequestMarshaller();
             var unmarshaller = DeleteNatGatewayResponseUnmarshaller.Instance;
@@ -4749,7 +4855,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteNatGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNatGateway">REST API Reference for DeleteNatGateway Operation</seealso>
-        public  DeleteNatGatewayResponse EndDeleteNatGateway(IAsyncResult asyncResult)
+        public virtual DeleteNatGatewayResponse EndDeleteNatGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteNatGatewayResponse>(asyncResult);
         }
@@ -4766,7 +4872,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteNetworkAcl service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkAcl">REST API Reference for DeleteNetworkAcl Operation</seealso>
-        public DeleteNetworkAclResponse DeleteNetworkAcl(DeleteNetworkAclRequest request)
+        public virtual DeleteNetworkAclResponse DeleteNetworkAcl(DeleteNetworkAclRequest request)
         {
             var marshaller = new DeleteNetworkAclRequestMarshaller();
             var unmarshaller = DeleteNetworkAclResponseUnmarshaller.Instance;
@@ -4786,7 +4892,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteNetworkAcl
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkAcl">REST API Reference for DeleteNetworkAcl Operation</seealso>
-        public IAsyncResult BeginDeleteNetworkAcl(DeleteNetworkAclRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteNetworkAcl(DeleteNetworkAclRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteNetworkAclRequestMarshaller();
             var unmarshaller = DeleteNetworkAclResponseUnmarshaller.Instance;
@@ -4803,7 +4909,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteNetworkAclResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkAcl">REST API Reference for DeleteNetworkAcl Operation</seealso>
-        public  DeleteNetworkAclResponse EndDeleteNetworkAcl(IAsyncResult asyncResult)
+        public virtual DeleteNetworkAclResponse EndDeleteNetworkAcl(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteNetworkAclResponse>(asyncResult);
         }
@@ -4819,7 +4925,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteNetworkAclEntry service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkAclEntry">REST API Reference for DeleteNetworkAclEntry Operation</seealso>
-        public DeleteNetworkAclEntryResponse DeleteNetworkAclEntry(DeleteNetworkAclEntryRequest request)
+        public virtual DeleteNetworkAclEntryResponse DeleteNetworkAclEntry(DeleteNetworkAclEntryRequest request)
         {
             var marshaller = new DeleteNetworkAclEntryRequestMarshaller();
             var unmarshaller = DeleteNetworkAclEntryResponseUnmarshaller.Instance;
@@ -4839,7 +4945,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteNetworkAclEntry
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkAclEntry">REST API Reference for DeleteNetworkAclEntry Operation</seealso>
-        public IAsyncResult BeginDeleteNetworkAclEntry(DeleteNetworkAclEntryRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteNetworkAclEntry(DeleteNetworkAclEntryRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteNetworkAclEntryRequestMarshaller();
             var unmarshaller = DeleteNetworkAclEntryResponseUnmarshaller.Instance;
@@ -4856,7 +4962,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteNetworkAclEntryResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkAclEntry">REST API Reference for DeleteNetworkAclEntry Operation</seealso>
-        public  DeleteNetworkAclEntryResponse EndDeleteNetworkAclEntry(IAsyncResult asyncResult)
+        public virtual DeleteNetworkAclEntryResponse EndDeleteNetworkAclEntry(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteNetworkAclEntryResponse>(asyncResult);
         }
@@ -4873,7 +4979,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteNetworkInterface service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInterface">REST API Reference for DeleteNetworkInterface Operation</seealso>
-        public DeleteNetworkInterfaceResponse DeleteNetworkInterface(DeleteNetworkInterfaceRequest request)
+        public virtual DeleteNetworkInterfaceResponse DeleteNetworkInterface(DeleteNetworkInterfaceRequest request)
         {
             var marshaller = new DeleteNetworkInterfaceRequestMarshaller();
             var unmarshaller = DeleteNetworkInterfaceResponseUnmarshaller.Instance;
@@ -4893,7 +4999,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteNetworkInterface
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInterface">REST API Reference for DeleteNetworkInterface Operation</seealso>
-        public IAsyncResult BeginDeleteNetworkInterface(DeleteNetworkInterfaceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteNetworkInterface(DeleteNetworkInterfaceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteNetworkInterfaceRequestMarshaller();
             var unmarshaller = DeleteNetworkInterfaceResponseUnmarshaller.Instance;
@@ -4910,7 +5016,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteNetworkInterfaceResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInterface">REST API Reference for DeleteNetworkInterface Operation</seealso>
-        public  DeleteNetworkInterfaceResponse EndDeleteNetworkInterface(IAsyncResult asyncResult)
+        public virtual DeleteNetworkInterfaceResponse EndDeleteNetworkInterface(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteNetworkInterfaceResponse>(asyncResult);
         }
@@ -4928,7 +5034,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteNetworkInterfacePermission service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInterfacePermission">REST API Reference for DeleteNetworkInterfacePermission Operation</seealso>
-        public DeleteNetworkInterfacePermissionResponse DeleteNetworkInterfacePermission(DeleteNetworkInterfacePermissionRequest request)
+        public virtual DeleteNetworkInterfacePermissionResponse DeleteNetworkInterfacePermission(DeleteNetworkInterfacePermissionRequest request)
         {
             var marshaller = new DeleteNetworkInterfacePermissionRequestMarshaller();
             var unmarshaller = DeleteNetworkInterfacePermissionResponseUnmarshaller.Instance;
@@ -4948,7 +5054,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteNetworkInterfacePermission
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInterfacePermission">REST API Reference for DeleteNetworkInterfacePermission Operation</seealso>
-        public IAsyncResult BeginDeleteNetworkInterfacePermission(DeleteNetworkInterfacePermissionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteNetworkInterfacePermission(DeleteNetworkInterfacePermissionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteNetworkInterfacePermissionRequestMarshaller();
             var unmarshaller = DeleteNetworkInterfacePermissionResponseUnmarshaller.Instance;
@@ -4965,7 +5071,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteNetworkInterfacePermissionResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteNetworkInterfacePermission">REST API Reference for DeleteNetworkInterfacePermission Operation</seealso>
-        public  DeleteNetworkInterfacePermissionResponse EndDeleteNetworkInterfacePermission(IAsyncResult asyncResult)
+        public virtual DeleteNetworkInterfacePermissionResponse EndDeleteNetworkInterfacePermission(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteNetworkInterfacePermissionResponse>(asyncResult);
         }
@@ -4984,7 +5090,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeletePlacementGroup service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeletePlacementGroup">REST API Reference for DeletePlacementGroup Operation</seealso>
-        public DeletePlacementGroupResponse DeletePlacementGroup(DeletePlacementGroupRequest request)
+        public virtual DeletePlacementGroupResponse DeletePlacementGroup(DeletePlacementGroupRequest request)
         {
             var marshaller = new DeletePlacementGroupRequestMarshaller();
             var unmarshaller = DeletePlacementGroupResponseUnmarshaller.Instance;
@@ -5004,7 +5110,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeletePlacementGroup
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeletePlacementGroup">REST API Reference for DeletePlacementGroup Operation</seealso>
-        public IAsyncResult BeginDeletePlacementGroup(DeletePlacementGroupRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeletePlacementGroup(DeletePlacementGroupRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeletePlacementGroupRequestMarshaller();
             var unmarshaller = DeletePlacementGroupResponseUnmarshaller.Instance;
@@ -5021,7 +5127,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeletePlacementGroupResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeletePlacementGroup">REST API Reference for DeletePlacementGroup Operation</seealso>
-        public  DeletePlacementGroupResponse EndDeletePlacementGroup(IAsyncResult asyncResult)
+        public virtual DeletePlacementGroupResponse EndDeletePlacementGroup(IAsyncResult asyncResult)
         {
             return EndInvoke<DeletePlacementGroupResponse>(asyncResult);
         }
@@ -5037,7 +5143,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteRoute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteRoute">REST API Reference for DeleteRoute Operation</seealso>
-        public DeleteRouteResponse DeleteRoute(DeleteRouteRequest request)
+        public virtual DeleteRouteResponse DeleteRoute(DeleteRouteRequest request)
         {
             var marshaller = new DeleteRouteRequestMarshaller();
             var unmarshaller = DeleteRouteResponseUnmarshaller.Instance;
@@ -5057,7 +5163,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteRoute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteRoute">REST API Reference for DeleteRoute Operation</seealso>
-        public IAsyncResult BeginDeleteRoute(DeleteRouteRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteRoute(DeleteRouteRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteRouteRequestMarshaller();
             var unmarshaller = DeleteRouteResponseUnmarshaller.Instance;
@@ -5074,7 +5180,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteRouteResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteRoute">REST API Reference for DeleteRoute Operation</seealso>
-        public  DeleteRouteResponse EndDeleteRoute(IAsyncResult asyncResult)
+        public virtual DeleteRouteResponse EndDeleteRoute(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteRouteResponse>(asyncResult);
         }
@@ -5091,7 +5197,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteRouteTable service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteRouteTable">REST API Reference for DeleteRouteTable Operation</seealso>
-        public DeleteRouteTableResponse DeleteRouteTable(DeleteRouteTableRequest request)
+        public virtual DeleteRouteTableResponse DeleteRouteTable(DeleteRouteTableRequest request)
         {
             var marshaller = new DeleteRouteTableRequestMarshaller();
             var unmarshaller = DeleteRouteTableResponseUnmarshaller.Instance;
@@ -5111,7 +5217,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteRouteTable
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteRouteTable">REST API Reference for DeleteRouteTable Operation</seealso>
-        public IAsyncResult BeginDeleteRouteTable(DeleteRouteTableRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteRouteTable(DeleteRouteTableRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteRouteTableRequestMarshaller();
             var unmarshaller = DeleteRouteTableResponseUnmarshaller.Instance;
@@ -5128,7 +5234,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteRouteTableResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteRouteTable">REST API Reference for DeleteRouteTable Operation</seealso>
-        public  DeleteRouteTableResponse EndDeleteRouteTable(IAsyncResult asyncResult)
+        public virtual DeleteRouteTableResponse EndDeleteRouteTable(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteRouteTableResponse>(asyncResult);
         }
@@ -5151,7 +5257,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteSecurityGroup service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSecurityGroup">REST API Reference for DeleteSecurityGroup Operation</seealso>
-        public DeleteSecurityGroupResponse DeleteSecurityGroup(DeleteSecurityGroupRequest request)
+        public virtual DeleteSecurityGroupResponse DeleteSecurityGroup(DeleteSecurityGroupRequest request)
         {
             var marshaller = new DeleteSecurityGroupRequestMarshaller();
             var unmarshaller = DeleteSecurityGroupResponseUnmarshaller.Instance;
@@ -5171,7 +5277,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteSecurityGroup
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSecurityGroup">REST API Reference for DeleteSecurityGroup Operation</seealso>
-        public IAsyncResult BeginDeleteSecurityGroup(DeleteSecurityGroupRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteSecurityGroup(DeleteSecurityGroupRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteSecurityGroupRequestMarshaller();
             var unmarshaller = DeleteSecurityGroupResponseUnmarshaller.Instance;
@@ -5188,7 +5294,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteSecurityGroupResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSecurityGroup">REST API Reference for DeleteSecurityGroup Operation</seealso>
-        public  DeleteSecurityGroupResponse EndDeleteSecurityGroup(IAsyncResult asyncResult)
+        public virtual DeleteSecurityGroupResponse EndDeleteSecurityGroup(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteSecurityGroupResponse>(asyncResult);
         }
@@ -5223,7 +5329,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteSnapshot service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSnapshot">REST API Reference for DeleteSnapshot Operation</seealso>
-        public DeleteSnapshotResponse DeleteSnapshot(DeleteSnapshotRequest request)
+        public virtual DeleteSnapshotResponse DeleteSnapshot(DeleteSnapshotRequest request)
         {
             var marshaller = new DeleteSnapshotRequestMarshaller();
             var unmarshaller = DeleteSnapshotResponseUnmarshaller.Instance;
@@ -5243,7 +5349,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteSnapshot
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSnapshot">REST API Reference for DeleteSnapshot Operation</seealso>
-        public IAsyncResult BeginDeleteSnapshot(DeleteSnapshotRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteSnapshot(DeleteSnapshotRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteSnapshotRequestMarshaller();
             var unmarshaller = DeleteSnapshotResponseUnmarshaller.Instance;
@@ -5260,7 +5366,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteSnapshotResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSnapshot">REST API Reference for DeleteSnapshot Operation</seealso>
-        public  DeleteSnapshotResponse EndDeleteSnapshot(IAsyncResult asyncResult)
+        public virtual DeleteSnapshotResponse EndDeleteSnapshot(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteSnapshotResponse>(asyncResult);
         }
@@ -5275,7 +5381,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteSpotDatafeedSubscription service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSpotDatafeedSubscription">REST API Reference for DeleteSpotDatafeedSubscription Operation</seealso>
-        public DeleteSpotDatafeedSubscriptionResponse DeleteSpotDatafeedSubscription()
+        public virtual DeleteSpotDatafeedSubscriptionResponse DeleteSpotDatafeedSubscription()
         {
             return DeleteSpotDatafeedSubscription(new DeleteSpotDatafeedSubscriptionRequest());
         }
@@ -5287,7 +5393,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteSpotDatafeedSubscription service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSpotDatafeedSubscription">REST API Reference for DeleteSpotDatafeedSubscription Operation</seealso>
-        public DeleteSpotDatafeedSubscriptionResponse DeleteSpotDatafeedSubscription(DeleteSpotDatafeedSubscriptionRequest request)
+        public virtual DeleteSpotDatafeedSubscriptionResponse DeleteSpotDatafeedSubscription(DeleteSpotDatafeedSubscriptionRequest request)
         {
             var marshaller = new DeleteSpotDatafeedSubscriptionRequestMarshaller();
             var unmarshaller = DeleteSpotDatafeedSubscriptionResponseUnmarshaller.Instance;
@@ -5307,7 +5413,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteSpotDatafeedSubscription
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSpotDatafeedSubscription">REST API Reference for DeleteSpotDatafeedSubscription Operation</seealso>
-        public IAsyncResult BeginDeleteSpotDatafeedSubscription(DeleteSpotDatafeedSubscriptionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteSpotDatafeedSubscription(DeleteSpotDatafeedSubscriptionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteSpotDatafeedSubscriptionRequestMarshaller();
             var unmarshaller = DeleteSpotDatafeedSubscriptionResponseUnmarshaller.Instance;
@@ -5324,7 +5430,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteSpotDatafeedSubscriptionResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSpotDatafeedSubscription">REST API Reference for DeleteSpotDatafeedSubscription Operation</seealso>
-        public  DeleteSpotDatafeedSubscriptionResponse EndDeleteSpotDatafeedSubscription(IAsyncResult asyncResult)
+        public virtual DeleteSpotDatafeedSubscriptionResponse EndDeleteSpotDatafeedSubscription(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteSpotDatafeedSubscriptionResponse>(asyncResult);
         }
@@ -5341,7 +5447,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteSubnet service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSubnet">REST API Reference for DeleteSubnet Operation</seealso>
-        public DeleteSubnetResponse DeleteSubnet(DeleteSubnetRequest request)
+        public virtual DeleteSubnetResponse DeleteSubnet(DeleteSubnetRequest request)
         {
             var marshaller = new DeleteSubnetRequestMarshaller();
             var unmarshaller = DeleteSubnetResponseUnmarshaller.Instance;
@@ -5361,7 +5467,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteSubnet
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSubnet">REST API Reference for DeleteSubnet Operation</seealso>
-        public IAsyncResult BeginDeleteSubnet(DeleteSubnetRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteSubnet(DeleteSubnetRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteSubnetRequestMarshaller();
             var unmarshaller = DeleteSubnetResponseUnmarshaller.Instance;
@@ -5378,7 +5484,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteSubnetResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteSubnet">REST API Reference for DeleteSubnet Operation</seealso>
-        public  DeleteSubnetResponse EndDeleteSubnet(IAsyncResult asyncResult)
+        public virtual DeleteSubnetResponse EndDeleteSubnet(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteSubnetResponse>(asyncResult);
         }
@@ -5401,7 +5507,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteTags service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteTags">REST API Reference for DeleteTags Operation</seealso>
-        public DeleteTagsResponse DeleteTags(DeleteTagsRequest request)
+        public virtual DeleteTagsResponse DeleteTags(DeleteTagsRequest request)
         {
             var marshaller = new DeleteTagsRequestMarshaller();
             var unmarshaller = DeleteTagsResponseUnmarshaller.Instance;
@@ -5421,7 +5527,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteTags
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteTags">REST API Reference for DeleteTags Operation</seealso>
-        public IAsyncResult BeginDeleteTags(DeleteTagsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteTags(DeleteTagsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteTagsRequestMarshaller();
             var unmarshaller = DeleteTagsResponseUnmarshaller.Instance;
@@ -5438,7 +5544,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteTagsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteTags">REST API Reference for DeleteTags Operation</seealso>
-        public  DeleteTagsResponse EndDeleteTags(IAsyncResult asyncResult)
+        public virtual DeleteTagsResponse EndDeleteTags(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteTagsResponse>(asyncResult);
         }
@@ -5465,7 +5571,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteVolume service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVolume">REST API Reference for DeleteVolume Operation</seealso>
-        public DeleteVolumeResponse DeleteVolume(DeleteVolumeRequest request)
+        public virtual DeleteVolumeResponse DeleteVolume(DeleteVolumeRequest request)
         {
             var marshaller = new DeleteVolumeRequestMarshaller();
             var unmarshaller = DeleteVolumeResponseUnmarshaller.Instance;
@@ -5485,7 +5591,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteVolume
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVolume">REST API Reference for DeleteVolume Operation</seealso>
-        public IAsyncResult BeginDeleteVolume(DeleteVolumeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteVolume(DeleteVolumeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteVolumeRequestMarshaller();
             var unmarshaller = DeleteVolumeResponseUnmarshaller.Instance;
@@ -5502,7 +5608,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteVolumeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVolume">REST API Reference for DeleteVolume Operation</seealso>
-        public  DeleteVolumeResponse EndDeleteVolume(IAsyncResult asyncResult)
+        public virtual DeleteVolumeResponse EndDeleteVolume(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteVolumeResponse>(asyncResult);
         }
@@ -5522,7 +5628,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteVpc service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpc">REST API Reference for DeleteVpc Operation</seealso>
-        public DeleteVpcResponse DeleteVpc(DeleteVpcRequest request)
+        public virtual DeleteVpcResponse DeleteVpc(DeleteVpcRequest request)
         {
             var marshaller = new DeleteVpcRequestMarshaller();
             var unmarshaller = DeleteVpcResponseUnmarshaller.Instance;
@@ -5542,7 +5648,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteVpc
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpc">REST API Reference for DeleteVpc Operation</seealso>
-        public IAsyncResult BeginDeleteVpc(DeleteVpcRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteVpc(DeleteVpcRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteVpcRequestMarshaller();
             var unmarshaller = DeleteVpcResponseUnmarshaller.Instance;
@@ -5559,7 +5665,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteVpcResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpc">REST API Reference for DeleteVpc Operation</seealso>
-        public  DeleteVpcResponse EndDeleteVpc(IAsyncResult asyncResult)
+        public virtual DeleteVpcResponse EndDeleteVpc(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteVpcResponse>(asyncResult);
         }
@@ -5576,7 +5682,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteVpcEndpoints service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpcEndpoints">REST API Reference for DeleteVpcEndpoints Operation</seealso>
-        public DeleteVpcEndpointsResponse DeleteVpcEndpoints(DeleteVpcEndpointsRequest request)
+        public virtual DeleteVpcEndpointsResponse DeleteVpcEndpoints(DeleteVpcEndpointsRequest request)
         {
             var marshaller = new DeleteVpcEndpointsRequestMarshaller();
             var unmarshaller = DeleteVpcEndpointsResponseUnmarshaller.Instance;
@@ -5596,7 +5702,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteVpcEndpoints
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpcEndpoints">REST API Reference for DeleteVpcEndpoints Operation</seealso>
-        public IAsyncResult BeginDeleteVpcEndpoints(DeleteVpcEndpointsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteVpcEndpoints(DeleteVpcEndpointsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteVpcEndpointsRequestMarshaller();
             var unmarshaller = DeleteVpcEndpointsResponseUnmarshaller.Instance;
@@ -5613,7 +5719,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteVpcEndpointsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpcEndpoints">REST API Reference for DeleteVpcEndpoints Operation</seealso>
-        public  DeleteVpcEndpointsResponse EndDeleteVpcEndpoints(IAsyncResult asyncResult)
+        public virtual DeleteVpcEndpointsResponse EndDeleteVpcEndpoints(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteVpcEndpointsResponse>(asyncResult);
         }
@@ -5632,7 +5738,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteVpcPeeringConnection service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpcPeeringConnection">REST API Reference for DeleteVpcPeeringConnection Operation</seealso>
-        public DeleteVpcPeeringConnectionResponse DeleteVpcPeeringConnection(DeleteVpcPeeringConnectionRequest request)
+        public virtual DeleteVpcPeeringConnectionResponse DeleteVpcPeeringConnection(DeleteVpcPeeringConnectionRequest request)
         {
             var marshaller = new DeleteVpcPeeringConnectionRequestMarshaller();
             var unmarshaller = DeleteVpcPeeringConnectionResponseUnmarshaller.Instance;
@@ -5652,7 +5758,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteVpcPeeringConnection
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpcPeeringConnection">REST API Reference for DeleteVpcPeeringConnection Operation</seealso>
-        public IAsyncResult BeginDeleteVpcPeeringConnection(DeleteVpcPeeringConnectionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteVpcPeeringConnection(DeleteVpcPeeringConnectionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteVpcPeeringConnectionRequestMarshaller();
             var unmarshaller = DeleteVpcPeeringConnectionResponseUnmarshaller.Instance;
@@ -5669,7 +5775,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteVpcPeeringConnectionResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpcPeeringConnection">REST API Reference for DeleteVpcPeeringConnection Operation</seealso>
-        public  DeleteVpcPeeringConnectionResponse EndDeleteVpcPeeringConnection(IAsyncResult asyncResult)
+        public virtual DeleteVpcPeeringConnectionResponse EndDeleteVpcPeeringConnection(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteVpcPeeringConnectionResponse>(asyncResult);
         }
@@ -5696,7 +5802,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteVpnConnection service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnConnection">REST API Reference for DeleteVpnConnection Operation</seealso>
-        public DeleteVpnConnectionResponse DeleteVpnConnection(DeleteVpnConnectionRequest request)
+        public virtual DeleteVpnConnectionResponse DeleteVpnConnection(DeleteVpnConnectionRequest request)
         {
             var marshaller = new DeleteVpnConnectionRequestMarshaller();
             var unmarshaller = DeleteVpnConnectionResponseUnmarshaller.Instance;
@@ -5716,7 +5822,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteVpnConnection
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnConnection">REST API Reference for DeleteVpnConnection Operation</seealso>
-        public IAsyncResult BeginDeleteVpnConnection(DeleteVpnConnectionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteVpnConnection(DeleteVpnConnectionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteVpnConnectionRequestMarshaller();
             var unmarshaller = DeleteVpnConnectionResponseUnmarshaller.Instance;
@@ -5733,7 +5839,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteVpnConnectionResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnConnection">REST API Reference for DeleteVpnConnection Operation</seealso>
-        public  DeleteVpnConnectionResponse EndDeleteVpnConnection(IAsyncResult asyncResult)
+        public virtual DeleteVpnConnectionResponse EndDeleteVpnConnection(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteVpnConnectionResponse>(asyncResult);
         }
@@ -5751,7 +5857,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteVpnConnectionRoute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnConnectionRoute">REST API Reference for DeleteVpnConnectionRoute Operation</seealso>
-        public DeleteVpnConnectionRouteResponse DeleteVpnConnectionRoute(DeleteVpnConnectionRouteRequest request)
+        public virtual DeleteVpnConnectionRouteResponse DeleteVpnConnectionRoute(DeleteVpnConnectionRouteRequest request)
         {
             var marshaller = new DeleteVpnConnectionRouteRequestMarshaller();
             var unmarshaller = DeleteVpnConnectionRouteResponseUnmarshaller.Instance;
@@ -5771,7 +5877,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteVpnConnectionRoute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnConnectionRoute">REST API Reference for DeleteVpnConnectionRoute Operation</seealso>
-        public IAsyncResult BeginDeleteVpnConnectionRoute(DeleteVpnConnectionRouteRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteVpnConnectionRoute(DeleteVpnConnectionRouteRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteVpnConnectionRouteRequestMarshaller();
             var unmarshaller = DeleteVpnConnectionRouteResponseUnmarshaller.Instance;
@@ -5788,7 +5894,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteVpnConnectionRouteResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnConnectionRoute">REST API Reference for DeleteVpnConnectionRoute Operation</seealso>
-        public  DeleteVpnConnectionRouteResponse EndDeleteVpnConnectionRoute(IAsyncResult asyncResult)
+        public virtual DeleteVpnConnectionRouteResponse EndDeleteVpnConnectionRoute(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteVpnConnectionRouteResponse>(asyncResult);
         }
@@ -5807,7 +5913,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeleteVpnGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnGateway">REST API Reference for DeleteVpnGateway Operation</seealso>
-        public DeleteVpnGatewayResponse DeleteVpnGateway(DeleteVpnGatewayRequest request)
+        public virtual DeleteVpnGatewayResponse DeleteVpnGateway(DeleteVpnGatewayRequest request)
         {
             var marshaller = new DeleteVpnGatewayRequestMarshaller();
             var unmarshaller = DeleteVpnGatewayResponseUnmarshaller.Instance;
@@ -5827,7 +5933,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteVpnGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnGateway">REST API Reference for DeleteVpnGateway Operation</seealso>
-        public IAsyncResult BeginDeleteVpnGateway(DeleteVpnGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteVpnGateway(DeleteVpnGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteVpnGatewayRequestMarshaller();
             var unmarshaller = DeleteVpnGatewayResponseUnmarshaller.Instance;
@@ -5844,7 +5950,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeleteVpnGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpnGateway">REST API Reference for DeleteVpnGateway Operation</seealso>
-        public  DeleteVpnGatewayResponse EndDeleteVpnGateway(IAsyncResult asyncResult)
+        public virtual DeleteVpnGatewayResponse EndDeleteVpnGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteVpnGatewayResponse>(asyncResult);
         }
@@ -5871,7 +5977,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DeregisterImage service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeregisterImage">REST API Reference for DeregisterImage Operation</seealso>
-        public DeregisterImageResponse DeregisterImage(DeregisterImageRequest request)
+        public virtual DeregisterImageResponse DeregisterImage(DeregisterImageRequest request)
         {
             var marshaller = new DeregisterImageRequestMarshaller();
             var unmarshaller = DeregisterImageResponseUnmarshaller.Instance;
@@ -5891,7 +5997,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeregisterImage
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeregisterImage">REST API Reference for DeregisterImage Operation</seealso>
-        public IAsyncResult BeginDeregisterImage(DeregisterImageRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeregisterImage(DeregisterImageRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeregisterImageRequestMarshaller();
             var unmarshaller = DeregisterImageResponseUnmarshaller.Instance;
@@ -5908,7 +6014,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DeregisterImageResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeregisterImage">REST API Reference for DeregisterImage Operation</seealso>
-        public  DeregisterImageResponse EndDeregisterImage(IAsyncResult asyncResult)
+        public virtual DeregisterImageResponse EndDeregisterImage(IAsyncResult asyncResult)
         {
             return EndInvoke<DeregisterImageResponse>(asyncResult);
         }
@@ -5955,7 +6061,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeAccountAttributes service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAccountAttributes">REST API Reference for DescribeAccountAttributes Operation</seealso>
-        public DescribeAccountAttributesResponse DescribeAccountAttributes()
+        public virtual DescribeAccountAttributesResponse DescribeAccountAttributes()
         {
             return DescribeAccountAttributes(new DescribeAccountAttributesRequest());
         }
@@ -5999,7 +6105,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeAccountAttributes service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAccountAttributes">REST API Reference for DescribeAccountAttributes Operation</seealso>
-        public DescribeAccountAttributesResponse DescribeAccountAttributes(DescribeAccountAttributesRequest request)
+        public virtual DescribeAccountAttributesResponse DescribeAccountAttributes(DescribeAccountAttributesRequest request)
         {
             var marshaller = new DescribeAccountAttributesRequestMarshaller();
             var unmarshaller = DescribeAccountAttributesResponseUnmarshaller.Instance;
@@ -6019,7 +6125,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeAccountAttributes
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAccountAttributes">REST API Reference for DescribeAccountAttributes Operation</seealso>
-        public IAsyncResult BeginDescribeAccountAttributes(DescribeAccountAttributesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeAccountAttributes(DescribeAccountAttributesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeAccountAttributesRequestMarshaller();
             var unmarshaller = DescribeAccountAttributesResponseUnmarshaller.Instance;
@@ -6036,7 +6142,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeAccountAttributesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAccountAttributes">REST API Reference for DescribeAccountAttributes Operation</seealso>
-        public  DescribeAccountAttributesResponse EndDescribeAccountAttributes(IAsyncResult asyncResult)
+        public virtual DescribeAccountAttributesResponse EndDescribeAccountAttributes(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeAccountAttributesResponse>(asyncResult);
         }
@@ -6058,7 +6164,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeAddresses service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAddresses">REST API Reference for DescribeAddresses Operation</seealso>
-        public DescribeAddressesResponse DescribeAddresses()
+        public virtual DescribeAddressesResponse DescribeAddresses()
         {
             return DescribeAddresses(new DescribeAddressesRequest());
         }
@@ -6077,7 +6183,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeAddresses service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAddresses">REST API Reference for DescribeAddresses Operation</seealso>
-        public DescribeAddressesResponse DescribeAddresses(DescribeAddressesRequest request)
+        public virtual DescribeAddressesResponse DescribeAddresses(DescribeAddressesRequest request)
         {
             var marshaller = new DescribeAddressesRequestMarshaller();
             var unmarshaller = DescribeAddressesResponseUnmarshaller.Instance;
@@ -6097,7 +6203,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeAddresses
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAddresses">REST API Reference for DescribeAddresses Operation</seealso>
-        public IAsyncResult BeginDescribeAddresses(DescribeAddressesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeAddresses(DescribeAddressesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeAddressesRequestMarshaller();
             var unmarshaller = DescribeAddressesResponseUnmarshaller.Instance;
@@ -6114,7 +6220,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeAddressesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAddresses">REST API Reference for DescribeAddresses Operation</seealso>
-        public  DescribeAddressesResponse EndDescribeAddresses(IAsyncResult asyncResult)
+        public virtual DescribeAddressesResponse EndDescribeAddresses(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeAddressesResponse>(asyncResult);
         }
@@ -6138,7 +6244,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeAvailabilityZones service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAvailabilityZones">REST API Reference for DescribeAvailabilityZones Operation</seealso>
-        public DescribeAvailabilityZonesResponse DescribeAvailabilityZones()
+        public virtual DescribeAvailabilityZonesResponse DescribeAvailabilityZones()
         {
             return DescribeAvailabilityZones(new DescribeAvailabilityZonesRequest());
         }
@@ -6159,7 +6265,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeAvailabilityZones service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAvailabilityZones">REST API Reference for DescribeAvailabilityZones Operation</seealso>
-        public DescribeAvailabilityZonesResponse DescribeAvailabilityZones(DescribeAvailabilityZonesRequest request)
+        public virtual DescribeAvailabilityZonesResponse DescribeAvailabilityZones(DescribeAvailabilityZonesRequest request)
         {
             var marshaller = new DescribeAvailabilityZonesRequestMarshaller();
             var unmarshaller = DescribeAvailabilityZonesResponseUnmarshaller.Instance;
@@ -6179,7 +6285,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeAvailabilityZones
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAvailabilityZones">REST API Reference for DescribeAvailabilityZones Operation</seealso>
-        public IAsyncResult BeginDescribeAvailabilityZones(DescribeAvailabilityZonesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeAvailabilityZones(DescribeAvailabilityZonesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeAvailabilityZonesRequestMarshaller();
             var unmarshaller = DescribeAvailabilityZonesResponseUnmarshaller.Instance;
@@ -6196,7 +6302,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeAvailabilityZonesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAvailabilityZones">REST API Reference for DescribeAvailabilityZones Operation</seealso>
-        public  DescribeAvailabilityZonesResponse EndDescribeAvailabilityZones(IAsyncResult asyncResult)
+        public virtual DescribeAvailabilityZonesResponse EndDescribeAvailabilityZones(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeAvailabilityZonesResponse>(asyncResult);
         }
@@ -6220,7 +6326,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeBundleTasks service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeBundleTasks">REST API Reference for DescribeBundleTasks Operation</seealso>
-        public DescribeBundleTasksResponse DescribeBundleTasks()
+        public virtual DescribeBundleTasksResponse DescribeBundleTasks()
         {
             return DescribeBundleTasks(new DescribeBundleTasksRequest());
         }
@@ -6241,7 +6347,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeBundleTasks service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeBundleTasks">REST API Reference for DescribeBundleTasks Operation</seealso>
-        public DescribeBundleTasksResponse DescribeBundleTasks(DescribeBundleTasksRequest request)
+        public virtual DescribeBundleTasksResponse DescribeBundleTasks(DescribeBundleTasksRequest request)
         {
             var marshaller = new DescribeBundleTasksRequestMarshaller();
             var unmarshaller = DescribeBundleTasksResponseUnmarshaller.Instance;
@@ -6261,7 +6367,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeBundleTasks
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeBundleTasks">REST API Reference for DescribeBundleTasks Operation</seealso>
-        public IAsyncResult BeginDescribeBundleTasks(DescribeBundleTasksRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeBundleTasks(DescribeBundleTasksRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeBundleTasksRequestMarshaller();
             var unmarshaller = DescribeBundleTasksResponseUnmarshaller.Instance;
@@ -6278,7 +6384,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeBundleTasksResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeBundleTasks">REST API Reference for DescribeBundleTasks Operation</seealso>
-        public  DescribeBundleTasksResponse EndDescribeBundleTasks(IAsyncResult asyncResult)
+        public virtual DescribeBundleTasksResponse EndDescribeBundleTasks(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeBundleTasksResponse>(asyncResult);
         }
@@ -6296,7 +6402,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeClassicLinkInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeClassicLinkInstances">REST API Reference for DescribeClassicLinkInstances Operation</seealso>
-        public DescribeClassicLinkInstancesResponse DescribeClassicLinkInstances(DescribeClassicLinkInstancesRequest request)
+        public virtual DescribeClassicLinkInstancesResponse DescribeClassicLinkInstances(DescribeClassicLinkInstancesRequest request)
         {
             var marshaller = new DescribeClassicLinkInstancesRequestMarshaller();
             var unmarshaller = DescribeClassicLinkInstancesResponseUnmarshaller.Instance;
@@ -6316,7 +6422,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeClassicLinkInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeClassicLinkInstances">REST API Reference for DescribeClassicLinkInstances Operation</seealso>
-        public IAsyncResult BeginDescribeClassicLinkInstances(DescribeClassicLinkInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeClassicLinkInstances(DescribeClassicLinkInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeClassicLinkInstancesRequestMarshaller();
             var unmarshaller = DescribeClassicLinkInstancesResponseUnmarshaller.Instance;
@@ -6333,7 +6439,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeClassicLinkInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeClassicLinkInstances">REST API Reference for DescribeClassicLinkInstances Operation</seealso>
-        public  DescribeClassicLinkInstancesResponse EndDescribeClassicLinkInstances(IAsyncResult asyncResult)
+        public virtual DescribeClassicLinkInstancesResponse EndDescribeClassicLinkInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeClassicLinkInstancesResponse>(asyncResult);
         }
@@ -6355,7 +6461,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeConversionTasks service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeConversionTasks">REST API Reference for DescribeConversionTasks Operation</seealso>
-        public DescribeConversionTasksResponse DescribeConversionTasks()
+        public virtual DescribeConversionTasksResponse DescribeConversionTasks()
         {
             return DescribeConversionTasks(new DescribeConversionTasksRequest());
         }
@@ -6374,7 +6480,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeConversionTasks service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeConversionTasks">REST API Reference for DescribeConversionTasks Operation</seealso>
-        public DescribeConversionTasksResponse DescribeConversionTasks(DescribeConversionTasksRequest request)
+        public virtual DescribeConversionTasksResponse DescribeConversionTasks(DescribeConversionTasksRequest request)
         {
             var marshaller = new DescribeConversionTasksRequestMarshaller();
             var unmarshaller = DescribeConversionTasksResponseUnmarshaller.Instance;
@@ -6394,7 +6500,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeConversionTasks
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeConversionTasks">REST API Reference for DescribeConversionTasks Operation</seealso>
-        public IAsyncResult BeginDescribeConversionTasks(DescribeConversionTasksRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeConversionTasks(DescribeConversionTasksRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeConversionTasksRequestMarshaller();
             var unmarshaller = DescribeConversionTasksResponseUnmarshaller.Instance;
@@ -6411,7 +6517,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeConversionTasksResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeConversionTasks">REST API Reference for DescribeConversionTasks Operation</seealso>
-        public  DescribeConversionTasksResponse EndDescribeConversionTasks(IAsyncResult asyncResult)
+        public virtual DescribeConversionTasksResponse EndDescribeConversionTasks(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeConversionTasksResponse>(asyncResult);
         }
@@ -6425,15 +6531,14 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the DescribeCustomerGateways service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeCustomerGateways">REST API Reference for DescribeCustomerGateways Operation</seealso>
-        public DescribeCustomerGatewaysResponse DescribeCustomerGateways()
+        public virtual DescribeCustomerGatewaysResponse DescribeCustomerGateways()
         {
             return DescribeCustomerGateways(new DescribeCustomerGatewaysRequest());
         }
@@ -6443,16 +6548,15 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeCustomerGateways service method.</param>
         /// 
         /// <returns>The response from the DescribeCustomerGateways service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeCustomerGateways">REST API Reference for DescribeCustomerGateways Operation</seealso>
-        public DescribeCustomerGatewaysResponse DescribeCustomerGateways(DescribeCustomerGatewaysRequest request)
+        public virtual DescribeCustomerGatewaysResponse DescribeCustomerGateways(DescribeCustomerGatewaysRequest request)
         {
             var marshaller = new DescribeCustomerGatewaysRequestMarshaller();
             var unmarshaller = DescribeCustomerGatewaysResponseUnmarshaller.Instance;
@@ -6472,7 +6576,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeCustomerGateways
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeCustomerGateways">REST API Reference for DescribeCustomerGateways Operation</seealso>
-        public IAsyncResult BeginDescribeCustomerGateways(DescribeCustomerGatewaysRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeCustomerGateways(DescribeCustomerGatewaysRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeCustomerGatewaysRequestMarshaller();
             var unmarshaller = DescribeCustomerGatewaysResponseUnmarshaller.Instance;
@@ -6489,7 +6593,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeCustomerGatewaysResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeCustomerGateways">REST API Reference for DescribeCustomerGateways Operation</seealso>
-        public  DescribeCustomerGatewaysResponse EndDescribeCustomerGateways(IAsyncResult asyncResult)
+        public virtual DescribeCustomerGatewaysResponse EndDescribeCustomerGateways(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeCustomerGatewaysResponse>(asyncResult);
         }
@@ -6510,7 +6614,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeDhcpOptions service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeDhcpOptions">REST API Reference for DescribeDhcpOptions Operation</seealso>
-        public DescribeDhcpOptionsResponse DescribeDhcpOptions()
+        public virtual DescribeDhcpOptionsResponse DescribeDhcpOptions()
         {
             return DescribeDhcpOptions(new DescribeDhcpOptionsRequest());
         }
@@ -6528,7 +6632,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeDhcpOptions service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeDhcpOptions">REST API Reference for DescribeDhcpOptions Operation</seealso>
-        public DescribeDhcpOptionsResponse DescribeDhcpOptions(DescribeDhcpOptionsRequest request)
+        public virtual DescribeDhcpOptionsResponse DescribeDhcpOptions(DescribeDhcpOptionsRequest request)
         {
             var marshaller = new DescribeDhcpOptionsRequestMarshaller();
             var unmarshaller = DescribeDhcpOptionsResponseUnmarshaller.Instance;
@@ -6548,7 +6652,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeDhcpOptions
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeDhcpOptions">REST API Reference for DescribeDhcpOptions Operation</seealso>
-        public IAsyncResult BeginDescribeDhcpOptions(DescribeDhcpOptionsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeDhcpOptions(DescribeDhcpOptionsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeDhcpOptionsRequestMarshaller();
             var unmarshaller = DescribeDhcpOptionsResponseUnmarshaller.Instance;
@@ -6565,7 +6669,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeDhcpOptionsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeDhcpOptions">REST API Reference for DescribeDhcpOptions Operation</seealso>
-        public  DescribeDhcpOptionsResponse EndDescribeDhcpOptions(IAsyncResult asyncResult)
+        public virtual DescribeDhcpOptionsResponse EndDescribeDhcpOptions(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeDhcpOptionsResponse>(asyncResult);
         }
@@ -6581,7 +6685,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeEgressOnlyInternetGateways service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeEgressOnlyInternetGateways">REST API Reference for DescribeEgressOnlyInternetGateways Operation</seealso>
-        public DescribeEgressOnlyInternetGatewaysResponse DescribeEgressOnlyInternetGateways(DescribeEgressOnlyInternetGatewaysRequest request)
+        public virtual DescribeEgressOnlyInternetGatewaysResponse DescribeEgressOnlyInternetGateways(DescribeEgressOnlyInternetGatewaysRequest request)
         {
             var marshaller = new DescribeEgressOnlyInternetGatewaysRequestMarshaller();
             var unmarshaller = DescribeEgressOnlyInternetGatewaysResponseUnmarshaller.Instance;
@@ -6601,7 +6705,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeEgressOnlyInternetGateways
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeEgressOnlyInternetGateways">REST API Reference for DescribeEgressOnlyInternetGateways Operation</seealso>
-        public IAsyncResult BeginDescribeEgressOnlyInternetGateways(DescribeEgressOnlyInternetGatewaysRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeEgressOnlyInternetGateways(DescribeEgressOnlyInternetGatewaysRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeEgressOnlyInternetGatewaysRequestMarshaller();
             var unmarshaller = DescribeEgressOnlyInternetGatewaysResponseUnmarshaller.Instance;
@@ -6618,7 +6722,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeEgressOnlyInternetGatewaysResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeEgressOnlyInternetGateways">REST API Reference for DescribeEgressOnlyInternetGateways Operation</seealso>
-        public  DescribeEgressOnlyInternetGatewaysResponse EndDescribeEgressOnlyInternetGateways(IAsyncResult asyncResult)
+        public virtual DescribeEgressOnlyInternetGatewaysResponse EndDescribeEgressOnlyInternetGateways(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeEgressOnlyInternetGatewaysResponse>(asyncResult);
         }
@@ -6636,7 +6740,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeElasticGpus service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeElasticGpus">REST API Reference for DescribeElasticGpus Operation</seealso>
-        public DescribeElasticGpusResponse DescribeElasticGpus(DescribeElasticGpusRequest request)
+        public virtual DescribeElasticGpusResponse DescribeElasticGpus(DescribeElasticGpusRequest request)
         {
             var marshaller = new DescribeElasticGpusRequestMarshaller();
             var unmarshaller = DescribeElasticGpusResponseUnmarshaller.Instance;
@@ -6656,7 +6760,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeElasticGpus
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeElasticGpus">REST API Reference for DescribeElasticGpus Operation</seealso>
-        public IAsyncResult BeginDescribeElasticGpus(DescribeElasticGpusRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeElasticGpus(DescribeElasticGpusRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeElasticGpusRequestMarshaller();
             var unmarshaller = DescribeElasticGpusResponseUnmarshaller.Instance;
@@ -6673,7 +6777,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeElasticGpusResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeElasticGpus">REST API Reference for DescribeElasticGpus Operation</seealso>
-        public  DescribeElasticGpusResponse EndDescribeElasticGpus(IAsyncResult asyncResult)
+        public virtual DescribeElasticGpusResponse EndDescribeElasticGpus(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeElasticGpusResponse>(asyncResult);
         }
@@ -6688,7 +6792,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeExportTasks service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeExportTasks">REST API Reference for DescribeExportTasks Operation</seealso>
-        public DescribeExportTasksResponse DescribeExportTasks()
+        public virtual DescribeExportTasksResponse DescribeExportTasks()
         {
             return DescribeExportTasks(new DescribeExportTasksRequest());
         }
@@ -6700,7 +6804,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeExportTasks service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeExportTasks">REST API Reference for DescribeExportTasks Operation</seealso>
-        public DescribeExportTasksResponse DescribeExportTasks(DescribeExportTasksRequest request)
+        public virtual DescribeExportTasksResponse DescribeExportTasks(DescribeExportTasksRequest request)
         {
             var marshaller = new DescribeExportTasksRequestMarshaller();
             var unmarshaller = DescribeExportTasksResponseUnmarshaller.Instance;
@@ -6720,7 +6824,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeExportTasks
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeExportTasks">REST API Reference for DescribeExportTasks Operation</seealso>
-        public IAsyncResult BeginDescribeExportTasks(DescribeExportTasksRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeExportTasks(DescribeExportTasksRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeExportTasksRequestMarshaller();
             var unmarshaller = DescribeExportTasksResponseUnmarshaller.Instance;
@@ -6737,7 +6841,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeExportTasksResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeExportTasks">REST API Reference for DescribeExportTasks Operation</seealso>
-        public  DescribeExportTasksResponse EndDescribeExportTasks(IAsyncResult asyncResult)
+        public virtual DescribeExportTasksResponse EndDescribeExportTasks(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeExportTasksResponse>(asyncResult);
         }
@@ -6755,7 +6859,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeFlowLogs service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFlowLogs">REST API Reference for DescribeFlowLogs Operation</seealso>
-        public DescribeFlowLogsResponse DescribeFlowLogs(DescribeFlowLogsRequest request)
+        public virtual DescribeFlowLogsResponse DescribeFlowLogs(DescribeFlowLogsRequest request)
         {
             var marshaller = new DescribeFlowLogsRequestMarshaller();
             var unmarshaller = DescribeFlowLogsResponseUnmarshaller.Instance;
@@ -6775,7 +6879,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeFlowLogs
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFlowLogs">REST API Reference for DescribeFlowLogs Operation</seealso>
-        public IAsyncResult BeginDescribeFlowLogs(DescribeFlowLogsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeFlowLogs(DescribeFlowLogsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeFlowLogsRequestMarshaller();
             var unmarshaller = DescribeFlowLogsResponseUnmarshaller.Instance;
@@ -6792,9 +6896,62 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeFlowLogsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFlowLogs">REST API Reference for DescribeFlowLogs Operation</seealso>
-        public  DescribeFlowLogsResponse EndDescribeFlowLogs(IAsyncResult asyncResult)
+        public virtual DescribeFlowLogsResponse EndDescribeFlowLogs(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeFlowLogsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DescribeFpgaImageAttribute
+
+        /// <summary>
+        /// Describes the specified attribute of the specified Amazon FPGA Image (AFI).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeFpgaImageAttribute service method.</param>
+        /// 
+        /// <returns>The response from the DescribeFpgaImageAttribute service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFpgaImageAttribute">REST API Reference for DescribeFpgaImageAttribute Operation</seealso>
+        public virtual DescribeFpgaImageAttributeResponse DescribeFpgaImageAttribute(DescribeFpgaImageAttributeRequest request)
+        {
+            var marshaller = new DescribeFpgaImageAttributeRequestMarshaller();
+            var unmarshaller = DescribeFpgaImageAttributeResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeFpgaImageAttributeRequest,DescribeFpgaImageAttributeResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeFpgaImageAttribute operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeFpgaImageAttribute operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeFpgaImageAttribute
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFpgaImageAttribute">REST API Reference for DescribeFpgaImageAttribute Operation</seealso>
+        public virtual IAsyncResult BeginDescribeFpgaImageAttribute(DescribeFpgaImageAttributeRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new DescribeFpgaImageAttributeRequestMarshaller();
+            var unmarshaller = DescribeFpgaImageAttributeResponseUnmarshaller.Instance;
+
+            return BeginInvoke<DescribeFpgaImageAttributeRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeFpgaImageAttribute operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeFpgaImageAttribute.</param>
+        /// 
+        /// <returns>Returns a  DescribeFpgaImageAttributeResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFpgaImageAttribute">REST API Reference for DescribeFpgaImageAttribute Operation</seealso>
+        public virtual DescribeFpgaImageAttributeResponse EndDescribeFpgaImageAttribute(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DescribeFpgaImageAttributeResponse>(asyncResult);
         }
 
         #endregion
@@ -6810,7 +6967,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeFpgaImages service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFpgaImages">REST API Reference for DescribeFpgaImages Operation</seealso>
-        public DescribeFpgaImagesResponse DescribeFpgaImages(DescribeFpgaImagesRequest request)
+        public virtual DescribeFpgaImagesResponse DescribeFpgaImages(DescribeFpgaImagesRequest request)
         {
             var marshaller = new DescribeFpgaImagesRequestMarshaller();
             var unmarshaller = DescribeFpgaImagesResponseUnmarshaller.Instance;
@@ -6830,7 +6987,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeFpgaImages
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFpgaImages">REST API Reference for DescribeFpgaImages Operation</seealso>
-        public IAsyncResult BeginDescribeFpgaImages(DescribeFpgaImagesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeFpgaImages(DescribeFpgaImagesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeFpgaImagesRequestMarshaller();
             var unmarshaller = DescribeFpgaImagesResponseUnmarshaller.Instance;
@@ -6847,7 +7004,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeFpgaImagesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFpgaImages">REST API Reference for DescribeFpgaImages Operation</seealso>
-        public  DescribeFpgaImagesResponse EndDescribeFpgaImages(IAsyncResult asyncResult)
+        public virtual DescribeFpgaImagesResponse EndDescribeFpgaImages(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeFpgaImagesResponse>(asyncResult);
         }
@@ -6873,7 +7030,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeHostReservationOfferings service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeHostReservationOfferings">REST API Reference for DescribeHostReservationOfferings Operation</seealso>
-        public DescribeHostReservationOfferingsResponse DescribeHostReservationOfferings(DescribeHostReservationOfferingsRequest request)
+        public virtual DescribeHostReservationOfferingsResponse DescribeHostReservationOfferings(DescribeHostReservationOfferingsRequest request)
         {
             var marshaller = new DescribeHostReservationOfferingsRequestMarshaller();
             var unmarshaller = DescribeHostReservationOfferingsResponseUnmarshaller.Instance;
@@ -6893,7 +7050,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeHostReservationOfferings
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeHostReservationOfferings">REST API Reference for DescribeHostReservationOfferings Operation</seealso>
-        public IAsyncResult BeginDescribeHostReservationOfferings(DescribeHostReservationOfferingsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeHostReservationOfferings(DescribeHostReservationOfferingsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeHostReservationOfferingsRequestMarshaller();
             var unmarshaller = DescribeHostReservationOfferingsResponseUnmarshaller.Instance;
@@ -6910,7 +7067,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeHostReservationOfferingsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeHostReservationOfferings">REST API Reference for DescribeHostReservationOfferings Operation</seealso>
-        public  DescribeHostReservationOfferingsResponse EndDescribeHostReservationOfferings(IAsyncResult asyncResult)
+        public virtual DescribeHostReservationOfferingsResponse EndDescribeHostReservationOfferings(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeHostReservationOfferingsResponse>(asyncResult);
         }
@@ -6927,7 +7084,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeHostReservations service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeHostReservations">REST API Reference for DescribeHostReservations Operation</seealso>
-        public DescribeHostReservationsResponse DescribeHostReservations(DescribeHostReservationsRequest request)
+        public virtual DescribeHostReservationsResponse DescribeHostReservations(DescribeHostReservationsRequest request)
         {
             var marshaller = new DescribeHostReservationsRequestMarshaller();
             var unmarshaller = DescribeHostReservationsResponseUnmarshaller.Instance;
@@ -6947,7 +7104,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeHostReservations
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeHostReservations">REST API Reference for DescribeHostReservations Operation</seealso>
-        public IAsyncResult BeginDescribeHostReservations(DescribeHostReservationsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeHostReservations(DescribeHostReservationsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeHostReservationsRequestMarshaller();
             var unmarshaller = DescribeHostReservationsResponseUnmarshaller.Instance;
@@ -6964,7 +7121,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeHostReservationsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeHostReservations">REST API Reference for DescribeHostReservations Operation</seealso>
-        public  DescribeHostReservationsResponse EndDescribeHostReservations(IAsyncResult asyncResult)
+        public virtual DescribeHostReservationsResponse EndDescribeHostReservations(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeHostReservationsResponse>(asyncResult);
         }
@@ -6987,7 +7144,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeHosts service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeHosts">REST API Reference for DescribeHosts Operation</seealso>
-        public DescribeHostsResponse DescribeHosts(DescribeHostsRequest request)
+        public virtual DescribeHostsResponse DescribeHosts(DescribeHostsRequest request)
         {
             var marshaller = new DescribeHostsRequestMarshaller();
             var unmarshaller = DescribeHostsResponseUnmarshaller.Instance;
@@ -7007,7 +7164,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeHosts
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeHosts">REST API Reference for DescribeHosts Operation</seealso>
-        public IAsyncResult BeginDescribeHosts(DescribeHostsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeHosts(DescribeHostsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeHostsRequestMarshaller();
             var unmarshaller = DescribeHostsResponseUnmarshaller.Instance;
@@ -7024,7 +7181,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeHostsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeHosts">REST API Reference for DescribeHosts Operation</seealso>
-        public  DescribeHostsResponse EndDescribeHosts(IAsyncResult asyncResult)
+        public virtual DescribeHostsResponse EndDescribeHosts(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeHostsResponse>(asyncResult);
         }
@@ -7040,7 +7197,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeIamInstanceProfileAssociations service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIamInstanceProfileAssociations">REST API Reference for DescribeIamInstanceProfileAssociations Operation</seealso>
-        public DescribeIamInstanceProfileAssociationsResponse DescribeIamInstanceProfileAssociations(DescribeIamInstanceProfileAssociationsRequest request)
+        public virtual DescribeIamInstanceProfileAssociationsResponse DescribeIamInstanceProfileAssociations(DescribeIamInstanceProfileAssociationsRequest request)
         {
             var marshaller = new DescribeIamInstanceProfileAssociationsRequestMarshaller();
             var unmarshaller = DescribeIamInstanceProfileAssociationsResponseUnmarshaller.Instance;
@@ -7060,7 +7217,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeIamInstanceProfileAssociations
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIamInstanceProfileAssociations">REST API Reference for DescribeIamInstanceProfileAssociations Operation</seealso>
-        public IAsyncResult BeginDescribeIamInstanceProfileAssociations(DescribeIamInstanceProfileAssociationsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeIamInstanceProfileAssociations(DescribeIamInstanceProfileAssociationsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeIamInstanceProfileAssociationsRequestMarshaller();
             var unmarshaller = DescribeIamInstanceProfileAssociationsResponseUnmarshaller.Instance;
@@ -7077,7 +7234,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeIamInstanceProfileAssociationsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIamInstanceProfileAssociations">REST API Reference for DescribeIamInstanceProfileAssociations Operation</seealso>
-        public  DescribeIamInstanceProfileAssociationsResponse EndDescribeIamInstanceProfileAssociations(IAsyncResult asyncResult)
+        public virtual DescribeIamInstanceProfileAssociationsResponse EndDescribeIamInstanceProfileAssociations(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeIamInstanceProfileAssociationsResponse>(asyncResult);
         }
@@ -7109,7 +7266,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeIdentityIdFormat service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIdentityIdFormat">REST API Reference for DescribeIdentityIdFormat Operation</seealso>
-        public DescribeIdentityIdFormatResponse DescribeIdentityIdFormat(DescribeIdentityIdFormatRequest request)
+        public virtual DescribeIdentityIdFormatResponse DescribeIdentityIdFormat(DescribeIdentityIdFormatRequest request)
         {
             var marshaller = new DescribeIdentityIdFormatRequestMarshaller();
             var unmarshaller = DescribeIdentityIdFormatResponseUnmarshaller.Instance;
@@ -7129,7 +7286,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeIdentityIdFormat
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIdentityIdFormat">REST API Reference for DescribeIdentityIdFormat Operation</seealso>
-        public IAsyncResult BeginDescribeIdentityIdFormat(DescribeIdentityIdFormatRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeIdentityIdFormat(DescribeIdentityIdFormatRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeIdentityIdFormatRequestMarshaller();
             var unmarshaller = DescribeIdentityIdFormatResponseUnmarshaller.Instance;
@@ -7146,7 +7303,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeIdentityIdFormatResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIdentityIdFormat">REST API Reference for DescribeIdentityIdFormat Operation</seealso>
-        public  DescribeIdentityIdFormatResponse EndDescribeIdentityIdFormat(IAsyncResult asyncResult)
+        public virtual DescribeIdentityIdFormatResponse EndDescribeIdentityIdFormat(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeIdentityIdFormatResponse>(asyncResult);
         }
@@ -7180,7 +7337,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeIdFormat service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIdFormat">REST API Reference for DescribeIdFormat Operation</seealso>
-        public DescribeIdFormatResponse DescribeIdFormat(DescribeIdFormatRequest request)
+        public virtual DescribeIdFormatResponse DescribeIdFormat(DescribeIdFormatRequest request)
         {
             var marshaller = new DescribeIdFormatRequestMarshaller();
             var unmarshaller = DescribeIdFormatResponseUnmarshaller.Instance;
@@ -7200,7 +7357,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeIdFormat
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIdFormat">REST API Reference for DescribeIdFormat Operation</seealso>
-        public IAsyncResult BeginDescribeIdFormat(DescribeIdFormatRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeIdFormat(DescribeIdFormatRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeIdFormatRequestMarshaller();
             var unmarshaller = DescribeIdFormatResponseUnmarshaller.Instance;
@@ -7217,7 +7374,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeIdFormatResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeIdFormat">REST API Reference for DescribeIdFormat Operation</seealso>
-        public  DescribeIdFormatResponse EndDescribeIdFormat(IAsyncResult asyncResult)
+        public virtual DescribeIdFormatResponse EndDescribeIdFormat(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeIdFormatResponse>(asyncResult);
         }
@@ -7234,7 +7391,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeImageAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImageAttribute">REST API Reference for DescribeImageAttribute Operation</seealso>
-        public DescribeImageAttributeResponse DescribeImageAttribute(DescribeImageAttributeRequest request)
+        public virtual DescribeImageAttributeResponse DescribeImageAttribute(DescribeImageAttributeRequest request)
         {
             var marshaller = new DescribeImageAttributeRequestMarshaller();
             var unmarshaller = DescribeImageAttributeResponseUnmarshaller.Instance;
@@ -7254,7 +7411,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeImageAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImageAttribute">REST API Reference for DescribeImageAttribute Operation</seealso>
-        public IAsyncResult BeginDescribeImageAttribute(DescribeImageAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeImageAttribute(DescribeImageAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeImageAttributeRequestMarshaller();
             var unmarshaller = DescribeImageAttributeResponseUnmarshaller.Instance;
@@ -7271,7 +7428,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeImageAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImageAttribute">REST API Reference for DescribeImageAttribute Operation</seealso>
-        public  DescribeImageAttributeResponse EndDescribeImageAttribute(IAsyncResult asyncResult)
+        public virtual DescribeImageAttributeResponse EndDescribeImageAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeImageAttributeResponse>(asyncResult);
         }
@@ -7295,7 +7452,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeImages service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImages">REST API Reference for DescribeImages Operation</seealso>
-        public DescribeImagesResponse DescribeImages()
+        public virtual DescribeImagesResponse DescribeImages()
         {
             return DescribeImages(new DescribeImagesRequest());
         }
@@ -7316,7 +7473,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeImages service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImages">REST API Reference for DescribeImages Operation</seealso>
-        public DescribeImagesResponse DescribeImages(DescribeImagesRequest request)
+        public virtual DescribeImagesResponse DescribeImages(DescribeImagesRequest request)
         {
             var marshaller = new DescribeImagesRequestMarshaller();
             var unmarshaller = DescribeImagesResponseUnmarshaller.Instance;
@@ -7336,7 +7493,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeImages
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImages">REST API Reference for DescribeImages Operation</seealso>
-        public IAsyncResult BeginDescribeImages(DescribeImagesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeImages(DescribeImagesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeImagesRequestMarshaller();
             var unmarshaller = DescribeImagesResponseUnmarshaller.Instance;
@@ -7353,7 +7510,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeImagesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImages">REST API Reference for DescribeImages Operation</seealso>
-        public  DescribeImagesResponse EndDescribeImages(IAsyncResult asyncResult)
+        public virtual DescribeImagesResponse EndDescribeImages(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeImagesResponse>(asyncResult);
         }
@@ -7370,7 +7527,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeImportImageTasks service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImportImageTasks">REST API Reference for DescribeImportImageTasks Operation</seealso>
-        public DescribeImportImageTasksResponse DescribeImportImageTasks(DescribeImportImageTasksRequest request)
+        public virtual DescribeImportImageTasksResponse DescribeImportImageTasks(DescribeImportImageTasksRequest request)
         {
             var marshaller = new DescribeImportImageTasksRequestMarshaller();
             var unmarshaller = DescribeImportImageTasksResponseUnmarshaller.Instance;
@@ -7390,7 +7547,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeImportImageTasks
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImportImageTasks">REST API Reference for DescribeImportImageTasks Operation</seealso>
-        public IAsyncResult BeginDescribeImportImageTasks(DescribeImportImageTasksRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeImportImageTasks(DescribeImportImageTasksRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeImportImageTasksRequestMarshaller();
             var unmarshaller = DescribeImportImageTasksResponseUnmarshaller.Instance;
@@ -7407,7 +7564,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeImportImageTasksResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImportImageTasks">REST API Reference for DescribeImportImageTasks Operation</seealso>
-        public  DescribeImportImageTasksResponse EndDescribeImportImageTasks(IAsyncResult asyncResult)
+        public virtual DescribeImportImageTasksResponse EndDescribeImportImageTasks(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeImportImageTasksResponse>(asyncResult);
         }
@@ -7423,7 +7580,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeImportSnapshotTasks service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImportSnapshotTasks">REST API Reference for DescribeImportSnapshotTasks Operation</seealso>
-        public DescribeImportSnapshotTasksResponse DescribeImportSnapshotTasks(DescribeImportSnapshotTasksRequest request)
+        public virtual DescribeImportSnapshotTasksResponse DescribeImportSnapshotTasks(DescribeImportSnapshotTasksRequest request)
         {
             var marshaller = new DescribeImportSnapshotTasksRequestMarshaller();
             var unmarshaller = DescribeImportSnapshotTasksResponseUnmarshaller.Instance;
@@ -7443,7 +7600,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeImportSnapshotTasks
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImportSnapshotTasks">REST API Reference for DescribeImportSnapshotTasks Operation</seealso>
-        public IAsyncResult BeginDescribeImportSnapshotTasks(DescribeImportSnapshotTasksRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeImportSnapshotTasks(DescribeImportSnapshotTasksRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeImportSnapshotTasksRequestMarshaller();
             var unmarshaller = DescribeImportSnapshotTasksResponseUnmarshaller.Instance;
@@ -7460,7 +7617,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeImportSnapshotTasksResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeImportSnapshotTasks">REST API Reference for DescribeImportSnapshotTasks Operation</seealso>
-        public  DescribeImportSnapshotTasksResponse EndDescribeImportSnapshotTasks(IAsyncResult asyncResult)
+        public virtual DescribeImportSnapshotTasksResponse EndDescribeImportSnapshotTasks(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeImportSnapshotTasksResponse>(asyncResult);
         }
@@ -7481,7 +7638,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeInstanceAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceAttribute">REST API Reference for DescribeInstanceAttribute Operation</seealso>
-        public DescribeInstanceAttributeResponse DescribeInstanceAttribute(DescribeInstanceAttributeRequest request)
+        public virtual DescribeInstanceAttributeResponse DescribeInstanceAttribute(DescribeInstanceAttributeRequest request)
         {
             var marshaller = new DescribeInstanceAttributeRequestMarshaller();
             var unmarshaller = DescribeInstanceAttributeResponseUnmarshaller.Instance;
@@ -7501,7 +7658,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeInstanceAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceAttribute">REST API Reference for DescribeInstanceAttribute Operation</seealso>
-        public IAsyncResult BeginDescribeInstanceAttribute(DescribeInstanceAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeInstanceAttribute(DescribeInstanceAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeInstanceAttributeRequestMarshaller();
             var unmarshaller = DescribeInstanceAttributeResponseUnmarshaller.Instance;
@@ -7518,7 +7675,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeInstanceAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceAttribute">REST API Reference for DescribeInstanceAttribute Operation</seealso>
-        public  DescribeInstanceAttributeResponse EndDescribeInstanceAttribute(IAsyncResult asyncResult)
+        public virtual DescribeInstanceAttributeResponse EndDescribeInstanceAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeInstanceAttributeResponse>(asyncResult);
         }
@@ -7554,7 +7711,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances">REST API Reference for DescribeInstances Operation</seealso>
-        public DescribeInstancesResponse DescribeInstances()
+        public virtual DescribeInstancesResponse DescribeInstances()
         {
             return DescribeInstances(new DescribeInstancesRequest());
         }
@@ -7587,7 +7744,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances">REST API Reference for DescribeInstances Operation</seealso>
-        public DescribeInstancesResponse DescribeInstances(DescribeInstancesRequest request)
+        public virtual DescribeInstancesResponse DescribeInstances(DescribeInstancesRequest request)
         {
             var marshaller = new DescribeInstancesRequestMarshaller();
             var unmarshaller = DescribeInstancesResponseUnmarshaller.Instance;
@@ -7607,7 +7764,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances">REST API Reference for DescribeInstances Operation</seealso>
-        public IAsyncResult BeginDescribeInstances(DescribeInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeInstances(DescribeInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeInstancesRequestMarshaller();
             var unmarshaller = DescribeInstancesResponseUnmarshaller.Instance;
@@ -7624,7 +7781,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstances">REST API Reference for DescribeInstances Operation</seealso>
-        public  DescribeInstancesResponse EndDescribeInstances(IAsyncResult asyncResult)
+        public virtual DescribeInstancesResponse EndDescribeInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeInstancesResponse>(asyncResult);
         }
@@ -7667,7 +7824,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeInstanceStatus service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceStatus">REST API Reference for DescribeInstanceStatus Operation</seealso>
-        public DescribeInstanceStatusResponse DescribeInstanceStatus()
+        public virtual DescribeInstanceStatusResponse DescribeInstanceStatus()
         {
             return DescribeInstanceStatus(new DescribeInstanceStatusRequest());
         }
@@ -7707,7 +7864,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeInstanceStatus service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceStatus">REST API Reference for DescribeInstanceStatus Operation</seealso>
-        public DescribeInstanceStatusResponse DescribeInstanceStatus(DescribeInstanceStatusRequest request)
+        public virtual DescribeInstanceStatusResponse DescribeInstanceStatus(DescribeInstanceStatusRequest request)
         {
             var marshaller = new DescribeInstanceStatusRequestMarshaller();
             var unmarshaller = DescribeInstanceStatusResponseUnmarshaller.Instance;
@@ -7727,7 +7884,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeInstanceStatus
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceStatus">REST API Reference for DescribeInstanceStatus Operation</seealso>
-        public IAsyncResult BeginDescribeInstanceStatus(DescribeInstanceStatusRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeInstanceStatus(DescribeInstanceStatusRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeInstanceStatusRequestMarshaller();
             var unmarshaller = DescribeInstanceStatusResponseUnmarshaller.Instance;
@@ -7744,7 +7901,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeInstanceStatusResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceStatus">REST API Reference for DescribeInstanceStatus Operation</seealso>
-        public  DescribeInstanceStatusResponse EndDescribeInstanceStatus(IAsyncResult asyncResult)
+        public virtual DescribeInstanceStatusResponse EndDescribeInstanceStatus(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeInstanceStatusResponse>(asyncResult);
         }
@@ -7759,7 +7916,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeInternetGateways service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInternetGateways">REST API Reference for DescribeInternetGateways Operation</seealso>
-        public DescribeInternetGatewaysResponse DescribeInternetGateways()
+        public virtual DescribeInternetGatewaysResponse DescribeInternetGateways()
         {
             return DescribeInternetGateways(new DescribeInternetGatewaysRequest());
         }
@@ -7771,7 +7928,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeInternetGateways service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInternetGateways">REST API Reference for DescribeInternetGateways Operation</seealso>
-        public DescribeInternetGatewaysResponse DescribeInternetGateways(DescribeInternetGatewaysRequest request)
+        public virtual DescribeInternetGatewaysResponse DescribeInternetGateways(DescribeInternetGatewaysRequest request)
         {
             var marshaller = new DescribeInternetGatewaysRequestMarshaller();
             var unmarshaller = DescribeInternetGatewaysResponseUnmarshaller.Instance;
@@ -7791,7 +7948,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeInternetGateways
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInternetGateways">REST API Reference for DescribeInternetGateways Operation</seealso>
-        public IAsyncResult BeginDescribeInternetGateways(DescribeInternetGatewaysRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeInternetGateways(DescribeInternetGatewaysRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeInternetGatewaysRequestMarshaller();
             var unmarshaller = DescribeInternetGatewaysResponseUnmarshaller.Instance;
@@ -7808,7 +7965,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeInternetGatewaysResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInternetGateways">REST API Reference for DescribeInternetGateways Operation</seealso>
-        public  DescribeInternetGatewaysResponse EndDescribeInternetGateways(IAsyncResult asyncResult)
+        public virtual DescribeInternetGatewaysResponse EndDescribeInternetGateways(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeInternetGatewaysResponse>(asyncResult);
         }
@@ -7829,7 +7986,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeKeyPairs service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeKeyPairs">REST API Reference for DescribeKeyPairs Operation</seealso>
-        public DescribeKeyPairsResponse DescribeKeyPairs()
+        public virtual DescribeKeyPairsResponse DescribeKeyPairs()
         {
             return DescribeKeyPairs(new DescribeKeyPairsRequest());
         }
@@ -7847,7 +8004,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeKeyPairs service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeKeyPairs">REST API Reference for DescribeKeyPairs Operation</seealso>
-        public DescribeKeyPairsResponse DescribeKeyPairs(DescribeKeyPairsRequest request)
+        public virtual DescribeKeyPairsResponse DescribeKeyPairs(DescribeKeyPairsRequest request)
         {
             var marshaller = new DescribeKeyPairsRequestMarshaller();
             var unmarshaller = DescribeKeyPairsResponseUnmarshaller.Instance;
@@ -7867,7 +8024,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeKeyPairs
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeKeyPairs">REST API Reference for DescribeKeyPairs Operation</seealso>
-        public IAsyncResult BeginDescribeKeyPairs(DescribeKeyPairsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeKeyPairs(DescribeKeyPairsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeKeyPairsRequestMarshaller();
             var unmarshaller = DescribeKeyPairsResponseUnmarshaller.Instance;
@@ -7884,7 +8041,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeKeyPairsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeKeyPairs">REST API Reference for DescribeKeyPairs Operation</seealso>
-        public  DescribeKeyPairsResponse EndDescribeKeyPairs(IAsyncResult asyncResult)
+        public virtual DescribeKeyPairsResponse EndDescribeKeyPairs(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeKeyPairsResponse>(asyncResult);
         }
@@ -7902,7 +8059,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeMovingAddresses service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeMovingAddresses">REST API Reference for DescribeMovingAddresses Operation</seealso>
-        public DescribeMovingAddressesResponse DescribeMovingAddresses(DescribeMovingAddressesRequest request)
+        public virtual DescribeMovingAddressesResponse DescribeMovingAddresses(DescribeMovingAddressesRequest request)
         {
             var marshaller = new DescribeMovingAddressesRequestMarshaller();
             var unmarshaller = DescribeMovingAddressesResponseUnmarshaller.Instance;
@@ -7922,7 +8079,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeMovingAddresses
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeMovingAddresses">REST API Reference for DescribeMovingAddresses Operation</seealso>
-        public IAsyncResult BeginDescribeMovingAddresses(DescribeMovingAddressesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeMovingAddresses(DescribeMovingAddressesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeMovingAddressesRequestMarshaller();
             var unmarshaller = DescribeMovingAddressesResponseUnmarshaller.Instance;
@@ -7939,7 +8096,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeMovingAddressesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeMovingAddresses">REST API Reference for DescribeMovingAddresses Operation</seealso>
-        public  DescribeMovingAddressesResponse EndDescribeMovingAddresses(IAsyncResult asyncResult)
+        public virtual DescribeMovingAddressesResponse EndDescribeMovingAddresses(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeMovingAddressesResponse>(asyncResult);
         }
@@ -7955,7 +8112,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeNatGateways service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNatGateways">REST API Reference for DescribeNatGateways Operation</seealso>
-        public DescribeNatGatewaysResponse DescribeNatGateways(DescribeNatGatewaysRequest request)
+        public virtual DescribeNatGatewaysResponse DescribeNatGateways(DescribeNatGatewaysRequest request)
         {
             var marshaller = new DescribeNatGatewaysRequestMarshaller();
             var unmarshaller = DescribeNatGatewaysResponseUnmarshaller.Instance;
@@ -7975,7 +8132,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeNatGateways
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNatGateways">REST API Reference for DescribeNatGateways Operation</seealso>
-        public IAsyncResult BeginDescribeNatGateways(DescribeNatGatewaysRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeNatGateways(DescribeNatGatewaysRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeNatGatewaysRequestMarshaller();
             var unmarshaller = DescribeNatGatewaysResponseUnmarshaller.Instance;
@@ -7992,7 +8149,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeNatGatewaysResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNatGateways">REST API Reference for DescribeNatGateways Operation</seealso>
-        public  DescribeNatGatewaysResponse EndDescribeNatGateways(IAsyncResult asyncResult)
+        public virtual DescribeNatGatewaysResponse EndDescribeNatGateways(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeNatGatewaysResponse>(asyncResult);
         }
@@ -8013,7 +8170,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeNetworkAcls service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkAcls">REST API Reference for DescribeNetworkAcls Operation</seealso>
-        public DescribeNetworkAclsResponse DescribeNetworkAcls()
+        public virtual DescribeNetworkAclsResponse DescribeNetworkAcls()
         {
             return DescribeNetworkAcls(new DescribeNetworkAclsRequest());
         }
@@ -8031,7 +8188,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeNetworkAcls service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkAcls">REST API Reference for DescribeNetworkAcls Operation</seealso>
-        public DescribeNetworkAclsResponse DescribeNetworkAcls(DescribeNetworkAclsRequest request)
+        public virtual DescribeNetworkAclsResponse DescribeNetworkAcls(DescribeNetworkAclsRequest request)
         {
             var marshaller = new DescribeNetworkAclsRequestMarshaller();
             var unmarshaller = DescribeNetworkAclsResponseUnmarshaller.Instance;
@@ -8051,7 +8208,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeNetworkAcls
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkAcls">REST API Reference for DescribeNetworkAcls Operation</seealso>
-        public IAsyncResult BeginDescribeNetworkAcls(DescribeNetworkAclsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeNetworkAcls(DescribeNetworkAclsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeNetworkAclsRequestMarshaller();
             var unmarshaller = DescribeNetworkAclsResponseUnmarshaller.Instance;
@@ -8068,7 +8225,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeNetworkAclsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkAcls">REST API Reference for DescribeNetworkAcls Operation</seealso>
-        public  DescribeNetworkAclsResponse EndDescribeNetworkAcls(IAsyncResult asyncResult)
+        public virtual DescribeNetworkAclsResponse EndDescribeNetworkAcls(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeNetworkAclsResponse>(asyncResult);
         }
@@ -8084,7 +8241,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeNetworkInterfaceAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInterfaceAttribute">REST API Reference for DescribeNetworkInterfaceAttribute Operation</seealso>
-        public DescribeNetworkInterfaceAttributeResponse DescribeNetworkInterfaceAttribute(DescribeNetworkInterfaceAttributeRequest request)
+        public virtual DescribeNetworkInterfaceAttributeResponse DescribeNetworkInterfaceAttribute(DescribeNetworkInterfaceAttributeRequest request)
         {
             var marshaller = new DescribeNetworkInterfaceAttributeRequestMarshaller();
             var unmarshaller = DescribeNetworkInterfaceAttributeResponseUnmarshaller.Instance;
@@ -8104,7 +8261,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeNetworkInterfaceAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInterfaceAttribute">REST API Reference for DescribeNetworkInterfaceAttribute Operation</seealso>
-        public IAsyncResult BeginDescribeNetworkInterfaceAttribute(DescribeNetworkInterfaceAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeNetworkInterfaceAttribute(DescribeNetworkInterfaceAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeNetworkInterfaceAttributeRequestMarshaller();
             var unmarshaller = DescribeNetworkInterfaceAttributeResponseUnmarshaller.Instance;
@@ -8121,7 +8278,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeNetworkInterfaceAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInterfaceAttribute">REST API Reference for DescribeNetworkInterfaceAttribute Operation</seealso>
-        public  DescribeNetworkInterfaceAttributeResponse EndDescribeNetworkInterfaceAttribute(IAsyncResult asyncResult)
+        public virtual DescribeNetworkInterfaceAttributeResponse EndDescribeNetworkInterfaceAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeNetworkInterfaceAttributeResponse>(asyncResult);
         }
@@ -8137,7 +8294,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeNetworkInterfacePermissions service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInterfacePermissions">REST API Reference for DescribeNetworkInterfacePermissions Operation</seealso>
-        public DescribeNetworkInterfacePermissionsResponse DescribeNetworkInterfacePermissions(DescribeNetworkInterfacePermissionsRequest request)
+        public virtual DescribeNetworkInterfacePermissionsResponse DescribeNetworkInterfacePermissions(DescribeNetworkInterfacePermissionsRequest request)
         {
             var marshaller = new DescribeNetworkInterfacePermissionsRequestMarshaller();
             var unmarshaller = DescribeNetworkInterfacePermissionsResponseUnmarshaller.Instance;
@@ -8157,7 +8314,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeNetworkInterfacePermissions
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInterfacePermissions">REST API Reference for DescribeNetworkInterfacePermissions Operation</seealso>
-        public IAsyncResult BeginDescribeNetworkInterfacePermissions(DescribeNetworkInterfacePermissionsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeNetworkInterfacePermissions(DescribeNetworkInterfacePermissionsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeNetworkInterfacePermissionsRequestMarshaller();
             var unmarshaller = DescribeNetworkInterfacePermissionsResponseUnmarshaller.Instance;
@@ -8174,7 +8331,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeNetworkInterfacePermissionsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInterfacePermissions">REST API Reference for DescribeNetworkInterfacePermissions Operation</seealso>
-        public  DescribeNetworkInterfacePermissionsResponse EndDescribeNetworkInterfacePermissions(IAsyncResult asyncResult)
+        public virtual DescribeNetworkInterfacePermissionsResponse EndDescribeNetworkInterfacePermissions(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeNetworkInterfacePermissionsResponse>(asyncResult);
         }
@@ -8189,7 +8346,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeNetworkInterfaces service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInterfaces">REST API Reference for DescribeNetworkInterfaces Operation</seealso>
-        public DescribeNetworkInterfacesResponse DescribeNetworkInterfaces()
+        public virtual DescribeNetworkInterfacesResponse DescribeNetworkInterfaces()
         {
             return DescribeNetworkInterfaces(new DescribeNetworkInterfacesRequest());
         }
@@ -8201,7 +8358,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeNetworkInterfaces service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInterfaces">REST API Reference for DescribeNetworkInterfaces Operation</seealso>
-        public DescribeNetworkInterfacesResponse DescribeNetworkInterfaces(DescribeNetworkInterfacesRequest request)
+        public virtual DescribeNetworkInterfacesResponse DescribeNetworkInterfaces(DescribeNetworkInterfacesRequest request)
         {
             var marshaller = new DescribeNetworkInterfacesRequestMarshaller();
             var unmarshaller = DescribeNetworkInterfacesResponseUnmarshaller.Instance;
@@ -8221,7 +8378,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeNetworkInterfaces
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInterfaces">REST API Reference for DescribeNetworkInterfaces Operation</seealso>
-        public IAsyncResult BeginDescribeNetworkInterfaces(DescribeNetworkInterfacesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeNetworkInterfaces(DescribeNetworkInterfacesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeNetworkInterfacesRequestMarshaller();
             var unmarshaller = DescribeNetworkInterfacesResponseUnmarshaller.Instance;
@@ -8238,7 +8395,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeNetworkInterfacesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeNetworkInterfaces">REST API Reference for DescribeNetworkInterfaces Operation</seealso>
-        public  DescribeNetworkInterfacesResponse EndDescribeNetworkInterfaces(IAsyncResult asyncResult)
+        public virtual DescribeNetworkInterfacesResponse EndDescribeNetworkInterfaces(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeNetworkInterfacesResponse>(asyncResult);
         }
@@ -8255,7 +8412,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribePlacementGroups service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePlacementGroups">REST API Reference for DescribePlacementGroups Operation</seealso>
-        public DescribePlacementGroupsResponse DescribePlacementGroups()
+        public virtual DescribePlacementGroupsResponse DescribePlacementGroups()
         {
             return DescribePlacementGroups(new DescribePlacementGroupsRequest());
         }
@@ -8269,7 +8426,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribePlacementGroups service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePlacementGroups">REST API Reference for DescribePlacementGroups Operation</seealso>
-        public DescribePlacementGroupsResponse DescribePlacementGroups(DescribePlacementGroupsRequest request)
+        public virtual DescribePlacementGroupsResponse DescribePlacementGroups(DescribePlacementGroupsRequest request)
         {
             var marshaller = new DescribePlacementGroupsRequestMarshaller();
             var unmarshaller = DescribePlacementGroupsResponseUnmarshaller.Instance;
@@ -8289,7 +8446,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribePlacementGroups
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePlacementGroups">REST API Reference for DescribePlacementGroups Operation</seealso>
-        public IAsyncResult BeginDescribePlacementGroups(DescribePlacementGroupsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribePlacementGroups(DescribePlacementGroupsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribePlacementGroupsRequestMarshaller();
             var unmarshaller = DescribePlacementGroupsResponseUnmarshaller.Instance;
@@ -8306,7 +8463,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribePlacementGroupsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePlacementGroups">REST API Reference for DescribePlacementGroups Operation</seealso>
-        public  DescribePlacementGroupsResponse EndDescribePlacementGroups(IAsyncResult asyncResult)
+        public virtual DescribePlacementGroupsResponse EndDescribePlacementGroups(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribePlacementGroupsResponse>(asyncResult);
         }
@@ -8325,7 +8482,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribePrefixLists service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePrefixLists">REST API Reference for DescribePrefixLists Operation</seealso>
-        public DescribePrefixListsResponse DescribePrefixLists(DescribePrefixListsRequest request)
+        public virtual DescribePrefixListsResponse DescribePrefixLists(DescribePrefixListsRequest request)
         {
             var marshaller = new DescribePrefixListsRequestMarshaller();
             var unmarshaller = DescribePrefixListsResponseUnmarshaller.Instance;
@@ -8345,7 +8502,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribePrefixLists
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePrefixLists">REST API Reference for DescribePrefixLists Operation</seealso>
-        public IAsyncResult BeginDescribePrefixLists(DescribePrefixListsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribePrefixLists(DescribePrefixListsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribePrefixListsRequestMarshaller();
             var unmarshaller = DescribePrefixListsResponseUnmarshaller.Instance;
@@ -8362,7 +8519,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribePrefixListsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePrefixLists">REST API Reference for DescribePrefixLists Operation</seealso>
-        public  DescribePrefixListsResponse EndDescribePrefixLists(IAsyncResult asyncResult)
+        public virtual DescribePrefixListsResponse EndDescribePrefixLists(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribePrefixListsResponse>(asyncResult);
         }
@@ -8383,7 +8540,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeRegions service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeRegions">REST API Reference for DescribeRegions Operation</seealso>
-        public DescribeRegionsResponse DescribeRegions()
+        public virtual DescribeRegionsResponse DescribeRegions()
         {
             return DescribeRegions(new DescribeRegionsRequest());
         }
@@ -8401,7 +8558,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeRegions service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeRegions">REST API Reference for DescribeRegions Operation</seealso>
-        public DescribeRegionsResponse DescribeRegions(DescribeRegionsRequest request)
+        public virtual DescribeRegionsResponse DescribeRegions(DescribeRegionsRequest request)
         {
             var marshaller = new DescribeRegionsRequestMarshaller();
             var unmarshaller = DescribeRegionsResponseUnmarshaller.Instance;
@@ -8421,7 +8578,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeRegions
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeRegions">REST API Reference for DescribeRegions Operation</seealso>
-        public IAsyncResult BeginDescribeRegions(DescribeRegionsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeRegions(DescribeRegionsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeRegionsRequestMarshaller();
             var unmarshaller = DescribeRegionsResponseUnmarshaller.Instance;
@@ -8438,7 +8595,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeRegionsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeRegions">REST API Reference for DescribeRegions Operation</seealso>
-        public  DescribeRegionsResponse EndDescribeRegions(IAsyncResult asyncResult)
+        public virtual DescribeRegionsResponse EndDescribeRegions(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeRegionsResponse>(asyncResult);
         }
@@ -8459,7 +8616,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeReservedInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstances">REST API Reference for DescribeReservedInstances Operation</seealso>
-        public DescribeReservedInstancesResponse DescribeReservedInstances()
+        public virtual DescribeReservedInstancesResponse DescribeReservedInstances()
         {
             return DescribeReservedInstances(new DescribeReservedInstancesRequest());
         }
@@ -8477,7 +8634,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeReservedInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstances">REST API Reference for DescribeReservedInstances Operation</seealso>
-        public DescribeReservedInstancesResponse DescribeReservedInstances(DescribeReservedInstancesRequest request)
+        public virtual DescribeReservedInstancesResponse DescribeReservedInstances(DescribeReservedInstancesRequest request)
         {
             var marshaller = new DescribeReservedInstancesRequestMarshaller();
             var unmarshaller = DescribeReservedInstancesResponseUnmarshaller.Instance;
@@ -8497,7 +8654,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeReservedInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstances">REST API Reference for DescribeReservedInstances Operation</seealso>
-        public IAsyncResult BeginDescribeReservedInstances(DescribeReservedInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeReservedInstances(DescribeReservedInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeReservedInstancesRequestMarshaller();
             var unmarshaller = DescribeReservedInstancesResponseUnmarshaller.Instance;
@@ -8514,7 +8671,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeReservedInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstances">REST API Reference for DescribeReservedInstances Operation</seealso>
-        public  DescribeReservedInstancesResponse EndDescribeReservedInstances(IAsyncResult asyncResult)
+        public virtual DescribeReservedInstancesResponse EndDescribeReservedInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeReservedInstancesResponse>(asyncResult);
         }
@@ -8556,7 +8713,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeReservedInstancesListings service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesListings">REST API Reference for DescribeReservedInstancesListings Operation</seealso>
-        public DescribeReservedInstancesListingsResponse DescribeReservedInstancesListings()
+        public virtual DescribeReservedInstancesListingsResponse DescribeReservedInstancesListings()
         {
             return DescribeReservedInstancesListings(new DescribeReservedInstancesListingsRequest());
         }
@@ -8595,7 +8752,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeReservedInstancesListings service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesListings">REST API Reference for DescribeReservedInstancesListings Operation</seealso>
-        public DescribeReservedInstancesListingsResponse DescribeReservedInstancesListings(DescribeReservedInstancesListingsRequest request)
+        public virtual DescribeReservedInstancesListingsResponse DescribeReservedInstancesListings(DescribeReservedInstancesListingsRequest request)
         {
             var marshaller = new DescribeReservedInstancesListingsRequestMarshaller();
             var unmarshaller = DescribeReservedInstancesListingsResponseUnmarshaller.Instance;
@@ -8615,7 +8772,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeReservedInstancesListings
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesListings">REST API Reference for DescribeReservedInstancesListings Operation</seealso>
-        public IAsyncResult BeginDescribeReservedInstancesListings(DescribeReservedInstancesListingsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeReservedInstancesListings(DescribeReservedInstancesListingsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeReservedInstancesListingsRequestMarshaller();
             var unmarshaller = DescribeReservedInstancesListingsResponseUnmarshaller.Instance;
@@ -8632,7 +8789,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeReservedInstancesListingsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesListings">REST API Reference for DescribeReservedInstancesListings Operation</seealso>
-        public  DescribeReservedInstancesListingsResponse EndDescribeReservedInstancesListings(IAsyncResult asyncResult)
+        public virtual DescribeReservedInstancesListingsResponse EndDescribeReservedInstancesListings(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeReservedInstancesListingsResponse>(asyncResult);
         }
@@ -8656,7 +8813,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeReservedInstancesModifications service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesModifications">REST API Reference for DescribeReservedInstancesModifications Operation</seealso>
-        public DescribeReservedInstancesModificationsResponse DescribeReservedInstancesModifications()
+        public virtual DescribeReservedInstancesModificationsResponse DescribeReservedInstancesModifications()
         {
             return DescribeReservedInstancesModifications(new DescribeReservedInstancesModificationsRequest());
         }
@@ -8677,7 +8834,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeReservedInstancesModifications service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesModifications">REST API Reference for DescribeReservedInstancesModifications Operation</seealso>
-        public DescribeReservedInstancesModificationsResponse DescribeReservedInstancesModifications(DescribeReservedInstancesModificationsRequest request)
+        public virtual DescribeReservedInstancesModificationsResponse DescribeReservedInstancesModifications(DescribeReservedInstancesModificationsRequest request)
         {
             var marshaller = new DescribeReservedInstancesModificationsRequestMarshaller();
             var unmarshaller = DescribeReservedInstancesModificationsResponseUnmarshaller.Instance;
@@ -8697,7 +8854,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeReservedInstancesModifications
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesModifications">REST API Reference for DescribeReservedInstancesModifications Operation</seealso>
-        public IAsyncResult BeginDescribeReservedInstancesModifications(DescribeReservedInstancesModificationsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeReservedInstancesModifications(DescribeReservedInstancesModificationsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeReservedInstancesModificationsRequestMarshaller();
             var unmarshaller = DescribeReservedInstancesModificationsResponseUnmarshaller.Instance;
@@ -8714,7 +8871,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeReservedInstancesModificationsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesModifications">REST API Reference for DescribeReservedInstancesModifications Operation</seealso>
-        public  DescribeReservedInstancesModificationsResponse EndDescribeReservedInstancesModifications(IAsyncResult asyncResult)
+        public virtual DescribeReservedInstancesModificationsResponse EndDescribeReservedInstancesModifications(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeReservedInstancesModificationsResponse>(asyncResult);
         }
@@ -8744,7 +8901,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeReservedInstancesOfferings service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesOfferings">REST API Reference for DescribeReservedInstancesOfferings Operation</seealso>
-        public DescribeReservedInstancesOfferingsResponse DescribeReservedInstancesOfferings()
+        public virtual DescribeReservedInstancesOfferingsResponse DescribeReservedInstancesOfferings()
         {
             return DescribeReservedInstancesOfferings(new DescribeReservedInstancesOfferingsRequest());
         }
@@ -8771,7 +8928,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeReservedInstancesOfferings service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesOfferings">REST API Reference for DescribeReservedInstancesOfferings Operation</seealso>
-        public DescribeReservedInstancesOfferingsResponse DescribeReservedInstancesOfferings(DescribeReservedInstancesOfferingsRequest request)
+        public virtual DescribeReservedInstancesOfferingsResponse DescribeReservedInstancesOfferings(DescribeReservedInstancesOfferingsRequest request)
         {
             var marshaller = new DescribeReservedInstancesOfferingsRequestMarshaller();
             var unmarshaller = DescribeReservedInstancesOfferingsResponseUnmarshaller.Instance;
@@ -8791,7 +8948,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeReservedInstancesOfferings
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesOfferings">REST API Reference for DescribeReservedInstancesOfferings Operation</seealso>
-        public IAsyncResult BeginDescribeReservedInstancesOfferings(DescribeReservedInstancesOfferingsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeReservedInstancesOfferings(DescribeReservedInstancesOfferingsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeReservedInstancesOfferingsRequestMarshaller();
             var unmarshaller = DescribeReservedInstancesOfferingsResponseUnmarshaller.Instance;
@@ -8808,7 +8965,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeReservedInstancesOfferingsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeReservedInstancesOfferings">REST API Reference for DescribeReservedInstancesOfferings Operation</seealso>
-        public  DescribeReservedInstancesOfferingsResponse EndDescribeReservedInstancesOfferings(IAsyncResult asyncResult)
+        public virtual DescribeReservedInstancesOfferingsResponse EndDescribeReservedInstancesOfferings(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeReservedInstancesOfferingsResponse>(asyncResult);
         }
@@ -8835,7 +8992,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeRouteTables service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeRouteTables">REST API Reference for DescribeRouteTables Operation</seealso>
-        public DescribeRouteTablesResponse DescribeRouteTables()
+        public virtual DescribeRouteTablesResponse DescribeRouteTables()
         {
             return DescribeRouteTables(new DescribeRouteTablesRequest());
         }
@@ -8859,7 +9016,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeRouteTables service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeRouteTables">REST API Reference for DescribeRouteTables Operation</seealso>
-        public DescribeRouteTablesResponse DescribeRouteTables(DescribeRouteTablesRequest request)
+        public virtual DescribeRouteTablesResponse DescribeRouteTables(DescribeRouteTablesRequest request)
         {
             var marshaller = new DescribeRouteTablesRequestMarshaller();
             var unmarshaller = DescribeRouteTablesResponseUnmarshaller.Instance;
@@ -8879,7 +9036,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeRouteTables
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeRouteTables">REST API Reference for DescribeRouteTables Operation</seealso>
-        public IAsyncResult BeginDescribeRouteTables(DescribeRouteTablesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeRouteTables(DescribeRouteTablesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeRouteTablesRequestMarshaller();
             var unmarshaller = DescribeRouteTablesResponseUnmarshaller.Instance;
@@ -8896,7 +9053,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeRouteTablesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeRouteTables">REST API Reference for DescribeRouteTables Operation</seealso>
-        public  DescribeRouteTablesResponse EndDescribeRouteTables(IAsyncResult asyncResult)
+        public virtual DescribeRouteTablesResponse EndDescribeRouteTables(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeRouteTablesResponse>(asyncResult);
         }
@@ -8925,7 +9082,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeScheduledInstanceAvailability service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeScheduledInstanceAvailability">REST API Reference for DescribeScheduledInstanceAvailability Operation</seealso>
-        public DescribeScheduledInstanceAvailabilityResponse DescribeScheduledInstanceAvailability(DescribeScheduledInstanceAvailabilityRequest request)
+        public virtual DescribeScheduledInstanceAvailabilityResponse DescribeScheduledInstanceAvailability(DescribeScheduledInstanceAvailabilityRequest request)
         {
             var marshaller = new DescribeScheduledInstanceAvailabilityRequestMarshaller();
             var unmarshaller = DescribeScheduledInstanceAvailabilityResponseUnmarshaller.Instance;
@@ -8945,7 +9102,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeScheduledInstanceAvailability
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeScheduledInstanceAvailability">REST API Reference for DescribeScheduledInstanceAvailability Operation</seealso>
-        public IAsyncResult BeginDescribeScheduledInstanceAvailability(DescribeScheduledInstanceAvailabilityRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeScheduledInstanceAvailability(DescribeScheduledInstanceAvailabilityRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeScheduledInstanceAvailabilityRequestMarshaller();
             var unmarshaller = DescribeScheduledInstanceAvailabilityResponseUnmarshaller.Instance;
@@ -8962,7 +9119,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeScheduledInstanceAvailabilityResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeScheduledInstanceAvailability">REST API Reference for DescribeScheduledInstanceAvailability Operation</seealso>
-        public  DescribeScheduledInstanceAvailabilityResponse EndDescribeScheduledInstanceAvailability(IAsyncResult asyncResult)
+        public virtual DescribeScheduledInstanceAvailabilityResponse EndDescribeScheduledInstanceAvailability(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeScheduledInstanceAvailabilityResponse>(asyncResult);
         }
@@ -8978,7 +9135,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeScheduledInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeScheduledInstances">REST API Reference for DescribeScheduledInstances Operation</seealso>
-        public DescribeScheduledInstancesResponse DescribeScheduledInstances(DescribeScheduledInstancesRequest request)
+        public virtual DescribeScheduledInstancesResponse DescribeScheduledInstances(DescribeScheduledInstancesRequest request)
         {
             var marshaller = new DescribeScheduledInstancesRequestMarshaller();
             var unmarshaller = DescribeScheduledInstancesResponseUnmarshaller.Instance;
@@ -8998,7 +9155,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeScheduledInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeScheduledInstances">REST API Reference for DescribeScheduledInstances Operation</seealso>
-        public IAsyncResult BeginDescribeScheduledInstances(DescribeScheduledInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeScheduledInstances(DescribeScheduledInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeScheduledInstancesRequestMarshaller();
             var unmarshaller = DescribeScheduledInstancesResponseUnmarshaller.Instance;
@@ -9015,7 +9172,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeScheduledInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeScheduledInstances">REST API Reference for DescribeScheduledInstances Operation</seealso>
-        public  DescribeScheduledInstancesResponse EndDescribeScheduledInstances(IAsyncResult asyncResult)
+        public virtual DescribeScheduledInstancesResponse EndDescribeScheduledInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeScheduledInstancesResponse>(asyncResult);
         }
@@ -9032,7 +9189,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSecurityGroupReferences service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroupReferences">REST API Reference for DescribeSecurityGroupReferences Operation</seealso>
-        public DescribeSecurityGroupReferencesResponse DescribeSecurityGroupReferences(DescribeSecurityGroupReferencesRequest request)
+        public virtual DescribeSecurityGroupReferencesResponse DescribeSecurityGroupReferences(DescribeSecurityGroupReferencesRequest request)
         {
             var marshaller = new DescribeSecurityGroupReferencesRequestMarshaller();
             var unmarshaller = DescribeSecurityGroupReferencesResponseUnmarshaller.Instance;
@@ -9052,7 +9209,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSecurityGroupReferences
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroupReferences">REST API Reference for DescribeSecurityGroupReferences Operation</seealso>
-        public IAsyncResult BeginDescribeSecurityGroupReferences(DescribeSecurityGroupReferencesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeSecurityGroupReferences(DescribeSecurityGroupReferencesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeSecurityGroupReferencesRequestMarshaller();
             var unmarshaller = DescribeSecurityGroupReferencesResponseUnmarshaller.Instance;
@@ -9069,7 +9226,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeSecurityGroupReferencesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroupReferences">REST API Reference for DescribeSecurityGroupReferences Operation</seealso>
-        public  DescribeSecurityGroupReferencesResponse EndDescribeSecurityGroupReferences(IAsyncResult asyncResult)
+        public virtual DescribeSecurityGroupReferencesResponse EndDescribeSecurityGroupReferences(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeSecurityGroupReferencesResponse>(asyncResult);
         }
@@ -9093,7 +9250,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSecurityGroups service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroups">REST API Reference for DescribeSecurityGroups Operation</seealso>
-        public DescribeSecurityGroupsResponse DescribeSecurityGroups()
+        public virtual DescribeSecurityGroupsResponse DescribeSecurityGroups()
         {
             return DescribeSecurityGroups(new DescribeSecurityGroupsRequest());
         }
@@ -9114,7 +9271,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSecurityGroups service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroups">REST API Reference for DescribeSecurityGroups Operation</seealso>
-        public DescribeSecurityGroupsResponse DescribeSecurityGroups(DescribeSecurityGroupsRequest request)
+        public virtual DescribeSecurityGroupsResponse DescribeSecurityGroups(DescribeSecurityGroupsRequest request)
         {
             var marshaller = new DescribeSecurityGroupsRequestMarshaller();
             var unmarshaller = DescribeSecurityGroupsResponseUnmarshaller.Instance;
@@ -9134,7 +9291,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSecurityGroups
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroups">REST API Reference for DescribeSecurityGroups Operation</seealso>
-        public IAsyncResult BeginDescribeSecurityGroups(DescribeSecurityGroupsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeSecurityGroups(DescribeSecurityGroupsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeSecurityGroupsRequestMarshaller();
             var unmarshaller = DescribeSecurityGroupsResponseUnmarshaller.Instance;
@@ -9151,7 +9308,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeSecurityGroupsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSecurityGroups">REST API Reference for DescribeSecurityGroups Operation</seealso>
-        public  DescribeSecurityGroupsResponse EndDescribeSecurityGroups(IAsyncResult asyncResult)
+        public virtual DescribeSecurityGroupsResponse EndDescribeSecurityGroups(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeSecurityGroupsResponse>(asyncResult);
         }
@@ -9174,7 +9331,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSnapshotAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSnapshotAttribute">REST API Reference for DescribeSnapshotAttribute Operation</seealso>
-        public DescribeSnapshotAttributeResponse DescribeSnapshotAttribute(DescribeSnapshotAttributeRequest request)
+        public virtual DescribeSnapshotAttributeResponse DescribeSnapshotAttribute(DescribeSnapshotAttributeRequest request)
         {
             var marshaller = new DescribeSnapshotAttributeRequestMarshaller();
             var unmarshaller = DescribeSnapshotAttributeResponseUnmarshaller.Instance;
@@ -9194,7 +9351,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSnapshotAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSnapshotAttribute">REST API Reference for DescribeSnapshotAttribute Operation</seealso>
-        public IAsyncResult BeginDescribeSnapshotAttribute(DescribeSnapshotAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeSnapshotAttribute(DescribeSnapshotAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeSnapshotAttributeRequestMarshaller();
             var unmarshaller = DescribeSnapshotAttributeResponseUnmarshaller.Instance;
@@ -9211,7 +9368,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeSnapshotAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSnapshotAttribute">REST API Reference for DescribeSnapshotAttribute Operation</seealso>
-        public  DescribeSnapshotAttributeResponse EndDescribeSnapshotAttribute(IAsyncResult asyncResult)
+        public virtual DescribeSnapshotAttributeResponse EndDescribeSnapshotAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeSnapshotAttributeResponse>(asyncResult);
         }
@@ -9291,7 +9448,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSnapshots service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSnapshots">REST API Reference for DescribeSnapshots Operation</seealso>
-        public DescribeSnapshotsResponse DescribeSnapshots()
+        public virtual DescribeSnapshotsResponse DescribeSnapshots()
         {
             return DescribeSnapshots(new DescribeSnapshotsRequest());
         }
@@ -9368,7 +9525,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSnapshots service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSnapshots">REST API Reference for DescribeSnapshots Operation</seealso>
-        public DescribeSnapshotsResponse DescribeSnapshots(DescribeSnapshotsRequest request)
+        public virtual DescribeSnapshotsResponse DescribeSnapshots(DescribeSnapshotsRequest request)
         {
             var marshaller = new DescribeSnapshotsRequestMarshaller();
             var unmarshaller = DescribeSnapshotsResponseUnmarshaller.Instance;
@@ -9388,7 +9545,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSnapshots
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSnapshots">REST API Reference for DescribeSnapshots Operation</seealso>
-        public IAsyncResult BeginDescribeSnapshots(DescribeSnapshotsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeSnapshots(DescribeSnapshotsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeSnapshotsRequestMarshaller();
             var unmarshaller = DescribeSnapshotsResponseUnmarshaller.Instance;
@@ -9405,7 +9562,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeSnapshotsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSnapshots">REST API Reference for DescribeSnapshots Operation</seealso>
-        public  DescribeSnapshotsResponse EndDescribeSnapshots(IAsyncResult asyncResult)
+        public virtual DescribeSnapshotsResponse EndDescribeSnapshots(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeSnapshotsResponse>(asyncResult);
         }
@@ -9421,7 +9578,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSpotDatafeedSubscription service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotDatafeedSubscription">REST API Reference for DescribeSpotDatafeedSubscription Operation</seealso>
-        public DescribeSpotDatafeedSubscriptionResponse DescribeSpotDatafeedSubscription()
+        public virtual DescribeSpotDatafeedSubscriptionResponse DescribeSpotDatafeedSubscription()
         {
             return DescribeSpotDatafeedSubscription(new DescribeSpotDatafeedSubscriptionRequest());
         }
@@ -9434,7 +9591,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSpotDatafeedSubscription service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotDatafeedSubscription">REST API Reference for DescribeSpotDatafeedSubscription Operation</seealso>
-        public DescribeSpotDatafeedSubscriptionResponse DescribeSpotDatafeedSubscription(DescribeSpotDatafeedSubscriptionRequest request)
+        public virtual DescribeSpotDatafeedSubscriptionResponse DescribeSpotDatafeedSubscription(DescribeSpotDatafeedSubscriptionRequest request)
         {
             var marshaller = new DescribeSpotDatafeedSubscriptionRequestMarshaller();
             var unmarshaller = DescribeSpotDatafeedSubscriptionResponseUnmarshaller.Instance;
@@ -9454,7 +9611,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSpotDatafeedSubscription
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotDatafeedSubscription">REST API Reference for DescribeSpotDatafeedSubscription Operation</seealso>
-        public IAsyncResult BeginDescribeSpotDatafeedSubscription(DescribeSpotDatafeedSubscriptionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeSpotDatafeedSubscription(DescribeSpotDatafeedSubscriptionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeSpotDatafeedSubscriptionRequestMarshaller();
             var unmarshaller = DescribeSpotDatafeedSubscriptionResponseUnmarshaller.Instance;
@@ -9471,7 +9628,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeSpotDatafeedSubscriptionResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotDatafeedSubscription">REST API Reference for DescribeSpotDatafeedSubscription Operation</seealso>
-        public  DescribeSpotDatafeedSubscriptionResponse EndDescribeSpotDatafeedSubscription(IAsyncResult asyncResult)
+        public virtual DescribeSpotDatafeedSubscriptionResponse EndDescribeSpotDatafeedSubscription(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeSpotDatafeedSubscriptionResponse>(asyncResult);
         }
@@ -9487,7 +9644,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSpotFleetInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotFleetInstances">REST API Reference for DescribeSpotFleetInstances Operation</seealso>
-        public DescribeSpotFleetInstancesResponse DescribeSpotFleetInstances(DescribeSpotFleetInstancesRequest request)
+        public virtual DescribeSpotFleetInstancesResponse DescribeSpotFleetInstances(DescribeSpotFleetInstancesRequest request)
         {
             var marshaller = new DescribeSpotFleetInstancesRequestMarshaller();
             var unmarshaller = DescribeSpotFleetInstancesResponseUnmarshaller.Instance;
@@ -9507,7 +9664,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSpotFleetInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotFleetInstances">REST API Reference for DescribeSpotFleetInstances Operation</seealso>
-        public IAsyncResult BeginDescribeSpotFleetInstances(DescribeSpotFleetInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeSpotFleetInstances(DescribeSpotFleetInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeSpotFleetInstancesRequestMarshaller();
             var unmarshaller = DescribeSpotFleetInstancesResponseUnmarshaller.Instance;
@@ -9524,7 +9681,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeSpotFleetInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotFleetInstances">REST API Reference for DescribeSpotFleetInstances Operation</seealso>
-        public  DescribeSpotFleetInstancesResponse EndDescribeSpotFleetInstances(IAsyncResult asyncResult)
+        public virtual DescribeSpotFleetInstancesResponse EndDescribeSpotFleetInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeSpotFleetInstancesResponse>(asyncResult);
         }
@@ -9546,7 +9703,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSpotFleetRequestHistory service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotFleetRequestHistory">REST API Reference for DescribeSpotFleetRequestHistory Operation</seealso>
-        public DescribeSpotFleetRequestHistoryResponse DescribeSpotFleetRequestHistory(DescribeSpotFleetRequestHistoryRequest request)
+        public virtual DescribeSpotFleetRequestHistoryResponse DescribeSpotFleetRequestHistory(DescribeSpotFleetRequestHistoryRequest request)
         {
             var marshaller = new DescribeSpotFleetRequestHistoryRequestMarshaller();
             var unmarshaller = DescribeSpotFleetRequestHistoryResponseUnmarshaller.Instance;
@@ -9566,7 +9723,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSpotFleetRequestHistory
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotFleetRequestHistory">REST API Reference for DescribeSpotFleetRequestHistory Operation</seealso>
-        public IAsyncResult BeginDescribeSpotFleetRequestHistory(DescribeSpotFleetRequestHistoryRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeSpotFleetRequestHistory(DescribeSpotFleetRequestHistoryRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeSpotFleetRequestHistoryRequestMarshaller();
             var unmarshaller = DescribeSpotFleetRequestHistoryResponseUnmarshaller.Instance;
@@ -9583,7 +9740,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeSpotFleetRequestHistoryResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotFleetRequestHistory">REST API Reference for DescribeSpotFleetRequestHistory Operation</seealso>
-        public  DescribeSpotFleetRequestHistoryResponse EndDescribeSpotFleetRequestHistory(IAsyncResult asyncResult)
+        public virtual DescribeSpotFleetRequestHistoryResponse EndDescribeSpotFleetRequestHistory(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeSpotFleetRequestHistoryResponse>(asyncResult);
         }
@@ -9605,7 +9762,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSpotFleetRequests service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotFleetRequests">REST API Reference for DescribeSpotFleetRequests Operation</seealso>
-        public DescribeSpotFleetRequestsResponse DescribeSpotFleetRequests(DescribeSpotFleetRequestsRequest request)
+        public virtual DescribeSpotFleetRequestsResponse DescribeSpotFleetRequests(DescribeSpotFleetRequestsRequest request)
         {
             var marshaller = new DescribeSpotFleetRequestsRequestMarshaller();
             var unmarshaller = DescribeSpotFleetRequestsResponseUnmarshaller.Instance;
@@ -9625,7 +9782,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSpotFleetRequests
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotFleetRequests">REST API Reference for DescribeSpotFleetRequests Operation</seealso>
-        public IAsyncResult BeginDescribeSpotFleetRequests(DescribeSpotFleetRequestsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeSpotFleetRequests(DescribeSpotFleetRequestsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeSpotFleetRequestsRequestMarshaller();
             var unmarshaller = DescribeSpotFleetRequestsResponseUnmarshaller.Instance;
@@ -9642,7 +9799,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeSpotFleetRequestsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotFleetRequests">REST API Reference for DescribeSpotFleetRequests Operation</seealso>
-        public  DescribeSpotFleetRequestsResponse EndDescribeSpotFleetRequests(IAsyncResult asyncResult)
+        public virtual DescribeSpotFleetRequestsResponse EndDescribeSpotFleetRequests(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeSpotFleetRequestsResponse>(asyncResult);
         }
@@ -9676,7 +9833,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSpotInstanceRequests service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotInstanceRequests">REST API Reference for DescribeSpotInstanceRequests Operation</seealso>
-        public DescribeSpotInstanceRequestsResponse DescribeSpotInstanceRequests()
+        public virtual DescribeSpotInstanceRequestsResponse DescribeSpotInstanceRequests()
         {
             return DescribeSpotInstanceRequests(new DescribeSpotInstanceRequestsRequest());
         }
@@ -9707,7 +9864,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSpotInstanceRequests service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotInstanceRequests">REST API Reference for DescribeSpotInstanceRequests Operation</seealso>
-        public DescribeSpotInstanceRequestsResponse DescribeSpotInstanceRequests(DescribeSpotInstanceRequestsRequest request)
+        public virtual DescribeSpotInstanceRequestsResponse DescribeSpotInstanceRequests(DescribeSpotInstanceRequestsRequest request)
         {
             var marshaller = new DescribeSpotInstanceRequestsRequestMarshaller();
             var unmarshaller = DescribeSpotInstanceRequestsResponseUnmarshaller.Instance;
@@ -9727,7 +9884,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSpotInstanceRequests
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotInstanceRequests">REST API Reference for DescribeSpotInstanceRequests Operation</seealso>
-        public IAsyncResult BeginDescribeSpotInstanceRequests(DescribeSpotInstanceRequestsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeSpotInstanceRequests(DescribeSpotInstanceRequestsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeSpotInstanceRequestsRequestMarshaller();
             var unmarshaller = DescribeSpotInstanceRequestsResponseUnmarshaller.Instance;
@@ -9744,7 +9901,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeSpotInstanceRequestsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotInstanceRequests">REST API Reference for DescribeSpotInstanceRequests Operation</seealso>
-        public  DescribeSpotInstanceRequestsResponse EndDescribeSpotInstanceRequests(IAsyncResult asyncResult)
+        public virtual DescribeSpotInstanceRequestsResponse EndDescribeSpotInstanceRequests(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeSpotInstanceRequestsResponse>(asyncResult);
         }
@@ -9768,7 +9925,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSpotPriceHistory service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotPriceHistory">REST API Reference for DescribeSpotPriceHistory Operation</seealso>
-        public DescribeSpotPriceHistoryResponse DescribeSpotPriceHistory()
+        public virtual DescribeSpotPriceHistoryResponse DescribeSpotPriceHistory()
         {
             return DescribeSpotPriceHistory(new DescribeSpotPriceHistoryRequest());
         }
@@ -9789,7 +9946,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSpotPriceHistory service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotPriceHistory">REST API Reference for DescribeSpotPriceHistory Operation</seealso>
-        public DescribeSpotPriceHistoryResponse DescribeSpotPriceHistory(DescribeSpotPriceHistoryRequest request)
+        public virtual DescribeSpotPriceHistoryResponse DescribeSpotPriceHistory(DescribeSpotPriceHistoryRequest request)
         {
             var marshaller = new DescribeSpotPriceHistoryRequestMarshaller();
             var unmarshaller = DescribeSpotPriceHistoryResponseUnmarshaller.Instance;
@@ -9809,7 +9966,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSpotPriceHistory
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotPriceHistory">REST API Reference for DescribeSpotPriceHistory Operation</seealso>
-        public IAsyncResult BeginDescribeSpotPriceHistory(DescribeSpotPriceHistoryRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeSpotPriceHistory(DescribeSpotPriceHistoryRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeSpotPriceHistoryRequestMarshaller();
             var unmarshaller = DescribeSpotPriceHistoryResponseUnmarshaller.Instance;
@@ -9826,7 +9983,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeSpotPriceHistoryResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSpotPriceHistory">REST API Reference for DescribeSpotPriceHistory Operation</seealso>
-        public  DescribeSpotPriceHistoryResponse EndDescribeSpotPriceHistory(IAsyncResult asyncResult)
+        public virtual DescribeSpotPriceHistoryResponse EndDescribeSpotPriceHistory(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeSpotPriceHistoryResponse>(asyncResult);
         }
@@ -9844,7 +10001,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeStaleSecurityGroups service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeStaleSecurityGroups">REST API Reference for DescribeStaleSecurityGroups Operation</seealso>
-        public DescribeStaleSecurityGroupsResponse DescribeStaleSecurityGroups(DescribeStaleSecurityGroupsRequest request)
+        public virtual DescribeStaleSecurityGroupsResponse DescribeStaleSecurityGroups(DescribeStaleSecurityGroupsRequest request)
         {
             var marshaller = new DescribeStaleSecurityGroupsRequestMarshaller();
             var unmarshaller = DescribeStaleSecurityGroupsResponseUnmarshaller.Instance;
@@ -9864,7 +10021,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeStaleSecurityGroups
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeStaleSecurityGroups">REST API Reference for DescribeStaleSecurityGroups Operation</seealso>
-        public IAsyncResult BeginDescribeStaleSecurityGroups(DescribeStaleSecurityGroupsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeStaleSecurityGroups(DescribeStaleSecurityGroupsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeStaleSecurityGroupsRequestMarshaller();
             var unmarshaller = DescribeStaleSecurityGroupsResponseUnmarshaller.Instance;
@@ -9881,7 +10038,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeStaleSecurityGroupsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeStaleSecurityGroups">REST API Reference for DescribeStaleSecurityGroups Operation</seealso>
-        public  DescribeStaleSecurityGroupsResponse EndDescribeStaleSecurityGroups(IAsyncResult asyncResult)
+        public virtual DescribeStaleSecurityGroupsResponse EndDescribeStaleSecurityGroups(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeStaleSecurityGroupsResponse>(asyncResult);
         }
@@ -9902,7 +10059,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSubnets service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSubnets">REST API Reference for DescribeSubnets Operation</seealso>
-        public DescribeSubnetsResponse DescribeSubnets()
+        public virtual DescribeSubnetsResponse DescribeSubnets()
         {
             return DescribeSubnets(new DescribeSubnetsRequest());
         }
@@ -9920,7 +10077,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeSubnets service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSubnets">REST API Reference for DescribeSubnets Operation</seealso>
-        public DescribeSubnetsResponse DescribeSubnets(DescribeSubnetsRequest request)
+        public virtual DescribeSubnetsResponse DescribeSubnets(DescribeSubnetsRequest request)
         {
             var marshaller = new DescribeSubnetsRequestMarshaller();
             var unmarshaller = DescribeSubnetsResponseUnmarshaller.Instance;
@@ -9940,7 +10097,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeSubnets
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSubnets">REST API Reference for DescribeSubnets Operation</seealso>
-        public IAsyncResult BeginDescribeSubnets(DescribeSubnetsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeSubnets(DescribeSubnetsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeSubnetsRequestMarshaller();
             var unmarshaller = DescribeSubnetsResponseUnmarshaller.Instance;
@@ -9957,7 +10114,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeSubnetsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeSubnets">REST API Reference for DescribeSubnets Operation</seealso>
-        public  DescribeSubnetsResponse EndDescribeSubnets(IAsyncResult asyncResult)
+        public virtual DescribeSubnetsResponse EndDescribeSubnets(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeSubnetsResponse>(asyncResult);
         }
@@ -9978,7 +10135,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeTags service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeTags">REST API Reference for DescribeTags Operation</seealso>
-        public DescribeTagsResponse DescribeTags()
+        public virtual DescribeTagsResponse DescribeTags()
         {
             return DescribeTags(new DescribeTagsRequest());
         }
@@ -9996,7 +10153,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeTags service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeTags">REST API Reference for DescribeTags Operation</seealso>
-        public DescribeTagsResponse DescribeTags(DescribeTagsRequest request)
+        public virtual DescribeTagsResponse DescribeTags(DescribeTagsRequest request)
         {
             var marshaller = new DescribeTagsRequestMarshaller();
             var unmarshaller = DescribeTagsResponseUnmarshaller.Instance;
@@ -10016,7 +10173,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeTags
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeTags">REST API Reference for DescribeTags Operation</seealso>
-        public IAsyncResult BeginDescribeTags(DescribeTagsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeTags(DescribeTagsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeTagsRequestMarshaller();
             var unmarshaller = DescribeTagsResponseUnmarshaller.Instance;
@@ -10033,7 +10190,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeTagsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeTags">REST API Reference for DescribeTags Operation</seealso>
-        public  DescribeTagsResponse EndDescribeTags(IAsyncResult asyncResult)
+        public virtual DescribeTagsResponse EndDescribeTags(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeTagsResponse>(asyncResult);
         }
@@ -10056,7 +10213,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVolumeAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumeAttribute">REST API Reference for DescribeVolumeAttribute Operation</seealso>
-        public DescribeVolumeAttributeResponse DescribeVolumeAttribute(DescribeVolumeAttributeRequest request)
+        public virtual DescribeVolumeAttributeResponse DescribeVolumeAttribute(DescribeVolumeAttributeRequest request)
         {
             var marshaller = new DescribeVolumeAttributeRequestMarshaller();
             var unmarshaller = DescribeVolumeAttributeResponseUnmarshaller.Instance;
@@ -10076,7 +10233,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVolumeAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumeAttribute">REST API Reference for DescribeVolumeAttribute Operation</seealso>
-        public IAsyncResult BeginDescribeVolumeAttribute(DescribeVolumeAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVolumeAttribute(DescribeVolumeAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVolumeAttributeRequestMarshaller();
             var unmarshaller = DescribeVolumeAttributeResponseUnmarshaller.Instance;
@@ -10093,7 +10250,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVolumeAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumeAttribute">REST API Reference for DescribeVolumeAttribute Operation</seealso>
-        public  DescribeVolumeAttributeResponse EndDescribeVolumeAttribute(IAsyncResult asyncResult)
+        public virtual DescribeVolumeAttributeResponse EndDescribeVolumeAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVolumeAttributeResponse>(asyncResult);
         }
@@ -10123,7 +10280,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVolumes service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumes">REST API Reference for DescribeVolumes Operation</seealso>
-        public DescribeVolumesResponse DescribeVolumes()
+        public virtual DescribeVolumesResponse DescribeVolumes()
         {
             return DescribeVolumes(new DescribeVolumesRequest());
         }
@@ -10150,7 +10307,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVolumes service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumes">REST API Reference for DescribeVolumes Operation</seealso>
-        public DescribeVolumesResponse DescribeVolumes(DescribeVolumesRequest request)
+        public virtual DescribeVolumesResponse DescribeVolumes(DescribeVolumesRequest request)
         {
             var marshaller = new DescribeVolumesRequestMarshaller();
             var unmarshaller = DescribeVolumesResponseUnmarshaller.Instance;
@@ -10170,7 +10327,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVolumes
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumes">REST API Reference for DescribeVolumes Operation</seealso>
-        public IAsyncResult BeginDescribeVolumes(DescribeVolumesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVolumes(DescribeVolumesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVolumesRequestMarshaller();
             var unmarshaller = DescribeVolumesResponseUnmarshaller.Instance;
@@ -10187,7 +10344,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVolumesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumes">REST API Reference for DescribeVolumes Operation</seealso>
-        public  DescribeVolumesResponse EndDescribeVolumes(IAsyncResult asyncResult)
+        public virtual DescribeVolumesResponse EndDescribeVolumes(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVolumesResponse>(asyncResult);
         }
@@ -10221,7 +10378,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVolumesModifications service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumesModifications">REST API Reference for DescribeVolumesModifications Operation</seealso>
-        public DescribeVolumesModificationsResponse DescribeVolumesModifications(DescribeVolumesModificationsRequest request)
+        public virtual DescribeVolumesModificationsResponse DescribeVolumesModifications(DescribeVolumesModificationsRequest request)
         {
             var marshaller = new DescribeVolumesModificationsRequestMarshaller();
             var unmarshaller = DescribeVolumesModificationsResponseUnmarshaller.Instance;
@@ -10241,7 +10398,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVolumesModifications
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumesModifications">REST API Reference for DescribeVolumesModifications Operation</seealso>
-        public IAsyncResult BeginDescribeVolumesModifications(DescribeVolumesModificationsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVolumesModifications(DescribeVolumesModificationsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVolumesModificationsRequestMarshaller();
             var unmarshaller = DescribeVolumesModificationsResponseUnmarshaller.Instance;
@@ -10258,7 +10415,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVolumesModificationsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumesModifications">REST API Reference for DescribeVolumesModifications Operation</seealso>
-        public  DescribeVolumesModificationsResponse EndDescribeVolumesModifications(IAsyncResult asyncResult)
+        public virtual DescribeVolumesModificationsResponse EndDescribeVolumesModifications(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVolumesModificationsResponse>(asyncResult);
         }
@@ -10318,7 +10475,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVolumeStatus service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumeStatus">REST API Reference for DescribeVolumeStatus Operation</seealso>
-        public DescribeVolumeStatusResponse DescribeVolumeStatus()
+        public virtual DescribeVolumeStatusResponse DescribeVolumeStatus()
         {
             return DescribeVolumeStatus(new DescribeVolumeStatusRequest());
         }
@@ -10375,7 +10532,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVolumeStatus service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumeStatus">REST API Reference for DescribeVolumeStatus Operation</seealso>
-        public DescribeVolumeStatusResponse DescribeVolumeStatus(DescribeVolumeStatusRequest request)
+        public virtual DescribeVolumeStatusResponse DescribeVolumeStatus(DescribeVolumeStatusRequest request)
         {
             var marshaller = new DescribeVolumeStatusRequestMarshaller();
             var unmarshaller = DescribeVolumeStatusResponseUnmarshaller.Instance;
@@ -10395,7 +10552,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVolumeStatus
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumeStatus">REST API Reference for DescribeVolumeStatus Operation</seealso>
-        public IAsyncResult BeginDescribeVolumeStatus(DescribeVolumeStatusRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVolumeStatus(DescribeVolumeStatusRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVolumeStatusRequestMarshaller();
             var unmarshaller = DescribeVolumeStatusResponseUnmarshaller.Instance;
@@ -10412,7 +10569,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVolumeStatusResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVolumeStatus">REST API Reference for DescribeVolumeStatus Operation</seealso>
-        public  DescribeVolumeStatusResponse EndDescribeVolumeStatus(IAsyncResult asyncResult)
+        public virtual DescribeVolumeStatusResponse EndDescribeVolumeStatus(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVolumeStatusResponse>(asyncResult);
         }
@@ -10429,7 +10586,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVpcAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcAttribute">REST API Reference for DescribeVpcAttribute Operation</seealso>
-        public DescribeVpcAttributeResponse DescribeVpcAttribute(DescribeVpcAttributeRequest request)
+        public virtual DescribeVpcAttributeResponse DescribeVpcAttribute(DescribeVpcAttributeRequest request)
         {
             var marshaller = new DescribeVpcAttributeRequestMarshaller();
             var unmarshaller = DescribeVpcAttributeResponseUnmarshaller.Instance;
@@ -10449,7 +10606,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVpcAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcAttribute">REST API Reference for DescribeVpcAttribute Operation</seealso>
-        public IAsyncResult BeginDescribeVpcAttribute(DescribeVpcAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVpcAttribute(DescribeVpcAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVpcAttributeRequestMarshaller();
             var unmarshaller = DescribeVpcAttributeResponseUnmarshaller.Instance;
@@ -10466,7 +10623,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVpcAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcAttribute">REST API Reference for DescribeVpcAttribute Operation</seealso>
-        public  DescribeVpcAttributeResponse EndDescribeVpcAttribute(IAsyncResult asyncResult)
+        public virtual DescribeVpcAttributeResponse EndDescribeVpcAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVpcAttributeResponse>(asyncResult);
         }
@@ -10482,7 +10639,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVpcClassicLink service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcClassicLink">REST API Reference for DescribeVpcClassicLink Operation</seealso>
-        public DescribeVpcClassicLinkResponse DescribeVpcClassicLink(DescribeVpcClassicLinkRequest request)
+        public virtual DescribeVpcClassicLinkResponse DescribeVpcClassicLink(DescribeVpcClassicLinkRequest request)
         {
             var marshaller = new DescribeVpcClassicLinkRequestMarshaller();
             var unmarshaller = DescribeVpcClassicLinkResponseUnmarshaller.Instance;
@@ -10502,7 +10659,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVpcClassicLink
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcClassicLink">REST API Reference for DescribeVpcClassicLink Operation</seealso>
-        public IAsyncResult BeginDescribeVpcClassicLink(DescribeVpcClassicLinkRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVpcClassicLink(DescribeVpcClassicLinkRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVpcClassicLinkRequestMarshaller();
             var unmarshaller = DescribeVpcClassicLinkResponseUnmarshaller.Instance;
@@ -10519,7 +10676,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVpcClassicLinkResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcClassicLink">REST API Reference for DescribeVpcClassicLink Operation</seealso>
-        public  DescribeVpcClassicLinkResponse EndDescribeVpcClassicLink(IAsyncResult asyncResult)
+        public virtual DescribeVpcClassicLinkResponse EndDescribeVpcClassicLink(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVpcClassicLinkResponse>(asyncResult);
         }
@@ -10540,7 +10697,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVpcClassicLinkDnsSupport service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcClassicLinkDnsSupport">REST API Reference for DescribeVpcClassicLinkDnsSupport Operation</seealso>
-        public DescribeVpcClassicLinkDnsSupportResponse DescribeVpcClassicLinkDnsSupport(DescribeVpcClassicLinkDnsSupportRequest request)
+        public virtual DescribeVpcClassicLinkDnsSupportResponse DescribeVpcClassicLinkDnsSupport(DescribeVpcClassicLinkDnsSupportRequest request)
         {
             var marshaller = new DescribeVpcClassicLinkDnsSupportRequestMarshaller();
             var unmarshaller = DescribeVpcClassicLinkDnsSupportResponseUnmarshaller.Instance;
@@ -10560,7 +10717,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVpcClassicLinkDnsSupport
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcClassicLinkDnsSupport">REST API Reference for DescribeVpcClassicLinkDnsSupport Operation</seealso>
-        public IAsyncResult BeginDescribeVpcClassicLinkDnsSupport(DescribeVpcClassicLinkDnsSupportRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVpcClassicLinkDnsSupport(DescribeVpcClassicLinkDnsSupportRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVpcClassicLinkDnsSupportRequestMarshaller();
             var unmarshaller = DescribeVpcClassicLinkDnsSupportResponseUnmarshaller.Instance;
@@ -10577,7 +10734,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVpcClassicLinkDnsSupportResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcClassicLinkDnsSupport">REST API Reference for DescribeVpcClassicLinkDnsSupport Operation</seealso>
-        public  DescribeVpcClassicLinkDnsSupportResponse EndDescribeVpcClassicLinkDnsSupport(IAsyncResult asyncResult)
+        public virtual DescribeVpcClassicLinkDnsSupportResponse EndDescribeVpcClassicLinkDnsSupport(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVpcClassicLinkDnsSupportResponse>(asyncResult);
         }
@@ -10593,7 +10750,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVpcEndpoints service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpoints">REST API Reference for DescribeVpcEndpoints Operation</seealso>
-        public DescribeVpcEndpointsResponse DescribeVpcEndpoints(DescribeVpcEndpointsRequest request)
+        public virtual DescribeVpcEndpointsResponse DescribeVpcEndpoints(DescribeVpcEndpointsRequest request)
         {
             var marshaller = new DescribeVpcEndpointsRequestMarshaller();
             var unmarshaller = DescribeVpcEndpointsResponseUnmarshaller.Instance;
@@ -10613,7 +10770,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVpcEndpoints
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpoints">REST API Reference for DescribeVpcEndpoints Operation</seealso>
-        public IAsyncResult BeginDescribeVpcEndpoints(DescribeVpcEndpointsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVpcEndpoints(DescribeVpcEndpointsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVpcEndpointsRequestMarshaller();
             var unmarshaller = DescribeVpcEndpointsResponseUnmarshaller.Instance;
@@ -10630,7 +10787,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVpcEndpointsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpoints">REST API Reference for DescribeVpcEndpoints Operation</seealso>
-        public  DescribeVpcEndpointsResponse EndDescribeVpcEndpoints(IAsyncResult asyncResult)
+        public virtual DescribeVpcEndpointsResponse EndDescribeVpcEndpoints(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVpcEndpointsResponse>(asyncResult);
         }
@@ -10646,7 +10803,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVpcEndpointServices service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpointServices">REST API Reference for DescribeVpcEndpointServices Operation</seealso>
-        public DescribeVpcEndpointServicesResponse DescribeVpcEndpointServices(DescribeVpcEndpointServicesRequest request)
+        public virtual DescribeVpcEndpointServicesResponse DescribeVpcEndpointServices(DescribeVpcEndpointServicesRequest request)
         {
             var marshaller = new DescribeVpcEndpointServicesRequestMarshaller();
             var unmarshaller = DescribeVpcEndpointServicesResponseUnmarshaller.Instance;
@@ -10666,7 +10823,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVpcEndpointServices
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpointServices">REST API Reference for DescribeVpcEndpointServices Operation</seealso>
-        public IAsyncResult BeginDescribeVpcEndpointServices(DescribeVpcEndpointServicesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVpcEndpointServices(DescribeVpcEndpointServicesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVpcEndpointServicesRequestMarshaller();
             var unmarshaller = DescribeVpcEndpointServicesResponseUnmarshaller.Instance;
@@ -10683,7 +10840,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVpcEndpointServicesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpointServices">REST API Reference for DescribeVpcEndpointServices Operation</seealso>
-        public  DescribeVpcEndpointServicesResponse EndDescribeVpcEndpointServices(IAsyncResult asyncResult)
+        public virtual DescribeVpcEndpointServicesResponse EndDescribeVpcEndpointServices(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVpcEndpointServicesResponse>(asyncResult);
         }
@@ -10698,7 +10855,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVpcPeeringConnections service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcPeeringConnections">REST API Reference for DescribeVpcPeeringConnections Operation</seealso>
-        public DescribeVpcPeeringConnectionsResponse DescribeVpcPeeringConnections()
+        public virtual DescribeVpcPeeringConnectionsResponse DescribeVpcPeeringConnections()
         {
             return DescribeVpcPeeringConnections(new DescribeVpcPeeringConnectionsRequest());
         }
@@ -10710,7 +10867,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVpcPeeringConnections service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcPeeringConnections">REST API Reference for DescribeVpcPeeringConnections Operation</seealso>
-        public DescribeVpcPeeringConnectionsResponse DescribeVpcPeeringConnections(DescribeVpcPeeringConnectionsRequest request)
+        public virtual DescribeVpcPeeringConnectionsResponse DescribeVpcPeeringConnections(DescribeVpcPeeringConnectionsRequest request)
         {
             var marshaller = new DescribeVpcPeeringConnectionsRequestMarshaller();
             var unmarshaller = DescribeVpcPeeringConnectionsResponseUnmarshaller.Instance;
@@ -10730,7 +10887,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVpcPeeringConnections
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcPeeringConnections">REST API Reference for DescribeVpcPeeringConnections Operation</seealso>
-        public IAsyncResult BeginDescribeVpcPeeringConnections(DescribeVpcPeeringConnectionsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVpcPeeringConnections(DescribeVpcPeeringConnectionsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVpcPeeringConnectionsRequestMarshaller();
             var unmarshaller = DescribeVpcPeeringConnectionsResponseUnmarshaller.Instance;
@@ -10747,7 +10904,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVpcPeeringConnectionsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcPeeringConnections">REST API Reference for DescribeVpcPeeringConnections Operation</seealso>
-        public  DescribeVpcPeeringConnectionsResponse EndDescribeVpcPeeringConnections(IAsyncResult asyncResult)
+        public virtual DescribeVpcPeeringConnectionsResponse EndDescribeVpcPeeringConnections(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVpcPeeringConnectionsResponse>(asyncResult);
         }
@@ -10762,7 +10919,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVpcs service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs">REST API Reference for DescribeVpcs Operation</seealso>
-        public DescribeVpcsResponse DescribeVpcs()
+        public virtual DescribeVpcsResponse DescribeVpcs()
         {
             return DescribeVpcs(new DescribeVpcsRequest());
         }
@@ -10774,7 +10931,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DescribeVpcs service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs">REST API Reference for DescribeVpcs Operation</seealso>
-        public DescribeVpcsResponse DescribeVpcs(DescribeVpcsRequest request)
+        public virtual DescribeVpcsResponse DescribeVpcs(DescribeVpcsRequest request)
         {
             var marshaller = new DescribeVpcsRequestMarshaller();
             var unmarshaller = DescribeVpcsResponseUnmarshaller.Instance;
@@ -10794,7 +10951,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVpcs
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs">REST API Reference for DescribeVpcs Operation</seealso>
-        public IAsyncResult BeginDescribeVpcs(DescribeVpcsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVpcs(DescribeVpcsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVpcsRequestMarshaller();
             var unmarshaller = DescribeVpcsResponseUnmarshaller.Instance;
@@ -10811,7 +10968,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVpcsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcs">REST API Reference for DescribeVpcs Operation</seealso>
-        public  DescribeVpcsResponse EndDescribeVpcs(IAsyncResult asyncResult)
+        public virtual DescribeVpcsResponse EndDescribeVpcs(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVpcsResponse>(asyncResult);
         }
@@ -10825,15 +10982,14 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the DescribeVpnConnections service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnConnections">REST API Reference for DescribeVpnConnections Operation</seealso>
-        public DescribeVpnConnectionsResponse DescribeVpnConnections()
+        public virtual DescribeVpnConnectionsResponse DescribeVpnConnections()
         {
             return DescribeVpnConnections(new DescribeVpnConnectionsRequest());
         }
@@ -10843,16 +10999,15 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpnConnections service method.</param>
         /// 
         /// <returns>The response from the DescribeVpnConnections service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnConnections">REST API Reference for DescribeVpnConnections Operation</seealso>
-        public DescribeVpnConnectionsResponse DescribeVpnConnections(DescribeVpnConnectionsRequest request)
+        public virtual DescribeVpnConnectionsResponse DescribeVpnConnections(DescribeVpnConnectionsRequest request)
         {
             var marshaller = new DescribeVpnConnectionsRequestMarshaller();
             var unmarshaller = DescribeVpnConnectionsResponseUnmarshaller.Instance;
@@ -10872,7 +11027,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVpnConnections
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnConnections">REST API Reference for DescribeVpnConnections Operation</seealso>
-        public IAsyncResult BeginDescribeVpnConnections(DescribeVpnConnectionsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVpnConnections(DescribeVpnConnectionsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVpnConnectionsRequestMarshaller();
             var unmarshaller = DescribeVpnConnectionsResponseUnmarshaller.Instance;
@@ -10889,7 +11044,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVpnConnectionsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnConnections">REST API Reference for DescribeVpnConnections Operation</seealso>
-        public  DescribeVpnConnectionsResponse EndDescribeVpnConnections(IAsyncResult asyncResult)
+        public virtual DescribeVpnConnectionsResponse EndDescribeVpnConnections(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVpnConnectionsResponse>(asyncResult);
         }
@@ -10903,15 +11058,14 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// an IPsec Hardware VPN to Your VPC</a> in the <i>Amazon Virtual Private Cloud User
-        /// Guide</i>.
+        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the DescribeVpnGateways service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnGateways">REST API Reference for DescribeVpnGateways Operation</seealso>
-        public DescribeVpnGatewaysResponse DescribeVpnGateways()
+        public virtual DescribeVpnGatewaysResponse DescribeVpnGateways()
         {
             return DescribeVpnGateways(new DescribeVpnGatewaysRequest());
         }
@@ -10921,16 +11075,15 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// an IPsec Hardware VPN to Your VPC</a> in the <i>Amazon Virtual Private Cloud User
-        /// Guide</i>.
+        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpnGateways service method.</param>
         /// 
         /// <returns>The response from the DescribeVpnGateways service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnGateways">REST API Reference for DescribeVpnGateways Operation</seealso>
-        public DescribeVpnGatewaysResponse DescribeVpnGateways(DescribeVpnGatewaysRequest request)
+        public virtual DescribeVpnGatewaysResponse DescribeVpnGateways(DescribeVpnGatewaysRequest request)
         {
             var marshaller = new DescribeVpnGatewaysRequestMarshaller();
             var unmarshaller = DescribeVpnGatewaysResponseUnmarshaller.Instance;
@@ -10950,7 +11103,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeVpnGateways
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnGateways">REST API Reference for DescribeVpnGateways Operation</seealso>
-        public IAsyncResult BeginDescribeVpnGateways(DescribeVpnGatewaysRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeVpnGateways(DescribeVpnGatewaysRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeVpnGatewaysRequestMarshaller();
             var unmarshaller = DescribeVpnGatewaysResponseUnmarshaller.Instance;
@@ -10967,7 +11120,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DescribeVpnGatewaysResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpnGateways">REST API Reference for DescribeVpnGateways Operation</seealso>
-        public  DescribeVpnGatewaysResponse EndDescribeVpnGateways(IAsyncResult asyncResult)
+        public virtual DescribeVpnGatewaysResponse EndDescribeVpnGateways(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeVpnGatewaysResponse>(asyncResult);
         }
@@ -10985,7 +11138,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DetachClassicLinkVpc service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachClassicLinkVpc">REST API Reference for DetachClassicLinkVpc Operation</seealso>
-        public DetachClassicLinkVpcResponse DetachClassicLinkVpc(DetachClassicLinkVpcRequest request)
+        public virtual DetachClassicLinkVpcResponse DetachClassicLinkVpc(DetachClassicLinkVpcRequest request)
         {
             var marshaller = new DetachClassicLinkVpcRequestMarshaller();
             var unmarshaller = DetachClassicLinkVpcResponseUnmarshaller.Instance;
@@ -11005,7 +11158,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDetachClassicLinkVpc
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachClassicLinkVpc">REST API Reference for DetachClassicLinkVpc Operation</seealso>
-        public IAsyncResult BeginDetachClassicLinkVpc(DetachClassicLinkVpcRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDetachClassicLinkVpc(DetachClassicLinkVpcRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DetachClassicLinkVpcRequestMarshaller();
             var unmarshaller = DetachClassicLinkVpcResponseUnmarshaller.Instance;
@@ -11022,7 +11175,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DetachClassicLinkVpcResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachClassicLinkVpc">REST API Reference for DetachClassicLinkVpc Operation</seealso>
-        public  DetachClassicLinkVpcResponse EndDetachClassicLinkVpc(IAsyncResult asyncResult)
+        public virtual DetachClassicLinkVpcResponse EndDetachClassicLinkVpc(IAsyncResult asyncResult)
         {
             return EndInvoke<DetachClassicLinkVpcResponse>(asyncResult);
         }
@@ -11040,7 +11193,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DetachInternetGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachInternetGateway">REST API Reference for DetachInternetGateway Operation</seealso>
-        public DetachInternetGatewayResponse DetachInternetGateway(DetachInternetGatewayRequest request)
+        public virtual DetachInternetGatewayResponse DetachInternetGateway(DetachInternetGatewayRequest request)
         {
             var marshaller = new DetachInternetGatewayRequestMarshaller();
             var unmarshaller = DetachInternetGatewayResponseUnmarshaller.Instance;
@@ -11060,7 +11213,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDetachInternetGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachInternetGateway">REST API Reference for DetachInternetGateway Operation</seealso>
-        public IAsyncResult BeginDetachInternetGateway(DetachInternetGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDetachInternetGateway(DetachInternetGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DetachInternetGatewayRequestMarshaller();
             var unmarshaller = DetachInternetGatewayResponseUnmarshaller.Instance;
@@ -11077,7 +11230,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DetachInternetGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachInternetGateway">REST API Reference for DetachInternetGateway Operation</seealso>
-        public  DetachInternetGatewayResponse EndDetachInternetGateway(IAsyncResult asyncResult)
+        public virtual DetachInternetGatewayResponse EndDetachInternetGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<DetachInternetGatewayResponse>(asyncResult);
         }
@@ -11093,7 +11246,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DetachNetworkInterface service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachNetworkInterface">REST API Reference for DetachNetworkInterface Operation</seealso>
-        public DetachNetworkInterfaceResponse DetachNetworkInterface(DetachNetworkInterfaceRequest request)
+        public virtual DetachNetworkInterfaceResponse DetachNetworkInterface(DetachNetworkInterfaceRequest request)
         {
             var marshaller = new DetachNetworkInterfaceRequestMarshaller();
             var unmarshaller = DetachNetworkInterfaceResponseUnmarshaller.Instance;
@@ -11113,7 +11266,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDetachNetworkInterface
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachNetworkInterface">REST API Reference for DetachNetworkInterface Operation</seealso>
-        public IAsyncResult BeginDetachNetworkInterface(DetachNetworkInterfaceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDetachNetworkInterface(DetachNetworkInterfaceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DetachNetworkInterfaceRequestMarshaller();
             var unmarshaller = DetachNetworkInterfaceResponseUnmarshaller.Instance;
@@ -11130,7 +11283,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DetachNetworkInterfaceResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachNetworkInterface">REST API Reference for DetachNetworkInterface Operation</seealso>
-        public  DetachNetworkInterfaceResponse EndDetachNetworkInterface(IAsyncResult asyncResult)
+        public virtual DetachNetworkInterfaceResponse EndDetachNetworkInterface(IAsyncResult asyncResult)
         {
             return EndInvoke<DetachNetworkInterfaceResponse>(asyncResult);
         }
@@ -11163,7 +11316,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DetachVolume service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachVolume">REST API Reference for DetachVolume Operation</seealso>
-        public DetachVolumeResponse DetachVolume(DetachVolumeRequest request)
+        public virtual DetachVolumeResponse DetachVolume(DetachVolumeRequest request)
         {
             var marshaller = new DetachVolumeRequestMarshaller();
             var unmarshaller = DetachVolumeResponseUnmarshaller.Instance;
@@ -11183,7 +11336,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDetachVolume
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachVolume">REST API Reference for DetachVolume Operation</seealso>
-        public IAsyncResult BeginDetachVolume(DetachVolumeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDetachVolume(DetachVolumeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DetachVolumeRequestMarshaller();
             var unmarshaller = DetachVolumeResponseUnmarshaller.Instance;
@@ -11200,7 +11353,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DetachVolumeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachVolume">REST API Reference for DetachVolume Operation</seealso>
-        public  DetachVolumeResponse EndDetachVolume(IAsyncResult asyncResult)
+        public virtual DetachVolumeResponse EndDetachVolume(IAsyncResult asyncResult)
         {
             return EndInvoke<DetachVolumeResponse>(asyncResult);
         }
@@ -11225,7 +11378,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DetachVpnGateway service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachVpnGateway">REST API Reference for DetachVpnGateway Operation</seealso>
-        public DetachVpnGatewayResponse DetachVpnGateway(DetachVpnGatewayRequest request)
+        public virtual DetachVpnGatewayResponse DetachVpnGateway(DetachVpnGatewayRequest request)
         {
             var marshaller = new DetachVpnGatewayRequestMarshaller();
             var unmarshaller = DetachVpnGatewayResponseUnmarshaller.Instance;
@@ -11245,7 +11398,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDetachVpnGateway
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachVpnGateway">REST API Reference for DetachVpnGateway Operation</seealso>
-        public IAsyncResult BeginDetachVpnGateway(DetachVpnGatewayRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDetachVpnGateway(DetachVpnGatewayRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DetachVpnGatewayRequestMarshaller();
             var unmarshaller = DetachVpnGatewayResponseUnmarshaller.Instance;
@@ -11262,7 +11415,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DetachVpnGatewayResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DetachVpnGateway">REST API Reference for DetachVpnGateway Operation</seealso>
-        public  DetachVpnGatewayResponse EndDetachVpnGateway(IAsyncResult asyncResult)
+        public virtual DetachVpnGatewayResponse EndDetachVpnGateway(IAsyncResult asyncResult)
         {
             return EndInvoke<DetachVpnGatewayResponse>(asyncResult);
         }
@@ -11279,7 +11432,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DisableVgwRoutePropagation service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableVgwRoutePropagation">REST API Reference for DisableVgwRoutePropagation Operation</seealso>
-        public DisableVgwRoutePropagationResponse DisableVgwRoutePropagation(DisableVgwRoutePropagationRequest request)
+        public virtual DisableVgwRoutePropagationResponse DisableVgwRoutePropagation(DisableVgwRoutePropagationRequest request)
         {
             var marshaller = new DisableVgwRoutePropagationRequestMarshaller();
             var unmarshaller = DisableVgwRoutePropagationResponseUnmarshaller.Instance;
@@ -11299,7 +11452,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisableVgwRoutePropagation
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableVgwRoutePropagation">REST API Reference for DisableVgwRoutePropagation Operation</seealso>
-        public IAsyncResult BeginDisableVgwRoutePropagation(DisableVgwRoutePropagationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDisableVgwRoutePropagation(DisableVgwRoutePropagationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DisableVgwRoutePropagationRequestMarshaller();
             var unmarshaller = DisableVgwRoutePropagationResponseUnmarshaller.Instance;
@@ -11316,7 +11469,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DisableVgwRoutePropagationResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableVgwRoutePropagation">REST API Reference for DisableVgwRoutePropagation Operation</seealso>
-        public  DisableVgwRoutePropagationResponse EndDisableVgwRoutePropagation(IAsyncResult asyncResult)
+        public virtual DisableVgwRoutePropagationResponse EndDisableVgwRoutePropagation(IAsyncResult asyncResult)
         {
             return EndInvoke<DisableVgwRoutePropagationResponse>(asyncResult);
         }
@@ -11333,7 +11486,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DisableVpcClassicLink service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableVpcClassicLink">REST API Reference for DisableVpcClassicLink Operation</seealso>
-        public DisableVpcClassicLinkResponse DisableVpcClassicLink(DisableVpcClassicLinkRequest request)
+        public virtual DisableVpcClassicLinkResponse DisableVpcClassicLink(DisableVpcClassicLinkRequest request)
         {
             var marshaller = new DisableVpcClassicLinkRequestMarshaller();
             var unmarshaller = DisableVpcClassicLinkResponseUnmarshaller.Instance;
@@ -11353,7 +11506,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisableVpcClassicLink
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableVpcClassicLink">REST API Reference for DisableVpcClassicLink Operation</seealso>
-        public IAsyncResult BeginDisableVpcClassicLink(DisableVpcClassicLinkRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDisableVpcClassicLink(DisableVpcClassicLinkRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DisableVpcClassicLinkRequestMarshaller();
             var unmarshaller = DisableVpcClassicLinkResponseUnmarshaller.Instance;
@@ -11370,7 +11523,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DisableVpcClassicLinkResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableVpcClassicLink">REST API Reference for DisableVpcClassicLink Operation</seealso>
-        public  DisableVpcClassicLinkResponse EndDisableVpcClassicLink(IAsyncResult asyncResult)
+        public virtual DisableVpcClassicLinkResponse EndDisableVpcClassicLink(IAsyncResult asyncResult)
         {
             return EndInvoke<DisableVpcClassicLinkResponse>(asyncResult);
         }
@@ -11389,7 +11542,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DisableVpcClassicLinkDnsSupport service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableVpcClassicLinkDnsSupport">REST API Reference for DisableVpcClassicLinkDnsSupport Operation</seealso>
-        public DisableVpcClassicLinkDnsSupportResponse DisableVpcClassicLinkDnsSupport(DisableVpcClassicLinkDnsSupportRequest request)
+        public virtual DisableVpcClassicLinkDnsSupportResponse DisableVpcClassicLinkDnsSupport(DisableVpcClassicLinkDnsSupportRequest request)
         {
             var marshaller = new DisableVpcClassicLinkDnsSupportRequestMarshaller();
             var unmarshaller = DisableVpcClassicLinkDnsSupportResponseUnmarshaller.Instance;
@@ -11409,7 +11562,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisableVpcClassicLinkDnsSupport
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableVpcClassicLinkDnsSupport">REST API Reference for DisableVpcClassicLinkDnsSupport Operation</seealso>
-        public IAsyncResult BeginDisableVpcClassicLinkDnsSupport(DisableVpcClassicLinkDnsSupportRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDisableVpcClassicLinkDnsSupport(DisableVpcClassicLinkDnsSupportRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DisableVpcClassicLinkDnsSupportRequestMarshaller();
             var unmarshaller = DisableVpcClassicLinkDnsSupportResponseUnmarshaller.Instance;
@@ -11426,7 +11579,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DisableVpcClassicLinkDnsSupportResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisableVpcClassicLinkDnsSupport">REST API Reference for DisableVpcClassicLinkDnsSupport Operation</seealso>
-        public  DisableVpcClassicLinkDnsSupportResponse EndDisableVpcClassicLinkDnsSupport(IAsyncResult asyncResult)
+        public virtual DisableVpcClassicLinkDnsSupportResponse EndDisableVpcClassicLinkDnsSupport(IAsyncResult asyncResult)
         {
             return EndInvoke<DisableVpcClassicLinkDnsSupportResponse>(asyncResult);
         }
@@ -11455,7 +11608,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DisassociateAddress service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateAddress">REST API Reference for DisassociateAddress Operation</seealso>
-        public DisassociateAddressResponse DisassociateAddress(DisassociateAddressRequest request)
+        public virtual DisassociateAddressResponse DisassociateAddress(DisassociateAddressRequest request)
         {
             var marshaller = new DisassociateAddressRequestMarshaller();
             var unmarshaller = DisassociateAddressResponseUnmarshaller.Instance;
@@ -11475,7 +11628,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisassociateAddress
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateAddress">REST API Reference for DisassociateAddress Operation</seealso>
-        public IAsyncResult BeginDisassociateAddress(DisassociateAddressRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDisassociateAddress(DisassociateAddressRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DisassociateAddressRequestMarshaller();
             var unmarshaller = DisassociateAddressResponseUnmarshaller.Instance;
@@ -11492,7 +11645,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DisassociateAddressResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateAddress">REST API Reference for DisassociateAddress Operation</seealso>
-        public  DisassociateAddressResponse EndDisassociateAddress(IAsyncResult asyncResult)
+        public virtual DisassociateAddressResponse EndDisassociateAddress(IAsyncResult asyncResult)
         {
             return EndInvoke<DisassociateAddressResponse>(asyncResult);
         }
@@ -11513,7 +11666,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DisassociateIamInstanceProfile service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateIamInstanceProfile">REST API Reference for DisassociateIamInstanceProfile Operation</seealso>
-        public DisassociateIamInstanceProfileResponse DisassociateIamInstanceProfile(DisassociateIamInstanceProfileRequest request)
+        public virtual DisassociateIamInstanceProfileResponse DisassociateIamInstanceProfile(DisassociateIamInstanceProfileRequest request)
         {
             var marshaller = new DisassociateIamInstanceProfileRequestMarshaller();
             var unmarshaller = DisassociateIamInstanceProfileResponseUnmarshaller.Instance;
@@ -11533,7 +11686,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisassociateIamInstanceProfile
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateIamInstanceProfile">REST API Reference for DisassociateIamInstanceProfile Operation</seealso>
-        public IAsyncResult BeginDisassociateIamInstanceProfile(DisassociateIamInstanceProfileRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDisassociateIamInstanceProfile(DisassociateIamInstanceProfileRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DisassociateIamInstanceProfileRequestMarshaller();
             var unmarshaller = DisassociateIamInstanceProfileResponseUnmarshaller.Instance;
@@ -11550,7 +11703,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DisassociateIamInstanceProfileResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateIamInstanceProfile">REST API Reference for DisassociateIamInstanceProfile Operation</seealso>
-        public  DisassociateIamInstanceProfileResponse EndDisassociateIamInstanceProfile(IAsyncResult asyncResult)
+        public virtual DisassociateIamInstanceProfileResponse EndDisassociateIamInstanceProfile(IAsyncResult asyncResult)
         {
             return EndInvoke<DisassociateIamInstanceProfileResponse>(asyncResult);
         }
@@ -11574,7 +11727,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DisassociateRouteTable service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateRouteTable">REST API Reference for DisassociateRouteTable Operation</seealso>
-        public DisassociateRouteTableResponse DisassociateRouteTable(DisassociateRouteTableRequest request)
+        public virtual DisassociateRouteTableResponse DisassociateRouteTable(DisassociateRouteTableRequest request)
         {
             var marshaller = new DisassociateRouteTableRequestMarshaller();
             var unmarshaller = DisassociateRouteTableResponseUnmarshaller.Instance;
@@ -11594,7 +11747,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisassociateRouteTable
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateRouteTable">REST API Reference for DisassociateRouteTable Operation</seealso>
-        public IAsyncResult BeginDisassociateRouteTable(DisassociateRouteTableRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDisassociateRouteTable(DisassociateRouteTableRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DisassociateRouteTableRequestMarshaller();
             var unmarshaller = DisassociateRouteTableResponseUnmarshaller.Instance;
@@ -11611,7 +11764,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DisassociateRouteTableResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateRouteTable">REST API Reference for DisassociateRouteTable Operation</seealso>
-        public  DisassociateRouteTableResponse EndDisassociateRouteTable(IAsyncResult asyncResult)
+        public virtual DisassociateRouteTableResponse EndDisassociateRouteTable(IAsyncResult asyncResult)
         {
             return EndInvoke<DisassociateRouteTableResponse>(asyncResult);
         }
@@ -11629,7 +11782,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DisassociateSubnetCidrBlock service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateSubnetCidrBlock">REST API Reference for DisassociateSubnetCidrBlock Operation</seealso>
-        public DisassociateSubnetCidrBlockResponse DisassociateSubnetCidrBlock(DisassociateSubnetCidrBlockRequest request)
+        public virtual DisassociateSubnetCidrBlockResponse DisassociateSubnetCidrBlock(DisassociateSubnetCidrBlockRequest request)
         {
             var marshaller = new DisassociateSubnetCidrBlockRequestMarshaller();
             var unmarshaller = DisassociateSubnetCidrBlockResponseUnmarshaller.Instance;
@@ -11649,7 +11802,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisassociateSubnetCidrBlock
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateSubnetCidrBlock">REST API Reference for DisassociateSubnetCidrBlock Operation</seealso>
-        public IAsyncResult BeginDisassociateSubnetCidrBlock(DisassociateSubnetCidrBlockRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDisassociateSubnetCidrBlock(DisassociateSubnetCidrBlockRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DisassociateSubnetCidrBlockRequestMarshaller();
             var unmarshaller = DisassociateSubnetCidrBlockResponseUnmarshaller.Instance;
@@ -11666,7 +11819,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DisassociateSubnetCidrBlockResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateSubnetCidrBlock">REST API Reference for DisassociateSubnetCidrBlock Operation</seealso>
-        public  DisassociateSubnetCidrBlockResponse EndDisassociateSubnetCidrBlock(IAsyncResult asyncResult)
+        public virtual DisassociateSubnetCidrBlockResponse EndDisassociateSubnetCidrBlock(IAsyncResult asyncResult)
         {
             return EndInvoke<DisassociateSubnetCidrBlockResponse>(asyncResult);
         }
@@ -11691,7 +11844,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the DisassociateVpcCidrBlock service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateVpcCidrBlock">REST API Reference for DisassociateVpcCidrBlock Operation</seealso>
-        public DisassociateVpcCidrBlockResponse DisassociateVpcCidrBlock(DisassociateVpcCidrBlockRequest request)
+        public virtual DisassociateVpcCidrBlockResponse DisassociateVpcCidrBlock(DisassociateVpcCidrBlockRequest request)
         {
             var marshaller = new DisassociateVpcCidrBlockRequestMarshaller();
             var unmarshaller = DisassociateVpcCidrBlockResponseUnmarshaller.Instance;
@@ -11711,7 +11864,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisassociateVpcCidrBlock
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateVpcCidrBlock">REST API Reference for DisassociateVpcCidrBlock Operation</seealso>
-        public IAsyncResult BeginDisassociateVpcCidrBlock(DisassociateVpcCidrBlockRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDisassociateVpcCidrBlock(DisassociateVpcCidrBlockRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DisassociateVpcCidrBlockRequestMarshaller();
             var unmarshaller = DisassociateVpcCidrBlockResponseUnmarshaller.Instance;
@@ -11728,7 +11881,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  DisassociateVpcCidrBlockResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DisassociateVpcCidrBlock">REST API Reference for DisassociateVpcCidrBlock Operation</seealso>
-        public  DisassociateVpcCidrBlockResponse EndDisassociateVpcCidrBlock(IAsyncResult asyncResult)
+        public virtual DisassociateVpcCidrBlockResponse EndDisassociateVpcCidrBlock(IAsyncResult asyncResult)
         {
             return EndInvoke<DisassociateVpcCidrBlockResponse>(asyncResult);
         }
@@ -11745,7 +11898,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the EnableVgwRoutePropagation service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVgwRoutePropagation">REST API Reference for EnableVgwRoutePropagation Operation</seealso>
-        public EnableVgwRoutePropagationResponse EnableVgwRoutePropagation(EnableVgwRoutePropagationRequest request)
+        public virtual EnableVgwRoutePropagationResponse EnableVgwRoutePropagation(EnableVgwRoutePropagationRequest request)
         {
             var marshaller = new EnableVgwRoutePropagationRequestMarshaller();
             var unmarshaller = EnableVgwRoutePropagationResponseUnmarshaller.Instance;
@@ -11765,7 +11918,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndEnableVgwRoutePropagation
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVgwRoutePropagation">REST API Reference for EnableVgwRoutePropagation Operation</seealso>
-        public IAsyncResult BeginEnableVgwRoutePropagation(EnableVgwRoutePropagationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginEnableVgwRoutePropagation(EnableVgwRoutePropagationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new EnableVgwRoutePropagationRequestMarshaller();
             var unmarshaller = EnableVgwRoutePropagationResponseUnmarshaller.Instance;
@@ -11782,7 +11935,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  EnableVgwRoutePropagationResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVgwRoutePropagation">REST API Reference for EnableVgwRoutePropagation Operation</seealso>
-        public  EnableVgwRoutePropagationResponse EndEnableVgwRoutePropagation(IAsyncResult asyncResult)
+        public virtual EnableVgwRoutePropagationResponse EndEnableVgwRoutePropagation(IAsyncResult asyncResult)
         {
             return EndInvoke<EnableVgwRoutePropagationResponse>(asyncResult);
         }
@@ -11799,7 +11952,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the EnableVolumeIO service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVolumeIO">REST API Reference for EnableVolumeIO Operation</seealso>
-        public EnableVolumeIOResponse EnableVolumeIO(EnableVolumeIORequest request)
+        public virtual EnableVolumeIOResponse EnableVolumeIO(EnableVolumeIORequest request)
         {
             var marshaller = new EnableVolumeIORequestMarshaller();
             var unmarshaller = EnableVolumeIOResponseUnmarshaller.Instance;
@@ -11819,7 +11972,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndEnableVolumeIO
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVolumeIO">REST API Reference for EnableVolumeIO Operation</seealso>
-        public IAsyncResult BeginEnableVolumeIO(EnableVolumeIORequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginEnableVolumeIO(EnableVolumeIORequest request, AsyncCallback callback, object state)
         {
             var marshaller = new EnableVolumeIORequestMarshaller();
             var unmarshaller = EnableVolumeIOResponseUnmarshaller.Instance;
@@ -11836,7 +11989,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  EnableVolumeIOResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVolumeIO">REST API Reference for EnableVolumeIO Operation</seealso>
-        public  EnableVolumeIOResponse EndEnableVolumeIO(IAsyncResult asyncResult)
+        public virtual EnableVolumeIOResponse EndEnableVolumeIO(IAsyncResult asyncResult)
         {
             return EndInvoke<EnableVolumeIOResponse>(asyncResult);
         }
@@ -11858,7 +12011,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the EnableVpcClassicLink service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVpcClassicLink">REST API Reference for EnableVpcClassicLink Operation</seealso>
-        public EnableVpcClassicLinkResponse EnableVpcClassicLink(EnableVpcClassicLinkRequest request)
+        public virtual EnableVpcClassicLinkResponse EnableVpcClassicLink(EnableVpcClassicLinkRequest request)
         {
             var marshaller = new EnableVpcClassicLinkRequestMarshaller();
             var unmarshaller = EnableVpcClassicLinkResponseUnmarshaller.Instance;
@@ -11878,7 +12031,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndEnableVpcClassicLink
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVpcClassicLink">REST API Reference for EnableVpcClassicLink Operation</seealso>
-        public IAsyncResult BeginEnableVpcClassicLink(EnableVpcClassicLinkRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginEnableVpcClassicLink(EnableVpcClassicLinkRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new EnableVpcClassicLinkRequestMarshaller();
             var unmarshaller = EnableVpcClassicLinkResponseUnmarshaller.Instance;
@@ -11895,7 +12048,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  EnableVpcClassicLinkResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVpcClassicLink">REST API Reference for EnableVpcClassicLink Operation</seealso>
-        public  EnableVpcClassicLinkResponse EndEnableVpcClassicLink(IAsyncResult asyncResult)
+        public virtual EnableVpcClassicLinkResponse EndEnableVpcClassicLink(IAsyncResult asyncResult)
         {
             return EndInvoke<EnableVpcClassicLinkResponse>(asyncResult);
         }
@@ -11916,7 +12069,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the EnableVpcClassicLinkDnsSupport service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVpcClassicLinkDnsSupport">REST API Reference for EnableVpcClassicLinkDnsSupport Operation</seealso>
-        public EnableVpcClassicLinkDnsSupportResponse EnableVpcClassicLinkDnsSupport(EnableVpcClassicLinkDnsSupportRequest request)
+        public virtual EnableVpcClassicLinkDnsSupportResponse EnableVpcClassicLinkDnsSupport(EnableVpcClassicLinkDnsSupportRequest request)
         {
             var marshaller = new EnableVpcClassicLinkDnsSupportRequestMarshaller();
             var unmarshaller = EnableVpcClassicLinkDnsSupportResponseUnmarshaller.Instance;
@@ -11936,7 +12089,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndEnableVpcClassicLinkDnsSupport
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVpcClassicLinkDnsSupport">REST API Reference for EnableVpcClassicLinkDnsSupport Operation</seealso>
-        public IAsyncResult BeginEnableVpcClassicLinkDnsSupport(EnableVpcClassicLinkDnsSupportRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginEnableVpcClassicLinkDnsSupport(EnableVpcClassicLinkDnsSupportRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new EnableVpcClassicLinkDnsSupportRequestMarshaller();
             var unmarshaller = EnableVpcClassicLinkDnsSupportResponseUnmarshaller.Instance;
@@ -11953,7 +12106,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  EnableVpcClassicLinkDnsSupportResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/EnableVpcClassicLinkDnsSupport">REST API Reference for EnableVpcClassicLinkDnsSupport Operation</seealso>
-        public  EnableVpcClassicLinkDnsSupportResponse EndEnableVpcClassicLinkDnsSupport(IAsyncResult asyncResult)
+        public virtual EnableVpcClassicLinkDnsSupportResponse EndEnableVpcClassicLinkDnsSupport(IAsyncResult asyncResult)
         {
             return EndInvoke<EnableVpcClassicLinkDnsSupportResponse>(asyncResult);
         }
@@ -11975,7 +12128,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// Instance console output is buffered and posted shortly after instance boot, reboot,
-        /// and termination. Amazon EC2 preserves the most recent 64 KB output which is available
+        /// and termination. Amazon EC2 preserves the most recent 64 KB output, which is available
         /// for at least one hour after the most recent post.
         /// </para>
         ///  
@@ -11995,7 +12148,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the GetConsoleOutput service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetConsoleOutput">REST API Reference for GetConsoleOutput Operation</seealso>
-        public GetConsoleOutputResponse GetConsoleOutput(GetConsoleOutputRequest request)
+        public virtual GetConsoleOutputResponse GetConsoleOutput(GetConsoleOutputRequest request)
         {
             var marshaller = new GetConsoleOutputRequestMarshaller();
             var unmarshaller = GetConsoleOutputResponseUnmarshaller.Instance;
@@ -12015,7 +12168,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetConsoleOutput
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetConsoleOutput">REST API Reference for GetConsoleOutput Operation</seealso>
-        public IAsyncResult BeginGetConsoleOutput(GetConsoleOutputRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetConsoleOutput(GetConsoleOutputRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetConsoleOutputRequestMarshaller();
             var unmarshaller = GetConsoleOutputResponseUnmarshaller.Instance;
@@ -12032,7 +12185,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  GetConsoleOutputResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetConsoleOutput">REST API Reference for GetConsoleOutput Operation</seealso>
-        public  GetConsoleOutputResponse EndGetConsoleOutput(IAsyncResult asyncResult)
+        public virtual GetConsoleOutputResponse EndGetConsoleOutput(IAsyncResult asyncResult)
         {
             return EndInvoke<GetConsoleOutputResponse>(asyncResult);
         }
@@ -12053,7 +12206,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the GetConsoleScreenshot service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetConsoleScreenshot">REST API Reference for GetConsoleScreenshot Operation</seealso>
-        public GetConsoleScreenshotResponse GetConsoleScreenshot(GetConsoleScreenshotRequest request)
+        public virtual GetConsoleScreenshotResponse GetConsoleScreenshot(GetConsoleScreenshotRequest request)
         {
             var marshaller = new GetConsoleScreenshotRequestMarshaller();
             var unmarshaller = GetConsoleScreenshotResponseUnmarshaller.Instance;
@@ -12073,7 +12226,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetConsoleScreenshot
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetConsoleScreenshot">REST API Reference for GetConsoleScreenshot Operation</seealso>
-        public IAsyncResult BeginGetConsoleScreenshot(GetConsoleScreenshotRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetConsoleScreenshot(GetConsoleScreenshotRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetConsoleScreenshotRequestMarshaller();
             var unmarshaller = GetConsoleScreenshotResponseUnmarshaller.Instance;
@@ -12090,7 +12243,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  GetConsoleScreenshotResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetConsoleScreenshot">REST API Reference for GetConsoleScreenshot Operation</seealso>
-        public  GetConsoleScreenshotResponse EndGetConsoleScreenshot(IAsyncResult asyncResult)
+        public virtual GetConsoleScreenshotResponse EndGetConsoleScreenshot(IAsyncResult asyncResult)
         {
             return EndInvoke<GetConsoleScreenshotResponse>(asyncResult);
         }
@@ -12113,7 +12266,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the GetHostReservationPurchasePreview service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetHostReservationPurchasePreview">REST API Reference for GetHostReservationPurchasePreview Operation</seealso>
-        public GetHostReservationPurchasePreviewResponse GetHostReservationPurchasePreview(GetHostReservationPurchasePreviewRequest request)
+        public virtual GetHostReservationPurchasePreviewResponse GetHostReservationPurchasePreview(GetHostReservationPurchasePreviewRequest request)
         {
             var marshaller = new GetHostReservationPurchasePreviewRequestMarshaller();
             var unmarshaller = GetHostReservationPurchasePreviewResponseUnmarshaller.Instance;
@@ -12133,7 +12286,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetHostReservationPurchasePreview
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetHostReservationPurchasePreview">REST API Reference for GetHostReservationPurchasePreview Operation</seealso>
-        public IAsyncResult BeginGetHostReservationPurchasePreview(GetHostReservationPurchasePreviewRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetHostReservationPurchasePreview(GetHostReservationPurchasePreviewRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetHostReservationPurchasePreviewRequestMarshaller();
             var unmarshaller = GetHostReservationPurchasePreviewResponseUnmarshaller.Instance;
@@ -12150,7 +12303,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  GetHostReservationPurchasePreviewResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetHostReservationPurchasePreview">REST API Reference for GetHostReservationPurchasePreview Operation</seealso>
-        public  GetHostReservationPurchasePreviewResponse EndGetHostReservationPurchasePreview(IAsyncResult asyncResult)
+        public virtual GetHostReservationPurchasePreviewResponse EndGetHostReservationPurchasePreview(IAsyncResult asyncResult)
         {
             return EndInvoke<GetHostReservationPurchasePreviewResponse>(asyncResult);
         }
@@ -12160,15 +12313,20 @@ namespace Amazon.EC2
         #region  GetPasswordData
 
         /// <summary>
-        /// Retrieves the encrypted administrator password for an instance running Windows.
+        /// Retrieves the encrypted administrator password for a running Windows instance.
         /// 
         ///  
         /// <para>
-        /// The Windows password is generated at boot if the <code>EC2Config</code> service plugin,
-        /// <code>Ec2SetPassword</code>, is enabled. This usually only happens the first time
-        /// an AMI is launched, and then <code>Ec2SetPassword</code> is automatically disabled.
-        /// The password is not generated for rebundled AMIs unless <code>Ec2SetPassword</code>
-        /// is enabled before bundling.
+        /// The Windows password is generated at boot by the <code>EC2Config</code> service or
+        /// <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
+        /// happens the first time an instance is launched. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html">EC2Config</a>
+        /// and <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html">EC2Launch</a>
+        /// in the Amazon Elastic Compute Cloud User Guide.
+        /// </para>
+        ///  
+        /// <para>
+        /// For the <code>EC2Config</code> service, the password is not generated for rebundled
+        /// AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.
         /// </para>
         ///  
         /// <para>
@@ -12177,16 +12335,17 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// Password generation and encryption takes a few moments. We recommend that you wait
-        /// up to 15 minutes after launching an instance before trying to retrieve the generated
-        /// password.
+        /// When you launch an instance, password generation and encryption may take a few minutes.
+        /// If you try to retrieve the password before it's available, the output returns an empty
+        /// string. We recommend that you wait up to 15 minutes after launching an instance before
+        /// trying to retrieve the generated password.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetPasswordData service method.</param>
         /// 
         /// <returns>The response from the GetPasswordData service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetPasswordData">REST API Reference for GetPasswordData Operation</seealso>
-        public GetPasswordDataResponse GetPasswordData(GetPasswordDataRequest request)
+        public virtual GetPasswordDataResponse GetPasswordData(GetPasswordDataRequest request)
         {
             var marshaller = new GetPasswordDataRequestMarshaller();
             var unmarshaller = GetPasswordDataResponseUnmarshaller.Instance;
@@ -12206,7 +12365,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetPasswordData
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetPasswordData">REST API Reference for GetPasswordData Operation</seealso>
-        public IAsyncResult BeginGetPasswordData(GetPasswordDataRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetPasswordData(GetPasswordDataRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetPasswordDataRequestMarshaller();
             var unmarshaller = GetPasswordDataResponseUnmarshaller.Instance;
@@ -12223,7 +12382,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  GetPasswordDataResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetPasswordData">REST API Reference for GetPasswordData Operation</seealso>
-        public  GetPasswordDataResponse EndGetPasswordData(IAsyncResult asyncResult)
+        public virtual GetPasswordDataResponse EndGetPasswordData(IAsyncResult asyncResult)
         {
             return EndInvoke<GetPasswordDataResponse>(asyncResult);
         }
@@ -12233,15 +12392,16 @@ namespace Amazon.EC2
         #region  GetReservedInstancesExchangeQuote
 
         /// <summary>
-        /// Returns details about the values and term of your specified Convertible Reserved Instances.
-        /// When a target configuration is specified, it returns information about whether the
-        /// exchange is valid and can be performed.
+        /// Returns a quote and exchange information for exchanging one or more specified Convertible
+        /// Reserved Instances for a new Convertible Reserved Instance. If the exchange cannot
+        /// be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a>
+        /// to perform the exchange.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetReservedInstancesExchangeQuote service method.</param>
         /// 
         /// <returns>The response from the GetReservedInstancesExchangeQuote service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetReservedInstancesExchangeQuote">REST API Reference for GetReservedInstancesExchangeQuote Operation</seealso>
-        public GetReservedInstancesExchangeQuoteResponse GetReservedInstancesExchangeQuote(GetReservedInstancesExchangeQuoteRequest request)
+        public virtual GetReservedInstancesExchangeQuoteResponse GetReservedInstancesExchangeQuote(GetReservedInstancesExchangeQuoteRequest request)
         {
             var marshaller = new GetReservedInstancesExchangeQuoteRequestMarshaller();
             var unmarshaller = GetReservedInstancesExchangeQuoteResponseUnmarshaller.Instance;
@@ -12261,7 +12421,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetReservedInstancesExchangeQuote
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetReservedInstancesExchangeQuote">REST API Reference for GetReservedInstancesExchangeQuote Operation</seealso>
-        public IAsyncResult BeginGetReservedInstancesExchangeQuote(GetReservedInstancesExchangeQuoteRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetReservedInstancesExchangeQuote(GetReservedInstancesExchangeQuoteRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetReservedInstancesExchangeQuoteRequestMarshaller();
             var unmarshaller = GetReservedInstancesExchangeQuoteResponseUnmarshaller.Instance;
@@ -12278,7 +12438,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  GetReservedInstancesExchangeQuoteResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetReservedInstancesExchangeQuote">REST API Reference for GetReservedInstancesExchangeQuote Operation</seealso>
-        public  GetReservedInstancesExchangeQuoteResponse EndGetReservedInstancesExchangeQuote(IAsyncResult asyncResult)
+        public virtual GetReservedInstancesExchangeQuoteResponse EndGetReservedInstancesExchangeQuote(IAsyncResult asyncResult)
         {
             return EndInvoke<GetReservedInstancesExchangeQuoteResponse>(asyncResult);
         }
@@ -12296,7 +12456,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ImportImage service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportImage">REST API Reference for ImportImage Operation</seealso>
-        public ImportImageResponse ImportImage(ImportImageRequest request)
+        public virtual ImportImageResponse ImportImage(ImportImageRequest request)
         {
             var marshaller = new ImportImageRequestMarshaller();
             var unmarshaller = ImportImageResponseUnmarshaller.Instance;
@@ -12316,7 +12476,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndImportImage
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportImage">REST API Reference for ImportImage Operation</seealso>
-        public IAsyncResult BeginImportImage(ImportImageRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginImportImage(ImportImageRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ImportImageRequestMarshaller();
             var unmarshaller = ImportImageResponseUnmarshaller.Instance;
@@ -12333,7 +12493,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ImportImageResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportImage">REST API Reference for ImportImage Operation</seealso>
-        public  ImportImageResponse EndImportImage(IAsyncResult asyncResult)
+        public virtual ImportImageResponse EndImportImage(IAsyncResult asyncResult)
         {
             return EndInvoke<ImportImageResponse>(asyncResult);
         }
@@ -12358,7 +12518,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ImportInstance service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportInstance">REST API Reference for ImportInstance Operation</seealso>
-        public ImportInstanceResponse ImportInstance(ImportInstanceRequest request)
+        public virtual ImportInstanceResponse ImportInstance(ImportInstanceRequest request)
         {
             var marshaller = new ImportInstanceRequestMarshaller();
             var unmarshaller = ImportInstanceResponseUnmarshaller.Instance;
@@ -12378,7 +12538,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndImportInstance
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportInstance">REST API Reference for ImportInstance Operation</seealso>
-        public IAsyncResult BeginImportInstance(ImportInstanceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginImportInstance(ImportInstanceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ImportInstanceRequestMarshaller();
             var unmarshaller = ImportInstanceResponseUnmarshaller.Instance;
@@ -12395,7 +12555,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ImportInstanceResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportInstance">REST API Reference for ImportInstance Operation</seealso>
-        public  ImportInstanceResponse EndImportInstance(IAsyncResult asyncResult)
+        public virtual ImportInstanceResponse EndImportInstance(IAsyncResult asyncResult)
         {
             return EndInvoke<ImportInstanceResponse>(asyncResult);
         }
@@ -12421,7 +12581,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ImportKeyPair service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportKeyPair">REST API Reference for ImportKeyPair Operation</seealso>
-        public ImportKeyPairResponse ImportKeyPair(ImportKeyPairRequest request)
+        public virtual ImportKeyPairResponse ImportKeyPair(ImportKeyPairRequest request)
         {
             var marshaller = new ImportKeyPairRequestMarshaller();
             var unmarshaller = ImportKeyPairResponseUnmarshaller.Instance;
@@ -12441,7 +12601,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndImportKeyPair
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportKeyPair">REST API Reference for ImportKeyPair Operation</seealso>
-        public IAsyncResult BeginImportKeyPair(ImportKeyPairRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginImportKeyPair(ImportKeyPairRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ImportKeyPairRequestMarshaller();
             var unmarshaller = ImportKeyPairResponseUnmarshaller.Instance;
@@ -12458,7 +12618,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ImportKeyPairResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportKeyPair">REST API Reference for ImportKeyPair Operation</seealso>
-        public  ImportKeyPairResponse EndImportKeyPair(IAsyncResult asyncResult)
+        public virtual ImportKeyPairResponse EndImportKeyPair(IAsyncResult asyncResult)
         {
             return EndInvoke<ImportKeyPairResponse>(asyncResult);
         }
@@ -12474,7 +12634,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ImportSnapshot service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportSnapshot">REST API Reference for ImportSnapshot Operation</seealso>
-        public ImportSnapshotResponse ImportSnapshot(ImportSnapshotRequest request)
+        public virtual ImportSnapshotResponse ImportSnapshot(ImportSnapshotRequest request)
         {
             var marshaller = new ImportSnapshotRequestMarshaller();
             var unmarshaller = ImportSnapshotResponseUnmarshaller.Instance;
@@ -12494,7 +12654,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndImportSnapshot
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportSnapshot">REST API Reference for ImportSnapshot Operation</seealso>
-        public IAsyncResult BeginImportSnapshot(ImportSnapshotRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginImportSnapshot(ImportSnapshotRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ImportSnapshotRequestMarshaller();
             var unmarshaller = ImportSnapshotResponseUnmarshaller.Instance;
@@ -12511,7 +12671,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ImportSnapshotResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportSnapshot">REST API Reference for ImportSnapshot Operation</seealso>
-        public  ImportSnapshotResponse EndImportSnapshot(IAsyncResult asyncResult)
+        public virtual ImportSnapshotResponse EndImportSnapshot(IAsyncResult asyncResult)
         {
             return EndInvoke<ImportSnapshotResponse>(asyncResult);
         }
@@ -12535,7 +12695,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ImportVolume service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportVolume">REST API Reference for ImportVolume Operation</seealso>
-        public ImportVolumeResponse ImportVolume(ImportVolumeRequest request)
+        public virtual ImportVolumeResponse ImportVolume(ImportVolumeRequest request)
         {
             var marshaller = new ImportVolumeRequestMarshaller();
             var unmarshaller = ImportVolumeResponseUnmarshaller.Instance;
@@ -12555,7 +12715,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndImportVolume
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportVolume">REST API Reference for ImportVolume Operation</seealso>
-        public IAsyncResult BeginImportVolume(ImportVolumeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginImportVolume(ImportVolumeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ImportVolumeRequestMarshaller();
             var unmarshaller = ImportVolumeResponseUnmarshaller.Instance;
@@ -12572,9 +12732,62 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ImportVolumeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ImportVolume">REST API Reference for ImportVolume Operation</seealso>
-        public  ImportVolumeResponse EndImportVolume(IAsyncResult asyncResult)
+        public virtual ImportVolumeResponse EndImportVolume(IAsyncResult asyncResult)
         {
             return EndInvoke<ImportVolumeResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ModifyFpgaImageAttribute
+
+        /// <summary>
+        /// Modifies the specified attribute of the specified Amazon FPGA Image (AFI).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyFpgaImageAttribute service method.</param>
+        /// 
+        /// <returns>The response from the ModifyFpgaImageAttribute service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyFpgaImageAttribute">REST API Reference for ModifyFpgaImageAttribute Operation</seealso>
+        public virtual ModifyFpgaImageAttributeResponse ModifyFpgaImageAttribute(ModifyFpgaImageAttributeRequest request)
+        {
+            var marshaller = new ModifyFpgaImageAttributeRequestMarshaller();
+            var unmarshaller = ModifyFpgaImageAttributeResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyFpgaImageAttributeRequest,ModifyFpgaImageAttributeResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyFpgaImageAttribute operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyFpgaImageAttribute operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyFpgaImageAttribute
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyFpgaImageAttribute">REST API Reference for ModifyFpgaImageAttribute Operation</seealso>
+        public virtual IAsyncResult BeginModifyFpgaImageAttribute(ModifyFpgaImageAttributeRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new ModifyFpgaImageAttributeRequestMarshaller();
+            var unmarshaller = ModifyFpgaImageAttributeResponseUnmarshaller.Instance;
+
+            return BeginInvoke<ModifyFpgaImageAttributeRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ModifyFpgaImageAttribute operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginModifyFpgaImageAttribute.</param>
+        /// 
+        /// <returns>Returns a  ModifyFpgaImageAttributeResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyFpgaImageAttribute">REST API Reference for ModifyFpgaImageAttribute Operation</seealso>
+        public virtual ModifyFpgaImageAttributeResponse EndModifyFpgaImageAttribute(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ModifyFpgaImageAttributeResponse>(asyncResult);
         }
 
         #endregion
@@ -12594,7 +12807,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyHosts service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyHosts">REST API Reference for ModifyHosts Operation</seealso>
-        public ModifyHostsResponse ModifyHosts(ModifyHostsRequest request)
+        public virtual ModifyHostsResponse ModifyHosts(ModifyHostsRequest request)
         {
             var marshaller = new ModifyHostsRequestMarshaller();
             var unmarshaller = ModifyHostsResponseUnmarshaller.Instance;
@@ -12614,7 +12827,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyHosts
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyHosts">REST API Reference for ModifyHosts Operation</seealso>
-        public IAsyncResult BeginModifyHosts(ModifyHostsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyHosts(ModifyHostsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyHostsRequestMarshaller();
             var unmarshaller = ModifyHostsResponseUnmarshaller.Instance;
@@ -12631,7 +12844,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyHostsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyHosts">REST API Reference for ModifyHosts Operation</seealso>
-        public  ModifyHostsResponse EndModifyHosts(IAsyncResult asyncResult)
+        public virtual ModifyHostsResponse EndModifyHosts(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyHostsResponse>(asyncResult);
         }
@@ -12668,7 +12881,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyIdentityIdFormat service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyIdentityIdFormat">REST API Reference for ModifyIdentityIdFormat Operation</seealso>
-        public ModifyIdentityIdFormatResponse ModifyIdentityIdFormat(ModifyIdentityIdFormatRequest request)
+        public virtual ModifyIdentityIdFormatResponse ModifyIdentityIdFormat(ModifyIdentityIdFormatRequest request)
         {
             var marshaller = new ModifyIdentityIdFormatRequestMarshaller();
             var unmarshaller = ModifyIdentityIdFormatResponseUnmarshaller.Instance;
@@ -12688,7 +12901,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyIdentityIdFormat
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyIdentityIdFormat">REST API Reference for ModifyIdentityIdFormat Operation</seealso>
-        public IAsyncResult BeginModifyIdentityIdFormat(ModifyIdentityIdFormatRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyIdentityIdFormat(ModifyIdentityIdFormatRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyIdentityIdFormatRequestMarshaller();
             var unmarshaller = ModifyIdentityIdFormatResponseUnmarshaller.Instance;
@@ -12705,7 +12918,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyIdentityIdFormatResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyIdentityIdFormat">REST API Reference for ModifyIdentityIdFormat Operation</seealso>
-        public  ModifyIdentityIdFormatResponse EndModifyIdentityIdFormat(IAsyncResult asyncResult)
+        public virtual ModifyIdentityIdFormatResponse EndModifyIdentityIdFormat(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyIdentityIdFormatResponse>(asyncResult);
         }
@@ -12740,7 +12953,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyIdFormat service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyIdFormat">REST API Reference for ModifyIdFormat Operation</seealso>
-        public ModifyIdFormatResponse ModifyIdFormat(ModifyIdFormatRequest request)
+        public virtual ModifyIdFormatResponse ModifyIdFormat(ModifyIdFormatRequest request)
         {
             var marshaller = new ModifyIdFormatRequestMarshaller();
             var unmarshaller = ModifyIdFormatResponseUnmarshaller.Instance;
@@ -12760,7 +12973,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyIdFormat
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyIdFormat">REST API Reference for ModifyIdFormat Operation</seealso>
-        public IAsyncResult BeginModifyIdFormat(ModifyIdFormatRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyIdFormat(ModifyIdFormatRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyIdFormatRequestMarshaller();
             var unmarshaller = ModifyIdFormatResponseUnmarshaller.Instance;
@@ -12777,7 +12990,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyIdFormatResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyIdFormat">REST API Reference for ModifyIdFormat Operation</seealso>
-        public  ModifyIdFormatResponse EndModifyIdFormat(IAsyncResult asyncResult)
+        public virtual ModifyIdFormatResponse EndModifyIdFormat(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyIdFormatResponse>(asyncResult);
         }
@@ -12788,26 +13001,26 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies the specified attribute of the specified AMI. You can specify only one attribute
-        /// at a time.
+        /// at a time. You can use the <code>Attribute</code> parameter to specify the attribute
+        /// or one of the following parameters: <code>Description</code>, <code>LaunchPermission</code>,
+        /// or <code>ProductCode</code>.
         /// 
-        ///  <note> 
+        ///  
         /// <para>
         /// AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product
         /// code cannot be made public.
         /// </para>
-        ///  </note> <note> 
+        ///  
         /// <para>
-        /// The SriovNetSupport enhanced networking attribute cannot be changed using this command.
-        /// Instead, enable SriovNetSupport on an instance and create an AMI from the instance.
-        /// This will result in an image with SriovNetSupport enabled.
+        /// To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport
+        /// on an instance and create an AMI from the instance.
         /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyImageAttribute service method.</param>
         /// 
         /// <returns>The response from the ModifyImageAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyImageAttribute">REST API Reference for ModifyImageAttribute Operation</seealso>
-        public ModifyImageAttributeResponse ModifyImageAttribute(ModifyImageAttributeRequest request)
+        public virtual ModifyImageAttributeResponse ModifyImageAttribute(ModifyImageAttributeRequest request)
         {
             var marshaller = new ModifyImageAttributeRequestMarshaller();
             var unmarshaller = ModifyImageAttributeResponseUnmarshaller.Instance;
@@ -12827,7 +13040,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyImageAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyImageAttribute">REST API Reference for ModifyImageAttribute Operation</seealso>
-        public IAsyncResult BeginModifyImageAttribute(ModifyImageAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyImageAttribute(ModifyImageAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyImageAttributeRequestMarshaller();
             var unmarshaller = ModifyImageAttributeResponseUnmarshaller.Instance;
@@ -12844,7 +13057,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyImageAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyImageAttribute">REST API Reference for ModifyImageAttribute Operation</seealso>
-        public  ModifyImageAttributeResponse EndModifyImageAttribute(IAsyncResult asyncResult)
+        public virtual ModifyImageAttributeResponse EndModifyImageAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyImageAttributeResponse>(asyncResult);
         }
@@ -12868,7 +13081,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyInstanceAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceAttribute">REST API Reference for ModifyInstanceAttribute Operation</seealso>
-        public ModifyInstanceAttributeResponse ModifyInstanceAttribute(ModifyInstanceAttributeRequest request)
+        public virtual ModifyInstanceAttributeResponse ModifyInstanceAttribute(ModifyInstanceAttributeRequest request)
         {
             var marshaller = new ModifyInstanceAttributeRequestMarshaller();
             var unmarshaller = ModifyInstanceAttributeResponseUnmarshaller.Instance;
@@ -12888,7 +13101,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyInstanceAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceAttribute">REST API Reference for ModifyInstanceAttribute Operation</seealso>
-        public IAsyncResult BeginModifyInstanceAttribute(ModifyInstanceAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyInstanceAttribute(ModifyInstanceAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyInstanceAttributeRequestMarshaller();
             var unmarshaller = ModifyInstanceAttributeResponseUnmarshaller.Instance;
@@ -12905,7 +13118,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyInstanceAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceAttribute">REST API Reference for ModifyInstanceAttribute Operation</seealso>
-        public  ModifyInstanceAttributeResponse EndModifyInstanceAttribute(IAsyncResult asyncResult)
+        public virtual ModifyInstanceAttributeResponse EndModifyInstanceAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyInstanceAttributeResponse>(asyncResult);
         }
@@ -12946,7 +13159,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyInstancePlacement service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstancePlacement">REST API Reference for ModifyInstancePlacement Operation</seealso>
-        public ModifyInstancePlacementResponse ModifyInstancePlacement(ModifyInstancePlacementRequest request)
+        public virtual ModifyInstancePlacementResponse ModifyInstancePlacement(ModifyInstancePlacementRequest request)
         {
             var marshaller = new ModifyInstancePlacementRequestMarshaller();
             var unmarshaller = ModifyInstancePlacementResponseUnmarshaller.Instance;
@@ -12966,7 +13179,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyInstancePlacement
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstancePlacement">REST API Reference for ModifyInstancePlacement Operation</seealso>
-        public IAsyncResult BeginModifyInstancePlacement(ModifyInstancePlacementRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyInstancePlacement(ModifyInstancePlacementRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyInstancePlacementRequestMarshaller();
             var unmarshaller = ModifyInstancePlacementResponseUnmarshaller.Instance;
@@ -12983,7 +13196,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyInstancePlacementResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstancePlacement">REST API Reference for ModifyInstancePlacement Operation</seealso>
-        public  ModifyInstancePlacementResponse EndModifyInstancePlacement(IAsyncResult asyncResult)
+        public virtual ModifyInstancePlacementResponse EndModifyInstancePlacement(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyInstancePlacementResponse>(asyncResult);
         }
@@ -13000,7 +13213,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyNetworkInterfaceAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyNetworkInterfaceAttribute">REST API Reference for ModifyNetworkInterfaceAttribute Operation</seealso>
-        public ModifyNetworkInterfaceAttributeResponse ModifyNetworkInterfaceAttribute(ModifyNetworkInterfaceAttributeRequest request)
+        public virtual ModifyNetworkInterfaceAttributeResponse ModifyNetworkInterfaceAttribute(ModifyNetworkInterfaceAttributeRequest request)
         {
             var marshaller = new ModifyNetworkInterfaceAttributeRequestMarshaller();
             var unmarshaller = ModifyNetworkInterfaceAttributeResponseUnmarshaller.Instance;
@@ -13020,7 +13233,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyNetworkInterfaceAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyNetworkInterfaceAttribute">REST API Reference for ModifyNetworkInterfaceAttribute Operation</seealso>
-        public IAsyncResult BeginModifyNetworkInterfaceAttribute(ModifyNetworkInterfaceAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyNetworkInterfaceAttribute(ModifyNetworkInterfaceAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyNetworkInterfaceAttributeRequestMarshaller();
             var unmarshaller = ModifyNetworkInterfaceAttributeResponseUnmarshaller.Instance;
@@ -13037,7 +13250,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyNetworkInterfaceAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyNetworkInterfaceAttribute">REST API Reference for ModifyNetworkInterfaceAttribute Operation</seealso>
-        public  ModifyNetworkInterfaceAttributeResponse EndModifyNetworkInterfaceAttribute(IAsyncResult asyncResult)
+        public virtual ModifyNetworkInterfaceAttributeResponse EndModifyNetworkInterfaceAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyNetworkInterfaceAttributeResponse>(asyncResult);
         }
@@ -13048,9 +13261,9 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies the Availability Zone, instance count, instance type, or network platform
-        /// (EC2-Classic or EC2-VPC) of your Standard Reserved Instances. The Reserved Instances
-        /// to be modified must be identical, except for Availability Zone, network platform,
-        /// and instance type.
+        /// (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be
+        /// modified must be identical, except for Availability Zone, network platform, and instance
+        /// type.
         /// 
         ///  
         /// <para>
@@ -13062,7 +13275,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyReservedInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyReservedInstances">REST API Reference for ModifyReservedInstances Operation</seealso>
-        public ModifyReservedInstancesResponse ModifyReservedInstances(ModifyReservedInstancesRequest request)
+        public virtual ModifyReservedInstancesResponse ModifyReservedInstances(ModifyReservedInstancesRequest request)
         {
             var marshaller = new ModifyReservedInstancesRequestMarshaller();
             var unmarshaller = ModifyReservedInstancesResponseUnmarshaller.Instance;
@@ -13082,7 +13295,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyReservedInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyReservedInstances">REST API Reference for ModifyReservedInstances Operation</seealso>
-        public IAsyncResult BeginModifyReservedInstances(ModifyReservedInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyReservedInstances(ModifyReservedInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyReservedInstancesRequestMarshaller();
             var unmarshaller = ModifyReservedInstancesResponseUnmarshaller.Instance;
@@ -13099,7 +13312,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyReservedInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyReservedInstances">REST API Reference for ModifyReservedInstances Operation</seealso>
-        public  ModifyReservedInstancesResponse EndModifyReservedInstances(IAsyncResult asyncResult)
+        public virtual ModifyReservedInstancesResponse EndModifyReservedInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyReservedInstancesResponse>(asyncResult);
         }
@@ -13129,7 +13342,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifySnapshotAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySnapshotAttribute">REST API Reference for ModifySnapshotAttribute Operation</seealso>
-        public ModifySnapshotAttributeResponse ModifySnapshotAttribute(ModifySnapshotAttributeRequest request)
+        public virtual ModifySnapshotAttributeResponse ModifySnapshotAttribute(ModifySnapshotAttributeRequest request)
         {
             var marshaller = new ModifySnapshotAttributeRequestMarshaller();
             var unmarshaller = ModifySnapshotAttributeResponseUnmarshaller.Instance;
@@ -13149,7 +13362,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifySnapshotAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySnapshotAttribute">REST API Reference for ModifySnapshotAttribute Operation</seealso>
-        public IAsyncResult BeginModifySnapshotAttribute(ModifySnapshotAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifySnapshotAttribute(ModifySnapshotAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifySnapshotAttributeRequestMarshaller();
             var unmarshaller = ModifySnapshotAttributeResponseUnmarshaller.Instance;
@@ -13166,7 +13379,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifySnapshotAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySnapshotAttribute">REST API Reference for ModifySnapshotAttribute Operation</seealso>
-        public  ModifySnapshotAttributeResponse EndModifySnapshotAttribute(IAsyncResult asyncResult)
+        public virtual ModifySnapshotAttributeResponse EndModifySnapshotAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifySnapshotAttributeResponse>(asyncResult);
         }
@@ -13209,7 +13422,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifySpotFleetRequest service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySpotFleetRequest">REST API Reference for ModifySpotFleetRequest Operation</seealso>
-        public ModifySpotFleetRequestResponse ModifySpotFleetRequest(ModifySpotFleetRequestRequest request)
+        public virtual ModifySpotFleetRequestResponse ModifySpotFleetRequest(ModifySpotFleetRequestRequest request)
         {
             var marshaller = new ModifySpotFleetRequestRequestMarshaller();
             var unmarshaller = ModifySpotFleetRequestResponseUnmarshaller.Instance;
@@ -13229,7 +13442,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifySpotFleetRequest
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySpotFleetRequest">REST API Reference for ModifySpotFleetRequest Operation</seealso>
-        public IAsyncResult BeginModifySpotFleetRequest(ModifySpotFleetRequestRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifySpotFleetRequest(ModifySpotFleetRequestRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifySpotFleetRequestRequestMarshaller();
             var unmarshaller = ModifySpotFleetRequestResponseUnmarshaller.Instance;
@@ -13246,7 +13459,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifySpotFleetRequestResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySpotFleetRequest">REST API Reference for ModifySpotFleetRequest Operation</seealso>
-        public  ModifySpotFleetRequestResponse EndModifySpotFleetRequest(IAsyncResult asyncResult)
+        public virtual ModifySpotFleetRequestResponse EndModifySpotFleetRequest(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifySpotFleetRequestResponse>(asyncResult);
         }
@@ -13262,7 +13475,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifySubnetAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySubnetAttribute">REST API Reference for ModifySubnetAttribute Operation</seealso>
-        public ModifySubnetAttributeResponse ModifySubnetAttribute(ModifySubnetAttributeRequest request)
+        public virtual ModifySubnetAttributeResponse ModifySubnetAttribute(ModifySubnetAttributeRequest request)
         {
             var marshaller = new ModifySubnetAttributeRequestMarshaller();
             var unmarshaller = ModifySubnetAttributeResponseUnmarshaller.Instance;
@@ -13282,7 +13495,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifySubnetAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySubnetAttribute">REST API Reference for ModifySubnetAttribute Operation</seealso>
-        public IAsyncResult BeginModifySubnetAttribute(ModifySubnetAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifySubnetAttribute(ModifySubnetAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifySubnetAttributeRequestMarshaller();
             var unmarshaller = ModifySubnetAttributeResponseUnmarshaller.Instance;
@@ -13299,7 +13512,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifySubnetAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifySubnetAttribute">REST API Reference for ModifySubnetAttribute Operation</seealso>
-        public  ModifySubnetAttributeResponse EndModifySubnetAttribute(IAsyncResult asyncResult)
+        public virtual ModifySubnetAttributeResponse EndModifySubnetAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifySubnetAttributeResponse>(asyncResult);
         }
@@ -13357,7 +13570,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyVolume service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVolume">REST API Reference for ModifyVolume Operation</seealso>
-        public ModifyVolumeResponse ModifyVolume(ModifyVolumeRequest request)
+        public virtual ModifyVolumeResponse ModifyVolume(ModifyVolumeRequest request)
         {
             var marshaller = new ModifyVolumeRequestMarshaller();
             var unmarshaller = ModifyVolumeResponseUnmarshaller.Instance;
@@ -13377,7 +13590,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyVolume
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVolume">REST API Reference for ModifyVolume Operation</seealso>
-        public IAsyncResult BeginModifyVolume(ModifyVolumeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyVolume(ModifyVolumeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyVolumeRequestMarshaller();
             var unmarshaller = ModifyVolumeResponseUnmarshaller.Instance;
@@ -13394,7 +13607,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyVolumeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVolume">REST API Reference for ModifyVolume Operation</seealso>
-        public  ModifyVolumeResponse EndModifyVolume(IAsyncResult asyncResult)
+        public virtual ModifyVolumeResponse EndModifyVolume(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyVolumeResponse>(asyncResult);
         }
@@ -13423,7 +13636,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyVolumeAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVolumeAttribute">REST API Reference for ModifyVolumeAttribute Operation</seealso>
-        public ModifyVolumeAttributeResponse ModifyVolumeAttribute(ModifyVolumeAttributeRequest request)
+        public virtual ModifyVolumeAttributeResponse ModifyVolumeAttribute(ModifyVolumeAttributeRequest request)
         {
             var marshaller = new ModifyVolumeAttributeRequestMarshaller();
             var unmarshaller = ModifyVolumeAttributeResponseUnmarshaller.Instance;
@@ -13443,7 +13656,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyVolumeAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVolumeAttribute">REST API Reference for ModifyVolumeAttribute Operation</seealso>
-        public IAsyncResult BeginModifyVolumeAttribute(ModifyVolumeAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyVolumeAttribute(ModifyVolumeAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyVolumeAttributeRequestMarshaller();
             var unmarshaller = ModifyVolumeAttributeResponseUnmarshaller.Instance;
@@ -13460,7 +13673,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyVolumeAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVolumeAttribute">REST API Reference for ModifyVolumeAttribute Operation</seealso>
-        public  ModifyVolumeAttributeResponse EndModifyVolumeAttribute(IAsyncResult asyncResult)
+        public virtual ModifyVolumeAttributeResponse EndModifyVolumeAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyVolumeAttributeResponse>(asyncResult);
         }
@@ -13476,7 +13689,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyVpcAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcAttribute">REST API Reference for ModifyVpcAttribute Operation</seealso>
-        public ModifyVpcAttributeResponse ModifyVpcAttribute(ModifyVpcAttributeRequest request)
+        public virtual ModifyVpcAttributeResponse ModifyVpcAttribute(ModifyVpcAttributeRequest request)
         {
             var marshaller = new ModifyVpcAttributeRequestMarshaller();
             var unmarshaller = ModifyVpcAttributeResponseUnmarshaller.Instance;
@@ -13496,7 +13709,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyVpcAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcAttribute">REST API Reference for ModifyVpcAttribute Operation</seealso>
-        public IAsyncResult BeginModifyVpcAttribute(ModifyVpcAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyVpcAttribute(ModifyVpcAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyVpcAttributeRequestMarshaller();
             var unmarshaller = ModifyVpcAttributeResponseUnmarshaller.Instance;
@@ -13513,7 +13726,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyVpcAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcAttribute">REST API Reference for ModifyVpcAttribute Operation</seealso>
-        public  ModifyVpcAttributeResponse EndModifyVpcAttribute(IAsyncResult asyncResult)
+        public virtual ModifyVpcAttributeResponse EndModifyVpcAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyVpcAttributeResponse>(asyncResult);
         }
@@ -13530,7 +13743,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyVpcEndpoint service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcEndpoint">REST API Reference for ModifyVpcEndpoint Operation</seealso>
-        public ModifyVpcEndpointResponse ModifyVpcEndpoint(ModifyVpcEndpointRequest request)
+        public virtual ModifyVpcEndpointResponse ModifyVpcEndpoint(ModifyVpcEndpointRequest request)
         {
             var marshaller = new ModifyVpcEndpointRequestMarshaller();
             var unmarshaller = ModifyVpcEndpointResponseUnmarshaller.Instance;
@@ -13550,7 +13763,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyVpcEndpoint
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcEndpoint">REST API Reference for ModifyVpcEndpoint Operation</seealso>
-        public IAsyncResult BeginModifyVpcEndpoint(ModifyVpcEndpointRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyVpcEndpoint(ModifyVpcEndpointRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyVpcEndpointRequestMarshaller();
             var unmarshaller = ModifyVpcEndpointResponseUnmarshaller.Instance;
@@ -13567,7 +13780,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyVpcEndpointResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcEndpoint">REST API Reference for ModifyVpcEndpoint Operation</seealso>
-        public  ModifyVpcEndpointResponse EndModifyVpcEndpoint(IAsyncResult asyncResult)
+        public virtual ModifyVpcEndpointResponse EndModifyVpcEndpoint(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyVpcEndpointResponse>(asyncResult);
         }
@@ -13609,7 +13822,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ModifyVpcPeeringConnectionOptions service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcPeeringConnectionOptions">REST API Reference for ModifyVpcPeeringConnectionOptions Operation</seealso>
-        public ModifyVpcPeeringConnectionOptionsResponse ModifyVpcPeeringConnectionOptions(ModifyVpcPeeringConnectionOptionsRequest request)
+        public virtual ModifyVpcPeeringConnectionOptionsResponse ModifyVpcPeeringConnectionOptions(ModifyVpcPeeringConnectionOptionsRequest request)
         {
             var marshaller = new ModifyVpcPeeringConnectionOptionsRequestMarshaller();
             var unmarshaller = ModifyVpcPeeringConnectionOptionsResponseUnmarshaller.Instance;
@@ -13629,7 +13842,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyVpcPeeringConnectionOptions
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcPeeringConnectionOptions">REST API Reference for ModifyVpcPeeringConnectionOptions Operation</seealso>
-        public IAsyncResult BeginModifyVpcPeeringConnectionOptions(ModifyVpcPeeringConnectionOptionsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyVpcPeeringConnectionOptions(ModifyVpcPeeringConnectionOptionsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyVpcPeeringConnectionOptionsRequestMarshaller();
             var unmarshaller = ModifyVpcPeeringConnectionOptionsResponseUnmarshaller.Instance;
@@ -13646,9 +13859,76 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ModifyVpcPeeringConnectionOptionsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcPeeringConnectionOptions">REST API Reference for ModifyVpcPeeringConnectionOptions Operation</seealso>
-        public  ModifyVpcPeeringConnectionOptionsResponse EndModifyVpcPeeringConnectionOptions(IAsyncResult asyncResult)
+        public virtual ModifyVpcPeeringConnectionOptionsResponse EndModifyVpcPeeringConnectionOptions(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyVpcPeeringConnectionOptionsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ModifyVpcTenancy
+
+        /// <summary>
+        /// Modifies the instance tenancy attribute of the specified VPC. You can change the instance
+        /// tenancy attribute of a VPC to <code>default</code> only. You cannot change the instance
+        /// tenancy attribute to <code>dedicated</code>.
+        /// 
+        ///  
+        /// <para>
+        /// After you modify the tenancy of the VPC, any new instances that you launch into the
+        /// VPC have a tenancy of <code>default</code>, unless you specify otherwise during launch.
+        /// The tenancy of any existing instances in the VPC is not affected.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about Dedicated Instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
+        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpcTenancy service method.</param>
+        /// 
+        /// <returns>The response from the ModifyVpcTenancy service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcTenancy">REST API Reference for ModifyVpcTenancy Operation</seealso>
+        public virtual ModifyVpcTenancyResponse ModifyVpcTenancy(ModifyVpcTenancyRequest request)
+        {
+            var marshaller = new ModifyVpcTenancyRequestMarshaller();
+            var unmarshaller = ModifyVpcTenancyResponseUnmarshaller.Instance;
+
+            return Invoke<ModifyVpcTenancyRequest,ModifyVpcTenancyResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyVpcTenancy operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpcTenancy operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyVpcTenancy
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcTenancy">REST API Reference for ModifyVpcTenancy Operation</seealso>
+        public virtual IAsyncResult BeginModifyVpcTenancy(ModifyVpcTenancyRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new ModifyVpcTenancyRequestMarshaller();
+            var unmarshaller = ModifyVpcTenancyResponseUnmarshaller.Instance;
+
+            return BeginInvoke<ModifyVpcTenancyRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ModifyVpcTenancy operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginModifyVpcTenancy.</param>
+        /// 
+        /// <returns>Returns a  ModifyVpcTenancyResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcTenancy">REST API Reference for ModifyVpcTenancy Operation</seealso>
+        public virtual ModifyVpcTenancyResponse EndModifyVpcTenancy(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ModifyVpcTenancyResponse>(asyncResult);
         }
 
         #endregion
@@ -13669,7 +13949,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the MonitorInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/MonitorInstances">REST API Reference for MonitorInstances Operation</seealso>
-        public MonitorInstancesResponse MonitorInstances(MonitorInstancesRequest request)
+        public virtual MonitorInstancesResponse MonitorInstances(MonitorInstancesRequest request)
         {
             var marshaller = new MonitorInstancesRequestMarshaller();
             var unmarshaller = MonitorInstancesResponseUnmarshaller.Instance;
@@ -13689,7 +13969,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndMonitorInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/MonitorInstances">REST API Reference for MonitorInstances Operation</seealso>
-        public IAsyncResult BeginMonitorInstances(MonitorInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginMonitorInstances(MonitorInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new MonitorInstancesRequestMarshaller();
             var unmarshaller = MonitorInstancesResponseUnmarshaller.Instance;
@@ -13706,7 +13986,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  MonitorInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/MonitorInstances">REST API Reference for MonitorInstances Operation</seealso>
-        public  MonitorInstancesResponse EndMonitorInstances(IAsyncResult asyncResult)
+        public virtual MonitorInstancesResponse EndMonitorInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<MonitorInstancesResponse>(asyncResult);
         }
@@ -13728,7 +14008,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the MoveAddressToVpc service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/MoveAddressToVpc">REST API Reference for MoveAddressToVpc Operation</seealso>
-        public MoveAddressToVpcResponse MoveAddressToVpc(MoveAddressToVpcRequest request)
+        public virtual MoveAddressToVpcResponse MoveAddressToVpc(MoveAddressToVpcRequest request)
         {
             var marshaller = new MoveAddressToVpcRequestMarshaller();
             var unmarshaller = MoveAddressToVpcResponseUnmarshaller.Instance;
@@ -13748,7 +14028,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndMoveAddressToVpc
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/MoveAddressToVpc">REST API Reference for MoveAddressToVpc Operation</seealso>
-        public IAsyncResult BeginMoveAddressToVpc(MoveAddressToVpcRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginMoveAddressToVpc(MoveAddressToVpcRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new MoveAddressToVpcRequestMarshaller();
             var unmarshaller = MoveAddressToVpcResponseUnmarshaller.Instance;
@@ -13765,7 +14045,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  MoveAddressToVpcResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/MoveAddressToVpc">REST API Reference for MoveAddressToVpc Operation</seealso>
-        public  MoveAddressToVpcResponse EndMoveAddressToVpc(IAsyncResult asyncResult)
+        public virtual MoveAddressToVpcResponse EndMoveAddressToVpc(IAsyncResult asyncResult)
         {
             return EndInvoke<MoveAddressToVpcResponse>(asyncResult);
         }
@@ -13784,7 +14064,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the PurchaseHostReservation service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/PurchaseHostReservation">REST API Reference for PurchaseHostReservation Operation</seealso>
-        public PurchaseHostReservationResponse PurchaseHostReservation(PurchaseHostReservationRequest request)
+        public virtual PurchaseHostReservationResponse PurchaseHostReservation(PurchaseHostReservationRequest request)
         {
             var marshaller = new PurchaseHostReservationRequestMarshaller();
             var unmarshaller = PurchaseHostReservationResponseUnmarshaller.Instance;
@@ -13804,7 +14084,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPurchaseHostReservation
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/PurchaseHostReservation">REST API Reference for PurchaseHostReservation Operation</seealso>
-        public IAsyncResult BeginPurchaseHostReservation(PurchaseHostReservationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginPurchaseHostReservation(PurchaseHostReservationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new PurchaseHostReservationRequestMarshaller();
             var unmarshaller = PurchaseHostReservationResponseUnmarshaller.Instance;
@@ -13821,7 +14101,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  PurchaseHostReservationResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/PurchaseHostReservation">REST API Reference for PurchaseHostReservation Operation</seealso>
-        public  PurchaseHostReservationResponse EndPurchaseHostReservation(IAsyncResult asyncResult)
+        public virtual PurchaseHostReservationResponse EndPurchaseHostReservation(IAsyncResult asyncResult)
         {
             return EndInvoke<PurchaseHostReservationResponse>(asyncResult);
         }
@@ -13851,7 +14131,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the PurchaseReservedInstancesOffering service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/PurchaseReservedInstancesOffering">REST API Reference for PurchaseReservedInstancesOffering Operation</seealso>
-        public PurchaseReservedInstancesOfferingResponse PurchaseReservedInstancesOffering(PurchaseReservedInstancesOfferingRequest request)
+        public virtual PurchaseReservedInstancesOfferingResponse PurchaseReservedInstancesOffering(PurchaseReservedInstancesOfferingRequest request)
         {
             var marshaller = new PurchaseReservedInstancesOfferingRequestMarshaller();
             var unmarshaller = PurchaseReservedInstancesOfferingResponseUnmarshaller.Instance;
@@ -13871,7 +14151,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPurchaseReservedInstancesOffering
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/PurchaseReservedInstancesOffering">REST API Reference for PurchaseReservedInstancesOffering Operation</seealso>
-        public IAsyncResult BeginPurchaseReservedInstancesOffering(PurchaseReservedInstancesOfferingRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginPurchaseReservedInstancesOffering(PurchaseReservedInstancesOfferingRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new PurchaseReservedInstancesOfferingRequestMarshaller();
             var unmarshaller = PurchaseReservedInstancesOfferingResponseUnmarshaller.Instance;
@@ -13888,7 +14168,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  PurchaseReservedInstancesOfferingResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/PurchaseReservedInstancesOffering">REST API Reference for PurchaseReservedInstancesOffering Operation</seealso>
-        public  PurchaseReservedInstancesOfferingResponse EndPurchaseReservedInstancesOffering(IAsyncResult asyncResult)
+        public virtual PurchaseReservedInstancesOfferingResponse EndPurchaseReservedInstancesOffering(IAsyncResult asyncResult)
         {
             return EndInvoke<PurchaseReservedInstancesOfferingResponse>(asyncResult);
         }
@@ -13918,7 +14198,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the PurchaseScheduledInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/PurchaseScheduledInstances">REST API Reference for PurchaseScheduledInstances Operation</seealso>
-        public PurchaseScheduledInstancesResponse PurchaseScheduledInstances(PurchaseScheduledInstancesRequest request)
+        public virtual PurchaseScheduledInstancesResponse PurchaseScheduledInstances(PurchaseScheduledInstancesRequest request)
         {
             var marshaller = new PurchaseScheduledInstancesRequestMarshaller();
             var unmarshaller = PurchaseScheduledInstancesResponseUnmarshaller.Instance;
@@ -13938,7 +14218,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPurchaseScheduledInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/PurchaseScheduledInstances">REST API Reference for PurchaseScheduledInstances Operation</seealso>
-        public IAsyncResult BeginPurchaseScheduledInstances(PurchaseScheduledInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginPurchaseScheduledInstances(PurchaseScheduledInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new PurchaseScheduledInstancesRequestMarshaller();
             var unmarshaller = PurchaseScheduledInstancesResponseUnmarshaller.Instance;
@@ -13955,7 +14235,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  PurchaseScheduledInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/PurchaseScheduledInstances">REST API Reference for PurchaseScheduledInstances Operation</seealso>
-        public  PurchaseScheduledInstancesResponse EndPurchaseScheduledInstances(IAsyncResult asyncResult)
+        public virtual PurchaseScheduledInstancesResponse EndPurchaseScheduledInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<PurchaseScheduledInstancesResponse>(asyncResult);
         }
@@ -13986,7 +14266,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the RebootInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RebootInstances">REST API Reference for RebootInstances Operation</seealso>
-        public RebootInstancesResponse RebootInstances(RebootInstancesRequest request)
+        public virtual RebootInstancesResponse RebootInstances(RebootInstancesRequest request)
         {
             var marshaller = new RebootInstancesRequestMarshaller();
             var unmarshaller = RebootInstancesResponseUnmarshaller.Instance;
@@ -14006,7 +14286,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRebootInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RebootInstances">REST API Reference for RebootInstances Operation</seealso>
-        public IAsyncResult BeginRebootInstances(RebootInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRebootInstances(RebootInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RebootInstancesRequestMarshaller();
             var unmarshaller = RebootInstancesResponseUnmarshaller.Instance;
@@ -14023,7 +14303,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  RebootInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RebootInstances">REST API Reference for RebootInstances Operation</seealso>
-        public  RebootInstancesResponse EndRebootInstances(IAsyncResult asyncResult)
+        public virtual RebootInstancesResponse EndRebootInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<RebootInstancesResponse>(asyncResult);
         }
@@ -14075,7 +14355,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the RegisterImage service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RegisterImage">REST API Reference for RegisterImage Operation</seealso>
-        public RegisterImageResponse RegisterImage(RegisterImageRequest request)
+        public virtual RegisterImageResponse RegisterImage(RegisterImageRequest request)
         {
             var marshaller = new RegisterImageRequestMarshaller();
             var unmarshaller = RegisterImageResponseUnmarshaller.Instance;
@@ -14095,7 +14375,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRegisterImage
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RegisterImage">REST API Reference for RegisterImage Operation</seealso>
-        public IAsyncResult BeginRegisterImage(RegisterImageRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRegisterImage(RegisterImageRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RegisterImageRequestMarshaller();
             var unmarshaller = RegisterImageResponseUnmarshaller.Instance;
@@ -14112,7 +14392,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  RegisterImageResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RegisterImage">REST API Reference for RegisterImage Operation</seealso>
-        public  RegisterImageResponse EndRegisterImage(IAsyncResult asyncResult)
+        public virtual RegisterImageResponse EndRegisterImage(IAsyncResult asyncResult)
         {
             return EndInvoke<RegisterImageResponse>(asyncResult);
         }
@@ -14132,7 +14412,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the RejectVpcPeeringConnection service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RejectVpcPeeringConnection">REST API Reference for RejectVpcPeeringConnection Operation</seealso>
-        public RejectVpcPeeringConnectionResponse RejectVpcPeeringConnection(RejectVpcPeeringConnectionRequest request)
+        public virtual RejectVpcPeeringConnectionResponse RejectVpcPeeringConnection(RejectVpcPeeringConnectionRequest request)
         {
             var marshaller = new RejectVpcPeeringConnectionRequestMarshaller();
             var unmarshaller = RejectVpcPeeringConnectionResponseUnmarshaller.Instance;
@@ -14152,7 +14432,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRejectVpcPeeringConnection
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RejectVpcPeeringConnection">REST API Reference for RejectVpcPeeringConnection Operation</seealso>
-        public IAsyncResult BeginRejectVpcPeeringConnection(RejectVpcPeeringConnectionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRejectVpcPeeringConnection(RejectVpcPeeringConnectionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RejectVpcPeeringConnectionRequestMarshaller();
             var unmarshaller = RejectVpcPeeringConnectionResponseUnmarshaller.Instance;
@@ -14169,7 +14449,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  RejectVpcPeeringConnectionResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RejectVpcPeeringConnection">REST API Reference for RejectVpcPeeringConnection Operation</seealso>
-        public  RejectVpcPeeringConnectionResponse EndRejectVpcPeeringConnection(IAsyncResult asyncResult)
+        public virtual RejectVpcPeeringConnectionResponse EndRejectVpcPeeringConnection(IAsyncResult asyncResult)
         {
             return EndInvoke<RejectVpcPeeringConnectionResponse>(asyncResult);
         }
@@ -14210,7 +14490,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ReleaseAddress service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReleaseAddress">REST API Reference for ReleaseAddress Operation</seealso>
-        public ReleaseAddressResponse ReleaseAddress(ReleaseAddressRequest request)
+        public virtual ReleaseAddressResponse ReleaseAddress(ReleaseAddressRequest request)
         {
             var marshaller = new ReleaseAddressRequestMarshaller();
             var unmarshaller = ReleaseAddressResponseUnmarshaller.Instance;
@@ -14230,7 +14510,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndReleaseAddress
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReleaseAddress">REST API Reference for ReleaseAddress Operation</seealso>
-        public IAsyncResult BeginReleaseAddress(ReleaseAddressRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginReleaseAddress(ReleaseAddressRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ReleaseAddressRequestMarshaller();
             var unmarshaller = ReleaseAddressResponseUnmarshaller.Instance;
@@ -14247,7 +14527,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ReleaseAddressResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReleaseAddress">REST API Reference for ReleaseAddress Operation</seealso>
-        public  ReleaseAddressResponse EndReleaseAddress(IAsyncResult asyncResult)
+        public virtual ReleaseAddressResponse EndReleaseAddress(IAsyncResult asyncResult)
         {
             return EndInvoke<ReleaseAddressResponse>(asyncResult);
         }
@@ -14278,7 +14558,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ReleaseHosts service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReleaseHosts">REST API Reference for ReleaseHosts Operation</seealso>
-        public ReleaseHostsResponse ReleaseHosts(ReleaseHostsRequest request)
+        public virtual ReleaseHostsResponse ReleaseHosts(ReleaseHostsRequest request)
         {
             var marshaller = new ReleaseHostsRequestMarshaller();
             var unmarshaller = ReleaseHostsResponseUnmarshaller.Instance;
@@ -14298,7 +14578,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndReleaseHosts
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReleaseHosts">REST API Reference for ReleaseHosts Operation</seealso>
-        public IAsyncResult BeginReleaseHosts(ReleaseHostsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginReleaseHosts(ReleaseHostsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ReleaseHostsRequestMarshaller();
             var unmarshaller = ReleaseHostsResponseUnmarshaller.Instance;
@@ -14315,7 +14595,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ReleaseHostsResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReleaseHosts">REST API Reference for ReleaseHosts Operation</seealso>
-        public  ReleaseHostsResponse EndReleaseHosts(IAsyncResult asyncResult)
+        public virtual ReleaseHostsResponse EndReleaseHosts(IAsyncResult asyncResult)
         {
             return EndInvoke<ReleaseHostsResponse>(asyncResult);
         }
@@ -14338,7 +14618,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ReplaceIamInstanceProfileAssociation service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation">REST API Reference for ReplaceIamInstanceProfileAssociation Operation</seealso>
-        public ReplaceIamInstanceProfileAssociationResponse ReplaceIamInstanceProfileAssociation(ReplaceIamInstanceProfileAssociationRequest request)
+        public virtual ReplaceIamInstanceProfileAssociationResponse ReplaceIamInstanceProfileAssociation(ReplaceIamInstanceProfileAssociationRequest request)
         {
             var marshaller = new ReplaceIamInstanceProfileAssociationRequestMarshaller();
             var unmarshaller = ReplaceIamInstanceProfileAssociationResponseUnmarshaller.Instance;
@@ -14358,7 +14638,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndReplaceIamInstanceProfileAssociation
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation">REST API Reference for ReplaceIamInstanceProfileAssociation Operation</seealso>
-        public IAsyncResult BeginReplaceIamInstanceProfileAssociation(ReplaceIamInstanceProfileAssociationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginReplaceIamInstanceProfileAssociation(ReplaceIamInstanceProfileAssociationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ReplaceIamInstanceProfileAssociationRequestMarshaller();
             var unmarshaller = ReplaceIamInstanceProfileAssociationResponseUnmarshaller.Instance;
@@ -14375,7 +14655,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ReplaceIamInstanceProfileAssociationResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceIamInstanceProfileAssociation">REST API Reference for ReplaceIamInstanceProfileAssociation Operation</seealso>
-        public  ReplaceIamInstanceProfileAssociationResponse EndReplaceIamInstanceProfileAssociation(IAsyncResult asyncResult)
+        public virtual ReplaceIamInstanceProfileAssociationResponse EndReplaceIamInstanceProfileAssociation(IAsyncResult asyncResult)
         {
             return EndInvoke<ReplaceIamInstanceProfileAssociationResponse>(asyncResult);
         }
@@ -14394,7 +14674,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ReplaceNetworkAclAssociation service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceNetworkAclAssociation">REST API Reference for ReplaceNetworkAclAssociation Operation</seealso>
-        public ReplaceNetworkAclAssociationResponse ReplaceNetworkAclAssociation(ReplaceNetworkAclAssociationRequest request)
+        public virtual ReplaceNetworkAclAssociationResponse ReplaceNetworkAclAssociation(ReplaceNetworkAclAssociationRequest request)
         {
             var marshaller = new ReplaceNetworkAclAssociationRequestMarshaller();
             var unmarshaller = ReplaceNetworkAclAssociationResponseUnmarshaller.Instance;
@@ -14414,7 +14694,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndReplaceNetworkAclAssociation
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceNetworkAclAssociation">REST API Reference for ReplaceNetworkAclAssociation Operation</seealso>
-        public IAsyncResult BeginReplaceNetworkAclAssociation(ReplaceNetworkAclAssociationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginReplaceNetworkAclAssociation(ReplaceNetworkAclAssociationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ReplaceNetworkAclAssociationRequestMarshaller();
             var unmarshaller = ReplaceNetworkAclAssociationResponseUnmarshaller.Instance;
@@ -14431,7 +14711,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ReplaceNetworkAclAssociationResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceNetworkAclAssociation">REST API Reference for ReplaceNetworkAclAssociation Operation</seealso>
-        public  ReplaceNetworkAclAssociationResponse EndReplaceNetworkAclAssociation(IAsyncResult asyncResult)
+        public virtual ReplaceNetworkAclAssociationResponse EndReplaceNetworkAclAssociation(IAsyncResult asyncResult)
         {
             return EndInvoke<ReplaceNetworkAclAssociationResponse>(asyncResult);
         }
@@ -14449,7 +14729,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ReplaceNetworkAclEntry service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceNetworkAclEntry">REST API Reference for ReplaceNetworkAclEntry Operation</seealso>
-        public ReplaceNetworkAclEntryResponse ReplaceNetworkAclEntry(ReplaceNetworkAclEntryRequest request)
+        public virtual ReplaceNetworkAclEntryResponse ReplaceNetworkAclEntry(ReplaceNetworkAclEntryRequest request)
         {
             var marshaller = new ReplaceNetworkAclEntryRequestMarshaller();
             var unmarshaller = ReplaceNetworkAclEntryResponseUnmarshaller.Instance;
@@ -14469,7 +14749,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndReplaceNetworkAclEntry
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceNetworkAclEntry">REST API Reference for ReplaceNetworkAclEntry Operation</seealso>
-        public IAsyncResult BeginReplaceNetworkAclEntry(ReplaceNetworkAclEntryRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginReplaceNetworkAclEntry(ReplaceNetworkAclEntryRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ReplaceNetworkAclEntryRequestMarshaller();
             var unmarshaller = ReplaceNetworkAclEntryResponseUnmarshaller.Instance;
@@ -14486,7 +14766,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ReplaceNetworkAclEntryResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceNetworkAclEntry">REST API Reference for ReplaceNetworkAclEntry Operation</seealso>
-        public  ReplaceNetworkAclEntryResponse EndReplaceNetworkAclEntry(IAsyncResult asyncResult)
+        public virtual ReplaceNetworkAclEntryResponse EndReplaceNetworkAclEntry(IAsyncResult asyncResult)
         {
             return EndInvoke<ReplaceNetworkAclEntryResponse>(asyncResult);
         }
@@ -14510,7 +14790,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ReplaceRoute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceRoute">REST API Reference for ReplaceRoute Operation</seealso>
-        public ReplaceRouteResponse ReplaceRoute(ReplaceRouteRequest request)
+        public virtual ReplaceRouteResponse ReplaceRoute(ReplaceRouteRequest request)
         {
             var marshaller = new ReplaceRouteRequestMarshaller();
             var unmarshaller = ReplaceRouteResponseUnmarshaller.Instance;
@@ -14530,7 +14810,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndReplaceRoute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceRoute">REST API Reference for ReplaceRoute Operation</seealso>
-        public IAsyncResult BeginReplaceRoute(ReplaceRouteRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginReplaceRoute(ReplaceRouteRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ReplaceRouteRequestMarshaller();
             var unmarshaller = ReplaceRouteResponseUnmarshaller.Instance;
@@ -14547,7 +14827,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ReplaceRouteResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceRoute">REST API Reference for ReplaceRoute Operation</seealso>
-        public  ReplaceRouteResponse EndReplaceRoute(IAsyncResult asyncResult)
+        public virtual ReplaceRouteResponse EndReplaceRoute(IAsyncResult asyncResult)
         {
             return EndInvoke<ReplaceRouteResponse>(asyncResult);
         }
@@ -14573,7 +14853,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ReplaceRouteTableAssociation service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceRouteTableAssociation">REST API Reference for ReplaceRouteTableAssociation Operation</seealso>
-        public ReplaceRouteTableAssociationResponse ReplaceRouteTableAssociation(ReplaceRouteTableAssociationRequest request)
+        public virtual ReplaceRouteTableAssociationResponse ReplaceRouteTableAssociation(ReplaceRouteTableAssociationRequest request)
         {
             var marshaller = new ReplaceRouteTableAssociationRequestMarshaller();
             var unmarshaller = ReplaceRouteTableAssociationResponseUnmarshaller.Instance;
@@ -14593,7 +14873,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndReplaceRouteTableAssociation
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceRouteTableAssociation">REST API Reference for ReplaceRouteTableAssociation Operation</seealso>
-        public IAsyncResult BeginReplaceRouteTableAssociation(ReplaceRouteTableAssociationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginReplaceRouteTableAssociation(ReplaceRouteTableAssociationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ReplaceRouteTableAssociationRequestMarshaller();
             var unmarshaller = ReplaceRouteTableAssociationResponseUnmarshaller.Instance;
@@ -14610,7 +14890,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ReplaceRouteTableAssociationResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReplaceRouteTableAssociation">REST API Reference for ReplaceRouteTableAssociation Operation</seealso>
-        public  ReplaceRouteTableAssociationResponse EndReplaceRouteTableAssociation(IAsyncResult asyncResult)
+        public virtual ReplaceRouteTableAssociationResponse EndReplaceRouteTableAssociation(IAsyncResult asyncResult)
         {
             return EndInvoke<ReplaceRouteTableAssociationResponse>(asyncResult);
         }
@@ -14635,7 +14915,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ReportInstanceStatus service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReportInstanceStatus">REST API Reference for ReportInstanceStatus Operation</seealso>
-        public ReportInstanceStatusResponse ReportInstanceStatus(ReportInstanceStatusRequest request)
+        public virtual ReportInstanceStatusResponse ReportInstanceStatus(ReportInstanceStatusRequest request)
         {
             var marshaller = new ReportInstanceStatusRequestMarshaller();
             var unmarshaller = ReportInstanceStatusResponseUnmarshaller.Instance;
@@ -14655,7 +14935,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndReportInstanceStatus
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReportInstanceStatus">REST API Reference for ReportInstanceStatus Operation</seealso>
-        public IAsyncResult BeginReportInstanceStatus(ReportInstanceStatusRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginReportInstanceStatus(ReportInstanceStatusRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ReportInstanceStatusRequestMarshaller();
             var unmarshaller = ReportInstanceStatusResponseUnmarshaller.Instance;
@@ -14672,7 +14952,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ReportInstanceStatusResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ReportInstanceStatus">REST API Reference for ReportInstanceStatus Operation</seealso>
-        public  ReportInstanceStatusResponse EndReportInstanceStatus(IAsyncResult asyncResult)
+        public virtual ReportInstanceStatusResponse EndReportInstanceStatus(IAsyncResult asyncResult)
         {
             return EndInvoke<ReportInstanceStatusResponse>(asyncResult);
         }
@@ -14712,7 +14992,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the RequestSpotFleet service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RequestSpotFleet">REST API Reference for RequestSpotFleet Operation</seealso>
-        public RequestSpotFleetResponse RequestSpotFleet(RequestSpotFleetRequest request)
+        public virtual RequestSpotFleetResponse RequestSpotFleet(RequestSpotFleetRequest request)
         {
             var marshaller = new RequestSpotFleetRequestMarshaller();
             var unmarshaller = RequestSpotFleetResponseUnmarshaller.Instance;
@@ -14732,7 +15012,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRequestSpotFleet
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RequestSpotFleet">REST API Reference for RequestSpotFleet Operation</seealso>
-        public IAsyncResult BeginRequestSpotFleet(RequestSpotFleetRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRequestSpotFleet(RequestSpotFleetRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RequestSpotFleetRequestMarshaller();
             var unmarshaller = RequestSpotFleetResponseUnmarshaller.Instance;
@@ -14749,7 +15029,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  RequestSpotFleetResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RequestSpotFleet">REST API Reference for RequestSpotFleet Operation</seealso>
-        public  RequestSpotFleetResponse EndRequestSpotFleet(IAsyncResult asyncResult)
+        public virtual RequestSpotFleetResponse EndRequestSpotFleet(IAsyncResult asyncResult)
         {
             return EndInvoke<RequestSpotFleetResponse>(asyncResult);
         }
@@ -14769,7 +15049,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the RequestSpotInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RequestSpotInstances">REST API Reference for RequestSpotInstances Operation</seealso>
-        public RequestSpotInstancesResponse RequestSpotInstances(RequestSpotInstancesRequest request)
+        public virtual RequestSpotInstancesResponse RequestSpotInstances(RequestSpotInstancesRequest request)
         {
             var marshaller = new RequestSpotInstancesRequestMarshaller();
             var unmarshaller = RequestSpotInstancesResponseUnmarshaller.Instance;
@@ -14789,7 +15069,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRequestSpotInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RequestSpotInstances">REST API Reference for RequestSpotInstances Operation</seealso>
-        public IAsyncResult BeginRequestSpotInstances(RequestSpotInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRequestSpotInstances(RequestSpotInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RequestSpotInstancesRequestMarshaller();
             var unmarshaller = RequestSpotInstancesResponseUnmarshaller.Instance;
@@ -14806,9 +15086,63 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  RequestSpotInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RequestSpotInstances">REST API Reference for RequestSpotInstances Operation</seealso>
-        public  RequestSpotInstancesResponse EndRequestSpotInstances(IAsyncResult asyncResult)
+        public virtual RequestSpotInstancesResponse EndRequestSpotInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<RequestSpotInstancesResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ResetFpgaImageAttribute
+
+        /// <summary>
+        /// Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default
+        /// value. You can only reset the load permission attribute.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ResetFpgaImageAttribute service method.</param>
+        /// 
+        /// <returns>The response from the ResetFpgaImageAttribute service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetFpgaImageAttribute">REST API Reference for ResetFpgaImageAttribute Operation</seealso>
+        public virtual ResetFpgaImageAttributeResponse ResetFpgaImageAttribute(ResetFpgaImageAttributeRequest request)
+        {
+            var marshaller = new ResetFpgaImageAttributeRequestMarshaller();
+            var unmarshaller = ResetFpgaImageAttributeResponseUnmarshaller.Instance;
+
+            return Invoke<ResetFpgaImageAttributeRequest,ResetFpgaImageAttributeResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ResetFpgaImageAttribute operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ResetFpgaImageAttribute operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndResetFpgaImageAttribute
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetFpgaImageAttribute">REST API Reference for ResetFpgaImageAttribute Operation</seealso>
+        public virtual IAsyncResult BeginResetFpgaImageAttribute(ResetFpgaImageAttributeRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new ResetFpgaImageAttributeRequestMarshaller();
+            var unmarshaller = ResetFpgaImageAttributeResponseUnmarshaller.Instance;
+
+            return BeginInvoke<ResetFpgaImageAttributeRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ResetFpgaImageAttribute operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginResetFpgaImageAttribute.</param>
+        /// 
+        /// <returns>Returns a  ResetFpgaImageAttributeResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetFpgaImageAttribute">REST API Reference for ResetFpgaImageAttribute Operation</seealso>
+        public virtual ResetFpgaImageAttributeResponse EndResetFpgaImageAttribute(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ResetFpgaImageAttributeResponse>(asyncResult);
         }
 
         #endregion
@@ -14828,7 +15162,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ResetImageAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetImageAttribute">REST API Reference for ResetImageAttribute Operation</seealso>
-        public ResetImageAttributeResponse ResetImageAttribute(ResetImageAttributeRequest request)
+        public virtual ResetImageAttributeResponse ResetImageAttribute(ResetImageAttributeRequest request)
         {
             var marshaller = new ResetImageAttributeRequestMarshaller();
             var unmarshaller = ResetImageAttributeResponseUnmarshaller.Instance;
@@ -14848,7 +15182,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndResetImageAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetImageAttribute">REST API Reference for ResetImageAttribute Operation</seealso>
-        public IAsyncResult BeginResetImageAttribute(ResetImageAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginResetImageAttribute(ResetImageAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ResetImageAttributeRequestMarshaller();
             var unmarshaller = ResetImageAttributeResponseUnmarshaller.Instance;
@@ -14865,7 +15199,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ResetImageAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetImageAttribute">REST API Reference for ResetImageAttribute Operation</seealso>
-        public  ResetImageAttributeResponse EndResetImageAttribute(IAsyncResult asyncResult)
+        public virtual ResetImageAttributeResponse EndResetImageAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<ResetImageAttributeResponse>(asyncResult);
         }
@@ -14892,7 +15226,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ResetInstanceAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetInstanceAttribute">REST API Reference for ResetInstanceAttribute Operation</seealso>
-        public ResetInstanceAttributeResponse ResetInstanceAttribute(ResetInstanceAttributeRequest request)
+        public virtual ResetInstanceAttributeResponse ResetInstanceAttribute(ResetInstanceAttributeRequest request)
         {
             var marshaller = new ResetInstanceAttributeRequestMarshaller();
             var unmarshaller = ResetInstanceAttributeResponseUnmarshaller.Instance;
@@ -14912,7 +15246,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndResetInstanceAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetInstanceAttribute">REST API Reference for ResetInstanceAttribute Operation</seealso>
-        public IAsyncResult BeginResetInstanceAttribute(ResetInstanceAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginResetInstanceAttribute(ResetInstanceAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ResetInstanceAttributeRequestMarshaller();
             var unmarshaller = ResetInstanceAttributeResponseUnmarshaller.Instance;
@@ -14929,7 +15263,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ResetInstanceAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetInstanceAttribute">REST API Reference for ResetInstanceAttribute Operation</seealso>
-        public  ResetInstanceAttributeResponse EndResetInstanceAttribute(IAsyncResult asyncResult)
+        public virtual ResetInstanceAttributeResponse EndResetInstanceAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<ResetInstanceAttributeResponse>(asyncResult);
         }
@@ -14945,7 +15279,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ResetNetworkInterfaceAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetNetworkInterfaceAttribute">REST API Reference for ResetNetworkInterfaceAttribute Operation</seealso>
-        public ResetNetworkInterfaceAttributeResponse ResetNetworkInterfaceAttribute(ResetNetworkInterfaceAttributeRequest request)
+        public virtual ResetNetworkInterfaceAttributeResponse ResetNetworkInterfaceAttribute(ResetNetworkInterfaceAttributeRequest request)
         {
             var marshaller = new ResetNetworkInterfaceAttributeRequestMarshaller();
             var unmarshaller = ResetNetworkInterfaceAttributeResponseUnmarshaller.Instance;
@@ -14965,7 +15299,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndResetNetworkInterfaceAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetNetworkInterfaceAttribute">REST API Reference for ResetNetworkInterfaceAttribute Operation</seealso>
-        public IAsyncResult BeginResetNetworkInterfaceAttribute(ResetNetworkInterfaceAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginResetNetworkInterfaceAttribute(ResetNetworkInterfaceAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ResetNetworkInterfaceAttributeRequestMarshaller();
             var unmarshaller = ResetNetworkInterfaceAttributeResponseUnmarshaller.Instance;
@@ -14982,7 +15316,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ResetNetworkInterfaceAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetNetworkInterfaceAttribute">REST API Reference for ResetNetworkInterfaceAttribute Operation</seealso>
-        public  ResetNetworkInterfaceAttributeResponse EndResetNetworkInterfaceAttribute(IAsyncResult asyncResult)
+        public virtual ResetNetworkInterfaceAttributeResponse EndResetNetworkInterfaceAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<ResetNetworkInterfaceAttributeResponse>(asyncResult);
         }
@@ -15004,7 +15338,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the ResetSnapshotAttribute service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetSnapshotAttribute">REST API Reference for ResetSnapshotAttribute Operation</seealso>
-        public ResetSnapshotAttributeResponse ResetSnapshotAttribute(ResetSnapshotAttributeRequest request)
+        public virtual ResetSnapshotAttributeResponse ResetSnapshotAttribute(ResetSnapshotAttributeRequest request)
         {
             var marshaller = new ResetSnapshotAttributeRequestMarshaller();
             var unmarshaller = ResetSnapshotAttributeResponseUnmarshaller.Instance;
@@ -15024,7 +15358,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndResetSnapshotAttribute
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetSnapshotAttribute">REST API Reference for ResetSnapshotAttribute Operation</seealso>
-        public IAsyncResult BeginResetSnapshotAttribute(ResetSnapshotAttributeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginResetSnapshotAttribute(ResetSnapshotAttributeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ResetSnapshotAttributeRequestMarshaller();
             var unmarshaller = ResetSnapshotAttributeResponseUnmarshaller.Instance;
@@ -15041,7 +15375,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  ResetSnapshotAttributeResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetSnapshotAttribute">REST API Reference for ResetSnapshotAttribute Operation</seealso>
-        public  ResetSnapshotAttributeResponse EndResetSnapshotAttribute(IAsyncResult asyncResult)
+        public virtual ResetSnapshotAttributeResponse EndResetSnapshotAttribute(IAsyncResult asyncResult)
         {
             return EndInvoke<ResetSnapshotAttributeResponse>(asyncResult);
         }
@@ -15060,7 +15394,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the RestoreAddressToClassic service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RestoreAddressToClassic">REST API Reference for RestoreAddressToClassic Operation</seealso>
-        public RestoreAddressToClassicResponse RestoreAddressToClassic(RestoreAddressToClassicRequest request)
+        public virtual RestoreAddressToClassicResponse RestoreAddressToClassic(RestoreAddressToClassicRequest request)
         {
             var marshaller = new RestoreAddressToClassicRequestMarshaller();
             var unmarshaller = RestoreAddressToClassicResponseUnmarshaller.Instance;
@@ -15080,7 +15414,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRestoreAddressToClassic
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RestoreAddressToClassic">REST API Reference for RestoreAddressToClassic Operation</seealso>
-        public IAsyncResult BeginRestoreAddressToClassic(RestoreAddressToClassicRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRestoreAddressToClassic(RestoreAddressToClassicRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RestoreAddressToClassicRequestMarshaller();
             var unmarshaller = RestoreAddressToClassicResponseUnmarshaller.Instance;
@@ -15097,7 +15431,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  RestoreAddressToClassicResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RestoreAddressToClassic">REST API Reference for RestoreAddressToClassic Operation</seealso>
-        public  RestoreAddressToClassicResponse EndRestoreAddressToClassic(IAsyncResult asyncResult)
+        public virtual RestoreAddressToClassicResponse EndRestoreAddressToClassic(IAsyncResult asyncResult)
         {
             return EndInvoke<RestoreAddressToClassicResponse>(asyncResult);
         }
@@ -15108,15 +15442,17 @@ namespace Amazon.EC2
 
         /// <summary>
         /// [EC2-VPC only] Removes one or more egress rules from a security group for EC2-VPC.
-        /// This action doesn't apply to security groups for use in EC2-Classic. The values that
-        /// you specify in the revoke request (for example, ports) must match the existing rule's
-        /// values for the rule to be revoked.
+        /// This action doesn't apply to security groups for use in EC2-Classic. To remove a rule,
+        /// the values that you specify (for example, ports) must match the existing rule's values
+        /// exactly.
         /// 
         ///  
         /// <para>
         /// Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security
         /// group. For the TCP and UDP protocols, you must also specify the destination port or
         /// range of ports. For the ICMP protocol, you must also specify the ICMP type and code.
+        /// If the security group rule has a description, you do not have to specify the description
+        /// to revoke the rule.
         /// </para>
         ///  
         /// <para>
@@ -15128,7 +15464,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the RevokeSecurityGroupEgress service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RevokeSecurityGroupEgress">REST API Reference for RevokeSecurityGroupEgress Operation</seealso>
-        public RevokeSecurityGroupEgressResponse RevokeSecurityGroupEgress(RevokeSecurityGroupEgressRequest request)
+        public virtual RevokeSecurityGroupEgressResponse RevokeSecurityGroupEgress(RevokeSecurityGroupEgressRequest request)
         {
             var marshaller = new RevokeSecurityGroupEgressRequestMarshaller();
             var unmarshaller = RevokeSecurityGroupEgressResponseUnmarshaller.Instance;
@@ -15148,7 +15484,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRevokeSecurityGroupEgress
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RevokeSecurityGroupEgress">REST API Reference for RevokeSecurityGroupEgress Operation</seealso>
-        public IAsyncResult BeginRevokeSecurityGroupEgress(RevokeSecurityGroupEgressRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRevokeSecurityGroupEgress(RevokeSecurityGroupEgressRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RevokeSecurityGroupEgressRequestMarshaller();
             var unmarshaller = RevokeSecurityGroupEgressResponseUnmarshaller.Instance;
@@ -15165,7 +15501,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  RevokeSecurityGroupEgressResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RevokeSecurityGroupEgress">REST API Reference for RevokeSecurityGroupEgress Operation</seealso>
-        public  RevokeSecurityGroupEgressResponse EndRevokeSecurityGroupEgress(IAsyncResult asyncResult)
+        public virtual RevokeSecurityGroupEgressResponse EndRevokeSecurityGroupEgress(IAsyncResult asyncResult)
         {
             return EndInvoke<RevokeSecurityGroupEgressResponse>(asyncResult);
         }
@@ -15175,9 +15511,8 @@ namespace Amazon.EC2
         #region  RevokeSecurityGroupIngress
 
         /// <summary>
-        /// Removes one or more ingress rules from a security group. The values that you specify
-        /// in the revoke request (for example, ports) must match the existing rule's values for
-        /// the rule to be removed.
+        /// Removes one or more ingress rules from a security group. To remove a rule, the values
+        /// that you specify (for example, ports) must match the existing rule's values exactly.
         /// 
         ///  <note> 
         /// <para>
@@ -15189,7 +15524,9 @@ namespace Amazon.EC2
         /// <para>
         /// Each rule consists of the protocol and the CIDR range or source security group. For
         /// the TCP and UDP protocols, you must also specify the destination port or range of
-        /// ports. For the ICMP protocol, you must also specify the ICMP type and code.
+        /// ports. For the ICMP protocol, you must also specify the ICMP type and code. If the
+        /// security group rule has a description, you do not have to specify the description
+        /// to revoke the rule.
         /// </para>
         ///  
         /// <para>
@@ -15201,7 +15538,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the RevokeSecurityGroupIngress service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RevokeSecurityGroupIngress">REST API Reference for RevokeSecurityGroupIngress Operation</seealso>
-        public RevokeSecurityGroupIngressResponse RevokeSecurityGroupIngress(RevokeSecurityGroupIngressRequest request)
+        public virtual RevokeSecurityGroupIngressResponse RevokeSecurityGroupIngress(RevokeSecurityGroupIngressRequest request)
         {
             var marshaller = new RevokeSecurityGroupIngressRequestMarshaller();
             var unmarshaller = RevokeSecurityGroupIngressResponseUnmarshaller.Instance;
@@ -15221,7 +15558,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRevokeSecurityGroupIngress
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RevokeSecurityGroupIngress">REST API Reference for RevokeSecurityGroupIngress Operation</seealso>
-        public IAsyncResult BeginRevokeSecurityGroupIngress(RevokeSecurityGroupIngressRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRevokeSecurityGroupIngress(RevokeSecurityGroupIngressRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RevokeSecurityGroupIngressRequestMarshaller();
             var unmarshaller = RevokeSecurityGroupIngressResponseUnmarshaller.Instance;
@@ -15238,7 +15575,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  RevokeSecurityGroupIngressResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RevokeSecurityGroupIngress">REST API Reference for RevokeSecurityGroupIngress Operation</seealso>
-        public  RevokeSecurityGroupIngressResponse EndRevokeSecurityGroupIngress(IAsyncResult asyncResult)
+        public virtual RevokeSecurityGroupIngressResponse EndRevokeSecurityGroupIngress(IAsyncResult asyncResult)
         {
             return EndInvoke<RevokeSecurityGroupIngressResponse>(asyncResult);
         }
@@ -15297,8 +15634,8 @@ namespace Amazon.EC2
         ///  </li> </ul> 
         /// <para>
         /// To ensure faster instance launches, break up large requests into smaller batches.
-        /// For example, create 5 separate launch requests for 100 instances each instead of 1
-        /// launch request for 500 instances.
+        /// For example, create five separate launch requests for 100 instances each instead of
+        /// one launch request for 500 instances.
         /// </para>
         ///  
         /// <para>
@@ -15326,7 +15663,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the RunInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RunInstances">REST API Reference for RunInstances Operation</seealso>
-        public RunInstancesResponse RunInstances(RunInstancesRequest request)
+        public virtual RunInstancesResponse RunInstances(RunInstancesRequest request)
         {
             var marshaller = new RunInstancesRequestMarshaller();
             var unmarshaller = RunInstancesResponseUnmarshaller.Instance;
@@ -15346,7 +15683,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRunInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RunInstances">REST API Reference for RunInstances Operation</seealso>
-        public IAsyncResult BeginRunInstances(RunInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRunInstances(RunInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RunInstancesRequestMarshaller();
             var unmarshaller = RunInstancesResponseUnmarshaller.Instance;
@@ -15363,7 +15700,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  RunInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RunInstances">REST API Reference for RunInstances Operation</seealso>
-        public  RunInstancesResponse EndRunInstances(IAsyncResult asyncResult)
+        public virtual RunInstancesResponse EndRunInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<RunInstancesResponse>(asyncResult);
         }
@@ -15393,7 +15730,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the RunScheduledInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RunScheduledInstances">REST API Reference for RunScheduledInstances Operation</seealso>
-        public RunScheduledInstancesResponse RunScheduledInstances(RunScheduledInstancesRequest request)
+        public virtual RunScheduledInstancesResponse RunScheduledInstances(RunScheduledInstancesRequest request)
         {
             var marshaller = new RunScheduledInstancesRequestMarshaller();
             var unmarshaller = RunScheduledInstancesResponseUnmarshaller.Instance;
@@ -15413,7 +15750,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRunScheduledInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RunScheduledInstances">REST API Reference for RunScheduledInstances Operation</seealso>
-        public IAsyncResult BeginRunScheduledInstances(RunScheduledInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRunScheduledInstances(RunScheduledInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RunScheduledInstancesRequestMarshaller();
             var unmarshaller = RunScheduledInstancesResponseUnmarshaller.Instance;
@@ -15430,7 +15767,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  RunScheduledInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RunScheduledInstances">REST API Reference for RunScheduledInstances Operation</seealso>
-        public  RunScheduledInstancesResponse EndRunScheduledInstances(IAsyncResult asyncResult)
+        public virtual RunScheduledInstancesResponse EndRunScheduledInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<RunScheduledInstancesResponse>(asyncResult);
         }
@@ -15440,17 +15777,20 @@ namespace Amazon.EC2
         #region  StartInstances
 
         /// <summary>
-        /// Starts an Amazon EBS-backed AMI that you've previously stopped.
+        /// Starts an Amazon EBS-backed instance that you've previously stopped.
         /// 
         ///  
         /// <para>
         /// Instances that use Amazon EBS volumes as their root devices can be quickly stopped
         /// and started. When an instance is stopped, the compute resources are released and you
-        /// are not billed for hourly instance usage. However, your root partition Amazon EBS
-        /// volume remains, continues to persist your data, and you are charged for Amazon EBS
-        /// volume usage. You can restart your instance at any time. Each time you transition
-        /// an instance from stopped to started, Amazon EC2 charges a full instance hour, even
-        /// if transitions happen multiple times within a single hour.
+        /// are not billed for instance usage. However, your root partition Amazon EBS volume
+        /// remains and continues to persist your data, and you are charged for Amazon EBS volume
+        /// usage. You can restart your instance at any time. Every time you start your Windows
+        /// instance, Amazon EC2 charges you for a full instance hour. If you stop and restart
+        /// your Windows instance, a new instance hour begins and Amazon EC2 charges you for another
+        /// full instance hour even if you are still within the same 60-minute period when it
+        /// was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute
+        /// minimum for instance usage, and thereafter charges per second for instance usage.
         /// </para>
         ///  
         /// <para>
@@ -15472,7 +15812,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the StartInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StartInstances">REST API Reference for StartInstances Operation</seealso>
-        public StartInstancesResponse StartInstances(StartInstancesRequest request)
+        public virtual StartInstancesResponse StartInstances(StartInstancesRequest request)
         {
             var marshaller = new StartInstancesRequestMarshaller();
             var unmarshaller = StartInstancesResponseUnmarshaller.Instance;
@@ -15492,7 +15832,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStartInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StartInstances">REST API Reference for StartInstances Operation</seealso>
-        public IAsyncResult BeginStartInstances(StartInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginStartInstances(StartInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new StartInstancesRequestMarshaller();
             var unmarshaller = StartInstancesResponseUnmarshaller.Instance;
@@ -15509,7 +15849,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  StartInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StartInstances">REST API Reference for StartInstances Operation</seealso>
-        public  StartInstancesResponse EndStartInstances(IAsyncResult asyncResult)
+        public virtual StartInstancesResponse EndStartInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<StartInstancesResponse>(asyncResult);
         }
@@ -15523,15 +15863,18 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// We don't charge hourly usage for a stopped instance, or data transfer fees; however,
-        /// your root partition Amazon EBS volume remains, continues to persist your data, and
-        /// you are charged for Amazon EBS volume usage. Each time you transition an instance
-        /// from stopped to started, Amazon EC2 charges a full instance hour, even if transitions
-        /// happen multiple times within a single hour.
+        /// We don't charge usage for a stopped instance, or data transfer fees; however, your
+        /// root partition Amazon EBS volume remains and continues to persist your data, and you
+        /// are charged for Amazon EBS volume usage. Every time you start your Windows instance,
+        /// Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows
+        /// instance, a new instance hour begins and Amazon EC2 charges you for another full instance
+        /// hour even if you are still within the same 60-minute period when it was stopped. Every
+        /// time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance
+        /// usage, and thereafter charges per second for instance usage.
         /// </para>
         ///  
         /// <para>
-        /// You can't start or stop Spot instances, and you can't stop instance store-backed instances.
+        /// You can't start or stop Spot Instances, and you can't stop instance store-backed instances.
         /// </para>
         ///  
         /// <para>
@@ -15560,7 +15903,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the StopInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StopInstances">REST API Reference for StopInstances Operation</seealso>
-        public StopInstancesResponse StopInstances(StopInstancesRequest request)
+        public virtual StopInstancesResponse StopInstances(StopInstancesRequest request)
         {
             var marshaller = new StopInstancesRequestMarshaller();
             var unmarshaller = StopInstancesResponseUnmarshaller.Instance;
@@ -15580,7 +15923,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStopInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StopInstances">REST API Reference for StopInstances Operation</seealso>
-        public IAsyncResult BeginStopInstances(StopInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginStopInstances(StopInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new StopInstancesRequestMarshaller();
             var unmarshaller = StopInstancesResponseUnmarshaller.Instance;
@@ -15597,7 +15940,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  StopInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/StopInstances">REST API Reference for StopInstances Operation</seealso>
-        public  StopInstancesResponse EndStopInstances(IAsyncResult asyncResult)
+        public virtual StopInstancesResponse EndStopInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<StopInstancesResponse>(asyncResult);
         }
@@ -15645,7 +15988,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the TerminateInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/TerminateInstances">REST API Reference for TerminateInstances Operation</seealso>
-        public TerminateInstancesResponse TerminateInstances(TerminateInstancesRequest request)
+        public virtual TerminateInstancesResponse TerminateInstances(TerminateInstancesRequest request)
         {
             var marshaller = new TerminateInstancesRequestMarshaller();
             var unmarshaller = TerminateInstancesResponseUnmarshaller.Instance;
@@ -15665,7 +16008,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndTerminateInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/TerminateInstances">REST API Reference for TerminateInstances Operation</seealso>
-        public IAsyncResult BeginTerminateInstances(TerminateInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginTerminateInstances(TerminateInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new TerminateInstancesRequestMarshaller();
             var unmarshaller = TerminateInstancesResponseUnmarshaller.Instance;
@@ -15682,7 +16025,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  TerminateInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/TerminateInstances">REST API Reference for TerminateInstances Operation</seealso>
-        public  TerminateInstancesResponse EndTerminateInstances(IAsyncResult asyncResult)
+        public virtual TerminateInstancesResponse EndTerminateInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<TerminateInstancesResponse>(asyncResult);
         }
@@ -15698,7 +16041,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the UnassignIpv6Addresses service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnassignIpv6Addresses">REST API Reference for UnassignIpv6Addresses Operation</seealso>
-        public UnassignIpv6AddressesResponse UnassignIpv6Addresses(UnassignIpv6AddressesRequest request)
+        public virtual UnassignIpv6AddressesResponse UnassignIpv6Addresses(UnassignIpv6AddressesRequest request)
         {
             var marshaller = new UnassignIpv6AddressesRequestMarshaller();
             var unmarshaller = UnassignIpv6AddressesResponseUnmarshaller.Instance;
@@ -15718,7 +16061,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUnassignIpv6Addresses
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnassignIpv6Addresses">REST API Reference for UnassignIpv6Addresses Operation</seealso>
-        public IAsyncResult BeginUnassignIpv6Addresses(UnassignIpv6AddressesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginUnassignIpv6Addresses(UnassignIpv6AddressesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new UnassignIpv6AddressesRequestMarshaller();
             var unmarshaller = UnassignIpv6AddressesResponseUnmarshaller.Instance;
@@ -15735,7 +16078,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  UnassignIpv6AddressesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnassignIpv6Addresses">REST API Reference for UnassignIpv6Addresses Operation</seealso>
-        public  UnassignIpv6AddressesResponse EndUnassignIpv6Addresses(IAsyncResult asyncResult)
+        public virtual UnassignIpv6AddressesResponse EndUnassignIpv6Addresses(IAsyncResult asyncResult)
         {
             return EndInvoke<UnassignIpv6AddressesResponse>(asyncResult);
         }
@@ -15751,7 +16094,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the UnassignPrivateIpAddresses service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnassignPrivateIpAddresses">REST API Reference for UnassignPrivateIpAddresses Operation</seealso>
-        public UnassignPrivateIpAddressesResponse UnassignPrivateIpAddresses(UnassignPrivateIpAddressesRequest request)
+        public virtual UnassignPrivateIpAddressesResponse UnassignPrivateIpAddresses(UnassignPrivateIpAddressesRequest request)
         {
             var marshaller = new UnassignPrivateIpAddressesRequestMarshaller();
             var unmarshaller = UnassignPrivateIpAddressesResponseUnmarshaller.Instance;
@@ -15771,7 +16114,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUnassignPrivateIpAddresses
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnassignPrivateIpAddresses">REST API Reference for UnassignPrivateIpAddresses Operation</seealso>
-        public IAsyncResult BeginUnassignPrivateIpAddresses(UnassignPrivateIpAddressesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginUnassignPrivateIpAddresses(UnassignPrivateIpAddressesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new UnassignPrivateIpAddressesRequestMarshaller();
             var unmarshaller = UnassignPrivateIpAddressesResponseUnmarshaller.Instance;
@@ -15788,7 +16131,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  UnassignPrivateIpAddressesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnassignPrivateIpAddresses">REST API Reference for UnassignPrivateIpAddresses Operation</seealso>
-        public  UnassignPrivateIpAddressesResponse EndUnassignPrivateIpAddresses(IAsyncResult asyncResult)
+        public virtual UnassignPrivateIpAddressesResponse EndUnassignPrivateIpAddresses(IAsyncResult asyncResult)
         {
             return EndInvoke<UnassignPrivateIpAddressesResponse>(asyncResult);
         }
@@ -15806,7 +16149,7 @@ namespace Amazon.EC2
         /// 
         /// <returns>The response from the UnmonitorInstances service method, as returned by EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnmonitorInstances">REST API Reference for UnmonitorInstances Operation</seealso>
-        public UnmonitorInstancesResponse UnmonitorInstances(UnmonitorInstancesRequest request)
+        public virtual UnmonitorInstancesResponse UnmonitorInstances(UnmonitorInstancesRequest request)
         {
             var marshaller = new UnmonitorInstancesRequestMarshaller();
             var unmarshaller = UnmonitorInstancesResponseUnmarshaller.Instance;
@@ -15826,7 +16169,7 @@ namespace Amazon.EC2
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUnmonitorInstances
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnmonitorInstances">REST API Reference for UnmonitorInstances Operation</seealso>
-        public IAsyncResult BeginUnmonitorInstances(UnmonitorInstancesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginUnmonitorInstances(UnmonitorInstancesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new UnmonitorInstancesRequestMarshaller();
             var unmarshaller = UnmonitorInstancesResponseUnmarshaller.Instance;
@@ -15843,9 +16186,132 @@ namespace Amazon.EC2
         /// 
         /// <returns>Returns a  UnmonitorInstancesResult from EC2.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnmonitorInstances">REST API Reference for UnmonitorInstances Operation</seealso>
-        public  UnmonitorInstancesResponse EndUnmonitorInstances(IAsyncResult asyncResult)
+        public virtual UnmonitorInstancesResponse EndUnmonitorInstances(IAsyncResult asyncResult)
         {
             return EndInvoke<UnmonitorInstancesResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateSecurityGroupRuleDescriptionsEgress
+
+        /// <summary>
+        /// [EC2-VPC only] Updates the description of an egress (outbound) security group rule.
+        /// You can replace an existing description, or add a description to a rule that did not
+        /// have one previously.
+        /// 
+        ///  
+        /// <para>
+        /// You specify the description as part of the IP permissions structure. You can remove
+        /// a description for a security group rule by omitting the description parameter in the
+        /// request.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsEgress service method.</param>
+        /// 
+        /// <returns>The response from the UpdateSecurityGroupRuleDescriptionsEgress service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsEgress">REST API Reference for UpdateSecurityGroupRuleDescriptionsEgress Operation</seealso>
+        public virtual UpdateSecurityGroupRuleDescriptionsEgressResponse UpdateSecurityGroupRuleDescriptionsEgress(UpdateSecurityGroupRuleDescriptionsEgressRequest request)
+        {
+            var marshaller = new UpdateSecurityGroupRuleDescriptionsEgressRequestMarshaller();
+            var unmarshaller = UpdateSecurityGroupRuleDescriptionsEgressResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateSecurityGroupRuleDescriptionsEgressRequest,UpdateSecurityGroupRuleDescriptionsEgressResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateSecurityGroupRuleDescriptionsEgress operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsEgress operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateSecurityGroupRuleDescriptionsEgress
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsEgress">REST API Reference for UpdateSecurityGroupRuleDescriptionsEgress Operation</seealso>
+        public virtual IAsyncResult BeginUpdateSecurityGroupRuleDescriptionsEgress(UpdateSecurityGroupRuleDescriptionsEgressRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new UpdateSecurityGroupRuleDescriptionsEgressRequestMarshaller();
+            var unmarshaller = UpdateSecurityGroupRuleDescriptionsEgressResponseUnmarshaller.Instance;
+
+            return BeginInvoke<UpdateSecurityGroupRuleDescriptionsEgressRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateSecurityGroupRuleDescriptionsEgress operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateSecurityGroupRuleDescriptionsEgress.</param>
+        /// 
+        /// <returns>Returns a  UpdateSecurityGroupRuleDescriptionsEgressResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsEgress">REST API Reference for UpdateSecurityGroupRuleDescriptionsEgress Operation</seealso>
+        public virtual UpdateSecurityGroupRuleDescriptionsEgressResponse EndUpdateSecurityGroupRuleDescriptionsEgress(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateSecurityGroupRuleDescriptionsEgressResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateSecurityGroupRuleDescriptionsIngress
+
+        /// <summary>
+        /// Updates the description of an ingress (inbound) security group rule. You can replace
+        /// an existing description, or add a description to a rule that did not have one previously.
+        /// 
+        ///  
+        /// <para>
+        /// You specify the description as part of the IP permissions structure. You can remove
+        /// a description for a security group rule by omitting the description parameter in the
+        /// request.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsIngress service method.</param>
+        /// 
+        /// <returns>The response from the UpdateSecurityGroupRuleDescriptionsIngress service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsIngress">REST API Reference for UpdateSecurityGroupRuleDescriptionsIngress Operation</seealso>
+        public virtual UpdateSecurityGroupRuleDescriptionsIngressResponse UpdateSecurityGroupRuleDescriptionsIngress(UpdateSecurityGroupRuleDescriptionsIngressRequest request)
+        {
+            var marshaller = new UpdateSecurityGroupRuleDescriptionsIngressRequestMarshaller();
+            var unmarshaller = UpdateSecurityGroupRuleDescriptionsIngressResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateSecurityGroupRuleDescriptionsIngressRequest,UpdateSecurityGroupRuleDescriptionsIngressResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateSecurityGroupRuleDescriptionsIngress operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsIngress operation on AmazonEC2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateSecurityGroupRuleDescriptionsIngress
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsIngress">REST API Reference for UpdateSecurityGroupRuleDescriptionsIngress Operation</seealso>
+        public virtual IAsyncResult BeginUpdateSecurityGroupRuleDescriptionsIngress(UpdateSecurityGroupRuleDescriptionsIngressRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new UpdateSecurityGroupRuleDescriptionsIngressRequestMarshaller();
+            var unmarshaller = UpdateSecurityGroupRuleDescriptionsIngressResponseUnmarshaller.Instance;
+
+            return BeginInvoke<UpdateSecurityGroupRuleDescriptionsIngressRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateSecurityGroupRuleDescriptionsIngress operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateSecurityGroupRuleDescriptionsIngress.</param>
+        /// 
+        /// <returns>Returns a  UpdateSecurityGroupRuleDescriptionsIngressResult from EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsIngress">REST API Reference for UpdateSecurityGroupRuleDescriptionsIngress Operation</seealso>
+        public virtual UpdateSecurityGroupRuleDescriptionsIngressResponse EndUpdateSecurityGroupRuleDescriptionsIngress(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateSecurityGroupRuleDescriptionsIngressResponse>(asyncResult);
         }
 
         #endregion

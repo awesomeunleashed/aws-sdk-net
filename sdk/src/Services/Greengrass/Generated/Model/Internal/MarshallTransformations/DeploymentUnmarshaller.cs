@@ -82,6 +82,12 @@ namespace Amazon.Greengrass.Model.Internal.MarshallTransformations
                     unmarshalledObject.DeploymentId = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("DeploymentType", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.DeploymentType = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("GroupArn", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

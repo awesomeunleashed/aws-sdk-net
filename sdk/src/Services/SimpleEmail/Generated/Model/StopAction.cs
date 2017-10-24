@@ -46,7 +46,7 @@ namespace Amazon.SimpleEmail.Model
         /// <summary>
         /// Gets and sets the property Scope. 
         /// <para>
-        /// The scope to which the Stop action applies. That is, what is being stopped.
+        /// The name of the RuleSet that is being stopped.
         /// </para>
         /// </summary>
         public StopScope Scope

@@ -75,6 +75,30 @@ namespace Amazon.Elasticsearch
         /// </summary>
         public static readonly ESPartitionInstanceType I2XlargeElasticsearch = new ESPartitionInstanceType("i2.xlarge.elasticsearch");
         /// <summary>
+        /// Constant I316xlargeElasticsearch for ESPartitionInstanceType
+        /// </summary>
+        public static readonly ESPartitionInstanceType I316xlargeElasticsearch = new ESPartitionInstanceType("i3.16xlarge.elasticsearch");
+        /// <summary>
+        /// Constant I32xlargeElasticsearch for ESPartitionInstanceType
+        /// </summary>
+        public static readonly ESPartitionInstanceType I32xlargeElasticsearch = new ESPartitionInstanceType("i3.2xlarge.elasticsearch");
+        /// <summary>
+        /// Constant I34xlargeElasticsearch for ESPartitionInstanceType
+        /// </summary>
+        public static readonly ESPartitionInstanceType I34xlargeElasticsearch = new ESPartitionInstanceType("i3.4xlarge.elasticsearch");
+        /// <summary>
+        /// Constant I38xlargeElasticsearch for ESPartitionInstanceType
+        /// </summary>
+        public static readonly ESPartitionInstanceType I38xlargeElasticsearch = new ESPartitionInstanceType("i3.8xlarge.elasticsearch");
+        /// <summary>
+        /// Constant I3LargeElasticsearch for ESPartitionInstanceType
+        /// </summary>
+        public static readonly ESPartitionInstanceType I3LargeElasticsearch = new ESPartitionInstanceType("i3.large.elasticsearch");
+        /// <summary>
+        /// Constant I3XlargeElasticsearch for ESPartitionInstanceType
+        /// </summary>
+        public static readonly ESPartitionInstanceType I3XlargeElasticsearch = new ESPartitionInstanceType("i3.xlarge.elasticsearch");
+        /// <summary>
         /// Constant M32xlargeElasticsearch for ESPartitionInstanceType
         /// </summary>
         public static readonly ESPartitionInstanceType M32xlargeElasticsearch = new ESPartitionInstanceType("m3.2xlarge.elasticsearch");
@@ -196,6 +220,56 @@ namespace Amazon.Elasticsearch
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator ESPartitionInstanceType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type LogType.
+    /// </summary>
+    public class LogType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant INDEX_SLOW_LOGS for LogType
+        /// </summary>
+        public static readonly LogType INDEX_SLOW_LOGS = new LogType("INDEX_SLOW_LOGS");
+        /// <summary>
+        /// Constant SEARCH_SLOW_LOGS for LogType
+        /// </summary>
+        public static readonly LogType SEARCH_SLOW_LOGS = new LogType("SEARCH_SLOW_LOGS");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public LogType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static LogType FindValue(string value)
+        {
+            return FindValue<LogType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator LogType(string value)
         {
             return FindValue(value);
         }

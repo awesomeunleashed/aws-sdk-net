@@ -1,3 +1,252 @@
+### 3.3.178.1 (2017-10-24 00:07 UTC)
+* Core 3.3.18.2
+	* Restored missing UAP binaries in service nuget packages.
+	* All services packages updated to require new Core
+
+### 3.3.178.0 (2017-10-23 20:39 UTC)
+* Organizations (3.3.6.0)
+	* This release supports integrating other AWS services with AWS Organizations through the use of an IAM service-linked role called AWSServiceRoleForOrganizations. Certain operations automatically create that role if it does not already exist.
+
+### 3.3.177.0 (2017-10-20 19:09 UTC)
+* EC2 (3.3.32.0)
+	* Adding pagination support for DescribeSecurityGroups for EC2 Classic and VPC Security Groups
+
+### 3.3.176.0 (2017-10-19 21:02 UTC)
+* SimpleSystemsManagement (3.3.13.0)
+	* EC2 Systems Manager versioning support for Parameter Store. Also support for referencing parameter versions in SSM Documents.
+* SQS (3.3.3.0)
+	* Added support for tracking cost allocation by adding, updating, removing, and listing the metadata tags of Amazon SQS queues.
+
+### 3.3.175.0 (2017-10-18 20:10 UTC)
+* Lightsail (3.3.3.0)
+	* This release adds support for Windows Server-based Lightsail instances. The GetInstanceAccessDetails API now returns the password of your Windows Server-based instance when using the default key pair. GetInstanceAccessDetails also returns a PasswordData object for Windows Server instances containing the ciphertext and keyPairName. The Blueprint data type now includes a list of platform values (LINUX_UNIX or WINDOWS). The Bundle data type now includes a list of SupportedPlatforms values (LINUX_UNIX or WINDOWS).
+
+### 3.3.174.0 (2017-10-17 20:37 UTC)
+* Elasticsearch (3.3.3.0)
+	* This release adds support for VPC access to Amazon Elasticsearch Service.
+* Core 3.3.18.1
+	* Service Region Launch.
+
+
+
+### 3.3.173.0 (2017-10-16 20:49 UTC)
+* CloudHSM (3.3.0.23)
+	* Documentation updates for AWS CloudHSM Classic.
+* EC2 (3.3.31.0)
+	* You can now change the tenancy of your VPC from dedicated to default with a single API operation. For more details refer to the documentation for changing VPC tenancy.
+* Elasticsearch (3.3.2.0)
+	* AWS Elasticsearch adds support for enabling slow log publishing. Using slow log publishing options customers can configure and enable index/query slow log publishing of their domain to preferred AWS Cloudwatch log group.
+* RDS (3.3.16.0)
+	* Adds waiters for DBSnapshotAvailable and DBSnapshotDeleted.
+* S3 (3.3.11.2)
+	* Fixed typo in exception messages.
+* WAF (3.3.3.0)
+	* This release adds support for regular expressions as match conditions in rules, and support for geographical location by country of request IP address as a match condition in rules.
+* WAFRegional (3.3.2.0)
+	* This release adds support for regular expressions as match conditions in rules, and support for geographical location by country of request IP address as a match condition in rules.
+
+### 3.3.172.0 (2017-10-12 18:48 UTC)
+* CodeCommit (3.3.2.0)
+	* This release includes the DeleteBranch API and a change to the contents of a Commit object.
+* DatabaseMigrationService (3.3.4.0)
+	* This change includes addition of new optional parameter to an existing API
+* ElasticBeanstalk (3.3.6.0)
+	* Added the ability to add, delete or update Tags
+* Polly (3.3.3.0)
+	* Amazon Polly exposes two new voices: "Matthew" (US English) and "Takumi" (Japanese)
+* RDS (3.3.15.0)
+	* You can now call DescribeValidDBInstanceModifications to learn what modifications you can make to your DB instance. You can use this information when you call ModifyDBInstance.
+
+### 3.3.171.0 (2017-10-11 19:11 UTC)
+* ECR (3.3.3.0)
+	* Adds support for new API set used to manage Amazon ECR repository lifecycle policies. Amazon ECR lifecycle policies enable you to specify the lifecycle management of images in a repository. The configuration is a set of one or more rules, where each rule defines an action for Amazon ECR to apply to an image. This allows the automation of cleaning up unused images, for example expiring images based on age or status. A lifecycle policy preview API is provided as well, which allows you to see the impact of a lifecycle policy on an image repository before you execute it
+* SimpleEmail (3.3.4.0)
+	* Added content related to email template management and templated email sending operations.
+
+### 3.3.170.0 (2017-10-10 18:57 UTC)
+* EC2 (3.3.30.0)
+	* This release includes updates to AWS Virtual Private Gateway.
+* ElasticLoadBalancingV2 (3.3.6.0)
+	* Server Name Indication (SNI) is an extension to the TLS protocol by which a client indicates the hostname to connect to at the start of the TLS handshake. The load balancer can present multiple certificates through the same secure listener, which enables it to support multiple secure websites using a single secure listener. Application Load Balancers also support a smart certificate selection algorithm with SNI. If the hostname indicated by a client matches multiple certificates, the load balancer determines the best certificate to use based on multiple factors including the capabilities of the client.
+* OpsWorksCM (3.3.4.0)
+	* Provide engine specific information for node associations.
+
+### 3.3.169.0 (2017-10-09 01:26 UTC)
+* Core 3.3.18.0
+	* Added a new **HttpClientCacheSize** property to the service config object to control the number of HttpClient objects cached for the .NET Core version of the SDK.
+	* Updated all service client operations to be virtual
+	* All services packages updated to require new Core
+
+### 3.3.168.1 (2017-10-06 22:28 UTC)
+* SQS (3.3.2.8)
+	* Documentation updates regarding availability of FIFO queues and miscellaneous corrections.
+
+### 3.3.168.0 (2017-10-05 19:28 UTC)
+* Redshift (3.3.3.0)
+	* DescribeEventSubscriptions API supports tag keys and tag values as request parameters. 
+
+### 3.3.167.0 (2017-10-04 21:44 UTC)
+* KinesisAnalytics (3.3.3.0)
+	* Kinesis Analytics now supports schema discovery on objects in S3.  Additionally, Kinesis Analytics now supports input data preprocessing through Lambda.
+* Route53Domains (3.3.1.0)
+	* Added a new API that checks whether a domain name can be transferred to Amazon Route 53.
+
+### 3.3.166.0 (2017-10-03 17:20 UTC)
+* EC2 (3.3.29.0)
+	* This release includes service updates to AWS VPN.
+* SimpleSystemsManagement (3.3.12.0)
+	* EC2 Systems Manager support for tagging SSM Documents. Also support for tag-based permissions to restrict access to SSM Documents based on these tags.
+
+### 3.3.165.1 (2017-10-02 19:28 UTC)
+* CloudHSM (3.3.0.21)
+	* Documentation updates for CloudHSM
+
+### 3.3.165.0 (2017-09-29 20:03 UTC)
+* AppStream (3.3.6.0)
+	* Includes APIs for managing and accessing image builders, and deleting images.
+* CodeBuild (3.3.5.0)
+	* Adding support for Building GitHub Pull Requests in AWS CodeBuild
+* MTurk (3.3.1.0)
+	* Today, Amazon Mechanical Turk (MTurk) supports SQS Notifications being delivered to Customers' SQS queues when different stages of the MTurk workflow are complete.  We are going to create new functionality so that Customers can leverage SNS topics as a destination for notification messages when various stages of the MTurk workflow are complete. 
+* Organizations (3.3.5.0)
+	* This release flags the HandshakeParty structure's Type and Id fields as 'required'. They effectively were required in the past, as you received an error if you did not include them. This is now reflected at the API definition level. 
+* Route53 (3.3.9.0)
+	* This change allows customers to reset elements of health check.
+
+### 3.3.164.0 (2017-09-27 22:03 UTC)
+* Pinpoint (3.3.4.0)
+	* Added two new push notification channels: Amazon Device Messaging (ADM) and, for push notification support in China, Baidu Cloud Push. Added support for APNs auth via .p8 key file. Added operation for direct message deliveries to user IDs, enabling you to message an individual user on multiple endpoints.
+
+### 3.3.163.0 (2017-09-26 18:20 UTC)
+* CloudFormation (3.3.8.0)
+	* You can now prevent a stack from being accidentally deleted by enabling termination protection on the stack. If you attempt to delete a stack with termination protection enabled, the deletion fails and the stack, including its status, remains unchanged. You can enable termination protection on a stack when you create it. Termination protection on stacks is disabled by default. After creation, you can set termination protection on a stack whose status is CREATE_COMPLETE, UPDATE_COMPLETE, or UPDATE_ROLLBACK_COMPLETE.
+
+### 3.3.162.0 (2017-09-22 19:56 UTC)
+* ConfigService (3.3.10.0)
+	* AWS Config support for DynamoDB tables and Auto Scaling resource types
+* ECS (3.3.6.0)
+	* Amazon ECS users can now add and drop Linux capabilities to their containers through the use of docker's cap-add and cap-drop features. Customers can specify the capabilities they wish to add or drop for each container in their task definition. 
+* RDS (3.3.14.1)
+	* Documentation updates for rds
+
+### 3.3.161.0 (2017-09-21 19:40 UTC)
+* Budgets (3.3.4.0)
+	* Including "DuplicateRecordException" in UpdateNotification and UpdateSubscriber. 
+* CloudWatchLogs (3.3.4.0)
+	* Adds support for associating LogGroups with KMS Keys.
+* EC2 (3.3.28.0)
+	* Add EC2 APIs to copy Amazon FPGA Images (AFIs) within the same region and across multiple regions, delete AFIs, and modify AFI attributes. AFI attributes include name, description and granting/denying other AWS accounts to load the AFI.
+
+### 3.3.160.0 (2017-09-20 22:48 UTC)
+* AppStream (3.3.5.0)
+	* API updates for supporting On-Demand fleets.
+* CodePipeline (3.3.2.0)
+	* This change includes a PipelineMetadata object that is part of the output from the GetPipeline API that includes the Pipeline ARN, created, and updated timestamp.
+* EC2 (3.3.27.0)
+	* Descriptions for Security Group Rules enables customers to be able to define a description for ingress and egress security group rules . The Descriptions for Security Group Rules feature supports one description field per Security Group rule for both ingress and egress rules . Descriptions for Security Group Rules provides a simple way to describe the purpose or function of a Security Group Rule allowing for easier customer identification of configuration elements .      Prior to the release of Descriptions for Security Group Rules , customers had to maintain a separate system outside of AWS if they wanted to track Security Group Rule mapping and their purpose for being implemented. If a security group rule has already been created and you would like to update or change your description for that security group rule you can use the UpdateSecurityGroupRuleDescription API. The IpRanges property on IpPermission has been deprecated in favor of a new property, Ipv4Ranges
+* Greengrass (3.3.1.0)
+	* Reset Deployments feature allows you to clean-up the cloud resource so you can delete the group. It also cleans up the core so that it goes back to the pre-deployment state.
+* Lex (3.3.2.0)
+	* Request attributes can be used to pass client specific information from the client to Amazon Lex as part of each request.
+* RDS (3.3.14.0)
+	* Introduces the --option-group-name parameter to the ModifyDBSnapshot CLI command. You can specify this parameter when you upgrade an Oracle DB snapshot. The same option group considerations apply when upgrading a DB snapshot as when upgrading a DB instance.  For more information, see http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG
+* Core 3.3.17.10
+	* AWS Greengrass is now available in the Asia Pacific (Tokyo) region, ap-northeast-1.
+
+
+
+### 3.3.159.0 (2017-09-18 23:14 UTC)
+* EC2 (3.3.26.0)
+	* Amazon EC2 now lets you opt for Spot instances to be stopped in the event of an interruption instead of being terminated.  Your Spot request can be fulfilled again by restarting instances from a previously stopped state, subject to availability of capacity at or below your preferred price.  When you submit a persistent Spot request, you can choose from \"terminate\" or \"stop\" as the instance interruption behavior.  Choosing \"stop\" will shutdown your Spot instances so you can continue from this stopped state later on.  This feature is only available for instances with Amazon EBS volume as their root device.
+* IdentityManagement (3.3.5.0)
+	* A new API, DeleteServiceLinkedRole, submits a service-linked role deletion request and returns a DeletionTaskId, which you can use to check the status of the deletion.
+* SimpleEmail (3.3.3.0)
+	* Amazon Simple Email Service (Amazon SES) now lets you customize the domains used for tracking open and click events. Previously, open and click tracking links referred to destinations hosted on domains operated by Amazon SES. With this feature, you can use your own branded domains for capturing open and click events.
+
+### 3.3.158.0 (2017-09-15 19:46 UTC)
+* APIGateway (3.3.9.0)
+	* Add a new enum "REQUEST" to '--type <value>' field in the current create-authorizer API, and make "identitySource" optional.
+
+### 3.3.157.0 (2017-09-14 21:13 UTC)
+* CodeBuild (3.3.4.0)
+	* Supporting Parameter Store in environment variables for AWS CodeBuild
+* Organizations (3.3.4.1)
+	* Documentation updates for AWS Organizations
+* ServiceCatalog (3.3.5.0)
+	* This release of Service Catalog adds API support to copy products.
+
+### 3.3.156.0 (2017-09-13 20:33 UTC)
+* AutoScaling (3.3.2.0)
+	* Customers can create Life Cycle Hooks at the time of creating Auto Scaling Groups through the CreateAutoScalingGroup API
+* Batch (3.3.3.1)
+	* Documentation updates for batch
+* CloudWatchEvents (3.3.3.0)
+	* Exposes ConcurrentModificationException as one of the valid exceptions for PutPermission and RemovePermission operation.
+* EC2 (3.3.25.0)
+	* You are now able to create and launch EC2 x1e.32xlarge instance, a new EC2 instance in the X1 family, in us-east-1, us-west-2, eu-west-1, and ap-northeast-1. x1e.32xlarge offers 128 vCPUs, 3,904 GiB of DDR4 instance memory, high memory bandwidth, large L3 caches, and leading reliability capabilities to boost the performance and reliability of in-memory applications.
+
+### 3.3.155.0 (2017-09-12 22:22 UTC)
+* KeyManagementService (3.3.3.1)
+	* Updated to use new Core, version 3.3.17.9
+	* Support changes to allow use of KMS master keys with AmazonS3EncryptionClient.
+* S3 (3.3.11.0)
+	* Updated to use new Core, version 3.3.17.9
+	* Allow use of KMS master keys with AmazonS3EncryptionClient.
+* Core 3.3.17.9
+	* Support changes to allow use of KMS master keys with AmazonS3EncryptionClient.
+
+### 3.3.154.0 (2017-09-12 17:08 UTC)
+* EC2 (3.3.24.0)
+	* Fixed bug in EC2 clients preventing HostOfferingSet from being set
+
+### 3.3.153.0 (2017-09-11 21:03 UTC)
+* DeviceFarm (3.3.3.0)
+	* DeviceFarm has added support for two features - RemoteDebugging and Customer Artifacts. Customers  can now do remote Debugging on their Private Devices and can now retrieve custom files generated by their tests on the device and the device host (execution environment) on both public and private devices. 
+
+### 3.3.152.1 (2017-09-09 04:44 UTC)
+* CognitoSync (3.3.1.23)
+	* Updated to use new Core, version 3.3.17.8
+	* Fixed a race condition in SQLiteLocalStorage.ConditionallyPutRecords() PR https://github.com/aws/aws-sdk-net/pull/446
+    * Make the local merge dataset sync count match the remote sync count PR https://github.com/aws/aws-sdk-net/pull/414
+    * Handle Cognito Sync Count Exception PR https://github.com/aws/aws-sdk-net/pull/532
+* Core 3.3.17.8
+	* Update UnityWebRequestWrapper to work in Unity 2017.1 PR https://github.com/aws/aws-sdk-net/pull/709
+
+### 3.3.152.0 (2017-09-08 19:39 UTC)
+* CloudWatchLogs (3.3.3.0)
+	* Adds support for the PutResourcePolicy, DescribeResourcePolicy and DeleteResourcePolicy APIs.
+
+### 3.3.151.0 (2017-09-07 22:49 UTC)
+* ApplicationAutoScaling (3.3.4.1)
+	* Documentation updates for application-autoscaling
+* EC2 (3.3.23.0)
+	* With Tagging support, you can add Key and Value metadata to search, filter and organize your NAT Gateways according to your organization's needs.
+* ElasticLoadBalancingV2 (3.3.5.0)
+	* The feature enables the new Network Load Balancer that is optimized to handle volatile traffic patterns while using a single static IP address per Availability Zone. Network Load Balancer operates at the connection level (Layer 4), routing connections to Amazon EC2 instances and containers, within Amazon Virtual Private Cloud (Amazon VPC) based on IP protocol data.
+* LexModelBuildingService (3.3.3.0)
+	* Amazon Lex provides the ability to export your Amazon Lex chatbot definition as a JSON file that can be added to the target platform. The JSON configuration file contains the structure of your Amazon Lex chatbot, including the intent schema with utterances, slots, prompts and slot-types.
+* Route53 (3.3.8.0)
+	* You can configure Amazon Route 53 to log information about the DNS queries that Amazon Route 53 receives for your domains and subdomains. When you configure query logging, Amazon Route 53 starts to send logs to CloudWatch Logs. You can use various tools, including the AWS console, to access the query logs.
+
+### 3.3.150.1 (2017-09-07 06:06 UTC)
+* CognitoSync (3.3.1.22)
+	* Added try catch block around GetIdentityId during sync. PR https://github.com/aws/aws-sdk-net/pull/408
+* S3 (3.3.10.4)
+	* Fixed bug with S3 Util method PostUpload that wasn't disposing the HttpWebResponse.
+    * Extend S3 signed URLs to allow for custom parameters that cannot be altered PR https://github.com/aws/aws-sdk-net/pull/698
+* Core 3.3.17.7
+	* Improve AsyncRunner utility method to reduce thread usage PR https://github.com/aws/aws-sdk-net/pull/731
+    * Don't allocate memory in UnmarshallerContext.TestExpression. PR https://github.com/aws/aws-sdk-net/pull/716
+    * Fixed unhandled exception in UnityWebResponseData.CopyHeaderValues. PR https://github.com/aws/aws-sdk-net/pull/743
+
+
+
+### 3.3.150.0 (2017-09-06 18:04 UTC)
+* Budgets (3.3.3.0)
+	* Add an optional "thresholdType" to notifications to support percentage or absolute value thresholds.
+* S3 (3.3.10.3)
+	* Remove unused model type TagQuery
+
 ### 3.3.149.0 (2017-09-05 16:41 UTC)
 * CodeStar (3.3.1.0)
 	* Added support to tag CodeStar projects. Tags can be used to organize and find CodeStar projects on key-value pairs that you can choose. For example, you could add a tag with a key of "Release" and a value of "Beta" to projects your organization is working on for an upcoming beta release.

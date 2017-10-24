@@ -89,6 +89,11 @@ namespace Amazon.CodeCommit
     /// </para>
     ///  </li> <li> 
     /// <para>
+    ///  <a>DeleteBranch</a>, which deletes the specified branch in a repository unless it
+    /// is the default branch
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
     ///  <a>GetBranch</a>, which returns information about a specified branch
     /// </para>
     ///  </li> <li> 
@@ -384,7 +389,7 @@ namespace Amazon.CodeCommit
         /// A repository names object is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/BatchGetRepositories">REST API Reference for BatchGetRepositories Operation</seealso>
-        public BatchGetRepositoriesResponse BatchGetRepositories(BatchGetRepositoriesRequest request)
+        public virtual BatchGetRepositoriesResponse BatchGetRepositories(BatchGetRepositoriesRequest request)
         {
             var marshaller = new BatchGetRepositoriesRequestMarshaller();
             var unmarshaller = BatchGetRepositoriesResponseUnmarshaller.Instance;
@@ -404,7 +409,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndBatchGetRepositories
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/BatchGetRepositories">REST API Reference for BatchGetRepositories Operation</seealso>
-        public IAsyncResult BeginBatchGetRepositories(BatchGetRepositoriesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginBatchGetRepositories(BatchGetRepositoriesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new BatchGetRepositoriesRequestMarshaller();
             var unmarshaller = BatchGetRepositoriesResponseUnmarshaller.Instance;
@@ -421,7 +426,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  BatchGetRepositoriesResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/BatchGetRepositories">REST API Reference for BatchGetRepositories Operation</seealso>
-        public  BatchGetRepositoriesResponse EndBatchGetRepositories(IAsyncResult asyncResult)
+        public virtual BatchGetRepositoriesResponse EndBatchGetRepositories(IAsyncResult asyncResult)
         {
             return EndInvoke<BatchGetRepositoriesResponse>(asyncResult);
         }
@@ -495,7 +500,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/CreateBranch">REST API Reference for CreateBranch Operation</seealso>
-        public CreateBranchResponse CreateBranch(CreateBranchRequest request)
+        public virtual CreateBranchResponse CreateBranch(CreateBranchRequest request)
         {
             var marshaller = new CreateBranchRequestMarshaller();
             var unmarshaller = CreateBranchResponseUnmarshaller.Instance;
@@ -515,7 +520,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateBranch
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/CreateBranch">REST API Reference for CreateBranch Operation</seealso>
-        public IAsyncResult BeginCreateBranch(CreateBranchRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateBranch(CreateBranchRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateBranchRequestMarshaller();
             var unmarshaller = CreateBranchResponseUnmarshaller.Instance;
@@ -532,7 +537,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  CreateBranchResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/CreateBranch">REST API Reference for CreateBranch Operation</seealso>
-        public  CreateBranchResponse EndCreateBranch(IAsyncResult asyncResult)
+        public virtual CreateBranchResponse EndCreateBranch(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateBranchResponse>(asyncResult);
         }
@@ -586,7 +591,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/CreateRepository">REST API Reference for CreateRepository Operation</seealso>
-        public CreateRepositoryResponse CreateRepository(CreateRepositoryRequest request)
+        public virtual CreateRepositoryResponse CreateRepository(CreateRepositoryRequest request)
         {
             var marshaller = new CreateRepositoryRequestMarshaller();
             var unmarshaller = CreateRepositoryResponseUnmarshaller.Instance;
@@ -606,7 +611,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateRepository
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/CreateRepository">REST API Reference for CreateRepository Operation</seealso>
-        public IAsyncResult BeginCreateRepository(CreateRepositoryRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateRepository(CreateRepositoryRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateRepositoryRequestMarshaller();
             var unmarshaller = CreateRepositoryResponseUnmarshaller.Instance;
@@ -623,9 +628,105 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  CreateRepositoryResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/CreateRepository">REST API Reference for CreateRepository Operation</seealso>
-        public  CreateRepositoryResponse EndCreateRepository(IAsyncResult asyncResult)
+        public virtual CreateRepositoryResponse EndCreateRepository(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateRepositoryResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DeleteBranch
+
+        /// <summary>
+        /// Deletes a branch from a repository, unless that branch is the default branch for the
+        /// repository.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteBranch service method.</param>
+        /// 
+        /// <returns>The response from the DeleteBranch service method, as returned by CodeCommit.</returns>
+        /// <exception cref="Amazon.CodeCommit.Model.BranchNameRequiredException">
+        /// A branch name is required but was not specified.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.DefaultBranchCannotBeDeletedException">
+        /// The specified branch is the default branch for the repository, and cannot be deleted.
+        /// To delete this branch, you must first set another branch as the default branch.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.EncryptionIntegrityChecksFailedException">
+        /// An encryption integrity check failed.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.EncryptionKeyAccessDeniedException">
+        /// An encryption key could not be accessed.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.EncryptionKeyDisabledException">
+        /// The encryption key is disabled.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.EncryptionKeyNotFoundException">
+        /// No encryption key was found.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.EncryptionKeyUnavailableException">
+        /// The encryption key is not available.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.InvalidBranchNameException">
+        /// The specified branch name is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.InvalidRepositoryNameException">
+        /// At least one specified repository name is not valid.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// This exception only occurs when a specified repository name is not valid. Other exceptions
+        /// occur when a required repository parameter is missing, or when a specified repository
+        /// does not exist.
+        /// </para>
+        ///  </note>
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.RepositoryDoesNotExistException">
+        /// The specified repository does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.CodeCommit.Model.RepositoryNameRequiredException">
+        /// A repository name is required but was not specified.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/DeleteBranch">REST API Reference for DeleteBranch Operation</seealso>
+        public virtual DeleteBranchResponse DeleteBranch(DeleteBranchRequest request)
+        {
+            var marshaller = new DeleteBranchRequestMarshaller();
+            var unmarshaller = DeleteBranchResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteBranchRequest,DeleteBranchResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteBranch operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteBranch operation on AmazonCodeCommitClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteBranch
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/DeleteBranch">REST API Reference for DeleteBranch Operation</seealso>
+        public virtual IAsyncResult BeginDeleteBranch(DeleteBranchRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new DeleteBranchRequestMarshaller();
+            var unmarshaller = DeleteBranchResponseUnmarshaller.Instance;
+
+            return BeginInvoke<DeleteBranchRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteBranch operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteBranch.</param>
+        /// 
+        /// <returns>Returns a  DeleteBranchResult from CodeCommit.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/DeleteBranch">REST API Reference for DeleteBranch Operation</seealso>
+        public virtual DeleteBranchResponse EndDeleteBranch(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteBranchResponse>(asyncResult);
         }
 
         #endregion
@@ -636,7 +737,7 @@ namespace Amazon.CodeCommit
         /// Deletes a repository. If a specified repository was already deleted, a null repository
         /// ID will be returned.
         /// 
-        ///  <important>
+        ///  <important> 
         /// <para>
         /// Deleting a repository also deletes all associated objects and metadata. After a repository
         /// is deleted, all future push calls to the deleted repository will fail.
@@ -676,7 +777,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/DeleteRepository">REST API Reference for DeleteRepository Operation</seealso>
-        public DeleteRepositoryResponse DeleteRepository(DeleteRepositoryRequest request)
+        public virtual DeleteRepositoryResponse DeleteRepository(DeleteRepositoryRequest request)
         {
             var marshaller = new DeleteRepositoryRequestMarshaller();
             var unmarshaller = DeleteRepositoryResponseUnmarshaller.Instance;
@@ -696,7 +797,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteRepository
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/DeleteRepository">REST API Reference for DeleteRepository Operation</seealso>
-        public IAsyncResult BeginDeleteRepository(DeleteRepositoryRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteRepository(DeleteRepositoryRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteRepositoryRequestMarshaller();
             var unmarshaller = DeleteRepositoryResponseUnmarshaller.Instance;
@@ -713,7 +814,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  DeleteRepositoryResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/DeleteRepository">REST API Reference for DeleteRepository Operation</seealso>
-        public  DeleteRepositoryResponse EndDeleteRepository(IAsyncResult asyncResult)
+        public virtual DeleteRepositoryResponse EndDeleteRepository(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteRepositoryResponse>(asyncResult);
         }
@@ -775,7 +876,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetBlob">REST API Reference for GetBlob Operation</seealso>
-        public GetBlobResponse GetBlob(GetBlobRequest request)
+        public virtual GetBlobResponse GetBlob(GetBlobRequest request)
         {
             var marshaller = new GetBlobRequestMarshaller();
             var unmarshaller = GetBlobResponseUnmarshaller.Instance;
@@ -795,7 +896,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetBlob
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetBlob">REST API Reference for GetBlob Operation</seealso>
-        public IAsyncResult BeginGetBlob(GetBlobRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetBlob(GetBlobRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetBlobRequestMarshaller();
             var unmarshaller = GetBlobResponseUnmarshaller.Instance;
@@ -812,7 +913,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  GetBlobResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetBlob">REST API Reference for GetBlob Operation</seealso>
-        public  GetBlobResponse EndGetBlob(IAsyncResult asyncResult)
+        public virtual GetBlobResponse EndGetBlob(IAsyncResult asyncResult)
         {
             return EndInvoke<GetBlobResponse>(asyncResult);
         }
@@ -870,7 +971,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetBranch">REST API Reference for GetBranch Operation</seealso>
-        public GetBranchResponse GetBranch(GetBranchRequest request)
+        public virtual GetBranchResponse GetBranch(GetBranchRequest request)
         {
             var marshaller = new GetBranchRequestMarshaller();
             var unmarshaller = GetBranchResponseUnmarshaller.Instance;
@@ -890,7 +991,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetBranch
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetBranch">REST API Reference for GetBranch Operation</seealso>
-        public IAsyncResult BeginGetBranch(GetBranchRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetBranch(GetBranchRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetBranchRequestMarshaller();
             var unmarshaller = GetBranchResponseUnmarshaller.Instance;
@@ -907,7 +1008,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  GetBranchResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetBranch">REST API Reference for GetBranch Operation</seealso>
-        public  GetBranchResponse EndGetBranch(IAsyncResult asyncResult)
+        public virtual GetBranchResponse EndGetBranch(IAsyncResult asyncResult)
         {
             return EndInvoke<GetBranchResponse>(asyncResult);
         }
@@ -964,7 +1065,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetCommit">REST API Reference for GetCommit Operation</seealso>
-        public GetCommitResponse GetCommit(GetCommitRequest request)
+        public virtual GetCommitResponse GetCommit(GetCommitRequest request)
         {
             var marshaller = new GetCommitRequestMarshaller();
             var unmarshaller = GetCommitResponseUnmarshaller.Instance;
@@ -984,7 +1085,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetCommit
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetCommit">REST API Reference for GetCommit Operation</seealso>
-        public IAsyncResult BeginGetCommit(GetCommitRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetCommit(GetCommitRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetCommitRequestMarshaller();
             var unmarshaller = GetCommitResponseUnmarshaller.Instance;
@@ -1001,7 +1102,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  GetCommitResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetCommit">REST API Reference for GetCommit Operation</seealso>
-        public  GetCommitResponse EndGetCommit(IAsyncResult asyncResult)
+        public virtual GetCommitResponse EndGetCommit(IAsyncResult asyncResult)
         {
             return EndInvoke<GetCommitResponse>(asyncResult);
         }
@@ -1076,7 +1177,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetDifferences">REST API Reference for GetDifferences Operation</seealso>
-        public GetDifferencesResponse GetDifferences(GetDifferencesRequest request)
+        public virtual GetDifferencesResponse GetDifferences(GetDifferencesRequest request)
         {
             var marshaller = new GetDifferencesRequestMarshaller();
             var unmarshaller = GetDifferencesResponseUnmarshaller.Instance;
@@ -1096,7 +1197,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetDifferences
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetDifferences">REST API Reference for GetDifferences Operation</seealso>
-        public IAsyncResult BeginGetDifferences(GetDifferencesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetDifferences(GetDifferencesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetDifferencesRequestMarshaller();
             var unmarshaller = GetDifferencesResponseUnmarshaller.Instance;
@@ -1113,7 +1214,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  GetDifferencesResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetDifferences">REST API Reference for GetDifferences Operation</seealso>
-        public  GetDifferencesResponse EndGetDifferences(IAsyncResult asyncResult)
+        public virtual GetDifferencesResponse EndGetDifferences(IAsyncResult asyncResult)
         {
             return EndInvoke<GetDifferencesResponse>(asyncResult);
         }
@@ -1171,7 +1272,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetRepository">REST API Reference for GetRepository Operation</seealso>
-        public GetRepositoryResponse GetRepository(GetRepositoryRequest request)
+        public virtual GetRepositoryResponse GetRepository(GetRepositoryRequest request)
         {
             var marshaller = new GetRepositoryRequestMarshaller();
             var unmarshaller = GetRepositoryResponseUnmarshaller.Instance;
@@ -1191,7 +1292,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetRepository
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetRepository">REST API Reference for GetRepository Operation</seealso>
-        public IAsyncResult BeginGetRepository(GetRepositoryRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetRepository(GetRepositoryRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetRepositoryRequestMarshaller();
             var unmarshaller = GetRepositoryResponseUnmarshaller.Instance;
@@ -1208,7 +1309,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  GetRepositoryResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetRepository">REST API Reference for GetRepository Operation</seealso>
-        public  GetRepositoryResponse EndGetRepository(IAsyncResult asyncResult)
+        public virtual GetRepositoryResponse EndGetRepository(IAsyncResult asyncResult)
         {
             return EndInvoke<GetRepositoryResponse>(asyncResult);
         }
@@ -1256,7 +1357,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetRepositoryTriggers">REST API Reference for GetRepositoryTriggers Operation</seealso>
-        public GetRepositoryTriggersResponse GetRepositoryTriggers(GetRepositoryTriggersRequest request)
+        public virtual GetRepositoryTriggersResponse GetRepositoryTriggers(GetRepositoryTriggersRequest request)
         {
             var marshaller = new GetRepositoryTriggersRequestMarshaller();
             var unmarshaller = GetRepositoryTriggersResponseUnmarshaller.Instance;
@@ -1276,7 +1377,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetRepositoryTriggers
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetRepositoryTriggers">REST API Reference for GetRepositoryTriggers Operation</seealso>
-        public IAsyncResult BeginGetRepositoryTriggers(GetRepositoryTriggersRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetRepositoryTriggers(GetRepositoryTriggersRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetRepositoryTriggersRequestMarshaller();
             var unmarshaller = GetRepositoryTriggersResponseUnmarshaller.Instance;
@@ -1293,7 +1394,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  GetRepositoryTriggersResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/GetRepositoryTriggers">REST API Reference for GetRepositoryTriggers Operation</seealso>
-        public  GetRepositoryTriggersResponse EndGetRepositoryTriggers(IAsyncResult asyncResult)
+        public virtual GetRepositoryTriggersResponse EndGetRepositoryTriggers(IAsyncResult asyncResult)
         {
             return EndInvoke<GetRepositoryTriggersResponse>(asyncResult);
         }
@@ -1344,7 +1445,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/ListBranches">REST API Reference for ListBranches Operation</seealso>
-        public ListBranchesResponse ListBranches(ListBranchesRequest request)
+        public virtual ListBranchesResponse ListBranches(ListBranchesRequest request)
         {
             var marshaller = new ListBranchesRequestMarshaller();
             var unmarshaller = ListBranchesResponseUnmarshaller.Instance;
@@ -1364,7 +1465,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListBranches
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/ListBranches">REST API Reference for ListBranches Operation</seealso>
-        public IAsyncResult BeginListBranches(ListBranchesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListBranches(ListBranchesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListBranchesRequestMarshaller();
             var unmarshaller = ListBranchesResponseUnmarshaller.Instance;
@@ -1381,7 +1482,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  ListBranchesResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/ListBranches">REST API Reference for ListBranches Operation</seealso>
-        public  ListBranchesResponse EndListBranches(IAsyncResult asyncResult)
+        public virtual ListBranchesResponse EndListBranches(IAsyncResult asyncResult)
         {
             return EndInvoke<ListBranchesResponse>(asyncResult);
         }
@@ -1406,7 +1507,7 @@ namespace Amazon.CodeCommit
         /// The specified sort by value is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/ListRepositories">REST API Reference for ListRepositories Operation</seealso>
-        public ListRepositoriesResponse ListRepositories(ListRepositoriesRequest request)
+        public virtual ListRepositoriesResponse ListRepositories(ListRepositoriesRequest request)
         {
             var marshaller = new ListRepositoriesRequestMarshaller();
             var unmarshaller = ListRepositoriesResponseUnmarshaller.Instance;
@@ -1426,7 +1527,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListRepositories
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/ListRepositories">REST API Reference for ListRepositories Operation</seealso>
-        public IAsyncResult BeginListRepositories(ListRepositoriesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListRepositories(ListRepositoriesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListRepositoriesRequestMarshaller();
             var unmarshaller = ListRepositoriesResponseUnmarshaller.Instance;
@@ -1443,7 +1544,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  ListRepositoriesResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/ListRepositories">REST API Reference for ListRepositories Operation</seealso>
-        public  ListRepositoriesResponse EndListRepositories(IAsyncResult asyncResult)
+        public virtual ListRepositoriesResponse EndListRepositories(IAsyncResult asyncResult)
         {
             return EndInvoke<ListRepositoriesResponse>(asyncResult);
         }
@@ -1534,7 +1635,7 @@ namespace Amazon.CodeCommit
         /// The list of triggers for the repository is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/PutRepositoryTriggers">REST API Reference for PutRepositoryTriggers Operation</seealso>
-        public PutRepositoryTriggersResponse PutRepositoryTriggers(PutRepositoryTriggersRequest request)
+        public virtual PutRepositoryTriggersResponse PutRepositoryTriggers(PutRepositoryTriggersRequest request)
         {
             var marshaller = new PutRepositoryTriggersRequestMarshaller();
             var unmarshaller = PutRepositoryTriggersResponseUnmarshaller.Instance;
@@ -1554,7 +1655,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndPutRepositoryTriggers
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/PutRepositoryTriggers">REST API Reference for PutRepositoryTriggers Operation</seealso>
-        public IAsyncResult BeginPutRepositoryTriggers(PutRepositoryTriggersRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginPutRepositoryTriggers(PutRepositoryTriggersRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new PutRepositoryTriggersRequestMarshaller();
             var unmarshaller = PutRepositoryTriggersResponseUnmarshaller.Instance;
@@ -1571,7 +1672,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  PutRepositoryTriggersResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/PutRepositoryTriggers">REST API Reference for PutRepositoryTriggers Operation</seealso>
-        public  PutRepositoryTriggersResponse EndPutRepositoryTriggers(IAsyncResult asyncResult)
+        public virtual PutRepositoryTriggersResponse EndPutRepositoryTriggers(IAsyncResult asyncResult)
         {
             return EndInvoke<PutRepositoryTriggersResponse>(asyncResult);
         }
@@ -1664,7 +1765,7 @@ namespace Amazon.CodeCommit
         /// The list of triggers for the repository is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/TestRepositoryTriggers">REST API Reference for TestRepositoryTriggers Operation</seealso>
-        public TestRepositoryTriggersResponse TestRepositoryTriggers(TestRepositoryTriggersRequest request)
+        public virtual TestRepositoryTriggersResponse TestRepositoryTriggers(TestRepositoryTriggersRequest request)
         {
             var marshaller = new TestRepositoryTriggersRequestMarshaller();
             var unmarshaller = TestRepositoryTriggersResponseUnmarshaller.Instance;
@@ -1684,7 +1785,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndTestRepositoryTriggers
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/TestRepositoryTriggers">REST API Reference for TestRepositoryTriggers Operation</seealso>
-        public IAsyncResult BeginTestRepositoryTriggers(TestRepositoryTriggersRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginTestRepositoryTriggers(TestRepositoryTriggersRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new TestRepositoryTriggersRequestMarshaller();
             var unmarshaller = TestRepositoryTriggersResponseUnmarshaller.Instance;
@@ -1701,7 +1802,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  TestRepositoryTriggersResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/TestRepositoryTriggers">REST API Reference for TestRepositoryTriggers Operation</seealso>
-        public  TestRepositoryTriggersResponse EndTestRepositoryTriggers(IAsyncResult asyncResult)
+        public virtual TestRepositoryTriggersResponse EndTestRepositoryTriggers(IAsyncResult asyncResult)
         {
             return EndInvoke<TestRepositoryTriggersResponse>(asyncResult);
         }
@@ -1766,7 +1867,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/UpdateDefaultBranch">REST API Reference for UpdateDefaultBranch Operation</seealso>
-        public UpdateDefaultBranchResponse UpdateDefaultBranch(UpdateDefaultBranchRequest request)
+        public virtual UpdateDefaultBranchResponse UpdateDefaultBranch(UpdateDefaultBranchRequest request)
         {
             var marshaller = new UpdateDefaultBranchRequestMarshaller();
             var unmarshaller = UpdateDefaultBranchResponseUnmarshaller.Instance;
@@ -1786,7 +1887,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateDefaultBranch
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/UpdateDefaultBranch">REST API Reference for UpdateDefaultBranch Operation</seealso>
-        public IAsyncResult BeginUpdateDefaultBranch(UpdateDefaultBranchRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginUpdateDefaultBranch(UpdateDefaultBranchRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new UpdateDefaultBranchRequestMarshaller();
             var unmarshaller = UpdateDefaultBranchResponseUnmarshaller.Instance;
@@ -1803,7 +1904,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  UpdateDefaultBranchResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/UpdateDefaultBranch">REST API Reference for UpdateDefaultBranch Operation</seealso>
-        public  UpdateDefaultBranchResponse EndUpdateDefaultBranch(IAsyncResult asyncResult)
+        public virtual UpdateDefaultBranchResponse EndUpdateDefaultBranch(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateDefaultBranchResponse>(asyncResult);
         }
@@ -1864,7 +1965,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/UpdateRepositoryDescription">REST API Reference for UpdateRepositoryDescription Operation</seealso>
-        public UpdateRepositoryDescriptionResponse UpdateRepositoryDescription(UpdateRepositoryDescriptionRequest request)
+        public virtual UpdateRepositoryDescriptionResponse UpdateRepositoryDescription(UpdateRepositoryDescriptionRequest request)
         {
             var marshaller = new UpdateRepositoryDescriptionRequestMarshaller();
             var unmarshaller = UpdateRepositoryDescriptionResponseUnmarshaller.Instance;
@@ -1884,7 +1985,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateRepositoryDescription
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/UpdateRepositoryDescription">REST API Reference for UpdateRepositoryDescription Operation</seealso>
-        public IAsyncResult BeginUpdateRepositoryDescription(UpdateRepositoryDescriptionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginUpdateRepositoryDescription(UpdateRepositoryDescriptionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new UpdateRepositoryDescriptionRequestMarshaller();
             var unmarshaller = UpdateRepositoryDescriptionResponseUnmarshaller.Instance;
@@ -1901,7 +2002,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  UpdateRepositoryDescriptionResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/UpdateRepositoryDescription">REST API Reference for UpdateRepositoryDescription Operation</seealso>
-        public  UpdateRepositoryDescriptionResponse EndUpdateRepositoryDescription(IAsyncResult asyncResult)
+        public virtual UpdateRepositoryDescriptionResponse EndUpdateRepositoryDescription(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateRepositoryDescriptionResponse>(asyncResult);
         }
@@ -1941,7 +2042,7 @@ namespace Amazon.CodeCommit
         /// A repository name is required but was not specified.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/UpdateRepositoryName">REST API Reference for UpdateRepositoryName Operation</seealso>
-        public UpdateRepositoryNameResponse UpdateRepositoryName(UpdateRepositoryNameRequest request)
+        public virtual UpdateRepositoryNameResponse UpdateRepositoryName(UpdateRepositoryNameRequest request)
         {
             var marshaller = new UpdateRepositoryNameRequestMarshaller();
             var unmarshaller = UpdateRepositoryNameResponseUnmarshaller.Instance;
@@ -1961,7 +2062,7 @@ namespace Amazon.CodeCommit
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateRepositoryName
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/UpdateRepositoryName">REST API Reference for UpdateRepositoryName Operation</seealso>
-        public IAsyncResult BeginUpdateRepositoryName(UpdateRepositoryNameRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginUpdateRepositoryName(UpdateRepositoryNameRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new UpdateRepositoryNameRequestMarshaller();
             var unmarshaller = UpdateRepositoryNameResponseUnmarshaller.Instance;
@@ -1978,7 +2079,7 @@ namespace Amazon.CodeCommit
         /// 
         /// <returns>Returns a  UpdateRepositoryNameResult from CodeCommit.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codecommit-2015-04-13/UpdateRepositoryName">REST API Reference for UpdateRepositoryName Operation</seealso>
-        public  UpdateRepositoryNameResponse EndUpdateRepositoryName(IAsyncResult asyncResult)
+        public virtual UpdateRepositoryNameResponse EndUpdateRepositoryName(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateRepositoryNameResponse>(asyncResult);
         }

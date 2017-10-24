@@ -232,7 +232,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  AddApplicationCloudWatchLoggingOption
 
-        internal AddApplicationCloudWatchLoggingOptionResponse AddApplicationCloudWatchLoggingOption(AddApplicationCloudWatchLoggingOptionRequest request)
+        internal virtual AddApplicationCloudWatchLoggingOptionResponse AddApplicationCloudWatchLoggingOption(AddApplicationCloudWatchLoggingOptionRequest request)
         {
             var marshaller = new AddApplicationCloudWatchLoggingOptionRequestMarshaller();
             var unmarshaller = AddApplicationCloudWatchLoggingOptionResponseUnmarshaller.Instance;
@@ -251,7 +251,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationCloudWatchLoggingOption">REST API Reference for AddApplicationCloudWatchLoggingOption Operation</seealso>
-        public Task<AddApplicationCloudWatchLoggingOptionResponse> AddApplicationCloudWatchLoggingOptionAsync(AddApplicationCloudWatchLoggingOptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<AddApplicationCloudWatchLoggingOptionResponse> AddApplicationCloudWatchLoggingOptionAsync(AddApplicationCloudWatchLoggingOptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new AddApplicationCloudWatchLoggingOptionRequestMarshaller();
             var unmarshaller = AddApplicationCloudWatchLoggingOptionResponseUnmarshaller.Instance;
@@ -264,7 +264,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  AddApplicationInput
 
-        internal AddApplicationInputResponse AddApplicationInput(AddApplicationInputRequest request)
+        internal virtual AddApplicationInputResponse AddApplicationInput(AddApplicationInputRequest request)
         {
             var marshaller = new AddApplicationInputRequestMarshaller();
             var unmarshaller = AddApplicationInputResponseUnmarshaller.Instance;
@@ -283,7 +283,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationInput">REST API Reference for AddApplicationInput Operation</seealso>
-        public Task<AddApplicationInputResponse> AddApplicationInputAsync(AddApplicationInputRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<AddApplicationInputResponse> AddApplicationInputAsync(AddApplicationInputRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new AddApplicationInputRequestMarshaller();
             var unmarshaller = AddApplicationInputResponseUnmarshaller.Instance;
@@ -294,9 +294,41 @@ namespace Amazon.KinesisAnalytics
 
         #endregion
         
+        #region  AddApplicationInputProcessingConfiguration
+
+        internal virtual AddApplicationInputProcessingConfigurationResponse AddApplicationInputProcessingConfiguration(AddApplicationInputProcessingConfigurationRequest request)
+        {
+            var marshaller = new AddApplicationInputProcessingConfigurationRequestMarshaller();
+            var unmarshaller = AddApplicationInputProcessingConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<AddApplicationInputProcessingConfigurationRequest,AddApplicationInputProcessingConfigurationResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AddApplicationInputProcessingConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AddApplicationInputProcessingConfiguration operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationInputProcessingConfiguration">REST API Reference for AddApplicationInputProcessingConfiguration Operation</seealso>
+        public virtual Task<AddApplicationInputProcessingConfigurationResponse> AddApplicationInputProcessingConfigurationAsync(AddApplicationInputProcessingConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new AddApplicationInputProcessingConfigurationRequestMarshaller();
+            var unmarshaller = AddApplicationInputProcessingConfigurationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<AddApplicationInputProcessingConfigurationRequest,AddApplicationInputProcessingConfigurationResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  AddApplicationOutput
 
-        internal AddApplicationOutputResponse AddApplicationOutput(AddApplicationOutputRequest request)
+        internal virtual AddApplicationOutputResponse AddApplicationOutput(AddApplicationOutputRequest request)
         {
             var marshaller = new AddApplicationOutputRequestMarshaller();
             var unmarshaller = AddApplicationOutputResponseUnmarshaller.Instance;
@@ -315,7 +347,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationOutput">REST API Reference for AddApplicationOutput Operation</seealso>
-        public Task<AddApplicationOutputResponse> AddApplicationOutputAsync(AddApplicationOutputRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<AddApplicationOutputResponse> AddApplicationOutputAsync(AddApplicationOutputRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new AddApplicationOutputRequestMarshaller();
             var unmarshaller = AddApplicationOutputResponseUnmarshaller.Instance;
@@ -328,7 +360,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  AddApplicationReferenceDataSource
 
-        internal AddApplicationReferenceDataSourceResponse AddApplicationReferenceDataSource(AddApplicationReferenceDataSourceRequest request)
+        internal virtual AddApplicationReferenceDataSourceResponse AddApplicationReferenceDataSource(AddApplicationReferenceDataSourceRequest request)
         {
             var marshaller = new AddApplicationReferenceDataSourceRequestMarshaller();
             var unmarshaller = AddApplicationReferenceDataSourceResponseUnmarshaller.Instance;
@@ -347,7 +379,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource">REST API Reference for AddApplicationReferenceDataSource Operation</seealso>
-        public Task<AddApplicationReferenceDataSourceResponse> AddApplicationReferenceDataSourceAsync(AddApplicationReferenceDataSourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<AddApplicationReferenceDataSourceResponse> AddApplicationReferenceDataSourceAsync(AddApplicationReferenceDataSourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new AddApplicationReferenceDataSourceRequestMarshaller();
             var unmarshaller = AddApplicationReferenceDataSourceResponseUnmarshaller.Instance;
@@ -360,7 +392,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  CreateApplication
 
-        internal CreateApplicationResponse CreateApplication(CreateApplicationRequest request)
+        internal virtual CreateApplicationResponse CreateApplication(CreateApplicationRequest request)
         {
             var marshaller = new CreateApplicationRequestMarshaller();
             var unmarshaller = CreateApplicationResponseUnmarshaller.Instance;
@@ -379,7 +411,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/CreateApplication">REST API Reference for CreateApplication Operation</seealso>
-        public Task<CreateApplicationResponse> CreateApplicationAsync(CreateApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateApplicationResponse> CreateApplicationAsync(CreateApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateApplicationRequestMarshaller();
             var unmarshaller = CreateApplicationResponseUnmarshaller.Instance;
@@ -392,7 +424,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  DeleteApplication
 
-        internal DeleteApplicationResponse DeleteApplication(DeleteApplicationRequest request)
+        internal virtual DeleteApplicationResponse DeleteApplication(DeleteApplicationRequest request)
         {
             var marshaller = new DeleteApplicationRequestMarshaller();
             var unmarshaller = DeleteApplicationResponseUnmarshaller.Instance;
@@ -411,7 +443,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplication">REST API Reference for DeleteApplication Operation</seealso>
-        public Task<DeleteApplicationResponse> DeleteApplicationAsync(DeleteApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteApplicationResponse> DeleteApplicationAsync(DeleteApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteApplicationRequestMarshaller();
             var unmarshaller = DeleteApplicationResponseUnmarshaller.Instance;
@@ -424,7 +456,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  DeleteApplicationCloudWatchLoggingOption
 
-        internal DeleteApplicationCloudWatchLoggingOptionResponse DeleteApplicationCloudWatchLoggingOption(DeleteApplicationCloudWatchLoggingOptionRequest request)
+        internal virtual DeleteApplicationCloudWatchLoggingOptionResponse DeleteApplicationCloudWatchLoggingOption(DeleteApplicationCloudWatchLoggingOptionRequest request)
         {
             var marshaller = new DeleteApplicationCloudWatchLoggingOptionRequestMarshaller();
             var unmarshaller = DeleteApplicationCloudWatchLoggingOptionResponseUnmarshaller.Instance;
@@ -443,7 +475,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationCloudWatchLoggingOption">REST API Reference for DeleteApplicationCloudWatchLoggingOption Operation</seealso>
-        public Task<DeleteApplicationCloudWatchLoggingOptionResponse> DeleteApplicationCloudWatchLoggingOptionAsync(DeleteApplicationCloudWatchLoggingOptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteApplicationCloudWatchLoggingOptionResponse> DeleteApplicationCloudWatchLoggingOptionAsync(DeleteApplicationCloudWatchLoggingOptionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteApplicationCloudWatchLoggingOptionRequestMarshaller();
             var unmarshaller = DeleteApplicationCloudWatchLoggingOptionResponseUnmarshaller.Instance;
@@ -454,9 +486,41 @@ namespace Amazon.KinesisAnalytics
 
         #endregion
         
+        #region  DeleteApplicationInputProcessingConfiguration
+
+        internal virtual DeleteApplicationInputProcessingConfigurationResponse DeleteApplicationInputProcessingConfiguration(DeleteApplicationInputProcessingConfigurationRequest request)
+        {
+            var marshaller = new DeleteApplicationInputProcessingConfigurationRequestMarshaller();
+            var unmarshaller = DeleteApplicationInputProcessingConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteApplicationInputProcessingConfigurationRequest,DeleteApplicationInputProcessingConfigurationResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteApplicationInputProcessingConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteApplicationInputProcessingConfiguration operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationInputProcessingConfiguration">REST API Reference for DeleteApplicationInputProcessingConfiguration Operation</seealso>
+        public virtual Task<DeleteApplicationInputProcessingConfigurationResponse> DeleteApplicationInputProcessingConfigurationAsync(DeleteApplicationInputProcessingConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteApplicationInputProcessingConfigurationRequestMarshaller();
+            var unmarshaller = DeleteApplicationInputProcessingConfigurationResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteApplicationInputProcessingConfigurationRequest,DeleteApplicationInputProcessingConfigurationResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteApplicationOutput
 
-        internal DeleteApplicationOutputResponse DeleteApplicationOutput(DeleteApplicationOutputRequest request)
+        internal virtual DeleteApplicationOutputResponse DeleteApplicationOutput(DeleteApplicationOutputRequest request)
         {
             var marshaller = new DeleteApplicationOutputRequestMarshaller();
             var unmarshaller = DeleteApplicationOutputResponseUnmarshaller.Instance;
@@ -475,7 +539,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationOutput">REST API Reference for DeleteApplicationOutput Operation</seealso>
-        public Task<DeleteApplicationOutputResponse> DeleteApplicationOutputAsync(DeleteApplicationOutputRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteApplicationOutputResponse> DeleteApplicationOutputAsync(DeleteApplicationOutputRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteApplicationOutputRequestMarshaller();
             var unmarshaller = DeleteApplicationOutputResponseUnmarshaller.Instance;
@@ -488,7 +552,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  DeleteApplicationReferenceDataSource
 
-        internal DeleteApplicationReferenceDataSourceResponse DeleteApplicationReferenceDataSource(DeleteApplicationReferenceDataSourceRequest request)
+        internal virtual DeleteApplicationReferenceDataSourceResponse DeleteApplicationReferenceDataSource(DeleteApplicationReferenceDataSourceRequest request)
         {
             var marshaller = new DeleteApplicationReferenceDataSourceRequestMarshaller();
             var unmarshaller = DeleteApplicationReferenceDataSourceResponseUnmarshaller.Instance;
@@ -507,7 +571,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationReferenceDataSource">REST API Reference for DeleteApplicationReferenceDataSource Operation</seealso>
-        public Task<DeleteApplicationReferenceDataSourceResponse> DeleteApplicationReferenceDataSourceAsync(DeleteApplicationReferenceDataSourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteApplicationReferenceDataSourceResponse> DeleteApplicationReferenceDataSourceAsync(DeleteApplicationReferenceDataSourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteApplicationReferenceDataSourceRequestMarshaller();
             var unmarshaller = DeleteApplicationReferenceDataSourceResponseUnmarshaller.Instance;
@@ -520,7 +584,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  DescribeApplication
 
-        internal DescribeApplicationResponse DescribeApplication(DescribeApplicationRequest request)
+        internal virtual DescribeApplicationResponse DescribeApplication(DescribeApplicationRequest request)
         {
             var marshaller = new DescribeApplicationRequestMarshaller();
             var unmarshaller = DescribeApplicationResponseUnmarshaller.Instance;
@@ -539,7 +603,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DescribeApplication">REST API Reference for DescribeApplication Operation</seealso>
-        public Task<DescribeApplicationResponse> DescribeApplicationAsync(DescribeApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeApplicationResponse> DescribeApplicationAsync(DescribeApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeApplicationRequestMarshaller();
             var unmarshaller = DescribeApplicationResponseUnmarshaller.Instance;
@@ -552,7 +616,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  DiscoverInputSchema
 
-        internal DiscoverInputSchemaResponse DiscoverInputSchema(DiscoverInputSchemaRequest request)
+        internal virtual DiscoverInputSchemaResponse DiscoverInputSchema(DiscoverInputSchemaRequest request)
         {
             var marshaller = new DiscoverInputSchemaRequestMarshaller();
             var unmarshaller = DiscoverInputSchemaResponseUnmarshaller.Instance;
@@ -571,7 +635,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DiscoverInputSchema">REST API Reference for DiscoverInputSchema Operation</seealso>
-        public Task<DiscoverInputSchemaResponse> DiscoverInputSchemaAsync(DiscoverInputSchemaRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DiscoverInputSchemaResponse> DiscoverInputSchemaAsync(DiscoverInputSchemaRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DiscoverInputSchemaRequestMarshaller();
             var unmarshaller = DiscoverInputSchemaResponseUnmarshaller.Instance;
@@ -584,7 +648,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  ListApplications
 
-        internal ListApplicationsResponse ListApplications(ListApplicationsRequest request)
+        internal virtual ListApplicationsResponse ListApplications(ListApplicationsRequest request)
         {
             var marshaller = new ListApplicationsRequestMarshaller();
             var unmarshaller = ListApplicationsResponseUnmarshaller.Instance;
@@ -603,7 +667,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/ListApplications">REST API Reference for ListApplications Operation</seealso>
-        public Task<ListApplicationsResponse> ListApplicationsAsync(ListApplicationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListApplicationsResponse> ListApplicationsAsync(ListApplicationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListApplicationsRequestMarshaller();
             var unmarshaller = ListApplicationsResponseUnmarshaller.Instance;
@@ -616,7 +680,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  StartApplication
 
-        internal StartApplicationResponse StartApplication(StartApplicationRequest request)
+        internal virtual StartApplicationResponse StartApplication(StartApplicationRequest request)
         {
             var marshaller = new StartApplicationRequestMarshaller();
             var unmarshaller = StartApplicationResponseUnmarshaller.Instance;
@@ -635,7 +699,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/StartApplication">REST API Reference for StartApplication Operation</seealso>
-        public Task<StartApplicationResponse> StartApplicationAsync(StartApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<StartApplicationResponse> StartApplicationAsync(StartApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new StartApplicationRequestMarshaller();
             var unmarshaller = StartApplicationResponseUnmarshaller.Instance;
@@ -648,7 +712,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  StopApplication
 
-        internal StopApplicationResponse StopApplication(StopApplicationRequest request)
+        internal virtual StopApplicationResponse StopApplication(StopApplicationRequest request)
         {
             var marshaller = new StopApplicationRequestMarshaller();
             var unmarshaller = StopApplicationResponseUnmarshaller.Instance;
@@ -667,7 +731,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/StopApplication">REST API Reference for StopApplication Operation</seealso>
-        public Task<StopApplicationResponse> StopApplicationAsync(StopApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<StopApplicationResponse> StopApplicationAsync(StopApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new StopApplicationRequestMarshaller();
             var unmarshaller = StopApplicationResponseUnmarshaller.Instance;
@@ -680,7 +744,7 @@ namespace Amazon.KinesisAnalytics
         
         #region  UpdateApplication
 
-        internal UpdateApplicationResponse UpdateApplication(UpdateApplicationRequest request)
+        internal virtual UpdateApplicationResponse UpdateApplication(UpdateApplicationRequest request)
         {
             var marshaller = new UpdateApplicationRequestMarshaller();
             var unmarshaller = UpdateApplicationResponseUnmarshaller.Instance;
@@ -699,7 +763,7 @@ namespace Amazon.KinesisAnalytics
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/UpdateApplication">REST API Reference for UpdateApplication Operation</seealso>
-        public Task<UpdateApplicationResponse> UpdateApplicationAsync(UpdateApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateApplicationResponse> UpdateApplicationAsync(UpdateApplicationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateApplicationRequestMarshaller();
             var unmarshaller = UpdateApplicationResponseUnmarshaller.Instance;

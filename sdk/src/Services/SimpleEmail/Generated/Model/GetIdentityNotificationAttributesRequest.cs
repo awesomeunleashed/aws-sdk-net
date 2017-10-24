@@ -34,8 +34,8 @@ namespace Amazon.SimpleEmail.Model
     /// 
     ///  
     /// <para>
-    /// This action is throttled at one request per second and can only get notification attributes
-    /// for up to 100 identities at a time.
+    /// This operation is throttled at one request per second and can only get notification
+    /// attributes for up to 100 identities at a time.
     /// </para>
     ///  
     /// <para>

@@ -121,8 +121,8 @@ namespace Amazon.ECR.Model
         /// <summary>
         /// Gets and sets the property RegistryId. 
         /// <para>
-        /// The AWS account ID associated with the registry that contains the repository to list
-        /// images in. If you do not specify a registry, the default registry is assumed.
+        /// The AWS account ID associated with the registry that contains the repository in which
+        /// to list images. If you do not specify a registry, the default registry is assumed.
         /// </para>
         /// </summary>
         public string RegistryId
@@ -140,7 +140,7 @@ namespace Amazon.ECR.Model
         /// <summary>
         /// Gets and sets the property RepositoryName. 
         /// <para>
-        /// The repository whose image IDs are to be listed.
+        /// The repository with image IDs to be listed.
         /// </para>
         /// </summary>
         public string RepositoryName

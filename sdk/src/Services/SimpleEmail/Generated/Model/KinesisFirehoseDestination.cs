@@ -47,7 +47,8 @@ namespace Amazon.SimpleEmail.Model
         /// <summary>
         /// Gets and sets the property DeliveryStreamARN. 
         /// <para>
-        /// The ARN of the Amazon Kinesis Firehose stream to which to publish email sending events.
+        /// The ARN of the Amazon Kinesis Firehose stream that email sending events should be
+        /// published to.
         /// </para>
         /// </summary>
         public string DeliveryStreamARN

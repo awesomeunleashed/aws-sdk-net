@@ -716,9 +716,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AttachVpnGateway service method.</param>
@@ -760,7 +759,8 @@ namespace Amazon.EC2
         /// Each rule consists of the protocol (for example, TCP), plus either a CIDR range or
         /// a source group. For the TCP and UDP protocols, you must also specify the destination
         /// port or port range. For the ICMP protocol, you must also specify the ICMP type and
-        /// code. You can use -1 for the type or code to mean all types or all codes.
+        /// code. You can use -1 for the type or code to mean all types or all codes. You can
+        /// optionally specify a description for the rule.
         /// </para>
         ///  
         /// <para>
@@ -816,6 +816,10 @@ namespace Amazon.EC2
         /// The security groups must all be for the same VPC or a peer VPC in a VPC peering connection.
         /// For more information about VPC security group limits, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon
         /// VPC Limits</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can optionally specify a description for the security group rule.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AuthorizeSecurityGroupIngress service method.</param>
@@ -1115,7 +1119,7 @@ namespace Amazon.EC2
         /// <summary>
         /// Determines whether a product code is associated with an instance. This action can
         /// only be used by the owner of the product code. It is useful when a product code owner
-        /// needs to verify whether another user's instance is eligible for support.
+        /// must verify whether another user's instance is eligible for support.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ConfirmProductInstance service method.</param>
         /// 
@@ -1135,6 +1139,33 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ConfirmProductInstance">REST API Reference for ConfirmProductInstance Operation</seealso>
         Task<ConfirmProductInstanceResponse> ConfirmProductInstanceAsync(ConfirmProductInstanceRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CopyFpgaImage
+
+
+        /// <summary>
+        /// Copies the specified Amazon FPGA Image (AFI) to the current region.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CopyFpgaImage service method.</param>
+        /// 
+        /// <returns>The response from the CopyFpgaImage service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopyFpgaImage">REST API Reference for CopyFpgaImage Operation</seealso>
+        CopyFpgaImageResponse CopyFpgaImage(CopyFpgaImageRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CopyFpgaImage operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CopyFpgaImage operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CopyFpgaImage">REST API Reference for CopyFpgaImage Operation</seealso>
+        Task<CopyFpgaImageResponse> CopyFpgaImageAsync(CopyFpgaImageRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1252,9 +1283,8 @@ namespace Amazon.EC2
         /// </para>
         ///  </note> 
         /// <para>
-        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         ///  <important> 
         /// <para>
@@ -1891,8 +1921,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a placement group that you launch cluster instances into. You must give the
-        /// group a name that's unique within the scope of your account.
+        /// Creates a placement group that you launch cluster instances into. Give the group a
+        /// name that's unique within the scope of your account.
         /// 
         ///  
         /// <para>
@@ -2545,9 +2575,8 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnConnection service method.</param>
@@ -2581,9 +2610,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnConnectionRoute service method.</param>
@@ -2617,9 +2645,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpnGateway service method.</param>
@@ -2751,6 +2778,33 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteFlowLogs">REST API Reference for DeleteFlowLogs Operation</seealso>
         Task<DeleteFlowLogsResponse> DeleteFlowLogsAsync(DeleteFlowLogsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DeleteFpgaImage
+
+
+        /// <summary>
+        /// Deletes the specified Amazon FPGA Image (AFI).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteFpgaImage service method.</param>
+        /// 
+        /// <returns>The response from the DeleteFpgaImage service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteFpgaImage">REST API Reference for DeleteFpgaImage Operation</seealso>
+        DeleteFpgaImageResponse DeleteFpgaImage(DeleteFpgaImageRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteFpgaImage operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteFpgaImage operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteFpgaImage">REST API Reference for DeleteFpgaImage Operation</seealso>
+        Task<DeleteFpgaImageResponse> DeleteFpgaImageAsync(DeleteFpgaImageRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -3956,9 +4010,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -3972,9 +4025,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeCustomerGateways service method.</param>
@@ -3989,9 +4041,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN customer gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -4213,6 +4264,33 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFlowLogs">REST API Reference for DescribeFlowLogs Operation</seealso>
         Task<DescribeFlowLogsResponse> DescribeFlowLogsAsync(DescribeFlowLogsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeFpgaImageAttribute
+
+
+        /// <summary>
+        /// Describes the specified attribute of the specified Amazon FPGA Image (AFI).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeFpgaImageAttribute service method.</param>
+        /// 
+        /// <returns>The response from the DescribeFpgaImageAttribute service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFpgaImageAttribute">REST API Reference for DescribeFpgaImageAttribute Operation</seealso>
+        DescribeFpgaImageAttributeResponse DescribeFpgaImageAttribute(DescribeFpgaImageAttributeRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeFpgaImageAttribute operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeFpgaImageAttribute operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeFpgaImageAttribute">REST API Reference for DescribeFpgaImageAttribute Operation</seealso>
+        Task<DescribeFpgaImageAttributeResponse> DescribeFpgaImageAttributeAsync(DescribeFpgaImageAttributeRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -7359,9 +7437,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -7375,9 +7452,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpnConnections service method.</param>
@@ -7392,9 +7468,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-        /// Cloud User Guide</i>.
+        /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -7428,9 +7503,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// an IPsec Hardware VPN to Your VPC</a> in the <i>Amazon Virtual Private Cloud User
-        /// Guide</i>.
+        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// 
@@ -7444,9 +7518,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// an IPsec Hardware VPN to Your VPC</a> in the <i>Amazon Virtual Private Cloud User
-        /// Guide</i>.
+        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpnGateways service method.</param>
@@ -7461,9 +7534,8 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-        /// an IPsec Hardware VPN to Your VPC</a> in the <i>Amazon Virtual Private Cloud User
-        /// Guide</i>.
+        /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+        /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -8049,7 +8121,7 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// Instance console output is buffered and posted shortly after instance boot, reboot,
-        /// and termination. Amazon EC2 preserves the most recent 64 KB output which is available
+        /// and termination. Amazon EC2 preserves the most recent 64 KB output, which is available
         /// for at least one hour after the most recent post.
         /// </para>
         ///  
@@ -8156,15 +8228,20 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Retrieves the encrypted administrator password for an instance running Windows.
+        /// Retrieves the encrypted administrator password for a running Windows instance.
         /// 
         ///  
         /// <para>
-        /// The Windows password is generated at boot if the <code>EC2Config</code> service plugin,
-        /// <code>Ec2SetPassword</code>, is enabled. This usually only happens the first time
-        /// an AMI is launched, and then <code>Ec2SetPassword</code> is automatically disabled.
-        /// The password is not generated for rebundled AMIs unless <code>Ec2SetPassword</code>
-        /// is enabled before bundling.
+        /// The Windows password is generated at boot by the <code>EC2Config</code> service or
+        /// <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
+        /// happens the first time an instance is launched. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html">EC2Config</a>
+        /// and <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html">EC2Launch</a>
+        /// in the Amazon Elastic Compute Cloud User Guide.
+        /// </para>
+        ///  
+        /// <para>
+        /// For the <code>EC2Config</code> service, the password is not generated for rebundled
+        /// AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.
         /// </para>
         ///  
         /// <para>
@@ -8173,9 +8250,10 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// Password generation and encryption takes a few moments. We recommend that you wait
-        /// up to 15 minutes after launching an instance before trying to retrieve the generated
-        /// password.
+        /// When you launch an instance, password generation and encryption may take a few minutes.
+        /// If you try to retrieve the password before it's available, the output returns an empty
+        /// string. We recommend that you wait up to 15 minutes after launching an instance before
+        /// trying to retrieve the generated password.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetPasswordData service method.</param>
@@ -8203,9 +8281,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Returns details about the values and term of your specified Convertible Reserved Instances.
-        /// When a target configuration is specified, it returns information about whether the
-        /// exchange is valid and can be performed.
+        /// Returns a quote and exchange information for exchanging one or more specified Convertible
+        /// Reserved Instances for a new Convertible Reserved Instance. If the exchange cannot
+        /// be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a>
+        /// to perform the exchange.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetReservedInstancesExchangeQuote service method.</param>
         /// 
@@ -8392,6 +8471,33 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifyFpgaImageAttribute
+
+
+        /// <summary>
+        /// Modifies the specified attribute of the specified Amazon FPGA Image (AFI).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyFpgaImageAttribute service method.</param>
+        /// 
+        /// <returns>The response from the ModifyFpgaImageAttribute service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyFpgaImageAttribute">REST API Reference for ModifyFpgaImageAttribute Operation</seealso>
+        ModifyFpgaImageAttributeResponse ModifyFpgaImageAttribute(ModifyFpgaImageAttributeRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyFpgaImageAttribute operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyFpgaImageAttribute operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyFpgaImageAttribute">REST API Reference for ModifyFpgaImageAttribute Operation</seealso>
+        Task<ModifyFpgaImageAttributeResponse> ModifyFpgaImageAttributeAsync(ModifyFpgaImageAttributeRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  ModifyHosts
 
 
@@ -8524,20 +8630,20 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies the specified attribute of the specified AMI. You can specify only one attribute
-        /// at a time.
+        /// at a time. You can use the <code>Attribute</code> parameter to specify the attribute
+        /// or one of the following parameters: <code>Description</code>, <code>LaunchPermission</code>,
+        /// or <code>ProductCode</code>.
         /// 
-        ///  <note> 
+        ///  
         /// <para>
         /// AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product
         /// code cannot be made public.
         /// </para>
-        ///  </note> <note> 
+        ///  
         /// <para>
-        /// The SriovNetSupport enhanced networking attribute cannot be changed using this command.
-        /// Instead, enable SriovNetSupport on an instance and create an AMI from the instance.
-        /// This will result in an image with SriovNetSupport enabled.
+        /// To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport
+        /// on an instance and create an AMI from the instance.
         /// </para>
-        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyImageAttribute service method.</param>
         /// 
@@ -8680,9 +8786,9 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Modifies the Availability Zone, instance count, instance type, or network platform
-        /// (EC2-Classic or EC2-VPC) of your Standard Reserved Instances. The Reserved Instances
-        /// to be modified must be identical, except for Availability Zone, network platform,
-        /// and instance type.
+        /// (EC2-Classic or EC2-VPC) of your Reserved Instances. The Reserved Instances to be
+        /// modified must be identical, except for Availability Zone, network platform, and instance
+        /// type.
         /// 
         ///  
         /// <para>
@@ -9047,6 +9153,47 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcPeeringConnectionOptions">REST API Reference for ModifyVpcPeeringConnectionOptions Operation</seealso>
         Task<ModifyVpcPeeringConnectionOptionsResponse> ModifyVpcPeeringConnectionOptionsAsync(ModifyVpcPeeringConnectionOptionsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ModifyVpcTenancy
+
+
+        /// <summary>
+        /// Modifies the instance tenancy attribute of the specified VPC. You can change the instance
+        /// tenancy attribute of a VPC to <code>default</code> only. You cannot change the instance
+        /// tenancy attribute to <code>dedicated</code>.
+        /// 
+        ///  
+        /// <para>
+        /// After you modify the tenancy of the VPC, any new instances that you launch into the
+        /// VPC have a tenancy of <code>default</code>, unless you specify otherwise during launch.
+        /// The tenancy of any existing instances in the VPC is not affected.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about Dedicated Instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-instance.html">Dedicated
+        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpcTenancy service method.</param>
+        /// 
+        /// <returns>The response from the ModifyVpcTenancy service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcTenancy">REST API Reference for ModifyVpcTenancy Operation</seealso>
+        ModifyVpcTenancyResponse ModifyVpcTenancy(ModifyVpcTenancyRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyVpcTenancy operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpcTenancy operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcTenancy">REST API Reference for ModifyVpcTenancy Operation</seealso>
+        Task<ModifyVpcTenancyResponse> ModifyVpcTenancyAsync(ModifyVpcTenancyRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -9742,6 +9889,34 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ResetFpgaImageAttribute
+
+
+        /// <summary>
+        /// Resets the specified attribute of the specified Amazon FPGA Image (AFI) to its default
+        /// value. You can only reset the load permission attribute.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ResetFpgaImageAttribute service method.</param>
+        /// 
+        /// <returns>The response from the ResetFpgaImageAttribute service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetFpgaImageAttribute">REST API Reference for ResetFpgaImageAttribute Operation</seealso>
+        ResetFpgaImageAttributeResponse ResetFpgaImageAttribute(ResetFpgaImageAttributeRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ResetFpgaImageAttribute operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ResetFpgaImageAttribute operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ResetFpgaImageAttribute">REST API Reference for ResetFpgaImageAttribute Operation</seealso>
+        Task<ResetFpgaImageAttributeResponse> ResetFpgaImageAttributeAsync(ResetFpgaImageAttributeRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  ResetImageAttribute
 
 
@@ -9908,15 +10083,17 @@ namespace Amazon.EC2
 
         /// <summary>
         /// [EC2-VPC only] Removes one or more egress rules from a security group for EC2-VPC.
-        /// This action doesn't apply to security groups for use in EC2-Classic. The values that
-        /// you specify in the revoke request (for example, ports) must match the existing rule's
-        /// values for the rule to be revoked.
+        /// This action doesn't apply to security groups for use in EC2-Classic. To remove a rule,
+        /// the values that you specify (for example, ports) must match the existing rule's values
+        /// exactly.
         /// 
         ///  
         /// <para>
         /// Each rule consists of the protocol and the IPv4 or IPv6 CIDR range or source security
         /// group. For the TCP and UDP protocols, you must also specify the destination port or
         /// range of ports. For the ICMP protocol, you must also specify the ICMP type and code.
+        /// If the security group rule has a description, you do not have to specify the description
+        /// to revoke the rule.
         /// </para>
         ///  
         /// <para>
@@ -9949,9 +10126,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Removes one or more ingress rules from a security group. The values that you specify
-        /// in the revoke request (for example, ports) must match the existing rule's values for
-        /// the rule to be removed.
+        /// Removes one or more ingress rules from a security group. To remove a rule, the values
+        /// that you specify (for example, ports) must match the existing rule's values exactly.
         /// 
         ///  <note> 
         /// <para>
@@ -9963,7 +10139,9 @@ namespace Amazon.EC2
         /// <para>
         /// Each rule consists of the protocol and the CIDR range or source security group. For
         /// the TCP and UDP protocols, you must also specify the destination port or range of
-        /// ports. For the ICMP protocol, you must also specify the ICMP type and code.
+        /// ports. For the ICMP protocol, you must also specify the ICMP type and code. If the
+        /// security group rule has a description, you do not have to specify the description
+        /// to revoke the rule.
         /// </para>
         ///  
         /// <para>
@@ -10045,8 +10223,8 @@ namespace Amazon.EC2
         ///  </li> </ul> 
         /// <para>
         /// To ensure faster instance launches, break up large requests into smaller batches.
-        /// For example, create 5 separate launch requests for 100 instances each instead of 1
-        /// launch request for 500 instances.
+        /// For example, create five separate launch requests for 100 instances each instead of
+        /// one launch request for 500 instances.
         /// </para>
         ///  
         /// <para>
@@ -10136,17 +10314,20 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Starts an Amazon EBS-backed AMI that you've previously stopped.
+        /// Starts an Amazon EBS-backed instance that you've previously stopped.
         /// 
         ///  
         /// <para>
         /// Instances that use Amazon EBS volumes as their root devices can be quickly stopped
         /// and started. When an instance is stopped, the compute resources are released and you
-        /// are not billed for hourly instance usage. However, your root partition Amazon EBS
-        /// volume remains, continues to persist your data, and you are charged for Amazon EBS
-        /// volume usage. You can restart your instance at any time. Each time you transition
-        /// an instance from stopped to started, Amazon EC2 charges a full instance hour, even
-        /// if transitions happen multiple times within a single hour.
+        /// are not billed for instance usage. However, your root partition Amazon EBS volume
+        /// remains and continues to persist your data, and you are charged for Amazon EBS volume
+        /// usage. You can restart your instance at any time. Every time you start your Windows
+        /// instance, Amazon EC2 charges you for a full instance hour. If you stop and restart
+        /// your Windows instance, a new instance hour begins and Amazon EC2 charges you for another
+        /// full instance hour even if you are still within the same 60-minute period when it
+        /// was stopped. Every time you start your Linux instance, Amazon EC2 charges a one-minute
+        /// minimum for instance usage, and thereafter charges per second for instance usage.
         /// </para>
         ///  
         /// <para>
@@ -10193,15 +10374,18 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// We don't charge hourly usage for a stopped instance, or data transfer fees; however,
-        /// your root partition Amazon EBS volume remains, continues to persist your data, and
-        /// you are charged for Amazon EBS volume usage. Each time you transition an instance
-        /// from stopped to started, Amazon EC2 charges a full instance hour, even if transitions
-        /// happen multiple times within a single hour.
+        /// We don't charge usage for a stopped instance, or data transfer fees; however, your
+        /// root partition Amazon EBS volume remains and continues to persist your data, and you
+        /// are charged for Amazon EBS volume usage. Every time you start your Windows instance,
+        /// Amazon EC2 charges you for a full instance hour. If you stop and restart your Windows
+        /// instance, a new instance hour begins and Amazon EC2 charges you for another full instance
+        /// hour even if you are still within the same 60-minute period when it was stopped. Every
+        /// time you start your Linux instance, Amazon EC2 charges a one-minute minimum for instance
+        /// usage, and thereafter charges per second for instance usage.
         /// </para>
         ///  
         /// <para>
-        /// You can't start or stop Spot instances, and you can't stop instance store-backed instances.
+        /// You can't start or stop Spot Instances, and you can't stop instance store-backed instances.
         /// </para>
         ///  
         /// <para>
@@ -10386,6 +10570,77 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UnmonitorInstances">REST API Reference for UnmonitorInstances Operation</seealso>
         Task<UnmonitorInstancesResponse> UnmonitorInstancesAsync(UnmonitorInstancesRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  UpdateSecurityGroupRuleDescriptionsEgress
+
+
+        /// <summary>
+        /// [EC2-VPC only] Updates the description of an egress (outbound) security group rule.
+        /// You can replace an existing description, or add a description to a rule that did not
+        /// have one previously.
+        /// 
+        ///  
+        /// <para>
+        /// You specify the description as part of the IP permissions structure. You can remove
+        /// a description for a security group rule by omitting the description parameter in the
+        /// request.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsEgress service method.</param>
+        /// 
+        /// <returns>The response from the UpdateSecurityGroupRuleDescriptionsEgress service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsEgress">REST API Reference for UpdateSecurityGroupRuleDescriptionsEgress Operation</seealso>
+        UpdateSecurityGroupRuleDescriptionsEgressResponse UpdateSecurityGroupRuleDescriptionsEgress(UpdateSecurityGroupRuleDescriptionsEgressRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateSecurityGroupRuleDescriptionsEgress operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsEgress operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsEgress">REST API Reference for UpdateSecurityGroupRuleDescriptionsEgress Operation</seealso>
+        Task<UpdateSecurityGroupRuleDescriptionsEgressResponse> UpdateSecurityGroupRuleDescriptionsEgressAsync(UpdateSecurityGroupRuleDescriptionsEgressRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  UpdateSecurityGroupRuleDescriptionsIngress
+
+
+        /// <summary>
+        /// Updates the description of an ingress (inbound) security group rule. You can replace
+        /// an existing description, or add a description to a rule that did not have one previously.
+        /// 
+        ///  
+        /// <para>
+        /// You specify the description as part of the IP permissions structure. You can remove
+        /// a description for a security group rule by omitting the description parameter in the
+        /// request.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsIngress service method.</param>
+        /// 
+        /// <returns>The response from the UpdateSecurityGroupRuleDescriptionsIngress service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsIngress">REST API Reference for UpdateSecurityGroupRuleDescriptionsIngress Operation</seealso>
+        UpdateSecurityGroupRuleDescriptionsIngressResponse UpdateSecurityGroupRuleDescriptionsIngress(UpdateSecurityGroupRuleDescriptionsIngressRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateSecurityGroupRuleDescriptionsIngress operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateSecurityGroupRuleDescriptionsIngress operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/UpdateSecurityGroupRuleDescriptionsIngress">REST API Reference for UpdateSecurityGroupRuleDescriptionsIngress Operation</seealso>
+        Task<UpdateSecurityGroupRuleDescriptionsIngressResponse> UpdateSecurityGroupRuleDescriptionsIngressAsync(UpdateSecurityGroupRuleDescriptionsIngressRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

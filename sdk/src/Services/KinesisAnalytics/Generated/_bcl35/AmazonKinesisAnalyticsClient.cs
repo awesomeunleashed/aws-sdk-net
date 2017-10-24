@@ -248,7 +248,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationCloudWatchLoggingOption">REST API Reference for AddApplicationCloudWatchLoggingOption Operation</seealso>
-        public AddApplicationCloudWatchLoggingOptionResponse AddApplicationCloudWatchLoggingOption(AddApplicationCloudWatchLoggingOptionRequest request)
+        public virtual AddApplicationCloudWatchLoggingOptionResponse AddApplicationCloudWatchLoggingOption(AddApplicationCloudWatchLoggingOptionRequest request)
         {
             var marshaller = new AddApplicationCloudWatchLoggingOptionRequestMarshaller();
             var unmarshaller = AddApplicationCloudWatchLoggingOptionResponseUnmarshaller.Instance;
@@ -268,7 +268,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAddApplicationCloudWatchLoggingOption
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationCloudWatchLoggingOption">REST API Reference for AddApplicationCloudWatchLoggingOption Operation</seealso>
-        public IAsyncResult BeginAddApplicationCloudWatchLoggingOption(AddApplicationCloudWatchLoggingOptionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAddApplicationCloudWatchLoggingOption(AddApplicationCloudWatchLoggingOptionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AddApplicationCloudWatchLoggingOptionRequestMarshaller();
             var unmarshaller = AddApplicationCloudWatchLoggingOptionResponseUnmarshaller.Instance;
@@ -285,7 +285,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  AddApplicationCloudWatchLoggingOptionResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationCloudWatchLoggingOption">REST API Reference for AddApplicationCloudWatchLoggingOption Operation</seealso>
-        public  AddApplicationCloudWatchLoggingOptionResponse EndAddApplicationCloudWatchLoggingOption(IAsyncResult asyncResult)
+        public virtual AddApplicationCloudWatchLoggingOptionResponse EndAddApplicationCloudWatchLoggingOption(IAsyncResult asyncResult)
         {
             return EndInvoke<AddApplicationCloudWatchLoggingOptionResponse>(asyncResult);
         }
@@ -337,7 +337,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationInput">REST API Reference for AddApplicationInput Operation</seealso>
-        public AddApplicationInputResponse AddApplicationInput(AddApplicationInputRequest request)
+        public virtual AddApplicationInputResponse AddApplicationInput(AddApplicationInputRequest request)
         {
             var marshaller = new AddApplicationInputRequestMarshaller();
             var unmarshaller = AddApplicationInputResponseUnmarshaller.Instance;
@@ -357,7 +357,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAddApplicationInput
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationInput">REST API Reference for AddApplicationInput Operation</seealso>
-        public IAsyncResult BeginAddApplicationInput(AddApplicationInputRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAddApplicationInput(AddApplicationInputRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AddApplicationInputRequestMarshaller();
             var unmarshaller = AddApplicationInputResponseUnmarshaller.Instance;
@@ -374,9 +374,78 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  AddApplicationInputResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationInput">REST API Reference for AddApplicationInput Operation</seealso>
-        public  AddApplicationInputResponse EndAddApplicationInput(IAsyncResult asyncResult)
+        public virtual AddApplicationInputResponse EndAddApplicationInput(IAsyncResult asyncResult)
         {
             return EndInvoke<AddApplicationInputResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  AddApplicationInputProcessingConfiguration
+
+        /// <summary>
+        /// Adds an <a>InputProcessingConfiguration</a> to an application. An input processor
+        /// preprocesses records on the input stream before the application's SQL code executes.
+        /// Currently, the only input processor available is <a href="https://aws.amazon.com/documentation/lambda/">AWS
+        /// Lambda</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AddApplicationInputProcessingConfiguration service method.</param>
+        /// 
+        /// <returns>The response from the AddApplicationInputProcessingConfiguration service method, as returned by KinesisAnalytics.</returns>
+        /// <exception cref="Amazon.KinesisAnalytics.Model.ConcurrentModificationException">
+        /// Exception thrown as a result of concurrent modification to an application. For example,
+        /// two individuals attempting to edit the same application at the same time.
+        /// </exception>
+        /// <exception cref="Amazon.KinesisAnalytics.Model.InvalidArgumentException">
+        /// Specified input parameter value is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.KinesisAnalytics.Model.ResourceInUseException">
+        /// Application is not available for this operation.
+        /// </exception>
+        /// <exception cref="Amazon.KinesisAnalytics.Model.ResourceNotFoundException">
+        /// Specified application can't be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationInputProcessingConfiguration">REST API Reference for AddApplicationInputProcessingConfiguration Operation</seealso>
+        public virtual AddApplicationInputProcessingConfigurationResponse AddApplicationInputProcessingConfiguration(AddApplicationInputProcessingConfigurationRequest request)
+        {
+            var marshaller = new AddApplicationInputProcessingConfigurationRequestMarshaller();
+            var unmarshaller = AddApplicationInputProcessingConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<AddApplicationInputProcessingConfigurationRequest,AddApplicationInputProcessingConfigurationResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AddApplicationInputProcessingConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AddApplicationInputProcessingConfiguration operation on AmazonKinesisAnalyticsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAddApplicationInputProcessingConfiguration
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationInputProcessingConfiguration">REST API Reference for AddApplicationInputProcessingConfiguration Operation</seealso>
+        public virtual IAsyncResult BeginAddApplicationInputProcessingConfiguration(AddApplicationInputProcessingConfigurationRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new AddApplicationInputProcessingConfigurationRequestMarshaller();
+            var unmarshaller = AddApplicationInputProcessingConfigurationResponseUnmarshaller.Instance;
+
+            return BeginInvoke<AddApplicationInputProcessingConfigurationRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  AddApplicationInputProcessingConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginAddApplicationInputProcessingConfiguration.</param>
+        /// 
+        /// <returns>Returns a  AddApplicationInputProcessingConfigurationResult from KinesisAnalytics.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationInputProcessingConfiguration">REST API Reference for AddApplicationInputProcessingConfiguration Operation</seealso>
+        public virtual AddApplicationInputProcessingConfigurationResponse EndAddApplicationInputProcessingConfiguration(IAsyncResult asyncResult)
+        {
+            return EndInvoke<AddApplicationInputProcessingConfigurationResponse>(asyncResult);
         }
 
         #endregion
@@ -435,7 +504,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationOutput">REST API Reference for AddApplicationOutput Operation</seealso>
-        public AddApplicationOutputResponse AddApplicationOutput(AddApplicationOutputRequest request)
+        public virtual AddApplicationOutputResponse AddApplicationOutput(AddApplicationOutputRequest request)
         {
             var marshaller = new AddApplicationOutputRequestMarshaller();
             var unmarshaller = AddApplicationOutputResponseUnmarshaller.Instance;
@@ -455,7 +524,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAddApplicationOutput
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationOutput">REST API Reference for AddApplicationOutput Operation</seealso>
-        public IAsyncResult BeginAddApplicationOutput(AddApplicationOutputRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAddApplicationOutput(AddApplicationOutputRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AddApplicationOutputRequestMarshaller();
             var unmarshaller = AddApplicationOutputResponseUnmarshaller.Instance;
@@ -472,7 +541,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  AddApplicationOutputResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationOutput">REST API Reference for AddApplicationOutput Operation</seealso>
-        public  AddApplicationOutputResponse EndAddApplicationOutput(IAsyncResult asyncResult)
+        public virtual AddApplicationOutputResponse EndAddApplicationOutput(IAsyncResult asyncResult)
         {
             return EndInvoke<AddApplicationOutputResponse>(asyncResult);
         }
@@ -522,7 +591,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource">REST API Reference for AddApplicationReferenceDataSource Operation</seealso>
-        public AddApplicationReferenceDataSourceResponse AddApplicationReferenceDataSource(AddApplicationReferenceDataSourceRequest request)
+        public virtual AddApplicationReferenceDataSourceResponse AddApplicationReferenceDataSource(AddApplicationReferenceDataSourceRequest request)
         {
             var marshaller = new AddApplicationReferenceDataSourceRequestMarshaller();
             var unmarshaller = AddApplicationReferenceDataSourceResponseUnmarshaller.Instance;
@@ -542,7 +611,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAddApplicationReferenceDataSource
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource">REST API Reference for AddApplicationReferenceDataSource Operation</seealso>
-        public IAsyncResult BeginAddApplicationReferenceDataSource(AddApplicationReferenceDataSourceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAddApplicationReferenceDataSource(AddApplicationReferenceDataSourceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AddApplicationReferenceDataSourceRequestMarshaller();
             var unmarshaller = AddApplicationReferenceDataSourceResponseUnmarshaller.Instance;
@@ -559,7 +628,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  AddApplicationReferenceDataSourceResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/AddApplicationReferenceDataSource">REST API Reference for AddApplicationReferenceDataSource Operation</seealso>
-        public  AddApplicationReferenceDataSourceResponse EndAddApplicationReferenceDataSource(IAsyncResult asyncResult)
+        public virtual AddApplicationReferenceDataSourceResponse EndAddApplicationReferenceDataSource(IAsyncResult asyncResult)
         {
             return EndInvoke<AddApplicationReferenceDataSourceResponse>(asyncResult);
         }
@@ -623,7 +692,7 @@ namespace Amazon.KinesisAnalytics
         /// Application is not available for this operation.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/CreateApplication">REST API Reference for CreateApplication Operation</seealso>
-        public CreateApplicationResponse CreateApplication(CreateApplicationRequest request)
+        public virtual CreateApplicationResponse CreateApplication(CreateApplicationRequest request)
         {
             var marshaller = new CreateApplicationRequestMarshaller();
             var unmarshaller = CreateApplicationResponseUnmarshaller.Instance;
@@ -643,7 +712,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateApplication
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/CreateApplication">REST API Reference for CreateApplication Operation</seealso>
-        public IAsyncResult BeginCreateApplication(CreateApplicationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateApplication(CreateApplicationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateApplicationRequestMarshaller();
             var unmarshaller = CreateApplicationResponseUnmarshaller.Instance;
@@ -660,7 +729,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  CreateApplicationResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/CreateApplication">REST API Reference for CreateApplication Operation</seealso>
-        public  CreateApplicationResponse EndCreateApplication(IAsyncResult asyncResult)
+        public virtual CreateApplicationResponse EndCreateApplication(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateApplicationResponse>(asyncResult);
         }
@@ -694,7 +763,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplication">REST API Reference for DeleteApplication Operation</seealso>
-        public DeleteApplicationResponse DeleteApplication(DeleteApplicationRequest request)
+        public virtual DeleteApplicationResponse DeleteApplication(DeleteApplicationRequest request)
         {
             var marshaller = new DeleteApplicationRequestMarshaller();
             var unmarshaller = DeleteApplicationResponseUnmarshaller.Instance;
@@ -714,7 +783,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteApplication
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplication">REST API Reference for DeleteApplication Operation</seealso>
-        public IAsyncResult BeginDeleteApplication(DeleteApplicationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteApplication(DeleteApplicationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteApplicationRequestMarshaller();
             var unmarshaller = DeleteApplicationResponseUnmarshaller.Instance;
@@ -731,7 +800,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  DeleteApplicationResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplication">REST API Reference for DeleteApplication Operation</seealso>
-        public  DeleteApplicationResponse EndDeleteApplication(IAsyncResult asyncResult)
+        public virtual DeleteApplicationResponse EndDeleteApplication(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteApplicationResponse>(asyncResult);
         }
@@ -762,7 +831,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationCloudWatchLoggingOption">REST API Reference for DeleteApplicationCloudWatchLoggingOption Operation</seealso>
-        public DeleteApplicationCloudWatchLoggingOptionResponse DeleteApplicationCloudWatchLoggingOption(DeleteApplicationCloudWatchLoggingOptionRequest request)
+        public virtual DeleteApplicationCloudWatchLoggingOptionResponse DeleteApplicationCloudWatchLoggingOption(DeleteApplicationCloudWatchLoggingOptionRequest request)
         {
             var marshaller = new DeleteApplicationCloudWatchLoggingOptionRequestMarshaller();
             var unmarshaller = DeleteApplicationCloudWatchLoggingOptionResponseUnmarshaller.Instance;
@@ -782,7 +851,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteApplicationCloudWatchLoggingOption
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationCloudWatchLoggingOption">REST API Reference for DeleteApplicationCloudWatchLoggingOption Operation</seealso>
-        public IAsyncResult BeginDeleteApplicationCloudWatchLoggingOption(DeleteApplicationCloudWatchLoggingOptionRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteApplicationCloudWatchLoggingOption(DeleteApplicationCloudWatchLoggingOptionRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteApplicationCloudWatchLoggingOptionRequestMarshaller();
             var unmarshaller = DeleteApplicationCloudWatchLoggingOptionResponseUnmarshaller.Instance;
@@ -799,9 +868,75 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  DeleteApplicationCloudWatchLoggingOptionResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationCloudWatchLoggingOption">REST API Reference for DeleteApplicationCloudWatchLoggingOption Operation</seealso>
-        public  DeleteApplicationCloudWatchLoggingOptionResponse EndDeleteApplicationCloudWatchLoggingOption(IAsyncResult asyncResult)
+        public virtual DeleteApplicationCloudWatchLoggingOptionResponse EndDeleteApplicationCloudWatchLoggingOption(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteApplicationCloudWatchLoggingOptionResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DeleteApplicationInputProcessingConfiguration
+
+        /// <summary>
+        /// Deletes an <a>InputProcessingConfiguration</a> from an input.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteApplicationInputProcessingConfiguration service method.</param>
+        /// 
+        /// <returns>The response from the DeleteApplicationInputProcessingConfiguration service method, as returned by KinesisAnalytics.</returns>
+        /// <exception cref="Amazon.KinesisAnalytics.Model.ConcurrentModificationException">
+        /// Exception thrown as a result of concurrent modification to an application. For example,
+        /// two individuals attempting to edit the same application at the same time.
+        /// </exception>
+        /// <exception cref="Amazon.KinesisAnalytics.Model.InvalidArgumentException">
+        /// Specified input parameter value is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.KinesisAnalytics.Model.ResourceInUseException">
+        /// Application is not available for this operation.
+        /// </exception>
+        /// <exception cref="Amazon.KinesisAnalytics.Model.ResourceNotFoundException">
+        /// Specified application can't be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationInputProcessingConfiguration">REST API Reference for DeleteApplicationInputProcessingConfiguration Operation</seealso>
+        public virtual DeleteApplicationInputProcessingConfigurationResponse DeleteApplicationInputProcessingConfiguration(DeleteApplicationInputProcessingConfigurationRequest request)
+        {
+            var marshaller = new DeleteApplicationInputProcessingConfigurationRequestMarshaller();
+            var unmarshaller = DeleteApplicationInputProcessingConfigurationResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteApplicationInputProcessingConfigurationRequest,DeleteApplicationInputProcessingConfigurationResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteApplicationInputProcessingConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteApplicationInputProcessingConfiguration operation on AmazonKinesisAnalyticsClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteApplicationInputProcessingConfiguration
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationInputProcessingConfiguration">REST API Reference for DeleteApplicationInputProcessingConfiguration Operation</seealso>
+        public virtual IAsyncResult BeginDeleteApplicationInputProcessingConfiguration(DeleteApplicationInputProcessingConfigurationRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new DeleteApplicationInputProcessingConfigurationRequestMarshaller();
+            var unmarshaller = DeleteApplicationInputProcessingConfigurationResponseUnmarshaller.Instance;
+
+            return BeginInvoke<DeleteApplicationInputProcessingConfigurationRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteApplicationInputProcessingConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteApplicationInputProcessingConfiguration.</param>
+        /// 
+        /// <returns>Returns a  DeleteApplicationInputProcessingConfigurationResult from KinesisAnalytics.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationInputProcessingConfiguration">REST API Reference for DeleteApplicationInputProcessingConfiguration Operation</seealso>
+        public virtual DeleteApplicationInputProcessingConfigurationResponse EndDeleteApplicationInputProcessingConfiguration(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteApplicationInputProcessingConfigurationResponse>(asyncResult);
         }
 
         #endregion
@@ -836,7 +971,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationOutput">REST API Reference for DeleteApplicationOutput Operation</seealso>
-        public DeleteApplicationOutputResponse DeleteApplicationOutput(DeleteApplicationOutputRequest request)
+        public virtual DeleteApplicationOutputResponse DeleteApplicationOutput(DeleteApplicationOutputRequest request)
         {
             var marshaller = new DeleteApplicationOutputRequestMarshaller();
             var unmarshaller = DeleteApplicationOutputResponseUnmarshaller.Instance;
@@ -856,7 +991,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteApplicationOutput
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationOutput">REST API Reference for DeleteApplicationOutput Operation</seealso>
-        public IAsyncResult BeginDeleteApplicationOutput(DeleteApplicationOutputRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteApplicationOutput(DeleteApplicationOutputRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteApplicationOutputRequestMarshaller();
             var unmarshaller = DeleteApplicationOutputResponseUnmarshaller.Instance;
@@ -873,7 +1008,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  DeleteApplicationOutputResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationOutput">REST API Reference for DeleteApplicationOutput Operation</seealso>
-        public  DeleteApplicationOutputResponse EndDeleteApplicationOutput(IAsyncResult asyncResult)
+        public virtual DeleteApplicationOutputResponse EndDeleteApplicationOutput(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteApplicationOutputResponse>(asyncResult);
         }
@@ -914,7 +1049,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationReferenceDataSource">REST API Reference for DeleteApplicationReferenceDataSource Operation</seealso>
-        public DeleteApplicationReferenceDataSourceResponse DeleteApplicationReferenceDataSource(DeleteApplicationReferenceDataSourceRequest request)
+        public virtual DeleteApplicationReferenceDataSourceResponse DeleteApplicationReferenceDataSource(DeleteApplicationReferenceDataSourceRequest request)
         {
             var marshaller = new DeleteApplicationReferenceDataSourceRequestMarshaller();
             var unmarshaller = DeleteApplicationReferenceDataSourceResponseUnmarshaller.Instance;
@@ -934,7 +1069,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteApplicationReferenceDataSource
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationReferenceDataSource">REST API Reference for DeleteApplicationReferenceDataSource Operation</seealso>
-        public IAsyncResult BeginDeleteApplicationReferenceDataSource(DeleteApplicationReferenceDataSourceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteApplicationReferenceDataSource(DeleteApplicationReferenceDataSourceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteApplicationReferenceDataSourceRequestMarshaller();
             var unmarshaller = DeleteApplicationReferenceDataSourceResponseUnmarshaller.Instance;
@@ -951,7 +1086,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  DeleteApplicationReferenceDataSourceResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DeleteApplicationReferenceDataSource">REST API Reference for DeleteApplicationReferenceDataSource Operation</seealso>
-        public  DeleteApplicationReferenceDataSourceResponse EndDeleteApplicationReferenceDataSource(IAsyncResult asyncResult)
+        public virtual DeleteApplicationReferenceDataSourceResponse EndDeleteApplicationReferenceDataSource(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteApplicationReferenceDataSourceResponse>(asyncResult);
         }
@@ -982,7 +1117,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DescribeApplication">REST API Reference for DescribeApplication Operation</seealso>
-        public DescribeApplicationResponse DescribeApplication(DescribeApplicationRequest request)
+        public virtual DescribeApplicationResponse DescribeApplication(DescribeApplicationRequest request)
         {
             var marshaller = new DescribeApplicationRequestMarshaller();
             var unmarshaller = DescribeApplicationResponseUnmarshaller.Instance;
@@ -1002,7 +1137,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeApplication
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DescribeApplication">REST API Reference for DescribeApplication Operation</seealso>
-        public IAsyncResult BeginDescribeApplication(DescribeApplicationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeApplication(DescribeApplicationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeApplicationRequestMarshaller();
             var unmarshaller = DescribeApplicationResponseUnmarshaller.Instance;
@@ -1019,7 +1154,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  DescribeApplicationResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DescribeApplication">REST API Reference for DescribeApplication Operation</seealso>
-        public  DescribeApplicationResponse EndDescribeApplication(IAsyncResult asyncResult)
+        public virtual DescribeApplicationResponse EndDescribeApplication(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeApplicationResponse>(asyncResult);
         }
@@ -1067,7 +1202,7 @@ namespace Amazon.KinesisAnalytics
         /// the given streaming source.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DiscoverInputSchema">REST API Reference for DiscoverInputSchema Operation</seealso>
-        public DiscoverInputSchemaResponse DiscoverInputSchema(DiscoverInputSchemaRequest request)
+        public virtual DiscoverInputSchemaResponse DiscoverInputSchema(DiscoverInputSchemaRequest request)
         {
             var marshaller = new DiscoverInputSchemaRequestMarshaller();
             var unmarshaller = DiscoverInputSchemaResponseUnmarshaller.Instance;
@@ -1087,7 +1222,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDiscoverInputSchema
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DiscoverInputSchema">REST API Reference for DiscoverInputSchema Operation</seealso>
-        public IAsyncResult BeginDiscoverInputSchema(DiscoverInputSchemaRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDiscoverInputSchema(DiscoverInputSchemaRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DiscoverInputSchemaRequestMarshaller();
             var unmarshaller = DiscoverInputSchemaResponseUnmarshaller.Instance;
@@ -1104,7 +1239,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  DiscoverInputSchemaResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/DiscoverInputSchema">REST API Reference for DiscoverInputSchema Operation</seealso>
-        public  DiscoverInputSchemaResponse EndDiscoverInputSchema(IAsyncResult asyncResult)
+        public virtual DiscoverInputSchemaResponse EndDiscoverInputSchema(IAsyncResult asyncResult)
         {
             return EndInvoke<DiscoverInputSchemaResponse>(asyncResult);
         }
@@ -1135,7 +1270,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>The response from the ListApplications service method, as returned by KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/ListApplications">REST API Reference for ListApplications Operation</seealso>
-        public ListApplicationsResponse ListApplications(ListApplicationsRequest request)
+        public virtual ListApplicationsResponse ListApplications(ListApplicationsRequest request)
         {
             var marshaller = new ListApplicationsRequestMarshaller();
             var unmarshaller = ListApplicationsResponseUnmarshaller.Instance;
@@ -1155,7 +1290,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListApplications
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/ListApplications">REST API Reference for ListApplications Operation</seealso>
-        public IAsyncResult BeginListApplications(ListApplicationsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListApplications(ListApplicationsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListApplicationsRequestMarshaller();
             var unmarshaller = ListApplicationsResponseUnmarshaller.Instance;
@@ -1172,7 +1307,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  ListApplicationsResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/ListApplications">REST API Reference for ListApplications Operation</seealso>
-        public  ListApplicationsResponse EndListApplications(IAsyncResult asyncResult)
+        public virtual ListApplicationsResponse EndListApplications(IAsyncResult asyncResult)
         {
             return EndInvoke<ListApplicationsResponse>(asyncResult);
         }
@@ -1223,7 +1358,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/StartApplication">REST API Reference for StartApplication Operation</seealso>
-        public StartApplicationResponse StartApplication(StartApplicationRequest request)
+        public virtual StartApplicationResponse StartApplication(StartApplicationRequest request)
         {
             var marshaller = new StartApplicationRequestMarshaller();
             var unmarshaller = StartApplicationResponseUnmarshaller.Instance;
@@ -1243,7 +1378,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStartApplication
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/StartApplication">REST API Reference for StartApplication Operation</seealso>
-        public IAsyncResult BeginStartApplication(StartApplicationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginStartApplication(StartApplicationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new StartApplicationRequestMarshaller();
             var unmarshaller = StartApplicationResponseUnmarshaller.Instance;
@@ -1260,7 +1395,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  StartApplicationResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/StartApplication">REST API Reference for StartApplication Operation</seealso>
-        public  StartApplicationResponse EndStartApplication(IAsyncResult asyncResult)
+        public virtual StartApplicationResponse EndStartApplication(IAsyncResult asyncResult)
         {
             return EndInvoke<StartApplicationResponse>(asyncResult);
         }
@@ -1292,7 +1427,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/StopApplication">REST API Reference for StopApplication Operation</seealso>
-        public StopApplicationResponse StopApplication(StopApplicationRequest request)
+        public virtual StopApplicationResponse StopApplication(StopApplicationRequest request)
         {
             var marshaller = new StopApplicationRequestMarshaller();
             var unmarshaller = StopApplicationResponseUnmarshaller.Instance;
@@ -1312,7 +1447,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStopApplication
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/StopApplication">REST API Reference for StopApplication Operation</seealso>
-        public IAsyncResult BeginStopApplication(StopApplicationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginStopApplication(StopApplicationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new StopApplicationRequestMarshaller();
             var unmarshaller = StopApplicationResponseUnmarshaller.Instance;
@@ -1329,7 +1464,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  StopApplicationResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/StopApplication">REST API Reference for StopApplication Operation</seealso>
-        public  StopApplicationResponse EndStopApplication(IAsyncResult asyncResult)
+        public virtual StopApplicationResponse EndStopApplication(IAsyncResult asyncResult)
         {
             return EndInvoke<StopApplicationResponse>(asyncResult);
         }
@@ -1373,7 +1508,7 @@ namespace Amazon.KinesisAnalytics
         /// Specified application can't be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/UpdateApplication">REST API Reference for UpdateApplication Operation</seealso>
-        public UpdateApplicationResponse UpdateApplication(UpdateApplicationRequest request)
+        public virtual UpdateApplicationResponse UpdateApplication(UpdateApplicationRequest request)
         {
             var marshaller = new UpdateApplicationRequestMarshaller();
             var unmarshaller = UpdateApplicationResponseUnmarshaller.Instance;
@@ -1393,7 +1528,7 @@ namespace Amazon.KinesisAnalytics
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateApplication
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/UpdateApplication">REST API Reference for UpdateApplication Operation</seealso>
-        public IAsyncResult BeginUpdateApplication(UpdateApplicationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginUpdateApplication(UpdateApplicationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new UpdateApplicationRequestMarshaller();
             var unmarshaller = UpdateApplicationResponseUnmarshaller.Instance;
@@ -1410,7 +1545,7 @@ namespace Amazon.KinesisAnalytics
         /// 
         /// <returns>Returns a  UpdateApplicationResult from KinesisAnalytics.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/kinesisanalytics-2015-08-14/UpdateApplication">REST API Reference for UpdateApplication Operation</seealso>
-        public  UpdateApplicationResponse EndUpdateApplication(IAsyncResult asyncResult)
+        public virtual UpdateApplicationResponse EndUpdateApplication(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateApplicationResponse>(asyncResult);
         }

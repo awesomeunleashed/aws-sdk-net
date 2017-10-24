@@ -35,14 +35,16 @@ namespace Amazon.SimpleEmail
     ///
     /// Amazon Simple Email Service 
     /// <para>
-    ///  This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation
-    /// is intended to be used in conjunction with the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
+    ///  This is the API Reference for <a href="https://aws.amazon.com/ses/">Amazon Simple
+    /// Email Service</a> (Amazon SES). This documentation is intended to be used in conjunction
+    /// with the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
     /// SES Developer Guide</a>. 
     /// </para>
     ///  <note> 
     /// <para>
     ///  For a list of Amazon SES endpoints to use in service requests, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html">Regions
-    /// and Amazon SES</a> in the Amazon SES Developer Guide. 
+    /// and Amazon SES</a> in the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
+    /// SES Developer Guide</a>. 
     /// </para>
     ///  </note>
     /// </summary>
@@ -187,7 +189,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CloneReceiptRuleSet">REST API Reference for CloneReceiptRuleSet Operation</seealso>
-        public void CloneReceiptRuleSetAsync(CloneReceiptRuleSetRequest request, AmazonServiceCallback<CloneReceiptRuleSetRequest, CloneReceiptRuleSetResponse> callback, AsyncOptions options = null)
+        public virtual void CloneReceiptRuleSetAsync(CloneReceiptRuleSetRequest request, AmazonServiceCallback<CloneReceiptRuleSetRequest, CloneReceiptRuleSetResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new CloneReceiptRuleSetRequestMarshaller();
@@ -215,7 +217,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateConfigurationSet">REST API Reference for CreateConfigurationSet Operation</seealso>
-        public void CreateConfigurationSetAsync(CreateConfigurationSetRequest request, AmazonServiceCallback<CreateConfigurationSetRequest, CreateConfigurationSetResponse> callback, AsyncOptions options = null)
+        public virtual void CreateConfigurationSetAsync(CreateConfigurationSetRequest request, AmazonServiceCallback<CreateConfigurationSetRequest, CreateConfigurationSetResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new CreateConfigurationSetRequestMarshaller();
@@ -243,7 +245,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateConfigurationSetEventDestination">REST API Reference for CreateConfigurationSetEventDestination Operation</seealso>
-        public void CreateConfigurationSetEventDestinationAsync(CreateConfigurationSetEventDestinationRequest request, AmazonServiceCallback<CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse> callback, AsyncOptions options = null)
+        public virtual void CreateConfigurationSetEventDestinationAsync(CreateConfigurationSetEventDestinationRequest request, AmazonServiceCallback<CreateConfigurationSetEventDestinationRequest, CreateConfigurationSetEventDestinationResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new CreateConfigurationSetEventDestinationRequestMarshaller();
@@ -260,6 +262,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  CreateConfigurationSetTrackingOptions
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateConfigurationSetTrackingOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateConfigurationSetTrackingOptions operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateConfigurationSetTrackingOptions">REST API Reference for CreateConfigurationSetTrackingOptions Operation</seealso>
+        public virtual void CreateConfigurationSetTrackingOptionsAsync(CreateConfigurationSetTrackingOptionsRequest request, AmazonServiceCallback<CreateConfigurationSetTrackingOptionsRequest, CreateConfigurationSetTrackingOptionsResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new CreateConfigurationSetTrackingOptionsRequestMarshaller();
+            var unmarshaller = CreateConfigurationSetTrackingOptionsResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<CreateConfigurationSetTrackingOptionsRequest,CreateConfigurationSetTrackingOptionsResponse> responseObject 
+                            = new AmazonServiceResult<CreateConfigurationSetTrackingOptionsRequest,CreateConfigurationSetTrackingOptionsResponse>((CreateConfigurationSetTrackingOptionsRequest)req, (CreateConfigurationSetTrackingOptionsResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<CreateConfigurationSetTrackingOptionsRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  CreateReceiptFilter
 
         /// <summary>
@@ -271,7 +301,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateReceiptFilter">REST API Reference for CreateReceiptFilter Operation</seealso>
-        public void CreateReceiptFilterAsync(CreateReceiptFilterRequest request, AmazonServiceCallback<CreateReceiptFilterRequest, CreateReceiptFilterResponse> callback, AsyncOptions options = null)
+        public virtual void CreateReceiptFilterAsync(CreateReceiptFilterRequest request, AmazonServiceCallback<CreateReceiptFilterRequest, CreateReceiptFilterResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new CreateReceiptFilterRequestMarshaller();
@@ -299,7 +329,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateReceiptRule">REST API Reference for CreateReceiptRule Operation</seealso>
-        public void CreateReceiptRuleAsync(CreateReceiptRuleRequest request, AmazonServiceCallback<CreateReceiptRuleRequest, CreateReceiptRuleResponse> callback, AsyncOptions options = null)
+        public virtual void CreateReceiptRuleAsync(CreateReceiptRuleRequest request, AmazonServiceCallback<CreateReceiptRuleRequest, CreateReceiptRuleResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new CreateReceiptRuleRequestMarshaller();
@@ -327,7 +357,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateReceiptRuleSet">REST API Reference for CreateReceiptRuleSet Operation</seealso>
-        public void CreateReceiptRuleSetAsync(CreateReceiptRuleSetRequest request, AmazonServiceCallback<CreateReceiptRuleSetRequest, CreateReceiptRuleSetResponse> callback, AsyncOptions options = null)
+        public virtual void CreateReceiptRuleSetAsync(CreateReceiptRuleSetRequest request, AmazonServiceCallback<CreateReceiptRuleSetRequest, CreateReceiptRuleSetResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new CreateReceiptRuleSetRequestMarshaller();
@@ -344,6 +374,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  CreateTemplate
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateTemplate">REST API Reference for CreateTemplate Operation</seealso>
+        public virtual void CreateTemplateAsync(CreateTemplateRequest request, AmazonServiceCallback<CreateTemplateRequest, CreateTemplateResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new CreateTemplateRequestMarshaller();
+            var unmarshaller = CreateTemplateResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<CreateTemplateRequest,CreateTemplateResponse> responseObject 
+                            = new AmazonServiceResult<CreateTemplateRequest,CreateTemplateResponse>((CreateTemplateRequest)req, (CreateTemplateResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<CreateTemplateRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  DeleteConfigurationSet
 
         /// <summary>
@@ -355,7 +413,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSet">REST API Reference for DeleteConfigurationSet Operation</seealso>
-        public void DeleteConfigurationSetAsync(DeleteConfigurationSetRequest request, AmazonServiceCallback<DeleteConfigurationSetRequest, DeleteConfigurationSetResponse> callback, AsyncOptions options = null)
+        public virtual void DeleteConfigurationSetAsync(DeleteConfigurationSetRequest request, AmazonServiceCallback<DeleteConfigurationSetRequest, DeleteConfigurationSetResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DeleteConfigurationSetRequestMarshaller();
@@ -383,7 +441,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSetEventDestination">REST API Reference for DeleteConfigurationSetEventDestination Operation</seealso>
-        public void DeleteConfigurationSetEventDestinationAsync(DeleteConfigurationSetEventDestinationRequest request, AmazonServiceCallback<DeleteConfigurationSetEventDestinationRequest, DeleteConfigurationSetEventDestinationResponse> callback, AsyncOptions options = null)
+        public virtual void DeleteConfigurationSetEventDestinationAsync(DeleteConfigurationSetEventDestinationRequest request, AmazonServiceCallback<DeleteConfigurationSetEventDestinationRequest, DeleteConfigurationSetEventDestinationResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DeleteConfigurationSetEventDestinationRequestMarshaller();
@@ -400,6 +458,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  DeleteConfigurationSetTrackingOptions
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteConfigurationSetTrackingOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteConfigurationSetTrackingOptions operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSetTrackingOptions">REST API Reference for DeleteConfigurationSetTrackingOptions Operation</seealso>
+        public virtual void DeleteConfigurationSetTrackingOptionsAsync(DeleteConfigurationSetTrackingOptionsRequest request, AmazonServiceCallback<DeleteConfigurationSetTrackingOptionsRequest, DeleteConfigurationSetTrackingOptionsResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new DeleteConfigurationSetTrackingOptionsRequestMarshaller();
+            var unmarshaller = DeleteConfigurationSetTrackingOptionsResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<DeleteConfigurationSetTrackingOptionsRequest,DeleteConfigurationSetTrackingOptionsResponse> responseObject 
+                            = new AmazonServiceResult<DeleteConfigurationSetTrackingOptionsRequest,DeleteConfigurationSetTrackingOptionsResponse>((DeleteConfigurationSetTrackingOptionsRequest)req, (DeleteConfigurationSetTrackingOptionsResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<DeleteConfigurationSetTrackingOptionsRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  DeleteIdentity
 
         /// <summary>
@@ -411,7 +497,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteIdentity">REST API Reference for DeleteIdentity Operation</seealso>
-        public void DeleteIdentityAsync(DeleteIdentityRequest request, AmazonServiceCallback<DeleteIdentityRequest, DeleteIdentityResponse> callback, AsyncOptions options = null)
+        public virtual void DeleteIdentityAsync(DeleteIdentityRequest request, AmazonServiceCallback<DeleteIdentityRequest, DeleteIdentityResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DeleteIdentityRequestMarshaller();
@@ -439,7 +525,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteIdentityPolicy">REST API Reference for DeleteIdentityPolicy Operation</seealso>
-        public void DeleteIdentityPolicyAsync(DeleteIdentityPolicyRequest request, AmazonServiceCallback<DeleteIdentityPolicyRequest, DeleteIdentityPolicyResponse> callback, AsyncOptions options = null)
+        public virtual void DeleteIdentityPolicyAsync(DeleteIdentityPolicyRequest request, AmazonServiceCallback<DeleteIdentityPolicyRequest, DeleteIdentityPolicyResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DeleteIdentityPolicyRequestMarshaller();
@@ -467,7 +553,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteReceiptFilter">REST API Reference for DeleteReceiptFilter Operation</seealso>
-        public void DeleteReceiptFilterAsync(DeleteReceiptFilterRequest request, AmazonServiceCallback<DeleteReceiptFilterRequest, DeleteReceiptFilterResponse> callback, AsyncOptions options = null)
+        public virtual void DeleteReceiptFilterAsync(DeleteReceiptFilterRequest request, AmazonServiceCallback<DeleteReceiptFilterRequest, DeleteReceiptFilterResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DeleteReceiptFilterRequestMarshaller();
@@ -495,7 +581,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteReceiptRule">REST API Reference for DeleteReceiptRule Operation</seealso>
-        public void DeleteReceiptRuleAsync(DeleteReceiptRuleRequest request, AmazonServiceCallback<DeleteReceiptRuleRequest, DeleteReceiptRuleResponse> callback, AsyncOptions options = null)
+        public virtual void DeleteReceiptRuleAsync(DeleteReceiptRuleRequest request, AmazonServiceCallback<DeleteReceiptRuleRequest, DeleteReceiptRuleResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DeleteReceiptRuleRequestMarshaller();
@@ -523,7 +609,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteReceiptRuleSet">REST API Reference for DeleteReceiptRuleSet Operation</seealso>
-        public void DeleteReceiptRuleSetAsync(DeleteReceiptRuleSetRequest request, AmazonServiceCallback<DeleteReceiptRuleSetRequest, DeleteReceiptRuleSetResponse> callback, AsyncOptions options = null)
+        public virtual void DeleteReceiptRuleSetAsync(DeleteReceiptRuleSetRequest request, AmazonServiceCallback<DeleteReceiptRuleSetRequest, DeleteReceiptRuleSetResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DeleteReceiptRuleSetRequestMarshaller();
@@ -540,6 +626,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  DeleteTemplate
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteTemplate">REST API Reference for DeleteTemplate Operation</seealso>
+        public virtual void DeleteTemplateAsync(DeleteTemplateRequest request, AmazonServiceCallback<DeleteTemplateRequest, DeleteTemplateResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new DeleteTemplateRequestMarshaller();
+            var unmarshaller = DeleteTemplateResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<DeleteTemplateRequest,DeleteTemplateResponse> responseObject 
+                            = new AmazonServiceResult<DeleteTemplateRequest,DeleteTemplateResponse>((DeleteTemplateRequest)req, (DeleteTemplateResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<DeleteTemplateRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  DeleteVerifiedEmailAddress
 
         /// <summary>
@@ -551,7 +665,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteVerifiedEmailAddress">REST API Reference for DeleteVerifiedEmailAddress Operation</seealso>
-        public void DeleteVerifiedEmailAddressAsync(DeleteVerifiedEmailAddressRequest request, AmazonServiceCallback<DeleteVerifiedEmailAddressRequest, DeleteVerifiedEmailAddressResponse> callback, AsyncOptions options = null)
+        public virtual void DeleteVerifiedEmailAddressAsync(DeleteVerifiedEmailAddressRequest request, AmazonServiceCallback<DeleteVerifiedEmailAddressRequest, DeleteVerifiedEmailAddressResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DeleteVerifiedEmailAddressRequestMarshaller();
@@ -579,7 +693,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeActiveReceiptRuleSet">REST API Reference for DescribeActiveReceiptRuleSet Operation</seealso>
-        public void DescribeActiveReceiptRuleSetAsync(DescribeActiveReceiptRuleSetRequest request, AmazonServiceCallback<DescribeActiveReceiptRuleSetRequest, DescribeActiveReceiptRuleSetResponse> callback, AsyncOptions options = null)
+        public virtual void DescribeActiveReceiptRuleSetAsync(DescribeActiveReceiptRuleSetRequest request, AmazonServiceCallback<DescribeActiveReceiptRuleSetRequest, DescribeActiveReceiptRuleSetResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DescribeActiveReceiptRuleSetRequestMarshaller();
@@ -607,7 +721,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeConfigurationSet">REST API Reference for DescribeConfigurationSet Operation</seealso>
-        public void DescribeConfigurationSetAsync(DescribeConfigurationSetRequest request, AmazonServiceCallback<DescribeConfigurationSetRequest, DescribeConfigurationSetResponse> callback, AsyncOptions options = null)
+        public virtual void DescribeConfigurationSetAsync(DescribeConfigurationSetRequest request, AmazonServiceCallback<DescribeConfigurationSetRequest, DescribeConfigurationSetResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DescribeConfigurationSetRequestMarshaller();
@@ -635,7 +749,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeReceiptRule">REST API Reference for DescribeReceiptRule Operation</seealso>
-        public void DescribeReceiptRuleAsync(DescribeReceiptRuleRequest request, AmazonServiceCallback<DescribeReceiptRuleRequest, DescribeReceiptRuleResponse> callback, AsyncOptions options = null)
+        public virtual void DescribeReceiptRuleAsync(DescribeReceiptRuleRequest request, AmazonServiceCallback<DescribeReceiptRuleRequest, DescribeReceiptRuleResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DescribeReceiptRuleRequestMarshaller();
@@ -663,7 +777,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeReceiptRuleSet">REST API Reference for DescribeReceiptRuleSet Operation</seealso>
-        public void DescribeReceiptRuleSetAsync(DescribeReceiptRuleSetRequest request, AmazonServiceCallback<DescribeReceiptRuleSetRequest, DescribeReceiptRuleSetResponse> callback, AsyncOptions options = null)
+        public virtual void DescribeReceiptRuleSetAsync(DescribeReceiptRuleSetRequest request, AmazonServiceCallback<DescribeReceiptRuleSetRequest, DescribeReceiptRuleSetResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new DescribeReceiptRuleSetRequestMarshaller();
@@ -691,7 +805,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityDkimAttributes">REST API Reference for GetIdentityDkimAttributes Operation</seealso>
-        public void GetIdentityDkimAttributesAsync(GetIdentityDkimAttributesRequest request, AmazonServiceCallback<GetIdentityDkimAttributesRequest, GetIdentityDkimAttributesResponse> callback, AsyncOptions options = null)
+        public virtual void GetIdentityDkimAttributesAsync(GetIdentityDkimAttributesRequest request, AmazonServiceCallback<GetIdentityDkimAttributesRequest, GetIdentityDkimAttributesResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new GetIdentityDkimAttributesRequestMarshaller();
@@ -719,7 +833,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityMailFromDomainAttributes">REST API Reference for GetIdentityMailFromDomainAttributes Operation</seealso>
-        public void GetIdentityMailFromDomainAttributesAsync(GetIdentityMailFromDomainAttributesRequest request, AmazonServiceCallback<GetIdentityMailFromDomainAttributesRequest, GetIdentityMailFromDomainAttributesResponse> callback, AsyncOptions options = null)
+        public virtual void GetIdentityMailFromDomainAttributesAsync(GetIdentityMailFromDomainAttributesRequest request, AmazonServiceCallback<GetIdentityMailFromDomainAttributesRequest, GetIdentityMailFromDomainAttributesResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new GetIdentityMailFromDomainAttributesRequestMarshaller();
@@ -747,7 +861,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityNotificationAttributes">REST API Reference for GetIdentityNotificationAttributes Operation</seealso>
-        public void GetIdentityNotificationAttributesAsync(GetIdentityNotificationAttributesRequest request, AmazonServiceCallback<GetIdentityNotificationAttributesRequest, GetIdentityNotificationAttributesResponse> callback, AsyncOptions options = null)
+        public virtual void GetIdentityNotificationAttributesAsync(GetIdentityNotificationAttributesRequest request, AmazonServiceCallback<GetIdentityNotificationAttributesRequest, GetIdentityNotificationAttributesResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new GetIdentityNotificationAttributesRequestMarshaller();
@@ -775,7 +889,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityPolicies">REST API Reference for GetIdentityPolicies Operation</seealso>
-        public void GetIdentityPoliciesAsync(GetIdentityPoliciesRequest request, AmazonServiceCallback<GetIdentityPoliciesRequest, GetIdentityPoliciesResponse> callback, AsyncOptions options = null)
+        public virtual void GetIdentityPoliciesAsync(GetIdentityPoliciesRequest request, AmazonServiceCallback<GetIdentityPoliciesRequest, GetIdentityPoliciesResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new GetIdentityPoliciesRequestMarshaller();
@@ -803,7 +917,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityVerificationAttributes">REST API Reference for GetIdentityVerificationAttributes Operation</seealso>
-        public void GetIdentityVerificationAttributesAsync(GetIdentityVerificationAttributesRequest request, AmazonServiceCallback<GetIdentityVerificationAttributesRequest, GetIdentityVerificationAttributesResponse> callback, AsyncOptions options = null)
+        public virtual void GetIdentityVerificationAttributesAsync(GetIdentityVerificationAttributesRequest request, AmazonServiceCallback<GetIdentityVerificationAttributesRequest, GetIdentityVerificationAttributesResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new GetIdentityVerificationAttributesRequestMarshaller();
@@ -823,11 +937,11 @@ namespace Amazon.SimpleEmail
         #region  GetSendQuota
 
         /// <summary>
-        /// Returns the user's current sending limits.
+        /// Provides the sending limits for the Amazon SES account. 
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
@@ -839,7 +953,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the GetSendQuota service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendQuota">REST API Reference for GetSendQuota Operation</seealso>
-        public void GetSendQuotaAsync(AmazonServiceCallback<GetSendQuotaRequest, GetSendQuotaResponse> callback, AsyncOptions options = null)
+        public virtual void GetSendQuotaAsync(AmazonServiceCallback<GetSendQuotaRequest, GetSendQuotaResponse> callback, AsyncOptions options = null)
         {
             GetSendQuotaAsync(new GetSendQuotaRequest(), callback, options);
         }
@@ -854,7 +968,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendQuota">REST API Reference for GetSendQuota Operation</seealso>
-        public void GetSendQuotaAsync(GetSendQuotaRequest request, AmazonServiceCallback<GetSendQuotaRequest, GetSendQuotaResponse> callback, AsyncOptions options = null)
+        public virtual void GetSendQuotaAsync(GetSendQuotaRequest request, AmazonServiceCallback<GetSendQuotaRequest, GetSendQuotaResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new GetSendQuotaRequestMarshaller();
@@ -874,16 +988,13 @@ namespace Amazon.SimpleEmail
         #region  GetSendStatistics
 
         /// <summary>
-        /// Returns the user's sending statistics. The result is a list of data points, representing
-        /// the last two weeks of sending activity.
+        /// Provides sending statistics for the Amazon SES account. The result is a list of data
+        /// points, representing the last two weeks of sending activity. Each data point in the
+        /// list contains statistics for a 15-minute period of time.
         /// 
         ///  
         /// <para>
-        /// Each data point in the list contains statistics for a 15-minute interval.
-        /// </para>
-        ///  
-        /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
@@ -895,7 +1006,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the GetSendStatistics service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendStatistics">REST API Reference for GetSendStatistics Operation</seealso>
-        public void GetSendStatisticsAsync(AmazonServiceCallback<GetSendStatisticsRequest, GetSendStatisticsResponse> callback, AsyncOptions options = null)
+        public virtual void GetSendStatisticsAsync(AmazonServiceCallback<GetSendStatisticsRequest, GetSendStatisticsResponse> callback, AsyncOptions options = null)
         {
             GetSendStatisticsAsync(new GetSendStatisticsRequest(), callback, options);
         }
@@ -910,7 +1021,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendStatistics">REST API Reference for GetSendStatistics Operation</seealso>
-        public void GetSendStatisticsAsync(GetSendStatisticsRequest request, AmazonServiceCallback<GetSendStatisticsRequest, GetSendStatisticsResponse> callback, AsyncOptions options = null)
+        public virtual void GetSendStatisticsAsync(GetSendStatisticsRequest request, AmazonServiceCallback<GetSendStatisticsRequest, GetSendStatisticsResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new GetSendStatisticsRequestMarshaller();
@@ -927,6 +1038,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  GetTemplate
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetTemplate">REST API Reference for GetTemplate Operation</seealso>
+        public virtual void GetTemplateAsync(GetTemplateRequest request, AmazonServiceCallback<GetTemplateRequest, GetTemplateResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new GetTemplateRequestMarshaller();
+            var unmarshaller = GetTemplateResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<GetTemplateRequest,GetTemplateResponse> responseObject 
+                            = new AmazonServiceResult<GetTemplateRequest,GetTemplateResponse>((GetTemplateRequest)req, (GetTemplateResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<GetTemplateRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  ListConfigurationSets
 
         /// <summary>
@@ -938,7 +1077,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListConfigurationSets">REST API Reference for ListConfigurationSets Operation</seealso>
-        public void ListConfigurationSetsAsync(ListConfigurationSetsRequest request, AmazonServiceCallback<ListConfigurationSetsRequest, ListConfigurationSetsResponse> callback, AsyncOptions options = null)
+        public virtual void ListConfigurationSetsAsync(ListConfigurationSetsRequest request, AmazonServiceCallback<ListConfigurationSetsRequest, ListConfigurationSetsResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new ListConfigurationSetsRequestMarshaller();
@@ -963,7 +1102,7 @@ namespace Amazon.SimpleEmail
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
@@ -975,7 +1114,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the ListIdentities service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListIdentities">REST API Reference for ListIdentities Operation</seealso>
-        public void ListIdentitiesAsync(AmazonServiceCallback<ListIdentitiesRequest, ListIdentitiesResponse> callback, AsyncOptions options = null)
+        public virtual void ListIdentitiesAsync(AmazonServiceCallback<ListIdentitiesRequest, ListIdentitiesResponse> callback, AsyncOptions options = null)
         {
             ListIdentitiesAsync(new ListIdentitiesRequest(), callback, options);
         }
@@ -990,7 +1129,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListIdentities">REST API Reference for ListIdentities Operation</seealso>
-        public void ListIdentitiesAsync(ListIdentitiesRequest request, AmazonServiceCallback<ListIdentitiesRequest, ListIdentitiesResponse> callback, AsyncOptions options = null)
+        public virtual void ListIdentitiesAsync(ListIdentitiesRequest request, AmazonServiceCallback<ListIdentitiesRequest, ListIdentitiesResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new ListIdentitiesRequestMarshaller();
@@ -1018,7 +1157,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListIdentityPolicies">REST API Reference for ListIdentityPolicies Operation</seealso>
-        public void ListIdentityPoliciesAsync(ListIdentityPoliciesRequest request, AmazonServiceCallback<ListIdentityPoliciesRequest, ListIdentityPoliciesResponse> callback, AsyncOptions options = null)
+        public virtual void ListIdentityPoliciesAsync(ListIdentityPoliciesRequest request, AmazonServiceCallback<ListIdentityPoliciesRequest, ListIdentityPoliciesResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new ListIdentityPoliciesRequestMarshaller();
@@ -1046,7 +1185,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListReceiptFilters">REST API Reference for ListReceiptFilters Operation</seealso>
-        public void ListReceiptFiltersAsync(ListReceiptFiltersRequest request, AmazonServiceCallback<ListReceiptFiltersRequest, ListReceiptFiltersResponse> callback, AsyncOptions options = null)
+        public virtual void ListReceiptFiltersAsync(ListReceiptFiltersRequest request, AmazonServiceCallback<ListReceiptFiltersRequest, ListReceiptFiltersResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new ListReceiptFiltersRequestMarshaller();
@@ -1074,7 +1213,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListReceiptRuleSets">REST API Reference for ListReceiptRuleSets Operation</seealso>
-        public void ListReceiptRuleSetsAsync(ListReceiptRuleSetsRequest request, AmazonServiceCallback<ListReceiptRuleSetsRequest, ListReceiptRuleSetsResponse> callback, AsyncOptions options = null)
+        public virtual void ListReceiptRuleSetsAsync(ListReceiptRuleSetsRequest request, AmazonServiceCallback<ListReceiptRuleSetsRequest, ListReceiptRuleSetsResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new ListReceiptRuleSetsRequestMarshaller();
@@ -1091,20 +1230,39 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  ListTemplates
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListTemplates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListTemplates operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListTemplates">REST API Reference for ListTemplates Operation</seealso>
+        public virtual void ListTemplatesAsync(ListTemplatesRequest request, AmazonServiceCallback<ListTemplatesRequest, ListTemplatesResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new ListTemplatesRequestMarshaller();
+            var unmarshaller = ListTemplatesResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<ListTemplatesRequest,ListTemplatesResponse> responseObject 
+                            = new AmazonServiceResult<ListTemplatesRequest,ListTemplatesResponse>((ListTemplatesRequest)req, (ListTemplatesResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<ListTemplatesRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  ListVerifiedEmailAddresses
 
         /// <summary>
-        /// Returns a list containing all of the email addresses that have been verified.
-        /// 
-        ///  <important> 
-        /// <para>
-        /// The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release
-        /// of Domain Verification. The ListIdentities action is now preferred.
-        /// </para>
-        ///  </important> 
-        /// <para>
-        /// This action is throttled at one request per second.
-        /// </para>
+        /// Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
+        /// and domains associated with your account.
         /// </summary>
         /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
          
@@ -1115,7 +1273,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the ListVerifiedEmailAddresses service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListVerifiedEmailAddresses">REST API Reference for ListVerifiedEmailAddresses Operation</seealso>
-        public void ListVerifiedEmailAddressesAsync(AmazonServiceCallback<ListVerifiedEmailAddressesRequest, ListVerifiedEmailAddressesResponse> callback, AsyncOptions options = null)
+        public virtual void ListVerifiedEmailAddressesAsync(AmazonServiceCallback<ListVerifiedEmailAddressesRequest, ListVerifiedEmailAddressesResponse> callback, AsyncOptions options = null)
         {
             ListVerifiedEmailAddressesAsync(new ListVerifiedEmailAddressesRequest(), callback, options);
         }
@@ -1130,7 +1288,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListVerifiedEmailAddresses">REST API Reference for ListVerifiedEmailAddresses Operation</seealso>
-        public void ListVerifiedEmailAddressesAsync(ListVerifiedEmailAddressesRequest request, AmazonServiceCallback<ListVerifiedEmailAddressesRequest, ListVerifiedEmailAddressesResponse> callback, AsyncOptions options = null)
+        public virtual void ListVerifiedEmailAddressesAsync(ListVerifiedEmailAddressesRequest request, AmazonServiceCallback<ListVerifiedEmailAddressesRequest, ListVerifiedEmailAddressesResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new ListVerifiedEmailAddressesRequestMarshaller();
@@ -1158,7 +1316,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/PutIdentityPolicy">REST API Reference for PutIdentityPolicy Operation</seealso>
-        public void PutIdentityPolicyAsync(PutIdentityPolicyRequest request, AmazonServiceCallback<PutIdentityPolicyRequest, PutIdentityPolicyResponse> callback, AsyncOptions options = null)
+        public virtual void PutIdentityPolicyAsync(PutIdentityPolicyRequest request, AmazonServiceCallback<PutIdentityPolicyRequest, PutIdentityPolicyResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new PutIdentityPolicyRequestMarshaller();
@@ -1186,7 +1344,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ReorderReceiptRuleSet">REST API Reference for ReorderReceiptRuleSet Operation</seealso>
-        public void ReorderReceiptRuleSetAsync(ReorderReceiptRuleSetRequest request, AmazonServiceCallback<ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse> callback, AsyncOptions options = null)
+        public virtual void ReorderReceiptRuleSetAsync(ReorderReceiptRuleSetRequest request, AmazonServiceCallback<ReorderReceiptRuleSetRequest, ReorderReceiptRuleSetResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new ReorderReceiptRuleSetRequestMarshaller();
@@ -1214,7 +1372,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendBounce">REST API Reference for SendBounce Operation</seealso>
-        public void SendBounceAsync(SendBounceRequest request, AmazonServiceCallback<SendBounceRequest, SendBounceResponse> callback, AsyncOptions options = null)
+        public virtual void SendBounceAsync(SendBounceRequest request, AmazonServiceCallback<SendBounceRequest, SendBounceResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new SendBounceRequestMarshaller();
@@ -1231,6 +1389,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  SendBulkTemplatedEmail
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SendBulkTemplatedEmail operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SendBulkTemplatedEmail operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendBulkTemplatedEmail">REST API Reference for SendBulkTemplatedEmail Operation</seealso>
+        public virtual void SendBulkTemplatedEmailAsync(SendBulkTemplatedEmailRequest request, AmazonServiceCallback<SendBulkTemplatedEmailRequest, SendBulkTemplatedEmailResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new SendBulkTemplatedEmailRequestMarshaller();
+            var unmarshaller = SendBulkTemplatedEmailResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<SendBulkTemplatedEmailRequest,SendBulkTemplatedEmailResponse> responseObject 
+                            = new AmazonServiceResult<SendBulkTemplatedEmailRequest,SendBulkTemplatedEmailResponse>((SendBulkTemplatedEmailRequest)req, (SendBulkTemplatedEmailResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<SendBulkTemplatedEmailRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  SendEmail
 
         /// <summary>
@@ -1242,7 +1428,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendEmail">REST API Reference for SendEmail Operation</seealso>
-        public void SendEmailAsync(SendEmailRequest request, AmazonServiceCallback<SendEmailRequest, SendEmailResponse> callback, AsyncOptions options = null)
+        public virtual void SendEmailAsync(SendEmailRequest request, AmazonServiceCallback<SendEmailRequest, SendEmailResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new SendEmailRequestMarshaller();
@@ -1270,7 +1456,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendRawEmail">REST API Reference for SendRawEmail Operation</seealso>
-        public void SendRawEmailAsync(SendRawEmailRequest request, AmazonServiceCallback<SendRawEmailRequest, SendRawEmailResponse> callback, AsyncOptions options = null)
+        public virtual void SendRawEmailAsync(SendRawEmailRequest request, AmazonServiceCallback<SendRawEmailRequest, SendRawEmailResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new SendRawEmailRequestMarshaller();
@@ -1287,6 +1473,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  SendTemplatedEmail
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SendTemplatedEmail operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SendTemplatedEmail operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendTemplatedEmail">REST API Reference for SendTemplatedEmail Operation</seealso>
+        public virtual void SendTemplatedEmailAsync(SendTemplatedEmailRequest request, AmazonServiceCallback<SendTemplatedEmailRequest, SendTemplatedEmailResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new SendTemplatedEmailRequestMarshaller();
+            var unmarshaller = SendTemplatedEmailResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<SendTemplatedEmailRequest,SendTemplatedEmailResponse> responseObject 
+                            = new AmazonServiceResult<SendTemplatedEmailRequest,SendTemplatedEmailResponse>((SendTemplatedEmailRequest)req, (SendTemplatedEmailResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<SendTemplatedEmailRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  SetActiveReceiptRuleSet
 
         /// <summary>
@@ -1298,7 +1512,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetActiveReceiptRuleSet">REST API Reference for SetActiveReceiptRuleSet Operation</seealso>
-        public void SetActiveReceiptRuleSetAsync(SetActiveReceiptRuleSetRequest request, AmazonServiceCallback<SetActiveReceiptRuleSetRequest, SetActiveReceiptRuleSetResponse> callback, AsyncOptions options = null)
+        public virtual void SetActiveReceiptRuleSetAsync(SetActiveReceiptRuleSetRequest request, AmazonServiceCallback<SetActiveReceiptRuleSetRequest, SetActiveReceiptRuleSetResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new SetActiveReceiptRuleSetRequestMarshaller();
@@ -1326,7 +1540,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityDkimEnabled">REST API Reference for SetIdentityDkimEnabled Operation</seealso>
-        public void SetIdentityDkimEnabledAsync(SetIdentityDkimEnabledRequest request, AmazonServiceCallback<SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse> callback, AsyncOptions options = null)
+        public virtual void SetIdentityDkimEnabledAsync(SetIdentityDkimEnabledRequest request, AmazonServiceCallback<SetIdentityDkimEnabledRequest, SetIdentityDkimEnabledResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new SetIdentityDkimEnabledRequestMarshaller();
@@ -1354,7 +1568,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityFeedbackForwardingEnabled">REST API Reference for SetIdentityFeedbackForwardingEnabled Operation</seealso>
-        public void SetIdentityFeedbackForwardingEnabledAsync(SetIdentityFeedbackForwardingEnabledRequest request, AmazonServiceCallback<SetIdentityFeedbackForwardingEnabledRequest, SetIdentityFeedbackForwardingEnabledResponse> callback, AsyncOptions options = null)
+        public virtual void SetIdentityFeedbackForwardingEnabledAsync(SetIdentityFeedbackForwardingEnabledRequest request, AmazonServiceCallback<SetIdentityFeedbackForwardingEnabledRequest, SetIdentityFeedbackForwardingEnabledResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new SetIdentityFeedbackForwardingEnabledRequestMarshaller();
@@ -1382,7 +1596,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityHeadersInNotificationsEnabled">REST API Reference for SetIdentityHeadersInNotificationsEnabled Operation</seealso>
-        public void SetIdentityHeadersInNotificationsEnabledAsync(SetIdentityHeadersInNotificationsEnabledRequest request, AmazonServiceCallback<SetIdentityHeadersInNotificationsEnabledRequest, SetIdentityHeadersInNotificationsEnabledResponse> callback, AsyncOptions options = null)
+        public virtual void SetIdentityHeadersInNotificationsEnabledAsync(SetIdentityHeadersInNotificationsEnabledRequest request, AmazonServiceCallback<SetIdentityHeadersInNotificationsEnabledRequest, SetIdentityHeadersInNotificationsEnabledResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new SetIdentityHeadersInNotificationsEnabledRequestMarshaller();
@@ -1410,7 +1624,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityMailFromDomain">REST API Reference for SetIdentityMailFromDomain Operation</seealso>
-        public void SetIdentityMailFromDomainAsync(SetIdentityMailFromDomainRequest request, AmazonServiceCallback<SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse> callback, AsyncOptions options = null)
+        public virtual void SetIdentityMailFromDomainAsync(SetIdentityMailFromDomainRequest request, AmazonServiceCallback<SetIdentityMailFromDomainRequest, SetIdentityMailFromDomainResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new SetIdentityMailFromDomainRequestMarshaller();
@@ -1438,7 +1652,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityNotificationTopic">REST API Reference for SetIdentityNotificationTopic Operation</seealso>
-        public void SetIdentityNotificationTopicAsync(SetIdentityNotificationTopicRequest request, AmazonServiceCallback<SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse> callback, AsyncOptions options = null)
+        public virtual void SetIdentityNotificationTopicAsync(SetIdentityNotificationTopicRequest request, AmazonServiceCallback<SetIdentityNotificationTopicRequest, SetIdentityNotificationTopicResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new SetIdentityNotificationTopicRequestMarshaller();
@@ -1466,7 +1680,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetReceiptRulePosition">REST API Reference for SetReceiptRulePosition Operation</seealso>
-        public void SetReceiptRulePositionAsync(SetReceiptRulePositionRequest request, AmazonServiceCallback<SetReceiptRulePositionRequest, SetReceiptRulePositionResponse> callback, AsyncOptions options = null)
+        public virtual void SetReceiptRulePositionAsync(SetReceiptRulePositionRequest request, AmazonServiceCallback<SetReceiptRulePositionRequest, SetReceiptRulePositionResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new SetReceiptRulePositionRequestMarshaller();
@@ -1483,6 +1697,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  TestRenderTemplate
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the TestRenderTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the TestRenderTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/TestRenderTemplate">REST API Reference for TestRenderTemplate Operation</seealso>
+        public virtual void TestRenderTemplateAsync(TestRenderTemplateRequest request, AmazonServiceCallback<TestRenderTemplateRequest, TestRenderTemplateResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new TestRenderTemplateRequestMarshaller();
+            var unmarshaller = TestRenderTemplateResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<TestRenderTemplateRequest,TestRenderTemplateResponse> responseObject 
+                            = new AmazonServiceResult<TestRenderTemplateRequest,TestRenderTemplateResponse>((TestRenderTemplateRequest)req, (TestRenderTemplateResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<TestRenderTemplateRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  UpdateConfigurationSetEventDestination
 
         /// <summary>
@@ -1494,7 +1736,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetEventDestination">REST API Reference for UpdateConfigurationSetEventDestination Operation</seealso>
-        public void UpdateConfigurationSetEventDestinationAsync(UpdateConfigurationSetEventDestinationRequest request, AmazonServiceCallback<UpdateConfigurationSetEventDestinationRequest, UpdateConfigurationSetEventDestinationResponse> callback, AsyncOptions options = null)
+        public virtual void UpdateConfigurationSetEventDestinationAsync(UpdateConfigurationSetEventDestinationRequest request, AmazonServiceCallback<UpdateConfigurationSetEventDestinationRequest, UpdateConfigurationSetEventDestinationResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new UpdateConfigurationSetEventDestinationRequestMarshaller();
@@ -1511,6 +1753,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  UpdateConfigurationSetTrackingOptions
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateConfigurationSetTrackingOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConfigurationSetTrackingOptions operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetTrackingOptions">REST API Reference for UpdateConfigurationSetTrackingOptions Operation</seealso>
+        public virtual void UpdateConfigurationSetTrackingOptionsAsync(UpdateConfigurationSetTrackingOptionsRequest request, AmazonServiceCallback<UpdateConfigurationSetTrackingOptionsRequest, UpdateConfigurationSetTrackingOptionsResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new UpdateConfigurationSetTrackingOptionsRequestMarshaller();
+            var unmarshaller = UpdateConfigurationSetTrackingOptionsResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<UpdateConfigurationSetTrackingOptionsRequest,UpdateConfigurationSetTrackingOptionsResponse> responseObject 
+                            = new AmazonServiceResult<UpdateConfigurationSetTrackingOptionsRequest,UpdateConfigurationSetTrackingOptionsResponse>((UpdateConfigurationSetTrackingOptionsRequest)req, (UpdateConfigurationSetTrackingOptionsResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<UpdateConfigurationSetTrackingOptionsRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  UpdateReceiptRule
 
         /// <summary>
@@ -1522,7 +1792,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateReceiptRule">REST API Reference for UpdateReceiptRule Operation</seealso>
-        public void UpdateReceiptRuleAsync(UpdateReceiptRuleRequest request, AmazonServiceCallback<UpdateReceiptRuleRequest, UpdateReceiptRuleResponse> callback, AsyncOptions options = null)
+        public virtual void UpdateReceiptRuleAsync(UpdateReceiptRuleRequest request, AmazonServiceCallback<UpdateReceiptRuleRequest, UpdateReceiptRuleResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new UpdateReceiptRuleRequestMarshaller();
@@ -1539,6 +1809,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  UpdateTemplate
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateTemplate">REST API Reference for UpdateTemplate Operation</seealso>
+        public virtual void UpdateTemplateAsync(UpdateTemplateRequest request, AmazonServiceCallback<UpdateTemplateRequest, UpdateTemplateResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new UpdateTemplateRequestMarshaller();
+            var unmarshaller = UpdateTemplateResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<UpdateTemplateRequest,UpdateTemplateResponse> responseObject 
+                            = new AmazonServiceResult<UpdateTemplateRequest,UpdateTemplateResponse>((UpdateTemplateRequest)req, (UpdateTemplateResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<UpdateTemplateRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  VerifyDomainDkim
 
         /// <summary>
@@ -1550,7 +1848,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyDomainDkim">REST API Reference for VerifyDomainDkim Operation</seealso>
-        public void VerifyDomainDkimAsync(VerifyDomainDkimRequest request, AmazonServiceCallback<VerifyDomainDkimRequest, VerifyDomainDkimResponse> callback, AsyncOptions options = null)
+        public virtual void VerifyDomainDkimAsync(VerifyDomainDkimRequest request, AmazonServiceCallback<VerifyDomainDkimRequest, VerifyDomainDkimResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new VerifyDomainDkimRequestMarshaller();
@@ -1578,7 +1876,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyDomainIdentity">REST API Reference for VerifyDomainIdentity Operation</seealso>
-        public void VerifyDomainIdentityAsync(VerifyDomainIdentityRequest request, AmazonServiceCallback<VerifyDomainIdentityRequest, VerifyDomainIdentityResponse> callback, AsyncOptions options = null)
+        public virtual void VerifyDomainIdentityAsync(VerifyDomainIdentityRequest request, AmazonServiceCallback<VerifyDomainIdentityRequest, VerifyDomainIdentityResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new VerifyDomainIdentityRequestMarshaller();
@@ -1606,7 +1904,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyEmailAddress">REST API Reference for VerifyEmailAddress Operation</seealso>
-        public void VerifyEmailAddressAsync(VerifyEmailAddressRequest request, AmazonServiceCallback<VerifyEmailAddressRequest, VerifyEmailAddressResponse> callback, AsyncOptions options = null)
+        public virtual void VerifyEmailAddressAsync(VerifyEmailAddressRequest request, AmazonServiceCallback<VerifyEmailAddressRequest, VerifyEmailAddressResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new VerifyEmailAddressRequestMarshaller();
@@ -1634,7 +1932,7 @@ namespace Amazon.SimpleEmail
         /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
         ///          procedure using the AsyncState property.</param>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyEmailIdentity">REST API Reference for VerifyEmailIdentity Operation</seealso>
-        public void VerifyEmailIdentityAsync(VerifyEmailIdentityRequest request, AmazonServiceCallback<VerifyEmailIdentityRequest, VerifyEmailIdentityResponse> callback, AsyncOptions options = null)
+        public virtual void VerifyEmailIdentityAsync(VerifyEmailIdentityRequest request, AmazonServiceCallback<VerifyEmailIdentityRequest, VerifyEmailIdentityResponse> callback, AsyncOptions options = null)
         {
             options = options == null?new AsyncOptions():options;
             var marshaller = new VerifyEmailIdentityRequestMarshaller();

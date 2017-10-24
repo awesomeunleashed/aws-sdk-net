@@ -43,6 +43,22 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Json")]
         [TestCategory("CloudWatchLogs")]
+        public void AssociateKmsKeyMarshallTest()
+        {
+            var request = InstantiateClassGenerator.Execute<AssociateKmsKeyRequest>();
+            var marshaller = new AssociateKmsKeyRequestMarshaller();
+
+            var internalRequest = marshaller.Marshall(request);
+            var jsonRequest = UTF8Encoding.UTF8.GetString(internalRequest.Content);                        
+            Comparer.CompareObjectToJson<AssociateKmsKeyRequest>(request,jsonRequest);
+
+        }
+
+        
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Json")]
+        [TestCategory("CloudWatchLogs")]
         public void CancelExportTaskMarshallTest()
         {
             var request = InstantiateClassGenerator.Execute<CancelExportTaskRequest>();
@@ -176,6 +192,22 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var internalRequest = marshaller.Marshall(request);
             var jsonRequest = UTF8Encoding.UTF8.GetString(internalRequest.Content);                        
             Comparer.CompareObjectToJson<DeleteMetricFilterRequest>(request,jsonRequest);
+
+        }
+
+        
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Json")]
+        [TestCategory("CloudWatchLogs")]
+        public void DeleteResourcePolicyMarshallTest()
+        {
+            var request = InstantiateClassGenerator.Execute<DeleteResourcePolicyRequest>();
+            var marshaller = new DeleteResourcePolicyRequestMarshaller();
+
+            var internalRequest = marshaller.Marshall(request);
+            var jsonRequest = UTF8Encoding.UTF8.GetString(internalRequest.Content);                        
+            Comparer.CompareObjectToJson<DeleteResourcePolicyRequest>(request,jsonRequest);
 
         }
 
@@ -361,6 +393,35 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Json")]
         [TestCategory("CloudWatchLogs")]
+        public void DescribeResourcePoliciesMarshallTest()
+        {
+            var request = InstantiateClassGenerator.Execute<DescribeResourcePoliciesRequest>();
+            var marshaller = new DescribeResourcePoliciesRequestMarshaller();
+
+            var internalRequest = marshaller.Marshall(request);
+            var jsonRequest = UTF8Encoding.UTF8.GetString(internalRequest.Content);                        
+            Comparer.CompareObjectToJson<DescribeResourcePoliciesRequest>(request,jsonRequest);
+
+            var webResponse = new WebResponseData
+            {
+                Headers = {
+                    {"x-amzn-RequestId", Guid.NewGuid().ToString()},
+                    {"x-amz-crc32","0"}
+                }
+            };
+            var jsonResponse = new JsonSampleGenerator(service_model, service_model.FindOperation("DescribeResourcePolicies").ResponseStructure).Execute();
+            webResponse.Headers.Add("Content-Length", UTF8Encoding.UTF8.GetBytes(jsonResponse).Length.ToString());
+            UnmarshallerContext context = new JsonUnmarshallerContext(Utils.CreateStreamFromString(jsonResponse), false, webResponse);
+            var response = DescribeResourcePoliciesResponseUnmarshaller.Instance.Unmarshall(context)
+                as DescribeResourcePoliciesResponse;
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Json")]
+        [TestCategory("CloudWatchLogs")]
         public void DescribeSubscriptionFiltersMarshallTest()
         {
             var request = InstantiateClassGenerator.Execute<DescribeSubscriptionFiltersRequest>();
@@ -383,6 +444,22 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var response = DescribeSubscriptionFiltersResponseUnmarshaller.Instance.Unmarshall(context)
                 as DescribeSubscriptionFiltersResponse;
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
+        }
+
+        
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Json")]
+        [TestCategory("CloudWatchLogs")]
+        public void DisassociateKmsKeyMarshallTest()
+        {
+            var request = InstantiateClassGenerator.Execute<DisassociateKmsKeyRequest>();
+            var marshaller = new DisassociateKmsKeyRequestMarshaller();
+
+            var internalRequest = marshaller.Marshall(request);
+            var jsonRequest = UTF8Encoding.UTF8.GetString(internalRequest.Content);                        
+            Comparer.CompareObjectToJson<DisassociateKmsKeyRequest>(request,jsonRequest);
+
         }
 
         
@@ -560,6 +637,35 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var jsonRequest = UTF8Encoding.UTF8.GetString(internalRequest.Content);                        
             Comparer.CompareObjectToJson<PutMetricFilterRequest>(request,jsonRequest);
 
+        }
+
+        
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Json")]
+        [TestCategory("CloudWatchLogs")]
+        public void PutResourcePolicyMarshallTest()
+        {
+            var request = InstantiateClassGenerator.Execute<PutResourcePolicyRequest>();
+            var marshaller = new PutResourcePolicyRequestMarshaller();
+
+            var internalRequest = marshaller.Marshall(request);
+            var jsonRequest = UTF8Encoding.UTF8.GetString(internalRequest.Content);                        
+            Comparer.CompareObjectToJson<PutResourcePolicyRequest>(request,jsonRequest);
+
+            var webResponse = new WebResponseData
+            {
+                Headers = {
+                    {"x-amzn-RequestId", Guid.NewGuid().ToString()},
+                    {"x-amz-crc32","0"}
+                }
+            };
+            var jsonResponse = new JsonSampleGenerator(service_model, service_model.FindOperation("PutResourcePolicy").ResponseStructure).Execute();
+            webResponse.Headers.Add("Content-Length", UTF8Encoding.UTF8.GetBytes(jsonResponse).Length.ToString());
+            UnmarshallerContext context = new JsonUnmarshallerContext(Utils.CreateStreamFromString(jsonResponse), false, webResponse);
+            var response = PutResourcePolicyResponseUnmarshaller.Instance.Unmarshall(context)
+                as PutResourcePolicyResponse;
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);
         }
 
         

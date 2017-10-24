@@ -67,6 +67,12 @@ namespace Amazon.CloudWatchLogs.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetKmsKeyId())
+                {
+                    context.Writer.WritePropertyName("kmsKeyId");
+                    context.Writer.Write(publicRequest.KmsKeyId);
+                }
+
                 if(publicRequest.IsSetLogGroupName())
                 {
                     context.Writer.WritePropertyName("logGroupName");

@@ -41,6 +41,7 @@ namespace Amazon.AppStream.Model
         private DomainJoinInfo _domainJoinInfo;
         private bool? _enableDefaultInternetAccess;
         private List<FleetError> _fleetErrors = new List<FleetError>();
+        private FleetType _fleetType;
         private string _imageName;
         private string _instanceType;
         private int? _maxUserDurationInSeconds;
@@ -69,7 +70,7 @@ namespace Amazon.AppStream.Model
         /// <summary>
         /// Gets and sets the property ComputeCapacityStatus. 
         /// <para>
-        /// The capacity information for the fleet.
+        /// The capacity status for the fleet.
         /// </para>
         /// </summary>
         public ComputeCapacityStatus ComputeCapacityStatus
@@ -87,7 +88,7 @@ namespace Amazon.AppStream.Model
         /// <summary>
         /// Gets and sets the property CreatedTime. 
         /// <para>
-        /// The time at which the fleet was created.
+        /// The time the fleet was created.
         /// </para>
         /// </summary>
         public DateTime CreatedTime
@@ -105,7 +106,7 @@ namespace Amazon.AppStream.Model
         /// <summary>
         /// Gets and sets the property Description. 
         /// <para>
-        /// The description displayed to end users on the AppStream 2.0 portal.
+        /// The description displayed to end users.
         /// </para>
         /// </summary>
         public string Description
@@ -123,10 +124,9 @@ namespace Amazon.AppStream.Model
         /// <summary>
         /// Gets and sets the property DisconnectTimeoutInSeconds. 
         /// <para>
-        /// The time after disconnection when a session is considered to have ended. If a user
-        /// who got disconnected reconnects within this timeout interval, the user is connected
-        /// back to their previous session. The input can be any numeric value in seconds between
-        /// 60 and 57600.
+        /// The time after disconnection when a session is considered to have ended, in seconds.
+        /// If a user who was disconnected reconnects within this time interval, the user is connected
+        /// to their previous session. Specify a value between 60 and 57600.
         /// </para>
         /// </summary>
         public int DisconnectTimeoutInSeconds
@@ -144,7 +144,7 @@ namespace Amazon.AppStream.Model
         /// <summary>
         /// Gets and sets the property DisplayName. 
         /// <para>
-        /// The name displayed to end users on the AppStream 2.0 portal.
+        /// The fleet name displayed to end users.
         /// </para>
         /// </summary>
         public string DisplayName
@@ -162,8 +162,7 @@ namespace Amazon.AppStream.Model
         /// <summary>
         /// Gets and sets the property DomainJoinInfo. 
         /// <para>
-        /// The <i>DirectoryName</i> and <i>OrganizationalUnitDistinguishedName</i> values, which
-        /// are used to join domains for the AppStream 2.0 streaming instances.
+        /// The information needed for streaming instances to join a domain.
         /// </para>
         /// </summary>
         public DomainJoinInfo DomainJoinInfo
@@ -181,7 +180,7 @@ namespace Amazon.AppStream.Model
         /// <summary>
         /// Gets and sets the property EnableDefaultInternetAccess. 
         /// <para>
-        /// Whether default internet access is enabled for the fleet. 
+        /// Indicates whether default internet access is enabled for the fleet.
         /// </para>
         /// </summary>
         public bool EnableDefaultInternetAccess
@@ -199,7 +198,7 @@ namespace Amazon.AppStream.Model
         /// <summary>
         /// Gets and sets the property FleetErrors. 
         /// <para>
-        /// The list of fleet errors is appended to this list.
+        /// The fleet errors.
         /// </para>
         /// </summary>
         public List<FleetError> FleetErrors
@@ -212,6 +211,21 @@ namespace Amazon.AppStream.Model
         internal bool IsSetFleetErrors()
         {
             return this._fleetErrors != null && this._fleetErrors.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property FleetType.
+        /// </summary>
+        public FleetType FleetType
+        {
+            get { return this._fleetType; }
+            set { this._fleetType = value; }
+        }
+
+        // Check to see if FleetType property is set
+        internal bool IsSetFleetType()
+        {
+            return this._fleetType != null;
         }
 
         /// <summary>
@@ -235,8 +249,7 @@ namespace Amazon.AppStream.Model
         /// <summary>
         /// Gets and sets the property InstanceType. 
         /// <para>
-        /// The instance type of compute resources for the fleet. The fleet instances are launched
-        /// from this instance type. 
+        /// The instance type to use when launching fleet instances.
         /// </para>
         /// </summary>
         public string InstanceType
@@ -254,8 +267,8 @@ namespace Amazon.AppStream.Model
         /// <summary>
         /// Gets and sets the property MaxUserDurationInSeconds. 
         /// <para>
-        /// The maximum time for which a streaming session can run. The value can be any numeric
-        /// value in seconds between 600 and 57600.
+        /// The maximum time that a streaming session can run, in seconds. Specify a value between
+        /// 600 and 57600.
         /// </para>
         /// </summary>
         public int MaxUserDurationInSeconds

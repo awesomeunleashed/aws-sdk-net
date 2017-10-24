@@ -29,9 +29,8 @@ namespace Amazon.EC2.Model
 {
     /// <summary>
     /// Container for the parameters to the RevokeSecurityGroupIngress operation.
-    /// Removes one or more ingress rules from a security group. The values that you specify
-    /// in the revoke request (for example, ports) must match the existing rule's values for
-    /// the rule to be removed.
+    /// Removes one or more ingress rules from a security group. To remove a rule, the values
+    /// that you specify (for example, ports) must match the existing rule's values exactly.
     /// 
     ///  <note> 
     /// <para>
@@ -43,7 +42,9 @@ namespace Amazon.EC2.Model
     /// <para>
     /// Each rule consists of the protocol and the CIDR range or source security group. For
     /// the TCP and UDP protocols, you must also specify the destination port or range of
-    /// ports. For the ICMP protocol, you must also specify the ICMP type and code.
+    /// ports. For the ICMP protocol, you must also specify the ICMP type and code. If the
+    /// security group rule has a description, you do not have to specify the description
+    /// to revoke the rule.
     /// </para>
     ///  
     /// <para>
@@ -65,8 +66,8 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Instantiates RevokeSecurityGroupIngressRequest with the parameterized properties
         /// </summary>
-        /// <param name="groupName">[EC2-Classic, default VPC] The name of the security group.</param>
-        /// <param name="ipPermissions">A set of IP permissions. You can't specify a source security group and a CIDR IP address range.</param>
+        /// <param name="groupName">[EC2-Classic, default VPC] The name of the security group. You must specify either the security group ID or the security group name in the request.</param>
+        /// <param name="ipPermissions">One or more sets of IP permissions. You can't specify a source security group and a CIDR IP address range in the same set of permissions.</param>
         public RevokeSecurityGroupIngressRequest(string groupName, List<IpPermission> ipPermissions)
         {
             _groupName = groupName;
@@ -76,7 +77,9 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property GroupId. 
         /// <para>
-        /// The ID of the security group. Required for a security group in a nondefault VPC.
+        /// The ID of the security group. You must specify either the security group ID or the
+        /// security group name in the request. For security groups in a nondefault VPC, you must
+        /// specify the security group ID.
         /// </para>
         /// </summary>
         public string GroupId
@@ -94,7 +97,8 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property GroupName. 
         /// <para>
-        /// [EC2-Classic, default VPC] The name of the security group.
+        /// [EC2-Classic, default VPC] The name of the security group. You must specify either
+        /// the security group ID or the security group name in the request.
         /// </para>
         /// </summary>
         public string GroupName
@@ -112,8 +116,8 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property IpPermissions. 
         /// <para>
-        /// A set of IP permissions. You can't specify a source security group and a CIDR IP address
-        /// range.
+        /// One or more sets of IP permissions. You can't specify a source security group and
+        /// a CIDR IP address range in the same set of permissions.
         /// </para>
         /// </summary>
         public List<IpPermission> IpPermissions

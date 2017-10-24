@@ -30,11 +30,6 @@ namespace Amazon.CloudWatchLogs.Model
     /// <summary>
     /// Container for the parameters to the ListTagsLogGroup operation.
     /// Lists the tags for the specified log group.
-    /// 
-    ///  
-    /// <para>
-    /// To add tags, use <a>TagLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.
-    /// </para>
     /// </summary>
     public partial class ListTagsLogGroupRequest : AmazonCloudWatchLogsRequest
     {

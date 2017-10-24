@@ -33,7 +33,21 @@ namespace Amazon.CloudHSM
     /// <summary>
     /// Implementation for accessing CloudHSM
     ///
-    /// AWS CloudHSM Service
+    /// AWS CloudHSM Service 
+    /// <para>
+    /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+    /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+    /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+    /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+    /// CloudHSM Classic API Reference</a>.
+    /// </para>
+    ///  
+    /// <para>
+    ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+    /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+    /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+    /// CloudHSM API Reference</a>.
+    /// </para>
     /// </summary>
     public partial class AmazonCloudHSMClient : AmazonServiceClient, IAmazonCloudHSM
     {
@@ -226,8 +240,23 @@ namespace Amazon.CloudHSM
         #region  AddTagsToResource
 
         /// <summary>
-        /// Adds or overwrites one or more tags for the specified AWS CloudHSM resource.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Adds or overwrites one or more tags for the specified AWS CloudHSM resource.
+        /// </para>
         ///  
         /// <para>
         /// Each tag consists of a key and a value. Tag keys must be unique to each resource.
@@ -246,7 +275,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/AddTagsToResource">REST API Reference for AddTagsToResource Operation</seealso>
-        public AddTagsToResourceResponse AddTagsToResource(AddTagsToResourceRequest request)
+        public virtual AddTagsToResourceResponse AddTagsToResource(AddTagsToResourceRequest request)
         {
             var marshaller = new AddTagsToResourceRequestMarshaller();
             var unmarshaller = AddTagsToResourceResponseUnmarshaller.Instance;
@@ -266,7 +295,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAddTagsToResource
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/AddTagsToResource">REST API Reference for AddTagsToResource Operation</seealso>
-        public IAsyncResult BeginAddTagsToResource(AddTagsToResourceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAddTagsToResource(AddTagsToResourceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AddTagsToResourceRequestMarshaller();
             var unmarshaller = AddTagsToResourceResponseUnmarshaller.Instance;
@@ -283,7 +312,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  AddTagsToResourceResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/AddTagsToResource">REST API Reference for AddTagsToResource Operation</seealso>
-        public  AddTagsToResourceResponse EndAddTagsToResource(IAsyncResult asyncResult)
+        public virtual AddTagsToResourceResponse EndAddTagsToResource(IAsyncResult asyncResult)
         {
             return EndInvoke<AddTagsToResourceResponse>(asyncResult);
         }
@@ -293,8 +322,24 @@ namespace Amazon.CloudHSM
         #region  CreateHapg
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Creates a high-availability partition group. A high-availability partition group is
         /// a group of partitions that spans multiple physical HSMs.
+        /// </para>
         /// </summary>
         /// <param name="label">The label of the new high-availability partition group.</param>
         /// 
@@ -309,7 +354,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/CreateHapg">REST API Reference for CreateHapg Operation</seealso>
-        public CreateHapgResponse CreateHapg(string label)
+        public virtual CreateHapgResponse CreateHapg(string label)
         {
             var request = new CreateHapgRequest();
             request.Label = label;
@@ -318,8 +363,24 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Creates a high-availability partition group. A high-availability partition group is
         /// a group of partitions that spans multiple physical HSMs.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateHapg service method.</param>
         /// 
@@ -334,7 +395,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/CreateHapg">REST API Reference for CreateHapg Operation</seealso>
-        public CreateHapgResponse CreateHapg(CreateHapgRequest request)
+        public virtual CreateHapgResponse CreateHapg(CreateHapgRequest request)
         {
             var marshaller = new CreateHapgRequestMarshaller();
             var unmarshaller = CreateHapgResponseUnmarshaller.Instance;
@@ -354,7 +415,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateHapg
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/CreateHapg">REST API Reference for CreateHapg Operation</seealso>
-        public IAsyncResult BeginCreateHapg(CreateHapgRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateHapg(CreateHapgRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateHapgRequestMarshaller();
             var unmarshaller = CreateHapgResponseUnmarshaller.Instance;
@@ -371,7 +432,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  CreateHapgResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/CreateHapg">REST API Reference for CreateHapg Operation</seealso>
-        public  CreateHapgResponse EndCreateHapg(IAsyncResult asyncResult)
+        public virtual CreateHapgResponse EndCreateHapg(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateHapgResponse>(asyncResult);
         }
@@ -381,13 +442,28 @@ namespace Amazon.CloudHSM
         #region  CreateHsm
 
         /// <summary>
-        /// Creates an uninitialized HSM instance.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
         ///  
         /// <para>
-        /// There is an upfront fee charged for each HSM instance that you create with the <a>CreateHsm</a>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Creates an uninitialized HSM instance.
+        /// </para>
+        ///  
+        /// <para>
+        /// There is an upfront fee charged for each HSM instance that you create with the <code>CreateHsm</code>
         /// operation. If you accidentally provision an HSM and want to request a refund, delete
-        /// the instance using the <a>DeleteHsm</a> operation, go to the <a href="https://console.aws.amazon.com/support/home#/">AWS
+        /// the instance using the <a>DeleteHsm</a> operation, go to the <a href="https://console.aws.amazon.com/support/home">AWS
         /// Support Center</a>, create a new case, and select <b>Account and Billing Support</b>.
         /// </para>
         ///  <important> 
@@ -411,7 +487,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/CreateHsm">REST API Reference for CreateHsm Operation</seealso>
-        public CreateHsmResponse CreateHsm(CreateHsmRequest request)
+        public virtual CreateHsmResponse CreateHsm(CreateHsmRequest request)
         {
             var marshaller = new CreateHsmRequestMarshaller();
             var unmarshaller = CreateHsmResponseUnmarshaller.Instance;
@@ -431,7 +507,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateHsm
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/CreateHsm">REST API Reference for CreateHsm Operation</seealso>
-        public IAsyncResult BeginCreateHsm(CreateHsmRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateHsm(CreateHsmRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateHsmRequestMarshaller();
             var unmarshaller = CreateHsmResponseUnmarshaller.Instance;
@@ -448,7 +524,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  CreateHsmResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/CreateHsm">REST API Reference for CreateHsm Operation</seealso>
-        public  CreateHsmResponse EndCreateHsm(IAsyncResult asyncResult)
+        public virtual CreateHsmResponse EndCreateHsm(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateHsmResponse>(asyncResult);
         }
@@ -458,7 +534,23 @@ namespace Amazon.CloudHSM
         #region  CreateLunaClient
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Creates an HSM client.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLunaClient service method.</param>
         /// 
@@ -473,7 +565,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/CreateLunaClient">REST API Reference for CreateLunaClient Operation</seealso>
-        public CreateLunaClientResponse CreateLunaClient(CreateLunaClientRequest request)
+        public virtual CreateLunaClientResponse CreateLunaClient(CreateLunaClientRequest request)
         {
             var marshaller = new CreateLunaClientRequestMarshaller();
             var unmarshaller = CreateLunaClientResponseUnmarshaller.Instance;
@@ -493,7 +585,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateLunaClient
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/CreateLunaClient">REST API Reference for CreateLunaClient Operation</seealso>
-        public IAsyncResult BeginCreateLunaClient(CreateLunaClientRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateLunaClient(CreateLunaClientRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateLunaClientRequestMarshaller();
             var unmarshaller = CreateLunaClientResponseUnmarshaller.Instance;
@@ -510,7 +602,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  CreateLunaClientResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/CreateLunaClient">REST API Reference for CreateLunaClient Operation</seealso>
-        public  CreateLunaClientResponse EndCreateLunaClient(IAsyncResult asyncResult)
+        public virtual CreateLunaClientResponse EndCreateLunaClient(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateLunaClientResponse>(asyncResult);
         }
@@ -520,7 +612,23 @@ namespace Amazon.CloudHSM
         #region  DeleteHapg
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Deletes a high-availability partition group.
+        /// </para>
         /// </summary>
         /// <param name="hapgArn">The ARN of the high-availability partition group to delete.</param>
         /// 
@@ -535,7 +643,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteHapg">REST API Reference for DeleteHapg Operation</seealso>
-        public DeleteHapgResponse DeleteHapg(string hapgArn)
+        public virtual DeleteHapgResponse DeleteHapg(string hapgArn)
         {
             var request = new DeleteHapgRequest();
             request.HapgArn = hapgArn;
@@ -544,7 +652,23 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Deletes a high-availability partition group.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteHapg service method.</param>
         /// 
@@ -559,7 +683,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteHapg">REST API Reference for DeleteHapg Operation</seealso>
-        public DeleteHapgResponse DeleteHapg(DeleteHapgRequest request)
+        public virtual DeleteHapgResponse DeleteHapg(DeleteHapgRequest request)
         {
             var marshaller = new DeleteHapgRequestMarshaller();
             var unmarshaller = DeleteHapgResponseUnmarshaller.Instance;
@@ -579,7 +703,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteHapg
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteHapg">REST API Reference for DeleteHapg Operation</seealso>
-        public IAsyncResult BeginDeleteHapg(DeleteHapgRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteHapg(DeleteHapgRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteHapgRequestMarshaller();
             var unmarshaller = DeleteHapgResponseUnmarshaller.Instance;
@@ -596,7 +720,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  DeleteHapgResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteHapg">REST API Reference for DeleteHapg Operation</seealso>
-        public  DeleteHapgResponse EndDeleteHapg(IAsyncResult asyncResult)
+        public virtual DeleteHapgResponse EndDeleteHapg(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteHapgResponse>(asyncResult);
         }
@@ -606,8 +730,24 @@ namespace Amazon.CloudHSM
         #region  DeleteHsm
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Deletes an HSM. After completion, this operation cannot be undone and your key material
         /// cannot be recovered.
+        /// </para>
         /// </summary>
         /// <param name="hsmArn">The ARN of the HSM to delete.</param>
         /// 
@@ -622,7 +762,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteHsm">REST API Reference for DeleteHsm Operation</seealso>
-        public DeleteHsmResponse DeleteHsm(string hsmArn)
+        public virtual DeleteHsmResponse DeleteHsm(string hsmArn)
         {
             var request = new DeleteHsmRequest();
             request.HsmArn = hsmArn;
@@ -631,8 +771,24 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Deletes an HSM. After completion, this operation cannot be undone and your key material
         /// cannot be recovered.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteHsm service method.</param>
         /// 
@@ -647,7 +803,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteHsm">REST API Reference for DeleteHsm Operation</seealso>
-        public DeleteHsmResponse DeleteHsm(DeleteHsmRequest request)
+        public virtual DeleteHsmResponse DeleteHsm(DeleteHsmRequest request)
         {
             var marshaller = new DeleteHsmRequestMarshaller();
             var unmarshaller = DeleteHsmResponseUnmarshaller.Instance;
@@ -667,7 +823,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteHsm
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteHsm">REST API Reference for DeleteHsm Operation</seealso>
-        public IAsyncResult BeginDeleteHsm(DeleteHsmRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteHsm(DeleteHsmRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteHsmRequestMarshaller();
             var unmarshaller = DeleteHsmResponseUnmarshaller.Instance;
@@ -684,7 +840,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  DeleteHsmResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteHsm">REST API Reference for DeleteHsm Operation</seealso>
-        public  DeleteHsmResponse EndDeleteHsm(IAsyncResult asyncResult)
+        public virtual DeleteHsmResponse EndDeleteHsm(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteHsmResponse>(asyncResult);
         }
@@ -694,7 +850,23 @@ namespace Amazon.CloudHSM
         #region  DeleteLunaClient
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Deletes a client.
+        /// </para>
         /// </summary>
         /// <param name="clientArn">The ARN of the client to delete.</param>
         /// 
@@ -709,7 +881,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteLunaClient">REST API Reference for DeleteLunaClient Operation</seealso>
-        public DeleteLunaClientResponse DeleteLunaClient(string clientArn)
+        public virtual DeleteLunaClientResponse DeleteLunaClient(string clientArn)
         {
             var request = new DeleteLunaClientRequest();
             request.ClientArn = clientArn;
@@ -718,7 +890,23 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Deletes a client.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteLunaClient service method.</param>
         /// 
@@ -733,7 +921,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteLunaClient">REST API Reference for DeleteLunaClient Operation</seealso>
-        public DeleteLunaClientResponse DeleteLunaClient(DeleteLunaClientRequest request)
+        public virtual DeleteLunaClientResponse DeleteLunaClient(DeleteLunaClientRequest request)
         {
             var marshaller = new DeleteLunaClientRequestMarshaller();
             var unmarshaller = DeleteLunaClientResponseUnmarshaller.Instance;
@@ -753,7 +941,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteLunaClient
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteLunaClient">REST API Reference for DeleteLunaClient Operation</seealso>
-        public IAsyncResult BeginDeleteLunaClient(DeleteLunaClientRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteLunaClient(DeleteLunaClientRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteLunaClientRequestMarshaller();
             var unmarshaller = DeleteLunaClientResponseUnmarshaller.Instance;
@@ -770,7 +958,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  DeleteLunaClientResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DeleteLunaClient">REST API Reference for DeleteLunaClient Operation</seealso>
-        public  DeleteLunaClientResponse EndDeleteLunaClient(IAsyncResult asyncResult)
+        public virtual DeleteLunaClientResponse EndDeleteLunaClient(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteLunaClientResponse>(asyncResult);
         }
@@ -780,7 +968,23 @@ namespace Amazon.CloudHSM
         #region  DescribeHapg
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Retrieves information about a high-availability partition group.
+        /// </para>
         /// </summary>
         /// <param name="hapgArn">The ARN of the high-availability partition group to describe.</param>
         /// 
@@ -795,7 +999,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DescribeHapg">REST API Reference for DescribeHapg Operation</seealso>
-        public DescribeHapgResponse DescribeHapg(string hapgArn)
+        public virtual DescribeHapgResponse DescribeHapg(string hapgArn)
         {
             var request = new DescribeHapgRequest();
             request.HapgArn = hapgArn;
@@ -804,7 +1008,23 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Retrieves information about a high-availability partition group.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeHapg service method.</param>
         /// 
@@ -819,7 +1039,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DescribeHapg">REST API Reference for DescribeHapg Operation</seealso>
-        public DescribeHapgResponse DescribeHapg(DescribeHapgRequest request)
+        public virtual DescribeHapgResponse DescribeHapg(DescribeHapgRequest request)
         {
             var marshaller = new DescribeHapgRequestMarshaller();
             var unmarshaller = DescribeHapgResponseUnmarshaller.Instance;
@@ -839,7 +1059,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeHapg
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DescribeHapg">REST API Reference for DescribeHapg Operation</seealso>
-        public IAsyncResult BeginDescribeHapg(DescribeHapgRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeHapg(DescribeHapgRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeHapgRequestMarshaller();
             var unmarshaller = DescribeHapgResponseUnmarshaller.Instance;
@@ -856,7 +1076,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  DescribeHapgResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DescribeHapg">REST API Reference for DescribeHapg Operation</seealso>
-        public  DescribeHapgResponse EndDescribeHapg(IAsyncResult asyncResult)
+        public virtual DescribeHapgResponse EndDescribeHapg(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeHapgResponse>(asyncResult);
         }
@@ -866,10 +1086,26 @@ namespace Amazon.CloudHSM
         #region  DescribeHsm
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Retrieves information about an HSM. You can identify the HSM by its ARN or its serial
         /// number.
+        /// </para>
         /// </summary>
-        /// <param name="hsmArn">The ARN of the HSM. Either the <i>HsmArn</i> or the <i>SerialNumber</i> parameter must be specified.</param>
+        /// <param name="hsmArn">The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code> parameter must be specified.</param>
         /// 
         /// <returns>The response from the DescribeHsm service method, as returned by CloudHSM.</returns>
         /// <exception cref="Amazon.CloudHSM.Model.CloudHsmInternalException">
@@ -882,7 +1118,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DescribeHsm">REST API Reference for DescribeHsm Operation</seealso>
-        public DescribeHsmResponse DescribeHsm(string hsmArn)
+        public virtual DescribeHsmResponse DescribeHsm(string hsmArn)
         {
             var request = new DescribeHsmRequest();
             request.HsmArn = hsmArn;
@@ -891,8 +1127,24 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Retrieves information about an HSM. You can identify the HSM by its ARN or its serial
         /// number.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeHsm service method.</param>
         /// 
@@ -907,7 +1159,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DescribeHsm">REST API Reference for DescribeHsm Operation</seealso>
-        public DescribeHsmResponse DescribeHsm(DescribeHsmRequest request)
+        public virtual DescribeHsmResponse DescribeHsm(DescribeHsmRequest request)
         {
             var marshaller = new DescribeHsmRequestMarshaller();
             var unmarshaller = DescribeHsmResponseUnmarshaller.Instance;
@@ -927,7 +1179,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeHsm
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DescribeHsm">REST API Reference for DescribeHsm Operation</seealso>
-        public IAsyncResult BeginDescribeHsm(DescribeHsmRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeHsm(DescribeHsmRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeHsmRequestMarshaller();
             var unmarshaller = DescribeHsmResponseUnmarshaller.Instance;
@@ -944,7 +1196,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  DescribeHsmResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DescribeHsm">REST API Reference for DescribeHsm Operation</seealso>
-        public  DescribeHsmResponse EndDescribeHsm(IAsyncResult asyncResult)
+        public virtual DescribeHsmResponse EndDescribeHsm(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeHsmResponse>(asyncResult);
         }
@@ -954,7 +1206,23 @@ namespace Amazon.CloudHSM
         #region  DescribeLunaClient
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Retrieves information about an HSM client.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLunaClient service method.</param>
         /// 
@@ -969,7 +1237,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DescribeLunaClient">REST API Reference for DescribeLunaClient Operation</seealso>
-        public DescribeLunaClientResponse DescribeLunaClient(DescribeLunaClientRequest request)
+        public virtual DescribeLunaClientResponse DescribeLunaClient(DescribeLunaClientRequest request)
         {
             var marshaller = new DescribeLunaClientRequestMarshaller();
             var unmarshaller = DescribeLunaClientResponseUnmarshaller.Instance;
@@ -989,7 +1257,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeLunaClient
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DescribeLunaClient">REST API Reference for DescribeLunaClient Operation</seealso>
-        public IAsyncResult BeginDescribeLunaClient(DescribeLunaClientRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeLunaClient(DescribeLunaClientRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeLunaClientRequestMarshaller();
             var unmarshaller = DescribeLunaClientResponseUnmarshaller.Instance;
@@ -1006,7 +1274,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  DescribeLunaClientResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/DescribeLunaClient">REST API Reference for DescribeLunaClient Operation</seealso>
-        public  DescribeLunaClientResponse EndDescribeLunaClient(IAsyncResult asyncResult)
+        public virtual DescribeLunaClientResponse EndDescribeLunaClient(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeLunaClientResponse>(asyncResult);
         }
@@ -1016,8 +1284,24 @@ namespace Amazon.CloudHSM
         #region  GetConfig
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Gets the configuration files necessary to connect to all high availability partition
         /// groups the client is associated with.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetConfig service method.</param>
         /// 
@@ -1032,7 +1316,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/GetConfig">REST API Reference for GetConfig Operation</seealso>
-        public GetConfigResponse GetConfig(GetConfigRequest request)
+        public virtual GetConfigResponse GetConfig(GetConfigRequest request)
         {
             var marshaller = new GetConfigRequestMarshaller();
             var unmarshaller = GetConfigResponseUnmarshaller.Instance;
@@ -1052,7 +1336,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetConfig
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/GetConfig">REST API Reference for GetConfig Operation</seealso>
-        public IAsyncResult BeginGetConfig(GetConfigRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginGetConfig(GetConfigRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new GetConfigRequestMarshaller();
             var unmarshaller = GetConfigResponseUnmarshaller.Instance;
@@ -1069,7 +1353,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  GetConfigResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/GetConfig">REST API Reference for GetConfig Operation</seealso>
-        public  GetConfigResponse EndGetConfig(IAsyncResult asyncResult)
+        public virtual GetConfigResponse EndGetConfig(IAsyncResult asyncResult)
         {
             return EndInvoke<GetConfigResponse>(asyncResult);
         }
@@ -1079,7 +1363,23 @@ namespace Amazon.CloudHSM
         #region  ListAvailableZones
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Lists the Availability Zones that have available AWS CloudHSM capacity.
+        /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the ListAvailableZones service method, as returned by CloudHSM.</returns>
@@ -1093,7 +1393,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListAvailableZones">REST API Reference for ListAvailableZones Operation</seealso>
-        public ListAvailableZonesResponse ListAvailableZones()
+        public virtual ListAvailableZonesResponse ListAvailableZones()
         {
             var request = new ListAvailableZonesRequest();
             return ListAvailableZones(request);
@@ -1101,7 +1401,23 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Lists the Availability Zones that have available AWS CloudHSM capacity.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListAvailableZones service method.</param>
         /// 
@@ -1116,7 +1432,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListAvailableZones">REST API Reference for ListAvailableZones Operation</seealso>
-        public ListAvailableZonesResponse ListAvailableZones(ListAvailableZonesRequest request)
+        public virtual ListAvailableZonesResponse ListAvailableZones(ListAvailableZonesRequest request)
         {
             var marshaller = new ListAvailableZonesRequestMarshaller();
             var unmarshaller = ListAvailableZonesResponseUnmarshaller.Instance;
@@ -1136,7 +1452,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListAvailableZones
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListAvailableZones">REST API Reference for ListAvailableZones Operation</seealso>
-        public IAsyncResult BeginListAvailableZones(ListAvailableZonesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListAvailableZones(ListAvailableZonesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListAvailableZonesRequestMarshaller();
             var unmarshaller = ListAvailableZonesResponseUnmarshaller.Instance;
@@ -1153,7 +1469,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  ListAvailableZonesResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListAvailableZones">REST API Reference for ListAvailableZones Operation</seealso>
-        public  ListAvailableZonesResponse EndListAvailableZones(IAsyncResult asyncResult)
+        public virtual ListAvailableZonesResponse EndListAvailableZones(IAsyncResult asyncResult)
         {
             return EndInvoke<ListAvailableZonesResponse>(asyncResult);
         }
@@ -1163,14 +1479,29 @@ namespace Amazon.CloudHSM
         #region  ListHapgs
 
         /// <summary>
-        /// Lists the high-availability partition groups for the account.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
         ///  
         /// <para>
-        /// This operation supports pagination with the use of the <i>NextToken</i> member. If
-        /// more results are available, the <i>NextToken</i> member of the response contains a
-        /// token that you pass in the next call to <a>ListHapgs</a> to retrieve the next set
-        /// of items.
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Lists the high-availability partition groups for the account.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation supports pagination with the use of the <code>NextToken</code> member.
+        /// If more results are available, the <code>NextToken</code> member of the response contains
+        /// a token that you pass in the next call to <code>ListHapgs</code> to retrieve the next
+        /// set of items.
         /// </para>
         /// </summary>
         /// 
@@ -1185,7 +1516,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListHapgs">REST API Reference for ListHapgs Operation</seealso>
-        public ListHapgsResponse ListHapgs()
+        public virtual ListHapgsResponse ListHapgs()
         {
             var request = new ListHapgsRequest();
             return ListHapgs(request);
@@ -1193,14 +1524,29 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
-        /// Lists the high-availability partition groups for the account.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
         ///  
         /// <para>
-        /// This operation supports pagination with the use of the <i>NextToken</i> member. If
-        /// more results are available, the <i>NextToken</i> member of the response contains a
-        /// token that you pass in the next call to <a>ListHapgs</a> to retrieve the next set
-        /// of items.
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Lists the high-availability partition groups for the account.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation supports pagination with the use of the <code>NextToken</code> member.
+        /// If more results are available, the <code>NextToken</code> member of the response contains
+        /// a token that you pass in the next call to <code>ListHapgs</code> to retrieve the next
+        /// set of items.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListHapgs service method.</param>
@@ -1216,7 +1562,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListHapgs">REST API Reference for ListHapgs Operation</seealso>
-        public ListHapgsResponse ListHapgs(ListHapgsRequest request)
+        public virtual ListHapgsResponse ListHapgs(ListHapgsRequest request)
         {
             var marshaller = new ListHapgsRequestMarshaller();
             var unmarshaller = ListHapgsResponseUnmarshaller.Instance;
@@ -1236,7 +1582,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListHapgs
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListHapgs">REST API Reference for ListHapgs Operation</seealso>
-        public IAsyncResult BeginListHapgs(ListHapgsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListHapgs(ListHapgsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListHapgsRequestMarshaller();
             var unmarshaller = ListHapgsResponseUnmarshaller.Instance;
@@ -1253,7 +1599,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  ListHapgsResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListHapgs">REST API Reference for ListHapgs Operation</seealso>
-        public  ListHapgsResponse EndListHapgs(IAsyncResult asyncResult)
+        public virtual ListHapgsResponse EndListHapgs(IAsyncResult asyncResult)
         {
             return EndInvoke<ListHapgsResponse>(asyncResult);
         }
@@ -1263,14 +1609,29 @@ namespace Amazon.CloudHSM
         #region  ListHsms
 
         /// <summary>
-        /// Retrieves the identifiers of all of the HSMs provisioned for the current customer.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
         ///  
         /// <para>
-        /// This operation supports pagination with the use of the <i>NextToken</i> member. If
-        /// more results are available, the <i>NextToken</i> member of the response contains a
-        /// token that you pass in the next call to <a>ListHsms</a> to retrieve the next set of
-        /// items.
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Retrieves the identifiers of all of the HSMs provisioned for the current customer.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation supports pagination with the use of the <code>NextToken</code> member.
+        /// If more results are available, the <code>NextToken</code> member of the response contains
+        /// a token that you pass in the next call to <code>ListHsms</code> to retrieve the next
+        /// set of items.
         /// </para>
         /// </summary>
         /// 
@@ -1285,7 +1646,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListHsms">REST API Reference for ListHsms Operation</seealso>
-        public ListHsmsResponse ListHsms()
+        public virtual ListHsmsResponse ListHsms()
         {
             var request = new ListHsmsRequest();
             return ListHsms(request);
@@ -1293,14 +1654,29 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
-        /// Retrieves the identifiers of all of the HSMs provisioned for the current customer.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
         ///  
         /// <para>
-        /// This operation supports pagination with the use of the <i>NextToken</i> member. If
-        /// more results are available, the <i>NextToken</i> member of the response contains a
-        /// token that you pass in the next call to <a>ListHsms</a> to retrieve the next set of
-        /// items.
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Retrieves the identifiers of all of the HSMs provisioned for the current customer.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation supports pagination with the use of the <code>NextToken</code> member.
+        /// If more results are available, the <code>NextToken</code> member of the response contains
+        /// a token that you pass in the next call to <code>ListHsms</code> to retrieve the next
+        /// set of items.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListHsms service method.</param>
@@ -1316,7 +1692,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListHsms">REST API Reference for ListHsms Operation</seealso>
-        public ListHsmsResponse ListHsms(ListHsmsRequest request)
+        public virtual ListHsmsResponse ListHsms(ListHsmsRequest request)
         {
             var marshaller = new ListHsmsRequestMarshaller();
             var unmarshaller = ListHsmsResponseUnmarshaller.Instance;
@@ -1336,7 +1712,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListHsms
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListHsms">REST API Reference for ListHsms Operation</seealso>
-        public IAsyncResult BeginListHsms(ListHsmsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListHsms(ListHsmsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListHsmsRequestMarshaller();
             var unmarshaller = ListHsmsResponseUnmarshaller.Instance;
@@ -1353,7 +1729,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  ListHsmsResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListHsms">REST API Reference for ListHsms Operation</seealso>
-        public  ListHsmsResponse EndListHsms(IAsyncResult asyncResult)
+        public virtual ListHsmsResponse EndListHsms(IAsyncResult asyncResult)
         {
             return EndInvoke<ListHsmsResponse>(asyncResult);
         }
@@ -1363,14 +1739,29 @@ namespace Amazon.CloudHSM
         #region  ListLunaClients
 
         /// <summary>
-        /// Lists all of the clients.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
         ///  
         /// <para>
-        /// This operation supports pagination with the use of the <i>NextToken</i> member. If
-        /// more results are available, the <i>NextToken</i> member of the response contains a
-        /// token that you pass in the next call to <a>ListLunaClients</a> to retrieve the next
-        /// set of items.
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Lists all of the clients.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation supports pagination with the use of the <code>NextToken</code> member.
+        /// If more results are available, the <code>NextToken</code> member of the response contains
+        /// a token that you pass in the next call to <code>ListLunaClients</code> to retrieve
+        /// the next set of items.
         /// </para>
         /// </summary>
         /// 
@@ -1385,7 +1776,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListLunaClients">REST API Reference for ListLunaClients Operation</seealso>
-        public ListLunaClientsResponse ListLunaClients()
+        public virtual ListLunaClientsResponse ListLunaClients()
         {
             var request = new ListLunaClientsRequest();
             return ListLunaClients(request);
@@ -1393,14 +1784,29 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
-        /// Lists all of the clients.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
         ///  
         /// <para>
-        /// This operation supports pagination with the use of the <i>NextToken</i> member. If
-        /// more results are available, the <i>NextToken</i> member of the response contains a
-        /// token that you pass in the next call to <a>ListLunaClients</a> to retrieve the next
-        /// set of items.
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Lists all of the clients.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation supports pagination with the use of the <code>NextToken</code> member.
+        /// If more results are available, the <code>NextToken</code> member of the response contains
+        /// a token that you pass in the next call to <code>ListLunaClients</code> to retrieve
+        /// the next set of items.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListLunaClients service method.</param>
@@ -1416,7 +1822,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListLunaClients">REST API Reference for ListLunaClients Operation</seealso>
-        public ListLunaClientsResponse ListLunaClients(ListLunaClientsRequest request)
+        public virtual ListLunaClientsResponse ListLunaClients(ListLunaClientsRequest request)
         {
             var marshaller = new ListLunaClientsRequestMarshaller();
             var unmarshaller = ListLunaClientsResponseUnmarshaller.Instance;
@@ -1436,7 +1842,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListLunaClients
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListLunaClients">REST API Reference for ListLunaClients Operation</seealso>
-        public IAsyncResult BeginListLunaClients(ListLunaClientsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListLunaClients(ListLunaClientsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListLunaClientsRequestMarshaller();
             var unmarshaller = ListLunaClientsResponseUnmarshaller.Instance;
@@ -1453,7 +1859,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  ListLunaClientsResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListLunaClients">REST API Reference for ListLunaClients Operation</seealso>
-        public  ListLunaClientsResponse EndListLunaClients(IAsyncResult asyncResult)
+        public virtual ListLunaClientsResponse EndListLunaClients(IAsyncResult asyncResult)
         {
             return EndInvoke<ListLunaClientsResponse>(asyncResult);
         }
@@ -1463,7 +1869,23 @@ namespace Amazon.CloudHSM
         #region  ListTagsForResource
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Returns a list of all tags for the specified AWS CloudHSM resource.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListTagsForResource service method.</param>
         /// 
@@ -1478,7 +1900,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
-        public ListTagsForResourceResponse ListTagsForResource(ListTagsForResourceRequest request)
+        public virtual ListTagsForResourceResponse ListTagsForResource(ListTagsForResourceRequest request)
         {
             var marshaller = new ListTagsForResourceRequestMarshaller();
             var unmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
@@ -1498,7 +1920,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListTagsForResource
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
-        public IAsyncResult BeginListTagsForResource(ListTagsForResourceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListTagsForResource(ListTagsForResourceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListTagsForResourceRequestMarshaller();
             var unmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
@@ -1515,7 +1937,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  ListTagsForResourceResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
-        public  ListTagsForResourceResponse EndListTagsForResource(IAsyncResult asyncResult)
+        public virtual ListTagsForResourceResponse EndListTagsForResource(IAsyncResult asyncResult)
         {
             return EndInvoke<ListTagsForResourceResponse>(asyncResult);
         }
@@ -1525,7 +1947,23 @@ namespace Amazon.CloudHSM
         #region  ModifyHapg
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Modifies an existing high-availability partition group.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyHapg service method.</param>
         /// 
@@ -1540,7 +1978,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ModifyHapg">REST API Reference for ModifyHapg Operation</seealso>
-        public ModifyHapgResponse ModifyHapg(ModifyHapgRequest request)
+        public virtual ModifyHapgResponse ModifyHapg(ModifyHapgRequest request)
         {
             var marshaller = new ModifyHapgRequestMarshaller();
             var unmarshaller = ModifyHapgResponseUnmarshaller.Instance;
@@ -1560,7 +1998,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyHapg
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ModifyHapg">REST API Reference for ModifyHapg Operation</seealso>
-        public IAsyncResult BeginModifyHapg(ModifyHapgRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyHapg(ModifyHapgRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyHapgRequestMarshaller();
             var unmarshaller = ModifyHapgResponseUnmarshaller.Instance;
@@ -1577,7 +2015,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  ModifyHapgResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ModifyHapg">REST API Reference for ModifyHapg Operation</seealso>
-        public  ModifyHapgResponse EndModifyHapg(IAsyncResult asyncResult)
+        public virtual ModifyHapgResponse EndModifyHapg(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyHapgResponse>(asyncResult);
         }
@@ -1587,8 +2025,23 @@ namespace Amazon.CloudHSM
         #region  ModifyHsm
 
         /// <summary>
-        /// Modifies an HSM.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Modifies an HSM.
+        /// </para>
         ///  <important> 
         /// <para>
         /// This operation can result in the HSM being offline for up to 15 minutes while the
@@ -1611,7 +2064,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ModifyHsm">REST API Reference for ModifyHsm Operation</seealso>
-        public ModifyHsmResponse ModifyHsm(ModifyHsmRequest request)
+        public virtual ModifyHsmResponse ModifyHsm(ModifyHsmRequest request)
         {
             var marshaller = new ModifyHsmRequestMarshaller();
             var unmarshaller = ModifyHsmResponseUnmarshaller.Instance;
@@ -1631,7 +2084,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyHsm
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ModifyHsm">REST API Reference for ModifyHsm Operation</seealso>
-        public IAsyncResult BeginModifyHsm(ModifyHsmRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyHsm(ModifyHsmRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyHsmRequestMarshaller();
             var unmarshaller = ModifyHsmResponseUnmarshaller.Instance;
@@ -1648,7 +2101,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  ModifyHsmResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ModifyHsm">REST API Reference for ModifyHsm Operation</seealso>
-        public  ModifyHsmResponse EndModifyHsm(IAsyncResult asyncResult)
+        public virtual ModifyHsmResponse EndModifyHsm(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyHsmResponse>(asyncResult);
         }
@@ -1658,8 +2111,23 @@ namespace Amazon.CloudHSM
         #region  ModifyLunaClient
 
         /// <summary>
-        /// Modifies the certificate used by the client.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Modifies the certificate used by the client.
+        /// </para>
         ///  
         /// <para>
         /// This action can potentially start a workflow to install the new certificate on the
@@ -1673,7 +2141,7 @@ namespace Amazon.CloudHSM
         /// Indicates that an exception occurred in the AWS CloudHSM service.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ModifyLunaClient">REST API Reference for ModifyLunaClient Operation</seealso>
-        public ModifyLunaClientResponse ModifyLunaClient(ModifyLunaClientRequest request)
+        public virtual ModifyLunaClientResponse ModifyLunaClient(ModifyLunaClientRequest request)
         {
             var marshaller = new ModifyLunaClientRequestMarshaller();
             var unmarshaller = ModifyLunaClientResponseUnmarshaller.Instance;
@@ -1693,7 +2161,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndModifyLunaClient
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ModifyLunaClient">REST API Reference for ModifyLunaClient Operation</seealso>
-        public IAsyncResult BeginModifyLunaClient(ModifyLunaClientRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginModifyLunaClient(ModifyLunaClientRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ModifyLunaClientRequestMarshaller();
             var unmarshaller = ModifyLunaClientResponseUnmarshaller.Instance;
@@ -1710,7 +2178,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  ModifyLunaClientResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/ModifyLunaClient">REST API Reference for ModifyLunaClient Operation</seealso>
-        public  ModifyLunaClientResponse EndModifyLunaClient(IAsyncResult asyncResult)
+        public virtual ModifyLunaClientResponse EndModifyLunaClient(IAsyncResult asyncResult)
         {
             return EndInvoke<ModifyLunaClientResponse>(asyncResult);
         }
@@ -1720,8 +2188,23 @@ namespace Amazon.CloudHSM
         #region  RemoveTagsFromResource
 
         /// <summary>
-        /// Removes one or more tags from the specified AWS CloudHSM resource.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Removes one or more tags from the specified AWS CloudHSM resource.
+        /// </para>
         ///  
         /// <para>
         /// To remove a tag, specify only the tag key to remove (not the value). To overwrite
@@ -1741,7 +2224,7 @@ namespace Amazon.CloudHSM
         /// Indicates that one or more of the request parameters are not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/RemoveTagsFromResource">REST API Reference for RemoveTagsFromResource Operation</seealso>
-        public RemoveTagsFromResourceResponse RemoveTagsFromResource(RemoveTagsFromResourceRequest request)
+        public virtual RemoveTagsFromResourceResponse RemoveTagsFromResource(RemoveTagsFromResourceRequest request)
         {
             var marshaller = new RemoveTagsFromResourceRequestMarshaller();
             var unmarshaller = RemoveTagsFromResourceResponseUnmarshaller.Instance;
@@ -1761,7 +2244,7 @@ namespace Amazon.CloudHSM
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRemoveTagsFromResource
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/RemoveTagsFromResource">REST API Reference for RemoveTagsFromResource Operation</seealso>
-        public IAsyncResult BeginRemoveTagsFromResource(RemoveTagsFromResourceRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRemoveTagsFromResource(RemoveTagsFromResourceRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RemoveTagsFromResourceRequestMarshaller();
             var unmarshaller = RemoveTagsFromResourceResponseUnmarshaller.Instance;
@@ -1778,7 +2261,7 @@ namespace Amazon.CloudHSM
         /// 
         /// <returns>Returns a  RemoveTagsFromResourceResult from CloudHSM.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/cloudhsm-2014-05-30/RemoveTagsFromResource">REST API Reference for RemoveTagsFromResource Operation</seealso>
-        public  RemoveTagsFromResourceResponse EndRemoveTagsFromResource(IAsyncResult asyncResult)
+        public virtual RemoveTagsFromResourceResponse EndRemoveTagsFromResource(IAsyncResult asyncResult)
         {
             return EndInvoke<RemoveTagsFromResourceResponse>(asyncResult);
         }

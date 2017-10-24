@@ -284,7 +284,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -306,7 +306,7 @@ namespace Amazon.WAFRegional
         /// your request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/AssociateWebACL">REST API Reference for AssociateWebACL Operation</seealso>
-        public AssociateWebACLResponse AssociateWebACL(AssociateWebACLRequest request)
+        public virtual AssociateWebACLResponse AssociateWebACL(AssociateWebACLRequest request)
         {
             var marshaller = new AssociateWebACLRequestMarshaller();
             var unmarshaller = AssociateWebACLResponseUnmarshaller.Instance;
@@ -324,7 +324,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/AssociateWebACL">REST API Reference for AssociateWebACL Operation</seealso>
-        public Task<AssociateWebACLResponse> AssociateWebACLAsync(AssociateWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<AssociateWebACLResponse> AssociateWebACLAsync(AssociateWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new AssociateWebACLRequestMarshaller();
             var unmarshaller = AssociateWebACLResponseUnmarshaller.Instance;
@@ -427,7 +427,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -451,7 +451,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateByteMatchSet">REST API Reference for CreateByteMatchSet Operation</seealso>
-        public CreateByteMatchSetResponse CreateByteMatchSet(string name, string changeToken)
+        public virtual CreateByteMatchSetResponse CreateByteMatchSet(string name, string changeToken)
         {
             var request = new CreateByteMatchSetRequest();
             request.Name = name;
@@ -548,7 +548,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -572,7 +572,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateByteMatchSet">REST API Reference for CreateByteMatchSet Operation</seealso>
-        public CreateByteMatchSetResponse CreateByteMatchSet(CreateByteMatchSetRequest request)
+        public virtual CreateByteMatchSetResponse CreateByteMatchSet(CreateByteMatchSetRequest request)
         {
             var marshaller = new CreateByteMatchSetRequestMarshaller();
             var unmarshaller = CreateByteMatchSetResponseUnmarshaller.Instance;
@@ -673,7 +673,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -697,7 +697,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateByteMatchSet">REST API Reference for CreateByteMatchSet Operation</seealso>
-        public Task<CreateByteMatchSetResponse> CreateByteMatchSetAsync(string name, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateByteMatchSetResponse> CreateByteMatchSetAsync(string name, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new CreateByteMatchSetRequest();
             request.Name = name;
@@ -715,12 +715,154 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateByteMatchSet">REST API Reference for CreateByteMatchSet Operation</seealso>
-        public Task<CreateByteMatchSetResponse> CreateByteMatchSetAsync(CreateByteMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateByteMatchSetResponse> CreateByteMatchSetAsync(CreateByteMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateByteMatchSetRequestMarshaller();
             var unmarshaller = CreateByteMatchSetResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateByteMatchSetRequest,CreateByteMatchSetResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateGeoMatchSet
+
+
+        /// <summary>
+        /// Creates an <a>GeoMatchSet</a>, which you use to specify which web requests you want
+        /// to allow or block based on the country that the requests originate from. For example,
+        /// if you're receiving a lot of requests from one or more countries and you want to block
+        /// the requests, you can create an <code>GeoMatchSet</code> that contains those countries
+        /// and then configure AWS WAF to block the requests. 
+        /// 
+        ///  
+        /// <para>
+        /// To create and configure a <code>GeoMatchSet</code>, perform the following steps:
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+        /// parameter of a <code>CreateGeoMatchSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Submit a <code>CreateGeoMatchSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+        /// parameter of an <a>UpdateGeoMatchSet</a> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Submit an <code>UpdateGeoMatchSetSet</code> request to specify the countries that
+        /// you want AWS WAF to watch for.
+        /// </para>
+        ///  </li> </ol> 
+        /// <para>
+        /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
+        /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
+        /// Guide</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateGeoMatchSet service method.</param>
+        /// 
+        /// <returns>The response from the CreateGeoMatchSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFDisallowedNameException">
+        /// The name specified is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidParameterException">
+        /// The operation failed because AWS WAF didn't recognize a parameter in the request.
+        /// For example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You specified an invalid parameter name.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You specified an invalid value.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>,
+        /// or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code>
+        /// other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value
+        /// other than <code>IP</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code>
+        /// other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code>
+        /// but no value for <code>Data</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Your request references an ARN that is malformed, or corresponds to a resource with
+        /// which a web ACL cannot be associated.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFLimitsExceededException">
+        /// The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code>
+        /// objects that you can create for an AWS account. For more information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a>
+        /// in the <i>AWS WAF Developer Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFStaleDataException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// a change token that has already been used.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateGeoMatchSet">REST API Reference for CreateGeoMatchSet Operation</seealso>
+        public virtual CreateGeoMatchSetResponse CreateGeoMatchSet(CreateGeoMatchSetRequest request)
+        {
+            var marshaller = new CreateGeoMatchSetRequestMarshaller();
+            var unmarshaller = CreateGeoMatchSetResponseUnmarshaller.Instance;
+
+            return Invoke<CreateGeoMatchSetRequest,CreateGeoMatchSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateGeoMatchSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateGeoMatchSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateGeoMatchSet">REST API Reference for CreateGeoMatchSet Operation</seealso>
+        public virtual Task<CreateGeoMatchSetResponse> CreateGeoMatchSetAsync(CreateGeoMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new CreateGeoMatchSetRequestMarshaller();
+            var unmarshaller = CreateGeoMatchSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateGeoMatchSetRequest,CreateGeoMatchSetResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -817,7 +959,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -841,7 +983,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateIPSet">REST API Reference for CreateIPSet Operation</seealso>
-        public CreateIPSetResponse CreateIPSet(string name, string changeToken)
+        public virtual CreateIPSetResponse CreateIPSet(string name, string changeToken)
         {
             var request = new CreateIPSetRequest();
             request.Name = name;
@@ -937,7 +1079,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -961,7 +1103,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateIPSet">REST API Reference for CreateIPSet Operation</seealso>
-        public CreateIPSetResponse CreateIPSet(CreateIPSetRequest request)
+        public virtual CreateIPSetResponse CreateIPSet(CreateIPSetRequest request)
         {
             var marshaller = new CreateIPSetRequestMarshaller();
             var unmarshaller = CreateIPSetResponseUnmarshaller.Instance;
@@ -1061,7 +1203,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1085,7 +1227,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateIPSet">REST API Reference for CreateIPSet Operation</seealso>
-        public Task<CreateIPSetResponse> CreateIPSetAsync(string name, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateIPSetResponse> CreateIPSetAsync(string name, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new CreateIPSetRequest();
             request.Name = name;
@@ -1103,7 +1245,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateIPSet">REST API Reference for CreateIPSet Operation</seealso>
-        public Task<CreateIPSetResponse> CreateIPSetAsync(CreateIPSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateIPSetResponse> CreateIPSetAsync(CreateIPSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateIPSetRequestMarshaller();
             var unmarshaller = CreateIPSetResponseUnmarshaller.Instance;
@@ -1266,7 +1408,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1290,7 +1432,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateRateBasedRule">REST API Reference for CreateRateBasedRule Operation</seealso>
-        public CreateRateBasedRuleResponse CreateRateBasedRule(CreateRateBasedRuleRequest request)
+        public virtual CreateRateBasedRuleResponse CreateRateBasedRule(CreateRateBasedRuleRequest request)
         {
             var marshaller = new CreateRateBasedRuleRequestMarshaller();
             var unmarshaller = CreateRateBasedRuleResponseUnmarshaller.Instance;
@@ -1308,12 +1450,192 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateRateBasedRule">REST API Reference for CreateRateBasedRule Operation</seealso>
-        public Task<CreateRateBasedRuleResponse> CreateRateBasedRuleAsync(CreateRateBasedRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateRateBasedRuleResponse> CreateRateBasedRuleAsync(CreateRateBasedRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateRateBasedRuleRequestMarshaller();
             var unmarshaller = CreateRateBasedRuleResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateRateBasedRuleRequest,CreateRateBasedRuleResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateRegexMatchSet
+
+
+        /// <summary>
+        /// Creates a <a>RegexMatchSet</a>. You then use <a>UpdateRegexMatchSet</a> to identify
+        /// the part of a web request that you want AWS WAF to inspect, such as the values of
+        /// the <code>User-Agent</code> header or the query string. For example, you can create
+        /// a <code>RegexMatchSet</code> that contains a <code>RegexMatchTuple</code> that looks
+        /// for any requests with <code>User-Agent</code> headers that match a <code>RegexPatternSet</code>
+        /// with pattern <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those
+        /// requests.
+        /// 
+        ///  
+        /// <para>
+        /// To create and configure a <code>RegexMatchSet</code>, perform the following steps:
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+        /// parameter of a <code>CreateRegexMatchSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Submit a <code>CreateRegexMatchSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+        /// parameter of an <code>UpdateRegexMatchSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Submit an <a>UpdateRegexMatchSet</a> request to specify the part of the request that
+        /// you want AWS WAF to inspect (for example, the header or the URI) and the value, using
+        /// a <code>RegexPatternSet</code>, that you want AWS WAF to watch for.
+        /// </para>
+        ///  </li> </ol> 
+        /// <para>
+        /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
+        /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
+        /// Guide</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateRegexMatchSet service method.</param>
+        /// 
+        /// <returns>The response from the CreateRegexMatchSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFDisallowedNameException">
+        /// The name specified is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFLimitsExceededException">
+        /// The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code>
+        /// objects that you can create for an AWS account. For more information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a>
+        /// in the <i>AWS WAF Developer Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFStaleDataException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// a change token that has already been used.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateRegexMatchSet">REST API Reference for CreateRegexMatchSet Operation</seealso>
+        public virtual CreateRegexMatchSetResponse CreateRegexMatchSet(CreateRegexMatchSetRequest request)
+        {
+            var marshaller = new CreateRegexMatchSetRequestMarshaller();
+            var unmarshaller = CreateRegexMatchSetResponseUnmarshaller.Instance;
+
+            return Invoke<CreateRegexMatchSetRequest,CreateRegexMatchSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateRegexMatchSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateRegexMatchSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateRegexMatchSet">REST API Reference for CreateRegexMatchSet Operation</seealso>
+        public virtual Task<CreateRegexMatchSetResponse> CreateRegexMatchSetAsync(CreateRegexMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new CreateRegexMatchSetRequestMarshaller();
+            var unmarshaller = CreateRegexMatchSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateRegexMatchSetRequest,CreateRegexMatchSetResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateRegexPatternSet
+
+
+        /// <summary>
+        /// Creates a <code>RegexPatternSet</code>. You then use <a>UpdateRegexPatternSet</a>
+        /// to specify the regular expression (regex) pattern that you want AWS WAF to search
+        /// for, such as <code>B[a@]dB[o0]t</code>. You can then configure AWS WAF to reject those
+        /// requests.
+        /// 
+        ///  
+        /// <para>
+        /// To create and configure a <code>RegexPatternSet</code>, perform the following steps:
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+        /// parameter of a <code>CreateRegexPatternSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Submit a <code>CreateRegexPatternSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use <code>GetChangeToken</code> to get the change token that you provide in the <code>ChangeToken</code>
+        /// parameter of an <code>UpdateRegexPatternSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Submit an <a>UpdateRegexPatternSet</a> request to specify the string that you want
+        /// AWS WAF to watch for.
+        /// </para>
+        ///  </li> </ol> 
+        /// <para>
+        /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
+        /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
+        /// Guide</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateRegexPatternSet service method.</param>
+        /// 
+        /// <returns>The response from the CreateRegexPatternSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFDisallowedNameException">
+        /// The name specified is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFLimitsExceededException">
+        /// The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code>
+        /// objects that you can create for an AWS account. For more information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a>
+        /// in the <i>AWS WAF Developer Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFStaleDataException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// a change token that has already been used.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateRegexPatternSet">REST API Reference for CreateRegexPatternSet Operation</seealso>
+        public virtual CreateRegexPatternSetResponse CreateRegexPatternSet(CreateRegexPatternSetRequest request)
+        {
+            var marshaller = new CreateRegexPatternSetRequestMarshaller();
+            var unmarshaller = CreateRegexPatternSetResponseUnmarshaller.Instance;
+
+            return Invoke<CreateRegexPatternSetRequest,CreateRegexPatternSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateRegexPatternSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateRegexPatternSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateRegexPatternSet">REST API Reference for CreateRegexPatternSet Operation</seealso>
+        public virtual Task<CreateRegexPatternSetResponse> CreateRegexPatternSetAsync(CreateRegexPatternSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new CreateRegexPatternSetRequestMarshaller();
+            var unmarshaller = CreateRegexPatternSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateRegexPatternSetRequest,CreateRegexPatternSetResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -1432,7 +1754,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1456,7 +1778,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateRule">REST API Reference for CreateRule Operation</seealso>
-        public CreateRuleResponse CreateRule(string name, string changeToken, string metricName)
+        public virtual CreateRuleResponse CreateRule(string name, string changeToken, string metricName)
         {
             var request = new CreateRuleRequest();
             request.Name = name;
@@ -1574,7 +1896,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1598,7 +1920,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateRule">REST API Reference for CreateRule Operation</seealso>
-        public CreateRuleResponse CreateRule(CreateRuleRequest request)
+        public virtual CreateRuleResponse CreateRule(CreateRuleRequest request)
         {
             var marshaller = new CreateRuleRequestMarshaller();
             var unmarshaller = CreateRuleResponseUnmarshaller.Instance;
@@ -1720,7 +2042,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1744,7 +2066,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateRule">REST API Reference for CreateRule Operation</seealso>
-        public Task<CreateRuleResponse> CreateRuleAsync(string name, string changeToken, string metricName, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateRuleResponse> CreateRuleAsync(string name, string changeToken, string metricName, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new CreateRuleRequest();
             request.Name = name;
@@ -1763,7 +2085,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateRule">REST API Reference for CreateRule Operation</seealso>
-        public Task<CreateRuleResponse> CreateRuleAsync(CreateRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateRuleResponse> CreateRuleAsync(CreateRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateRuleRequestMarshaller();
             var unmarshaller = CreateRuleResponseUnmarshaller.Instance;
@@ -1865,7 +2187,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1889,7 +2211,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateSizeConstraintSet">REST API Reference for CreateSizeConstraintSet Operation</seealso>
-        public CreateSizeConstraintSetResponse CreateSizeConstraintSet(CreateSizeConstraintSetRequest request)
+        public virtual CreateSizeConstraintSetResponse CreateSizeConstraintSet(CreateSizeConstraintSetRequest request)
         {
             var marshaller = new CreateSizeConstraintSetRequestMarshaller();
             var unmarshaller = CreateSizeConstraintSetResponseUnmarshaller.Instance;
@@ -1907,7 +2229,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateSizeConstraintSet">REST API Reference for CreateSizeConstraintSet Operation</seealso>
-        public Task<CreateSizeConstraintSetResponse> CreateSizeConstraintSetAsync(CreateSizeConstraintSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateSizeConstraintSetResponse> CreateSizeConstraintSetAsync(CreateSizeConstraintSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateSizeConstraintSetRequestMarshaller();
             var unmarshaller = CreateSizeConstraintSetResponseUnmarshaller.Instance;
@@ -2007,7 +2329,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2031,7 +2353,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateSqlInjectionMatchSet">REST API Reference for CreateSqlInjectionMatchSet Operation</seealso>
-        public CreateSqlInjectionMatchSetResponse CreateSqlInjectionMatchSet(string name, string changeToken)
+        public virtual CreateSqlInjectionMatchSetResponse CreateSqlInjectionMatchSet(string name, string changeToken)
         {
             var request = new CreateSqlInjectionMatchSetRequest();
             request.Name = name;
@@ -2125,7 +2447,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2149,7 +2471,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateSqlInjectionMatchSet">REST API Reference for CreateSqlInjectionMatchSet Operation</seealso>
-        public CreateSqlInjectionMatchSetResponse CreateSqlInjectionMatchSet(CreateSqlInjectionMatchSetRequest request)
+        public virtual CreateSqlInjectionMatchSetResponse CreateSqlInjectionMatchSet(CreateSqlInjectionMatchSetRequest request)
         {
             var marshaller = new CreateSqlInjectionMatchSetRequestMarshaller();
             var unmarshaller = CreateSqlInjectionMatchSetResponseUnmarshaller.Instance;
@@ -2247,7 +2569,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2271,7 +2593,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateSqlInjectionMatchSet">REST API Reference for CreateSqlInjectionMatchSet Operation</seealso>
-        public Task<CreateSqlInjectionMatchSetResponse> CreateSqlInjectionMatchSetAsync(string name, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateSqlInjectionMatchSetResponse> CreateSqlInjectionMatchSetAsync(string name, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new CreateSqlInjectionMatchSetRequest();
             request.Name = name;
@@ -2289,7 +2611,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateSqlInjectionMatchSet">REST API Reference for CreateSqlInjectionMatchSet Operation</seealso>
-        public Task<CreateSqlInjectionMatchSetResponse> CreateSqlInjectionMatchSetAsync(CreateSqlInjectionMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateSqlInjectionMatchSetResponse> CreateSqlInjectionMatchSetAsync(CreateSqlInjectionMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateSqlInjectionMatchSetRequestMarshaller();
             var unmarshaller = CreateSqlInjectionMatchSetResponseUnmarshaller.Instance;
@@ -2405,7 +2727,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2429,7 +2751,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateWebACL">REST API Reference for CreateWebACL Operation</seealso>
-        public CreateWebACLResponse CreateWebACL(CreateWebACLRequest request)
+        public virtual CreateWebACLResponse CreateWebACL(CreateWebACLRequest request)
         {
             var marshaller = new CreateWebACLRequestMarshaller();
             var unmarshaller = CreateWebACLResponseUnmarshaller.Instance;
@@ -2447,7 +2769,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateWebACL">REST API Reference for CreateWebACL Operation</seealso>
-        public Task<CreateWebACLResponse> CreateWebACLAsync(CreateWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateWebACLResponse> CreateWebACLAsync(CreateWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateWebACLRequestMarshaller();
             var unmarshaller = CreateWebACLResponseUnmarshaller.Instance;
@@ -2545,7 +2867,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2569,7 +2891,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateXssMatchSet">REST API Reference for CreateXssMatchSet Operation</seealso>
-        public CreateXssMatchSetResponse CreateXssMatchSet(CreateXssMatchSetRequest request)
+        public virtual CreateXssMatchSetResponse CreateXssMatchSet(CreateXssMatchSetRequest request)
         {
             var marshaller = new CreateXssMatchSetRequestMarshaller();
             var unmarshaller = CreateXssMatchSetResponseUnmarshaller.Instance;
@@ -2587,7 +2909,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/CreateXssMatchSet">REST API Reference for CreateXssMatchSet Operation</seealso>
-        public Task<CreateXssMatchSetResponse> CreateXssMatchSetAsync(CreateXssMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateXssMatchSetResponse> CreateXssMatchSetAsync(CreateXssMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateXssMatchSetRequestMarshaller();
             var unmarshaller = CreateXssMatchSetResponseUnmarshaller.Instance;
@@ -2689,7 +3011,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteByteMatchSet">REST API Reference for DeleteByteMatchSet Operation</seealso>
-        public DeleteByteMatchSetResponse DeleteByteMatchSet(string byteMatchSetId, string changeToken)
+        public virtual DeleteByteMatchSetResponse DeleteByteMatchSet(string byteMatchSetId, string changeToken)
         {
             var request = new DeleteByteMatchSetRequest();
             request.ByteMatchSetId = byteMatchSetId;
@@ -2785,7 +3107,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteByteMatchSet">REST API Reference for DeleteByteMatchSet Operation</seealso>
-        public DeleteByteMatchSetResponse DeleteByteMatchSet(DeleteByteMatchSetRequest request)
+        public virtual DeleteByteMatchSetResponse DeleteByteMatchSet(DeleteByteMatchSetRequest request)
         {
             var marshaller = new DeleteByteMatchSetRequestMarshaller();
             var unmarshaller = DeleteByteMatchSetResponseUnmarshaller.Instance;
@@ -2885,7 +3207,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteByteMatchSet">REST API Reference for DeleteByteMatchSet Operation</seealso>
-        public Task<DeleteByteMatchSetResponse> DeleteByteMatchSetAsync(string byteMatchSetId, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteByteMatchSetResponse> DeleteByteMatchSetAsync(string byteMatchSetId, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new DeleteByteMatchSetRequest();
             request.ByteMatchSetId = byteMatchSetId;
@@ -2903,12 +3225,131 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteByteMatchSet">REST API Reference for DeleteByteMatchSet Operation</seealso>
-        public Task<DeleteByteMatchSetResponse> DeleteByteMatchSetAsync(DeleteByteMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteByteMatchSetResponse> DeleteByteMatchSetAsync(DeleteByteMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteByteMatchSetRequestMarshaller();
             var unmarshaller = DeleteByteMatchSetResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteByteMatchSetRequest,DeleteByteMatchSetResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteGeoMatchSet
+
+
+        /// <summary>
+        /// Permanently deletes a <a>GeoMatchSet</a>. You can't delete a <code>GeoMatchSet</code>
+        /// if it's still used in any <code>Rules</code> or if it still includes any countries.
+        /// 
+        ///  
+        /// <para>
+        /// If you just want to remove a <code>GeoMatchSet</code> from a <code>Rule</code>, use
+        /// <a>UpdateRule</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// To permanently delete a <code>GeoMatchSet</code> from AWS WAF, perform the following
+        /// steps:
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Update the <code>GeoMatchSet</code> to remove any countries. For more information,
+        /// see <a>UpdateGeoMatchSet</a>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+        /// parameter of a <code>DeleteGeoMatchSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Submit a <code>DeleteGeoMatchSet</code> request.
+        /// </para>
+        ///  </li> </ol>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteGeoMatchSet service method.</param>
+        /// 
+        /// <returns>The response from the DeleteGeoMatchSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonEmptyEntityException">
+        /// The operation failed because you tried to delete an object that isn't empty. For example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code>
+        /// objects.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code>
+        /// objects or other predicates.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code>
+        /// objects.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete an <code>IPSet</code> that references one or more IP addresses.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonexistentItemException">
+        /// The operation failed because the referenced object doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFReferencedItemException">
+        /// The operation failed because you tried to delete an object that is still in use. For
+        /// example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFStaleDataException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// a change token that has already been used.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteGeoMatchSet">REST API Reference for DeleteGeoMatchSet Operation</seealso>
+        public virtual DeleteGeoMatchSetResponse DeleteGeoMatchSet(DeleteGeoMatchSetRequest request)
+        {
+            var marshaller = new DeleteGeoMatchSetRequestMarshaller();
+            var unmarshaller = DeleteGeoMatchSetResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteGeoMatchSetRequest,DeleteGeoMatchSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteGeoMatchSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteGeoMatchSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteGeoMatchSet">REST API Reference for DeleteGeoMatchSet Operation</seealso>
+        public virtual Task<DeleteGeoMatchSetResponse> DeleteGeoMatchSetAsync(DeleteGeoMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteGeoMatchSetRequestMarshaller();
+            var unmarshaller = DeleteGeoMatchSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteGeoMatchSetRequest,DeleteGeoMatchSetResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -3003,7 +3444,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteIPSet">REST API Reference for DeleteIPSet Operation</seealso>
-        public DeleteIPSetResponse DeleteIPSet(string ipSetId, string changeToken)
+        public virtual DeleteIPSetResponse DeleteIPSet(string ipSetId, string changeToken)
         {
             var request = new DeleteIPSetRequest();
             request.IPSetId = ipSetId;
@@ -3097,7 +3538,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteIPSet">REST API Reference for DeleteIPSet Operation</seealso>
-        public DeleteIPSetResponse DeleteIPSet(DeleteIPSetRequest request)
+        public virtual DeleteIPSetResponse DeleteIPSet(DeleteIPSetRequest request)
         {
             var marshaller = new DeleteIPSetRequestMarshaller();
             var unmarshaller = DeleteIPSetResponseUnmarshaller.Instance;
@@ -3195,7 +3636,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteIPSet">REST API Reference for DeleteIPSet Operation</seealso>
-        public Task<DeleteIPSetResponse> DeleteIPSetAsync(string ipSetId, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteIPSetResponse> DeleteIPSetAsync(string ipSetId, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new DeleteIPSetRequest();
             request.IPSetId = ipSetId;
@@ -3213,7 +3654,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteIPSet">REST API Reference for DeleteIPSet Operation</seealso>
-        public Task<DeleteIPSetResponse> DeleteIPSetAsync(DeleteIPSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteIPSetResponse> DeleteIPSetAsync(DeleteIPSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteIPSetRequestMarshaller();
             var unmarshaller = DeleteIPSetResponseUnmarshaller.Instance;
@@ -3314,7 +3755,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteRateBasedRule">REST API Reference for DeleteRateBasedRule Operation</seealso>
-        public DeleteRateBasedRuleResponse DeleteRateBasedRule(DeleteRateBasedRuleRequest request)
+        public virtual DeleteRateBasedRuleResponse DeleteRateBasedRule(DeleteRateBasedRuleRequest request)
         {
             var marshaller = new DeleteRateBasedRuleRequestMarshaller();
             var unmarshaller = DeleteRateBasedRuleResponseUnmarshaller.Instance;
@@ -3332,12 +3773,225 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteRateBasedRule">REST API Reference for DeleteRateBasedRule Operation</seealso>
-        public Task<DeleteRateBasedRuleResponse> DeleteRateBasedRuleAsync(DeleteRateBasedRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteRateBasedRuleResponse> DeleteRateBasedRuleAsync(DeleteRateBasedRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteRateBasedRuleRequestMarshaller();
             var unmarshaller = DeleteRateBasedRuleResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteRateBasedRuleRequest,DeleteRateBasedRuleResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteRegexMatchSet
+
+
+        /// <summary>
+        /// Permanently deletes a <a>RegexMatchSet</a>. You can't delete a <code>RegexMatchSet</code>
+        /// if it's still used in any <code>Rules</code> or if it still includes any <code>RegexMatchTuples</code>
+        /// objects (any filters).
+        /// 
+        ///  
+        /// <para>
+        /// If you just want to remove a <code>RegexMatchSet</code> from a <code>Rule</code>,
+        /// use <a>UpdateRule</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// To permanently delete a <code>RegexMatchSet</code>, perform the following steps:
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Update the <code>RegexMatchSet</code> to remove filters, if any. For more information,
+        /// see <a>UpdateRegexMatchSet</a>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+        /// parameter of a <code>DeleteRegexMatchSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Submit a <code>DeleteRegexMatchSet</code> request.
+        /// </para>
+        ///  </li> </ol>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteRegexMatchSet service method.</param>
+        /// 
+        /// <returns>The response from the DeleteRegexMatchSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonEmptyEntityException">
+        /// The operation failed because you tried to delete an object that isn't empty. For example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code>
+        /// objects.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code>
+        /// objects or other predicates.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code>
+        /// objects.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete an <code>IPSet</code> that references one or more IP addresses.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonexistentItemException">
+        /// The operation failed because the referenced object doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFReferencedItemException">
+        /// The operation failed because you tried to delete an object that is still in use. For
+        /// example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFStaleDataException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// a change token that has already been used.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteRegexMatchSet">REST API Reference for DeleteRegexMatchSet Operation</seealso>
+        public virtual DeleteRegexMatchSetResponse DeleteRegexMatchSet(DeleteRegexMatchSetRequest request)
+        {
+            var marshaller = new DeleteRegexMatchSetRequestMarshaller();
+            var unmarshaller = DeleteRegexMatchSetResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteRegexMatchSetRequest,DeleteRegexMatchSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteRegexMatchSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteRegexMatchSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteRegexMatchSet">REST API Reference for DeleteRegexMatchSet Operation</seealso>
+        public virtual Task<DeleteRegexMatchSetResponse> DeleteRegexMatchSetAsync(DeleteRegexMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteRegexMatchSetRequestMarshaller();
+            var unmarshaller = DeleteRegexMatchSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteRegexMatchSetRequest,DeleteRegexMatchSetResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteRegexPatternSet
+
+
+        /// <summary>
+        /// Permanently deletes a <a>RegexPatternSet</a>. You can't delete a <code>RegexPatternSet</code>
+        /// if it's still used in any <code>RegexMatchSet</code> or if the <code>RegexPatternSet</code>
+        /// is not empty.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteRegexPatternSet service method.</param>
+        /// 
+        /// <returns>The response from the DeleteRegexPatternSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonEmptyEntityException">
+        /// The operation failed because you tried to delete an object that isn't empty. For example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to delete a <code>WebACL</code> that still contains one or more <code>Rule</code>
+        /// objects.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete a <code>Rule</code> that still contains one or more <code>ByteMatchSet</code>
+        /// objects or other predicates.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete a <code>ByteMatchSet</code> that contains one or more <code>ByteMatchTuple</code>
+        /// objects.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete an <code>IPSet</code> that references one or more IP addresses.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonexistentItemException">
+        /// The operation failed because the referenced object doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFReferencedItemException">
+        /// The operation failed because you tried to delete an object that is still in use. For
+        /// example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFStaleDataException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// a change token that has already been used.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteRegexPatternSet">REST API Reference for DeleteRegexPatternSet Operation</seealso>
+        public virtual DeleteRegexPatternSetResponse DeleteRegexPatternSet(DeleteRegexPatternSetRequest request)
+        {
+            var marshaller = new DeleteRegexPatternSetRequestMarshaller();
+            var unmarshaller = DeleteRegexPatternSetResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteRegexPatternSetRequest,DeleteRegexPatternSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteRegexPatternSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteRegexPatternSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteRegexPatternSet">REST API Reference for DeleteRegexPatternSet Operation</seealso>
+        public virtual Task<DeleteRegexPatternSetResponse> DeleteRegexPatternSetAsync(DeleteRegexPatternSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteRegexPatternSetRequestMarshaller();
+            var unmarshaller = DeleteRegexPatternSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteRegexPatternSetRequest,DeleteRegexPatternSetResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -3433,7 +4087,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteRule">REST API Reference for DeleteRule Operation</seealso>
-        public DeleteRuleResponse DeleteRule(string ruleId, string changeToken)
+        public virtual DeleteRuleResponse DeleteRule(string ruleId, string changeToken)
         {
             var request = new DeleteRuleRequest();
             request.RuleId = ruleId;
@@ -3528,7 +4182,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteRule">REST API Reference for DeleteRule Operation</seealso>
-        public DeleteRuleResponse DeleteRule(DeleteRuleRequest request)
+        public virtual DeleteRuleResponse DeleteRule(DeleteRuleRequest request)
         {
             var marshaller = new DeleteRuleRequestMarshaller();
             var unmarshaller = DeleteRuleResponseUnmarshaller.Instance;
@@ -3627,7 +4281,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteRule">REST API Reference for DeleteRule Operation</seealso>
-        public Task<DeleteRuleResponse> DeleteRuleAsync(string ruleId, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteRuleResponse> DeleteRuleAsync(string ruleId, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new DeleteRuleRequest();
             request.RuleId = ruleId;
@@ -3645,7 +4299,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteRule">REST API Reference for DeleteRule Operation</seealso>
-        public Task<DeleteRuleResponse> DeleteRuleAsync(DeleteRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteRuleResponse> DeleteRuleAsync(DeleteRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteRuleRequestMarshaller();
             var unmarshaller = DeleteRuleResponseUnmarshaller.Instance;
@@ -3746,7 +4400,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteSizeConstraintSet">REST API Reference for DeleteSizeConstraintSet Operation</seealso>
-        public DeleteSizeConstraintSetResponse DeleteSizeConstraintSet(DeleteSizeConstraintSetRequest request)
+        public virtual DeleteSizeConstraintSetResponse DeleteSizeConstraintSet(DeleteSizeConstraintSetRequest request)
         {
             var marshaller = new DeleteSizeConstraintSetRequestMarshaller();
             var unmarshaller = DeleteSizeConstraintSetResponseUnmarshaller.Instance;
@@ -3764,7 +4418,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteSizeConstraintSet">REST API Reference for DeleteSizeConstraintSet Operation</seealso>
-        public Task<DeleteSizeConstraintSetResponse> DeleteSizeConstraintSetAsync(DeleteSizeConstraintSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteSizeConstraintSetResponse> DeleteSizeConstraintSetAsync(DeleteSizeConstraintSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteSizeConstraintSetRequestMarshaller();
             var unmarshaller = DeleteSizeConstraintSetResponseUnmarshaller.Instance;
@@ -3867,7 +4521,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteSqlInjectionMatchSet">REST API Reference for DeleteSqlInjectionMatchSet Operation</seealso>
-        public DeleteSqlInjectionMatchSetResponse DeleteSqlInjectionMatchSet(string sqlInjectionMatchSetId, string changeToken)
+        public virtual DeleteSqlInjectionMatchSetResponse DeleteSqlInjectionMatchSet(string sqlInjectionMatchSetId, string changeToken)
         {
             var request = new DeleteSqlInjectionMatchSetRequest();
             request.SqlInjectionMatchSetId = sqlInjectionMatchSetId;
@@ -3964,7 +4618,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteSqlInjectionMatchSet">REST API Reference for DeleteSqlInjectionMatchSet Operation</seealso>
-        public DeleteSqlInjectionMatchSetResponse DeleteSqlInjectionMatchSet(DeleteSqlInjectionMatchSetRequest request)
+        public virtual DeleteSqlInjectionMatchSetResponse DeleteSqlInjectionMatchSet(DeleteSqlInjectionMatchSetRequest request)
         {
             var marshaller = new DeleteSqlInjectionMatchSetRequestMarshaller();
             var unmarshaller = DeleteSqlInjectionMatchSetResponseUnmarshaller.Instance;
@@ -4065,7 +4719,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteSqlInjectionMatchSet">REST API Reference for DeleteSqlInjectionMatchSet Operation</seealso>
-        public Task<DeleteSqlInjectionMatchSetResponse> DeleteSqlInjectionMatchSetAsync(string sqlInjectionMatchSetId, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteSqlInjectionMatchSetResponse> DeleteSqlInjectionMatchSetAsync(string sqlInjectionMatchSetId, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new DeleteSqlInjectionMatchSetRequest();
             request.SqlInjectionMatchSetId = sqlInjectionMatchSetId;
@@ -4083,7 +4737,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteSqlInjectionMatchSet">REST API Reference for DeleteSqlInjectionMatchSet Operation</seealso>
-        public Task<DeleteSqlInjectionMatchSetResponse> DeleteSqlInjectionMatchSetAsync(DeleteSqlInjectionMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteSqlInjectionMatchSetResponse> DeleteSqlInjectionMatchSetAsync(DeleteSqlInjectionMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteSqlInjectionMatchSetRequestMarshaller();
             var unmarshaller = DeleteSqlInjectionMatchSetResponseUnmarshaller.Instance;
@@ -4179,7 +4833,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteWebACL">REST API Reference for DeleteWebACL Operation</seealso>
-        public DeleteWebACLResponse DeleteWebACL(string webACLId, string changeToken)
+        public virtual DeleteWebACLResponse DeleteWebACL(string webACLId, string changeToken)
         {
             var request = new DeleteWebACLRequest();
             request.WebACLId = webACLId;
@@ -4269,7 +4923,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteWebACL">REST API Reference for DeleteWebACL Operation</seealso>
-        public DeleteWebACLResponse DeleteWebACL(DeleteWebACLRequest request)
+        public virtual DeleteWebACLResponse DeleteWebACL(DeleteWebACLRequest request)
         {
             var marshaller = new DeleteWebACLRequestMarshaller();
             var unmarshaller = DeleteWebACLResponseUnmarshaller.Instance;
@@ -4363,7 +5017,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteWebACL">REST API Reference for DeleteWebACL Operation</seealso>
-        public Task<DeleteWebACLResponse> DeleteWebACLAsync(string webACLId, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteWebACLResponse> DeleteWebACLAsync(string webACLId, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new DeleteWebACLRequest();
             request.WebACLId = webACLId;
@@ -4381,7 +5035,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteWebACL">REST API Reference for DeleteWebACL Operation</seealso>
-        public Task<DeleteWebACLResponse> DeleteWebACLAsync(DeleteWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteWebACLResponse> DeleteWebACLAsync(DeleteWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteWebACLRequestMarshaller();
             var unmarshaller = DeleteWebACLResponseUnmarshaller.Instance;
@@ -4483,7 +5137,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteXssMatchSet">REST API Reference for DeleteXssMatchSet Operation</seealso>
-        public DeleteXssMatchSetResponse DeleteXssMatchSet(DeleteXssMatchSetRequest request)
+        public virtual DeleteXssMatchSetResponse DeleteXssMatchSet(DeleteXssMatchSetRequest request)
         {
             var marshaller = new DeleteXssMatchSetRequestMarshaller();
             var unmarshaller = DeleteXssMatchSetResponseUnmarshaller.Instance;
@@ -4501,7 +5155,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DeleteXssMatchSet">REST API Reference for DeleteXssMatchSet Operation</seealso>
-        public Task<DeleteXssMatchSetResponse> DeleteXssMatchSetAsync(DeleteXssMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteXssMatchSetResponse> DeleteXssMatchSetAsync(DeleteXssMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteXssMatchSetRequestMarshaller();
             var unmarshaller = DeleteXssMatchSetResponseUnmarshaller.Instance;
@@ -4564,7 +5218,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -4582,7 +5236,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DisassociateWebACL">REST API Reference for DisassociateWebACL Operation</seealso>
-        public DisassociateWebACLResponse DisassociateWebACL(DisassociateWebACLRequest request)
+        public virtual DisassociateWebACLResponse DisassociateWebACL(DisassociateWebACLRequest request)
         {
             var marshaller = new DisassociateWebACLRequestMarshaller();
             var unmarshaller = DisassociateWebACLResponseUnmarshaller.Instance;
@@ -4600,7 +5254,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/DisassociateWebACL">REST API Reference for DisassociateWebACL Operation</seealso>
-        public Task<DisassociateWebACLResponse> DisassociateWebACLAsync(DisassociateWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DisassociateWebACLResponse> DisassociateWebACLAsync(DisassociateWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DisassociateWebACLRequestMarshaller();
             var unmarshaller = DisassociateWebACLResponseUnmarshaller.Instance;
@@ -4632,7 +5286,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetByteMatchSet">REST API Reference for GetByteMatchSet Operation</seealso>
-        public GetByteMatchSetResponse GetByteMatchSet(string byteMatchSetId)
+        public virtual GetByteMatchSetResponse GetByteMatchSet(string byteMatchSetId)
         {
             var request = new GetByteMatchSetRequest();
             request.ByteMatchSetId = byteMatchSetId;
@@ -4658,7 +5312,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetByteMatchSet">REST API Reference for GetByteMatchSet Operation</seealso>
-        public GetByteMatchSetResponse GetByteMatchSet(GetByteMatchSetRequest request)
+        public virtual GetByteMatchSetResponse GetByteMatchSet(GetByteMatchSetRequest request)
         {
             var marshaller = new GetByteMatchSetRequestMarshaller();
             var unmarshaller = GetByteMatchSetResponseUnmarshaller.Instance;
@@ -4688,7 +5342,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetByteMatchSet">REST API Reference for GetByteMatchSet Operation</seealso>
-        public Task<GetByteMatchSetResponse> GetByteMatchSetAsync(string byteMatchSetId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetByteMatchSetResponse> GetByteMatchSetAsync(string byteMatchSetId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new GetByteMatchSetRequest();
             request.ByteMatchSetId = byteMatchSetId;
@@ -4705,7 +5359,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetByteMatchSet">REST API Reference for GetByteMatchSet Operation</seealso>
-        public Task<GetByteMatchSetResponse> GetByteMatchSetAsync(GetByteMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetByteMatchSetResponse> GetByteMatchSetAsync(GetByteMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetByteMatchSetRequestMarshaller();
             var unmarshaller = GetByteMatchSetResponseUnmarshaller.Instance;
@@ -4746,7 +5400,7 @@ namespace Amazon.WAFRegional
         /// Retry your request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetChangeToken">REST API Reference for GetChangeToken Operation</seealso>
-        public GetChangeTokenResponse GetChangeToken()
+        public virtual GetChangeTokenResponse GetChangeToken()
         {
             return GetChangeToken(new GetChangeTokenRequest());
         }
@@ -4780,7 +5434,7 @@ namespace Amazon.WAFRegional
         /// Retry your request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetChangeToken">REST API Reference for GetChangeToken Operation</seealso>
-        public GetChangeTokenResponse GetChangeToken(GetChangeTokenRequest request)
+        public virtual GetChangeTokenResponse GetChangeToken(GetChangeTokenRequest request)
         {
             var marshaller = new GetChangeTokenRequestMarshaller();
             var unmarshaller = GetChangeTokenResponseUnmarshaller.Instance;
@@ -4819,7 +5473,7 @@ namespace Amazon.WAFRegional
         /// Retry your request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetChangeToken">REST API Reference for GetChangeToken Operation</seealso>
-        public Task<GetChangeTokenResponse> GetChangeTokenAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetChangeTokenResponse> GetChangeTokenAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             return GetChangeTokenAsync(new GetChangeTokenRequest(), cancellationToken);
         }
@@ -4833,7 +5487,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetChangeToken">REST API Reference for GetChangeToken Operation</seealso>
-        public Task<GetChangeTokenResponse> GetChangeTokenAsync(GetChangeTokenRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetChangeTokenResponse> GetChangeTokenAsync(GetChangeTokenRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetChangeTokenRequestMarshaller();
             var unmarshaller = GetChangeTokenResponseUnmarshaller.Instance;
@@ -4878,7 +5532,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetChangeTokenStatus">REST API Reference for GetChangeTokenStatus Operation</seealso>
-        public GetChangeTokenStatusResponse GetChangeTokenStatus(string changeToken)
+        public virtual GetChangeTokenStatusResponse GetChangeTokenStatus(string changeToken)
         {
             var request = new GetChangeTokenStatusRequest();
             request.ChangeToken = changeToken;
@@ -4917,7 +5571,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetChangeTokenStatus">REST API Reference for GetChangeTokenStatus Operation</seealso>
-        public GetChangeTokenStatusResponse GetChangeTokenStatus(GetChangeTokenStatusRequest request)
+        public virtual GetChangeTokenStatusResponse GetChangeTokenStatus(GetChangeTokenStatusRequest request)
         {
             var marshaller = new GetChangeTokenStatusRequestMarshaller();
             var unmarshaller = GetChangeTokenStatusResponseUnmarshaller.Instance;
@@ -4960,7 +5614,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetChangeTokenStatus">REST API Reference for GetChangeTokenStatus Operation</seealso>
-        public Task<GetChangeTokenStatusResponse> GetChangeTokenStatusAsync(string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetChangeTokenStatusResponse> GetChangeTokenStatusAsync(string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new GetChangeTokenStatusRequest();
             request.ChangeToken = changeToken;
@@ -4977,12 +5631,62 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetChangeTokenStatus">REST API Reference for GetChangeTokenStatus Operation</seealso>
-        public Task<GetChangeTokenStatusResponse> GetChangeTokenStatusAsync(GetChangeTokenStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetChangeTokenStatusResponse> GetChangeTokenStatusAsync(GetChangeTokenStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetChangeTokenStatusRequestMarshaller();
             var unmarshaller = GetChangeTokenStatusResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetChangeTokenStatusRequest,GetChangeTokenStatusResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetGeoMatchSet
+
+
+        /// <summary>
+        /// Returns the <a>GeoMatchSet</a> that is specified by <code>GeoMatchSetId</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetGeoMatchSet service method.</param>
+        /// 
+        /// <returns>The response from the GetGeoMatchSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonexistentItemException">
+        /// The operation failed because the referenced object doesn't exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetGeoMatchSet">REST API Reference for GetGeoMatchSet Operation</seealso>
+        public virtual GetGeoMatchSetResponse GetGeoMatchSet(GetGeoMatchSetRequest request)
+        {
+            var marshaller = new GetGeoMatchSetRequestMarshaller();
+            var unmarshaller = GetGeoMatchSetResponseUnmarshaller.Instance;
+
+            return Invoke<GetGeoMatchSetRequest,GetGeoMatchSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetGeoMatchSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetGeoMatchSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetGeoMatchSet">REST API Reference for GetGeoMatchSet Operation</seealso>
+        public virtual Task<GetGeoMatchSetResponse> GetGeoMatchSetAsync(GetGeoMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetGeoMatchSetRequestMarshaller();
+            var unmarshaller = GetGeoMatchSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetGeoMatchSetRequest,GetGeoMatchSetResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -5009,7 +5713,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetIPSet">REST API Reference for GetIPSet Operation</seealso>
-        public GetIPSetResponse GetIPSet(string ipSetId)
+        public virtual GetIPSetResponse GetIPSet(string ipSetId)
         {
             var request = new GetIPSetRequest();
             request.IPSetId = ipSetId;
@@ -5035,7 +5739,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetIPSet">REST API Reference for GetIPSet Operation</seealso>
-        public GetIPSetResponse GetIPSet(GetIPSetRequest request)
+        public virtual GetIPSetResponse GetIPSet(GetIPSetRequest request)
         {
             var marshaller = new GetIPSetRequestMarshaller();
             var unmarshaller = GetIPSetResponseUnmarshaller.Instance;
@@ -5065,7 +5769,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetIPSet">REST API Reference for GetIPSet Operation</seealso>
-        public Task<GetIPSetResponse> GetIPSetAsync(string ipSetId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetIPSetResponse> GetIPSetAsync(string ipSetId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new GetIPSetRequest();
             request.IPSetId = ipSetId;
@@ -5082,7 +5786,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetIPSet">REST API Reference for GetIPSet Operation</seealso>
-        public Task<GetIPSetResponse> GetIPSetAsync(GetIPSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetIPSetResponse> GetIPSetAsync(GetIPSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetIPSetRequestMarshaller();
             var unmarshaller = GetIPSetResponseUnmarshaller.Instance;
@@ -5115,7 +5819,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRateBasedRule">REST API Reference for GetRateBasedRule Operation</seealso>
-        public GetRateBasedRuleResponse GetRateBasedRule(GetRateBasedRuleRequest request)
+        public virtual GetRateBasedRuleResponse GetRateBasedRule(GetRateBasedRuleRequest request)
         {
             var marshaller = new GetRateBasedRuleRequestMarshaller();
             var unmarshaller = GetRateBasedRuleResponseUnmarshaller.Instance;
@@ -5133,7 +5837,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRateBasedRule">REST API Reference for GetRateBasedRule Operation</seealso>
-        public Task<GetRateBasedRuleResponse> GetRateBasedRuleAsync(GetRateBasedRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetRateBasedRuleResponse> GetRateBasedRuleAsync(GetRateBasedRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetRateBasedRuleRequestMarshaller();
             var unmarshaller = GetRateBasedRuleResponseUnmarshaller.Instance;
@@ -5199,7 +5903,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -5217,7 +5921,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRateBasedRuleManagedKeys">REST API Reference for GetRateBasedRuleManagedKeys Operation</seealso>
-        public GetRateBasedRuleManagedKeysResponse GetRateBasedRuleManagedKeys(GetRateBasedRuleManagedKeysRequest request)
+        public virtual GetRateBasedRuleManagedKeysResponse GetRateBasedRuleManagedKeys(GetRateBasedRuleManagedKeysRequest request)
         {
             var marshaller = new GetRateBasedRuleManagedKeysRequestMarshaller();
             var unmarshaller = GetRateBasedRuleManagedKeysResponseUnmarshaller.Instance;
@@ -5235,12 +5939,112 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRateBasedRuleManagedKeys">REST API Reference for GetRateBasedRuleManagedKeys Operation</seealso>
-        public Task<GetRateBasedRuleManagedKeysResponse> GetRateBasedRuleManagedKeysAsync(GetRateBasedRuleManagedKeysRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetRateBasedRuleManagedKeysResponse> GetRateBasedRuleManagedKeysAsync(GetRateBasedRuleManagedKeysRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetRateBasedRuleManagedKeysRequestMarshaller();
             var unmarshaller = GetRateBasedRuleManagedKeysResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetRateBasedRuleManagedKeysRequest,GetRateBasedRuleManagedKeysResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetRegexMatchSet
+
+
+        /// <summary>
+        /// Returns the <a>RegexMatchSet</a> specified by <code>RegexMatchSetId</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetRegexMatchSet service method.</param>
+        /// 
+        /// <returns>The response from the GetRegexMatchSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonexistentItemException">
+        /// The operation failed because the referenced object doesn't exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRegexMatchSet">REST API Reference for GetRegexMatchSet Operation</seealso>
+        public virtual GetRegexMatchSetResponse GetRegexMatchSet(GetRegexMatchSetRequest request)
+        {
+            var marshaller = new GetRegexMatchSetRequestMarshaller();
+            var unmarshaller = GetRegexMatchSetResponseUnmarshaller.Instance;
+
+            return Invoke<GetRegexMatchSetRequest,GetRegexMatchSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetRegexMatchSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetRegexMatchSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRegexMatchSet">REST API Reference for GetRegexMatchSet Operation</seealso>
+        public virtual Task<GetRegexMatchSetResponse> GetRegexMatchSetAsync(GetRegexMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetRegexMatchSetRequestMarshaller();
+            var unmarshaller = GetRegexMatchSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetRegexMatchSetRequest,GetRegexMatchSetResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetRegexPatternSet
+
+
+        /// <summary>
+        /// Returns the <a>RegexPatternSet</a> specified by <code>RegexPatternSetId</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetRegexPatternSet service method.</param>
+        /// 
+        /// <returns>The response from the GetRegexPatternSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonexistentItemException">
+        /// The operation failed because the referenced object doesn't exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRegexPatternSet">REST API Reference for GetRegexPatternSet Operation</seealso>
+        public virtual GetRegexPatternSetResponse GetRegexPatternSet(GetRegexPatternSetRequest request)
+        {
+            var marshaller = new GetRegexPatternSetRequestMarshaller();
+            var unmarshaller = GetRegexPatternSetResponseUnmarshaller.Instance;
+
+            return Invoke<GetRegexPatternSetRequest,GetRegexPatternSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetRegexPatternSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetRegexPatternSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRegexPatternSet">REST API Reference for GetRegexPatternSet Operation</seealso>
+        public virtual Task<GetRegexPatternSetResponse> GetRegexPatternSetAsync(GetRegexPatternSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetRegexPatternSetRequestMarshaller();
+            var unmarshaller = GetRegexPatternSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetRegexPatternSetRequest,GetRegexPatternSetResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -5268,7 +6072,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRule">REST API Reference for GetRule Operation</seealso>
-        public GetRuleResponse GetRule(string ruleId)
+        public virtual GetRuleResponse GetRule(string ruleId)
         {
             var request = new GetRuleRequest();
             request.RuleId = ruleId;
@@ -5295,7 +6099,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRule">REST API Reference for GetRule Operation</seealso>
-        public GetRuleResponse GetRule(GetRuleRequest request)
+        public virtual GetRuleResponse GetRule(GetRuleRequest request)
         {
             var marshaller = new GetRuleRequestMarshaller();
             var unmarshaller = GetRuleResponseUnmarshaller.Instance;
@@ -5326,7 +6130,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRule">REST API Reference for GetRule Operation</seealso>
-        public Task<GetRuleResponse> GetRuleAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetRuleResponse> GetRuleAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new GetRuleRequest();
             request.RuleId = ruleId;
@@ -5343,7 +6147,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetRule">REST API Reference for GetRule Operation</seealso>
-        public Task<GetRuleResponse> GetRuleAsync(GetRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetRuleResponse> GetRuleAsync(GetRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetRuleRequestMarshaller();
             var unmarshaller = GetRuleResponseUnmarshaller.Instance;
@@ -5383,7 +6187,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetSampledRequests">REST API Reference for GetSampledRequests Operation</seealso>
-        public GetSampledRequestsResponse GetSampledRequests(GetSampledRequestsRequest request)
+        public virtual GetSampledRequestsResponse GetSampledRequests(GetSampledRequestsRequest request)
         {
             var marshaller = new GetSampledRequestsRequestMarshaller();
             var unmarshaller = GetSampledRequestsResponseUnmarshaller.Instance;
@@ -5401,7 +6205,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetSampledRequests">REST API Reference for GetSampledRequests Operation</seealso>
-        public Task<GetSampledRequestsResponse> GetSampledRequestsAsync(GetSampledRequestsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSampledRequestsResponse> GetSampledRequestsAsync(GetSampledRequestsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetSampledRequestsRequestMarshaller();
             var unmarshaller = GetSampledRequestsResponseUnmarshaller.Instance;
@@ -5433,7 +6237,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetSizeConstraintSet">REST API Reference for GetSizeConstraintSet Operation</seealso>
-        public GetSizeConstraintSetResponse GetSizeConstraintSet(GetSizeConstraintSetRequest request)
+        public virtual GetSizeConstraintSetResponse GetSizeConstraintSet(GetSizeConstraintSetRequest request)
         {
             var marshaller = new GetSizeConstraintSetRequestMarshaller();
             var unmarshaller = GetSizeConstraintSetResponseUnmarshaller.Instance;
@@ -5451,7 +6255,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetSizeConstraintSet">REST API Reference for GetSizeConstraintSet Operation</seealso>
-        public Task<GetSizeConstraintSetResponse> GetSizeConstraintSetAsync(GetSizeConstraintSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSizeConstraintSetResponse> GetSizeConstraintSetAsync(GetSizeConstraintSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetSizeConstraintSetRequestMarshaller();
             var unmarshaller = GetSizeConstraintSetResponseUnmarshaller.Instance;
@@ -5483,7 +6287,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetSqlInjectionMatchSet">REST API Reference for GetSqlInjectionMatchSet Operation</seealso>
-        public GetSqlInjectionMatchSetResponse GetSqlInjectionMatchSet(string sqlInjectionMatchSetId)
+        public virtual GetSqlInjectionMatchSetResponse GetSqlInjectionMatchSet(string sqlInjectionMatchSetId)
         {
             var request = new GetSqlInjectionMatchSetRequest();
             request.SqlInjectionMatchSetId = sqlInjectionMatchSetId;
@@ -5509,7 +6313,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetSqlInjectionMatchSet">REST API Reference for GetSqlInjectionMatchSet Operation</seealso>
-        public GetSqlInjectionMatchSetResponse GetSqlInjectionMatchSet(GetSqlInjectionMatchSetRequest request)
+        public virtual GetSqlInjectionMatchSetResponse GetSqlInjectionMatchSet(GetSqlInjectionMatchSetRequest request)
         {
             var marshaller = new GetSqlInjectionMatchSetRequestMarshaller();
             var unmarshaller = GetSqlInjectionMatchSetResponseUnmarshaller.Instance;
@@ -5539,7 +6343,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetSqlInjectionMatchSet">REST API Reference for GetSqlInjectionMatchSet Operation</seealso>
-        public Task<GetSqlInjectionMatchSetResponse> GetSqlInjectionMatchSetAsync(string sqlInjectionMatchSetId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSqlInjectionMatchSetResponse> GetSqlInjectionMatchSetAsync(string sqlInjectionMatchSetId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new GetSqlInjectionMatchSetRequest();
             request.SqlInjectionMatchSetId = sqlInjectionMatchSetId;
@@ -5556,7 +6360,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetSqlInjectionMatchSet">REST API Reference for GetSqlInjectionMatchSet Operation</seealso>
-        public Task<GetSqlInjectionMatchSetResponse> GetSqlInjectionMatchSetAsync(GetSqlInjectionMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSqlInjectionMatchSetResponse> GetSqlInjectionMatchSetAsync(GetSqlInjectionMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetSqlInjectionMatchSetRequestMarshaller();
             var unmarshaller = GetSqlInjectionMatchSetResponseUnmarshaller.Instance;
@@ -5588,7 +6392,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetWebACL">REST API Reference for GetWebACL Operation</seealso>
-        public GetWebACLResponse GetWebACL(string webACLId)
+        public virtual GetWebACLResponse GetWebACL(string webACLId)
         {
             var request = new GetWebACLRequest();
             request.WebACLId = webACLId;
@@ -5614,7 +6418,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetWebACL">REST API Reference for GetWebACL Operation</seealso>
-        public GetWebACLResponse GetWebACL(GetWebACLRequest request)
+        public virtual GetWebACLResponse GetWebACL(GetWebACLRequest request)
         {
             var marshaller = new GetWebACLRequestMarshaller();
             var unmarshaller = GetWebACLResponseUnmarshaller.Instance;
@@ -5644,7 +6448,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetWebACL">REST API Reference for GetWebACL Operation</seealso>
-        public Task<GetWebACLResponse> GetWebACLAsync(string webACLId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetWebACLResponse> GetWebACLAsync(string webACLId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new GetWebACLRequest();
             request.WebACLId = webACLId;
@@ -5661,7 +6465,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetWebACL">REST API Reference for GetWebACL Operation</seealso>
-        public Task<GetWebACLResponse> GetWebACLAsync(GetWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetWebACLResponse> GetWebACLAsync(GetWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetWebACLRequestMarshaller();
             var unmarshaller = GetWebACLResponseUnmarshaller.Instance;
@@ -5724,7 +6528,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -5746,7 +6550,7 @@ namespace Amazon.WAFRegional
         /// your request.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetWebACLForResource">REST API Reference for GetWebACLForResource Operation</seealso>
-        public GetWebACLForResourceResponse GetWebACLForResource(GetWebACLForResourceRequest request)
+        public virtual GetWebACLForResourceResponse GetWebACLForResource(GetWebACLForResourceRequest request)
         {
             var marshaller = new GetWebACLForResourceRequestMarshaller();
             var unmarshaller = GetWebACLForResourceResponseUnmarshaller.Instance;
@@ -5764,7 +6568,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetWebACLForResource">REST API Reference for GetWebACLForResource Operation</seealso>
-        public Task<GetWebACLForResourceResponse> GetWebACLForResourceAsync(GetWebACLForResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetWebACLForResourceResponse> GetWebACLForResourceAsync(GetWebACLForResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetWebACLForResourceRequestMarshaller();
             var unmarshaller = GetWebACLForResourceResponseUnmarshaller.Instance;
@@ -5796,7 +6600,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetXssMatchSet">REST API Reference for GetXssMatchSet Operation</seealso>
-        public GetXssMatchSetResponse GetXssMatchSet(GetXssMatchSetRequest request)
+        public virtual GetXssMatchSetResponse GetXssMatchSet(GetXssMatchSetRequest request)
         {
             var marshaller = new GetXssMatchSetRequestMarshaller();
             var unmarshaller = GetXssMatchSetResponseUnmarshaller.Instance;
@@ -5814,7 +6618,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/GetXssMatchSet">REST API Reference for GetXssMatchSet Operation</seealso>
-        public Task<GetXssMatchSetResponse> GetXssMatchSetAsync(GetXssMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetXssMatchSetResponse> GetXssMatchSetAsync(GetXssMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetXssMatchSetRequestMarshaller();
             var unmarshaller = GetXssMatchSetResponseUnmarshaller.Instance;
@@ -5843,7 +6647,7 @@ namespace Amazon.WAFRegional
         /// an invalid account identifier.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListByteMatchSets">REST API Reference for ListByteMatchSets Operation</seealso>
-        public ListByteMatchSetsResponse ListByteMatchSets(ListByteMatchSetsRequest request)
+        public virtual ListByteMatchSetsResponse ListByteMatchSets(ListByteMatchSetsRequest request)
         {
             var marshaller = new ListByteMatchSetsRequestMarshaller();
             var unmarshaller = ListByteMatchSetsResponseUnmarshaller.Instance;
@@ -5861,12 +6665,59 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListByteMatchSets">REST API Reference for ListByteMatchSets Operation</seealso>
-        public Task<ListByteMatchSetsResponse> ListByteMatchSetsAsync(ListByteMatchSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListByteMatchSetsResponse> ListByteMatchSetsAsync(ListByteMatchSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListByteMatchSetsRequestMarshaller();
             var unmarshaller = ListByteMatchSetsResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListByteMatchSetsRequest,ListByteMatchSetsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListGeoMatchSets
+
+
+        /// <summary>
+        /// Returns an array of <a>GeoMatchSetSummary</a> objects in the response.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListGeoMatchSets service method.</param>
+        /// 
+        /// <returns>The response from the ListGeoMatchSets service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListGeoMatchSets">REST API Reference for ListGeoMatchSets Operation</seealso>
+        public virtual ListGeoMatchSetsResponse ListGeoMatchSets(ListGeoMatchSetsRequest request)
+        {
+            var marshaller = new ListGeoMatchSetsRequestMarshaller();
+            var unmarshaller = ListGeoMatchSetsResponseUnmarshaller.Instance;
+
+            return Invoke<ListGeoMatchSetsRequest,ListGeoMatchSetsResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListGeoMatchSets operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListGeoMatchSets operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListGeoMatchSets">REST API Reference for ListGeoMatchSets Operation</seealso>
+        public virtual Task<ListGeoMatchSetsResponse> ListGeoMatchSetsAsync(ListGeoMatchSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new ListGeoMatchSetsRequestMarshaller();
+            var unmarshaller = ListGeoMatchSetsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListGeoMatchSetsRequest,ListGeoMatchSetsResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -5890,7 +6741,7 @@ namespace Amazon.WAFRegional
         /// an invalid account identifier.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListIPSets">REST API Reference for ListIPSets Operation</seealso>
-        public ListIPSetsResponse ListIPSets(ListIPSetsRequest request)
+        public virtual ListIPSetsResponse ListIPSets(ListIPSetsRequest request)
         {
             var marshaller = new ListIPSetsRequestMarshaller();
             var unmarshaller = ListIPSetsResponseUnmarshaller.Instance;
@@ -5908,7 +6759,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListIPSets">REST API Reference for ListIPSets Operation</seealso>
-        public Task<ListIPSetsResponse> ListIPSetsAsync(ListIPSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListIPSetsResponse> ListIPSetsAsync(ListIPSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListIPSetsRequestMarshaller();
             var unmarshaller = ListIPSetsResponseUnmarshaller.Instance;
@@ -5937,7 +6788,7 @@ namespace Amazon.WAFRegional
         /// an invalid account identifier.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListRateBasedRules">REST API Reference for ListRateBasedRules Operation</seealso>
-        public ListRateBasedRulesResponse ListRateBasedRules(ListRateBasedRulesRequest request)
+        public virtual ListRateBasedRulesResponse ListRateBasedRules(ListRateBasedRulesRequest request)
         {
             var marshaller = new ListRateBasedRulesRequestMarshaller();
             var unmarshaller = ListRateBasedRulesResponseUnmarshaller.Instance;
@@ -5955,12 +6806,106 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListRateBasedRules">REST API Reference for ListRateBasedRules Operation</seealso>
-        public Task<ListRateBasedRulesResponse> ListRateBasedRulesAsync(ListRateBasedRulesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListRateBasedRulesResponse> ListRateBasedRulesAsync(ListRateBasedRulesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListRateBasedRulesRequestMarshaller();
             var unmarshaller = ListRateBasedRulesResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListRateBasedRulesRequest,ListRateBasedRulesResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListRegexMatchSets
+
+
+        /// <summary>
+        /// Returns an array of <a>RegexMatchSetSummary</a> objects.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListRegexMatchSets service method.</param>
+        /// 
+        /// <returns>The response from the ListRegexMatchSets service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListRegexMatchSets">REST API Reference for ListRegexMatchSets Operation</seealso>
+        public virtual ListRegexMatchSetsResponse ListRegexMatchSets(ListRegexMatchSetsRequest request)
+        {
+            var marshaller = new ListRegexMatchSetsRequestMarshaller();
+            var unmarshaller = ListRegexMatchSetsResponseUnmarshaller.Instance;
+
+            return Invoke<ListRegexMatchSetsRequest,ListRegexMatchSetsResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListRegexMatchSets operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListRegexMatchSets operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListRegexMatchSets">REST API Reference for ListRegexMatchSets Operation</seealso>
+        public virtual Task<ListRegexMatchSetsResponse> ListRegexMatchSetsAsync(ListRegexMatchSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new ListRegexMatchSetsRequestMarshaller();
+            var unmarshaller = ListRegexMatchSetsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListRegexMatchSetsRequest,ListRegexMatchSetsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  ListRegexPatternSets
+
+
+        /// <summary>
+        /// Returns an array of <a>RegexPatternSetSummary</a> objects.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListRegexPatternSets service method.</param>
+        /// 
+        /// <returns>The response from the ListRegexPatternSets service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListRegexPatternSets">REST API Reference for ListRegexPatternSets Operation</seealso>
+        public virtual ListRegexPatternSetsResponse ListRegexPatternSets(ListRegexPatternSetsRequest request)
+        {
+            var marshaller = new ListRegexPatternSetsRequestMarshaller();
+            var unmarshaller = ListRegexPatternSetsResponseUnmarshaller.Instance;
+
+            return Invoke<ListRegexPatternSetsRequest,ListRegexPatternSetsResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListRegexPatternSets operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListRegexPatternSets operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListRegexPatternSets">REST API Reference for ListRegexPatternSets Operation</seealso>
+        public virtual Task<ListRegexPatternSetsResponse> ListRegexPatternSetsAsync(ListRegexPatternSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new ListRegexPatternSetsRequestMarshaller();
+            var unmarshaller = ListRegexPatternSetsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListRegexPatternSetsRequest,ListRegexPatternSetsResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -5987,7 +6932,7 @@ namespace Amazon.WAFRegional
         /// The operation failed because the referenced object doesn't exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListResourcesForWebACL">REST API Reference for ListResourcesForWebACL Operation</seealso>
-        public ListResourcesForWebACLResponse ListResourcesForWebACL(ListResourcesForWebACLRequest request)
+        public virtual ListResourcesForWebACLResponse ListResourcesForWebACL(ListResourcesForWebACLRequest request)
         {
             var marshaller = new ListResourcesForWebACLRequestMarshaller();
             var unmarshaller = ListResourcesForWebACLResponseUnmarshaller.Instance;
@@ -6005,7 +6950,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListResourcesForWebACL">REST API Reference for ListResourcesForWebACL Operation</seealso>
-        public Task<ListResourcesForWebACLResponse> ListResourcesForWebACLAsync(ListResourcesForWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListResourcesForWebACLResponse> ListResourcesForWebACLAsync(ListResourcesForWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListResourcesForWebACLRequestMarshaller();
             var unmarshaller = ListResourcesForWebACLResponseUnmarshaller.Instance;
@@ -6034,7 +6979,7 @@ namespace Amazon.WAFRegional
         /// an invalid account identifier.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListRules">REST API Reference for ListRules Operation</seealso>
-        public ListRulesResponse ListRules(ListRulesRequest request)
+        public virtual ListRulesResponse ListRules(ListRulesRequest request)
         {
             var marshaller = new ListRulesRequestMarshaller();
             var unmarshaller = ListRulesResponseUnmarshaller.Instance;
@@ -6052,7 +6997,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListRules">REST API Reference for ListRules Operation</seealso>
-        public Task<ListRulesResponse> ListRulesAsync(ListRulesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListRulesResponse> ListRulesAsync(ListRulesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListRulesRequestMarshaller();
             var unmarshaller = ListRulesResponseUnmarshaller.Instance;
@@ -6081,7 +7026,7 @@ namespace Amazon.WAFRegional
         /// an invalid account identifier.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListSizeConstraintSets">REST API Reference for ListSizeConstraintSets Operation</seealso>
-        public ListSizeConstraintSetsResponse ListSizeConstraintSets(ListSizeConstraintSetsRequest request)
+        public virtual ListSizeConstraintSetsResponse ListSizeConstraintSets(ListSizeConstraintSetsRequest request)
         {
             var marshaller = new ListSizeConstraintSetsRequestMarshaller();
             var unmarshaller = ListSizeConstraintSetsResponseUnmarshaller.Instance;
@@ -6099,7 +7044,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListSizeConstraintSets">REST API Reference for ListSizeConstraintSets Operation</seealso>
-        public Task<ListSizeConstraintSetsResponse> ListSizeConstraintSetsAsync(ListSizeConstraintSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListSizeConstraintSetsResponse> ListSizeConstraintSetsAsync(ListSizeConstraintSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListSizeConstraintSetsRequestMarshaller();
             var unmarshaller = ListSizeConstraintSetsResponseUnmarshaller.Instance;
@@ -6128,7 +7073,7 @@ namespace Amazon.WAFRegional
         /// an invalid account identifier.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListSqlInjectionMatchSets">REST API Reference for ListSqlInjectionMatchSets Operation</seealso>
-        public ListSqlInjectionMatchSetsResponse ListSqlInjectionMatchSets(ListSqlInjectionMatchSetsRequest request)
+        public virtual ListSqlInjectionMatchSetsResponse ListSqlInjectionMatchSets(ListSqlInjectionMatchSetsRequest request)
         {
             var marshaller = new ListSqlInjectionMatchSetsRequestMarshaller();
             var unmarshaller = ListSqlInjectionMatchSetsResponseUnmarshaller.Instance;
@@ -6146,7 +7091,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListSqlInjectionMatchSets">REST API Reference for ListSqlInjectionMatchSets Operation</seealso>
-        public Task<ListSqlInjectionMatchSetsResponse> ListSqlInjectionMatchSetsAsync(ListSqlInjectionMatchSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListSqlInjectionMatchSetsResponse> ListSqlInjectionMatchSetsAsync(ListSqlInjectionMatchSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListSqlInjectionMatchSetsRequestMarshaller();
             var unmarshaller = ListSqlInjectionMatchSetsResponseUnmarshaller.Instance;
@@ -6175,7 +7120,7 @@ namespace Amazon.WAFRegional
         /// an invalid account identifier.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListWebACLs">REST API Reference for ListWebACLs Operation</seealso>
-        public ListWebACLsResponse ListWebACLs(ListWebACLsRequest request)
+        public virtual ListWebACLsResponse ListWebACLs(ListWebACLsRequest request)
         {
             var marshaller = new ListWebACLsRequestMarshaller();
             var unmarshaller = ListWebACLsResponseUnmarshaller.Instance;
@@ -6193,7 +7138,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListWebACLs">REST API Reference for ListWebACLs Operation</seealso>
-        public Task<ListWebACLsResponse> ListWebACLsAsync(ListWebACLsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListWebACLsResponse> ListWebACLsAsync(ListWebACLsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListWebACLsRequestMarshaller();
             var unmarshaller = ListWebACLsResponseUnmarshaller.Instance;
@@ -6222,7 +7167,7 @@ namespace Amazon.WAFRegional
         /// an invalid account identifier.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListXssMatchSets">REST API Reference for ListXssMatchSets Operation</seealso>
-        public ListXssMatchSetsResponse ListXssMatchSets(ListXssMatchSetsRequest request)
+        public virtual ListXssMatchSetsResponse ListXssMatchSets(ListXssMatchSetsRequest request)
         {
             var marshaller = new ListXssMatchSetsRequestMarshaller();
             var unmarshaller = ListXssMatchSetsResponseUnmarshaller.Instance;
@@ -6240,7 +7185,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/ListXssMatchSets">REST API Reference for ListXssMatchSets Operation</seealso>
-        public Task<ListXssMatchSetsResponse> ListXssMatchSetsAsync(ListXssMatchSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListXssMatchSetsResponse> ListXssMatchSetsAsync(ListXssMatchSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListXssMatchSetsRequestMarshaller();
             var unmarshaller = ListXssMatchSetsResponseUnmarshaller.Instance;
@@ -6399,7 +7344,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -6452,7 +7397,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateByteMatchSet">REST API Reference for UpdateByteMatchSet Operation</seealso>
-        public UpdateByteMatchSetResponse UpdateByteMatchSet(string byteMatchSetId, List<ByteMatchSetUpdate> updates, string changeToken)
+        public virtual UpdateByteMatchSetResponse UpdateByteMatchSet(string byteMatchSetId, List<ByteMatchSetUpdate> updates, string changeToken)
         {
             var request = new UpdateByteMatchSetRequest();
             request.ByteMatchSetId = byteMatchSetId;
@@ -6605,7 +7550,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -6658,7 +7603,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateByteMatchSet">REST API Reference for UpdateByteMatchSet Operation</seealso>
-        public UpdateByteMatchSetResponse UpdateByteMatchSet(UpdateByteMatchSetRequest request)
+        public virtual UpdateByteMatchSetResponse UpdateByteMatchSet(UpdateByteMatchSetRequest request)
         {
             var marshaller = new UpdateByteMatchSetRequestMarshaller();
             var unmarshaller = UpdateByteMatchSetResponseUnmarshaller.Instance;
@@ -6815,7 +7760,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -6868,7 +7813,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateByteMatchSet">REST API Reference for UpdateByteMatchSet Operation</seealso>
-        public Task<UpdateByteMatchSetResponse> UpdateByteMatchSetAsync(string byteMatchSetId, List<ByteMatchSetUpdate> updates, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateByteMatchSetResponse> UpdateByteMatchSetAsync(string byteMatchSetId, List<ByteMatchSetUpdate> updates, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new UpdateByteMatchSetRequest();
             request.ByteMatchSetId = byteMatchSetId;
@@ -6887,12 +7832,242 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateByteMatchSet">REST API Reference for UpdateByteMatchSet Operation</seealso>
-        public Task<UpdateByteMatchSetResponse> UpdateByteMatchSetAsync(UpdateByteMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateByteMatchSetResponse> UpdateByteMatchSetAsync(UpdateByteMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateByteMatchSetRequestMarshaller();
             var unmarshaller = UpdateByteMatchSetResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateByteMatchSetRequest,UpdateByteMatchSetResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateGeoMatchSet
+
+
+        /// <summary>
+        /// Inserts or deletes <a>GeoMatchConstraint</a> objects in an <code>GeoMatchSet</code>.
+        /// For each <code>GeoMatchConstraint</code> object, you specify the following values:
+        /// 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// Whether to insert or delete the object from the array. If you want to change an <code>GeoMatchConstraint</code>
+        /// object, you delete the existing object and add a new one.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The <code>Type</code>. The only valid value for <code>Type</code> is <code>Country</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The <code>Value</code>, which is a two character code for the country to add to the
+        /// <code>GeoMatchConstraint</code> object. Valid codes are listed in <a>GeoMatchConstraint$Value</a>.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// To create and configure an <code>GeoMatchSet</code>, perform the following steps:
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Submit a <a>CreateGeoMatchSet</a> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+        /// parameter of an <a>UpdateGeoMatchSet</a> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Submit an <code>UpdateGeoMatchSet</code> request to specify the country that you want
+        /// AWS WAF to watch for.
+        /// </para>
+        ///  </li> </ol> 
+        /// <para>
+        /// When you update an <code>GeoMatchSet</code>, you specify the country that you want
+        /// to add and/or the country that you want to delete. If you want to change a country,
+        /// you delete the existing country and add the new one.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
+        /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
+        /// Guide</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateGeoMatchSet service method.</param>
+        /// 
+        /// <returns>The response from the UpdateGeoMatchSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidOperationException">
+        /// The operation failed because there was nothing to do. For example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code>
+        /// isn't in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't
+        /// in the specified <code>IPSet</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>,
+        /// but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code>
+        /// already exists in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add an IP address to an <code>IPSet</code>, but the IP address already
+        /// exists in the specified <code>IPSet</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but
+        /// the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidParameterException">
+        /// The operation failed because AWS WAF didn't recognize a parameter in the request.
+        /// For example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You specified an invalid parameter name.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You specified an invalid value.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update an object (<code>ByteMatchSet</code>, <code>IPSet</code>, <code>Rule</code>,
+        /// or <code>WebACL</code>) using an action other than <code>INSERT</code> or <code>DELETE</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to create a <code>WebACL</code> with a <code>DefaultAction</code> <code>Type</code>
+        /// other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to create a <code>RateBasedRule</code> with a <code>RateKey</code> value
+        /// other than <code>IP</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a <code>WebACL</code> with a <code>WafAction</code> <code>Type</code>
+        /// other than <code>ALLOW</code>, <code>BLOCK</code>, or <code>COUNT</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to update a <code>ByteMatchSet</code> with a <code>Field</code> of <code>HEADER</code>
+        /// but no value for <code>Data</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Your request references an ARN that is malformed, or corresponds to a resource with
+        /// which a web ACL cannot be associated.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFLimitsExceededException">
+        /// The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code>
+        /// objects that you can create for an AWS account. For more information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a>
+        /// in the <i>AWS WAF Developer Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonexistentContainerException">
+        /// The operation failed because you tried to add an object to or delete an object from
+        /// another object that doesn't exist. For example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code>
+        /// that doesn't exist.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code>
+        /// from a <code>Rule</code> that doesn't exist.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add an IP address to or delete an IP address from an <code>IPSet</code>
+        /// that doesn't exist.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code>
+        /// from a <code>ByteMatchSet</code> that doesn't exist.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonexistentItemException">
+        /// The operation failed because the referenced object doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFReferencedItemException">
+        /// The operation failed because you tried to delete an object that is still in use. For
+        /// example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to delete a <code>ByteMatchSet</code> that is still referenced by a <code>Rule</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to delete a <code>Rule</code> that is still referenced by a <code>WebACL</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFStaleDataException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// a change token that has already been used.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateGeoMatchSet">REST API Reference for UpdateGeoMatchSet Operation</seealso>
+        public virtual UpdateGeoMatchSetResponse UpdateGeoMatchSet(UpdateGeoMatchSetRequest request)
+        {
+            var marshaller = new UpdateGeoMatchSetRequestMarshaller();
+            var unmarshaller = UpdateGeoMatchSetResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateGeoMatchSetRequest,UpdateGeoMatchSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateGeoMatchSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateGeoMatchSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateGeoMatchSet">REST API Reference for UpdateGeoMatchSet Operation</seealso>
+        public virtual Task<UpdateGeoMatchSetResponse> UpdateGeoMatchSetAsync(UpdateGeoMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateGeoMatchSetRequestMarshaller();
+            var unmarshaller = UpdateGeoMatchSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateGeoMatchSetRequest,UpdateGeoMatchSetResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -7069,7 +8244,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -7136,7 +8311,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateIPSet">REST API Reference for UpdateIPSet Operation</seealso>
-        public UpdateIPSetResponse UpdateIPSet(string ipSetId, List<IPSetUpdate> updates, string changeToken)
+        public virtual UpdateIPSetResponse UpdateIPSet(string ipSetId, List<IPSetUpdate> updates, string changeToken)
         {
             var request = new UpdateIPSetRequest();
             request.IPSetId = ipSetId;
@@ -7312,7 +8487,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -7379,7 +8554,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateIPSet">REST API Reference for UpdateIPSet Operation</seealso>
-        public UpdateIPSetResponse UpdateIPSet(UpdateIPSetRequest request)
+        public virtual UpdateIPSetResponse UpdateIPSet(UpdateIPSetRequest request)
         {
             var marshaller = new UpdateIPSetRequestMarshaller();
             var unmarshaller = UpdateIPSetResponseUnmarshaller.Instance;
@@ -7559,7 +8734,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -7626,7 +8801,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateIPSet">REST API Reference for UpdateIPSet Operation</seealso>
-        public Task<UpdateIPSetResponse> UpdateIPSetAsync(string ipSetId, List<IPSetUpdate> updates, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateIPSetResponse> UpdateIPSetAsync(string ipSetId, List<IPSetUpdate> updates, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new UpdateIPSetRequest();
             request.IPSetId = ipSetId;
@@ -7645,7 +8820,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateIPSet">REST API Reference for UpdateIPSet Operation</seealso>
-        public Task<UpdateIPSetResponse> UpdateIPSetAsync(UpdateIPSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateIPSetResponse> UpdateIPSetAsync(UpdateIPSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateIPSetRequestMarshaller();
             var unmarshaller = UpdateIPSetResponseUnmarshaller.Instance;
@@ -7806,7 +8981,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -7873,7 +9048,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateRateBasedRule">REST API Reference for UpdateRateBasedRule Operation</seealso>
-        public UpdateRateBasedRuleResponse UpdateRateBasedRule(UpdateRateBasedRuleRequest request)
+        public virtual UpdateRateBasedRuleResponse UpdateRateBasedRule(UpdateRateBasedRuleRequest request)
         {
             var marshaller = new UpdateRateBasedRuleRequestMarshaller();
             var unmarshaller = UpdateRateBasedRuleResponseUnmarshaller.Instance;
@@ -7891,12 +9066,368 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateRateBasedRule">REST API Reference for UpdateRateBasedRule Operation</seealso>
-        public Task<UpdateRateBasedRuleResponse> UpdateRateBasedRuleAsync(UpdateRateBasedRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateRateBasedRuleResponse> UpdateRateBasedRuleAsync(UpdateRateBasedRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateRateBasedRuleRequestMarshaller();
             var unmarshaller = UpdateRateBasedRuleResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateRateBasedRuleRequest,UpdateRateBasedRuleResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateRegexMatchSet
+
+
+        /// <summary>
+        /// Inserts or deletes <a>RegexMatchSetUpdate</a> objects (filters) in a <a>RegexMatchSet</a>.
+        /// For each <code>RegexMatchSetUpdate</code> object, you specify the following values:
+        /// 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// Whether to insert or delete the object from the array. If you want to change a <code>RegexMatchSetUpdate</code>
+        /// object, you delete the existing object and add a new one.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The part of a web request that you want AWS WAF to inspect, such as a query string
+        /// or the value of the <code>User-Agent</code> header. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The identifier of the pattern (a regular expression) that you want AWS WAF to look
+        /// for. For more information, see <a>RegexPatternSet</a>. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Whether to perform any conversions on the request, such as converting it to lowercase,
+        /// before inspecting it for the specified string.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        ///  For example, you can create a <code>RegexPatternSet</code> that matches any requests
+        /// with <code>User-Agent</code> headers that contain the string <code>B[a@]dB[o0]t</code>.
+        /// You can then configure AWS WAF to reject those requests.
+        /// </para>
+        ///  
+        /// <para>
+        /// To create and configure a <code>RegexMatchSet</code>, perform the following steps:
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Create a <code>RegexMatchSet.</code> For more information, see <a>CreateRegexMatchSet</a>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+        /// parameter of an <code>UpdateRegexMatchSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Submit an <code>UpdateRegexMatchSet</code> request to specify the part of the request
+        /// that you want AWS WAF to inspect (for example, the header or the URI) and the identifier
+        /// of the <code>RegexPatternSet</code> that contain the regular expression patters you
+        /// want AWS WAF to watch for.
+        /// </para>
+        ///  </li> </ol> 
+        /// <para>
+        /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
+        /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
+        /// Guide</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateRegexMatchSet service method.</param>
+        /// 
+        /// <returns>The response from the UpdateRegexMatchSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFDisallowedNameException">
+        /// The name specified is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidOperationException">
+        /// The operation failed because there was nothing to do. For example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code>
+        /// isn't in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't
+        /// in the specified <code>IPSet</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>,
+        /// but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code>
+        /// already exists in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add an IP address to an <code>IPSet</code>, but the IP address already
+        /// exists in the specified <code>IPSet</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but
+        /// the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFLimitsExceededException">
+        /// The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code>
+        /// objects that you can create for an AWS account. For more information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a>
+        /// in the <i>AWS WAF Developer Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonexistentContainerException">
+        /// The operation failed because you tried to add an object to or delete an object from
+        /// another object that doesn't exist. For example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code>
+        /// that doesn't exist.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code>
+        /// from a <code>Rule</code> that doesn't exist.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add an IP address to or delete an IP address from an <code>IPSet</code>
+        /// that doesn't exist.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code>
+        /// from a <code>ByteMatchSet</code> that doesn't exist.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonexistentItemException">
+        /// The operation failed because the referenced object doesn't exist.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFStaleDataException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// a change token that has already been used.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateRegexMatchSet">REST API Reference for UpdateRegexMatchSet Operation</seealso>
+        public virtual UpdateRegexMatchSetResponse UpdateRegexMatchSet(UpdateRegexMatchSetRequest request)
+        {
+            var marshaller = new UpdateRegexMatchSetRequestMarshaller();
+            var unmarshaller = UpdateRegexMatchSetResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateRegexMatchSetRequest,UpdateRegexMatchSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateRegexMatchSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateRegexMatchSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateRegexMatchSet">REST API Reference for UpdateRegexMatchSet Operation</seealso>
+        public virtual Task<UpdateRegexMatchSetResponse> UpdateRegexMatchSetAsync(UpdateRegexMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateRegexMatchSetRequestMarshaller();
+            var unmarshaller = UpdateRegexMatchSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateRegexMatchSetRequest,UpdateRegexMatchSetResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateRegexPatternSet
+
+
+        /// <summary>
+        /// Inserts or deletes <a>RegexMatchSetUpdate</a> objects (filters) in a <a>RegexPatternSet</a>.
+        /// For each <code>RegexPatternSet</code> object, you specify the following values: 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// Whether to insert or delete the object from the array. If you want to change a <code>RegexPatternSet</code>
+        /// object, you delete the existing object and add a new one.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The regular expression pattern that you want AWS WAF to look for. For more information,
+        /// see <a>RegexPatternSet</a>. 
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        ///  For example, you can create a <code>RegexPatternString</code> such as <code>B[a@]dB[o0]t</code>.
+        /// AWS WAF will match this <code>RegexPatternString</code> to:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// BadBot
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// BadB0t
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// B@dBot
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// B@dB0t
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// To create and configure a <code>RegexPatternSet</code>, perform the following steps:
+        /// </para>
+        ///  <ol> <li> 
+        /// <para>
+        /// Create a <code>RegexPatternSet.</code> For more information, see <a>CreateRegexPatternSet</a>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+        /// parameter of an <code>UpdateRegexPatternSet</code> request.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Submit an <code>UpdateRegexPatternSet</code> request to specify the regular expression
+        /// pattern that you want AWS WAF to watch for.
+        /// </para>
+        ///  </li> </ol> 
+        /// <para>
+        /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
+        /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
+        /// Guide</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateRegexPatternSet service method.</param>
+        /// 
+        /// <returns>The response from the UpdateRegexPatternSet service method, as returned by WAFRegional.</returns>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInternalErrorException">
+        /// The operation failed because of a system problem, even though the request was valid.
+        /// Retry your request.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidAccountException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// an invalid account identifier.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidOperationException">
+        /// The operation failed because there was nothing to do. For example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to remove a <code>Rule</code> from a <code>WebACL</code>, but the <code>Rule</code>
+        /// isn't in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to remove an IP address from an <code>IPSet</code>, but the IP address isn't
+        /// in the specified <code>IPSet</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to remove a <code>ByteMatchTuple</code> from a <code>ByteMatchSet</code>,
+        /// but the <code>ByteMatchTuple</code> isn't in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>Rule</code> to a <code>WebACL</code>, but the <code>Rule</code>
+        /// already exists in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add an IP address to an <code>IPSet</code>, but the IP address already
+        /// exists in the specified <code>IPSet</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>ByteMatchTuple</code> to a <code>ByteMatchSet</code>, but
+        /// the <code>ByteMatchTuple</code> already exists in the specified <code>WebACL</code>.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFInvalidRegexPatternException">
+        /// The regular expression (regex) you specified in <code>RegexPatternString</code> is
+        /// invalid.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFLimitsExceededException">
+        /// The operation exceeds a resource limit, for example, the maximum number of <code>WebACL</code>
+        /// objects that you can create for an AWS account. For more information, see <a href="http://docs.aws.amazon.com/waf/latest/developerguide/limits.html">Limits</a>
+        /// in the <i>AWS WAF Developer Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFNonexistentContainerException">
+        /// The operation failed because you tried to add an object to or delete an object from
+        /// another object that doesn't exist. For example:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// You tried to add a <code>Rule</code> to or delete a <code>Rule</code> from a <code>WebACL</code>
+        /// that doesn't exist.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>ByteMatchSet</code> to or delete a <code>ByteMatchSet</code>
+        /// from a <code>Rule</code> that doesn't exist.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add an IP address to or delete an IP address from an <code>IPSet</code>
+        /// that doesn't exist.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// You tried to add a <code>ByteMatchTuple</code> to or delete a <code>ByteMatchTuple</code>
+        /// from a <code>ByteMatchSet</code> that doesn't exist.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.WAFRegional.Model.WAFStaleDataException">
+        /// The operation failed because you tried to create, update, or delete an object by using
+        /// a change token that has already been used.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateRegexPatternSet">REST API Reference for UpdateRegexPatternSet Operation</seealso>
+        public virtual UpdateRegexPatternSetResponse UpdateRegexPatternSet(UpdateRegexPatternSetRequest request)
+        {
+            var marshaller = new UpdateRegexPatternSetRequestMarshaller();
+            var unmarshaller = UpdateRegexPatternSetResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateRegexPatternSetRequest,UpdateRegexPatternSetResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateRegexPatternSet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateRegexPatternSet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateRegexPatternSet">REST API Reference for UpdateRegexPatternSet Operation</seealso>
+        public virtual Task<UpdateRegexPatternSetResponse> UpdateRegexPatternSetAsync(UpdateRegexPatternSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateRegexPatternSetRequestMarshaller();
+            var unmarshaller = UpdateRegexPatternSetResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateRegexPatternSetRequest,UpdateRegexPatternSetResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -8049,7 +9580,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8116,7 +9647,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateRule">REST API Reference for UpdateRule Operation</seealso>
-        public UpdateRuleResponse UpdateRule(string ruleId, List<RuleUpdate> updates, string changeToken)
+        public virtual UpdateRuleResponse UpdateRule(string ruleId, List<RuleUpdate> updates, string changeToken)
         {
             var request = new UpdateRuleRequest();
             request.RuleId = ruleId;
@@ -8268,7 +9799,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8335,7 +9866,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateRule">REST API Reference for UpdateRule Operation</seealso>
-        public UpdateRuleResponse UpdateRule(UpdateRuleRequest request)
+        public virtual UpdateRuleResponse UpdateRule(UpdateRuleRequest request)
         {
             var marshaller = new UpdateRuleRequestMarshaller();
             var unmarshaller = UpdateRuleResponseUnmarshaller.Instance;
@@ -8491,7 +10022,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8558,7 +10089,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateRule">REST API Reference for UpdateRule Operation</seealso>
-        public Task<UpdateRuleResponse> UpdateRuleAsync(string ruleId, List<RuleUpdate> updates, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateRuleResponse> UpdateRuleAsync(string ruleId, List<RuleUpdate> updates, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new UpdateRuleRequest();
             request.RuleId = ruleId;
@@ -8577,7 +10108,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateRule">REST API Reference for UpdateRule Operation</seealso>
-        public Task<UpdateRuleResponse> UpdateRuleAsync(UpdateRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateRuleResponse> UpdateRuleAsync(UpdateRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateRuleRequestMarshaller();
             var unmarshaller = UpdateRuleResponseUnmarshaller.Instance;
@@ -8736,7 +10267,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -8803,7 +10334,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateSizeConstraintSet">REST API Reference for UpdateSizeConstraintSet Operation</seealso>
-        public UpdateSizeConstraintSetResponse UpdateSizeConstraintSet(UpdateSizeConstraintSetRequest request)
+        public virtual UpdateSizeConstraintSetResponse UpdateSizeConstraintSet(UpdateSizeConstraintSetRequest request)
         {
             var marshaller = new UpdateSizeConstraintSetRequestMarshaller();
             var unmarshaller = UpdateSizeConstraintSetResponseUnmarshaller.Instance;
@@ -8821,7 +10352,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateSizeConstraintSet">REST API Reference for UpdateSizeConstraintSet Operation</seealso>
-        public Task<UpdateSizeConstraintSetResponse> UpdateSizeConstraintSetAsync(UpdateSizeConstraintSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateSizeConstraintSetResponse> UpdateSizeConstraintSetAsync(UpdateSizeConstraintSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateSizeConstraintSetRequestMarshaller();
             var unmarshaller = UpdateSizeConstraintSetResponseUnmarshaller.Instance;
@@ -8972,7 +10503,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9025,7 +10556,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateSqlInjectionMatchSet">REST API Reference for UpdateSqlInjectionMatchSet Operation</seealso>
-        public UpdateSqlInjectionMatchSetResponse UpdateSqlInjectionMatchSet(string sqlInjectionMatchSetId, List<SqlInjectionMatchSetUpdate> updates, string changeToken)
+        public virtual UpdateSqlInjectionMatchSetResponse UpdateSqlInjectionMatchSet(string sqlInjectionMatchSetId, List<SqlInjectionMatchSetUpdate> updates, string changeToken)
         {
             var request = new UpdateSqlInjectionMatchSetRequest();
             request.SqlInjectionMatchSetId = sqlInjectionMatchSetId;
@@ -9170,7 +10701,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9223,7 +10754,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateSqlInjectionMatchSet">REST API Reference for UpdateSqlInjectionMatchSet Operation</seealso>
-        public UpdateSqlInjectionMatchSetResponse UpdateSqlInjectionMatchSet(UpdateSqlInjectionMatchSetRequest request)
+        public virtual UpdateSqlInjectionMatchSetResponse UpdateSqlInjectionMatchSet(UpdateSqlInjectionMatchSetRequest request)
         {
             var marshaller = new UpdateSqlInjectionMatchSetRequestMarshaller();
             var unmarshaller = UpdateSqlInjectionMatchSetResponseUnmarshaller.Instance;
@@ -9372,7 +10903,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9425,7 +10956,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateSqlInjectionMatchSet">REST API Reference for UpdateSqlInjectionMatchSet Operation</seealso>
-        public Task<UpdateSqlInjectionMatchSetResponse> UpdateSqlInjectionMatchSetAsync(string sqlInjectionMatchSetId, List<SqlInjectionMatchSetUpdate> updates, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateSqlInjectionMatchSetResponse> UpdateSqlInjectionMatchSetAsync(string sqlInjectionMatchSetId, List<SqlInjectionMatchSetUpdate> updates, string changeToken, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new UpdateSqlInjectionMatchSetRequest();
             request.SqlInjectionMatchSetId = sqlInjectionMatchSetId;
@@ -9444,7 +10975,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateSqlInjectionMatchSet">REST API Reference for UpdateSqlInjectionMatchSet Operation</seealso>
-        public Task<UpdateSqlInjectionMatchSetResponse> UpdateSqlInjectionMatchSetAsync(UpdateSqlInjectionMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateSqlInjectionMatchSetResponse> UpdateSqlInjectionMatchSetAsync(UpdateSqlInjectionMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateSqlInjectionMatchSetRequestMarshaller();
             var unmarshaller = UpdateSqlInjectionMatchSetResponseUnmarshaller.Instance;
@@ -9616,7 +11147,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9683,7 +11214,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateWebACL">REST API Reference for UpdateWebACL Operation</seealso>
-        public UpdateWebACLResponse UpdateWebACL(UpdateWebACLRequest request)
+        public virtual UpdateWebACLResponse UpdateWebACL(UpdateWebACLRequest request)
         {
             var marshaller = new UpdateWebACLRequestMarshaller();
             var unmarshaller = UpdateWebACLResponseUnmarshaller.Instance;
@@ -9701,7 +11232,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateWebACL">REST API Reference for UpdateWebACL Operation</seealso>
-        public Task<UpdateWebACLResponse> UpdateWebACLAsync(UpdateWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateWebACLResponse> UpdateWebACLAsync(UpdateWebACLRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateWebACLRequestMarshaller();
             var unmarshaller = UpdateWebACLResponseUnmarshaller.Instance;
@@ -9849,7 +11380,7 @@ namespace Amazon.WAFRegional
         ///  </li> <li> 
         /// <para>
         /// You tried to update a <code>ByteMatchSet</code> with a <code>FieldToMatch</code> <code>Type</code>
-        /// other than HEADER, QUERY_STRING, or URI.
+        /// other than HEADER, METHOD, QUERY_STRING, URI, or BODY.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -9902,7 +11433,7 @@ namespace Amazon.WAFRegional
         /// a change token that has already been used.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateXssMatchSet">REST API Reference for UpdateXssMatchSet Operation</seealso>
-        public UpdateXssMatchSetResponse UpdateXssMatchSet(UpdateXssMatchSetRequest request)
+        public virtual UpdateXssMatchSetResponse UpdateXssMatchSet(UpdateXssMatchSetRequest request)
         {
             var marshaller = new UpdateXssMatchSetRequestMarshaller();
             var unmarshaller = UpdateXssMatchSetResponseUnmarshaller.Instance;
@@ -9920,7 +11451,7 @@ namespace Amazon.WAFRegional
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/waf-regional-2016-11-28/UpdateXssMatchSet">REST API Reference for UpdateXssMatchSet Operation</seealso>
-        public Task<UpdateXssMatchSetResponse> UpdateXssMatchSetAsync(UpdateXssMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateXssMatchSetResponse> UpdateXssMatchSetAsync(UpdateXssMatchSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateXssMatchSetRequestMarshaller();
             var unmarshaller = UpdateXssMatchSetResponseUnmarshaller.Instance;

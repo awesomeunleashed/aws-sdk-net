@@ -96,7 +96,10 @@ namespace Amazon.KinesisAnalytics.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Input.
+        /// Gets and sets the property Input. 
+        /// <para>
+        /// The <a>Input</a> to add.
+        /// </para>
         /// </summary>
         public Input Input
         {

@@ -1773,7 +1773,7 @@ namespace Amazon.RDS
         ///  
         /// <para>
         /// If the specified DB instance is part of an Amazon Aurora DB cluster, you cannot delete
-        /// the DB instance if the following are true:
+        /// the DB instance if both of the following conditions are true:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -3582,6 +3582,53 @@ namespace Amazon.RDS
 
         #endregion
         
+        #region  DescribeValidDBInstanceModifications
+
+
+        /// <summary>
+        /// You can call <a>DescribeValidDBInstanceModifications</a> to learn what modifications
+        /// you can make to your DB instance. You can use this information when you call <a>ModifyDBInstance</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeValidDBInstanceModifications service method.</param>
+        /// 
+        /// <returns>The response from the DescribeValidDBInstanceModifications service method, as returned by RDS.</returns>
+        /// <exception cref="Amazon.RDS.Model.DBInstanceNotFoundException">
+        /// <i>DBInstanceIdentifier</i> does not refer to an existing DB instance.
+        /// </exception>
+        /// <exception cref="Amazon.RDS.Model.InvalidDBInstanceStateException">
+        /// The specified DB instance is not in the <i>available</i> state.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeValidDBInstanceModifications">REST API Reference for DescribeValidDBInstanceModifications Operation</seealso>
+        DescribeValidDBInstanceModificationsResponse DescribeValidDBInstanceModifications(DescribeValidDBInstanceModificationsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeValidDBInstanceModifications operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeValidDBInstanceModifications operation on AmazonRDSClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeValidDBInstanceModifications
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeValidDBInstanceModifications">REST API Reference for DescribeValidDBInstanceModifications Operation</seealso>
+        IAsyncResult BeginDescribeValidDBInstanceModifications(DescribeValidDBInstanceModificationsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeValidDBInstanceModifications operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeValidDBInstanceModifications.</param>
+        /// 
+        /// <returns>Returns a  DescribeValidDBInstanceModificationsResult from RDS.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rds-2014-10-31/DescribeValidDBInstanceModifications">REST API Reference for DescribeValidDBInstanceModifications Operation</seealso>
+        DescribeValidDBInstanceModificationsResponse EndDescribeValidDBInstanceModifications(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  DownloadDBLogFilePortion
 
 
@@ -3983,7 +4030,9 @@ namespace Amazon.RDS
 
         /// <summary>
         /// Modifies settings for a DB instance. You can change one or more database configuration
-        /// parameters by specifying these parameters and the new values in the request.
+        /// parameters by specifying these parameters and the new values in the request. To learn
+        /// what modifications you can make to your DB instance, call <a>DescribeValidDBInstanceModifications</a>
+        /// before you call <a>ModifyDBInstance</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyDBInstance service method.</param>
         /// 
@@ -4151,12 +4200,11 @@ namespace Amazon.RDS
 
         /// <summary>
         /// Updates a manual DB snapshot, which can be encrypted or not encrypted, with a new
-        /// engine version. You can update the engine version to either a new major or minor engine
-        /// version. 
+        /// engine version. 
         /// 
         ///  
         /// <para>
-        /// Amazon RDS supports upgrading a MySQL DB snapshot from MySQL 5.1 to MySQL 5.5.
+        /// Amazon RDS supports upgrading DB snapshots for MySQL and Oracle. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyDBSnapshot service method.</param>
@@ -5023,11 +5071,19 @@ namespace Amazon.RDS
 
 
         /// <summary>
-        /// Creates a new DB cluster from a DB cluster snapshot. The target DB cluster is created
-        /// from the source DB cluster restore point with the same configuration as the original
-        /// source DB cluster, except that the new DB cluster is created with the default security
-        /// group.
+        /// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
         /// 
+        ///  
+        /// <para>
+        /// If a DB snapshot is specified, the target DB cluster is created from the source DB
+        /// snapshot with a default configuration and default security group.
+        /// </para>
+        ///  
+        /// <para>
+        /// If a DB cluster snapshot is specified, the target DB cluster is created from the source
+        /// DB cluster restore point with the same configuration as the original source DB cluster,
+        /// except that the new DB cluster is created with the default security group.
+        /// </para>
         ///  
         /// <para>
         /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora

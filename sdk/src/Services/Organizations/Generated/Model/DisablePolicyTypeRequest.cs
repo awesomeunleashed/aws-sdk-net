@@ -29,7 +29,7 @@ namespace Amazon.Organizations.Model
 {
     /// <summary>
     /// Container for the parameters to the DisablePolicyType operation.
-    /// Disables an organizational control policy type in a root. A poicy of a certain type
+    /// Disables an organizational control policy type in a root. A policy of a certain type
     /// can be attached to entities in a root only if that type is enabled in the root. After
     /// you perform this operation, you no longer can attach policies of the specified type
     /// to that root or to any OU or account in that root. You can undo this by using the
@@ -67,7 +67,7 @@ namespace Amazon.Organizations.Model
         /// Gets and sets the property RootId. 
         /// <para>
         /// The unique identifier (ID) of the root in which you want to disable a policy type.
-        /// You can get the ID from the <a>ListPolicies</a> operation.
+        /// You can get the ID from the <a>ListRoots</a> operation.
         /// </para>
         ///  
         /// <para>

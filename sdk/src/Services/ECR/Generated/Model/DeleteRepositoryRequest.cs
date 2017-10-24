@@ -41,7 +41,7 @@ namespace Amazon.ECR.Model
         /// <summary>
         /// Gets and sets the property Force. 
         /// <para>
-        /// Force the deletion of the repository if it contains images.
+        ///  If a repository contains images, forces the deletion.
         /// </para>
         /// </summary>
         public bool Force

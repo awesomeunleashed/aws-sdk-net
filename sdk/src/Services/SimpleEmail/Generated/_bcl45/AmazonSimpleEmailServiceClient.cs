@@ -38,14 +38,16 @@ namespace Amazon.SimpleEmail
     ///
     /// Amazon Simple Email Service 
     /// <para>
-    ///  This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation
-    /// is intended to be used in conjunction with the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
+    ///  This is the API Reference for <a href="https://aws.amazon.com/ses/">Amazon Simple
+    /// Email Service</a> (Amazon SES). This documentation is intended to be used in conjunction
+    /// with the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
     /// SES Developer Guide</a>. 
     /// </para>
     ///  <note> 
     /// <para>
     ///  For a list of Amazon SES endpoints to use in service requests, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html">Regions
-    /// and Amazon SES</a> in the Amazon SES Developer Guide. 
+    /// and Amazon SES</a> in the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
+    /// SES Developer Guide</a>. 
     /// </para>
     ///  </note>
     /// </summary>
@@ -251,7 +253,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CloneReceiptRuleSet service method.</param>
@@ -269,7 +271,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the provided receipt rule set does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CloneReceiptRuleSet">REST API Reference for CloneReceiptRuleSet Operation</seealso>
-        public CloneReceiptRuleSetResponse CloneReceiptRuleSet(CloneReceiptRuleSetRequest request)
+        public virtual CloneReceiptRuleSetResponse CloneReceiptRuleSet(CloneReceiptRuleSetRequest request)
         {
             var marshaller = new CloneReceiptRuleSetRequestMarshaller();
             var unmarshaller = CloneReceiptRuleSetResponseUnmarshaller.Instance;
@@ -287,7 +289,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CloneReceiptRuleSet">REST API Reference for CloneReceiptRuleSet Operation</seealso>
-        public Task<CloneReceiptRuleSetResponse> CloneReceiptRuleSetAsync(CloneReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CloneReceiptRuleSetResponse> CloneReceiptRuleSetAsync(CloneReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CloneReceiptRuleSetRequestMarshaller();
             var unmarshaller = CloneReceiptRuleSetResponseUnmarshaller.Instance;
@@ -312,7 +314,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateConfigurationSet service method.</param>
@@ -330,7 +332,7 @@ namespace Amazon.SimpleEmail
         /// SES Developer Guide</a>.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateConfigurationSet">REST API Reference for CreateConfigurationSet Operation</seealso>
-        public CreateConfigurationSetResponse CreateConfigurationSet(CreateConfigurationSetRequest request)
+        public virtual CreateConfigurationSetResponse CreateConfigurationSet(CreateConfigurationSetRequest request)
         {
             var marshaller = new CreateConfigurationSetRequestMarshaller();
             var unmarshaller = CreateConfigurationSetResponseUnmarshaller.Instance;
@@ -348,7 +350,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateConfigurationSet">REST API Reference for CreateConfigurationSet Operation</seealso>
-        public Task<CreateConfigurationSetResponse> CreateConfigurationSetAsync(CreateConfigurationSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateConfigurationSetResponse> CreateConfigurationSetAsync(CreateConfigurationSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateConfigurationSetRequestMarshaller();
             var unmarshaller = CreateConfigurationSetResponseUnmarshaller.Instance;
@@ -380,7 +382,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateConfigurationSetEventDestination service method.</param>
@@ -410,7 +412,7 @@ namespace Amazon.SimpleEmail
         /// SES Developer Guide</a>.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateConfigurationSetEventDestination">REST API Reference for CreateConfigurationSetEventDestination Operation</seealso>
-        public CreateConfigurationSetEventDestinationResponse CreateConfigurationSetEventDestination(CreateConfigurationSetEventDestinationRequest request)
+        public virtual CreateConfigurationSetEventDestinationResponse CreateConfigurationSetEventDestination(CreateConfigurationSetEventDestinationRequest request)
         {
             var marshaller = new CreateConfigurationSetEventDestinationRequestMarshaller();
             var unmarshaller = CreateConfigurationSetEventDestinationResponseUnmarshaller.Instance;
@@ -428,12 +430,82 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateConfigurationSetEventDestination">REST API Reference for CreateConfigurationSetEventDestination Operation</seealso>
-        public Task<CreateConfigurationSetEventDestinationResponse> CreateConfigurationSetEventDestinationAsync(CreateConfigurationSetEventDestinationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateConfigurationSetEventDestinationResponse> CreateConfigurationSetEventDestinationAsync(CreateConfigurationSetEventDestinationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateConfigurationSetEventDestinationRequestMarshaller();
             var unmarshaller = CreateConfigurationSetEventDestinationResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateConfigurationSetEventDestinationRequest,CreateConfigurationSetEventDestinationResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateConfigurationSetTrackingOptions
+
+
+        /// <summary>
+        /// Creates an association between a configuration set and a custom domain for open and
+        /// click event tracking. 
+        /// 
+        ///  
+        /// <para>
+        /// By default, images and links used for tracking open and click events are hosted on
+        /// domains operated by Amazon SES. You can configure a subdomain of your own to handle
+        /// these events. For information about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring
+        /// Custom Domains to Handle Open and Click Tracking</a> in the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
+        /// SES Developer Guide</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateConfigurationSetTrackingOptions service method.</param>
+        /// 
+        /// <returns>The response from the CreateConfigurationSetTrackingOptions service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
+        /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.InvalidTrackingOptionsException">
+        /// Indicates that the custom domain to be used for open and click tracking redirects
+        /// is invalid. This error appears most often in the following situations:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// When the tracking domain you specified is not verified in Amazon SES.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// When the tracking domain you specified is not a valid domain or subdomain.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.TrackingOptionsAlreadyExistsException">
+        /// Indicates that the configuration set you specified already contains a TrackingOptions
+        /// object.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateConfigurationSetTrackingOptions">REST API Reference for CreateConfigurationSetTrackingOptions Operation</seealso>
+        public virtual CreateConfigurationSetTrackingOptionsResponse CreateConfigurationSetTrackingOptions(CreateConfigurationSetTrackingOptionsRequest request)
+        {
+            var marshaller = new CreateConfigurationSetTrackingOptionsRequestMarshaller();
+            var unmarshaller = CreateConfigurationSetTrackingOptionsResponseUnmarshaller.Instance;
+
+            return Invoke<CreateConfigurationSetTrackingOptionsRequest,CreateConfigurationSetTrackingOptionsResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateConfigurationSetTrackingOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateConfigurationSetTrackingOptions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateConfigurationSetTrackingOptions">REST API Reference for CreateConfigurationSetTrackingOptions Operation</seealso>
+        public virtual Task<CreateConfigurationSetTrackingOptionsResponse> CreateConfigurationSetTrackingOptionsAsync(CreateConfigurationSetTrackingOptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new CreateConfigurationSetTrackingOptionsRequestMarshaller();
+            var unmarshaller = CreateConfigurationSetTrackingOptionsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateConfigurationSetTrackingOptionsRequest,CreateConfigurationSetTrackingOptionsResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -452,7 +524,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateReceiptFilter service method.</param>
@@ -467,7 +539,7 @@ namespace Amazon.SimpleEmail
         /// SES Developer Guide</a>.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateReceiptFilter">REST API Reference for CreateReceiptFilter Operation</seealso>
-        public CreateReceiptFilterResponse CreateReceiptFilter(CreateReceiptFilterRequest request)
+        public virtual CreateReceiptFilterResponse CreateReceiptFilter(CreateReceiptFilterRequest request)
         {
             var marshaller = new CreateReceiptFilterRequestMarshaller();
             var unmarshaller = CreateReceiptFilterResponseUnmarshaller.Instance;
@@ -485,7 +557,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateReceiptFilter">REST API Reference for CreateReceiptFilter Operation</seealso>
-        public Task<CreateReceiptFilterResponse> CreateReceiptFilterAsync(CreateReceiptFilterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateReceiptFilterResponse> CreateReceiptFilterAsync(CreateReceiptFilterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateReceiptFilterRequestMarshaller();
             var unmarshaller = CreateReceiptFilterResponseUnmarshaller.Instance;
@@ -509,7 +581,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateReceiptRule service method.</param>
@@ -548,7 +620,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the provided receipt rule set does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateReceiptRule">REST API Reference for CreateReceiptRule Operation</seealso>
-        public CreateReceiptRuleResponse CreateReceiptRule(CreateReceiptRuleRequest request)
+        public virtual CreateReceiptRuleResponse CreateReceiptRule(CreateReceiptRuleRequest request)
         {
             var marshaller = new CreateReceiptRuleRequestMarshaller();
             var unmarshaller = CreateReceiptRuleResponseUnmarshaller.Instance;
@@ -566,7 +638,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateReceiptRule">REST API Reference for CreateReceiptRule Operation</seealso>
-        public Task<CreateReceiptRuleResponse> CreateReceiptRuleAsync(CreateReceiptRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateReceiptRuleResponse> CreateReceiptRuleAsync(CreateReceiptRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateReceiptRuleRequestMarshaller();
             var unmarshaller = CreateReceiptRuleResponseUnmarshaller.Instance;
@@ -590,7 +662,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateReceiptRuleSet service method.</param>
@@ -605,7 +677,7 @@ namespace Amazon.SimpleEmail
         /// SES Developer Guide</a>.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateReceiptRuleSet">REST API Reference for CreateReceiptRuleSet Operation</seealso>
-        public CreateReceiptRuleSetResponse CreateReceiptRuleSet(CreateReceiptRuleSetRequest request)
+        public virtual CreateReceiptRuleSetResponse CreateReceiptRuleSet(CreateReceiptRuleSetRequest request)
         {
             var marshaller = new CreateReceiptRuleSetRequestMarshaller();
             var unmarshaller = CreateReceiptRuleSetResponseUnmarshaller.Instance;
@@ -623,7 +695,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateReceiptRuleSet">REST API Reference for CreateReceiptRuleSet Operation</seealso>
-        public Task<CreateReceiptRuleSetResponse> CreateReceiptRuleSetAsync(CreateReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateReceiptRuleSetResponse> CreateReceiptRuleSetAsync(CreateReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateReceiptRuleSetRequestMarshaller();
             var unmarshaller = CreateReceiptRuleSetResponseUnmarshaller.Instance;
@@ -634,21 +706,75 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  CreateTemplate
+
+
+        /// <summary>
+        /// Creates an email template. Email templates enable you to send personalized email to
+        /// one or more destinations in a single API operation. For more information, see the
+        /// <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon
+        /// SES Developer Guide</a>.
+        /// 
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateTemplate service method.</param>
+        /// 
+        /// <returns>The response from the CreateTemplate service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.AlreadyExistsException">
+        /// Indicates that a resource could not be created because of a naming conflict.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.InvalidTemplateException">
+        /// Indicates that a template could not be created because it contained invalid JSON.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.LimitExceededException">
+        /// Indicates that a resource could not be created because of service limits. For a list
+        /// of Amazon SES limits, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon
+        /// SES Developer Guide</a>.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateTemplate">REST API Reference for CreateTemplate Operation</seealso>
+        public virtual CreateTemplateResponse CreateTemplate(CreateTemplateRequest request)
+        {
+            var marshaller = new CreateTemplateRequestMarshaller();
+            var unmarshaller = CreateTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<CreateTemplateRequest,CreateTemplateResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateTemplate">REST API Reference for CreateTemplate Operation</seealso>
+        public virtual Task<CreateTemplateResponse> CreateTemplateAsync(CreateTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new CreateTemplateRequestMarshaller();
+            var unmarshaller = CreateTemplateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateTemplateRequest,CreateTemplateResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteConfigurationSet
 
 
         /// <summary>
-        /// Deletes a configuration set.
+        /// Deletes a configuration set. Configuration sets enable you to publish email sending
+        /// events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+        /// SES Developer Guide</a>.
         /// 
         ///  
         /// <para>
-        /// Configuration sets enable you to publish email sending events. For information about
-        /// using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
-        /// SES Developer Guide</a>.
-        /// </para>
-        ///  
-        /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteConfigurationSet service method.</param>
@@ -658,7 +784,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the configuration set does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSet">REST API Reference for DeleteConfigurationSet Operation</seealso>
-        public DeleteConfigurationSetResponse DeleteConfigurationSet(DeleteConfigurationSetRequest request)
+        public virtual DeleteConfigurationSetResponse DeleteConfigurationSet(DeleteConfigurationSetRequest request)
         {
             var marshaller = new DeleteConfigurationSetRequestMarshaller();
             var unmarshaller = DeleteConfigurationSetResponseUnmarshaller.Instance;
@@ -676,7 +802,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSet">REST API Reference for DeleteConfigurationSet Operation</seealso>
-        public Task<DeleteConfigurationSetResponse> DeleteConfigurationSetAsync(DeleteConfigurationSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteConfigurationSetResponse> DeleteConfigurationSetAsync(DeleteConfigurationSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteConfigurationSetRequestMarshaller();
             var unmarshaller = DeleteConfigurationSetResponseUnmarshaller.Instance;
@@ -691,18 +817,14 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Deletes a configuration set event destination.
+        /// Deletes a configuration set event destination. Configuration set event destinations
+        /// are associated with configuration sets, which enable you to publish email sending
+        /// events. For information about using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+        /// SES Developer Guide</a>.
         /// 
         ///  
         /// <para>
-        /// Configuration set event destinations are associated with configuration sets, which
-        /// enable you to publish email sending events. For information about using configuration
-        /// sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
-        /// SES Developer Guide</a>.
-        /// </para>
-        ///  
-        /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteConfigurationSetEventDestination service method.</param>
@@ -715,7 +837,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the event destination does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSetEventDestination">REST API Reference for DeleteConfigurationSetEventDestination Operation</seealso>
-        public DeleteConfigurationSetEventDestinationResponse DeleteConfigurationSetEventDestination(DeleteConfigurationSetEventDestinationRequest request)
+        public virtual DeleteConfigurationSetEventDestinationResponse DeleteConfigurationSetEventDestination(DeleteConfigurationSetEventDestinationRequest request)
         {
             var marshaller = new DeleteConfigurationSetEventDestinationRequestMarshaller();
             var unmarshaller = DeleteConfigurationSetEventDestinationResponseUnmarshaller.Instance;
@@ -733,12 +855,73 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSetEventDestination">REST API Reference for DeleteConfigurationSetEventDestination Operation</seealso>
-        public Task<DeleteConfigurationSetEventDestinationResponse> DeleteConfigurationSetEventDestinationAsync(DeleteConfigurationSetEventDestinationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteConfigurationSetEventDestinationResponse> DeleteConfigurationSetEventDestinationAsync(DeleteConfigurationSetEventDestinationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteConfigurationSetEventDestinationRequestMarshaller();
             var unmarshaller = DeleteConfigurationSetEventDestinationResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteConfigurationSetEventDestinationRequest,DeleteConfigurationSetEventDestinationResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteConfigurationSetTrackingOptions
+
+
+        /// <summary>
+        /// Deletes an association between a configuration set and a custom domain for open and
+        /// click event tracking.
+        /// 
+        ///  
+        /// <para>
+        /// By default, images and links used for tracking open and click events are hosted on
+        /// domains operated by Amazon SES. You can configure a subdomain of your own to handle
+        /// these events. For information about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring
+        /// Custom Domains to Handle Open and Click Tracking</a> in the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
+        /// SES Developer Guide</a>.
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// Deleting this kind of association will result in emails sent using the specified configuration
+        /// set to capture open and click events using the standard, Amazon SES-operated domains.
+        /// </para>
+        ///  </note>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteConfigurationSetTrackingOptions service method.</param>
+        /// 
+        /// <returns>The response from the DeleteConfigurationSetTrackingOptions service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
+        /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.TrackingOptionsDoesNotExistException">
+        /// Indicates that the TrackingOptions object you specified does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSetTrackingOptions">REST API Reference for DeleteConfigurationSetTrackingOptions Operation</seealso>
+        public virtual DeleteConfigurationSetTrackingOptionsResponse DeleteConfigurationSetTrackingOptions(DeleteConfigurationSetTrackingOptionsRequest request)
+        {
+            var marshaller = new DeleteConfigurationSetTrackingOptionsRequestMarshaller();
+            var unmarshaller = DeleteConfigurationSetTrackingOptionsResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteConfigurationSetTrackingOptionsRequest,DeleteConfigurationSetTrackingOptionsResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteConfigurationSetTrackingOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteConfigurationSetTrackingOptions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSetTrackingOptions">REST API Reference for DeleteConfigurationSetTrackingOptions Operation</seealso>
+        public virtual Task<DeleteConfigurationSetTrackingOptionsResponse> DeleteConfigurationSetTrackingOptionsAsync(DeleteConfigurationSetTrackingOptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteConfigurationSetTrackingOptionsRequestMarshaller();
+            var unmarshaller = DeleteConfigurationSetTrackingOptionsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteConfigurationSetTrackingOptionsRequest,DeleteConfigurationSetTrackingOptionsResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -753,14 +936,14 @@ namespace Amazon.SimpleEmail
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteIdentity service method.</param>
         /// 
         /// <returns>The response from the DeleteIdentity service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteIdentity">REST API Reference for DeleteIdentity Operation</seealso>
-        public DeleteIdentityResponse DeleteIdentity(DeleteIdentityRequest request)
+        public virtual DeleteIdentityResponse DeleteIdentity(DeleteIdentityRequest request)
         {
             var marshaller = new DeleteIdentityRequestMarshaller();
             var unmarshaller = DeleteIdentityResponseUnmarshaller.Instance;
@@ -778,7 +961,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteIdentity">REST API Reference for DeleteIdentity Operation</seealso>
-        public Task<DeleteIdentityResponse> DeleteIdentityAsync(DeleteIdentityRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteIdentityResponse> DeleteIdentityAsync(DeleteIdentityRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteIdentityRequestMarshaller();
             var unmarshaller = DeleteIdentityResponseUnmarshaller.Instance;
@@ -811,14 +994,14 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteIdentityPolicy service method.</param>
         /// 
         /// <returns>The response from the DeleteIdentityPolicy service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteIdentityPolicy">REST API Reference for DeleteIdentityPolicy Operation</seealso>
-        public DeleteIdentityPolicyResponse DeleteIdentityPolicy(DeleteIdentityPolicyRequest request)
+        public virtual DeleteIdentityPolicyResponse DeleteIdentityPolicy(DeleteIdentityPolicyRequest request)
         {
             var marshaller = new DeleteIdentityPolicyRequestMarshaller();
             var unmarshaller = DeleteIdentityPolicyResponseUnmarshaller.Instance;
@@ -836,7 +1019,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteIdentityPolicy">REST API Reference for DeleteIdentityPolicy Operation</seealso>
-        public Task<DeleteIdentityPolicyResponse> DeleteIdentityPolicyAsync(DeleteIdentityPolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteIdentityPolicyResponse> DeleteIdentityPolicyAsync(DeleteIdentityPolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteIdentityPolicyRequestMarshaller();
             var unmarshaller = DeleteIdentityPolicyResponseUnmarshaller.Instance;
@@ -860,14 +1043,14 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteReceiptFilter service method.</param>
         /// 
         /// <returns>The response from the DeleteReceiptFilter service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteReceiptFilter">REST API Reference for DeleteReceiptFilter Operation</seealso>
-        public DeleteReceiptFilterResponse DeleteReceiptFilter(DeleteReceiptFilterRequest request)
+        public virtual DeleteReceiptFilterResponse DeleteReceiptFilter(DeleteReceiptFilterRequest request)
         {
             var marshaller = new DeleteReceiptFilterRequestMarshaller();
             var unmarshaller = DeleteReceiptFilterResponseUnmarshaller.Instance;
@@ -885,7 +1068,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteReceiptFilter">REST API Reference for DeleteReceiptFilter Operation</seealso>
-        public Task<DeleteReceiptFilterResponse> DeleteReceiptFilterAsync(DeleteReceiptFilterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteReceiptFilterResponse> DeleteReceiptFilterAsync(DeleteReceiptFilterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteReceiptFilterRequestMarshaller();
             var unmarshaller = DeleteReceiptFilterResponseUnmarshaller.Instance;
@@ -909,7 +1092,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteReceiptRule service method.</param>
@@ -919,7 +1102,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the provided receipt rule set does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteReceiptRule">REST API Reference for DeleteReceiptRule Operation</seealso>
-        public DeleteReceiptRuleResponse DeleteReceiptRule(DeleteReceiptRuleRequest request)
+        public virtual DeleteReceiptRuleResponse DeleteReceiptRule(DeleteReceiptRuleRequest request)
         {
             var marshaller = new DeleteReceiptRuleRequestMarshaller();
             var unmarshaller = DeleteReceiptRuleResponseUnmarshaller.Instance;
@@ -937,7 +1120,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteReceiptRule">REST API Reference for DeleteReceiptRule Operation</seealso>
-        public Task<DeleteReceiptRuleResponse> DeleteReceiptRuleAsync(DeleteReceiptRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteReceiptRuleResponse> DeleteReceiptRuleAsync(DeleteReceiptRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteReceiptRuleRequestMarshaller();
             var unmarshaller = DeleteReceiptRuleResponseUnmarshaller.Instance;
@@ -965,7 +1148,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteReceiptRuleSet service method.</param>
@@ -975,7 +1158,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the delete operation could not be completed.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteReceiptRuleSet">REST API Reference for DeleteReceiptRuleSet Operation</seealso>
-        public DeleteReceiptRuleSetResponse DeleteReceiptRuleSet(DeleteReceiptRuleSetRequest request)
+        public virtual DeleteReceiptRuleSetResponse DeleteReceiptRuleSet(DeleteReceiptRuleSetRequest request)
         {
             var marshaller = new DeleteReceiptRuleSetRequestMarshaller();
             var unmarshaller = DeleteReceiptRuleSetResponseUnmarshaller.Instance;
@@ -993,7 +1176,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteReceiptRuleSet">REST API Reference for DeleteReceiptRuleSet Operation</seealso>
-        public Task<DeleteReceiptRuleSetResponse> DeleteReceiptRuleSetAsync(DeleteReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteReceiptRuleSetResponse> DeleteReceiptRuleSetAsync(DeleteReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteReceiptRuleSetRequestMarshaller();
             var unmarshaller = DeleteReceiptRuleSetResponseUnmarshaller.Instance;
@@ -1004,27 +1187,62 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  DeleteTemplate
+
+
+        /// <summary>
+        /// Deletes an email template.
+        /// 
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTemplate service method.</param>
+        /// 
+        /// <returns>The response from the DeleteTemplate service method, as returned by SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteTemplate">REST API Reference for DeleteTemplate Operation</seealso>
+        public virtual DeleteTemplateResponse DeleteTemplate(DeleteTemplateRequest request)
+        {
+            var marshaller = new DeleteTemplateRequestMarshaller();
+            var unmarshaller = DeleteTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteTemplateRequest,DeleteTemplateResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteTemplate">REST API Reference for DeleteTemplate Operation</seealso>
+        public virtual Task<DeleteTemplateResponse> DeleteTemplateAsync(DeleteTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteTemplateRequestMarshaller();
+            var unmarshaller = DeleteTemplateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteTemplateRequest,DeleteTemplateResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteVerifiedEmailAddress
 
 
         /// <summary>
-        /// Deletes the specified email address from the list of verified addresses.
-        /// 
-        ///  <important> 
-        /// <para>
-        /// The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release
-        /// of Domain Verification. The DeleteIdentity action is now preferred.
-        /// </para>
-        ///  </important> 
-        /// <para>
-        /// This action is throttled at one request per second.
-        /// </para>
+        /// Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
+        /// and domains.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVerifiedEmailAddress service method.</param>
         /// 
         /// <returns>The response from the DeleteVerifiedEmailAddress service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteVerifiedEmailAddress">REST API Reference for DeleteVerifiedEmailAddress Operation</seealso>
-        public DeleteVerifiedEmailAddressResponse DeleteVerifiedEmailAddress(DeleteVerifiedEmailAddressRequest request)
+        public virtual DeleteVerifiedEmailAddressResponse DeleteVerifiedEmailAddress(DeleteVerifiedEmailAddressRequest request)
         {
             var marshaller = new DeleteVerifiedEmailAddressRequestMarshaller();
             var unmarshaller = DeleteVerifiedEmailAddressResponseUnmarshaller.Instance;
@@ -1042,7 +1260,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteVerifiedEmailAddress">REST API Reference for DeleteVerifiedEmailAddress Operation</seealso>
-        public Task<DeleteVerifiedEmailAddressResponse> DeleteVerifiedEmailAddressAsync(DeleteVerifiedEmailAddressRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteVerifiedEmailAddressResponse> DeleteVerifiedEmailAddressAsync(DeleteVerifiedEmailAddressRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteVerifiedEmailAddressRequestMarshaller();
             var unmarshaller = DeleteVerifiedEmailAddressResponseUnmarshaller.Instance;
@@ -1067,14 +1285,14 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeActiveReceiptRuleSet service method.</param>
         /// 
         /// <returns>The response from the DescribeActiveReceiptRuleSet service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeActiveReceiptRuleSet">REST API Reference for DescribeActiveReceiptRuleSet Operation</seealso>
-        public DescribeActiveReceiptRuleSetResponse DescribeActiveReceiptRuleSet(DescribeActiveReceiptRuleSetRequest request)
+        public virtual DescribeActiveReceiptRuleSetResponse DescribeActiveReceiptRuleSet(DescribeActiveReceiptRuleSetRequest request)
         {
             var marshaller = new DescribeActiveReceiptRuleSetRequestMarshaller();
             var unmarshaller = DescribeActiveReceiptRuleSetResponseUnmarshaller.Instance;
@@ -1092,7 +1310,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeActiveReceiptRuleSet">REST API Reference for DescribeActiveReceiptRuleSet Operation</seealso>
-        public Task<DescribeActiveReceiptRuleSetResponse> DescribeActiveReceiptRuleSetAsync(DescribeActiveReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeActiveReceiptRuleSetResponse> DescribeActiveReceiptRuleSetAsync(DescribeActiveReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeActiveReceiptRuleSetRequestMarshaller();
             var unmarshaller = DescribeActiveReceiptRuleSetResponseUnmarshaller.Instance;
@@ -1107,17 +1325,13 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Returns the details of the specified configuration set.
+        /// Returns the details of the specified configuration set. For information about using
+        /// configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+        /// SES Developer Guide</a>.
         /// 
         ///  
         /// <para>
-        /// Configuration sets enable you to publish email sending events. For information about
-        /// using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
-        /// SES Developer Guide</a>.
-        /// </para>
-        ///  
-        /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeConfigurationSet service method.</param>
@@ -1127,7 +1341,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the configuration set does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeConfigurationSet">REST API Reference for DescribeConfigurationSet Operation</seealso>
-        public DescribeConfigurationSetResponse DescribeConfigurationSet(DescribeConfigurationSetRequest request)
+        public virtual DescribeConfigurationSetResponse DescribeConfigurationSet(DescribeConfigurationSetRequest request)
         {
             var marshaller = new DescribeConfigurationSetRequestMarshaller();
             var unmarshaller = DescribeConfigurationSetResponseUnmarshaller.Instance;
@@ -1145,7 +1359,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeConfigurationSet">REST API Reference for DescribeConfigurationSet Operation</seealso>
-        public Task<DescribeConfigurationSetResponse> DescribeConfigurationSetAsync(DescribeConfigurationSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeConfigurationSetResponse> DescribeConfigurationSetAsync(DescribeConfigurationSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeConfigurationSetRequestMarshaller();
             var unmarshaller = DescribeConfigurationSetResponseUnmarshaller.Instance;
@@ -1169,7 +1383,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeReceiptRule service method.</param>
@@ -1182,7 +1396,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the provided receipt rule set does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeReceiptRule">REST API Reference for DescribeReceiptRule Operation</seealso>
-        public DescribeReceiptRuleResponse DescribeReceiptRule(DescribeReceiptRuleRequest request)
+        public virtual DescribeReceiptRuleResponse DescribeReceiptRule(DescribeReceiptRuleRequest request)
         {
             var marshaller = new DescribeReceiptRuleRequestMarshaller();
             var unmarshaller = DescribeReceiptRuleResponseUnmarshaller.Instance;
@@ -1200,7 +1414,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeReceiptRule">REST API Reference for DescribeReceiptRule Operation</seealso>
-        public Task<DescribeReceiptRuleResponse> DescribeReceiptRuleAsync(DescribeReceiptRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeReceiptRuleResponse> DescribeReceiptRuleAsync(DescribeReceiptRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeReceiptRuleRequestMarshaller();
             var unmarshaller = DescribeReceiptRuleResponseUnmarshaller.Instance;
@@ -1224,7 +1438,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeReceiptRuleSet service method.</param>
@@ -1234,7 +1448,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the provided receipt rule set does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeReceiptRuleSet">REST API Reference for DescribeReceiptRuleSet Operation</seealso>
-        public DescribeReceiptRuleSetResponse DescribeReceiptRuleSet(DescribeReceiptRuleSetRequest request)
+        public virtual DescribeReceiptRuleSetResponse DescribeReceiptRuleSet(DescribeReceiptRuleSetRequest request)
         {
             var marshaller = new DescribeReceiptRuleSetRequestMarshaller();
             var unmarshaller = DescribeReceiptRuleSetResponseUnmarshaller.Instance;
@@ -1252,7 +1466,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DescribeReceiptRuleSet">REST API Reference for DescribeReceiptRuleSet Operation</seealso>
-        public Task<DescribeReceiptRuleSetResponse> DescribeReceiptRuleSetAsync(DescribeReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeReceiptRuleSetResponse> DescribeReceiptRuleSetAsync(DescribeReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeReceiptRuleSetRequestMarshaller();
             var unmarshaller = DescribeReceiptRuleSetResponseUnmarshaller.Instance;
@@ -1268,12 +1482,12 @@ namespace Amazon.SimpleEmail
 
         /// <summary>
         /// Returns the current status of Easy DKIM signing for an entity. For domain name identities,
-        /// this action also returns the DKIM tokens that are required for Easy DKIM signing,
+        /// this operation also returns the DKIM tokens that are required for Easy DKIM signing,
         /// and whether Amazon SES has successfully verified that these tokens have been published.
         /// 
         ///  
         /// <para>
-        /// This action takes a list of identities as input and returns the following information
+        /// This operation takes a list of identities as input and returns the following information
         /// for each:
         /// </para>
         ///  <ul> <li> 
@@ -1292,7 +1506,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// This action is throttled at one request per second and can only get DKIM attributes
+        /// This operation is throttled at one request per second and can only get DKIM attributes
         /// for up to 100 identities at a time.
         /// </para>
         ///  
@@ -1305,7 +1519,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the GetIdentityDkimAttributes service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityDkimAttributes">REST API Reference for GetIdentityDkimAttributes Operation</seealso>
-        public GetIdentityDkimAttributesResponse GetIdentityDkimAttributes(GetIdentityDkimAttributesRequest request)
+        public virtual GetIdentityDkimAttributesResponse GetIdentityDkimAttributes(GetIdentityDkimAttributesRequest request)
         {
             var marshaller = new GetIdentityDkimAttributesRequestMarshaller();
             var unmarshaller = GetIdentityDkimAttributesResponseUnmarshaller.Instance;
@@ -1323,7 +1537,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityDkimAttributes">REST API Reference for GetIdentityDkimAttributes Operation</seealso>
-        public Task<GetIdentityDkimAttributesResponse> GetIdentityDkimAttributesAsync(GetIdentityDkimAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetIdentityDkimAttributesResponse> GetIdentityDkimAttributesAsync(GetIdentityDkimAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetIdentityDkimAttributesRequestMarshaller();
             var unmarshaller = GetIdentityDkimAttributesResponseUnmarshaller.Instance;
@@ -1339,19 +1553,19 @@ namespace Amazon.SimpleEmail
 
         /// <summary>
         /// Returns the custom MAIL FROM attributes for a list of identities (email addresses
-        /// and/or domains).
+        /// : domains).
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second and can only get custom MAIL FROM
-        /// attributes for up to 100 identities at a time.
+        /// This operation is throttled at one request per second and can only get custom MAIL
+        /// FROM attributes for up to 100 identities at a time.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetIdentityMailFromDomainAttributes service method.</param>
         /// 
         /// <returns>The response from the GetIdentityMailFromDomainAttributes service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityMailFromDomainAttributes">REST API Reference for GetIdentityMailFromDomainAttributes Operation</seealso>
-        public GetIdentityMailFromDomainAttributesResponse GetIdentityMailFromDomainAttributes(GetIdentityMailFromDomainAttributesRequest request)
+        public virtual GetIdentityMailFromDomainAttributesResponse GetIdentityMailFromDomainAttributes(GetIdentityMailFromDomainAttributesRequest request)
         {
             var marshaller = new GetIdentityMailFromDomainAttributesRequestMarshaller();
             var unmarshaller = GetIdentityMailFromDomainAttributesResponseUnmarshaller.Instance;
@@ -1369,7 +1583,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityMailFromDomainAttributes">REST API Reference for GetIdentityMailFromDomainAttributes Operation</seealso>
-        public Task<GetIdentityMailFromDomainAttributesResponse> GetIdentityMailFromDomainAttributesAsync(GetIdentityMailFromDomainAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetIdentityMailFromDomainAttributesResponse> GetIdentityMailFromDomainAttributesAsync(GetIdentityMailFromDomainAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetIdentityMailFromDomainAttributesRequestMarshaller();
             var unmarshaller = GetIdentityMailFromDomainAttributesResponseUnmarshaller.Instance;
@@ -1389,8 +1603,8 @@ namespace Amazon.SimpleEmail
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second and can only get notification attributes
-        /// for up to 100 identities at a time.
+        /// This operation is throttled at one request per second and can only get notification
+        /// attributes for up to 100 identities at a time.
         /// </para>
         ///  
         /// <para>
@@ -1402,7 +1616,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the GetIdentityNotificationAttributes service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityNotificationAttributes">REST API Reference for GetIdentityNotificationAttributes Operation</seealso>
-        public GetIdentityNotificationAttributesResponse GetIdentityNotificationAttributes(GetIdentityNotificationAttributesRequest request)
+        public virtual GetIdentityNotificationAttributesResponse GetIdentityNotificationAttributes(GetIdentityNotificationAttributesRequest request)
         {
             var marshaller = new GetIdentityNotificationAttributesRequestMarshaller();
             var unmarshaller = GetIdentityNotificationAttributesResponseUnmarshaller.Instance;
@@ -1420,7 +1634,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityNotificationAttributes">REST API Reference for GetIdentityNotificationAttributes Operation</seealso>
-        public Task<GetIdentityNotificationAttributesResponse> GetIdentityNotificationAttributesAsync(GetIdentityNotificationAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetIdentityNotificationAttributesResponse> GetIdentityNotificationAttributesAsync(GetIdentityNotificationAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetIdentityNotificationAttributesRequestMarshaller();
             var unmarshaller = GetIdentityNotificationAttributesResponseUnmarshaller.Instance;
@@ -1453,14 +1667,14 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetIdentityPolicies service method.</param>
         /// 
         /// <returns>The response from the GetIdentityPolicies service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityPolicies">REST API Reference for GetIdentityPolicies Operation</seealso>
-        public GetIdentityPoliciesResponse GetIdentityPolicies(GetIdentityPoliciesRequest request)
+        public virtual GetIdentityPoliciesResponse GetIdentityPolicies(GetIdentityPoliciesRequest request)
         {
             var marshaller = new GetIdentityPoliciesRequestMarshaller();
             var unmarshaller = GetIdentityPoliciesResponseUnmarshaller.Instance;
@@ -1478,7 +1692,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityPolicies">REST API Reference for GetIdentityPolicies Operation</seealso>
-        public Task<GetIdentityPoliciesResponse> GetIdentityPoliciesAsync(GetIdentityPoliciesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetIdentityPoliciesResponse> GetIdentityPoliciesAsync(GetIdentityPoliciesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetIdentityPoliciesRequestMarshaller();
             var unmarshaller = GetIdentityPoliciesResponseUnmarshaller.Instance;
@@ -1516,15 +1730,15 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second and can only get verification attributes
-        /// for up to 100 identities at a time.
+        /// This operation is throttled at one request per second and can only get verification
+        /// attributes for up to 100 identities at a time.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetIdentityVerificationAttributes service method.</param>
         /// 
         /// <returns>The response from the GetIdentityVerificationAttributes service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityVerificationAttributes">REST API Reference for GetIdentityVerificationAttributes Operation</seealso>
-        public GetIdentityVerificationAttributesResponse GetIdentityVerificationAttributes(GetIdentityVerificationAttributesRequest request)
+        public virtual GetIdentityVerificationAttributesResponse GetIdentityVerificationAttributes(GetIdentityVerificationAttributesRequest request)
         {
             var marshaller = new GetIdentityVerificationAttributesRequestMarshaller();
             var unmarshaller = GetIdentityVerificationAttributesResponseUnmarshaller.Instance;
@@ -1542,7 +1756,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetIdentityVerificationAttributes">REST API Reference for GetIdentityVerificationAttributes Operation</seealso>
-        public Task<GetIdentityVerificationAttributesResponse> GetIdentityVerificationAttributesAsync(GetIdentityVerificationAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetIdentityVerificationAttributesResponse> GetIdentityVerificationAttributesAsync(GetIdentityVerificationAttributesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetIdentityVerificationAttributesRequestMarshaller();
             var unmarshaller = GetIdentityVerificationAttributesResponseUnmarshaller.Instance;
@@ -1557,35 +1771,35 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Returns the user's current sending limits.
+        /// Provides the sending limits for the Amazon SES account. 
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the GetSendQuota service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendQuota">REST API Reference for GetSendQuota Operation</seealso>
-        public GetSendQuotaResponse GetSendQuota()
+        public virtual GetSendQuotaResponse GetSendQuota()
         {
             return GetSendQuota(new GetSendQuotaRequest());
         }
 
 
         /// <summary>
-        /// Returns the user's current sending limits.
+        /// Provides the sending limits for the Amazon SES account. 
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSendQuota service method.</param>
         /// 
         /// <returns>The response from the GetSendQuota service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendQuota">REST API Reference for GetSendQuota Operation</seealso>
-        public GetSendQuotaResponse GetSendQuota(GetSendQuotaRequest request)
+        public virtual GetSendQuotaResponse GetSendQuota(GetSendQuotaRequest request)
         {
             var marshaller = new GetSendQuotaRequestMarshaller();
             var unmarshaller = GetSendQuotaResponseUnmarshaller.Instance;
@@ -1595,11 +1809,11 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Returns the user's current sending limits.
+        /// Provides the sending limits for the Amazon SES account. 
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -1608,7 +1822,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the GetSendQuota service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendQuota">REST API Reference for GetSendQuota Operation</seealso>
-        public Task<GetSendQuotaResponse> GetSendQuotaAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSendQuotaResponse> GetSendQuotaAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             return GetSendQuotaAsync(new GetSendQuotaRequest(), cancellationToken);
         }
@@ -1622,7 +1836,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendQuota">REST API Reference for GetSendQuota Operation</seealso>
-        public Task<GetSendQuotaResponse> GetSendQuotaAsync(GetSendQuotaRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSendQuotaResponse> GetSendQuotaAsync(GetSendQuotaRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetSendQuotaRequestMarshaller();
             var unmarshaller = GetSendQuotaResponseUnmarshaller.Instance;
@@ -1637,45 +1851,39 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Returns the user's sending statistics. The result is a list of data points, representing
-        /// the last two weeks of sending activity.
+        /// Provides sending statistics for the Amazon SES account. The result is a list of data
+        /// points, representing the last two weeks of sending activity. Each data point in the
+        /// list contains statistics for a 15-minute period of time.
         /// 
         ///  
         /// <para>
-        /// Each data point in the list contains statistics for a 15-minute interval.
-        /// </para>
-        ///  
-        /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the GetSendStatistics service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendStatistics">REST API Reference for GetSendStatistics Operation</seealso>
-        public GetSendStatisticsResponse GetSendStatistics()
+        public virtual GetSendStatisticsResponse GetSendStatistics()
         {
             return GetSendStatistics(new GetSendStatisticsRequest());
         }
 
 
         /// <summary>
-        /// Returns the user's sending statistics. The result is a list of data points, representing
-        /// the last two weeks of sending activity.
+        /// Provides sending statistics for the Amazon SES account. The result is a list of data
+        /// points, representing the last two weeks of sending activity. Each data point in the
+        /// list contains statistics for a 15-minute period of time.
         /// 
         ///  
         /// <para>
-        /// Each data point in the list contains statistics for a 15-minute interval.
-        /// </para>
-        ///  
-        /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetSendStatistics service method.</param>
         /// 
         /// <returns>The response from the GetSendStatistics service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendStatistics">REST API Reference for GetSendStatistics Operation</seealso>
-        public GetSendStatisticsResponse GetSendStatistics(GetSendStatisticsRequest request)
+        public virtual GetSendStatisticsResponse GetSendStatistics(GetSendStatisticsRequest request)
         {
             var marshaller = new GetSendStatisticsRequestMarshaller();
             var unmarshaller = GetSendStatisticsResponseUnmarshaller.Instance;
@@ -1685,16 +1893,13 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Returns the user's sending statistics. The result is a list of data points, representing
-        /// the last two weeks of sending activity.
+        /// Provides sending statistics for the Amazon SES account. The result is a list of data
+        /// points, representing the last two weeks of sending activity. Each data point in the
+        /// list contains statistics for a 15-minute period of time.
         /// 
         ///  
         /// <para>
-        /// Each data point in the list contains statistics for a 15-minute interval.
-        /// </para>
-        ///  
-        /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -1703,7 +1908,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the GetSendStatistics service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendStatistics">REST API Reference for GetSendStatistics Operation</seealso>
-        public Task<GetSendStatisticsResponse> GetSendStatisticsAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSendStatisticsResponse> GetSendStatisticsAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             return GetSendStatisticsAsync(new GetSendStatisticsRequest(), cancellationToken);
         }
@@ -1717,7 +1922,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendStatistics">REST API Reference for GetSendStatistics Operation</seealso>
-        public Task<GetSendStatisticsResponse> GetSendStatisticsAsync(GetSendStatisticsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSendStatisticsResponse> GetSendStatisticsAsync(GetSendStatisticsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetSendStatisticsRequestMarshaller();
             var unmarshaller = GetSendStatisticsResponseUnmarshaller.Instance;
@@ -1728,29 +1933,78 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  GetTemplate
+
+
+        /// <summary>
+        /// Displays the template object (which includes the Subject line, HTML part and text
+        /// part) for the template you specify.
+        /// 
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetTemplate service method.</param>
+        /// 
+        /// <returns>The response from the GetTemplate service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.TemplateDoesNotExistException">
+        /// Indicates that the Template object you specified does not exist in your Amazon SES
+        /// account.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetTemplate">REST API Reference for GetTemplate Operation</seealso>
+        public virtual GetTemplateResponse GetTemplate(GetTemplateRequest request)
+        {
+            var marshaller = new GetTemplateRequestMarshaller();
+            var unmarshaller = GetTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<GetTemplateRequest,GetTemplateResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetTemplate">REST API Reference for GetTemplate Operation</seealso>
+        public virtual Task<GetTemplateResponse> GetTemplateAsync(GetTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetTemplateRequestMarshaller();
+            var unmarshaller = GetTemplateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetTemplateRequest,GetTemplateResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListConfigurationSets
 
 
         /// <summary>
-        /// Lists the configuration sets associated with your AWS account.
+        /// Provides a list of the configuration sets associated with your Amazon SES account.
+        /// For information about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring
+        /// Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i> 
         /// 
         ///  
         /// <para>
-        /// Configuration sets enable you to publish email sending events. For information about
-        /// using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
-        /// SES Developer Guide</a>.
-        /// </para>
-        ///  
-        /// <para>
-        /// This action is throttled at one request per second and can return up to 50 configuration
-        /// sets at a time.
+        /// You can execute this operation no more than once per second. This operation will return
+        /// up to 1,000 configuration sets each time it is run. If your Amazon SES account has
+        /// more than 1,000 configuration sets, this operation will also return a NextToken element.
+        /// You can then execute the <code>ListConfigurationSets</code> operation again, passing
+        /// the <code>NextToken</code> parameter and the value of the NextToken element to retrieve
+        /// additional results.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListConfigurationSets service method.</param>
         /// 
         /// <returns>The response from the ListConfigurationSets service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListConfigurationSets">REST API Reference for ListConfigurationSets Operation</seealso>
-        public ListConfigurationSetsResponse ListConfigurationSets(ListConfigurationSetsRequest request)
+        public virtual ListConfigurationSetsResponse ListConfigurationSets(ListConfigurationSetsRequest request)
         {
             var marshaller = new ListConfigurationSetsRequestMarshaller();
             var unmarshaller = ListConfigurationSetsResponseUnmarshaller.Instance;
@@ -1768,7 +2022,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListConfigurationSets">REST API Reference for ListConfigurationSets Operation</seealso>
-        public Task<ListConfigurationSetsResponse> ListConfigurationSetsAsync(ListConfigurationSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListConfigurationSetsResponse> ListConfigurationSetsAsync(ListConfigurationSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListConfigurationSetsRequestMarshaller();
             var unmarshaller = ListConfigurationSetsResponseUnmarshaller.Instance;
@@ -1788,13 +2042,13 @@ namespace Amazon.SimpleEmail
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// 
         /// <returns>The response from the ListIdentities service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListIdentities">REST API Reference for ListIdentities Operation</seealso>
-        public ListIdentitiesResponse ListIdentities()
+        public virtual ListIdentitiesResponse ListIdentities()
         {
             return ListIdentities(new ListIdentitiesRequest());
         }
@@ -1806,14 +2060,14 @@ namespace Amazon.SimpleEmail
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListIdentities service method.</param>
         /// 
         /// <returns>The response from the ListIdentities service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListIdentities">REST API Reference for ListIdentities Operation</seealso>
-        public ListIdentitiesResponse ListIdentities(ListIdentitiesRequest request)
+        public virtual ListIdentitiesResponse ListIdentities(ListIdentitiesRequest request)
         {
             var marshaller = new ListIdentitiesRequestMarshaller();
             var unmarshaller = ListIdentitiesResponseUnmarshaller.Instance;
@@ -1828,7 +2082,7 @@ namespace Amazon.SimpleEmail
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -1837,7 +2091,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the ListIdentities service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListIdentities">REST API Reference for ListIdentities Operation</seealso>
-        public Task<ListIdentitiesResponse> ListIdentitiesAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListIdentitiesResponse> ListIdentitiesAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             return ListIdentitiesAsync(new ListIdentitiesRequest(), cancellationToken);
         }
@@ -1851,7 +2105,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListIdentities">REST API Reference for ListIdentities Operation</seealso>
-        public Task<ListIdentitiesResponse> ListIdentitiesAsync(ListIdentitiesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListIdentitiesResponse> ListIdentitiesAsync(ListIdentitiesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListIdentitiesRequestMarshaller();
             var unmarshaller = ListIdentitiesResponseUnmarshaller.Instance;
@@ -1884,14 +2138,14 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListIdentityPolicies service method.</param>
         /// 
         /// <returns>The response from the ListIdentityPolicies service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListIdentityPolicies">REST API Reference for ListIdentityPolicies Operation</seealso>
-        public ListIdentityPoliciesResponse ListIdentityPolicies(ListIdentityPoliciesRequest request)
+        public virtual ListIdentityPoliciesResponse ListIdentityPolicies(ListIdentityPoliciesRequest request)
         {
             var marshaller = new ListIdentityPoliciesRequestMarshaller();
             var unmarshaller = ListIdentityPoliciesResponseUnmarshaller.Instance;
@@ -1909,7 +2163,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListIdentityPolicies">REST API Reference for ListIdentityPolicies Operation</seealso>
-        public Task<ListIdentityPoliciesResponse> ListIdentityPoliciesAsync(ListIdentityPoliciesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListIdentityPoliciesResponse> ListIdentityPoliciesAsync(ListIdentityPoliciesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListIdentityPoliciesRequestMarshaller();
             var unmarshaller = ListIdentityPoliciesResponseUnmarshaller.Instance;
@@ -1933,14 +2187,14 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListReceiptFilters service method.</param>
         /// 
         /// <returns>The response from the ListReceiptFilters service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListReceiptFilters">REST API Reference for ListReceiptFilters Operation</seealso>
-        public ListReceiptFiltersResponse ListReceiptFilters(ListReceiptFiltersRequest request)
+        public virtual ListReceiptFiltersResponse ListReceiptFilters(ListReceiptFiltersRequest request)
         {
             var marshaller = new ListReceiptFiltersRequestMarshaller();
             var unmarshaller = ListReceiptFiltersResponseUnmarshaller.Instance;
@@ -1958,7 +2212,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListReceiptFilters">REST API Reference for ListReceiptFilters Operation</seealso>
-        public Task<ListReceiptFiltersResponse> ListReceiptFiltersAsync(ListReceiptFiltersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListReceiptFiltersResponse> ListReceiptFiltersAsync(ListReceiptFiltersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListReceiptFiltersRequestMarshaller();
             var unmarshaller = ListReceiptFiltersResponseUnmarshaller.Instance;
@@ -1985,14 +2239,14 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListReceiptRuleSets service method.</param>
         /// 
         /// <returns>The response from the ListReceiptRuleSets service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListReceiptRuleSets">REST API Reference for ListReceiptRuleSets Operation</seealso>
-        public ListReceiptRuleSetsResponse ListReceiptRuleSets(ListReceiptRuleSetsRequest request)
+        public virtual ListReceiptRuleSetsResponse ListReceiptRuleSets(ListReceiptRuleSetsRequest request)
         {
             var marshaller = new ListReceiptRuleSetsRequestMarshaller();
             var unmarshaller = ListReceiptRuleSetsResponseUnmarshaller.Instance;
@@ -2010,7 +2264,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListReceiptRuleSets">REST API Reference for ListReceiptRuleSets Operation</seealso>
-        public Task<ListReceiptRuleSetsResponse> ListReceiptRuleSetsAsync(ListReceiptRuleSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListReceiptRuleSetsResponse> ListReceiptRuleSetsAsync(ListReceiptRuleSetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListReceiptRuleSetsRequestMarshaller();
             var unmarshaller = ListReceiptRuleSetsResponseUnmarshaller.Instance;
@@ -2021,49 +2275,75 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  ListTemplates
+
+
+        /// <summary>
+        /// Lists the email templates present in your Amazon SES account.
+        /// 
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListTemplates service method.</param>
+        /// 
+        /// <returns>The response from the ListTemplates service method, as returned by SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListTemplates">REST API Reference for ListTemplates Operation</seealso>
+        public virtual ListTemplatesResponse ListTemplates(ListTemplatesRequest request)
+        {
+            var marshaller = new ListTemplatesRequestMarshaller();
+            var unmarshaller = ListTemplatesResponseUnmarshaller.Instance;
+
+            return Invoke<ListTemplatesRequest,ListTemplatesResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListTemplates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListTemplates operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListTemplates">REST API Reference for ListTemplates Operation</seealso>
+        public virtual Task<ListTemplatesResponse> ListTemplatesAsync(ListTemplatesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new ListTemplatesRequestMarshaller();
+            var unmarshaller = ListTemplatesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<ListTemplatesRequest,ListTemplatesResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ListVerifiedEmailAddresses
 
 
         /// <summary>
-        /// Returns a list containing all of the email addresses that have been verified.
-        /// 
-        ///  <important> 
-        /// <para>
-        /// The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release
-        /// of Domain Verification. The ListIdentities action is now preferred.
-        /// </para>
-        ///  </important> 
-        /// <para>
-        /// This action is throttled at one request per second.
-        /// </para>
+        /// Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
+        /// and domains associated with your account.
         /// </summary>
         /// 
         /// <returns>The response from the ListVerifiedEmailAddresses service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListVerifiedEmailAddresses">REST API Reference for ListVerifiedEmailAddresses Operation</seealso>
-        public ListVerifiedEmailAddressesResponse ListVerifiedEmailAddresses()
+        public virtual ListVerifiedEmailAddressesResponse ListVerifiedEmailAddresses()
         {
             return ListVerifiedEmailAddresses(new ListVerifiedEmailAddressesRequest());
         }
 
 
         /// <summary>
-        /// Returns a list containing all of the email addresses that have been verified.
-        /// 
-        ///  <important> 
-        /// <para>
-        /// The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release
-        /// of Domain Verification. The ListIdentities action is now preferred.
-        /// </para>
-        ///  </important> 
-        /// <para>
-        /// This action is throttled at one request per second.
-        /// </para>
+        /// Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
+        /// and domains associated with your account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListVerifiedEmailAddresses service method.</param>
         /// 
         /// <returns>The response from the ListVerifiedEmailAddresses service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListVerifiedEmailAddresses">REST API Reference for ListVerifiedEmailAddresses Operation</seealso>
-        public ListVerifiedEmailAddressesResponse ListVerifiedEmailAddresses(ListVerifiedEmailAddressesRequest request)
+        public virtual ListVerifiedEmailAddressesResponse ListVerifiedEmailAddresses(ListVerifiedEmailAddressesRequest request)
         {
             var marshaller = new ListVerifiedEmailAddressesRequestMarshaller();
             var unmarshaller = ListVerifiedEmailAddressesResponseUnmarshaller.Instance;
@@ -2073,17 +2353,8 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Returns a list containing all of the email addresses that have been verified.
-        /// 
-        ///  <important> 
-        /// <para>
-        /// The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release
-        /// of Domain Verification. The ListIdentities action is now preferred.
-        /// </para>
-        ///  </important> 
-        /// <para>
-        /// This action is throttled at one request per second.
-        /// </para>
+        /// Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
+        /// and domains associated with your account.
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -2091,7 +2362,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the ListVerifiedEmailAddresses service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListVerifiedEmailAddresses">REST API Reference for ListVerifiedEmailAddresses Operation</seealso>
-        public Task<ListVerifiedEmailAddressesResponse> ListVerifiedEmailAddressesAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListVerifiedEmailAddressesResponse> ListVerifiedEmailAddressesAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             return ListVerifiedEmailAddressesAsync(new ListVerifiedEmailAddressesRequest(), cancellationToken);
         }
@@ -2105,7 +2376,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListVerifiedEmailAddresses">REST API Reference for ListVerifiedEmailAddresses Operation</seealso>
-        public Task<ListVerifiedEmailAddressesResponse> ListVerifiedEmailAddressesAsync(ListVerifiedEmailAddressesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListVerifiedEmailAddressesResponse> ListVerifiedEmailAddressesAsync(ListVerifiedEmailAddressesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListVerifiedEmailAddressesRequestMarshaller();
             var unmarshaller = ListVerifiedEmailAddressesResponseUnmarshaller.Instance;
@@ -2137,7 +2408,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutIdentityPolicy service method.</param>
@@ -2148,7 +2419,7 @@ namespace Amazon.SimpleEmail
         /// about what caused the error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/PutIdentityPolicy">REST API Reference for PutIdentityPolicy Operation</seealso>
-        public PutIdentityPolicyResponse PutIdentityPolicy(PutIdentityPolicyRequest request)
+        public virtual PutIdentityPolicyResponse PutIdentityPolicy(PutIdentityPolicyRequest request)
         {
             var marshaller = new PutIdentityPolicyRequestMarshaller();
             var unmarshaller = PutIdentityPolicyResponseUnmarshaller.Instance;
@@ -2166,7 +2437,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/PutIdentityPolicy">REST API Reference for PutIdentityPolicy Operation</seealso>
-        public Task<PutIdentityPolicyResponse> PutIdentityPolicyAsync(PutIdentityPolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<PutIdentityPolicyResponse> PutIdentityPolicyAsync(PutIdentityPolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new PutIdentityPolicyRequestMarshaller();
             var unmarshaller = PutIdentityPolicyResponseUnmarshaller.Instance;
@@ -2196,7 +2467,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ReorderReceiptRuleSet service method.</param>
@@ -2209,7 +2480,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the provided receipt rule set does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ReorderReceiptRuleSet">REST API Reference for ReorderReceiptRuleSet Operation</seealso>
-        public ReorderReceiptRuleSetResponse ReorderReceiptRuleSet(ReorderReceiptRuleSetRequest request)
+        public virtual ReorderReceiptRuleSetResponse ReorderReceiptRuleSet(ReorderReceiptRuleSetRequest request)
         {
             var marshaller = new ReorderReceiptRuleSetRequestMarshaller();
             var unmarshaller = ReorderReceiptRuleSetResponseUnmarshaller.Instance;
@@ -2227,7 +2498,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ReorderReceiptRuleSet">REST API Reference for ReorderReceiptRuleSet Operation</seealso>
-        public Task<ReorderReceiptRuleSetResponse> ReorderReceiptRuleSetAsync(ReorderReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ReorderReceiptRuleSetResponse> ReorderReceiptRuleSetAsync(ReorderReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ReorderReceiptRuleSetRequestMarshaller();
             var unmarshaller = ReorderReceiptRuleSetResponseUnmarshaller.Instance;
@@ -2258,7 +2529,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SendBounce service method.</param>
@@ -2269,7 +2540,7 @@ namespace Amazon.SimpleEmail
         /// stack for more information about what caused the error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendBounce">REST API Reference for SendBounce Operation</seealso>
-        public SendBounceResponse SendBounce(SendBounceRequest request)
+        public virtual SendBounceResponse SendBounce(SendBounceRequest request)
         {
             var marshaller = new SendBounceRequestMarshaller();
             var unmarshaller = SendBounceResponseUnmarshaller.Instance;
@@ -2287,7 +2558,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendBounce">REST API Reference for SendBounce Operation</seealso>
-        public Task<SendBounceResponse> SendBounceAsync(SendBounceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SendBounceResponse> SendBounceAsync(SendBounceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SendBounceRequestMarshaller();
             var unmarshaller = SendBounceResponseUnmarshaller.Instance;
@@ -2298,51 +2569,147 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  SendBulkTemplatedEmail
+
+
+        /// <summary>
+        /// Composes an email message to multiple destinations. The message body is created using
+        /// an email template.
+        /// 
+        ///  
+        /// <para>
+        /// In order to send email using the <code>SendBulkTemplatedEmail</code> operation, your
+        /// call to the API must meet the following requirements:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The call must refer to an existing email template. You can create email templates
+        /// using the <a>CreateTemplate</a> operation.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The message must be sent from a verified email address or domain.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// If your account is still in the Amazon SES sandbox, you may only send to verified
+        /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
+        /// Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
+        /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The total size of the message, including attachments, must be less than 10 MB.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Each <code>Destination</code> parameter must include at least one recipient email
+        /// address. The recipient address can be a To: address, a CC: address, or a BCC: address.
+        /// If a recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>),
+        /// the entire message will be rejected, even if the message contains other recipients
+        /// that are valid.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the SendBulkTemplatedEmail service method.</param>
+        /// 
+        /// <returns>The response from the SendBulkTemplatedEmail service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
+        /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.MailFromDomainNotVerifiedException">
+        /// Indicates that the message could not be sent because Amazon SES could not read the
+        /// MX record required to use the specified MAIL FROM domain. For information about editing
+        /// the custom MAIL FROM domain settings for an identity, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon
+        /// SES Developer Guide</a>.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.MessageRejectedException">
+        /// Indicates that the action failed, and the message could not be sent. Check the error
+        /// stack for more information about what caused the error.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.TemplateDoesNotExistException">
+        /// Indicates that the Template object you specified does not exist in your Amazon SES
+        /// account.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendBulkTemplatedEmail">REST API Reference for SendBulkTemplatedEmail Operation</seealso>
+        public virtual SendBulkTemplatedEmailResponse SendBulkTemplatedEmail(SendBulkTemplatedEmailRequest request)
+        {
+            var marshaller = new SendBulkTemplatedEmailRequestMarshaller();
+            var unmarshaller = SendBulkTemplatedEmailResponseUnmarshaller.Instance;
+
+            return Invoke<SendBulkTemplatedEmailRequest,SendBulkTemplatedEmailResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SendBulkTemplatedEmail operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SendBulkTemplatedEmail operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendBulkTemplatedEmail">REST API Reference for SendBulkTemplatedEmail Operation</seealso>
+        public virtual Task<SendBulkTemplatedEmailResponse> SendBulkTemplatedEmailAsync(SendBulkTemplatedEmailRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new SendBulkTemplatedEmailRequestMarshaller();
+            var unmarshaller = SendBulkTemplatedEmailResponseUnmarshaller.Instance;
+
+            return InvokeAsync<SendBulkTemplatedEmailRequest,SendBulkTemplatedEmailResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  SendEmail
 
 
         /// <summary>
-        /// Composes an email message based on input data, and then immediately queues the message
-        /// for sending.
+        /// Composes an email message and immediately queues it for sending. In order to send
+        /// email using the <code>SendEmail</code> operation, your message must meet the following
+        /// requirements:
         /// 
-        ///  
-        /// <para>
-        /// There are several important points to know about <code>SendEmail</code>:
-        /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// You can only send email from verified email addresses and domains; otherwise, you
-        /// will get an "Email address not verified" error. If your account is still in the Amazon
-        /// SES sandbox, you must also verify every recipient email address except for the recipients
-        /// provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon
-        /// SES Developer Guide</a>.
+        /// The message must be sent from a verified email address or domain. If you attempt to
+        /// send email using a non-verified address or domain, the operation will result in an
+        /// "Email address not verified" error. 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// The total size of the message cannot exceed 10 MB. This includes any attachments that
-        /// are part of the message.
+        /// If your account is still in the Amazon SES sandbox, you may only send to verified
+        /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
+        /// Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
+        /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// You must provide at least one recipient email address. The recipient address can be
-        /// a To: address, a CC: address, or a BCC: address. If any email address you provide
-        /// is invalid, Amazon SES rejects the entire email.
+        /// The total size of the message, including attachments, must be smaller than 10 MB.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Amazon SES has a limit on the total number of recipients per message. The combined
-        /// number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send
-        /// an email message to a larger audience, you can divide your recipient list into groups
-        /// of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.
+        /// The message must include at least one recipient email address. The recipient address
+        /// can be a To: address, a CC: address, or a BCC: address. If a recipient email address
+        /// is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>),
+        /// the entire message will be rejected, even if the message contains other recipients
+        /// that are valid.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// For every message that you send, the total number of recipients (To:, CC: and BCC:)
-        /// is counted against your sending quota - the maximum number of emails you can send
-        /// in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon
-        /// SES Developer Guide</a>.
+        /// The message may not include more than 50 recipients, across the To:, CC: and BCC:
+        /// fields. If you need to send an email message to a larger audience, you can divide
+        /// your recipient list into groups of 50 or fewer, and then call the <code>SendEmail</code>
+        /// operation several times to send the message to each group.
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> <important> 
+        /// <para>
+        /// For every message that you send, the total number of recipients (including each recipient
+        /// in the To:, CC: and BCC: fields) is counted against the maximum number of emails you
+        /// can send in a 24-hour period (your <i>sending quota</i>). For more information about
+        /// sending quotas in Amazon SES, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing
+        /// Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i> 
+        /// </para>
+        ///  </important>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SendEmail service method.</param>
         /// 
@@ -2361,7 +2728,7 @@ namespace Amazon.SimpleEmail
         /// stack for more information about what caused the error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendEmail">REST API Reference for SendEmail Operation</seealso>
-        public SendEmailResponse SendEmail(SendEmailRequest request)
+        public virtual SendEmailResponse SendEmail(SendEmailRequest request)
         {
             var marshaller = new SendEmailRequestMarshaller();
             var unmarshaller = SendEmailResponseUnmarshaller.Instance;
@@ -2379,7 +2746,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendEmail">REST API Reference for SendEmail Operation</seealso>
-        public Task<SendEmailResponse> SendEmailAsync(SendEmailRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SendEmailResponse> SendEmailAsync(SendEmailRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SendEmailRequestMarshaller();
             var unmarshaller = SendEmailResponseUnmarshaller.Instance;
@@ -2394,63 +2761,75 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Sends an email message, with header and content specified by the client. The <code>SendRawEmail</code>
-        /// action is useful for sending multipart MIME emails. The raw text of the message must
-        /// comply with Internet email standards; otherwise, the message cannot be sent. 
+        /// Composes an email message and immediately queues it for sending. When calling this
+        /// operation, you may specify the message headers as well as the content. The <code>SendRawEmail</code>
+        /// operation is particularly useful for sending multipart MIME emails (such as those
+        /// that contain both a plain-text and an HTML version). 
         /// 
         ///  
         /// <para>
-        /// There are several important points to know about <code>SendRawEmail</code>:
+        /// In order to send email using the <code>SendRawEmail</code> operation, your message
+        /// must meet the following requirements:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// You can only send email from verified email addresses and domains; otherwise, you
-        /// will get an "Email address not verified" error. If your account is still in the Amazon
-        /// SES sandbox, you must also verify every recipient email address except for the recipients
-        /// provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon
-        /// SES Developer Guide</a>.
+        /// The message must be sent from a verified email address or domain. If you attempt to
+        /// send email using a non-verified address or domain, the operation will result in an
+        /// "Email address not verified" error. 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// The total size of the message cannot exceed 10 MB. This includes any attachments that
-        /// are part of the message.
+        /// If your account is still in the Amazon SES sandbox, you may only send to verified
+        /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
+        /// Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
+        /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// You must provide at least one recipient email address. The recipient address can be
-        /// a To: address, a CC: address, or a BCC: address. If any email address you provide
-        /// is invalid, Amazon SES rejects the entire email.
+        /// The total size of the message, including attachments, must be smaller than 10 MB.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Amazon SES has a limit on the total number of recipients per message. The combined
-        /// number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send
-        /// an email message to a larger audience, you can divide your recipient list into groups
-        /// of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.
+        /// The message must include at least one recipient email address. The recipient address
+        /// can be a To: address, a CC: address, or a BCC: address. If a recipient email address
+        /// is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>),
+        /// the entire message will be rejected, even if the message contains other recipients
+        /// that are valid.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// The To:, CC:, and BCC: headers in the raw message can contain a group list. Note that
-        /// each recipient in a group list counts towards the 50-recipient limit.
+        /// The message may not include more than 50 recipients, across the To:, CC: and BCC:
+        /// fields. If you need to send an email message to a larger audience, you can divide
+        /// your recipient list into groups of 50 or fewer, and then call the <code>SendRawEmail</code>
+        /// operation several times to send the message to each group.
         /// </para>
-        ///  </li> <li> 
+        ///  </li> </ul> <important> 
         /// <para>
-        /// Amazon SES overrides any Message-ID and Date headers you provide.
+        /// For every message that you send, the total number of recipients (including each recipient
+        /// in the To:, CC: and BCC: fields) is counted against the maximum number of emails you
+        /// can send in a 24-hour period (your <i>sending quota</i>). For more information about
+        /// sending quotas in Amazon SES, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing
+        /// Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i> 
         /// </para>
-        ///  </li> <li> 
+        ///  </important> 
         /// <para>
-        /// For every message that you send, the total number of recipients (To:, CC: and BCC:)
-        /// is counted against your sending quota - the maximum number of emails you can send
-        /// in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon
-        /// SES Developer Guide</a>.
+        /// Additionally, keep the following considerations in mind when using the <code>SendRawEmail</code>
+        /// operation:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Although you can customize the message headers when using the <code>SendRawEmail</code>
+        /// operation, Amazon SES will automatically apply its own <code>Message-ID</code> and
+        /// <code>Date</code> headers; if you passed these headers when creating the message,
+        /// they will be overwritten by the values that Amazon SES provides.
         /// </para>
         ///  </li> <li> 
         /// <para>
         /// If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code>
-        /// enables you to specify the cross-account identity for the email's "Source," "From,"
-        /// and "Return-Path" parameters in one of two ways: you can pass optional parameters
-        /// <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to
-        /// the API, or you can include the following X-headers in the header of your raw email:
+        /// enables you to specify the cross-account identity for the email's Source, From, and
+        /// Return-Path parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>,
+        /// <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include
+        /// the following X-headers in the header of your raw email:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -2466,19 +2845,19 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  </li> </ul> <important> 
         /// <para>
-        /// Do not include these X-headers in the DKIM signature, because they are removed by
-        /// Amazon SES before sending the email.
+        /// Do not include these X-headers in the DKIM signature; Amazon SES will remove them
+        /// before sending the email.
         /// </para>
         ///  </important> 
         /// <para>
-        /// For the most common sending authorization use case, we recommend that you specify
-        /// the <code>SourceIdentityArn</code> and do not specify either the <code>FromIdentityArn</code>
-        /// or <code>ReturnPathIdentityArn</code>. (The same note applies to the corresponding
-        /// X-headers.) If you only specify the <code>SourceIdentityArn</code>, Amazon SES will
-        /// simply set the "From" address and the "Return Path" address to the identity specified
-        /// in <code>SourceIdentityArn</code>. For more information about sending authorization,
-        /// see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
-        /// SES Developer Guide</a>.
+        /// For most common sending authorization scenarios, we recommend that you specify the
+        /// <code>SourceIdentityArn</code> parameter and not the <code>FromIdentityArn</code>
+        /// or <code>ReturnPathIdentityArn</code> parameters. If you only specify the <code>SourceIdentityArn</code>
+        /// parameter, Amazon SES will set the From and Return Path addresses to the identity
+        /// specified in <code>SourceIdentityArn</code>. For more information about sending authorization,
+        /// see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Using
+        /// Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide.</i>
+        /// 
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -2499,7 +2878,7 @@ namespace Amazon.SimpleEmail
         /// stack for more information about what caused the error.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendRawEmail">REST API Reference for SendRawEmail Operation</seealso>
-        public SendRawEmailResponse SendRawEmail(SendRawEmailRequest request)
+        public virtual SendRawEmailResponse SendRawEmail(SendRawEmailRequest request)
         {
             var marshaller = new SendRawEmailRequestMarshaller();
             var unmarshaller = SendRawEmailResponseUnmarshaller.Instance;
@@ -2517,12 +2896,110 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendRawEmail">REST API Reference for SendRawEmail Operation</seealso>
-        public Task<SendRawEmailResponse> SendRawEmailAsync(SendRawEmailRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SendRawEmailResponse> SendRawEmailAsync(SendRawEmailRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SendRawEmailRequestMarshaller();
             var unmarshaller = SendRawEmailResponseUnmarshaller.Instance;
 
             return InvokeAsync<SendRawEmailRequest,SendRawEmailResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  SendTemplatedEmail
+
+
+        /// <summary>
+        /// Composes an email message using an email template and immediately queues it for sending.
+        /// 
+        ///  
+        /// <para>
+        /// In order to send email using the <code>SendTemplatedEmail</code> operation, your call
+        /// to the API must meet the following requirements:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The call must refer to an existing email template. You can create email templates
+        /// using the <a>CreateTemplate</a> operation.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The message must be sent from a verified email address or domain.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// If your account is still in the Amazon SES sandbox, you may only send to verified
+        /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
+        /// Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
+        /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The total size of the message, including attachments, must be less than 10 MB.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Calls to the <code>SendTemplatedEmail</code> operation may only include one <code>Destination</code>
+        /// parameter. A destination is a set of recipients who will receive the same version
+        /// of the email. The <code>Destination</code> parameter can include up to 50 recipients,
+        /// across the To:, CC: and BCC: fields.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The <code>Destination</code> parameter must include at least one recipient email address.
+        /// The recipient address can be a To: address, a CC: address, or a BCC: address. If a
+        /// recipient email address is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>),
+        /// the entire message will be rejected, even if the message contains other recipients
+        /// that are valid.
+        /// </para>
+        ///  </li> </ul>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the SendTemplatedEmail service method.</param>
+        /// 
+        /// <returns>The response from the SendTemplatedEmail service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
+        /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.MailFromDomainNotVerifiedException">
+        /// Indicates that the message could not be sent because Amazon SES could not read the
+        /// MX record required to use the specified MAIL FROM domain. For information about editing
+        /// the custom MAIL FROM domain settings for an identity, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-edit.html">Amazon
+        /// SES Developer Guide</a>.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.MessageRejectedException">
+        /// Indicates that the action failed, and the message could not be sent. Check the error
+        /// stack for more information about what caused the error.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.TemplateDoesNotExistException">
+        /// Indicates that the Template object you specified does not exist in your Amazon SES
+        /// account.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendTemplatedEmail">REST API Reference for SendTemplatedEmail Operation</seealso>
+        public virtual SendTemplatedEmailResponse SendTemplatedEmail(SendTemplatedEmailRequest request)
+        {
+            var marshaller = new SendTemplatedEmailRequestMarshaller();
+            var unmarshaller = SendTemplatedEmailResponseUnmarshaller.Instance;
+
+            return Invoke<SendTemplatedEmailRequest,SendTemplatedEmailResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SendTemplatedEmail operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SendTemplatedEmail operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendTemplatedEmail">REST API Reference for SendTemplatedEmail Operation</seealso>
+        public virtual Task<SendTemplatedEmailResponse> SendTemplatedEmailAsync(SendTemplatedEmailRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new SendTemplatedEmailRequestMarshaller();
+            var unmarshaller = SendTemplatedEmailResponseUnmarshaller.Instance;
+
+            return InvokeAsync<SendTemplatedEmailRequest,SendTemplatedEmailResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -2546,7 +3023,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SetActiveReceiptRuleSet service method.</param>
@@ -2556,7 +3033,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the provided receipt rule set does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetActiveReceiptRuleSet">REST API Reference for SetActiveReceiptRuleSet Operation</seealso>
-        public SetActiveReceiptRuleSetResponse SetActiveReceiptRuleSet(SetActiveReceiptRuleSetRequest request)
+        public virtual SetActiveReceiptRuleSetResponse SetActiveReceiptRuleSet(SetActiveReceiptRuleSetRequest request)
         {
             var marshaller = new SetActiveReceiptRuleSetRequestMarshaller();
             var unmarshaller = SetActiveReceiptRuleSetResponseUnmarshaller.Instance;
@@ -2574,7 +3051,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetActiveReceiptRuleSet">REST API Reference for SetActiveReceiptRuleSet Operation</seealso>
-        public Task<SetActiveReceiptRuleSetResponse> SetActiveReceiptRuleSetAsync(SetActiveReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SetActiveReceiptRuleSetResponse> SetActiveReceiptRuleSetAsync(SetActiveReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SetActiveReceiptRuleSetRequestMarshaller();
             var unmarshaller = SetActiveReceiptRuleSetResponseUnmarshaller.Instance;
@@ -2593,9 +3070,9 @@ namespace Amazon.SimpleEmail
         /// 
         ///  <ul> <li> 
         /// <para>
-        /// If Easy DKIM signing is enabled for a domain name identity (e.g., <code>example.com</code>),
+        /// If Easy DKIM signing is enabled for a domain name identity (such as <code>example.com</code>),
         /// then Amazon SES will DKIM-sign all email sent by addresses under that domain name
-        /// (e.g., <code>user@example.com</code>).
+        /// (for example, <code>user@example.com</code>).
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -2604,13 +3081,14 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// For email addresses (e.g., <code>user@example.com</code>), you can only enable Easy
-        /// DKIM signing if the corresponding domain (e.g., <code>example.com</code>) has been
-        /// set up for Easy DKIM using the AWS Console or the <code>VerifyDomainDkim</code> action.
+        /// For email addresses (for example, <code>user@example.com</code>), you can only enable
+        /// Easy DKIM signing if the corresponding domain (in this case, <code>example.com</code>)
+        /// has been set up for Easy DKIM using the AWS Console or the <code>VerifyDomainDkim</code>
+        /// operation.
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         ///  
         /// <para>
@@ -2622,7 +3100,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the SetIdentityDkimEnabled service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityDkimEnabled">REST API Reference for SetIdentityDkimEnabled Operation</seealso>
-        public SetIdentityDkimEnabledResponse SetIdentityDkimEnabled(SetIdentityDkimEnabledRequest request)
+        public virtual SetIdentityDkimEnabledResponse SetIdentityDkimEnabled(SetIdentityDkimEnabledRequest request)
         {
             var marshaller = new SetIdentityDkimEnabledRequestMarshaller();
             var unmarshaller = SetIdentityDkimEnabledResponseUnmarshaller.Instance;
@@ -2640,7 +3118,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityDkimEnabled">REST API Reference for SetIdentityDkimEnabled Operation</seealso>
-        public Task<SetIdentityDkimEnabledResponse> SetIdentityDkimEnabledAsync(SetIdentityDkimEnabledRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SetIdentityDkimEnabledResponse> SetIdentityDkimEnabledAsync(SetIdentityDkimEnabledRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SetIdentityDkimEnabledRequestMarshaller();
             var unmarshaller = SetIdentityDkimEnabledResponseUnmarshaller.Instance;
@@ -2667,7 +3145,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  </note> 
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         ///  
         /// <para>
@@ -2679,7 +3157,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the SetIdentityFeedbackForwardingEnabled service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityFeedbackForwardingEnabled">REST API Reference for SetIdentityFeedbackForwardingEnabled Operation</seealso>
-        public SetIdentityFeedbackForwardingEnabledResponse SetIdentityFeedbackForwardingEnabled(SetIdentityFeedbackForwardingEnabledRequest request)
+        public virtual SetIdentityFeedbackForwardingEnabledResponse SetIdentityFeedbackForwardingEnabled(SetIdentityFeedbackForwardingEnabledRequest request)
         {
             var marshaller = new SetIdentityFeedbackForwardingEnabledRequestMarshaller();
             var unmarshaller = SetIdentityFeedbackForwardingEnabledResponseUnmarshaller.Instance;
@@ -2697,7 +3175,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityFeedbackForwardingEnabled">REST API Reference for SetIdentityFeedbackForwardingEnabled Operation</seealso>
-        public Task<SetIdentityFeedbackForwardingEnabledResponse> SetIdentityFeedbackForwardingEnabledAsync(SetIdentityFeedbackForwardingEnabledRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SetIdentityFeedbackForwardingEnabledResponse> SetIdentityFeedbackForwardingEnabledAsync(SetIdentityFeedbackForwardingEnabledRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SetIdentityFeedbackForwardingEnabledRequestMarshaller();
             var unmarshaller = SetIdentityFeedbackForwardingEnabledResponseUnmarshaller.Instance;
@@ -2718,7 +3196,7 @@ namespace Amazon.SimpleEmail
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         ///  
         /// <para>
@@ -2730,7 +3208,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the SetIdentityHeadersInNotificationsEnabled service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityHeadersInNotificationsEnabled">REST API Reference for SetIdentityHeadersInNotificationsEnabled Operation</seealso>
-        public SetIdentityHeadersInNotificationsEnabledResponse SetIdentityHeadersInNotificationsEnabled(SetIdentityHeadersInNotificationsEnabledRequest request)
+        public virtual SetIdentityHeadersInNotificationsEnabledResponse SetIdentityHeadersInNotificationsEnabled(SetIdentityHeadersInNotificationsEnabledRequest request)
         {
             var marshaller = new SetIdentityHeadersInNotificationsEnabledRequestMarshaller();
             var unmarshaller = SetIdentityHeadersInNotificationsEnabledResponseUnmarshaller.Instance;
@@ -2748,7 +3226,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityHeadersInNotificationsEnabled">REST API Reference for SetIdentityHeadersInNotificationsEnabled Operation</seealso>
-        public Task<SetIdentityHeadersInNotificationsEnabledResponse> SetIdentityHeadersInNotificationsEnabledAsync(SetIdentityHeadersInNotificationsEnabledRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SetIdentityHeadersInNotificationsEnabledResponse> SetIdentityHeadersInNotificationsEnabledAsync(SetIdentityHeadersInNotificationsEnabledRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SetIdentityHeadersInNotificationsEnabledRequestMarshaller();
             var unmarshaller = SetIdentityHeadersInNotificationsEnabledResponseUnmarshaller.Instance;
@@ -2776,14 +3254,14 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  </important> 
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SetIdentityMailFromDomain service method.</param>
         /// 
         /// <returns>The response from the SetIdentityMailFromDomain service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityMailFromDomain">REST API Reference for SetIdentityMailFromDomain Operation</seealso>
-        public SetIdentityMailFromDomainResponse SetIdentityMailFromDomain(SetIdentityMailFromDomainRequest request)
+        public virtual SetIdentityMailFromDomainResponse SetIdentityMailFromDomain(SetIdentityMailFromDomainRequest request)
         {
             var marshaller = new SetIdentityMailFromDomainRequestMarshaller();
             var unmarshaller = SetIdentityMailFromDomainResponseUnmarshaller.Instance;
@@ -2801,7 +3279,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityMailFromDomain">REST API Reference for SetIdentityMailFromDomain Operation</seealso>
-        public Task<SetIdentityMailFromDomainResponse> SetIdentityMailFromDomainAsync(SetIdentityMailFromDomainRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SetIdentityMailFromDomainResponse> SetIdentityMailFromDomainAsync(SetIdentityMailFromDomainRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SetIdentityMailFromDomainRequestMarshaller();
             var unmarshaller = SetIdentityMailFromDomainResponseUnmarshaller.Instance;
@@ -2827,7 +3305,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  </note> 
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         ///  
         /// <para>
@@ -2839,7 +3317,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the SetIdentityNotificationTopic service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityNotificationTopic">REST API Reference for SetIdentityNotificationTopic Operation</seealso>
-        public SetIdentityNotificationTopicResponse SetIdentityNotificationTopic(SetIdentityNotificationTopicRequest request)
+        public virtual SetIdentityNotificationTopicResponse SetIdentityNotificationTopic(SetIdentityNotificationTopicRequest request)
         {
             var marshaller = new SetIdentityNotificationTopicRequestMarshaller();
             var unmarshaller = SetIdentityNotificationTopicResponseUnmarshaller.Instance;
@@ -2857,7 +3335,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetIdentityNotificationTopic">REST API Reference for SetIdentityNotificationTopic Operation</seealso>
-        public Task<SetIdentityNotificationTopicResponse> SetIdentityNotificationTopicAsync(SetIdentityNotificationTopicRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SetIdentityNotificationTopicResponse> SetIdentityNotificationTopicAsync(SetIdentityNotificationTopicRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SetIdentityNotificationTopicRequestMarshaller();
             var unmarshaller = SetIdentityNotificationTopicResponseUnmarshaller.Instance;
@@ -2881,7 +3359,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SetReceiptRulePosition service method.</param>
@@ -2894,7 +3372,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the provided receipt rule set does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetReceiptRulePosition">REST API Reference for SetReceiptRulePosition Operation</seealso>
-        public SetReceiptRulePositionResponse SetReceiptRulePosition(SetReceiptRulePositionRequest request)
+        public virtual SetReceiptRulePositionResponse SetReceiptRulePosition(SetReceiptRulePositionRequest request)
         {
             var marshaller = new SetReceiptRulePositionRequestMarshaller();
             var unmarshaller = SetReceiptRulePositionResponseUnmarshaller.Instance;
@@ -2912,7 +3390,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SetReceiptRulePosition">REST API Reference for SetReceiptRulePosition Operation</seealso>
-        public Task<SetReceiptRulePositionResponse> SetReceiptRulePositionAsync(SetReceiptRulePositionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SetReceiptRulePositionResponse> SetReceiptRulePositionAsync(SetReceiptRulePositionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SetReceiptRulePositionRequestMarshaller();
             var unmarshaller = SetReceiptRulePositionResponseUnmarshaller.Instance;
@@ -2923,11 +3401,73 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  TestRenderTemplate
+
+
+        /// <summary>
+        /// Creates a preview of the MIME content of an email when provided with a template and
+        /// a set of replacement data.
+        /// 
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the TestRenderTemplate service method.</param>
+        /// 
+        /// <returns>The response from the TestRenderTemplate service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.InvalidRenderingParameterException">
+        /// Indicates that one or more of the replacement values you provided is invalid. This
+        /// error may occur when the TemplateData object contains invalid JSON.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.MissingRenderingAttributeException">
+        /// Indicates that one or more of the replacement values for the specified template was
+        /// not specified. Ensure that the TemplateData object contains references to all of the
+        /// replacement tags in the specified template.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.TemplateDoesNotExistException">
+        /// Indicates that the Template object you specified does not exist in your Amazon SES
+        /// account.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/TestRenderTemplate">REST API Reference for TestRenderTemplate Operation</seealso>
+        public virtual TestRenderTemplateResponse TestRenderTemplate(TestRenderTemplateRequest request)
+        {
+            var marshaller = new TestRenderTemplateRequestMarshaller();
+            var unmarshaller = TestRenderTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<TestRenderTemplateRequest,TestRenderTemplateResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the TestRenderTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the TestRenderTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/TestRenderTemplate">REST API Reference for TestRenderTemplate Operation</seealso>
+        public virtual Task<TestRenderTemplateResponse> TestRenderTemplateAsync(TestRenderTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new TestRenderTemplateRequestMarshaller();
+            var unmarshaller = TestRenderTemplateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<TestRenderTemplateRequest,TestRenderTemplateResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  UpdateConfigurationSetEventDestination
 
 
         /// <summary>
-        /// Updates the event destination of a configuration set.
+        /// Updates the event destination of a configuration set. Event destinations are associated
+        /// with configuration sets, which enable you to publish email sending events to Amazon
+        /// CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon
+        /// SNS). For information about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring
+        /// Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i> 
         /// 
         ///  <note> 
         /// <para>
@@ -2937,15 +3477,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  </note> 
         /// <para>
-        /// Event destinations are associated with configuration sets, which enable you to publish
-        /// email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple
-        /// Notification Service (Amazon SNS). For information about using configuration sets,
-        /// see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
-        /// SES Developer Guide</a>.
-        /// </para>
-        ///  
-        /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateConfigurationSetEventDestination service method.</param>
@@ -2970,7 +3502,7 @@ namespace Amazon.SimpleEmail
         /// invalid. See the error message for details.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetEventDestination">REST API Reference for UpdateConfigurationSetEventDestination Operation</seealso>
-        public UpdateConfigurationSetEventDestinationResponse UpdateConfigurationSetEventDestination(UpdateConfigurationSetEventDestinationRequest request)
+        public virtual UpdateConfigurationSetEventDestinationResponse UpdateConfigurationSetEventDestination(UpdateConfigurationSetEventDestinationRequest request)
         {
             var marshaller = new UpdateConfigurationSetEventDestinationRequestMarshaller();
             var unmarshaller = UpdateConfigurationSetEventDestinationResponseUnmarshaller.Instance;
@@ -2988,12 +3520,81 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetEventDestination">REST API Reference for UpdateConfigurationSetEventDestination Operation</seealso>
-        public Task<UpdateConfigurationSetEventDestinationResponse> UpdateConfigurationSetEventDestinationAsync(UpdateConfigurationSetEventDestinationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateConfigurationSetEventDestinationResponse> UpdateConfigurationSetEventDestinationAsync(UpdateConfigurationSetEventDestinationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateConfigurationSetEventDestinationRequestMarshaller();
             var unmarshaller = UpdateConfigurationSetEventDestinationResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateConfigurationSetEventDestinationRequest,UpdateConfigurationSetEventDestinationResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateConfigurationSetTrackingOptions
+
+
+        /// <summary>
+        /// Modifies an association between a configuration set and a custom domain for open and
+        /// click event tracking. 
+        /// 
+        ///  
+        /// <para>
+        /// By default, images and links used for tracking open and click events are hosted on
+        /// domains operated by Amazon SES. You can configure a subdomain of your own to handle
+        /// these events. For information about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring
+        /// Custom Domains to Handle Open and Click Tracking</a> in the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
+        /// SES Developer Guide</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConfigurationSetTrackingOptions service method.</param>
+        /// 
+        /// <returns>The response from the UpdateConfigurationSetTrackingOptions service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
+        /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.InvalidTrackingOptionsException">
+        /// Indicates that the custom domain to be used for open and click tracking redirects
+        /// is invalid. This error appears most often in the following situations:
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// When the tracking domain you specified is not verified in Amazon SES.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// When the tracking domain you specified is not a valid domain or subdomain.
+        /// </para>
+        ///  </li> </ul>
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.TrackingOptionsDoesNotExistException">
+        /// Indicates that the TrackingOptions object you specified does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetTrackingOptions">REST API Reference for UpdateConfigurationSetTrackingOptions Operation</seealso>
+        public virtual UpdateConfigurationSetTrackingOptionsResponse UpdateConfigurationSetTrackingOptions(UpdateConfigurationSetTrackingOptionsRequest request)
+        {
+            var marshaller = new UpdateConfigurationSetTrackingOptionsRequestMarshaller();
+            var unmarshaller = UpdateConfigurationSetTrackingOptionsResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateConfigurationSetTrackingOptionsRequest,UpdateConfigurationSetTrackingOptionsResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateConfigurationSetTrackingOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConfigurationSetTrackingOptions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetTrackingOptions">REST API Reference for UpdateConfigurationSetTrackingOptions Operation</seealso>
+        public virtual Task<UpdateConfigurationSetTrackingOptionsResponse> UpdateConfigurationSetTrackingOptionsAsync(UpdateConfigurationSetTrackingOptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateConfigurationSetTrackingOptionsRequestMarshaller();
+            var unmarshaller = UpdateConfigurationSetTrackingOptionsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateConfigurationSetTrackingOptionsRequest,UpdateConfigurationSetTrackingOptionsResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -3012,7 +3613,7 @@ namespace Amazon.SimpleEmail
         /// </para>
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateReceiptRule service method.</param>
@@ -3048,7 +3649,7 @@ namespace Amazon.SimpleEmail
         /// Indicates that the provided receipt rule set does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateReceiptRule">REST API Reference for UpdateReceiptRule Operation</seealso>
-        public UpdateReceiptRuleResponse UpdateReceiptRule(UpdateReceiptRuleRequest request)
+        public virtual UpdateReceiptRuleResponse UpdateReceiptRule(UpdateReceiptRuleRequest request)
         {
             var marshaller = new UpdateReceiptRuleRequestMarshaller();
             var unmarshaller = UpdateReceiptRuleResponseUnmarshaller.Instance;
@@ -3066,12 +3667,66 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateReceiptRule">REST API Reference for UpdateReceiptRule Operation</seealso>
-        public Task<UpdateReceiptRuleResponse> UpdateReceiptRuleAsync(UpdateReceiptRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateReceiptRuleResponse> UpdateReceiptRuleAsync(UpdateReceiptRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateReceiptRuleRequestMarshaller();
             var unmarshaller = UpdateReceiptRuleResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateReceiptRuleRequest,UpdateReceiptRuleResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateTemplate
+
+
+        /// <summary>
+        /// Updates an email template. Email templates enable you to send personalized email to
+        /// one or more destinations in a single API operation. For more information, see the
+        /// <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon
+        /// SES Developer Guide</a>.
+        /// 
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateTemplate service method.</param>
+        /// 
+        /// <returns>The response from the UpdateTemplate service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.InvalidTemplateException">
+        /// Indicates that a template could not be created because it contained invalid JSON.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.TemplateDoesNotExistException">
+        /// Indicates that the Template object you specified does not exist in your Amazon SES
+        /// account.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateTemplate">REST API Reference for UpdateTemplate Operation</seealso>
+        public virtual UpdateTemplateResponse UpdateTemplate(UpdateTemplateRequest request)
+        {
+            var marshaller = new UpdateTemplateRequestMarshaller();
+            var unmarshaller = UpdateTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateTemplateRequest,UpdateTemplateResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateTemplate">REST API Reference for UpdateTemplate Operation</seealso>
+        public virtual Task<UpdateTemplateResponse> UpdateTemplateAsync(UpdateTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateTemplateRequestMarshaller();
+            var unmarshaller = UpdateTemplateResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateTemplateRequest,UpdateTemplateResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -3090,12 +3745,12 @@ namespace Amazon.SimpleEmail
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         ///  
         /// <para>
         /// To enable or disable Easy DKIM signing for a domain, use the <code>SetIdentityDkimEnabled</code>
-        /// action.
+        /// operation.
         /// </para>
         ///  
         /// <para>
@@ -3107,7 +3762,7 @@ namespace Amazon.SimpleEmail
         /// 
         /// <returns>The response from the VerifyDomainDkim service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyDomainDkim">REST API Reference for VerifyDomainDkim Operation</seealso>
-        public VerifyDomainDkimResponse VerifyDomainDkim(VerifyDomainDkimRequest request)
+        public virtual VerifyDomainDkimResponse VerifyDomainDkim(VerifyDomainDkimRequest request)
         {
             var marshaller = new VerifyDomainDkimRequestMarshaller();
             var unmarshaller = VerifyDomainDkimResponseUnmarshaller.Instance;
@@ -3125,7 +3780,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyDomainDkim">REST API Reference for VerifyDomainDkim Operation</seealso>
-        public Task<VerifyDomainDkimResponse> VerifyDomainDkimAsync(VerifyDomainDkimRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<VerifyDomainDkimResponse> VerifyDomainDkimAsync(VerifyDomainDkimRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new VerifyDomainDkimRequestMarshaller();
             var unmarshaller = VerifyDomainDkimResponseUnmarshaller.Instance;
@@ -3140,18 +3795,20 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Verifies a domain.
+        /// Adds a domain to the list of identities for your Amazon SES account and attempts to
+        /// verify it. For more information about verifying domains, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
+        /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i> 
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the VerifyDomainIdentity service method.</param>
         /// 
         /// <returns>The response from the VerifyDomainIdentity service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyDomainIdentity">REST API Reference for VerifyDomainIdentity Operation</seealso>
-        public VerifyDomainIdentityResponse VerifyDomainIdentity(VerifyDomainIdentityRequest request)
+        public virtual VerifyDomainIdentityResponse VerifyDomainIdentity(VerifyDomainIdentityRequest request)
         {
             var marshaller = new VerifyDomainIdentityRequestMarshaller();
             var unmarshaller = VerifyDomainIdentityResponseUnmarshaller.Instance;
@@ -3169,7 +3826,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyDomainIdentity">REST API Reference for VerifyDomainIdentity Operation</seealso>
-        public Task<VerifyDomainIdentityResponse> VerifyDomainIdentityAsync(VerifyDomainIdentityRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<VerifyDomainIdentityResponse> VerifyDomainIdentityAsync(VerifyDomainIdentityRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new VerifyDomainIdentityRequestMarshaller();
             var unmarshaller = VerifyDomainIdentityResponseUnmarshaller.Instance;
@@ -3184,24 +3841,14 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Verifies an email address. This action causes a confirmation email message to be sent
-        /// to the specified address.
-        /// 
-        ///  <important> 
-        /// <para>
-        /// The VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain
-        /// Verification. The VerifyEmailIdentity action is now preferred.
-        /// </para>
-        ///  </important> 
-        /// <para>
-        /// This action is throttled at one request per second.
-        /// </para>
+        /// Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
+        /// address.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the VerifyEmailAddress service method.</param>
         /// 
         /// <returns>The response from the VerifyEmailAddress service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyEmailAddress">REST API Reference for VerifyEmailAddress Operation</seealso>
-        public VerifyEmailAddressResponse VerifyEmailAddress(VerifyEmailAddressRequest request)
+        public virtual VerifyEmailAddressResponse VerifyEmailAddress(VerifyEmailAddressRequest request)
         {
             var marshaller = new VerifyEmailAddressRequestMarshaller();
             var unmarshaller = VerifyEmailAddressResponseUnmarshaller.Instance;
@@ -3219,7 +3866,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyEmailAddress">REST API Reference for VerifyEmailAddress Operation</seealso>
-        public Task<VerifyEmailAddressResponse> VerifyEmailAddressAsync(VerifyEmailAddressRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<VerifyEmailAddressResponse> VerifyEmailAddressAsync(VerifyEmailAddressRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new VerifyEmailAddressRequestMarshaller();
             var unmarshaller = VerifyEmailAddressResponseUnmarshaller.Instance;
@@ -3234,19 +3881,20 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Verifies an email address. This action causes a confirmation email message to be sent
-        /// to the specified address.
+        /// Adds an email address to the list of identities for your Amazon SES account and attempts
+        /// to verify it. This operation causes a confirmation email message to be sent to the
+        /// specified address.
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the VerifyEmailIdentity service method.</param>
         /// 
         /// <returns>The response from the VerifyEmailIdentity service method, as returned by SimpleEmailService.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyEmailIdentity">REST API Reference for VerifyEmailIdentity Operation</seealso>
-        public VerifyEmailIdentityResponse VerifyEmailIdentity(VerifyEmailIdentityRequest request)
+        public virtual VerifyEmailIdentityResponse VerifyEmailIdentity(VerifyEmailIdentityRequest request)
         {
             var marshaller = new VerifyEmailIdentityRequestMarshaller();
             var unmarshaller = VerifyEmailIdentityResponseUnmarshaller.Instance;
@@ -3264,7 +3912,7 @@ namespace Amazon.SimpleEmail
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/VerifyEmailIdentity">REST API Reference for VerifyEmailIdentity Operation</seealso>
-        public Task<VerifyEmailIdentityResponse> VerifyEmailIdentityAsync(VerifyEmailIdentityRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<VerifyEmailIdentityResponse> VerifyEmailIdentityAsync(VerifyEmailIdentityRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new VerifyEmailIdentityRequestMarshaller();
             var unmarshaller = VerifyEmailIdentityResponseUnmarshaller.Instance;

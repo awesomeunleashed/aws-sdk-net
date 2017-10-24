@@ -29,21 +29,12 @@ namespace Amazon.AutoScaling.Model
 {
     /// <summary>
     /// Describes a lifecycle hook, which tells Auto Scaling that you want to perform an action
-    /// when an instance launches or terminates. When you have a lifecycle hook in place,
-    /// the Auto Scaling group will either:
+    /// whenever it launches instances or whenever it terminates instances.
     /// 
-    ///  <ul> <li> 
+    ///  
     /// <para>
-    /// Pause the instance after it launches, but before it is put into service
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    /// Pause the instance as it terminates, but before it is fully terminated
-    /// </para>
-    ///  </li> </ul> 
-    /// <para>
-    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroupLifecycle.html">Auto
-    /// Scaling Lifecycle</a> in the <i>Auto Scaling User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/lifecycle-hooks.html">Auto
+    /// Scaling Lifecycle Hooks</a> in the <i>Auto Scaling User Guide</i>.
     /// </para>
     /// </summary>
     public partial class LifecycleHook
@@ -120,9 +111,8 @@ namespace Amazon.AutoScaling.Model
         /// Gets and sets the property HeartbeatTimeout. 
         /// <para>
         /// The maximum time, in seconds, that can elapse before the lifecycle hook times out.
-        /// The default is 3600 seconds (1 hour). When the lifecycle hook times out, Auto Scaling
-        /// performs the default action. You can prevent the lifecycle hook from timing out by
-        /// calling <a>RecordLifecycleActionHeartbeat</a>.
+        /// If the lifecycle hook times out, Auto Scaling performs the default action. You can
+        /// prevent the lifecycle hook from timing out by calling <a>RecordLifecycleActionHeartbeat</a>.
         /// </para>
         /// </summary>
         public int HeartbeatTimeout
@@ -196,40 +186,10 @@ namespace Amazon.AutoScaling.Model
         /// <summary>
         /// Gets and sets the property NotificationTargetARN. 
         /// <para>
-        /// The ARN of the notification target that Auto Scaling uses to notify you when an instance
-        /// is in the transition state for the lifecycle hook. This ARN target can be either an
-        /// SQS queue or an SNS topic. The notification message sent to the target includes the
-        /// following:
+        /// The ARN of the target that Auto Scaling sends notifications to when an instance is
+        /// in the transition state for the lifecycle hook. The notification target can be either
+        /// an SQS queue or an SNS topic.
         /// </para>
-        ///  <ul> <li> 
-        /// <para>
-        /// Lifecycle action token
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// User account ID
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Name of the Auto Scaling group
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Lifecycle hook name
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// EC2 instance ID
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Lifecycle transition
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Notification metadata
-        /// </para>
-        ///  </li> </ul>
         /// </summary>
         public string NotificationTargetARN
         {

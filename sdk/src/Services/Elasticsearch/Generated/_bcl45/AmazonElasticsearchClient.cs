@@ -261,7 +261,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public AddTagsResponse AddTags(AddTagsRequest request)
+        public virtual AddTagsResponse AddTags(AddTagsRequest request)
         {
             var marshaller = new AddTagsRequestMarshaller();
             var unmarshaller = AddTagsResponseUnmarshaller.Instance;
@@ -278,7 +278,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<AddTagsResponse> AddTagsAsync(AddTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<AddTagsResponse> AddTagsAsync(AddTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new AddTagsRequestMarshaller();
             var unmarshaller = AddTagsResponseUnmarshaller.Instance;
@@ -326,7 +326,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public CreateElasticsearchDomainResponse CreateElasticsearchDomain(CreateElasticsearchDomainRequest request)
+        public virtual CreateElasticsearchDomainResponse CreateElasticsearchDomain(CreateElasticsearchDomainRequest request)
         {
             var marshaller = new CreateElasticsearchDomainRequestMarshaller();
             var unmarshaller = CreateElasticsearchDomainResponseUnmarshaller.Instance;
@@ -343,7 +343,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<CreateElasticsearchDomainResponse> CreateElasticsearchDomainAsync(CreateElasticsearchDomainRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateElasticsearchDomainResponse> CreateElasticsearchDomainAsync(CreateElasticsearchDomainRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateElasticsearchDomainRequestMarshaller();
             var unmarshaller = CreateElasticsearchDomainResponseUnmarshaller.Instance;
@@ -378,7 +378,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public DeleteElasticsearchDomainResponse DeleteElasticsearchDomain(DeleteElasticsearchDomainRequest request)
+        public virtual DeleteElasticsearchDomainResponse DeleteElasticsearchDomain(DeleteElasticsearchDomainRequest request)
         {
             var marshaller = new DeleteElasticsearchDomainRequestMarshaller();
             var unmarshaller = DeleteElasticsearchDomainResponseUnmarshaller.Instance;
@@ -395,12 +395,63 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DeleteElasticsearchDomainResponse> DeleteElasticsearchDomainAsync(DeleteElasticsearchDomainRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteElasticsearchDomainResponse> DeleteElasticsearchDomainAsync(DeleteElasticsearchDomainRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteElasticsearchDomainRequestMarshaller();
             var unmarshaller = DeleteElasticsearchDomainResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteElasticsearchDomainRequest,DeleteElasticsearchDomainResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteElasticsearchServiceRole
+
+
+        /// <summary>
+        /// Deletes the service-linked role that Elasticsearch Service uses to manage and maintain
+        /// VPC domains. Role deletion will fail if any existing VPC domains use the role. You
+        /// must delete any such Elasticsearch domains before deleting the role. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr"
+        /// target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon
+        /// Elasticsearch Service Domains</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteElasticsearchServiceRole service method.</param>
+        /// 
+        /// <returns>The response from the DeleteElasticsearchServiceRole service method, as returned by Elasticsearch.</returns>
+        /// <exception cref="Amazon.Elasticsearch.Model.BaseException">
+        /// An error occurred while processing the request.
+        /// </exception>
+        /// <exception cref="Amazon.Elasticsearch.Model.InternalException">
+        /// The request processing has failed because of an unknown error, exception or failure
+        /// (the failure is internal to the service) . Gives http status code of 500.
+        /// </exception>
+        /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
+        /// An exception for missing / invalid input fields. Gives http status code of 400.
+        /// </exception>
+        public virtual DeleteElasticsearchServiceRoleResponse DeleteElasticsearchServiceRole(DeleteElasticsearchServiceRoleRequest request)
+        {
+            var marshaller = new DeleteElasticsearchServiceRoleRequestMarshaller();
+            var unmarshaller = DeleteElasticsearchServiceRoleResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteElasticsearchServiceRoleRequest,DeleteElasticsearchServiceRoleResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteElasticsearchServiceRole operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteElasticsearchServiceRole operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<DeleteElasticsearchServiceRoleResponse> DeleteElasticsearchServiceRoleAsync(DeleteElasticsearchServiceRoleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteElasticsearchServiceRoleRequestMarshaller();
+            var unmarshaller = DeleteElasticsearchServiceRoleResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteElasticsearchServiceRoleRequest,DeleteElasticsearchServiceRoleResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -430,7 +481,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public DescribeElasticsearchDomainResponse DescribeElasticsearchDomain(DescribeElasticsearchDomainRequest request)
+        public virtual DescribeElasticsearchDomainResponse DescribeElasticsearchDomain(DescribeElasticsearchDomainRequest request)
         {
             var marshaller = new DescribeElasticsearchDomainRequestMarshaller();
             var unmarshaller = DescribeElasticsearchDomainResponseUnmarshaller.Instance;
@@ -447,7 +498,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DescribeElasticsearchDomainResponse> DescribeElasticsearchDomainAsync(DescribeElasticsearchDomainRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeElasticsearchDomainResponse> DescribeElasticsearchDomainAsync(DescribeElasticsearchDomainRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeElasticsearchDomainRequestMarshaller();
             var unmarshaller = DescribeElasticsearchDomainResponseUnmarshaller.Instance;
@@ -482,7 +533,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public DescribeElasticsearchDomainConfigResponse DescribeElasticsearchDomainConfig(DescribeElasticsearchDomainConfigRequest request)
+        public virtual DescribeElasticsearchDomainConfigResponse DescribeElasticsearchDomainConfig(DescribeElasticsearchDomainConfigRequest request)
         {
             var marshaller = new DescribeElasticsearchDomainConfigRequestMarshaller();
             var unmarshaller = DescribeElasticsearchDomainConfigResponseUnmarshaller.Instance;
@@ -499,7 +550,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DescribeElasticsearchDomainConfigResponse> DescribeElasticsearchDomainConfigAsync(DescribeElasticsearchDomainConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeElasticsearchDomainConfigResponse> DescribeElasticsearchDomainConfigAsync(DescribeElasticsearchDomainConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeElasticsearchDomainConfigRequestMarshaller();
             var unmarshaller = DescribeElasticsearchDomainConfigResponseUnmarshaller.Instance;
@@ -530,7 +581,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public DescribeElasticsearchDomainsResponse DescribeElasticsearchDomains(DescribeElasticsearchDomainsRequest request)
+        public virtual DescribeElasticsearchDomainsResponse DescribeElasticsearchDomains(DescribeElasticsearchDomainsRequest request)
         {
             var marshaller = new DescribeElasticsearchDomainsRequestMarshaller();
             var unmarshaller = DescribeElasticsearchDomainsResponseUnmarshaller.Instance;
@@ -547,7 +598,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DescribeElasticsearchDomainsResponse> DescribeElasticsearchDomainsAsync(DescribeElasticsearchDomainsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeElasticsearchDomainsResponse> DescribeElasticsearchDomainsAsync(DescribeElasticsearchDomainsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeElasticsearchDomainsRequestMarshaller();
             var unmarshaller = DescribeElasticsearchDomainsResponseUnmarshaller.Instance;
@@ -591,7 +642,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public DescribeElasticsearchInstanceTypeLimitsResponse DescribeElasticsearchInstanceTypeLimits(DescribeElasticsearchInstanceTypeLimitsRequest request)
+        public virtual DescribeElasticsearchInstanceTypeLimitsResponse DescribeElasticsearchInstanceTypeLimits(DescribeElasticsearchInstanceTypeLimitsRequest request)
         {
             var marshaller = new DescribeElasticsearchInstanceTypeLimitsRequestMarshaller();
             var unmarshaller = DescribeElasticsearchInstanceTypeLimitsResponseUnmarshaller.Instance;
@@ -608,7 +659,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DescribeElasticsearchInstanceTypeLimitsResponse> DescribeElasticsearchInstanceTypeLimitsAsync(DescribeElasticsearchInstanceTypeLimitsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeElasticsearchInstanceTypeLimitsResponse> DescribeElasticsearchInstanceTypeLimitsAsync(DescribeElasticsearchInstanceTypeLimitsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeElasticsearchInstanceTypeLimitsRequestMarshaller();
             var unmarshaller = DescribeElasticsearchInstanceTypeLimitsResponseUnmarshaller.Instance;
@@ -634,7 +685,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public ListDomainNamesResponse ListDomainNames(ListDomainNamesRequest request)
+        public virtual ListDomainNamesResponse ListDomainNames(ListDomainNamesRequest request)
         {
             var marshaller = new ListDomainNamesRequestMarshaller();
             var unmarshaller = ListDomainNamesResponseUnmarshaller.Instance;
@@ -651,7 +702,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<ListDomainNamesResponse> ListDomainNamesAsync(ListDomainNamesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListDomainNamesResponse> ListDomainNamesAsync(ListDomainNamesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListDomainNamesRequestMarshaller();
             var unmarshaller = ListDomainNamesResponseUnmarshaller.Instance;
@@ -685,7 +736,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public ListElasticsearchInstanceTypesResponse ListElasticsearchInstanceTypes(ListElasticsearchInstanceTypesRequest request)
+        public virtual ListElasticsearchInstanceTypesResponse ListElasticsearchInstanceTypes(ListElasticsearchInstanceTypesRequest request)
         {
             var marshaller = new ListElasticsearchInstanceTypesRequestMarshaller();
             var unmarshaller = ListElasticsearchInstanceTypesResponseUnmarshaller.Instance;
@@ -702,7 +753,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<ListElasticsearchInstanceTypesResponse> ListElasticsearchInstanceTypesAsync(ListElasticsearchInstanceTypesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListElasticsearchInstanceTypesResponse> ListElasticsearchInstanceTypesAsync(ListElasticsearchInstanceTypesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListElasticsearchInstanceTypesRequestMarshaller();
             var unmarshaller = ListElasticsearchInstanceTypesResponseUnmarshaller.Instance;
@@ -736,7 +787,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public ListElasticsearchVersionsResponse ListElasticsearchVersions(ListElasticsearchVersionsRequest request)
+        public virtual ListElasticsearchVersionsResponse ListElasticsearchVersions(ListElasticsearchVersionsRequest request)
         {
             var marshaller = new ListElasticsearchVersionsRequestMarshaller();
             var unmarshaller = ListElasticsearchVersionsResponseUnmarshaller.Instance;
@@ -753,7 +804,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<ListElasticsearchVersionsResponse> ListElasticsearchVersionsAsync(ListElasticsearchVersionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListElasticsearchVersionsResponse> ListElasticsearchVersionsAsync(ListElasticsearchVersionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListElasticsearchVersionsRequestMarshaller();
             var unmarshaller = ListElasticsearchVersionsResponseUnmarshaller.Instance;
@@ -787,7 +838,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public ListTagsResponse ListTags(ListTagsRequest request)
+        public virtual ListTagsResponse ListTags(ListTagsRequest request)
         {
             var marshaller = new ListTagsRequestMarshaller();
             var unmarshaller = ListTagsResponseUnmarshaller.Instance;
@@ -804,7 +855,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<ListTagsResponse> ListTagsAsync(ListTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListTagsResponse> ListTagsAsync(ListTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListTagsRequestMarshaller();
             var unmarshaller = ListTagsResponseUnmarshaller.Instance;
@@ -834,7 +885,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public RemoveTagsResponse RemoveTags(RemoveTagsRequest request)
+        public virtual RemoveTagsResponse RemoveTags(RemoveTagsRequest request)
         {
             var marshaller = new RemoveTagsRequestMarshaller();
             var unmarshaller = RemoveTagsResponseUnmarshaller.Instance;
@@ -851,7 +902,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<RemoveTagsResponse> RemoveTagsAsync(RemoveTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<RemoveTagsResponse> RemoveTagsAsync(RemoveTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new RemoveTagsRequestMarshaller();
             var unmarshaller = RemoveTagsResponseUnmarshaller.Instance;
@@ -894,7 +945,7 @@ namespace Amazon.Elasticsearch
         /// <exception cref="Amazon.Elasticsearch.Model.ValidationException">
         /// An exception for missing / invalid input fields. Gives http status code of 400.
         /// </exception>
-        public UpdateElasticsearchDomainConfigResponse UpdateElasticsearchDomainConfig(UpdateElasticsearchDomainConfigRequest request)
+        public virtual UpdateElasticsearchDomainConfigResponse UpdateElasticsearchDomainConfig(UpdateElasticsearchDomainConfigRequest request)
         {
             var marshaller = new UpdateElasticsearchDomainConfigRequestMarshaller();
             var unmarshaller = UpdateElasticsearchDomainConfigResponseUnmarshaller.Instance;
@@ -911,7 +962,7 @@ namespace Amazon.Elasticsearch
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<UpdateElasticsearchDomainConfigResponse> UpdateElasticsearchDomainConfigAsync(UpdateElasticsearchDomainConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateElasticsearchDomainConfigResponse> UpdateElasticsearchDomainConfigAsync(UpdateElasticsearchDomainConfigRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateElasticsearchDomainConfigRequestMarshaller();
             var unmarshaller = UpdateElasticsearchDomainConfigResponseUnmarshaller.Instance;

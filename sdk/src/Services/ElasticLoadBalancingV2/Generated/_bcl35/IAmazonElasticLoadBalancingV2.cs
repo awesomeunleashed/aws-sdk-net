@@ -42,19 +42,28 @@ namespace Amazon.ElasticLoadBalancingV2
     /// </para>
     ///  
     /// <para>
-    /// Elastic Load Balancing supports two types of load balancers: Classic Load Balancers
-    /// and Application Load Balancers. A Classic Load Balancer makes routing and load balancing
-    /// decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS),
-    /// and supports either EC2-Classic or a VPC. An Application Load Balancer makes routing
-    /// and load balancing decisions at the application layer (HTTP/HTTPS), supports path-based
-    /// routing, and can route requests to one or more ports on each EC2 instance or container
-    /// instance in your virtual private cloud (VPC). For more information, see the <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic
+    /// Elastic Load Balancing supports the following types of load balancers: Application
+    /// Load Balancers, Network Load Balancers, and Classic Load Balancers.
+    /// </para>
+    ///  
+    /// <para>
+    /// An Application Load Balancer makes routing and load balancing decisions at the application
+    /// layer (HTTP/HTTPS). A Network Load Balancer makes routing and load balancing decisions
+    /// at the transport layer (TCP). Both Application Load Balancers and Network Load Balancers
+    /// can route requests to one or more ports on each EC2 instance or container instance
+    /// in your virtual private cloud (VPC).
+    /// </para>
+    ///  
+    /// <para>
+    /// A Classic Load Balancer makes routing and load balancing decisions either at the transport
+    /// layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic
+    /// or a VPC. For more information, see the <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic
     /// Load Balancing User Guide</a>.
     /// </para>
     ///  
     /// <para>
-    /// This reference covers the 2015-12-01 API, which supports Application Load Balancers.
-    /// The 2012-06-01 API supports Classic Load Balancers.
+    /// This reference covers the 2015-12-01 API, which supports Application Load Balancers
+    /// and Network Load Balancers. The 2012-06-01 API supports Classic Load Balancers.
     /// </para>
     ///  
     /// <para>
@@ -62,7 +71,7 @@ namespace Amazon.ElasticLoadBalancingV2
     /// </para>
     ///  <ol> <li> 
     /// <para>
-    /// Create an Application Load Balancer using <a>CreateLoadBalancer</a>.
+    /// Create a load balancer using <a>CreateLoadBalancer</a>.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -76,14 +85,9 @@ namespace Amazon.ElasticLoadBalancingV2
     /// <para>
     /// Create one or more listeners for your load balancer using <a>CreateListener</a>.
     /// </para>
-    ///  </li> <li> 
-    /// <para>
-    /// (Optional) Create one or more rules for content routing based on URL using <a>CreateRule</a>.
-    /// </para>
     ///  </li> </ol> 
     /// <para>
-    /// To delete an Application Load Balancer and its related resources, complete the following
-    /// tasks:
+    /// To delete a load balancer and its related resources, complete the following tasks:
     /// </para>
     ///  <ol> <li> 
     /// <para>
@@ -103,12 +107,72 @@ namespace Amazon.ElasticLoadBalancingV2
     {
 
         
+        #region  AddListenerCertificates
+
+
+        /// <summary>
+        /// Adds the specified certificate to the specified secure listener.
+        /// 
+        ///  
+        /// <para>
+        /// If the certificate was already added, the call is successful but the certificate is
+        /// not added again.
+        /// </para>
+        ///  
+        /// <para>
+        /// To list the certificates for your listener, use <a>DescribeListenerCertificates</a>.
+        /// To remove certificates from your listener, use <a>RemoveListenerCertificates</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AddListenerCertificates service method.</param>
+        /// 
+        /// <returns>The response from the AddListenerCertificates service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.CertificateNotFoundException">
+        /// The specified certificate does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.ListenerNotFoundException">
+        /// The specified listener does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyCertificatesException">
+        /// You've reached the limit on the number of certificates per load balancer.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/AddListenerCertificates">REST API Reference for AddListenerCertificates Operation</seealso>
+        AddListenerCertificatesResponse AddListenerCertificates(AddListenerCertificatesRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AddListenerCertificates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AddListenerCertificates operation on AmazonElasticLoadBalancingV2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAddListenerCertificates
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/AddListenerCertificates">REST API Reference for AddListenerCertificates Operation</seealso>
+        IAsyncResult BeginAddListenerCertificates(AddListenerCertificatesRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  AddListenerCertificates operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginAddListenerCertificates.</param>
+        /// 
+        /// <returns>Returns a  AddListenerCertificatesResult from ElasticLoadBalancingV2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/AddListenerCertificates">REST API Reference for AddListenerCertificates Operation</seealso>
+        AddListenerCertificatesResponse EndAddListenerCertificates(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  AddTags
 
 
         /// <summary>
-        /// Adds the specified tags to the specified resource. You can tag your Application Load
-        /// Balancers and your target groups.
+        /// Adds the specified tags to the specified Elastic Load Balancing resource. You can
+        /// tag your Application Load Balancers, Network Load Balancers, and your target groups.
         /// 
         ///  
         /// <para>
@@ -171,7 +235,7 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Creates a listener for the specified Application Load Balancer.
+        /// Creates a listener for the specified Application Load Balancer or Network Load Balancer.
         /// 
         ///  
         /// <para>
@@ -186,7 +250,9 @@ namespace Amazon.ElasticLoadBalancingV2
         ///  
         /// <para>
         /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners
-        /// for Your Application Load Balancers</a> in the <i>Application Load Balancers Guide</i>.
+        /// for Your Application Load Balancers</a> in the <i>Application Load Balancers Guide</i>
+        /// and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners
+        /// for Your Network Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateListener service method.</param>
@@ -217,7 +283,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified target group does not exist.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyCertificatesException">
-        /// You've reached the limit on the number of certificates per listener.
+        /// You've reached the limit on the number of certificates per load balancer.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyListenersException">
         /// You've reached the limit on the number of listeners per load balancer.
@@ -225,6 +291,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyRegistrationsForTargetIdException">
         /// You've reached the limit on the number of times a target can be registered with a
         /// load balancer.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetsException">
+        /// You've reached the limit on the number of targets.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.UnsupportedProtocolException">
         /// The specified protocol is not supported.
@@ -264,7 +333,7 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Creates an Application Load Balancer.
+        /// Creates an Application Load Balancer or a Network Load Balancer.
         /// 
         ///  
         /// <para>
@@ -283,17 +352,26 @@ namespace Amazon.ElasticLoadBalancingV2
         /// You can create up to 20 load balancers per region per account. You can request an
         /// increase for the number of load balancers for your account. For more information,
         /// see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Limits
-        /// for Your Application Load Balancer</a> in the <i>Application Load Balancers Guide</i>.
+        /// for Your Application Load Balancer</a> in the <i>Application Load Balancers Guide</i>
+        /// and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Limits
+        /// for Your Network Load Balancer</a> in the <i>Network Load Balancers Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html">Application
-        /// Load Balancers</a> in the <i>Application Load Balancers Guide</i>.
+        /// Load Balancers</a> in the <i>Application Load Balancers Guide</i> and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html">Network
+        /// Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateLoadBalancer service method.</param>
         /// 
         /// <returns>The response from the CreateLoadBalancer service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.AllocationIdNotFoundException">
+        /// The specified allocation ID does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.AvailabilityZoneNotSupportedException">
+        /// The specified Availability Zone is not supported.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.DuplicateLoadBalancerNameException">
         /// A load balancer with the specified name already exists.
         /// </exception>
@@ -311,6 +389,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidSubnetException">
         /// The specified subnet is out of available addresses.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.ResourceInUseException">
+        /// A specified resource is in use.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.SubnetNotFoundException">
         /// The specified subnet does not exist.
@@ -356,14 +437,14 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Creates a rule for the specified listener.
+        /// Creates a rule for the specified listener. The listener must be associated with an
+        /// Application Load Balancer.
         /// 
         ///  
         /// <para>
-        /// Each rule can have one action and one condition. Rules are evaluated in priority order,
-        /// from the lowest value to the highest value. When the condition for a rule is met,
-        /// the specified action is taken. If no conditions are met, the default action for the
-        /// default rule is taken. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener
+        /// Rules are evaluated in priority order, from the lowest value to the highest value.
+        /// When the condition for a rule is met, the specified action is taken. If no conditions
+        /// are met, the action for the default rule is taken. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules">Listener
         /// Rules</a> in the <i>Application Load Balancers Guide</i>.
         /// </para>
         ///  
@@ -376,6 +457,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <param name="request">Container for the necessary parameters to execute the CreateRule service method.</param>
         /// 
         /// <returns>The response from the CreateRule service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.IncompatibleProtocolsException">
+        /// The specified configuration is not valid with this protocol.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidConfigurationRequestException">
         /// The requested configuration is not valid.
         /// </exception>
@@ -400,6 +484,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetGroupsException">
         /// You've reached the limit on the number of target groups for your AWS account.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetsException">
+        /// You've reached the limit on the number of targets.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/CreateRule">REST API Reference for CreateRule Operation</seealso>
         CreateRuleResponse CreateRule(CreateRuleRequest request);
@@ -457,7 +544,8 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <para>
         /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html">Target
         /// Groups for Your Application Load Balancers</a> in the <i>Application Load Balancers
-        /// Guide</i>.
+        /// Guide</i> or <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html">Target
+        /// Groups for Your Network Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateTargetGroup service method.</param>
@@ -465,6 +553,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <returns>The response from the CreateTargetGroup service method, as returned by ElasticLoadBalancingV2.</returns>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.DuplicateTargetGroupNameException">
         /// A target group with the specified name already exists.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidConfigurationRequestException">
+        /// The requested configuration is not valid.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetGroupsException">
         /// You've reached the limit on the number of target groups for your AWS account.
@@ -553,7 +644,8 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Deletes the specified Application Load Balancer and its attached listeners.
+        /// Deletes the specified Application Load Balancer or Network Load Balancer and its attached
+        /// listeners.
         /// 
         ///  
         /// <para>
@@ -758,7 +850,9 @@ namespace Amazon.ElasticLoadBalancingV2
         ///  
         /// <para>
         /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Limits
-        /// for Your Application Load Balancer</a> in the <i>Application Load Balancer Guide</i>.
+        /// for Your Application Load Balancers</a> in the <i>Application Load Balancer Guide</i>
+        /// or <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Limits
+        /// for Your Network Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAccountLimits service method.</param>
@@ -795,12 +889,56 @@ namespace Amazon.ElasticLoadBalancingV2
 
         #endregion
         
+        #region  DescribeListenerCertificates
+
+
+        /// <summary>
+        /// Describes the certificates for the specified secure listener.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeListenerCertificates service method.</param>
+        /// 
+        /// <returns>The response from the DescribeListenerCertificates service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.ListenerNotFoundException">
+        /// The specified listener does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeListenerCertificates">REST API Reference for DescribeListenerCertificates Operation</seealso>
+        DescribeListenerCertificatesResponse DescribeListenerCertificates(DescribeListenerCertificatesRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeListenerCertificates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeListenerCertificates operation on AmazonElasticLoadBalancingV2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeListenerCertificates
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeListenerCertificates">REST API Reference for DescribeListenerCertificates Operation</seealso>
+        IAsyncResult BeginDescribeListenerCertificates(DescribeListenerCertificatesRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeListenerCertificates operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeListenerCertificates.</param>
+        /// 
+        /// <returns>Returns a  DescribeListenerCertificatesResult from ElasticLoadBalancingV2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DescribeListenerCertificates">REST API Reference for DescribeListenerCertificates Operation</seealso>
+        DescribeListenerCertificatesResponse EndDescribeListenerCertificates(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  DescribeListeners
 
 
         /// <summary>
         /// Describes the specified listeners or the listeners for the specified Application Load
-        /// Balancer. You must specify either a load balancer or one or more listeners.
+        /// Balancer or Network Load Balancer. You must specify either a load balancer or one
+        /// or more listeners.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeListeners service method.</param>
         /// 
@@ -846,7 +984,8 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Describes the attributes for the specified Application Load Balancer.
+        /// Describes the attributes for the specified Application Load Balancer or Network Load
+        /// Balancer.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeLoadBalancerAttributes service method.</param>
         /// 
@@ -889,8 +1028,7 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Describes the specified Application Load Balancers or all of your Application Load
-        /// Balancers.
+        /// Describes the specified load balancers or all of your load balancers.
         /// 
         ///  
         /// <para>
@@ -1036,7 +1174,7 @@ namespace Amazon.ElasticLoadBalancingV2
 
         /// <summary>
         /// Describes the tags for the specified resources. You can describe the tags for one
-        /// or more Application Load Balancers and target groups.
+        /// or more Application Load Balancers, Network Load Balancers, and target groups.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeTags service method.</param>
         /// 
@@ -1273,7 +1411,7 @@ namespace Amazon.ElasticLoadBalancingV2
         /// The specified target group does not exist.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyCertificatesException">
-        /// You've reached the limit on the number of certificates per listener.
+        /// You've reached the limit on the number of certificates per load balancer.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyListenersException">
         /// You've reached the limit on the number of listeners per load balancer.
@@ -1281,6 +1419,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyRegistrationsForTargetIdException">
         /// You've reached the limit on the number of times a target can be registered with a
         /// load balancer.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TooManyTargetsException">
+        /// You've reached the limit on the number of targets.
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.UnsupportedProtocolException">
         /// The specified protocol is not supported.
@@ -1320,7 +1461,8 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Modifies the specified attributes of the specified Application Load Balancer.
+        /// Modifies the specified attributes of the specified Application Load Balancer or Network
+        /// Load Balancer.
         /// 
         ///  
         /// <para>
@@ -1386,6 +1528,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <param name="request">Container for the necessary parameters to execute the ModifyRule service method.</param>
         /// 
         /// <returns>The response from the ModifyRule service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.IncompatibleProtocolsException">
+        /// The specified configuration is not valid with this protocol.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.OperationNotPermittedException">
         /// This operation is not allowed.
         /// </exception>
@@ -1451,6 +1596,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <param name="request">Container for the necessary parameters to execute the ModifyTargetGroup service method.</param>
         /// 
         /// <returns>The response from the ModifyTargetGroup service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidConfigurationRequestException">
+        /// The requested configuration is not valid.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TargetGroupNotFoundException">
         /// The specified target group does not exist.
         /// </exception>
@@ -1494,6 +1642,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <param name="request">Container for the necessary parameters to execute the ModifyTargetGroupAttributes service method.</param>
         /// 
         /// <returns>The response from the ModifyTargetGroupAttributes service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidConfigurationRequestException">
+        /// The requested configuration is not valid.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.TargetGroupNotFoundException">
         /// The specified target group does not exist.
         /// </exception>
@@ -1536,15 +1687,21 @@ namespace Amazon.ElasticLoadBalancingV2
         /// 
         ///  
         /// <para>
-        /// By default, the load balancer routes requests to registered targets using the protocol
-        /// and port number for the target group. Alternatively, you can override the port for
-        /// a target when you register it.
+        /// You can register targets by instance ID or by IP address. If the target is an EC2
+        /// instance, it must be in the <code>running</code> state when you register it.
         /// </para>
         ///  
         /// <para>
-        /// The target must be in the virtual private cloud (VPC) that you specified for the target
-        /// group. If the target is an EC2 instance, it must be in the <code>running</code> state
-        /// when you register it.
+        /// By default, the load balancer routes requests to registered targets using the protocol
+        /// and port for the target group. Alternatively, you can override the port for a target
+        /// when you register it. You can register each EC2 instance or IP address with the same
+        /// target group multiple times using different ports.
+        /// </para>
+        ///  
+        /// <para>
+        /// With a Network Load Balancer, you cannot register instances by instance ID if they
+        /// have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1,
+        /// HS1, M1, M2, M3, and T1. You can register instances of these types by IP address.
         /// </para>
         ///  
         /// <para>
@@ -1598,11 +1755,67 @@ namespace Amazon.ElasticLoadBalancingV2
 
         #endregion
         
+        #region  RemoveListenerCertificates
+
+
+        /// <summary>
+        /// Removes the specified certificate from the specified secure listener.
+        /// 
+        ///  
+        /// <para>
+        /// You can't remove the default certificate for a listener. To replace the default certificate,
+        /// call <a>ModifyListener</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// To list the certificates for your listener, use <a>DescribeListenerCertificates</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RemoveListenerCertificates service method.</param>
+        /// 
+        /// <returns>The response from the RemoveListenerCertificates service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.ListenerNotFoundException">
+        /// The specified listener does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.OperationNotPermittedException">
+        /// This operation is not allowed.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/RemoveListenerCertificates">REST API Reference for RemoveListenerCertificates Operation</seealso>
+        RemoveListenerCertificatesResponse RemoveListenerCertificates(RemoveListenerCertificatesRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the RemoveListenerCertificates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the RemoveListenerCertificates operation on AmazonElasticLoadBalancingV2Client.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRemoveListenerCertificates
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/RemoveListenerCertificates">REST API Reference for RemoveListenerCertificates Operation</seealso>
+        IAsyncResult BeginRemoveListenerCertificates(RemoveListenerCertificatesRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  RemoveListenerCertificates operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginRemoveListenerCertificates.</param>
+        /// 
+        /// <returns>Returns a  RemoveListenerCertificatesResult from ElasticLoadBalancingV2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/RemoveListenerCertificates">REST API Reference for RemoveListenerCertificates Operation</seealso>
+        RemoveListenerCertificatesResponse EndRemoveListenerCertificates(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  RemoveTags
 
 
         /// <summary>
-        /// Removes the specified tags from the specified resource.
+        /// Removes the specified tags from the specified Elastic Load Balancing resource.
         /// 
         ///  
         /// <para>
@@ -1663,7 +1876,12 @@ namespace Amazon.ElasticLoadBalancingV2
 
         /// <summary>
         /// Sets the type of IP addresses used by the subnets of the specified Application Load
-        /// Balancer.
+        /// Balancer or Network Load Balancer.
+        /// 
+        ///  
+        /// <para>
+        /// Note that Network Load Balancers must use <code>ipv4</code>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SetIpAddressType service method.</param>
         /// 
@@ -1767,8 +1985,13 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Associates the specified security groups with the specified load balancer. The specified
-        /// security groups override the previously associated security groups.
+        /// Associates the specified security groups with the specified Application Load Balancer.
+        /// The specified security groups override the previously associated security groups.
+        /// 
+        ///  
+        /// <para>
+        /// Note that you can't specify a security group for a Network Load Balancer.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SetSecurityGroups service method.</param>
         /// 
@@ -1817,12 +2040,23 @@ namespace Amazon.ElasticLoadBalancingV2
 
 
         /// <summary>
-        /// Enables the Availability Zone for the specified subnets for the specified load balancer.
-        /// The specified subnets replace the previously enabled subnets.
+        /// Enables the Availability Zone for the specified subnets for the specified Application
+        /// Load Balancer. The specified subnets replace the previously enabled subnets.
+        /// 
+        ///  
+        /// <para>
+        /// Note that you can't change the subnets for a Network Load Balancer.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the SetSubnets service method.</param>
         /// 
         /// <returns>The response from the SetSubnets service method, as returned by ElasticLoadBalancingV2.</returns>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.AllocationIdNotFoundException">
+        /// The specified allocation ID does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.AvailabilityZoneNotSupportedException">
+        /// The specified Availability Zone is not supported.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidConfigurationRequestException">
         /// The requested configuration is not valid.
         /// </exception>

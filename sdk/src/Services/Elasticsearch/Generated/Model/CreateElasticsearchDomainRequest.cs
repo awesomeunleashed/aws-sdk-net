@@ -41,7 +41,9 @@ namespace Amazon.Elasticsearch.Model
         private EBSOptions _ebsOptions;
         private ElasticsearchClusterConfig _elasticsearchClusterConfig;
         private string _elasticsearchVersion;
+        private Dictionary<string, LogPublishingOption> _logPublishingOptions = new Dictionary<string, LogPublishingOption>();
         private SnapshotOptions _snapshotOptions;
+        private VPCOptions _vpcOptions;
 
         /// <summary>
         /// Gets and sets the property AccessPolicies. 
@@ -162,6 +164,25 @@ namespace Amazon.Elasticsearch.Model
         }
 
         /// <summary>
+        /// Gets and sets the property LogPublishingOptions. 
+        /// <para>
+        /// Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing
+        /// options to publish a given type of Elasticsearch log.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, LogPublishingOption> LogPublishingOptions
+        {
+            get { return this._logPublishingOptions; }
+            set { this._logPublishingOptions = value; }
+        }
+
+        // Check to see if LogPublishingOptions property is set
+        internal bool IsSetLogPublishingOptions()
+        {
+            return this._logPublishingOptions != null && this._logPublishingOptions.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property SnapshotOptions. 
         /// <para>
         /// Option to set time, in UTC format, of the daily automated snapshot. Default value
@@ -178,6 +199,27 @@ namespace Amazon.Elasticsearch.Model
         internal bool IsSetSnapshotOptions()
         {
             return this._snapshotOptions != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property VPCOptions. 
+        /// <para>
+        /// Options to specify the subnets and security groups for VPC endpoint. For more information,
+        /// see <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-creating-vpc"
+        /// target="_blank">Creating a VPC</a> in <i>VPC Endpoints for Amazon Elasticsearch Service
+        /// Domains</i>
+        /// </para>
+        /// </summary>
+        public VPCOptions VPCOptions
+        {
+            get { return this._vpcOptions; }
+            set { this._vpcOptions = value; }
+        }
+
+        // Check to see if VPCOptions property is set
+        internal bool IsSetVPCOptions()
+        {
+            return this._vpcOptions != null;
         }
 
     }

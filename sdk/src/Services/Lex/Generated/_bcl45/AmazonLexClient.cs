@@ -238,10 +238,16 @@ namespace Amazon.Lex
 
 
         /// <summary>
-        /// Sends user input (text or speech) to Amazon Lex. Clients use this API to send requests
-        /// to Amazon Lex at runtime. Amazon Lex interprets the user input using the machine learning
-        /// model that it built for the bot. 
+        /// Sends user input (text or speech) to Amazon Lex. Clients use this API to send text
+        /// and audio requests to Amazon Lex at runtime. Amazon Lex interprets the user input
+        /// using the machine learning model that it built for the bot. 
         /// 
+        ///  
+        /// <para>
+        /// The <code>PostContent</code> operation supports audio input at 8kHz and 16kHz. You
+        /// can use 8kHz audio to achieve higher speech recognition accuracy in telephone audio
+        /// applications. 
+        /// </para>
         ///  
         /// <para>
         ///  In response, Amazon Lex returns the next message to convey to the user. Consider
@@ -324,15 +330,29 @@ namespace Amazon.Lex
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.BadRequestException">
         /// Request validation failed, there is no usable message in the context, or the bot
-        /// build failed.
+        /// build failed, is still in progress, or contains unbuilt changes.
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.ConflictException">
         /// Two clients are using the same AWS account, Amazon Lex bot, and user ID.
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.DependencyFailedException">
-        /// One of the downstream dependencies, such as AWS Lambda or Amazon Polly, threw an
-        /// exception. For example, if Amazon Lex does not have sufficient permissions to call
-        /// a Lambda function, it results in Lambda throwing an exception.
+        /// One of the dependencies, such as AWS Lambda or Amazon Polly, threw an exception.
+        /// For example, 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// If Amazon Lex does not have sufficient permissions to call a Lambda function.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// If a Lambda function takes longer than 30 seconds to execute.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// If a fulfillment Lambda function returns a <code>Delegate</code> dialog action without
+        /// removing any slot values.
+        /// </para>
+        ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.InternalFailureException">
         /// Internal service error. Retry the call.
@@ -341,8 +361,7 @@ namespace Amazon.Lex
         /// Exceeded a limit.
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.LoopDetectedException">
-        /// Lambda fulfilment function returned <code>DelegateDialogAction</code> to Amazon Lex
-        /// without changing any slot values.
+        /// This exception is not used.
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.NotAcceptableException">
         /// The accept header in the request does not have a valid value.
@@ -357,7 +376,7 @@ namespace Amazon.Lex
         /// The Content-Type header (<code>PostContent</code> API) has an invalid value.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/runtime.lex-2016-11-28/PostContent">REST API Reference for PostContent Operation</seealso>
-        public PostContentResponse PostContent(PostContentRequest request)
+        public virtual PostContentResponse PostContent(PostContentRequest request)
         {
             var marshaller = new PostContentRequestMarshaller();
             var unmarshaller = PostContentResponseUnmarshaller.Instance;
@@ -375,7 +394,7 @@ namespace Amazon.Lex
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/runtime.lex-2016-11-28/PostContent">REST API Reference for PostContent Operation</seealso>
-        public Task<PostContentResponse> PostContentAsync(PostContentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<PostContentResponse> PostContentAsync(PostContentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new PostContentRequestMarshaller();
             var unmarshaller = PostContentResponseUnmarshaller.Instance;
@@ -476,15 +495,29 @@ namespace Amazon.Lex
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.BadRequestException">
         /// Request validation failed, there is no usable message in the context, or the bot
-        /// build failed.
+        /// build failed, is still in progress, or contains unbuilt changes.
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.ConflictException">
         /// Two clients are using the same AWS account, Amazon Lex bot, and user ID.
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.DependencyFailedException">
-        /// One of the downstream dependencies, such as AWS Lambda or Amazon Polly, threw an
-        /// exception. For example, if Amazon Lex does not have sufficient permissions to call
-        /// a Lambda function, it results in Lambda throwing an exception.
+        /// One of the dependencies, such as AWS Lambda or Amazon Polly, threw an exception.
+        /// For example, 
+        /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// If Amazon Lex does not have sufficient permissions to call a Lambda function.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// If a Lambda function takes longer than 30 seconds to execute.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// If a fulfillment Lambda function returns a <code>Delegate</code> dialog action without
+        /// removing any slot values.
+        /// </para>
+        ///  </li> </ul>
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.InternalFailureException">
         /// Internal service error. Retry the call.
@@ -493,14 +526,13 @@ namespace Amazon.Lex
         /// Exceeded a limit.
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.LoopDetectedException">
-        /// Lambda fulfilment function returned <code>DelegateDialogAction</code> to Amazon Lex
-        /// without changing any slot values.
+        /// This exception is not used.
         /// </exception>
         /// <exception cref="Amazon.Lex.Model.NotFoundException">
         /// The resource (such as the Amazon Lex bot or an alias) that is referred to is not found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/runtime.lex-2016-11-28/PostText">REST API Reference for PostText Operation</seealso>
-        public PostTextResponse PostText(PostTextRequest request)
+        public virtual PostTextResponse PostText(PostTextRequest request)
         {
             var marshaller = new PostTextRequestMarshaller();
             var unmarshaller = PostTextResponseUnmarshaller.Instance;
@@ -518,7 +550,7 @@ namespace Amazon.Lex
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/runtime.lex-2016-11-28/PostText">REST API Reference for PostText Operation</seealso>
-        public Task<PostTextResponse> PostTextAsync(PostTextRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<PostTextResponse> PostTextAsync(PostTextRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new PostTextRequestMarshaller();
             var unmarshaller = PostTextResponseUnmarshaller.Instance;

@@ -32,7 +32,7 @@ namespace Amazon.CodeCommit.Model
     /// Deletes a repository. If a specified repository was already deleted, a null repository
     /// ID will be returned.
     /// 
-    ///  <important>
+    ///  <important> 
     /// <para>
     /// Deleting a repository also deletes all associated objects and metadata. After a repository
     /// is deleted, all future push calls to the deleted repository will fail.

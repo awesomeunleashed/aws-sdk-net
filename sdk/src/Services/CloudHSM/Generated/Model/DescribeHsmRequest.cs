@@ -29,8 +29,24 @@ namespace Amazon.CloudHSM.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeHsm operation.
+    /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+    /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+    /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+    /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+    /// CloudHSM Classic API Reference</a>.
+    /// 
+    ///  
+    /// <para>
+    ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+    /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+    /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+    /// CloudHSM API Reference</a>.
+    /// </para>
+    ///  
+    /// <para>
     /// Retrieves information about an HSM. You can identify the HSM by its ARN or its serial
     /// number.
+    /// </para>
     /// </summary>
     public partial class DescribeHsmRequest : AmazonCloudHSMRequest
     {
@@ -40,8 +56,8 @@ namespace Amazon.CloudHSM.Model
         /// <summary>
         /// Gets and sets the property HsmArn. 
         /// <para>
-        /// The ARN of the HSM. Either the <i>HsmArn</i> or the <i>SerialNumber</i> parameter
-        /// must be specified.
+        /// The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code>
+        /// parameter must be specified.
         /// </para>
         /// </summary>
         public string HsmArn
@@ -59,7 +75,7 @@ namespace Amazon.CloudHSM.Model
         /// <summary>
         /// Gets and sets the property HsmSerialNumber. 
         /// <para>
-        /// The serial number of the HSM. Either the <i>HsmArn</i> or the <i>HsmSerialNumber</i>
+        /// The serial number of the HSM. Either the <code>HsmArn</code> or the <code>HsmSerialNumber</code>
         /// parameter must be specified.
         /// </para>
         /// </summary>

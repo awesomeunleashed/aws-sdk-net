@@ -57,6 +57,18 @@ namespace Amazon.Greengrass.Model.Internal.MarshallTransformations
                     response.DeploymentStatus = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("DeploymentType", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.DeploymentType = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("ErrorDetails", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<ErrorDetail, ErrorDetailUnmarshaller>(ErrorDetailUnmarshaller.Instance);
+                    response.ErrorDetails = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("ErrorMessage", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

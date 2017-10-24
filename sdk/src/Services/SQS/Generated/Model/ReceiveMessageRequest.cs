@@ -31,7 +31,7 @@ namespace Amazon.SQS.Model
     /// Container for the parameters to the ReceiveMessage operation.
     /// Retrieves one or more messages (up to 10), from the specified queue. Using the <code>WaitTimeSeconds</code>
     /// parameter enables long-poll support. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon
-    /// SQS Long Polling</a> in the <i>Amazon SQS Developer Guide</i>. 
+    /// SQS Long Polling</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. 
     /// 
     ///  
     /// <para>
@@ -75,7 +75,7 @@ namespace Amazon.SQS.Model
     /// <para>
     /// The receipt handle is the identifier you must provide when deleting the message. For
     /// more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html">Queue
-    /// and Message Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.
+    /// and Message Identifiers</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
     /// </para>
     ///  
     /// <para>
@@ -83,13 +83,13 @@ namespace Amazon.SQS.Model
     /// parameter is applied to the messages that Amazon SQS returns in the response. If you
     /// don't include the parameter, the overall visibility timeout for the queue is used
     /// for the returned messages. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
-    /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>.
+    /// Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
     /// </para>
     ///  
     /// <para>
     /// A message that isn't deleted or a message whose visibility isn't extended before the
     /// visibility timeout expires counts as a failed receive. Depending on the configuration
-    /// of the queue, the message might be sent to the dead letter queue.
+    /// of the queue, the message might be sent to the dead-letter queue.
     /// </para>
     ///  <note> 
     /// <para>
@@ -458,6 +458,8 @@ namespace Amazon.SQS.Model
         /// <para>
         /// The duration (in seconds) for which the call waits for a message to arrive in the
         /// queue before returning. If a message is available, the call returns sooner than <code>WaitTimeSeconds</code>.
+        /// If no messages are available and the wait time expires, the call returns successfully
+        /// with an empty list of messages.
         /// </para>
         /// </summary>
         public int WaitTimeSeconds

@@ -33,14 +33,16 @@ namespace Amazon.SimpleEmail
     ///
     /// Amazon Simple Email Service 
     /// <para>
-    ///  This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation
-    /// is intended to be used in conjunction with the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
+    ///  This is the API Reference for <a href="https://aws.amazon.com/ses/">Amazon Simple
+    /// Email Service</a> (Amazon SES). This documentation is intended to be used in conjunction
+    /// with the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
     /// SES Developer Guide</a>. 
     /// </para>
     ///  <note> 
     /// <para>
     ///  For a list of Amazon SES endpoints to use in service requests, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/regions.html">Regions
-    /// and Amazon SES</a> in the Amazon SES Developer Guide. 
+    /// and Amazon SES</a> in the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
+    /// SES Developer Guide</a>. 
     /// </para>
     ///  </note>
     /// </summary>
@@ -98,6 +100,23 @@ namespace Amazon.SimpleEmail
 
         #endregion
                 
+        #region  CreateConfigurationSetTrackingOptions
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateConfigurationSetTrackingOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateConfigurationSetTrackingOptions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateConfigurationSetTrackingOptions">REST API Reference for CreateConfigurationSetTrackingOptions Operation</seealso>
+        Task<CreateConfigurationSetTrackingOptionsResponse> CreateConfigurationSetTrackingOptionsAsync(CreateConfigurationSetTrackingOptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  CreateReceiptFilter
 
 
@@ -149,6 +168,23 @@ namespace Amazon.SimpleEmail
 
         #endregion
                 
+        #region  CreateTemplate
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateTemplate">REST API Reference for CreateTemplate Operation</seealso>
+        Task<CreateTemplateResponse> CreateTemplateAsync(CreateTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  DeleteConfigurationSet
 
 
@@ -180,6 +216,23 @@ namespace Amazon.SimpleEmail
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSetEventDestination">REST API Reference for DeleteConfigurationSetEventDestination Operation</seealso>
         Task<DeleteConfigurationSetEventDestinationResponse> DeleteConfigurationSetEventDestinationAsync(DeleteConfigurationSetEventDestinationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DeleteConfigurationSetTrackingOptions
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteConfigurationSetTrackingOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteConfigurationSetTrackingOptions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteConfigurationSetTrackingOptions">REST API Reference for DeleteConfigurationSetTrackingOptions Operation</seealso>
+        Task<DeleteConfigurationSetTrackingOptionsResponse> DeleteConfigurationSetTrackingOptionsAsync(DeleteConfigurationSetTrackingOptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -265,6 +318,23 @@ namespace Amazon.SimpleEmail
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteReceiptRuleSet">REST API Reference for DeleteReceiptRuleSet Operation</seealso>
         Task<DeleteReceiptRuleSetResponse> DeleteReceiptRuleSetAsync(DeleteReceiptRuleSetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DeleteTemplate
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteTemplate">REST API Reference for DeleteTemplate Operation</seealso>
+        Task<DeleteTemplateResponse> DeleteTemplateAsync(DeleteTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -442,11 +512,11 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Returns the user's current sending limits.
+        /// Provides the sending limits for the Amazon SES account. 
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -476,16 +546,13 @@ namespace Amazon.SimpleEmail
 
 
         /// <summary>
-        /// Returns the user's sending statistics. The result is a list of data points, representing
-        /// the last two weeks of sending activity.
+        /// Provides sending statistics for the Amazon SES account. The result is a list of data
+        /// points, representing the last two weeks of sending activity. Each data point in the
+        /// list contains statistics for a 15-minute period of time.
         /// 
         ///  
         /// <para>
-        /// Each data point in the list contains statistics for a 15-minute interval.
-        /// </para>
-        ///  
-        /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -508,6 +575,23 @@ namespace Amazon.SimpleEmail
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetSendStatistics">REST API Reference for GetSendStatistics Operation</seealso>
         Task<GetSendStatisticsResponse> GetSendStatisticsAsync(GetSendStatisticsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  GetTemplate
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetTemplate">REST API Reference for GetTemplate Operation</seealso>
+        Task<GetTemplateResponse> GetTemplateAsync(GetTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -537,7 +621,7 @@ namespace Amazon.SimpleEmail
         /// 
         ///  
         /// <para>
-        /// This action is throttled at one request per second.
+        /// You can execute this operation no more than once per second.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -614,21 +698,29 @@ namespace Amazon.SimpleEmail
 
         #endregion
                 
+        #region  ListTemplates
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListTemplates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListTemplates operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListTemplates">REST API Reference for ListTemplates Operation</seealso>
+        Task<ListTemplatesResponse> ListTemplatesAsync(ListTemplatesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  ListVerifiedEmailAddresses
 
 
         /// <summary>
-        /// Returns a list containing all of the email addresses that have been verified.
-        /// 
-        ///  <important> 
-        /// <para>
-        /// The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release
-        /// of Domain Verification. The ListIdentities action is now preferred.
-        /// </para>
-        ///  </important> 
-        /// <para>
-        /// This action is throttled at one request per second.
-        /// </para>
+        /// Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
+        /// and domains associated with your account.
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -704,6 +796,23 @@ namespace Amazon.SimpleEmail
 
         #endregion
                 
+        #region  SendBulkTemplatedEmail
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SendBulkTemplatedEmail operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SendBulkTemplatedEmail operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendBulkTemplatedEmail">REST API Reference for SendBulkTemplatedEmail Operation</seealso>
+        Task<SendBulkTemplatedEmailResponse> SendBulkTemplatedEmailAsync(SendBulkTemplatedEmailRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  SendEmail
 
 
@@ -735,6 +844,23 @@ namespace Amazon.SimpleEmail
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendRawEmail">REST API Reference for SendRawEmail Operation</seealso>
         Task<SendRawEmailResponse> SendRawEmailAsync(SendRawEmailRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  SendTemplatedEmail
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SendTemplatedEmail operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SendTemplatedEmail operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendTemplatedEmail">REST API Reference for SendTemplatedEmail Operation</seealso>
+        Task<SendTemplatedEmailResponse> SendTemplatedEmailAsync(SendTemplatedEmailRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -857,6 +983,23 @@ namespace Amazon.SimpleEmail
 
         #endregion
                 
+        #region  TestRenderTemplate
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the TestRenderTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the TestRenderTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/TestRenderTemplate">REST API Reference for TestRenderTemplate Operation</seealso>
+        Task<TestRenderTemplateResponse> TestRenderTemplateAsync(TestRenderTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  UpdateConfigurationSetEventDestination
 
 
@@ -874,6 +1017,23 @@ namespace Amazon.SimpleEmail
 
         #endregion
                 
+        #region  UpdateConfigurationSetTrackingOptions
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateConfigurationSetTrackingOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConfigurationSetTrackingOptions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetTrackingOptions">REST API Reference for UpdateConfigurationSetTrackingOptions Operation</seealso>
+        Task<UpdateConfigurationSetTrackingOptionsResponse> UpdateConfigurationSetTrackingOptionsAsync(UpdateConfigurationSetTrackingOptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  UpdateReceiptRule
 
 
@@ -888,6 +1048,23 @@ namespace Amazon.SimpleEmail
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateReceiptRule">REST API Reference for UpdateReceiptRule Operation</seealso>
         Task<UpdateReceiptRuleResponse> UpdateReceiptRuleAsync(UpdateReceiptRuleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  UpdateTemplate
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateTemplate">REST API Reference for UpdateTemplate Operation</seealso>
+        Task<UpdateTemplateResponse> UpdateTemplateAsync(UpdateTemplateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 

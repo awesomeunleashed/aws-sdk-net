@@ -28,11 +28,12 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ElasticLoadBalancingV2.Model
 {
     /// <summary>
-    /// Information about an SSL server certificate deployed on a load balancer.
+    /// Information about an SSL server certificate.
     /// </summary>
     public partial class Certificate
     {
         private string _certificateArn;
+        private bool? _isDefault;
 
         /// <summary>
         /// Gets and sets the property CertificateArn. 
@@ -50,6 +51,24 @@ namespace Amazon.ElasticLoadBalancingV2.Model
         internal bool IsSetCertificateArn()
         {
             return this._certificateArn != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property IsDefault. 
+        /// <para>
+        /// Indicates whether the certificate is the default certificate.
+        /// </para>
+        /// </summary>
+        public bool IsDefault
+        {
+            get { return this._isDefault.GetValueOrDefault(); }
+            set { this._isDefault = value; }
+        }
+
+        // Check to see if IsDefault property is set
+        internal bool IsSetIsDefault()
+        {
+            return this._isDefault.HasValue; 
         }
 
     }

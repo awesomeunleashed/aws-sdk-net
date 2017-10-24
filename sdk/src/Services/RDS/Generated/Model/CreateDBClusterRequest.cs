@@ -170,7 +170,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Must contain from 1 to 63 alphanumeric characters or hyphens.
+        /// Must contain from 1 to 63 letters, numbers, or hyphens.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -209,15 +209,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Must be 1 to 255 alphanumeric characters
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// First character must be a letter
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Cannot end with a hyphen or contain two consecutive hyphens
+        /// If supplied, must match the name of an existing DBClusterParameterGroup.
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -240,8 +232,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
-        /// spaces, or hyphens. Must not be default.
+        /// Constraints: Must match the name of an existing DBSubnetGroup. Must not be default.
         /// </para>
         ///  
         /// <para>
@@ -345,9 +336,22 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value
-        /// for the <code>KmsKeyId</code> parameter, then Amazon RDS will use your default encryption
-        /// key. AWS KMS creates the default encryption key for your AWS account. Your AWS account
+        /// If an encryption key is not specified in <code>KmsKeyId</code>:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// If <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then Amazon
+        /// RDS will use the encryption key used to encrypt the source. Otherwise, Amazon RDS
+        /// will use your default encryption key. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// If the <code>StorageEncrypted</code> parameter is true and <code>ReplicationSourceIdentifier</code>
+        /// is not specified, then Amazon RDS will use your default encryption key.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// AWS KMS creates the default encryption key for your AWS account. Your AWS account
         /// has a different default encryption key for each AWS Region.
         /// </para>
         ///  
@@ -380,7 +384,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Must be 1 to 16 alphanumeric characters.
+        /// Must be 1 to 16 letters or numbers.
         /// </para>
         ///  </li> <li> 
         /// <para>

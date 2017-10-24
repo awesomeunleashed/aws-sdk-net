@@ -28,13 +28,13 @@ using Amazon.Runtime.Internal;
 namespace Amazon.EC2.Model
 {
     /// <summary>
-    /// Describes a security group rule.
+    /// Describes a set of permissions for a security group rule.
     /// </summary>
     public partial class IpPermission
     {
         private int? _fromPort;
         private string _ipProtocol;
-        private List<string> _ipRanges = new List<string>();
+        private List<IpRange> _ipv4Ranges = new List<IpRange>();
         private List<Ipv6Range> _ipv6Ranges = new List<Ipv6Range>();
         private List<PrefixListId> _prefixListIds = new List<PrefixListId>();
         private int? _toPort;
@@ -44,7 +44,8 @@ namespace Amazon.EC2.Model
         /// Gets and sets the property FromPort. 
         /// <para>
         /// The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type number.
-        /// A value of <code>-1</code> indicates all ICMP/ICMPv6 types.
+        /// A value of <code>-1</code> indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6
+        /// types, you must specify all codes.
         /// </para>
         /// </summary>
         public int FromPort
@@ -90,21 +91,21 @@ namespace Amazon.EC2.Model
         }
 
         /// <summary>
-        /// Gets and sets the property IpRanges. 
+        /// Gets and sets the property Ipv4Ranges. 
         /// <para>
         /// One or more IPv4 ranges.
         /// </para>
         /// </summary>
-        public List<string> IpRanges
+        public List<IpRange> Ipv4Ranges
         {
-            get { return this._ipRanges; }
-            set { this._ipRanges = value; }
+            get { return this._ipv4Ranges; }
+            set { this._ipv4Ranges = value; }
         }
 
-        // Check to see if IpRanges property is set
-        internal bool IsSetIpRanges()
+        // Check to see if Ipv4Ranges property is set
+        internal bool IsSetIpv4Ranges()
         {
-            return this._ipRanges != null && this._ipRanges.Count > 0; 
+            return this._ipv4Ranges != null && this._ipv4Ranges.Count > 0; 
         }
 
         /// <summary>
@@ -151,7 +152,8 @@ namespace Amazon.EC2.Model
         /// Gets and sets the property ToPort. 
         /// <para>
         /// The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value
-        /// of <code>-1</code> indicates all ICMP/ICMPv6 codes for the specified ICMP type.
+        /// of <code>-1</code> indicates all ICMP/ICMPv6 codes for the specified ICMP type. If
+        /// you specify all ICMP/ICMPv6 types, you must specify all codes.
         /// </para>
         /// </summary>
         public int ToPort

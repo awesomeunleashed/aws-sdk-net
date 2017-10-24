@@ -42,7 +42,7 @@ namespace Amazon.CodeBuild
     /// your source code, runs unit tests, and produces artifacts that are ready to deploy.
     /// AWS CodeBuild eliminates the need to provision, manage, and scale your own build servers.
     /// It provides prepackaged build environments for the most popular programming languages
-    /// and build tools, such as Apach Maven, Gradle, and more. You can also fully customize
+    /// and build tools, such as Apache Maven, Gradle, and more. You can also fully customize
     /// build environments in AWS CodeBuild to use your own build tools. AWS CodeBuild scales
     /// automatically to meet peak build requests, and you pay only for the build time you
     /// consume. For more information about AWS CodeBuild, see the <i>AWS CodeBuild User Guide</i>.
@@ -71,7 +71,19 @@ namespace Amazon.CodeBuild
     /// </para>
     ///  </li> <li> 
     /// <para>
+    ///  <code>CreateWebhook</code>: For an existing AWS CodeBuild build project that has
+    /// its source code stored in a GitHub repository, enables AWS CodeBuild to begin automatically
+    /// rebuilding the source code every time a code change is pushed to the repository.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
     ///  <code>DeleteProject</code>: Deletes a build project.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <code>DeleteWebhook</code>: For an existing AWS CodeBuild build project that has
+    /// its source code stored in a GitHub repository, stops AWS CodeBuild from automatically
+    /// rebuilding the source code every time a code change is pushed to the repository.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -311,7 +323,7 @@ namespace Amazon.CodeBuild
         /// The input value that was provided is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/BatchDeleteBuilds">REST API Reference for BatchDeleteBuilds Operation</seealso>
-        public BatchDeleteBuildsResponse BatchDeleteBuilds(BatchDeleteBuildsRequest request)
+        public virtual BatchDeleteBuildsResponse BatchDeleteBuilds(BatchDeleteBuildsRequest request)
         {
             var marshaller = new BatchDeleteBuildsRequestMarshaller();
             var unmarshaller = BatchDeleteBuildsResponseUnmarshaller.Instance;
@@ -329,7 +341,7 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/BatchDeleteBuilds">REST API Reference for BatchDeleteBuilds Operation</seealso>
-        public Task<BatchDeleteBuildsResponse> BatchDeleteBuildsAsync(BatchDeleteBuildsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<BatchDeleteBuildsResponse> BatchDeleteBuildsAsync(BatchDeleteBuildsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new BatchDeleteBuildsRequestMarshaller();
             var unmarshaller = BatchDeleteBuildsResponseUnmarshaller.Instance;
@@ -353,7 +365,7 @@ namespace Amazon.CodeBuild
         /// The input value that was provided is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/BatchGetBuilds">REST API Reference for BatchGetBuilds Operation</seealso>
-        public BatchGetBuildsResponse BatchGetBuilds(BatchGetBuildsRequest request)
+        public virtual BatchGetBuildsResponse BatchGetBuilds(BatchGetBuildsRequest request)
         {
             var marshaller = new BatchGetBuildsRequestMarshaller();
             var unmarshaller = BatchGetBuildsResponseUnmarshaller.Instance;
@@ -371,7 +383,7 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/BatchGetBuilds">REST API Reference for BatchGetBuilds Operation</seealso>
-        public Task<BatchGetBuildsResponse> BatchGetBuildsAsync(BatchGetBuildsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<BatchGetBuildsResponse> BatchGetBuildsAsync(BatchGetBuildsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new BatchGetBuildsRequestMarshaller();
             var unmarshaller = BatchGetBuildsResponseUnmarshaller.Instance;
@@ -395,7 +407,7 @@ namespace Amazon.CodeBuild
         /// The input value that was provided is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/BatchGetProjects">REST API Reference for BatchGetProjects Operation</seealso>
-        public BatchGetProjectsResponse BatchGetProjects(BatchGetProjectsRequest request)
+        public virtual BatchGetProjectsResponse BatchGetProjects(BatchGetProjectsRequest request)
         {
             var marshaller = new BatchGetProjectsRequestMarshaller();
             var unmarshaller = BatchGetProjectsResponseUnmarshaller.Instance;
@@ -413,7 +425,7 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/BatchGetProjects">REST API Reference for BatchGetProjects Operation</seealso>
-        public Task<BatchGetProjectsResponse> BatchGetProjectsAsync(BatchGetProjectsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<BatchGetProjectsResponse> BatchGetProjectsAsync(BatchGetProjectsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new BatchGetProjectsRequestMarshaller();
             var unmarshaller = BatchGetProjectsResponseUnmarshaller.Instance;
@@ -444,7 +456,7 @@ namespace Amazon.CodeBuild
         /// settings already exists.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/CreateProject">REST API Reference for CreateProject Operation</seealso>
-        public CreateProjectResponse CreateProject(CreateProjectRequest request)
+        public virtual CreateProjectResponse CreateProject(CreateProjectRequest request)
         {
             var marshaller = new CreateProjectRequestMarshaller();
             var unmarshaller = CreateProjectResponseUnmarshaller.Instance;
@@ -462,12 +474,79 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/CreateProject">REST API Reference for CreateProject Operation</seealso>
-        public Task<CreateProjectResponse> CreateProjectAsync(CreateProjectRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateProjectResponse> CreateProjectAsync(CreateProjectRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateProjectRequestMarshaller();
             var unmarshaller = CreateProjectResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateProjectRequest,CreateProjectResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateWebhook
+
+
+        /// <summary>
+        /// For an existing AWS CodeBuild build project that has its source code stored in a GitHub
+        /// repository, enables AWS CodeBuild to begin automatically rebuilding the source code
+        /// every time a code change is pushed to the repository.
+        /// 
+        ///  <important> 
+        /// <para>
+        /// If you enable webhooks for an AWS CodeBuild project, and the project is used as a
+        /// build step in AWS CodePipeline, then two identical builds will be created for each
+        /// commit. One build is triggered through webhooks, and one through AWS CodePipeline.
+        /// Because billing is on a per-build basis, you will be billed for both builds. Therefore,
+        /// if you are using AWS CodePipeline, we recommend that you disable webhooks in CodeBuild.
+        /// In the AWS CodeBuild console, clear the Webhook box. For more information, see step
+        /// 9 in <a href="http://docs.aws.amazon.com/codebuild/latest/userguide/change-project.html#change-project-console">Change
+        /// a Build Project’s Settings</a>.
+        /// </para>
+        ///  </important>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateWebhook service method.</param>
+        /// 
+        /// <returns>The response from the CreateWebhook service method, as returned by CodeBuild.</returns>
+        /// <exception cref="Amazon.CodeBuild.Model.InvalidInputException">
+        /// The input value that was provided is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CodeBuild.Model.OAuthProviderException">
+        /// There was a problem with the underlying OAuth provider.
+        /// </exception>
+        /// <exception cref="Amazon.CodeBuild.Model.ResourceAlreadyExistsException">
+        /// The specified AWS resource cannot be created, because an AWS resource with the same
+        /// settings already exists.
+        /// </exception>
+        /// <exception cref="Amazon.CodeBuild.Model.ResourceNotFoundException">
+        /// The specified AWS resource cannot be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/CreateWebhook">REST API Reference for CreateWebhook Operation</seealso>
+        public virtual CreateWebhookResponse CreateWebhook(CreateWebhookRequest request)
+        {
+            var marshaller = new CreateWebhookRequestMarshaller();
+            var unmarshaller = CreateWebhookResponseUnmarshaller.Instance;
+
+            return Invoke<CreateWebhookRequest,CreateWebhookResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateWebhook operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateWebhook operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/CreateWebhook">REST API Reference for CreateWebhook Operation</seealso>
+        public virtual Task<CreateWebhookResponse> CreateWebhookAsync(CreateWebhookRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new CreateWebhookRequestMarshaller();
+            var unmarshaller = CreateWebhookResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateWebhookRequest,CreateWebhookResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -486,7 +565,7 @@ namespace Amazon.CodeBuild
         /// The input value that was provided is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/DeleteProject">REST API Reference for DeleteProject Operation</seealso>
-        public DeleteProjectResponse DeleteProject(DeleteProjectRequest request)
+        public virtual DeleteProjectResponse DeleteProject(DeleteProjectRequest request)
         {
             var marshaller = new DeleteProjectRequestMarshaller();
             var unmarshaller = DeleteProjectResponseUnmarshaller.Instance;
@@ -504,12 +583,62 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/DeleteProject">REST API Reference for DeleteProject Operation</seealso>
-        public Task<DeleteProjectResponse> DeleteProjectAsync(DeleteProjectRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteProjectResponse> DeleteProjectAsync(DeleteProjectRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteProjectRequestMarshaller();
             var unmarshaller = DeleteProjectResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteProjectRequest,DeleteProjectResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteWebhook
+
+
+        /// <summary>
+        /// For an existing AWS CodeBuild build project that has its source code stored in a GitHub
+        /// repository, stops AWS CodeBuild from automatically rebuilding the source code every
+        /// time a code change is pushed to the repository.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteWebhook service method.</param>
+        /// 
+        /// <returns>The response from the DeleteWebhook service method, as returned by CodeBuild.</returns>
+        /// <exception cref="Amazon.CodeBuild.Model.InvalidInputException">
+        /// The input value that was provided is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.CodeBuild.Model.OAuthProviderException">
+        /// There was a problem with the underlying OAuth provider.
+        /// </exception>
+        /// <exception cref="Amazon.CodeBuild.Model.ResourceNotFoundException">
+        /// The specified AWS resource cannot be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/DeleteWebhook">REST API Reference for DeleteWebhook Operation</seealso>
+        public virtual DeleteWebhookResponse DeleteWebhook(DeleteWebhookRequest request)
+        {
+            var marshaller = new DeleteWebhookRequestMarshaller();
+            var unmarshaller = DeleteWebhookResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteWebhookRequest,DeleteWebhookResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteWebhook operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteWebhook operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/DeleteWebhook">REST API Reference for DeleteWebhook Operation</seealso>
+        public virtual Task<DeleteWebhookResponse> DeleteWebhookAsync(DeleteWebhookRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteWebhookRequestMarshaller();
+            var unmarshaller = DeleteWebhookResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteWebhookRequest,DeleteWebhookResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -528,7 +657,7 @@ namespace Amazon.CodeBuild
         /// The input value that was provided is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/ListBuilds">REST API Reference for ListBuilds Operation</seealso>
-        public ListBuildsResponse ListBuilds(ListBuildsRequest request)
+        public virtual ListBuildsResponse ListBuilds(ListBuildsRequest request)
         {
             var marshaller = new ListBuildsRequestMarshaller();
             var unmarshaller = ListBuildsResponseUnmarshaller.Instance;
@@ -546,7 +675,7 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/ListBuilds">REST API Reference for ListBuilds Operation</seealso>
-        public Task<ListBuildsResponse> ListBuildsAsync(ListBuildsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListBuildsResponse> ListBuildsAsync(ListBuildsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListBuildsRequestMarshaller();
             var unmarshaller = ListBuildsResponseUnmarshaller.Instance;
@@ -574,7 +703,7 @@ namespace Amazon.CodeBuild
         /// The specified AWS resource cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/ListBuildsForProject">REST API Reference for ListBuildsForProject Operation</seealso>
-        public ListBuildsForProjectResponse ListBuildsForProject(ListBuildsForProjectRequest request)
+        public virtual ListBuildsForProjectResponse ListBuildsForProject(ListBuildsForProjectRequest request)
         {
             var marshaller = new ListBuildsForProjectRequestMarshaller();
             var unmarshaller = ListBuildsForProjectResponseUnmarshaller.Instance;
@@ -592,7 +721,7 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/ListBuildsForProject">REST API Reference for ListBuildsForProject Operation</seealso>
-        public Task<ListBuildsForProjectResponse> ListBuildsForProjectAsync(ListBuildsForProjectRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListBuildsForProjectResponse> ListBuildsForProjectAsync(ListBuildsForProjectRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListBuildsForProjectRequestMarshaller();
             var unmarshaller = ListBuildsForProjectResponseUnmarshaller.Instance;
@@ -613,7 +742,7 @@ namespace Amazon.CodeBuild
         /// 
         /// <returns>The response from the ListCuratedEnvironmentImages service method, as returned by CodeBuild.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/ListCuratedEnvironmentImages">REST API Reference for ListCuratedEnvironmentImages Operation</seealso>
-        public ListCuratedEnvironmentImagesResponse ListCuratedEnvironmentImages(ListCuratedEnvironmentImagesRequest request)
+        public virtual ListCuratedEnvironmentImagesResponse ListCuratedEnvironmentImages(ListCuratedEnvironmentImagesRequest request)
         {
             var marshaller = new ListCuratedEnvironmentImagesRequestMarshaller();
             var unmarshaller = ListCuratedEnvironmentImagesResponseUnmarshaller.Instance;
@@ -631,7 +760,7 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/ListCuratedEnvironmentImages">REST API Reference for ListCuratedEnvironmentImages Operation</seealso>
-        public Task<ListCuratedEnvironmentImagesResponse> ListCuratedEnvironmentImagesAsync(ListCuratedEnvironmentImagesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListCuratedEnvironmentImagesResponse> ListCuratedEnvironmentImagesAsync(ListCuratedEnvironmentImagesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListCuratedEnvironmentImagesRequestMarshaller();
             var unmarshaller = ListCuratedEnvironmentImagesResponseUnmarshaller.Instance;
@@ -656,7 +785,7 @@ namespace Amazon.CodeBuild
         /// The input value that was provided is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/ListProjects">REST API Reference for ListProjects Operation</seealso>
-        public ListProjectsResponse ListProjects(ListProjectsRequest request)
+        public virtual ListProjectsResponse ListProjects(ListProjectsRequest request)
         {
             var marshaller = new ListProjectsRequestMarshaller();
             var unmarshaller = ListProjectsResponseUnmarshaller.Instance;
@@ -674,7 +803,7 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/ListProjects">REST API Reference for ListProjects Operation</seealso>
-        public Task<ListProjectsResponse> ListProjectsAsync(ListProjectsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListProjectsResponse> ListProjectsAsync(ListProjectsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListProjectsRequestMarshaller();
             var unmarshaller = ListProjectsResponseUnmarshaller.Instance;
@@ -704,7 +833,7 @@ namespace Amazon.CodeBuild
         /// The specified AWS resource cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/StartBuild">REST API Reference for StartBuild Operation</seealso>
-        public StartBuildResponse StartBuild(StartBuildRequest request)
+        public virtual StartBuildResponse StartBuild(StartBuildRequest request)
         {
             var marshaller = new StartBuildRequestMarshaller();
             var unmarshaller = StartBuildResponseUnmarshaller.Instance;
@@ -722,7 +851,7 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/StartBuild">REST API Reference for StartBuild Operation</seealso>
-        public Task<StartBuildResponse> StartBuildAsync(StartBuildRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<StartBuildResponse> StartBuildAsync(StartBuildRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new StartBuildRequestMarshaller();
             var unmarshaller = StartBuildResponseUnmarshaller.Instance;
@@ -749,7 +878,7 @@ namespace Amazon.CodeBuild
         /// The specified AWS resource cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/StopBuild">REST API Reference for StopBuild Operation</seealso>
-        public StopBuildResponse StopBuild(StopBuildRequest request)
+        public virtual StopBuildResponse StopBuild(StopBuildRequest request)
         {
             var marshaller = new StopBuildRequestMarshaller();
             var unmarshaller = StopBuildResponseUnmarshaller.Instance;
@@ -767,7 +896,7 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/StopBuild">REST API Reference for StopBuild Operation</seealso>
-        public Task<StopBuildResponse> StopBuildAsync(StopBuildRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<StopBuildResponse> StopBuildAsync(StopBuildRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new StopBuildRequestMarshaller();
             var unmarshaller = StopBuildResponseUnmarshaller.Instance;
@@ -794,7 +923,7 @@ namespace Amazon.CodeBuild
         /// The specified AWS resource cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/UpdateProject">REST API Reference for UpdateProject Operation</seealso>
-        public UpdateProjectResponse UpdateProject(UpdateProjectRequest request)
+        public virtual UpdateProjectResponse UpdateProject(UpdateProjectRequest request)
         {
             var marshaller = new UpdateProjectRequestMarshaller();
             var unmarshaller = UpdateProjectResponseUnmarshaller.Instance;
@@ -812,7 +941,7 @@ namespace Amazon.CodeBuild
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/codebuild-2016-10-06/UpdateProject">REST API Reference for UpdateProject Operation</seealso>
-        public Task<UpdateProjectResponse> UpdateProjectAsync(UpdateProjectRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateProjectResponse> UpdateProjectAsync(UpdateProjectRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateProjectRequestMarshaller();
             var unmarshaller = UpdateProjectResponseUnmarshaller.Instance;

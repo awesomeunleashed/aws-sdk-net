@@ -223,6 +223,10 @@ namespace Amazon.S3
             if (!string.IsNullOrEmpty(responseHeaderOverrides.ContentEncoding))
                 queryParameters.Add("response-content-encoding", responseHeaderOverrides.ContentEncoding);
 
+            // Add custom parameters to be included and signed
+            foreach (string k in getPreSignedUrlRequest.Parameters.Keys)
+                queryParameters.Add(k, getPreSignedUrlRequest.Parameters[k]);
+
             request.ResourcePath = uriResourcePath.ToString();
             request.UseQueryString = true;
 
@@ -242,9 +246,9 @@ namespace Amazon.S3
             return protocol;
         }
 
-        internal static void CleanupRequest(IRequest request)
+        internal static void CleanupRequest(AmazonWebServiceRequest request)
         {
-            var putObjectRequest = request.OriginalRequest as PutObjectRequest;
+            var putObjectRequest = request as PutObjectRequest;
             if (putObjectRequest != null)
             {
                 if (putObjectRequest.InputStream != null
@@ -260,7 +264,7 @@ namespace Amazon.S3
                 }
             }
 
-            var uploadPartRequest = request.OriginalRequest as UploadPartRequest;
+            var uploadPartRequest = request as UploadPartRequest;
             if (uploadPartRequest != null)
             {
                 // FilePath was set, so we created the underlying stream, so we must close it

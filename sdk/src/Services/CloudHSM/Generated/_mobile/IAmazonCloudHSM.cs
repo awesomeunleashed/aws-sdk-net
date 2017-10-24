@@ -31,7 +31,21 @@ namespace Amazon.CloudHSM
     /// <summary>
     /// Interface for accessing CloudHSM
     ///
-    /// AWS CloudHSM Service
+    /// AWS CloudHSM Service 
+    /// <para>
+    /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+    /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+    /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+    /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+    /// CloudHSM Classic API Reference</a>.
+    /// </para>
+    ///  
+    /// <para>
+    ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+    /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+    /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+    /// CloudHSM API Reference</a>.
+    /// </para>
     /// </summary>
     public partial interface IAmazonCloudHSM : IAmazonService, IDisposable
     {
@@ -57,8 +71,24 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Creates a high-availability partition group. A high-availability partition group is
         /// a group of partitions that spans multiple physical HSMs.
+        /// </para>
         /// </summary>
         /// <param name="label">The label of the new high-availability partition group.</param>
         /// <param name="cancellationToken">
@@ -130,7 +160,23 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Deletes a high-availability partition group.
+        /// </para>
         /// </summary>
         /// <param name="hapgArn">The ARN of the high-availability partition group to delete.</param>
         /// <param name="cancellationToken">
@@ -168,8 +214,24 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Deletes an HSM. After completion, this operation cannot be undone and your key material
         /// cannot be recovered.
+        /// </para>
         /// </summary>
         /// <param name="hsmArn">The ARN of the HSM to delete.</param>
         /// <param name="cancellationToken">
@@ -207,7 +269,23 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Deletes a client.
+        /// </para>
         /// </summary>
         /// <param name="clientArn">The ARN of the client to delete.</param>
         /// <param name="cancellationToken">
@@ -245,7 +323,23 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Retrieves information about a high-availability partition group.
+        /// </para>
         /// </summary>
         /// <param name="hapgArn">The ARN of the high-availability partition group to describe.</param>
         /// <param name="cancellationToken">
@@ -283,10 +377,26 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Retrieves information about an HSM. You can identify the HSM by its ARN or its serial
         /// number.
+        /// </para>
         /// </summary>
-        /// <param name="hsmArn">The ARN of the HSM. Either the <i>HsmArn</i> or the <i>SerialNumber</i> parameter must be specified.</param>
+        /// <param name="hsmArn">The ARN of the HSM. Either the <code>HsmArn</code> or the <code>SerialNumber</code> parameter must be specified.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -356,7 +466,23 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
+        /// 
+        ///  
+        /// <para>
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
         /// Lists the Availability Zones that have available AWS CloudHSM capacity.
+        /// </para>
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -393,14 +519,29 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
-        /// Lists the high-availability partition groups for the account.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
         ///  
         /// <para>
-        /// This operation supports pagination with the use of the <i>NextToken</i> member. If
-        /// more results are available, the <i>NextToken</i> member of the response contains a
-        /// token that you pass in the next call to <a>ListHapgs</a> to retrieve the next set
-        /// of items.
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Lists the high-availability partition groups for the account.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation supports pagination with the use of the <code>NextToken</code> member.
+        /// If more results are available, the <code>NextToken</code> member of the response contains
+        /// a token that you pass in the next call to <code>ListHapgs</code> to retrieve the next
+        /// set of items.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -438,14 +579,29 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
-        /// Retrieves the identifiers of all of the HSMs provisioned for the current customer.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
         ///  
         /// <para>
-        /// This operation supports pagination with the use of the <i>NextToken</i> member. If
-        /// more results are available, the <i>NextToken</i> member of the response contains a
-        /// token that you pass in the next call to <a>ListHsms</a> to retrieve the next set of
-        /// items.
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Retrieves the identifiers of all of the HSMs provisioned for the current customer.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation supports pagination with the use of the <code>NextToken</code> member.
+        /// If more results are available, the <code>NextToken</code> member of the response contains
+        /// a token that you pass in the next call to <code>ListHsms</code> to retrieve the next
+        /// set of items.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">
@@ -483,14 +639,29 @@ namespace Amazon.CloudHSM
 
 
         /// <summary>
-        /// Lists all of the clients.
+        /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+        /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+        /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+        /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+        /// CloudHSM Classic API Reference</a>.
         /// 
         ///  
         /// <para>
-        /// This operation supports pagination with the use of the <i>NextToken</i> member. If
-        /// more results are available, the <i>NextToken</i> member of the response contains a
-        /// token that you pass in the next call to <a>ListLunaClients</a> to retrieve the next
-        /// set of items.
+        ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+        /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+        /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+        /// CloudHSM API Reference</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Lists all of the clients.
+        /// </para>
+        ///  
+        /// <para>
+        /// This operation supports pagination with the use of the <code>NextToken</code> member.
+        /// If more results are available, the <code>NextToken</code> member of the response contains
+        /// a token that you pass in the next call to <code>ListLunaClients</code> to retrieve
+        /// the next set of items.
         /// </para>
         /// </summary>
         /// <param name="cancellationToken">

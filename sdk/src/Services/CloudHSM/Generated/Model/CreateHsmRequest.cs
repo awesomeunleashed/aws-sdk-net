@@ -29,13 +29,28 @@ namespace Amazon.CloudHSM.Model
 {
     /// <summary>
     /// Container for the parameters to the CreateHsm operation.
-    /// Creates an uninitialized HSM instance.
+    /// This is documentation for <b>AWS CloudHSM Classic</b>. For more information, see <a
+    /// href="http://aws.amazon.com/cloudhsm/faqs-classic/">AWS CloudHSM Classic FAQs</a>,
+    /// the <a href="http://docs.aws.amazon.com/cloudhsm/classic/userguide/">AWS CloudHSM
+    /// Classic User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/classic/APIReference/">AWS
+    /// CloudHSM Classic API Reference</a>.
     /// 
     ///  
     /// <para>
-    /// There is an upfront fee charged for each HSM instance that you create with the <a>CreateHsm</a>
+    ///  <b>For information about the current version of AWS CloudHSM</b>, see <a href="http://aws.amazon.com/cloudhsm/">AWS
+    /// CloudHSM</a>, the <a href="http://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+    /// CloudHSM User Guide</a>, and the <a href="http://docs.aws.amazon.com/cloudhsm/latest/APIReference/">AWS
+    /// CloudHSM API Reference</a>.
+    /// </para>
+    ///  
+    /// <para>
+    /// Creates an uninitialized HSM instance.
+    /// </para>
+    ///  
+    /// <para>
+    /// There is an upfront fee charged for each HSM instance that you create with the <code>CreateHsm</code>
     /// operation. If you accidentally provision an HSM and want to request a refund, delete
-    /// the instance using the <a>DeleteHsm</a> operation, go to the <a href="https://console.aws.amazon.com/support/home#/">AWS
+    /// the instance using the <a>DeleteHsm</a> operation, go to the <a href="https://console.aws.amazon.com/support/home">AWS
     /// Support Center</a>, create a new case, and select <b>Account and Billing Support</b>.
     /// </para>
     ///  <important> 
@@ -102,7 +117,7 @@ namespace Amazon.CloudHSM.Model
         /// <summary>
         /// Gets and sets the property ExternalId. 
         /// <para>
-        /// The external ID from <b>IamRoleArn</b>, if present.
+        /// The external ID from <code>IamRoleArn</code>, if present.
         /// </para>
         /// </summary>
         public string ExternalId

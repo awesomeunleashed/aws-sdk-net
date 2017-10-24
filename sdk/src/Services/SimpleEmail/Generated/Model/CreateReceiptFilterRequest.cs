@@ -38,7 +38,7 @@ namespace Amazon.SimpleEmail.Model
     /// </para>
     ///  
     /// <para>
-    /// This action is throttled at one request per second.
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     public partial class CreateReceiptFilterRequest : AmazonSimpleEmailServiceRequest

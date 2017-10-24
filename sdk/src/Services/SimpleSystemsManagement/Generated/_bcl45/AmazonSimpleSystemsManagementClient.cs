@@ -57,6 +57,13 @@ namespace Amazon.SimpleSystemsManagement
     /// see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-setting-up.html">Systems
     /// Manager Prerequisites</a>.
     /// </para>
+    ///  
+    /// <para>
+    /// For information about other API actions you can perform on Amazon EC2 instances, see
+    /// the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/">Amazon EC2 API
+    /// Reference</a>. For information about how to use a Query API, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/making-api-requests.html">Making
+    /// API Requests</a>. 
+    /// </para>
     /// </summary>
     public partial class AmazonSimpleSystemsManagementClient : AmazonServiceClient, IAmazonSimpleSystemsManagement
     {
@@ -250,13 +257,13 @@ namespace Amazon.SimpleSystemsManagement
 
         /// <summary>
         /// Adds or overwrites one or more tags for the specified resource. Tags are metadata
-        /// that you assign to your managed instances, Maintenance Windows, or Parameter Store
-        /// parameters. Tags enable you to categorize your resources in different ways, for example,
-        /// by purpose, owner, or environment. Each tag consists of a key and an optional value,
-        /// both of which you define. For example, you could define a set of tags for your account's
-        /// managed instances that helps you track each instance's owner and stack level. For
-        /// example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev. Or Key=Stack and Value=Production,
-        /// Pre-Production, or Test.
+        /// that you can assign to your documents, managed instances, Maintenance Windows, Parameter
+        /// Store parameters, and patch baselines. Tags enable you to categorize your resources
+        /// in different ways, for example, by purpose, owner, or environment. Each tag consists
+        /// of a key and an optional value, both of which you define. For example, you could define
+        /// a set of tags for your account's managed instances that helps you track each instance's
+        /// owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev.
+        /// Or Key=Stack and Value=Production, Pre-Production, or Test.
         /// 
         ///  
         /// <para>
@@ -286,15 +293,15 @@ namespace Amazon.SimpleSystemsManagement
         /// The resource ID is not valid. Verify that you entered the correct ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidResourceTypeException">
-        /// The resource type is not valid. If you are attempting to tag an instance, the instance
-        /// must be a registered, managed instance.
+        /// The resource type is not valid. For example, if you are attempting to tag an instance,
+        /// the instance must be a registered, managed instance.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.TooManyTagsErrorException">
         /// The Targets parameter includes too many tags. Remove one or more tags and try the
         /// command again.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/AddTagsToResource">REST API Reference for AddTagsToResource Operation</seealso>
-        public AddTagsToResourceResponse AddTagsToResource(AddTagsToResourceRequest request)
+        public virtual AddTagsToResourceResponse AddTagsToResource(AddTagsToResourceRequest request)
         {
             var marshaller = new AddTagsToResourceRequestMarshaller();
             var unmarshaller = AddTagsToResourceResponseUnmarshaller.Instance;
@@ -312,7 +319,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/AddTagsToResource">REST API Reference for AddTagsToResource Operation</seealso>
-        public Task<AddTagsToResourceResponse> AddTagsToResourceAsync(AddTagsToResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<AddTagsToResourceResponse> AddTagsToResourceAsync(AddTagsToResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new AddTagsToResourceRequestMarshaller();
             var unmarshaller = AddTagsToResourceResponseUnmarshaller.Instance;
@@ -367,7 +374,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CancelCommand">REST API Reference for CancelCommand Operation</seealso>
-        public CancelCommandResponse CancelCommand(string commandId)
+        public virtual CancelCommandResponse CancelCommand(string commandId)
         {
             var request = new CancelCommandRequest();
             request.CommandId = commandId;
@@ -417,7 +424,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CancelCommand">REST API Reference for CancelCommand Operation</seealso>
-        public CancelCommandResponse CancelCommand(string commandId, List<string> instanceIds)
+        public virtual CancelCommandResponse CancelCommand(string commandId, List<string> instanceIds)
         {
             var request = new CancelCommandRequest();
             request.CommandId = commandId;
@@ -467,7 +474,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CancelCommand">REST API Reference for CancelCommand Operation</seealso>
-        public CancelCommandResponse CancelCommand(CancelCommandRequest request)
+        public virtual CancelCommandResponse CancelCommand(CancelCommandRequest request)
         {
             var marshaller = new CancelCommandRequestMarshaller();
             var unmarshaller = CancelCommandResponseUnmarshaller.Instance;
@@ -520,7 +527,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CancelCommand">REST API Reference for CancelCommand Operation</seealso>
-        public Task<CancelCommandResponse> CancelCommandAsync(string commandId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CancelCommandResponse> CancelCommandAsync(string commandId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new CancelCommandRequest();
             request.CommandId = commandId;
@@ -573,7 +580,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CancelCommand">REST API Reference for CancelCommand Operation</seealso>
-        public Task<CancelCommandResponse> CancelCommandAsync(string commandId, List<string> instanceIds, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CancelCommandResponse> CancelCommandAsync(string commandId, List<string> instanceIds, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new CancelCommandRequest();
             request.CommandId = commandId;
@@ -591,7 +598,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CancelCommand">REST API Reference for CancelCommand Operation</seealso>
-        public Task<CancelCommandResponse> CancelCommandAsync(CancelCommandRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CancelCommandResponse> CancelCommandAsync(CancelCommandRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CancelCommandRequestMarshaller();
             var unmarshaller = CancelCommandResponseUnmarshaller.Instance;
@@ -619,7 +626,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateActivation">REST API Reference for CreateActivation Operation</seealso>
-        public CreateActivationResponse CreateActivation(CreateActivationRequest request)
+        public virtual CreateActivationResponse CreateActivation(CreateActivationRequest request)
         {
             var marshaller = new CreateActivationRequestMarshaller();
             var unmarshaller = CreateActivationResponseUnmarshaller.Instance;
@@ -637,7 +644,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateActivation">REST API Reference for CreateActivation Operation</seealso>
-        public Task<CreateActivationResponse> CreateActivationAsync(CreateActivationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateActivationResponse> CreateActivationAsync(CreateActivationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateActivationRequestMarshaller();
             var unmarshaller = CreateActivationResponseUnmarshaller.Instance;
@@ -714,8 +721,8 @@ namespace Amazon.SimpleSystemsManagement
         /// The output location is not valid or does not exist.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidParametersException">
-        /// You must specify values for all required parameters in the SSM document. You can only
-        /// supply values to parameters defined in the SSM document.
+        /// You must specify values for all required parameters in the Systems Manager document.
+        /// You can only supply values to parameters defined in the Systems Manager document.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidScheduleException">
         /// The schedule is invalid. Verify your cron or rate expression and try again.
@@ -729,7 +736,7 @@ namespace Amazon.SimpleSystemsManagement
         /// you sent an document for a Windows instance to a Linux instance.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateAssociation">REST API Reference for CreateAssociation Operation</seealso>
-        public CreateAssociationResponse CreateAssociation(string instanceId, string name)
+        public virtual CreateAssociationResponse CreateAssociation(string instanceId, string name)
         {
             var request = new CreateAssociationRequest();
             request.InstanceId = instanceId;
@@ -800,8 +807,8 @@ namespace Amazon.SimpleSystemsManagement
         /// The output location is not valid or does not exist.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidParametersException">
-        /// You must specify values for all required parameters in the SSM document. You can only
-        /// supply values to parameters defined in the SSM document.
+        /// You must specify values for all required parameters in the Systems Manager document.
+        /// You can only supply values to parameters defined in the Systems Manager document.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidScheduleException">
         /// The schedule is invalid. Verify your cron or rate expression and try again.
@@ -815,7 +822,7 @@ namespace Amazon.SimpleSystemsManagement
         /// you sent an document for a Windows instance to a Linux instance.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateAssociation">REST API Reference for CreateAssociation Operation</seealso>
-        public CreateAssociationResponse CreateAssociation(CreateAssociationRequest request)
+        public virtual CreateAssociationResponse CreateAssociation(CreateAssociationRequest request)
         {
             var marshaller = new CreateAssociationRequestMarshaller();
             var unmarshaller = CreateAssociationResponseUnmarshaller.Instance;
@@ -890,8 +897,8 @@ namespace Amazon.SimpleSystemsManagement
         /// The output location is not valid or does not exist.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidParametersException">
-        /// You must specify values for all required parameters in the SSM document. You can only
-        /// supply values to parameters defined in the SSM document.
+        /// You must specify values for all required parameters in the Systems Manager document.
+        /// You can only supply values to parameters defined in the Systems Manager document.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidScheduleException">
         /// The schedule is invalid. Verify your cron or rate expression and try again.
@@ -905,7 +912,7 @@ namespace Amazon.SimpleSystemsManagement
         /// you sent an document for a Windows instance to a Linux instance.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateAssociation">REST API Reference for CreateAssociation Operation</seealso>
-        public Task<CreateAssociationResponse> CreateAssociationAsync(string instanceId, string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateAssociationResponse> CreateAssociationAsync(string instanceId, string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new CreateAssociationRequest();
             request.InstanceId = instanceId;
@@ -923,7 +930,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateAssociation">REST API Reference for CreateAssociation Operation</seealso>
-        public Task<CreateAssociationResponse> CreateAssociationAsync(CreateAssociationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateAssociationResponse> CreateAssociationAsync(CreateAssociationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateAssociationRequestMarshaller();
             var unmarshaller = CreateAssociationResponseUnmarshaller.Instance;
@@ -999,8 +1006,8 @@ namespace Amazon.SimpleSystemsManagement
         /// The output location is not valid or does not exist.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidParametersException">
-        /// You must specify values for all required parameters in the SSM document. You can only
-        /// supply values to parameters defined in the SSM document.
+        /// You must specify values for all required parameters in the Systems Manager document.
+        /// You can only supply values to parameters defined in the Systems Manager document.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidScheduleException">
         /// The schedule is invalid. Verify your cron or rate expression and try again.
@@ -1014,7 +1021,7 @@ namespace Amazon.SimpleSystemsManagement
         /// you sent an document for a Windows instance to a Linux instance.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateAssociationBatch">REST API Reference for CreateAssociationBatch Operation</seealso>
-        public CreateAssociationBatchResponse CreateAssociationBatch(CreateAssociationBatchRequest request)
+        public virtual CreateAssociationBatchResponse CreateAssociationBatch(CreateAssociationBatchRequest request)
         {
             var marshaller = new CreateAssociationBatchRequestMarshaller();
             var unmarshaller = CreateAssociationBatchResponseUnmarshaller.Instance;
@@ -1032,7 +1039,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateAssociationBatch">REST API Reference for CreateAssociationBatch Operation</seealso>
-        public Task<CreateAssociationBatchResponse> CreateAssociationBatchAsync(CreateAssociationBatchRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateAssociationBatchResponse> CreateAssociationBatchAsync(CreateAssociationBatchRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateAssociationBatchRequestMarshaller();
             var unmarshaller = CreateAssociationBatchResponseUnmarshaller.Instance;
@@ -1063,7 +1070,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified document already exists.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DocumentLimitExceededException">
-        /// You can have at most 200 active SSM documents.
+        /// You can have at most 200 active Systems Manager documents.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -1078,7 +1085,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The size limit of a document is 64 KB.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateDocument">REST API Reference for CreateDocument Operation</seealso>
-        public CreateDocumentResponse CreateDocument(string content, string name)
+        public virtual CreateDocumentResponse CreateDocument(string content, string name)
         {
             var request = new CreateDocumentRequest();
             request.Content = content;
@@ -1103,7 +1110,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified document already exists.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DocumentLimitExceededException">
-        /// You can have at most 200 active SSM documents.
+        /// You can have at most 200 active Systems Manager documents.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -1118,7 +1125,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The size limit of a document is 64 KB.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateDocument">REST API Reference for CreateDocument Operation</seealso>
-        public CreateDocumentResponse CreateDocument(CreateDocumentRequest request)
+        public virtual CreateDocumentResponse CreateDocument(CreateDocumentRequest request)
         {
             var marshaller = new CreateDocumentRequestMarshaller();
             var unmarshaller = CreateDocumentResponseUnmarshaller.Instance;
@@ -1147,7 +1154,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified document already exists.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DocumentLimitExceededException">
-        /// You can have at most 200 active SSM documents.
+        /// You can have at most 200 active Systems Manager documents.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -1162,7 +1169,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The size limit of a document is 64 KB.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateDocument">REST API Reference for CreateDocument Operation</seealso>
-        public Task<CreateDocumentResponse> CreateDocumentAsync(string content, string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateDocumentResponse> CreateDocumentAsync(string content, string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new CreateDocumentRequest();
             request.Content = content;
@@ -1180,7 +1187,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateDocument">REST API Reference for CreateDocument Operation</seealso>
-        public Task<CreateDocumentResponse> CreateDocumentAsync(CreateDocumentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateDocumentResponse> CreateDocumentAsync(CreateDocumentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateDocumentRequestMarshaller();
             var unmarshaller = CreateDocumentResponseUnmarshaller.Instance;
@@ -1212,7 +1219,7 @@ namespace Amazon.SimpleSystemsManagement
         /// many Maintenance Windows have been created).
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateMaintenanceWindow">REST API Reference for CreateMaintenanceWindow Operation</seealso>
-        public CreateMaintenanceWindowResponse CreateMaintenanceWindow(CreateMaintenanceWindowRequest request)
+        public virtual CreateMaintenanceWindowResponse CreateMaintenanceWindow(CreateMaintenanceWindowRequest request)
         {
             var marshaller = new CreateMaintenanceWindowRequestMarshaller();
             var unmarshaller = CreateMaintenanceWindowResponseUnmarshaller.Instance;
@@ -1230,7 +1237,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateMaintenanceWindow">REST API Reference for CreateMaintenanceWindow Operation</seealso>
-        public Task<CreateMaintenanceWindowResponse> CreateMaintenanceWindowAsync(CreateMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateMaintenanceWindowResponse> CreateMaintenanceWindowAsync(CreateMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateMaintenanceWindowRequestMarshaller();
             var unmarshaller = CreateMaintenanceWindowResponseUnmarshaller.Instance;
@@ -1262,7 +1269,7 @@ namespace Amazon.SimpleSystemsManagement
         /// many Maintenance Windows have been created).
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreatePatchBaseline">REST API Reference for CreatePatchBaseline Operation</seealso>
-        public CreatePatchBaselineResponse CreatePatchBaseline(CreatePatchBaselineRequest request)
+        public virtual CreatePatchBaselineResponse CreatePatchBaseline(CreatePatchBaselineRequest request)
         {
             var marshaller = new CreatePatchBaselineRequestMarshaller();
             var unmarshaller = CreatePatchBaselineResponseUnmarshaller.Instance;
@@ -1280,7 +1287,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreatePatchBaseline">REST API Reference for CreatePatchBaseline Operation</seealso>
-        public Task<CreatePatchBaselineResponse> CreatePatchBaselineAsync(CreatePatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreatePatchBaselineResponse> CreatePatchBaselineAsync(CreatePatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreatePatchBaselineRequestMarshaller();
             var unmarshaller = CreatePatchBaselineResponseUnmarshaller.Instance;
@@ -1327,7 +1334,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified sync configuration is invalid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateResourceDataSync">REST API Reference for CreateResourceDataSync Operation</seealso>
-        public CreateResourceDataSyncResponse CreateResourceDataSync(CreateResourceDataSyncRequest request)
+        public virtual CreateResourceDataSyncResponse CreateResourceDataSync(CreateResourceDataSyncRequest request)
         {
             var marshaller = new CreateResourceDataSyncRequestMarshaller();
             var unmarshaller = CreateResourceDataSyncResponseUnmarshaller.Instance;
@@ -1345,7 +1352,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateResourceDataSync">REST API Reference for CreateResourceDataSync Operation</seealso>
-        public Task<CreateResourceDataSyncResponse> CreateResourceDataSyncAsync(CreateResourceDataSyncRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateResourceDataSyncResponse> CreateResourceDataSyncAsync(CreateResourceDataSyncRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateResourceDataSyncRequestMarshaller();
             var unmarshaller = CreateResourceDataSyncResponseUnmarshaller.Instance;
@@ -1379,8 +1386,11 @@ namespace Amazon.SimpleSystemsManagement
         /// The activation ID is not valid. Verify the you entered the correct ActivationId or
         /// ActivationCode and try again.
         /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.TooManyUpdatesException">
+        /// There are concurrent updates for a resource that supports one update at a time.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteActivation">REST API Reference for DeleteActivation Operation</seealso>
-        public DeleteActivationResponse DeleteActivation(DeleteActivationRequest request)
+        public virtual DeleteActivationResponse DeleteActivation(DeleteActivationRequest request)
         {
             var marshaller = new DeleteActivationRequestMarshaller();
             var unmarshaller = DeleteActivationResponseUnmarshaller.Instance;
@@ -1398,7 +1408,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteActivation">REST API Reference for DeleteActivation Operation</seealso>
-        public Task<DeleteActivationResponse> DeleteActivationAsync(DeleteActivationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteActivationResponse> DeleteActivationAsync(DeleteActivationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteActivationRequestMarshaller();
             var unmarshaller = DeleteActivationResponseUnmarshaller.Instance;
@@ -1464,7 +1474,7 @@ namespace Amazon.SimpleSystemsManagement
         /// There are concurrent updates for a resource that supports one update at a time.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteAssociation">REST API Reference for DeleteAssociation Operation</seealso>
-        public DeleteAssociationResponse DeleteAssociation(string instanceId, string name)
+        public virtual DeleteAssociationResponse DeleteAssociation(string instanceId, string name)
         {
             var request = new DeleteAssociationRequest();
             request.InstanceId = instanceId;
@@ -1524,7 +1534,7 @@ namespace Amazon.SimpleSystemsManagement
         /// There are concurrent updates for a resource that supports one update at a time.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteAssociation">REST API Reference for DeleteAssociation Operation</seealso>
-        public DeleteAssociationResponse DeleteAssociation(DeleteAssociationRequest request)
+        public virtual DeleteAssociationResponse DeleteAssociation(DeleteAssociationRequest request)
         {
             var marshaller = new DeleteAssociationRequestMarshaller();
             var unmarshaller = DeleteAssociationResponseUnmarshaller.Instance;
@@ -1588,7 +1598,7 @@ namespace Amazon.SimpleSystemsManagement
         /// There are concurrent updates for a resource that supports one update at a time.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteAssociation">REST API Reference for DeleteAssociation Operation</seealso>
-        public Task<DeleteAssociationResponse> DeleteAssociationAsync(string instanceId, string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteAssociationResponse> DeleteAssociationAsync(string instanceId, string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new DeleteAssociationRequest();
             request.InstanceId = instanceId;
@@ -1606,7 +1616,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteAssociation">REST API Reference for DeleteAssociation Operation</seealso>
-        public Task<DeleteAssociationResponse> DeleteAssociationAsync(DeleteAssociationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteAssociationResponse> DeleteAssociationAsync(DeleteAssociationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteAssociationRequestMarshaller();
             var unmarshaller = DeleteAssociationResponseUnmarshaller.Instance;
@@ -1646,7 +1656,7 @@ namespace Amazon.SimpleSystemsManagement
         /// the document before you can delete it.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteDocument">REST API Reference for DeleteDocument Operation</seealso>
-        public DeleteDocumentResponse DeleteDocument(string name)
+        public virtual DeleteDocumentResponse DeleteDocument(string name)
         {
             var request = new DeleteDocumentRequest();
             request.Name = name;
@@ -1680,7 +1690,7 @@ namespace Amazon.SimpleSystemsManagement
         /// the document before you can delete it.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteDocument">REST API Reference for DeleteDocument Operation</seealso>
-        public DeleteDocumentResponse DeleteDocument(DeleteDocumentRequest request)
+        public virtual DeleteDocumentResponse DeleteDocument(DeleteDocumentRequest request)
         {
             var marshaller = new DeleteDocumentRequestMarshaller();
             var unmarshaller = DeleteDocumentResponseUnmarshaller.Instance;
@@ -1718,7 +1728,7 @@ namespace Amazon.SimpleSystemsManagement
         /// the document before you can delete it.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteDocument">REST API Reference for DeleteDocument Operation</seealso>
-        public Task<DeleteDocumentResponse> DeleteDocumentAsync(string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteDocumentResponse> DeleteDocumentAsync(string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new DeleteDocumentRequest();
             request.Name = name;
@@ -1735,7 +1745,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteDocument">REST API Reference for DeleteDocument Operation</seealso>
-        public Task<DeleteDocumentResponse> DeleteDocumentAsync(DeleteDocumentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteDocumentResponse> DeleteDocumentAsync(DeleteDocumentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteDocumentRequestMarshaller();
             var unmarshaller = DeleteDocumentResponseUnmarshaller.Instance;
@@ -1759,7 +1769,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteMaintenanceWindow">REST API Reference for DeleteMaintenanceWindow Operation</seealso>
-        public DeleteMaintenanceWindowResponse DeleteMaintenanceWindow(DeleteMaintenanceWindowRequest request)
+        public virtual DeleteMaintenanceWindowResponse DeleteMaintenanceWindow(DeleteMaintenanceWindowRequest request)
         {
             var marshaller = new DeleteMaintenanceWindowRequestMarshaller();
             var unmarshaller = DeleteMaintenanceWindowResponseUnmarshaller.Instance;
@@ -1777,7 +1787,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteMaintenanceWindow">REST API Reference for DeleteMaintenanceWindow Operation</seealso>
-        public Task<DeleteMaintenanceWindowResponse> DeleteMaintenanceWindowAsync(DeleteMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteMaintenanceWindowResponse> DeleteMaintenanceWindowAsync(DeleteMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteMaintenanceWindowRequestMarshaller();
             var unmarshaller = DeleteMaintenanceWindowResponseUnmarshaller.Instance;
@@ -1804,7 +1814,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The parameter could not be found. Verify the name and try again.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteParameter">REST API Reference for DeleteParameter Operation</seealso>
-        public DeleteParameterResponse DeleteParameter(DeleteParameterRequest request)
+        public virtual DeleteParameterResponse DeleteParameter(DeleteParameterRequest request)
         {
             var marshaller = new DeleteParameterRequestMarshaller();
             var unmarshaller = DeleteParameterResponseUnmarshaller.Instance;
@@ -1822,7 +1832,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteParameter">REST API Reference for DeleteParameter Operation</seealso>
-        public Task<DeleteParameterResponse> DeleteParameterAsync(DeleteParameterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteParameterResponse> DeleteParameterAsync(DeleteParameterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteParameterRequestMarshaller();
             var unmarshaller = DeleteParameterResponseUnmarshaller.Instance;
@@ -1847,7 +1857,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteParameters">REST API Reference for DeleteParameters Operation</seealso>
-        public DeleteParametersResponse DeleteParameters(DeleteParametersRequest request)
+        public virtual DeleteParametersResponse DeleteParameters(DeleteParametersRequest request)
         {
             var marshaller = new DeleteParametersRequestMarshaller();
             var unmarshaller = DeleteParametersResponseUnmarshaller.Instance;
@@ -1865,7 +1875,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteParameters">REST API Reference for DeleteParameters Operation</seealso>
-        public Task<DeleteParametersResponse> DeleteParametersAsync(DeleteParametersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteParametersResponse> DeleteParametersAsync(DeleteParametersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteParametersRequestMarshaller();
             var unmarshaller = DeleteParametersResponseUnmarshaller.Instance;
@@ -1893,7 +1903,7 @@ namespace Amazon.SimpleSystemsManagement
         /// for a patch group.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeletePatchBaseline">REST API Reference for DeletePatchBaseline Operation</seealso>
-        public DeletePatchBaselineResponse DeletePatchBaseline(DeletePatchBaselineRequest request)
+        public virtual DeletePatchBaselineResponse DeletePatchBaseline(DeletePatchBaselineRequest request)
         {
             var marshaller = new DeletePatchBaselineRequestMarshaller();
             var unmarshaller = DeletePatchBaselineResponseUnmarshaller.Instance;
@@ -1911,7 +1921,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeletePatchBaseline">REST API Reference for DeletePatchBaseline Operation</seealso>
-        public Task<DeletePatchBaselineResponse> DeletePatchBaselineAsync(DeletePatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeletePatchBaselineResponse> DeletePatchBaselineAsync(DeletePatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeletePatchBaselineRequestMarshaller();
             var unmarshaller = DeletePatchBaselineResponseUnmarshaller.Instance;
@@ -1941,7 +1951,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified sync name was not found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteResourceDataSync">REST API Reference for DeleteResourceDataSync Operation</seealso>
-        public DeleteResourceDataSyncResponse DeleteResourceDataSync(DeleteResourceDataSyncRequest request)
+        public virtual DeleteResourceDataSyncResponse DeleteResourceDataSync(DeleteResourceDataSyncRequest request)
         {
             var marshaller = new DeleteResourceDataSyncRequestMarshaller();
             var unmarshaller = DeleteResourceDataSyncResponseUnmarshaller.Instance;
@@ -1959,7 +1969,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeleteResourceDataSync">REST API Reference for DeleteResourceDataSync Operation</seealso>
-        public Task<DeleteResourceDataSyncResponse> DeleteResourceDataSyncAsync(DeleteResourceDataSyncRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteResourceDataSyncResponse> DeleteResourceDataSyncAsync(DeleteResourceDataSyncRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteResourceDataSyncRequestMarshaller();
             var unmarshaller = DeleteResourceDataSyncResponseUnmarshaller.Instance;
@@ -2009,7 +2019,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeregisterManagedInstance">REST API Reference for DeregisterManagedInstance Operation</seealso>
-        public DeregisterManagedInstanceResponse DeregisterManagedInstance(DeregisterManagedInstanceRequest request)
+        public virtual DeregisterManagedInstanceResponse DeregisterManagedInstance(DeregisterManagedInstanceRequest request)
         {
             var marshaller = new DeregisterManagedInstanceRequestMarshaller();
             var unmarshaller = DeregisterManagedInstanceResponseUnmarshaller.Instance;
@@ -2027,7 +2037,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeregisterManagedInstance">REST API Reference for DeregisterManagedInstance Operation</seealso>
-        public Task<DeregisterManagedInstanceResponse> DeregisterManagedInstanceAsync(DeregisterManagedInstanceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeregisterManagedInstanceResponse> DeregisterManagedInstanceAsync(DeregisterManagedInstanceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeregisterManagedInstanceRequestMarshaller();
             var unmarshaller = DeregisterManagedInstanceResponseUnmarshaller.Instance;
@@ -2054,7 +2064,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The resource ID is not valid. Verify that you entered the correct ID and try again.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeregisterPatchBaselineForPatchGroup">REST API Reference for DeregisterPatchBaselineForPatchGroup Operation</seealso>
-        public DeregisterPatchBaselineForPatchGroupResponse DeregisterPatchBaselineForPatchGroup(DeregisterPatchBaselineForPatchGroupRequest request)
+        public virtual DeregisterPatchBaselineForPatchGroupResponse DeregisterPatchBaselineForPatchGroup(DeregisterPatchBaselineForPatchGroupRequest request)
         {
             var marshaller = new DeregisterPatchBaselineForPatchGroupRequestMarshaller();
             var unmarshaller = DeregisterPatchBaselineForPatchGroupResponseUnmarshaller.Instance;
@@ -2072,7 +2082,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeregisterPatchBaselineForPatchGroup">REST API Reference for DeregisterPatchBaselineForPatchGroup Operation</seealso>
-        public Task<DeregisterPatchBaselineForPatchGroupResponse> DeregisterPatchBaselineForPatchGroupAsync(DeregisterPatchBaselineForPatchGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeregisterPatchBaselineForPatchGroupResponse> DeregisterPatchBaselineForPatchGroupAsync(DeregisterPatchBaselineForPatchGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeregisterPatchBaselineForPatchGroupRequestMarshaller();
             var unmarshaller = DeregisterPatchBaselineForPatchGroupResponseUnmarshaller.Instance;
@@ -2104,7 +2114,7 @@ namespace Amazon.SimpleSystemsManagement
         /// operation, but the target is still referenced in a task.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeregisterTargetFromMaintenanceWindow">REST API Reference for DeregisterTargetFromMaintenanceWindow Operation</seealso>
-        public DeregisterTargetFromMaintenanceWindowResponse DeregisterTargetFromMaintenanceWindow(DeregisterTargetFromMaintenanceWindowRequest request)
+        public virtual DeregisterTargetFromMaintenanceWindowResponse DeregisterTargetFromMaintenanceWindow(DeregisterTargetFromMaintenanceWindowRequest request)
         {
             var marshaller = new DeregisterTargetFromMaintenanceWindowRequestMarshaller();
             var unmarshaller = DeregisterTargetFromMaintenanceWindowResponseUnmarshaller.Instance;
@@ -2122,7 +2132,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeregisterTargetFromMaintenanceWindow">REST API Reference for DeregisterTargetFromMaintenanceWindow Operation</seealso>
-        public Task<DeregisterTargetFromMaintenanceWindowResponse> DeregisterTargetFromMaintenanceWindowAsync(DeregisterTargetFromMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeregisterTargetFromMaintenanceWindowResponse> DeregisterTargetFromMaintenanceWindowAsync(DeregisterTargetFromMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeregisterTargetFromMaintenanceWindowRequestMarshaller();
             var unmarshaller = DeregisterTargetFromMaintenanceWindowResponseUnmarshaller.Instance;
@@ -2150,7 +2160,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeregisterTaskFromMaintenanceWindow">REST API Reference for DeregisterTaskFromMaintenanceWindow Operation</seealso>
-        public DeregisterTaskFromMaintenanceWindowResponse DeregisterTaskFromMaintenanceWindow(DeregisterTaskFromMaintenanceWindowRequest request)
+        public virtual DeregisterTaskFromMaintenanceWindowResponse DeregisterTaskFromMaintenanceWindow(DeregisterTaskFromMaintenanceWindowRequest request)
         {
             var marshaller = new DeregisterTaskFromMaintenanceWindowRequestMarshaller();
             var unmarshaller = DeregisterTaskFromMaintenanceWindowResponseUnmarshaller.Instance;
@@ -2168,7 +2178,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DeregisterTaskFromMaintenanceWindow">REST API Reference for DeregisterTaskFromMaintenanceWindow Operation</seealso>
-        public Task<DeregisterTaskFromMaintenanceWindowResponse> DeregisterTaskFromMaintenanceWindowAsync(DeregisterTaskFromMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeregisterTaskFromMaintenanceWindowResponse> DeregisterTaskFromMaintenanceWindowAsync(DeregisterTaskFromMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeregisterTaskFromMaintenanceWindowRequestMarshaller();
             var unmarshaller = DeregisterTaskFromMaintenanceWindowResponseUnmarshaller.Instance;
@@ -2200,7 +2210,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeActivations">REST API Reference for DescribeActivations Operation</seealso>
-        public DescribeActivationsResponse DescribeActivations(DescribeActivationsRequest request)
+        public virtual DescribeActivationsResponse DescribeActivations(DescribeActivationsRequest request)
         {
             var marshaller = new DescribeActivationsRequestMarshaller();
             var unmarshaller = DescribeActivationsResponseUnmarshaller.Instance;
@@ -2218,7 +2228,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeActivations">REST API Reference for DescribeActivations Operation</seealso>
-        public Task<DescribeActivationsResponse> DescribeActivationsAsync(DescribeActivationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeActivationsResponse> DescribeActivationsAsync(DescribeActivationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeActivationsRequestMarshaller();
             var unmarshaller = DescribeActivationsResponseUnmarshaller.Instance;
@@ -2236,7 +2246,7 @@ namespace Amazon.SimpleSystemsManagement
         /// Describes the associations for the specified Systems Manager document or instance.
         /// </summary>
         /// <param name="instanceId">The instance ID.</param>
-        /// <param name="name">The name of the SSM document.</param>
+        /// <param name="name">The name of the Systems Manager document.</param>
         /// 
         /// <returns>The response from the DescribeAssociation service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.AssociationDoesNotExistException">
@@ -2278,7 +2288,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAssociation">REST API Reference for DescribeAssociation Operation</seealso>
-        public DescribeAssociationResponse DescribeAssociation(string instanceId, string name)
+        public virtual DescribeAssociationResponse DescribeAssociation(string instanceId, string name)
         {
             var request = new DescribeAssociationRequest();
             request.InstanceId = instanceId;
@@ -2332,7 +2342,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAssociation">REST API Reference for DescribeAssociation Operation</seealso>
-        public DescribeAssociationResponse DescribeAssociation(DescribeAssociationRequest request)
+        public virtual DescribeAssociationResponse DescribeAssociation(DescribeAssociationRequest request)
         {
             var marshaller = new DescribeAssociationRequestMarshaller();
             var unmarshaller = DescribeAssociationResponseUnmarshaller.Instance;
@@ -2345,7 +2355,7 @@ namespace Amazon.SimpleSystemsManagement
         /// Describes the associations for the specified Systems Manager document or instance.
         /// </summary>
         /// <param name="instanceId">The instance ID.</param>
-        /// <param name="name">The name of the SSM document.</param>
+        /// <param name="name">The name of the Systems Manager document.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -2390,7 +2400,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAssociation">REST API Reference for DescribeAssociation Operation</seealso>
-        public Task<DescribeAssociationResponse> DescribeAssociationAsync(string instanceId, string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeAssociationResponse> DescribeAssociationAsync(string instanceId, string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new DescribeAssociationRequest();
             request.InstanceId = instanceId;
@@ -2408,7 +2418,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAssociation">REST API Reference for DescribeAssociation Operation</seealso>
-        public Task<DescribeAssociationResponse> DescribeAssociationAsync(DescribeAssociationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeAssociationResponse> DescribeAssociationAsync(DescribeAssociationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeAssociationRequestMarshaller();
             var unmarshaller = DescribeAssociationResponseUnmarshaller.Instance;
@@ -2435,7 +2445,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAutomationExecutions">REST API Reference for DescribeAutomationExecutions Operation</seealso>
-        public DescribeAutomationExecutionsResponse DescribeAutomationExecutions(DescribeAutomationExecutionsRequest request)
+        public virtual DescribeAutomationExecutionsResponse DescribeAutomationExecutions(DescribeAutomationExecutionsRequest request)
         {
             var marshaller = new DescribeAutomationExecutionsRequestMarshaller();
             var unmarshaller = DescribeAutomationExecutionsResponseUnmarshaller.Instance;
@@ -2453,7 +2463,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAutomationExecutions">REST API Reference for DescribeAutomationExecutions Operation</seealso>
-        public Task<DescribeAutomationExecutionsResponse> DescribeAutomationExecutionsAsync(DescribeAutomationExecutionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeAutomationExecutionsResponse> DescribeAutomationExecutionsAsync(DescribeAutomationExecutionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeAutomationExecutionsRequestMarshaller();
             var unmarshaller = DescribeAutomationExecutionsResponseUnmarshaller.Instance;
@@ -2477,7 +2487,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAvailablePatches">REST API Reference for DescribeAvailablePatches Operation</seealso>
-        public DescribeAvailablePatchesResponse DescribeAvailablePatches(DescribeAvailablePatchesRequest request)
+        public virtual DescribeAvailablePatchesResponse DescribeAvailablePatches(DescribeAvailablePatchesRequest request)
         {
             var marshaller = new DescribeAvailablePatchesRequestMarshaller();
             var unmarshaller = DescribeAvailablePatchesResponseUnmarshaller.Instance;
@@ -2495,7 +2505,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAvailablePatches">REST API Reference for DescribeAvailablePatches Operation</seealso>
-        public Task<DescribeAvailablePatchesResponse> DescribeAvailablePatchesAsync(DescribeAvailablePatchesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeAvailablePatchesResponse> DescribeAvailablePatchesAsync(DescribeAvailablePatchesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeAvailablePatchesRequestMarshaller();
             var unmarshaller = DescribeAvailablePatchesResponseUnmarshaller.Instance;
@@ -2510,9 +2520,9 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Describes the specified SSM document.
+        /// Describes the specified Systems Manager document.
         /// </summary>
-        /// <param name="name">The name of the SSM document.</param>
+        /// <param name="name">The name of the Systems Manager document.</param>
         /// 
         /// <returns>The response from the DescribeDocument service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
@@ -2525,7 +2535,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The document version is not valid or does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeDocument">REST API Reference for DescribeDocument Operation</seealso>
-        public DescribeDocumentResponse DescribeDocument(string name)
+        public virtual DescribeDocumentResponse DescribeDocument(string name)
         {
             var request = new DescribeDocumentRequest();
             request.Name = name;
@@ -2534,7 +2544,7 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Describes the specified SSM document.
+        /// Describes the specified Systems Manager document.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeDocument service method.</param>
         /// 
@@ -2549,7 +2559,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The document version is not valid or does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeDocument">REST API Reference for DescribeDocument Operation</seealso>
-        public DescribeDocumentResponse DescribeDocument(DescribeDocumentRequest request)
+        public virtual DescribeDocumentResponse DescribeDocument(DescribeDocumentRequest request)
         {
             var marshaller = new DescribeDocumentRequestMarshaller();
             var unmarshaller = DescribeDocumentResponseUnmarshaller.Instance;
@@ -2559,9 +2569,9 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Describes the specified SSM document.
+        /// Describes the specified Systems Manager document.
         /// </summary>
-        /// <param name="name">The name of the SSM document.</param>
+        /// <param name="name">The name of the Systems Manager document.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -2577,7 +2587,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The document version is not valid or does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeDocument">REST API Reference for DescribeDocument Operation</seealso>
-        public Task<DescribeDocumentResponse> DescribeDocumentAsync(string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeDocumentResponse> DescribeDocumentAsync(string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new DescribeDocumentRequest();
             request.Name = name;
@@ -2594,7 +2604,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeDocument">REST API Reference for DescribeDocument Operation</seealso>
-        public Task<DescribeDocumentResponse> DescribeDocumentAsync(DescribeDocumentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeDocumentResponse> DescribeDocumentAsync(DescribeDocumentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeDocumentRequestMarshaller();
             var unmarshaller = DescribeDocumentResponseUnmarshaller.Instance;
@@ -2627,7 +2637,7 @@ namespace Amazon.SimpleSystemsManagement
         /// type.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeDocumentPermission">REST API Reference for DescribeDocumentPermission Operation</seealso>
-        public DescribeDocumentPermissionResponse DescribeDocumentPermission(DescribeDocumentPermissionRequest request)
+        public virtual DescribeDocumentPermissionResponse DescribeDocumentPermission(DescribeDocumentPermissionRequest request)
         {
             var marshaller = new DescribeDocumentPermissionRequestMarshaller();
             var unmarshaller = DescribeDocumentPermissionResponseUnmarshaller.Instance;
@@ -2645,7 +2655,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeDocumentPermission">REST API Reference for DescribeDocumentPermission Operation</seealso>
-        public Task<DescribeDocumentPermissionResponse> DescribeDocumentPermissionAsync(DescribeDocumentPermissionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeDocumentPermissionResponse> DescribeDocumentPermissionAsync(DescribeDocumentPermissionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeDocumentPermissionRequestMarshaller();
             var unmarshaller = DescribeDocumentPermissionResponseUnmarshaller.Instance;
@@ -2696,7 +2706,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeEffectiveInstanceAssociations">REST API Reference for DescribeEffectiveInstanceAssociations Operation</seealso>
-        public DescribeEffectiveInstanceAssociationsResponse DescribeEffectiveInstanceAssociations(DescribeEffectiveInstanceAssociationsRequest request)
+        public virtual DescribeEffectiveInstanceAssociationsResponse DescribeEffectiveInstanceAssociations(DescribeEffectiveInstanceAssociationsRequest request)
         {
             var marshaller = new DescribeEffectiveInstanceAssociationsRequestMarshaller();
             var unmarshaller = DescribeEffectiveInstanceAssociationsResponseUnmarshaller.Instance;
@@ -2714,7 +2724,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeEffectiveInstanceAssociations">REST API Reference for DescribeEffectiveInstanceAssociations Operation</seealso>
-        public Task<DescribeEffectiveInstanceAssociationsResponse> DescribeEffectiveInstanceAssociationsAsync(DescribeEffectiveInstanceAssociationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeEffectiveInstanceAssociationsResponse> DescribeEffectiveInstanceAssociationsAsync(DescribeEffectiveInstanceAssociationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeEffectiveInstanceAssociationsRequestMarshaller();
             var unmarshaller = DescribeEffectiveInstanceAssociationsResponseUnmarshaller.Instance;
@@ -2751,7 +2761,7 @@ namespace Amazon.SimpleSystemsManagement
         /// and Ubuntu.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeEffectivePatchesForPatchBaseline">REST API Reference for DescribeEffectivePatchesForPatchBaseline Operation</seealso>
-        public DescribeEffectivePatchesForPatchBaselineResponse DescribeEffectivePatchesForPatchBaseline(DescribeEffectivePatchesForPatchBaselineRequest request)
+        public virtual DescribeEffectivePatchesForPatchBaselineResponse DescribeEffectivePatchesForPatchBaseline(DescribeEffectivePatchesForPatchBaselineRequest request)
         {
             var marshaller = new DescribeEffectivePatchesForPatchBaselineRequestMarshaller();
             var unmarshaller = DescribeEffectivePatchesForPatchBaselineResponseUnmarshaller.Instance;
@@ -2769,7 +2779,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeEffectivePatchesForPatchBaseline">REST API Reference for DescribeEffectivePatchesForPatchBaseline Operation</seealso>
-        public Task<DescribeEffectivePatchesForPatchBaselineResponse> DescribeEffectivePatchesForPatchBaselineAsync(DescribeEffectivePatchesForPatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeEffectivePatchesForPatchBaselineResponse> DescribeEffectivePatchesForPatchBaselineAsync(DescribeEffectivePatchesForPatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeEffectivePatchesForPatchBaselineRequestMarshaller();
             var unmarshaller = DescribeEffectivePatchesForPatchBaselineResponseUnmarshaller.Instance;
@@ -2820,7 +2830,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstanceAssociationsStatus">REST API Reference for DescribeInstanceAssociationsStatus Operation</seealso>
-        public DescribeInstanceAssociationsStatusResponse DescribeInstanceAssociationsStatus(DescribeInstanceAssociationsStatusRequest request)
+        public virtual DescribeInstanceAssociationsStatusResponse DescribeInstanceAssociationsStatus(DescribeInstanceAssociationsStatusRequest request)
         {
             var marshaller = new DescribeInstanceAssociationsStatusRequestMarshaller();
             var unmarshaller = DescribeInstanceAssociationsStatusResponseUnmarshaller.Instance;
@@ -2838,7 +2848,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstanceAssociationsStatus">REST API Reference for DescribeInstanceAssociationsStatus Operation</seealso>
-        public Task<DescribeInstanceAssociationsStatusResponse> DescribeInstanceAssociationsStatusAsync(DescribeInstanceAssociationsStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeInstanceAssociationsStatusResponse> DescribeInstanceAssociationsStatusAsync(DescribeInstanceAssociationsStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeInstanceAssociationsStatusRequestMarshaller();
             var unmarshaller = DescribeInstanceAssociationsStatusResponseUnmarshaller.Instance;
@@ -2899,7 +2909,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstanceInformation">REST API Reference for DescribeInstanceInformation Operation</seealso>
-        public DescribeInstanceInformationResponse DescribeInstanceInformation()
+        public virtual DescribeInstanceInformationResponse DescribeInstanceInformation()
         {
             return DescribeInstanceInformation(new DescribeInstanceInformationRequest());
         }
@@ -2953,7 +2963,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstanceInformation">REST API Reference for DescribeInstanceInformation Operation</seealso>
-        public DescribeInstanceInformationResponse DescribeInstanceInformation(DescribeInstanceInformationRequest request)
+        public virtual DescribeInstanceInformationResponse DescribeInstanceInformation(DescribeInstanceInformationRequest request)
         {
             var marshaller = new DescribeInstanceInformationRequestMarshaller();
             var unmarshaller = DescribeInstanceInformationResponseUnmarshaller.Instance;
@@ -3012,7 +3022,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstanceInformation">REST API Reference for DescribeInstanceInformation Operation</seealso>
-        public Task<DescribeInstanceInformationResponse> DescribeInstanceInformationAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeInstanceInformationResponse> DescribeInstanceInformationAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             return DescribeInstanceInformationAsync(new DescribeInstanceInformationRequest(), cancellationToken);
         }
@@ -3026,7 +3036,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstanceInformation">REST API Reference for DescribeInstanceInformation Operation</seealso>
-        public Task<DescribeInstanceInformationResponse> DescribeInstanceInformationAsync(DescribeInstanceInformationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeInstanceInformationResponse> DescribeInstanceInformationAsync(DescribeInstanceInformationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeInstanceInformationRequestMarshaller();
             var unmarshaller = DescribeInstanceInformationResponseUnmarshaller.Instance;
@@ -3081,7 +3091,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstancePatches">REST API Reference for DescribeInstancePatches Operation</seealso>
-        public DescribeInstancePatchesResponse DescribeInstancePatches(DescribeInstancePatchesRequest request)
+        public virtual DescribeInstancePatchesResponse DescribeInstancePatches(DescribeInstancePatchesRequest request)
         {
             var marshaller = new DescribeInstancePatchesRequestMarshaller();
             var unmarshaller = DescribeInstancePatchesResponseUnmarshaller.Instance;
@@ -3099,7 +3109,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstancePatches">REST API Reference for DescribeInstancePatches Operation</seealso>
-        public Task<DescribeInstancePatchesResponse> DescribeInstancePatchesAsync(DescribeInstancePatchesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeInstancePatchesResponse> DescribeInstancePatchesAsync(DescribeInstancePatchesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeInstancePatchesRequestMarshaller();
             var unmarshaller = DescribeInstancePatchesResponseUnmarshaller.Instance;
@@ -3126,7 +3136,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstancePatchStates">REST API Reference for DescribeInstancePatchStates Operation</seealso>
-        public DescribeInstancePatchStatesResponse DescribeInstancePatchStates(DescribeInstancePatchStatesRequest request)
+        public virtual DescribeInstancePatchStatesResponse DescribeInstancePatchStates(DescribeInstancePatchStatesRequest request)
         {
             var marshaller = new DescribeInstancePatchStatesRequestMarshaller();
             var unmarshaller = DescribeInstancePatchStatesResponseUnmarshaller.Instance;
@@ -3144,7 +3154,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstancePatchStates">REST API Reference for DescribeInstancePatchStates Operation</seealso>
-        public Task<DescribeInstancePatchStatesResponse> DescribeInstancePatchStatesAsync(DescribeInstancePatchStatesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeInstancePatchStatesResponse> DescribeInstancePatchStatesAsync(DescribeInstancePatchStatesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeInstancePatchStatesRequestMarshaller();
             var unmarshaller = DescribeInstancePatchStatesResponseUnmarshaller.Instance;
@@ -3174,7 +3184,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstancePatchStatesForPatchGroup">REST API Reference for DescribeInstancePatchStatesForPatchGroup Operation</seealso>
-        public DescribeInstancePatchStatesForPatchGroupResponse DescribeInstancePatchStatesForPatchGroup(DescribeInstancePatchStatesForPatchGroupRequest request)
+        public virtual DescribeInstancePatchStatesForPatchGroupResponse DescribeInstancePatchStatesForPatchGroup(DescribeInstancePatchStatesForPatchGroupRequest request)
         {
             var marshaller = new DescribeInstancePatchStatesForPatchGroupRequestMarshaller();
             var unmarshaller = DescribeInstancePatchStatesForPatchGroupResponseUnmarshaller.Instance;
@@ -3192,7 +3202,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeInstancePatchStatesForPatchGroup">REST API Reference for DescribeInstancePatchStatesForPatchGroup Operation</seealso>
-        public Task<DescribeInstancePatchStatesForPatchGroupResponse> DescribeInstancePatchStatesForPatchGroupAsync(DescribeInstancePatchStatesForPatchGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeInstancePatchStatesForPatchGroupResponse> DescribeInstancePatchStatesForPatchGroupAsync(DescribeInstancePatchStatesForPatchGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeInstancePatchStatesForPatchGroupRequestMarshaller();
             var unmarshaller = DescribeInstancePatchStatesForPatchGroupResponseUnmarshaller.Instance;
@@ -3218,7 +3228,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowExecutions">REST API Reference for DescribeMaintenanceWindowExecutions Operation</seealso>
-        public DescribeMaintenanceWindowExecutionsResponse DescribeMaintenanceWindowExecutions(DescribeMaintenanceWindowExecutionsRequest request)
+        public virtual DescribeMaintenanceWindowExecutionsResponse DescribeMaintenanceWindowExecutions(DescribeMaintenanceWindowExecutionsRequest request)
         {
             var marshaller = new DescribeMaintenanceWindowExecutionsRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowExecutionsResponseUnmarshaller.Instance;
@@ -3236,7 +3246,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowExecutions">REST API Reference for DescribeMaintenanceWindowExecutions Operation</seealso>
-        public Task<DescribeMaintenanceWindowExecutionsResponse> DescribeMaintenanceWindowExecutionsAsync(DescribeMaintenanceWindowExecutionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeMaintenanceWindowExecutionsResponse> DescribeMaintenanceWindowExecutionsAsync(DescribeMaintenanceWindowExecutionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeMaintenanceWindowExecutionsRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowExecutionsResponseUnmarshaller.Instance;
@@ -3265,7 +3275,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowExecutionTaskInvocations">REST API Reference for DescribeMaintenanceWindowExecutionTaskInvocations Operation</seealso>
-        public DescribeMaintenanceWindowExecutionTaskInvocationsResponse DescribeMaintenanceWindowExecutionTaskInvocations(DescribeMaintenanceWindowExecutionTaskInvocationsRequest request)
+        public virtual DescribeMaintenanceWindowExecutionTaskInvocationsResponse DescribeMaintenanceWindowExecutionTaskInvocations(DescribeMaintenanceWindowExecutionTaskInvocationsRequest request)
         {
             var marshaller = new DescribeMaintenanceWindowExecutionTaskInvocationsRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowExecutionTaskInvocationsResponseUnmarshaller.Instance;
@@ -3283,7 +3293,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowExecutionTaskInvocations">REST API Reference for DescribeMaintenanceWindowExecutionTaskInvocations Operation</seealso>
-        public Task<DescribeMaintenanceWindowExecutionTaskInvocationsResponse> DescribeMaintenanceWindowExecutionTaskInvocationsAsync(DescribeMaintenanceWindowExecutionTaskInvocationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeMaintenanceWindowExecutionTaskInvocationsResponse> DescribeMaintenanceWindowExecutionTaskInvocationsAsync(DescribeMaintenanceWindowExecutionTaskInvocationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeMaintenanceWindowExecutionTaskInvocationsRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowExecutionTaskInvocationsResponseUnmarshaller.Instance;
@@ -3311,7 +3321,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowExecutionTasks">REST API Reference for DescribeMaintenanceWindowExecutionTasks Operation</seealso>
-        public DescribeMaintenanceWindowExecutionTasksResponse DescribeMaintenanceWindowExecutionTasks(DescribeMaintenanceWindowExecutionTasksRequest request)
+        public virtual DescribeMaintenanceWindowExecutionTasksResponse DescribeMaintenanceWindowExecutionTasks(DescribeMaintenanceWindowExecutionTasksRequest request)
         {
             var marshaller = new DescribeMaintenanceWindowExecutionTasksRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowExecutionTasksResponseUnmarshaller.Instance;
@@ -3329,7 +3339,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowExecutionTasks">REST API Reference for DescribeMaintenanceWindowExecutionTasks Operation</seealso>
-        public Task<DescribeMaintenanceWindowExecutionTasksResponse> DescribeMaintenanceWindowExecutionTasksAsync(DescribeMaintenanceWindowExecutionTasksRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeMaintenanceWindowExecutionTasksResponse> DescribeMaintenanceWindowExecutionTasksAsync(DescribeMaintenanceWindowExecutionTasksRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeMaintenanceWindowExecutionTasksRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowExecutionTasksResponseUnmarshaller.Instance;
@@ -3353,7 +3363,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindows">REST API Reference for DescribeMaintenanceWindows Operation</seealso>
-        public DescribeMaintenanceWindowsResponse DescribeMaintenanceWindows(DescribeMaintenanceWindowsRequest request)
+        public virtual DescribeMaintenanceWindowsResponse DescribeMaintenanceWindows(DescribeMaintenanceWindowsRequest request)
         {
             var marshaller = new DescribeMaintenanceWindowsRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowsResponseUnmarshaller.Instance;
@@ -3371,7 +3381,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindows">REST API Reference for DescribeMaintenanceWindows Operation</seealso>
-        public Task<DescribeMaintenanceWindowsResponse> DescribeMaintenanceWindowsAsync(DescribeMaintenanceWindowsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeMaintenanceWindowsResponse> DescribeMaintenanceWindowsAsync(DescribeMaintenanceWindowsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeMaintenanceWindowsRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowsResponseUnmarshaller.Instance;
@@ -3399,7 +3409,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowTargets">REST API Reference for DescribeMaintenanceWindowTargets Operation</seealso>
-        public DescribeMaintenanceWindowTargetsResponse DescribeMaintenanceWindowTargets(DescribeMaintenanceWindowTargetsRequest request)
+        public virtual DescribeMaintenanceWindowTargetsResponse DescribeMaintenanceWindowTargets(DescribeMaintenanceWindowTargetsRequest request)
         {
             var marshaller = new DescribeMaintenanceWindowTargetsRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowTargetsResponseUnmarshaller.Instance;
@@ -3417,7 +3427,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowTargets">REST API Reference for DescribeMaintenanceWindowTargets Operation</seealso>
-        public Task<DescribeMaintenanceWindowTargetsResponse> DescribeMaintenanceWindowTargetsAsync(DescribeMaintenanceWindowTargetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeMaintenanceWindowTargetsResponse> DescribeMaintenanceWindowTargetsAsync(DescribeMaintenanceWindowTargetsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeMaintenanceWindowTargetsRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowTargetsResponseUnmarshaller.Instance;
@@ -3445,7 +3455,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowTasks">REST API Reference for DescribeMaintenanceWindowTasks Operation</seealso>
-        public DescribeMaintenanceWindowTasksResponse DescribeMaintenanceWindowTasks(DescribeMaintenanceWindowTasksRequest request)
+        public virtual DescribeMaintenanceWindowTasksResponse DescribeMaintenanceWindowTasks(DescribeMaintenanceWindowTasksRequest request)
         {
             var marshaller = new DescribeMaintenanceWindowTasksRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowTasksResponseUnmarshaller.Instance;
@@ -3463,7 +3473,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeMaintenanceWindowTasks">REST API Reference for DescribeMaintenanceWindowTasks Operation</seealso>
-        public Task<DescribeMaintenanceWindowTasksResponse> DescribeMaintenanceWindowTasksAsync(DescribeMaintenanceWindowTasksRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeMaintenanceWindowTasksResponse> DescribeMaintenanceWindowTasksAsync(DescribeMaintenanceWindowTasksRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeMaintenanceWindowTasksRequestMarshaller();
             var unmarshaller = DescribeMaintenanceWindowTasksResponseUnmarshaller.Instance;
@@ -3511,7 +3521,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeParameters">REST API Reference for DescribeParameters Operation</seealso>
-        public DescribeParametersResponse DescribeParameters(DescribeParametersRequest request)
+        public virtual DescribeParametersResponse DescribeParameters(DescribeParametersRequest request)
         {
             var marshaller = new DescribeParametersRequestMarshaller();
             var unmarshaller = DescribeParametersResponseUnmarshaller.Instance;
@@ -3529,7 +3539,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeParameters">REST API Reference for DescribeParameters Operation</seealso>
-        public Task<DescribeParametersResponse> DescribeParametersAsync(DescribeParametersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribeParametersResponse> DescribeParametersAsync(DescribeParametersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribeParametersRequestMarshaller();
             var unmarshaller = DescribeParametersResponseUnmarshaller.Instance;
@@ -3553,7 +3563,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribePatchBaselines">REST API Reference for DescribePatchBaselines Operation</seealso>
-        public DescribePatchBaselinesResponse DescribePatchBaselines(DescribePatchBaselinesRequest request)
+        public virtual DescribePatchBaselinesResponse DescribePatchBaselines(DescribePatchBaselinesRequest request)
         {
             var marshaller = new DescribePatchBaselinesRequestMarshaller();
             var unmarshaller = DescribePatchBaselinesResponseUnmarshaller.Instance;
@@ -3571,7 +3581,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribePatchBaselines">REST API Reference for DescribePatchBaselines Operation</seealso>
-        public Task<DescribePatchBaselinesResponse> DescribePatchBaselinesAsync(DescribePatchBaselinesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribePatchBaselinesResponse> DescribePatchBaselinesAsync(DescribePatchBaselinesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribePatchBaselinesRequestMarshaller();
             var unmarshaller = DescribePatchBaselinesResponseUnmarshaller.Instance;
@@ -3595,7 +3605,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribePatchGroups">REST API Reference for DescribePatchGroups Operation</seealso>
-        public DescribePatchGroupsResponse DescribePatchGroups(DescribePatchGroupsRequest request)
+        public virtual DescribePatchGroupsResponse DescribePatchGroups(DescribePatchGroupsRequest request)
         {
             var marshaller = new DescribePatchGroupsRequestMarshaller();
             var unmarshaller = DescribePatchGroupsResponseUnmarshaller.Instance;
@@ -3613,7 +3623,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribePatchGroups">REST API Reference for DescribePatchGroups Operation</seealso>
-        public Task<DescribePatchGroupsResponse> DescribePatchGroupsAsync(DescribePatchGroupsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribePatchGroupsResponse> DescribePatchGroupsAsync(DescribePatchGroupsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribePatchGroupsRequestMarshaller();
             var unmarshaller = DescribePatchGroupsResponseUnmarshaller.Instance;
@@ -3640,7 +3650,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribePatchGroupState">REST API Reference for DescribePatchGroupState Operation</seealso>
-        public DescribePatchGroupStateResponse DescribePatchGroupState(DescribePatchGroupStateRequest request)
+        public virtual DescribePatchGroupStateResponse DescribePatchGroupState(DescribePatchGroupStateRequest request)
         {
             var marshaller = new DescribePatchGroupStateRequestMarshaller();
             var unmarshaller = DescribePatchGroupStateResponseUnmarshaller.Instance;
@@ -3658,7 +3668,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribePatchGroupState">REST API Reference for DescribePatchGroupState Operation</seealso>
-        public Task<DescribePatchGroupStateResponse> DescribePatchGroupStateAsync(DescribePatchGroupStateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DescribePatchGroupStateResponse> DescribePatchGroupStateAsync(DescribePatchGroupStateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DescribePatchGroupStateRequestMarshaller();
             var unmarshaller = DescribePatchGroupStateResponseUnmarshaller.Instance;
@@ -3686,7 +3696,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetAutomationExecution">REST API Reference for GetAutomationExecution Operation</seealso>
-        public GetAutomationExecutionResponse GetAutomationExecution(GetAutomationExecutionRequest request)
+        public virtual GetAutomationExecutionResponse GetAutomationExecution(GetAutomationExecutionRequest request)
         {
             var marshaller = new GetAutomationExecutionRequestMarshaller();
             var unmarshaller = GetAutomationExecutionResponseUnmarshaller.Instance;
@@ -3704,7 +3714,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetAutomationExecution">REST API Reference for GetAutomationExecution Operation</seealso>
-        public Task<GetAutomationExecutionResponse> GetAutomationExecutionAsync(GetAutomationExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetAutomationExecutionResponse> GetAutomationExecutionAsync(GetAutomationExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetAutomationExecutionRequestMarshaller();
             var unmarshaller = GetAutomationExecutionResponseUnmarshaller.Instance;
@@ -3762,7 +3772,7 @@ namespace Amazon.SimpleSystemsManagement
         /// the command ID adn the instance ID and try again.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetCommandInvocation">REST API Reference for GetCommandInvocation Operation</seealso>
-        public GetCommandInvocationResponse GetCommandInvocation(GetCommandInvocationRequest request)
+        public virtual GetCommandInvocationResponse GetCommandInvocation(GetCommandInvocationRequest request)
         {
             var marshaller = new GetCommandInvocationRequestMarshaller();
             var unmarshaller = GetCommandInvocationResponseUnmarshaller.Instance;
@@ -3780,7 +3790,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetCommandInvocation">REST API Reference for GetCommandInvocation Operation</seealso>
-        public Task<GetCommandInvocationResponse> GetCommandInvocationAsync(GetCommandInvocationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetCommandInvocationResponse> GetCommandInvocationAsync(GetCommandInvocationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetCommandInvocationRequestMarshaller();
             var unmarshaller = GetCommandInvocationResponseUnmarshaller.Instance;
@@ -3806,7 +3816,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDefaultPatchBaseline">REST API Reference for GetDefaultPatchBaseline Operation</seealso>
-        public GetDefaultPatchBaselineResponse GetDefaultPatchBaseline(GetDefaultPatchBaselineRequest request)
+        public virtual GetDefaultPatchBaselineResponse GetDefaultPatchBaseline(GetDefaultPatchBaselineRequest request)
         {
             var marshaller = new GetDefaultPatchBaselineRequestMarshaller();
             var unmarshaller = GetDefaultPatchBaselineResponseUnmarshaller.Instance;
@@ -3824,7 +3834,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDefaultPatchBaseline">REST API Reference for GetDefaultPatchBaseline Operation</seealso>
-        public Task<GetDefaultPatchBaselineResponse> GetDefaultPatchBaselineAsync(GetDefaultPatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetDefaultPatchBaselineResponse> GetDefaultPatchBaselineAsync(GetDefaultPatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetDefaultPatchBaselineRequestMarshaller();
             var unmarshaller = GetDefaultPatchBaselineResponseUnmarshaller.Instance;
@@ -3854,7 +3864,7 @@ namespace Amazon.SimpleSystemsManagement
         /// and Ubuntu.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDeployablePatchSnapshotForInstance">REST API Reference for GetDeployablePatchSnapshotForInstance Operation</seealso>
-        public GetDeployablePatchSnapshotForInstanceResponse GetDeployablePatchSnapshotForInstance(GetDeployablePatchSnapshotForInstanceRequest request)
+        public virtual GetDeployablePatchSnapshotForInstanceResponse GetDeployablePatchSnapshotForInstance(GetDeployablePatchSnapshotForInstanceRequest request)
         {
             var marshaller = new GetDeployablePatchSnapshotForInstanceRequestMarshaller();
             var unmarshaller = GetDeployablePatchSnapshotForInstanceResponseUnmarshaller.Instance;
@@ -3872,7 +3882,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDeployablePatchSnapshotForInstance">REST API Reference for GetDeployablePatchSnapshotForInstance Operation</seealso>
-        public Task<GetDeployablePatchSnapshotForInstanceResponse> GetDeployablePatchSnapshotForInstanceAsync(GetDeployablePatchSnapshotForInstanceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetDeployablePatchSnapshotForInstanceResponse> GetDeployablePatchSnapshotForInstanceAsync(GetDeployablePatchSnapshotForInstanceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetDeployablePatchSnapshotForInstanceRequestMarshaller();
             var unmarshaller = GetDeployablePatchSnapshotForInstanceResponseUnmarshaller.Instance;
@@ -3887,9 +3897,9 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Gets the contents of the specified SSM document.
+        /// Gets the contents of the specified Systems Manager document.
         /// </summary>
-        /// <param name="name">The name of the SSM document.</param>
+        /// <param name="name">The name of the Systems Manager document.</param>
         /// 
         /// <returns>The response from the GetDocument service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
@@ -3902,7 +3912,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The document version is not valid or does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDocument">REST API Reference for GetDocument Operation</seealso>
-        public GetDocumentResponse GetDocument(string name)
+        public virtual GetDocumentResponse GetDocument(string name)
         {
             var request = new GetDocumentRequest();
             request.Name = name;
@@ -3911,7 +3921,7 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Gets the contents of the specified SSM document.
+        /// Gets the contents of the specified Systems Manager document.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetDocument service method.</param>
         /// 
@@ -3926,7 +3936,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The document version is not valid or does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDocument">REST API Reference for GetDocument Operation</seealso>
-        public GetDocumentResponse GetDocument(GetDocumentRequest request)
+        public virtual GetDocumentResponse GetDocument(GetDocumentRequest request)
         {
             var marshaller = new GetDocumentRequestMarshaller();
             var unmarshaller = GetDocumentResponseUnmarshaller.Instance;
@@ -3936,9 +3946,9 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Gets the contents of the specified SSM document.
+        /// Gets the contents of the specified Systems Manager document.
         /// </summary>
-        /// <param name="name">The name of the SSM document.</param>
+        /// <param name="name">The name of the Systems Manager document.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -3954,7 +3964,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The document version is not valid or does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDocument">REST API Reference for GetDocument Operation</seealso>
-        public Task<GetDocumentResponse> GetDocumentAsync(string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetDocumentResponse> GetDocumentAsync(string name, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new GetDocumentRequest();
             request.Name = name;
@@ -3971,7 +3981,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetDocument">REST API Reference for GetDocument Operation</seealso>
-        public Task<GetDocumentResponse> GetDocumentAsync(GetDocumentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetDocumentResponse> GetDocumentAsync(GetDocumentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetDocumentRequestMarshaller();
             var unmarshaller = GetDocumentResponseUnmarshaller.Instance;
@@ -4007,7 +4017,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The parameter type name is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetInventory">REST API Reference for GetInventory Operation</seealso>
-        public GetInventoryResponse GetInventory(GetInventoryRequest request)
+        public virtual GetInventoryResponse GetInventory(GetInventoryRequest request)
         {
             var marshaller = new GetInventoryRequestMarshaller();
             var unmarshaller = GetInventoryResponseUnmarshaller.Instance;
@@ -4025,7 +4035,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetInventory">REST API Reference for GetInventory Operation</seealso>
-        public Task<GetInventoryResponse> GetInventoryAsync(GetInventoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetInventoryResponse> GetInventoryAsync(GetInventoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetInventoryRequestMarshaller();
             var unmarshaller = GetInventoryResponseUnmarshaller.Instance;
@@ -4056,7 +4066,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The parameter type name is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetInventorySchema">REST API Reference for GetInventorySchema Operation</seealso>
-        public GetInventorySchemaResponse GetInventorySchema(GetInventorySchemaRequest request)
+        public virtual GetInventorySchemaResponse GetInventorySchema(GetInventorySchemaRequest request)
         {
             var marshaller = new GetInventorySchemaRequestMarshaller();
             var unmarshaller = GetInventorySchemaResponseUnmarshaller.Instance;
@@ -4074,7 +4084,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetInventorySchema">REST API Reference for GetInventorySchema Operation</seealso>
-        public Task<GetInventorySchemaResponse> GetInventorySchemaAsync(GetInventorySchemaRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetInventorySchemaResponse> GetInventorySchemaAsync(GetInventorySchemaRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetInventorySchemaRequestMarshaller();
             var unmarshaller = GetInventorySchemaResponseUnmarshaller.Instance;
@@ -4102,7 +4112,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetMaintenanceWindow">REST API Reference for GetMaintenanceWindow Operation</seealso>
-        public GetMaintenanceWindowResponse GetMaintenanceWindow(GetMaintenanceWindowRequest request)
+        public virtual GetMaintenanceWindowResponse GetMaintenanceWindow(GetMaintenanceWindowRequest request)
         {
             var marshaller = new GetMaintenanceWindowRequestMarshaller();
             var unmarshaller = GetMaintenanceWindowResponseUnmarshaller.Instance;
@@ -4120,7 +4130,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetMaintenanceWindow">REST API Reference for GetMaintenanceWindow Operation</seealso>
-        public Task<GetMaintenanceWindowResponse> GetMaintenanceWindowAsync(GetMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetMaintenanceWindowResponse> GetMaintenanceWindowAsync(GetMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetMaintenanceWindowRequestMarshaller();
             var unmarshaller = GetMaintenanceWindowResponseUnmarshaller.Instance;
@@ -4148,7 +4158,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetMaintenanceWindowExecution">REST API Reference for GetMaintenanceWindowExecution Operation</seealso>
-        public GetMaintenanceWindowExecutionResponse GetMaintenanceWindowExecution(GetMaintenanceWindowExecutionRequest request)
+        public virtual GetMaintenanceWindowExecutionResponse GetMaintenanceWindowExecution(GetMaintenanceWindowExecutionRequest request)
         {
             var marshaller = new GetMaintenanceWindowExecutionRequestMarshaller();
             var unmarshaller = GetMaintenanceWindowExecutionResponseUnmarshaller.Instance;
@@ -4166,7 +4176,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetMaintenanceWindowExecution">REST API Reference for GetMaintenanceWindowExecution Operation</seealso>
-        public Task<GetMaintenanceWindowExecutionResponse> GetMaintenanceWindowExecutionAsync(GetMaintenanceWindowExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetMaintenanceWindowExecutionResponse> GetMaintenanceWindowExecutionAsync(GetMaintenanceWindowExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetMaintenanceWindowExecutionRequestMarshaller();
             var unmarshaller = GetMaintenanceWindowExecutionResponseUnmarshaller.Instance;
@@ -4195,7 +4205,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetMaintenanceWindowExecutionTask">REST API Reference for GetMaintenanceWindowExecutionTask Operation</seealso>
-        public GetMaintenanceWindowExecutionTaskResponse GetMaintenanceWindowExecutionTask(GetMaintenanceWindowExecutionTaskRequest request)
+        public virtual GetMaintenanceWindowExecutionTaskResponse GetMaintenanceWindowExecutionTask(GetMaintenanceWindowExecutionTaskRequest request)
         {
             var marshaller = new GetMaintenanceWindowExecutionTaskRequestMarshaller();
             var unmarshaller = GetMaintenanceWindowExecutionTaskResponseUnmarshaller.Instance;
@@ -4213,7 +4223,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetMaintenanceWindowExecutionTask">REST API Reference for GetMaintenanceWindowExecutionTask Operation</seealso>
-        public Task<GetMaintenanceWindowExecutionTaskResponse> GetMaintenanceWindowExecutionTaskAsync(GetMaintenanceWindowExecutionTaskRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetMaintenanceWindowExecutionTaskResponse> GetMaintenanceWindowExecutionTaskAsync(GetMaintenanceWindowExecutionTaskRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetMaintenanceWindowExecutionTaskRequestMarshaller();
             var unmarshaller = GetMaintenanceWindowExecutionTaskResponseUnmarshaller.Instance;
@@ -4242,7 +4252,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetMaintenanceWindowExecutionTaskInvocation">REST API Reference for GetMaintenanceWindowExecutionTaskInvocation Operation</seealso>
-        public GetMaintenanceWindowExecutionTaskInvocationResponse GetMaintenanceWindowExecutionTaskInvocation(GetMaintenanceWindowExecutionTaskInvocationRequest request)
+        public virtual GetMaintenanceWindowExecutionTaskInvocationResponse GetMaintenanceWindowExecutionTaskInvocation(GetMaintenanceWindowExecutionTaskInvocationRequest request)
         {
             var marshaller = new GetMaintenanceWindowExecutionTaskInvocationRequestMarshaller();
             var unmarshaller = GetMaintenanceWindowExecutionTaskInvocationResponseUnmarshaller.Instance;
@@ -4260,7 +4270,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetMaintenanceWindowExecutionTaskInvocation">REST API Reference for GetMaintenanceWindowExecutionTaskInvocation Operation</seealso>
-        public Task<GetMaintenanceWindowExecutionTaskInvocationResponse> GetMaintenanceWindowExecutionTaskInvocationAsync(GetMaintenanceWindowExecutionTaskInvocationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetMaintenanceWindowExecutionTaskInvocationResponse> GetMaintenanceWindowExecutionTaskInvocationAsync(GetMaintenanceWindowExecutionTaskInvocationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetMaintenanceWindowExecutionTaskInvocationRequestMarshaller();
             var unmarshaller = GetMaintenanceWindowExecutionTaskInvocationResponseUnmarshaller.Instance;
@@ -4288,7 +4298,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetMaintenanceWindowTask">REST API Reference for GetMaintenanceWindowTask Operation</seealso>
-        public GetMaintenanceWindowTaskResponse GetMaintenanceWindowTask(GetMaintenanceWindowTaskRequest request)
+        public virtual GetMaintenanceWindowTaskResponse GetMaintenanceWindowTask(GetMaintenanceWindowTaskRequest request)
         {
             var marshaller = new GetMaintenanceWindowTaskRequestMarshaller();
             var unmarshaller = GetMaintenanceWindowTaskResponseUnmarshaller.Instance;
@@ -4306,7 +4316,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetMaintenanceWindowTask">REST API Reference for GetMaintenanceWindowTask Operation</seealso>
-        public Task<GetMaintenanceWindowTaskResponse> GetMaintenanceWindowTaskAsync(GetMaintenanceWindowTaskRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetMaintenanceWindowTaskResponse> GetMaintenanceWindowTaskAsync(GetMaintenanceWindowTaskRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetMaintenanceWindowTaskRequestMarshaller();
             var unmarshaller = GetMaintenanceWindowTaskResponseUnmarshaller.Instance;
@@ -4335,8 +4345,12 @@ namespace Amazon.SimpleSystemsManagement
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ParameterNotFoundException">
         /// The parameter could not be found. Verify the name and try again.
         /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.ParameterVersionNotFoundException">
+        /// The specified parameter version was not found. Verify the parameter name and version,
+        /// and try again.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetParameter">REST API Reference for GetParameter Operation</seealso>
-        public GetParameterResponse GetParameter(GetParameterRequest request)
+        public virtual GetParameterResponse GetParameter(GetParameterRequest request)
         {
             var marshaller = new GetParameterRequestMarshaller();
             var unmarshaller = GetParameterResponseUnmarshaller.Instance;
@@ -4354,7 +4368,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetParameter">REST API Reference for GetParameter Operation</seealso>
-        public Task<GetParameterResponse> GetParameterAsync(GetParameterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetParameterResponse> GetParameterAsync(GetParameterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetParameterRequestMarshaller();
             var unmarshaller = GetParameterResponseUnmarshaller.Instance;
@@ -4387,7 +4401,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The parameter could not be found. Verify the name and try again.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetParameterHistory">REST API Reference for GetParameterHistory Operation</seealso>
-        public GetParameterHistoryResponse GetParameterHistory(GetParameterHistoryRequest request)
+        public virtual GetParameterHistoryResponse GetParameterHistory(GetParameterHistoryRequest request)
         {
             var marshaller = new GetParameterHistoryRequestMarshaller();
             var unmarshaller = GetParameterHistoryResponseUnmarshaller.Instance;
@@ -4405,7 +4419,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetParameterHistory">REST API Reference for GetParameterHistory Operation</seealso>
-        public Task<GetParameterHistoryResponse> GetParameterHistoryAsync(GetParameterHistoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetParameterHistoryResponse> GetParameterHistoryAsync(GetParameterHistoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetParameterHistoryRequestMarshaller();
             var unmarshaller = GetParameterHistoryResponseUnmarshaller.Instance;
@@ -4432,7 +4446,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The query key ID is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetParameters">REST API Reference for GetParameters Operation</seealso>
-        public GetParametersResponse GetParameters(GetParametersRequest request)
+        public virtual GetParametersResponse GetParameters(GetParametersRequest request)
         {
             var marshaller = new GetParametersRequestMarshaller();
             var unmarshaller = GetParametersResponseUnmarshaller.Instance;
@@ -4450,7 +4464,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetParameters">REST API Reference for GetParameters Operation</seealso>
-        public Task<GetParametersResponse> GetParametersAsync(GetParametersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetParametersResponse> GetParametersAsync(GetParametersRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetParametersRequestMarshaller();
             var unmarshaller = GetParametersResponseUnmarshaller.Instance;
@@ -4502,7 +4516,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetParametersByPath">REST API Reference for GetParametersByPath Operation</seealso>
-        public GetParametersByPathResponse GetParametersByPath(GetParametersByPathRequest request)
+        public virtual GetParametersByPathResponse GetParametersByPath(GetParametersByPathRequest request)
         {
             var marshaller = new GetParametersByPathRequestMarshaller();
             var unmarshaller = GetParametersByPathResponseUnmarshaller.Instance;
@@ -4520,7 +4534,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetParametersByPath">REST API Reference for GetParametersByPath Operation</seealso>
-        public Task<GetParametersByPathResponse> GetParametersByPathAsync(GetParametersByPathRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetParametersByPathResponse> GetParametersByPathAsync(GetParametersByPathRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetParametersByPathRequestMarshaller();
             var unmarshaller = GetParametersByPathResponseUnmarshaller.Instance;
@@ -4551,7 +4565,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The resource ID is not valid. Verify that you entered the correct ID and try again.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetPatchBaseline">REST API Reference for GetPatchBaseline Operation</seealso>
-        public GetPatchBaselineResponse GetPatchBaseline(GetPatchBaselineRequest request)
+        public virtual GetPatchBaselineResponse GetPatchBaseline(GetPatchBaselineRequest request)
         {
             var marshaller = new GetPatchBaselineRequestMarshaller();
             var unmarshaller = GetPatchBaselineResponseUnmarshaller.Instance;
@@ -4569,7 +4583,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetPatchBaseline">REST API Reference for GetPatchBaseline Operation</seealso>
-        public Task<GetPatchBaselineResponse> GetPatchBaselineAsync(GetPatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetPatchBaselineResponse> GetPatchBaselineAsync(GetPatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetPatchBaselineRequestMarshaller();
             var unmarshaller = GetPatchBaselineResponseUnmarshaller.Instance;
@@ -4593,7 +4607,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetPatchBaselineForPatchGroup">REST API Reference for GetPatchBaselineForPatchGroup Operation</seealso>
-        public GetPatchBaselineForPatchGroupResponse GetPatchBaselineForPatchGroup(GetPatchBaselineForPatchGroupRequest request)
+        public virtual GetPatchBaselineForPatchGroupResponse GetPatchBaselineForPatchGroup(GetPatchBaselineForPatchGroupRequest request)
         {
             var marshaller = new GetPatchBaselineForPatchGroupRequestMarshaller();
             var unmarshaller = GetPatchBaselineForPatchGroupResponseUnmarshaller.Instance;
@@ -4611,7 +4625,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/GetPatchBaselineForPatchGroup">REST API Reference for GetPatchBaselineForPatchGroup Operation</seealso>
-        public Task<GetPatchBaselineForPatchGroupResponse> GetPatchBaselineForPatchGroupAsync(GetPatchBaselineForPatchGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetPatchBaselineForPatchGroupResponse> GetPatchBaselineForPatchGroupAsync(GetPatchBaselineForPatchGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetPatchBaselineForPatchGroupRequestMarshaller();
             var unmarshaller = GetPatchBaselineForPatchGroupResponseUnmarshaller.Instance;
@@ -4638,7 +4652,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListAssociations">REST API Reference for ListAssociations Operation</seealso>
-        public ListAssociationsResponse ListAssociations(ListAssociationsRequest request)
+        public virtual ListAssociationsResponse ListAssociations(ListAssociationsRequest request)
         {
             var marshaller = new ListAssociationsRequestMarshaller();
             var unmarshaller = ListAssociationsResponseUnmarshaller.Instance;
@@ -4656,7 +4670,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListAssociations">REST API Reference for ListAssociations Operation</seealso>
-        public Task<ListAssociationsResponse> ListAssociationsAsync(ListAssociationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListAssociationsResponse> ListAssociationsAsync(ListAssociationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListAssociationsRequestMarshaller();
             var unmarshaller = ListAssociationsResponseUnmarshaller.Instance;
@@ -4686,7 +4700,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListAssociationVersions">REST API Reference for ListAssociationVersions Operation</seealso>
-        public ListAssociationVersionsResponse ListAssociationVersions(ListAssociationVersionsRequest request)
+        public virtual ListAssociationVersionsResponse ListAssociationVersions(ListAssociationVersionsRequest request)
         {
             var marshaller = new ListAssociationVersionsRequestMarshaller();
             var unmarshaller = ListAssociationVersionsResponseUnmarshaller.Instance;
@@ -4704,7 +4718,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListAssociationVersions">REST API Reference for ListAssociationVersions Operation</seealso>
-        public Task<ListAssociationVersionsResponse> ListAssociationVersionsAsync(ListAssociationVersionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListAssociationVersionsResponse> ListAssociationVersionsAsync(ListAssociationVersionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListAssociationVersionsRequestMarshaller();
             var unmarshaller = ListAssociationVersionsResponseUnmarshaller.Instance;
@@ -4764,7 +4778,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommandInvocations">REST API Reference for ListCommandInvocations Operation</seealso>
-        public ListCommandInvocationsResponse ListCommandInvocations()
+        public virtual ListCommandInvocationsResponse ListCommandInvocations()
         {
             return ListCommandInvocations(new ListCommandInvocationsRequest());
         }
@@ -4817,7 +4831,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommandInvocations">REST API Reference for ListCommandInvocations Operation</seealso>
-        public ListCommandInvocationsResponse ListCommandInvocations(string commandId)
+        public virtual ListCommandInvocationsResponse ListCommandInvocations(string commandId)
         {
             var request = new ListCommandInvocationsRequest();
             request.CommandId = commandId;
@@ -4872,7 +4886,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommandInvocations">REST API Reference for ListCommandInvocations Operation</seealso>
-        public ListCommandInvocationsResponse ListCommandInvocations(ListCommandInvocationsRequest request)
+        public virtual ListCommandInvocationsResponse ListCommandInvocations(ListCommandInvocationsRequest request)
         {
             var marshaller = new ListCommandInvocationsRequestMarshaller();
             var unmarshaller = ListCommandInvocationsResponseUnmarshaller.Instance;
@@ -4930,7 +4944,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommandInvocations">REST API Reference for ListCommandInvocations Operation</seealso>
-        public Task<ListCommandInvocationsResponse> ListCommandInvocationsAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListCommandInvocationsResponse> ListCommandInvocationsAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             return ListCommandInvocationsAsync(new ListCommandInvocationsRequest(), cancellationToken);
         }
@@ -4985,7 +4999,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommandInvocations">REST API Reference for ListCommandInvocations Operation</seealso>
-        public Task<ListCommandInvocationsResponse> ListCommandInvocationsAsync(string commandId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListCommandInvocationsResponse> ListCommandInvocationsAsync(string commandId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new ListCommandInvocationsRequest();
             request.CommandId = commandId;
@@ -5002,7 +5016,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommandInvocations">REST API Reference for ListCommandInvocations Operation</seealso>
-        public Task<ListCommandInvocationsResponse> ListCommandInvocationsAsync(ListCommandInvocationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListCommandInvocationsResponse> ListCommandInvocationsAsync(ListCommandInvocationsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListCommandInvocationsRequestMarshaller();
             var unmarshaller = ListCommandInvocationsResponseUnmarshaller.Instance;
@@ -5058,7 +5072,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommands">REST API Reference for ListCommands Operation</seealso>
-        public ListCommandsResponse ListCommands()
+        public virtual ListCommandsResponse ListCommands()
         {
             return ListCommands(new ListCommandsRequest());
         }
@@ -5107,7 +5121,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommands">REST API Reference for ListCommands Operation</seealso>
-        public ListCommandsResponse ListCommands(string commandId)
+        public virtual ListCommandsResponse ListCommands(string commandId)
         {
             var request = new ListCommandsRequest();
             request.CommandId = commandId;
@@ -5158,7 +5172,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommands">REST API Reference for ListCommands Operation</seealso>
-        public ListCommandsResponse ListCommands(ListCommandsRequest request)
+        public virtual ListCommandsResponse ListCommands(ListCommandsRequest request)
         {
             var marshaller = new ListCommandsRequestMarshaller();
             var unmarshaller = ListCommandsResponseUnmarshaller.Instance;
@@ -5212,7 +5226,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommands">REST API Reference for ListCommands Operation</seealso>
-        public Task<ListCommandsResponse> ListCommandsAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListCommandsResponse> ListCommandsAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             return ListCommandsAsync(new ListCommandsRequest(), cancellationToken);
         }
@@ -5263,7 +5277,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommands">REST API Reference for ListCommands Operation</seealso>
-        public Task<ListCommandsResponse> ListCommandsAsync(string commandId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListCommandsResponse> ListCommandsAsync(string commandId, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new ListCommandsRequest();
             request.CommandId = commandId;
@@ -5280,7 +5294,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListCommands">REST API Reference for ListCommands Operation</seealso>
-        public Task<ListCommandsResponse> ListCommandsAsync(ListCommandsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListCommandsResponse> ListCommandsAsync(ListCommandsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListCommandsRequestMarshaller();
             var unmarshaller = ListCommandsResponseUnmarshaller.Instance;
@@ -5315,11 +5329,11 @@ namespace Amazon.SimpleSystemsManagement
         /// The resource ID is not valid. Verify that you entered the correct ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidResourceTypeException">
-        /// The resource type is not valid. If you are attempting to tag an instance, the instance
-        /// must be a registered, managed instance.
+        /// The resource type is not valid. For example, if you are attempting to tag an instance,
+        /// the instance must be a registered, managed instance.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListComplianceItems">REST API Reference for ListComplianceItems Operation</seealso>
-        public ListComplianceItemsResponse ListComplianceItems(ListComplianceItemsRequest request)
+        public virtual ListComplianceItemsResponse ListComplianceItems(ListComplianceItemsRequest request)
         {
             var marshaller = new ListComplianceItemsRequestMarshaller();
             var unmarshaller = ListComplianceItemsResponseUnmarshaller.Instance;
@@ -5337,7 +5351,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListComplianceItems">REST API Reference for ListComplianceItems Operation</seealso>
-        public Task<ListComplianceItemsResponse> ListComplianceItemsAsync(ListComplianceItemsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListComplianceItemsResponse> ListComplianceItemsAsync(ListComplianceItemsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListComplianceItemsRequestMarshaller();
             var unmarshaller = ListComplianceItemsResponseUnmarshaller.Instance;
@@ -5369,7 +5383,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListComplianceSummaries">REST API Reference for ListComplianceSummaries Operation</seealso>
-        public ListComplianceSummariesResponse ListComplianceSummaries(ListComplianceSummariesRequest request)
+        public virtual ListComplianceSummariesResponse ListComplianceSummaries(ListComplianceSummariesRequest request)
         {
             var marshaller = new ListComplianceSummariesRequestMarshaller();
             var unmarshaller = ListComplianceSummariesResponseUnmarshaller.Instance;
@@ -5387,7 +5401,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListComplianceSummaries">REST API Reference for ListComplianceSummaries Operation</seealso>
-        public Task<ListComplianceSummariesResponse> ListComplianceSummariesAsync(ListComplianceSummariesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListComplianceSummariesResponse> ListComplianceSummariesAsync(ListComplianceSummariesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListComplianceSummariesRequestMarshaller();
             var unmarshaller = ListComplianceSummariesResponseUnmarshaller.Instance;
@@ -5402,7 +5416,7 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Describes one or more of your SSM documents.
+        /// Describes one or more of your Systems Manager documents.
         /// </summary>
         /// 
         /// <returns>The response from the ListDocuments service method, as returned by SimpleSystemsManagement.</returns>
@@ -5416,14 +5430,14 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListDocuments">REST API Reference for ListDocuments Operation</seealso>
-        public ListDocumentsResponse ListDocuments()
+        public virtual ListDocumentsResponse ListDocuments()
         {
             return ListDocuments(new ListDocumentsRequest());
         }
 
 
         /// <summary>
-        /// Describes one or more of your SSM documents.
+        /// Describes one or more of your Systems Manager documents.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListDocuments service method.</param>
         /// 
@@ -5438,7 +5452,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListDocuments">REST API Reference for ListDocuments Operation</seealso>
-        public ListDocumentsResponse ListDocuments(ListDocumentsRequest request)
+        public virtual ListDocumentsResponse ListDocuments(ListDocumentsRequest request)
         {
             var marshaller = new ListDocumentsRequestMarshaller();
             var unmarshaller = ListDocumentsResponseUnmarshaller.Instance;
@@ -5448,7 +5462,7 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Describes one or more of your SSM documents.
+        /// Describes one or more of your Systems Manager documents.
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -5465,7 +5479,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListDocuments">REST API Reference for ListDocuments Operation</seealso>
-        public Task<ListDocumentsResponse> ListDocumentsAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListDocumentsResponse> ListDocumentsAsync(System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             return ListDocumentsAsync(new ListDocumentsRequest(), cancellationToken);
         }
@@ -5479,7 +5493,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListDocuments">REST API Reference for ListDocuments Operation</seealso>
-        public Task<ListDocumentsResponse> ListDocumentsAsync(ListDocumentsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListDocumentsResponse> ListDocumentsAsync(ListDocumentsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListDocumentsRequestMarshaller();
             var unmarshaller = ListDocumentsResponseUnmarshaller.Instance;
@@ -5509,7 +5523,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListDocumentVersions">REST API Reference for ListDocumentVersions Operation</seealso>
-        public ListDocumentVersionsResponse ListDocumentVersions(ListDocumentVersionsRequest request)
+        public virtual ListDocumentVersionsResponse ListDocumentVersions(ListDocumentVersionsRequest request)
         {
             var marshaller = new ListDocumentVersionsRequestMarshaller();
             var unmarshaller = ListDocumentVersionsResponseUnmarshaller.Instance;
@@ -5527,7 +5541,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListDocumentVersions">REST API Reference for ListDocumentVersions Operation</seealso>
-        public Task<ListDocumentVersionsResponse> ListDocumentVersionsAsync(ListDocumentVersionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListDocumentVersionsResponse> ListDocumentVersionsAsync(ListDocumentVersionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListDocumentVersionsRequestMarshaller();
             var unmarshaller = ListDocumentVersionsResponseUnmarshaller.Instance;
@@ -5584,7 +5598,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The parameter type name is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListInventoryEntries">REST API Reference for ListInventoryEntries Operation</seealso>
-        public ListInventoryEntriesResponse ListInventoryEntries(ListInventoryEntriesRequest request)
+        public virtual ListInventoryEntriesResponse ListInventoryEntries(ListInventoryEntriesRequest request)
         {
             var marshaller = new ListInventoryEntriesRequestMarshaller();
             var unmarshaller = ListInventoryEntriesResponseUnmarshaller.Instance;
@@ -5602,7 +5616,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListInventoryEntries">REST API Reference for ListInventoryEntries Operation</seealso>
-        public Task<ListInventoryEntriesResponse> ListInventoryEntriesAsync(ListInventoryEntriesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListInventoryEntriesResponse> ListInventoryEntriesAsync(ListInventoryEntriesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListInventoryEntriesRequestMarshaller();
             var unmarshaller = ListInventoryEntriesResponseUnmarshaller.Instance;
@@ -5634,7 +5648,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListResourceComplianceSummaries">REST API Reference for ListResourceComplianceSummaries Operation</seealso>
-        public ListResourceComplianceSummariesResponse ListResourceComplianceSummaries(ListResourceComplianceSummariesRequest request)
+        public virtual ListResourceComplianceSummariesResponse ListResourceComplianceSummaries(ListResourceComplianceSummariesRequest request)
         {
             var marshaller = new ListResourceComplianceSummariesRequestMarshaller();
             var unmarshaller = ListResourceComplianceSummariesResponseUnmarshaller.Instance;
@@ -5652,7 +5666,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListResourceComplianceSummaries">REST API Reference for ListResourceComplianceSummaries Operation</seealso>
-        public Task<ListResourceComplianceSummariesResponse> ListResourceComplianceSummariesAsync(ListResourceComplianceSummariesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListResourceComplianceSummariesResponse> ListResourceComplianceSummariesAsync(ListResourceComplianceSummariesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListResourceComplianceSummariesRequestMarshaller();
             var unmarshaller = ListResourceComplianceSummariesResponseUnmarshaller.Instance;
@@ -5692,7 +5706,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The specified token is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListResourceDataSync">REST API Reference for ListResourceDataSync Operation</seealso>
-        public ListResourceDataSyncResponse ListResourceDataSync(ListResourceDataSyncRequest request)
+        public virtual ListResourceDataSyncResponse ListResourceDataSync(ListResourceDataSyncRequest request)
         {
             var marshaller = new ListResourceDataSyncRequestMarshaller();
             var unmarshaller = ListResourceDataSyncResponseUnmarshaller.Instance;
@@ -5710,7 +5724,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListResourceDataSync">REST API Reference for ListResourceDataSync Operation</seealso>
-        public Task<ListResourceDataSyncResponse> ListResourceDataSyncAsync(ListResourceDataSyncRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListResourceDataSyncResponse> ListResourceDataSyncAsync(ListResourceDataSyncRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListResourceDataSyncRequestMarshaller();
             var unmarshaller = ListResourceDataSyncResponseUnmarshaller.Instance;
@@ -5737,11 +5751,11 @@ namespace Amazon.SimpleSystemsManagement
         /// The resource ID is not valid. Verify that you entered the correct ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidResourceTypeException">
-        /// The resource type is not valid. If you are attempting to tag an instance, the instance
-        /// must be a registered, managed instance.
+        /// The resource type is not valid. For example, if you are attempting to tag an instance,
+        /// the instance must be a registered, managed instance.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
-        public ListTagsForResourceResponse ListTagsForResource(ListTagsForResourceRequest request)
+        public virtual ListTagsForResourceResponse ListTagsForResource(ListTagsForResourceRequest request)
         {
             var marshaller = new ListTagsForResourceRequestMarshaller();
             var unmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
@@ -5759,7 +5773,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ListTagsForResource">REST API Reference for ListTagsForResource Operation</seealso>
-        public Task<ListTagsForResourceResponse> ListTagsForResourceAsync(ListTagsForResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ListTagsForResourceResponse> ListTagsForResourceAsync(ListTagsForResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ListTagsForResourceRequestMarshaller();
             var unmarshaller = ListTagsForResourceResponseUnmarshaller.Instance;
@@ -5782,7 +5796,7 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the ModifyDocumentPermission service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DocumentLimitExceededException">
-        /// You can have at most 200 active SSM documents.
+        /// You can have at most 200 active Systems Manager documents.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DocumentPermissionLimitException">
         /// The document cannot be shared with more AWS user accounts. You can share a document
@@ -5800,7 +5814,7 @@ namespace Amazon.SimpleSystemsManagement
         /// type.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ModifyDocumentPermission">REST API Reference for ModifyDocumentPermission Operation</seealso>
-        public ModifyDocumentPermissionResponse ModifyDocumentPermission(ModifyDocumentPermissionRequest request)
+        public virtual ModifyDocumentPermissionResponse ModifyDocumentPermission(ModifyDocumentPermissionRequest request)
         {
             var marshaller = new ModifyDocumentPermissionRequestMarshaller();
             var unmarshaller = ModifyDocumentPermissionResponseUnmarshaller.Instance;
@@ -5818,7 +5832,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/ModifyDocumentPermission">REST API Reference for ModifyDocumentPermission Operation</seealso>
-        public Task<ModifyDocumentPermissionResponse> ModifyDocumentPermissionAsync(ModifyDocumentPermissionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<ModifyDocumentPermissionResponse> ModifyDocumentPermissionAsync(ModifyDocumentPermissionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new ModifyDocumentPermissionRequestMarshaller();
             var unmarshaller = ModifyDocumentPermissionResponseUnmarshaller.Instance;
@@ -5855,8 +5869,8 @@ namespace Amazon.SimpleSystemsManagement
         /// The resource ID is not valid. Verify that you entered the correct ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidResourceTypeException">
-        /// The resource type is not valid. If you are attempting to tag an instance, the instance
-        /// must be a registered, managed instance.
+        /// The resource type is not valid. For example, if you are attempting to tag an instance,
+        /// the instance must be a registered, managed instance.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ItemSizeLimitExceededException">
         /// The inventory item size has exceeded the size limit.
@@ -5865,7 +5879,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The size of inventory data has exceeded the total size limit for the resource.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/PutComplianceItems">REST API Reference for PutComplianceItems Operation</seealso>
-        public PutComplianceItemsResponse PutComplianceItems(PutComplianceItemsRequest request)
+        public virtual PutComplianceItemsResponse PutComplianceItems(PutComplianceItemsRequest request)
         {
             var marshaller = new PutComplianceItemsRequestMarshaller();
             var unmarshaller = PutComplianceItemsResponseUnmarshaller.Instance;
@@ -5883,7 +5897,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/PutComplianceItems">REST API Reference for PutComplianceItems Operation</seealso>
-        public Task<PutComplianceItemsResponse> PutComplianceItemsAsync(PutComplianceItemsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<PutComplianceItemsResponse> PutComplianceItemsAsync(PutComplianceItemsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new PutComplianceItemsRequestMarshaller();
             var unmarshaller = PutComplianceItemsResponseUnmarshaller.Instance;
@@ -5967,7 +5981,7 @@ namespace Amazon.SimpleSystemsManagement
         /// Check output of GetInventorySchema to see the available schema version for each type.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/PutInventory">REST API Reference for PutInventory Operation</seealso>
-        public PutInventoryResponse PutInventory(PutInventoryRequest request)
+        public virtual PutInventoryResponse PutInventory(PutInventoryRequest request)
         {
             var marshaller = new PutInventoryRequestMarshaller();
             var unmarshaller = PutInventoryResponseUnmarshaller.Instance;
@@ -5985,7 +5999,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/PutInventory">REST API Reference for PutInventory Operation</seealso>
-        public Task<PutInventoryResponse> PutInventoryAsync(PutInventoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<PutInventoryResponse> PutInventoryAsync(PutInventoryRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new PutInventoryRequestMarshaller();
             var unmarshaller = PutInventoryResponseUnmarshaller.Instance;
@@ -6039,6 +6053,9 @@ namespace Amazon.SimpleSystemsManagement
         /// You have exceeded the number of parameters for this AWS account. Delete one or more
         /// parameters and try again.
         /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.ParameterMaxVersionLimitExceededException">
+        /// The parameter exceeded the maximum number of allowed versions.
+        /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ParameterPatternMismatchException">
         /// The parameter name is not valid.
         /// </exception>
@@ -6049,7 +6066,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The parameter type is not supported.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/PutParameter">REST API Reference for PutParameter Operation</seealso>
-        public PutParameterResponse PutParameter(PutParameterRequest request)
+        public virtual PutParameterResponse PutParameter(PutParameterRequest request)
         {
             var marshaller = new PutParameterRequestMarshaller();
             var unmarshaller = PutParameterResponseUnmarshaller.Instance;
@@ -6067,7 +6084,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/PutParameter">REST API Reference for PutParameter Operation</seealso>
-        public Task<PutParameterResponse> PutParameterAsync(PutParameterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<PutParameterResponse> PutParameterAsync(PutParameterRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new PutParameterRequestMarshaller();
             var unmarshaller = PutParameterResponseUnmarshaller.Instance;
@@ -6098,7 +6115,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The resource ID is not valid. Verify that you entered the correct ID and try again.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RegisterDefaultPatchBaseline">REST API Reference for RegisterDefaultPatchBaseline Operation</seealso>
-        public RegisterDefaultPatchBaselineResponse RegisterDefaultPatchBaseline(RegisterDefaultPatchBaselineRequest request)
+        public virtual RegisterDefaultPatchBaselineResponse RegisterDefaultPatchBaseline(RegisterDefaultPatchBaselineRequest request)
         {
             var marshaller = new RegisterDefaultPatchBaselineRequestMarshaller();
             var unmarshaller = RegisterDefaultPatchBaselineResponseUnmarshaller.Instance;
@@ -6116,7 +6133,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RegisterDefaultPatchBaseline">REST API Reference for RegisterDefaultPatchBaseline Operation</seealso>
-        public Task<RegisterDefaultPatchBaselineResponse> RegisterDefaultPatchBaselineAsync(RegisterDefaultPatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<RegisterDefaultPatchBaselineResponse> RegisterDefaultPatchBaselineAsync(RegisterDefaultPatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new RegisterDefaultPatchBaselineRequestMarshaller();
             var unmarshaller = RegisterDefaultPatchBaselineResponseUnmarshaller.Instance;
@@ -6155,7 +6172,7 @@ namespace Amazon.SimpleSystemsManagement
         /// many Maintenance Windows have been created).
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RegisterPatchBaselineForPatchGroup">REST API Reference for RegisterPatchBaselineForPatchGroup Operation</seealso>
-        public RegisterPatchBaselineForPatchGroupResponse RegisterPatchBaselineForPatchGroup(RegisterPatchBaselineForPatchGroupRequest request)
+        public virtual RegisterPatchBaselineForPatchGroupResponse RegisterPatchBaselineForPatchGroup(RegisterPatchBaselineForPatchGroupRequest request)
         {
             var marshaller = new RegisterPatchBaselineForPatchGroupRequestMarshaller();
             var unmarshaller = RegisterPatchBaselineForPatchGroupResponseUnmarshaller.Instance;
@@ -6173,7 +6190,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RegisterPatchBaselineForPatchGroup">REST API Reference for RegisterPatchBaselineForPatchGroup Operation</seealso>
-        public Task<RegisterPatchBaselineForPatchGroupResponse> RegisterPatchBaselineForPatchGroupAsync(RegisterPatchBaselineForPatchGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<RegisterPatchBaselineForPatchGroupResponse> RegisterPatchBaselineForPatchGroupAsync(RegisterPatchBaselineForPatchGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new RegisterPatchBaselineForPatchGroupRequestMarshaller();
             var unmarshaller = RegisterPatchBaselineForPatchGroupResponseUnmarshaller.Instance;
@@ -6209,7 +6226,7 @@ namespace Amazon.SimpleSystemsManagement
         /// many Maintenance Windows have been created).
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RegisterTargetWithMaintenanceWindow">REST API Reference for RegisterTargetWithMaintenanceWindow Operation</seealso>
-        public RegisterTargetWithMaintenanceWindowResponse RegisterTargetWithMaintenanceWindow(RegisterTargetWithMaintenanceWindowRequest request)
+        public virtual RegisterTargetWithMaintenanceWindowResponse RegisterTargetWithMaintenanceWindow(RegisterTargetWithMaintenanceWindowRequest request)
         {
             var marshaller = new RegisterTargetWithMaintenanceWindowRequestMarshaller();
             var unmarshaller = RegisterTargetWithMaintenanceWindowResponseUnmarshaller.Instance;
@@ -6227,7 +6244,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RegisterTargetWithMaintenanceWindow">REST API Reference for RegisterTargetWithMaintenanceWindow Operation</seealso>
-        public Task<RegisterTargetWithMaintenanceWindowResponse> RegisterTargetWithMaintenanceWindowAsync(RegisterTargetWithMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<RegisterTargetWithMaintenanceWindowResponse> RegisterTargetWithMaintenanceWindowAsync(RegisterTargetWithMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new RegisterTargetWithMaintenanceWindowRequestMarshaller();
             var unmarshaller = RegisterTargetWithMaintenanceWindowResponseUnmarshaller.Instance;
@@ -6267,7 +6284,7 @@ namespace Amazon.SimpleSystemsManagement
         /// many Maintenance Windows have been created).
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RegisterTaskWithMaintenanceWindow">REST API Reference for RegisterTaskWithMaintenanceWindow Operation</seealso>
-        public RegisterTaskWithMaintenanceWindowResponse RegisterTaskWithMaintenanceWindow(RegisterTaskWithMaintenanceWindowRequest request)
+        public virtual RegisterTaskWithMaintenanceWindowResponse RegisterTaskWithMaintenanceWindow(RegisterTaskWithMaintenanceWindowRequest request)
         {
             var marshaller = new RegisterTaskWithMaintenanceWindowRequestMarshaller();
             var unmarshaller = RegisterTaskWithMaintenanceWindowResponseUnmarshaller.Instance;
@@ -6285,7 +6302,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RegisterTaskWithMaintenanceWindow">REST API Reference for RegisterTaskWithMaintenanceWindow Operation</seealso>
-        public Task<RegisterTaskWithMaintenanceWindowResponse> RegisterTaskWithMaintenanceWindowAsync(RegisterTaskWithMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<RegisterTaskWithMaintenanceWindowResponse> RegisterTaskWithMaintenanceWindowAsync(RegisterTaskWithMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new RegisterTaskWithMaintenanceWindowRequestMarshaller();
             var unmarshaller = RegisterTaskWithMaintenanceWindowResponseUnmarshaller.Instance;
@@ -6312,11 +6329,11 @@ namespace Amazon.SimpleSystemsManagement
         /// The resource ID is not valid. Verify that you entered the correct ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidResourceTypeException">
-        /// The resource type is not valid. If you are attempting to tag an instance, the instance
-        /// must be a registered, managed instance.
+        /// The resource type is not valid. For example, if you are attempting to tag an instance,
+        /// the instance must be a registered, managed instance.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RemoveTagsFromResource">REST API Reference for RemoveTagsFromResource Operation</seealso>
-        public RemoveTagsFromResourceResponse RemoveTagsFromResource(RemoveTagsFromResourceRequest request)
+        public virtual RemoveTagsFromResourceResponse RemoveTagsFromResource(RemoveTagsFromResourceRequest request)
         {
             var marshaller = new RemoveTagsFromResourceRequestMarshaller();
             var unmarshaller = RemoveTagsFromResourceResponseUnmarshaller.Instance;
@@ -6334,7 +6351,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RemoveTagsFromResource">REST API Reference for RemoveTagsFromResource Operation</seealso>
-        public Task<RemoveTagsFromResourceResponse> RemoveTagsFromResourceAsync(RemoveTagsFromResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<RemoveTagsFromResourceResponse> RemoveTagsFromResourceAsync(RemoveTagsFromResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new RemoveTagsFromResourceRequestMarshaller();
             var unmarshaller = RemoveTagsFromResourceResponseUnmarshaller.Instance;
@@ -6366,7 +6383,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The signal is not valid for the current Automation execution.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/SendAutomationSignal">REST API Reference for SendAutomationSignal Operation</seealso>
-        public SendAutomationSignalResponse SendAutomationSignal(SendAutomationSignalRequest request)
+        public virtual SendAutomationSignalResponse SendAutomationSignal(SendAutomationSignalRequest request)
         {
             var marshaller = new SendAutomationSignalRequestMarshaller();
             var unmarshaller = SendAutomationSignalResponseUnmarshaller.Instance;
@@ -6384,7 +6401,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/SendAutomationSignal">REST API Reference for SendAutomationSignal Operation</seealso>
-        public Task<SendAutomationSignalResponse> SendAutomationSignalAsync(SendAutomationSignalRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SendAutomationSignalResponse> SendAutomationSignalAsync(SendAutomationSignalRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SendAutomationSignalRequestMarshaller();
             var unmarshaller = SendAutomationSignalResponseUnmarshaller.Instance;
@@ -6446,8 +6463,8 @@ namespace Amazon.SimpleSystemsManagement
         /// The S3 bucket does not exist.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidParametersException">
-        /// You must specify values for all required parameters in the SSM document. You can only
-        /// supply values to parameters defined in the SSM document.
+        /// You must specify values for all required parameters in the Systems Manager document.
+        /// You can only supply values to parameters defined in the Systems Manager document.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidRoleException">
         /// The role name can't contain invalid characters. Also verify that you specified an
@@ -6464,7 +6481,7 @@ namespace Amazon.SimpleSystemsManagement
         /// you sent an document for a Windows instance to a Linux instance.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/SendCommand">REST API Reference for SendCommand Operation</seealso>
-        public SendCommandResponse SendCommand(string documentName, List<string> instanceIds)
+        public virtual SendCommandResponse SendCommand(string documentName, List<string> instanceIds)
         {
             var request = new SendCommandRequest();
             request.DocumentName = documentName;
@@ -6520,8 +6537,8 @@ namespace Amazon.SimpleSystemsManagement
         /// The S3 bucket does not exist.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidParametersException">
-        /// You must specify values for all required parameters in the SSM document. You can only
-        /// supply values to parameters defined in the SSM document.
+        /// You must specify values for all required parameters in the Systems Manager document.
+        /// You can only supply values to parameters defined in the Systems Manager document.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidRoleException">
         /// The role name can't contain invalid characters. Also verify that you specified an
@@ -6538,7 +6555,7 @@ namespace Amazon.SimpleSystemsManagement
         /// you sent an document for a Windows instance to a Linux instance.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/SendCommand">REST API Reference for SendCommand Operation</seealso>
-        public SendCommandResponse SendCommand(SendCommandRequest request)
+        public virtual SendCommandResponse SendCommand(SendCommandRequest request)
         {
             var marshaller = new SendCommandRequestMarshaller();
             var unmarshaller = SendCommandResponseUnmarshaller.Instance;
@@ -6598,8 +6615,8 @@ namespace Amazon.SimpleSystemsManagement
         /// The S3 bucket does not exist.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidParametersException">
-        /// You must specify values for all required parameters in the SSM document. You can only
-        /// supply values to parameters defined in the SSM document.
+        /// You must specify values for all required parameters in the Systems Manager document.
+        /// You can only supply values to parameters defined in the Systems Manager document.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidRoleException">
         /// The role name can't contain invalid characters. Also verify that you specified an
@@ -6616,7 +6633,7 @@ namespace Amazon.SimpleSystemsManagement
         /// you sent an document for a Windows instance to a Linux instance.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/SendCommand">REST API Reference for SendCommand Operation</seealso>
-        public Task<SendCommandResponse> SendCommandAsync(string documentName, List<string> instanceIds, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SendCommandResponse> SendCommandAsync(string documentName, List<string> instanceIds, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var request = new SendCommandRequest();
             request.DocumentName = documentName;
@@ -6634,7 +6651,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/SendCommand">REST API Reference for SendCommand Operation</seealso>
-        public Task<SendCommandResponse> SendCommandAsync(SendCommandRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SendCommandResponse> SendCommandAsync(SendCommandRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SendCommandRequestMarshaller();
             var unmarshaller = SendCommandResponseUnmarshaller.Instance;
@@ -6677,7 +6694,7 @@ namespace Amazon.SimpleSystemsManagement
         /// Automation document.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StartAutomationExecution">REST API Reference for StartAutomationExecution Operation</seealso>
-        public StartAutomationExecutionResponse StartAutomationExecution(StartAutomationExecutionRequest request)
+        public virtual StartAutomationExecutionResponse StartAutomationExecution(StartAutomationExecutionRequest request)
         {
             var marshaller = new StartAutomationExecutionRequestMarshaller();
             var unmarshaller = StartAutomationExecutionResponseUnmarshaller.Instance;
@@ -6695,7 +6712,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StartAutomationExecution">REST API Reference for StartAutomationExecution Operation</seealso>
-        public Task<StartAutomationExecutionResponse> StartAutomationExecutionAsync(StartAutomationExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<StartAutomationExecutionResponse> StartAutomationExecutionAsync(StartAutomationExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new StartAutomationExecutionRequestMarshaller();
             var unmarshaller = StartAutomationExecutionResponseUnmarshaller.Instance;
@@ -6723,7 +6740,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StopAutomationExecution">REST API Reference for StopAutomationExecution Operation</seealso>
-        public StopAutomationExecutionResponse StopAutomationExecution(StopAutomationExecutionRequest request)
+        public virtual StopAutomationExecutionResponse StopAutomationExecution(StopAutomationExecutionRequest request)
         {
             var marshaller = new StopAutomationExecutionRequestMarshaller();
             var unmarshaller = StopAutomationExecutionResponseUnmarshaller.Instance;
@@ -6741,7 +6758,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StopAutomationExecution">REST API Reference for StopAutomationExecution Operation</seealso>
-        public Task<StopAutomationExecutionResponse> StopAutomationExecutionAsync(StopAutomationExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<StopAutomationExecutionResponse> StopAutomationExecutionAsync(StopAutomationExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new StopAutomationExecutionRequestMarshaller();
             var unmarshaller = StopAutomationExecutionResponseUnmarshaller.Instance;
@@ -6787,8 +6804,8 @@ namespace Amazon.SimpleSystemsManagement
         /// The output location is not valid or does not exist.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidParametersException">
-        /// You must specify values for all required parameters in the SSM document. You can only
-        /// supply values to parameters defined in the SSM document.
+        /// You must specify values for all required parameters in the Systems Manager document.
+        /// You can only supply values to parameters defined in the Systems Manager document.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidScheduleException">
         /// The schedule is invalid. Verify your cron or rate expression and try again.
@@ -6804,7 +6821,7 @@ namespace Amazon.SimpleSystemsManagement
         /// There are concurrent updates for a resource that supports one update at a time.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateAssociation">REST API Reference for UpdateAssociation Operation</seealso>
-        public UpdateAssociationResponse UpdateAssociation(UpdateAssociationRequest request)
+        public virtual UpdateAssociationResponse UpdateAssociation(UpdateAssociationRequest request)
         {
             var marshaller = new UpdateAssociationRequestMarshaller();
             var unmarshaller = UpdateAssociationResponseUnmarshaller.Instance;
@@ -6822,7 +6839,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateAssociation">REST API Reference for UpdateAssociation Operation</seealso>
-        public Task<UpdateAssociationResponse> UpdateAssociationAsync(UpdateAssociationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateAssociationResponse> UpdateAssociationAsync(UpdateAssociationRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateAssociationRequestMarshaller();
             var unmarshaller = UpdateAssociationResponseUnmarshaller.Instance;
@@ -6882,7 +6899,7 @@ namespace Amazon.SimpleSystemsManagement
         /// There are concurrent updates for a resource that supports one update at a time.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateAssociationStatus">REST API Reference for UpdateAssociationStatus Operation</seealso>
-        public UpdateAssociationStatusResponse UpdateAssociationStatus(UpdateAssociationStatusRequest request)
+        public virtual UpdateAssociationStatusResponse UpdateAssociationStatus(UpdateAssociationStatusRequest request)
         {
             var marshaller = new UpdateAssociationStatusRequestMarshaller();
             var unmarshaller = UpdateAssociationStatusResponseUnmarshaller.Instance;
@@ -6900,7 +6917,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateAssociationStatus">REST API Reference for UpdateAssociationStatus Operation</seealso>
-        public Task<UpdateAssociationStatusResponse> UpdateAssociationStatusAsync(UpdateAssociationStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateAssociationStatusResponse> UpdateAssociationStatusAsync(UpdateAssociationStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateAssociationStatusRequestMarshaller();
             var unmarshaller = UpdateAssociationStatusResponseUnmarshaller.Instance;
@@ -6946,7 +6963,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The size limit of a document is 64 KB.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateDocument">REST API Reference for UpdateDocument Operation</seealso>
-        public UpdateDocumentResponse UpdateDocument(UpdateDocumentRequest request)
+        public virtual UpdateDocumentResponse UpdateDocument(UpdateDocumentRequest request)
         {
             var marshaller = new UpdateDocumentRequestMarshaller();
             var unmarshaller = UpdateDocumentResponseUnmarshaller.Instance;
@@ -6964,7 +6981,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateDocument">REST API Reference for UpdateDocument Operation</seealso>
-        public Task<UpdateDocumentResponse> UpdateDocumentAsync(UpdateDocumentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateDocumentResponse> UpdateDocumentAsync(UpdateDocumentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateDocumentRequestMarshaller();
             var unmarshaller = UpdateDocumentResponseUnmarshaller.Instance;
@@ -6997,7 +7014,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The document version is not valid or does not exist.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateDocumentDefaultVersion">REST API Reference for UpdateDocumentDefaultVersion Operation</seealso>
-        public UpdateDocumentDefaultVersionResponse UpdateDocumentDefaultVersion(UpdateDocumentDefaultVersionRequest request)
+        public virtual UpdateDocumentDefaultVersionResponse UpdateDocumentDefaultVersion(UpdateDocumentDefaultVersionRequest request)
         {
             var marshaller = new UpdateDocumentDefaultVersionRequestMarshaller();
             var unmarshaller = UpdateDocumentDefaultVersionResponseUnmarshaller.Instance;
@@ -7015,7 +7032,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateDocumentDefaultVersion">REST API Reference for UpdateDocumentDefaultVersion Operation</seealso>
-        public Task<UpdateDocumentDefaultVersionResponse> UpdateDocumentDefaultVersionAsync(UpdateDocumentDefaultVersionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateDocumentDefaultVersionResponse> UpdateDocumentDefaultVersionAsync(UpdateDocumentDefaultVersionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateDocumentDefaultVersionRequestMarshaller();
             var unmarshaller = UpdateDocumentDefaultVersionResponseUnmarshaller.Instance;
@@ -7043,7 +7060,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateMaintenanceWindow">REST API Reference for UpdateMaintenanceWindow Operation</seealso>
-        public UpdateMaintenanceWindowResponse UpdateMaintenanceWindow(UpdateMaintenanceWindowRequest request)
+        public virtual UpdateMaintenanceWindowResponse UpdateMaintenanceWindow(UpdateMaintenanceWindowRequest request)
         {
             var marshaller = new UpdateMaintenanceWindowRequestMarshaller();
             var unmarshaller = UpdateMaintenanceWindowResponseUnmarshaller.Instance;
@@ -7061,7 +7078,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateMaintenanceWindow">REST API Reference for UpdateMaintenanceWindow Operation</seealso>
-        public Task<UpdateMaintenanceWindowResponse> UpdateMaintenanceWindowAsync(UpdateMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateMaintenanceWindowResponse> UpdateMaintenanceWindowAsync(UpdateMaintenanceWindowRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateMaintenanceWindowRequestMarshaller();
             var unmarshaller = UpdateMaintenanceWindowResponseUnmarshaller.Instance;
@@ -7119,7 +7136,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateMaintenanceWindowTarget">REST API Reference for UpdateMaintenanceWindowTarget Operation</seealso>
-        public UpdateMaintenanceWindowTargetResponse UpdateMaintenanceWindowTarget(UpdateMaintenanceWindowTargetRequest request)
+        public virtual UpdateMaintenanceWindowTargetResponse UpdateMaintenanceWindowTarget(UpdateMaintenanceWindowTargetRequest request)
         {
             var marshaller = new UpdateMaintenanceWindowTargetRequestMarshaller();
             var unmarshaller = UpdateMaintenanceWindowTargetResponseUnmarshaller.Instance;
@@ -7137,7 +7154,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateMaintenanceWindowTarget">REST API Reference for UpdateMaintenanceWindowTarget Operation</seealso>
-        public Task<UpdateMaintenanceWindowTargetResponse> UpdateMaintenanceWindowTargetAsync(UpdateMaintenanceWindowTargetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateMaintenanceWindowTargetResponse> UpdateMaintenanceWindowTargetAsync(UpdateMaintenanceWindowTargetRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateMaintenanceWindowTargetRequestMarshaller();
             var unmarshaller = UpdateMaintenanceWindowTargetResponseUnmarshaller.Instance;
@@ -7199,7 +7216,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateMaintenanceWindowTask">REST API Reference for UpdateMaintenanceWindowTask Operation</seealso>
-        public UpdateMaintenanceWindowTaskResponse UpdateMaintenanceWindowTask(UpdateMaintenanceWindowTaskRequest request)
+        public virtual UpdateMaintenanceWindowTaskResponse UpdateMaintenanceWindowTask(UpdateMaintenanceWindowTaskRequest request)
         {
             var marshaller = new UpdateMaintenanceWindowTaskRequestMarshaller();
             var unmarshaller = UpdateMaintenanceWindowTaskResponseUnmarshaller.Instance;
@@ -7217,7 +7234,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateMaintenanceWindowTask">REST API Reference for UpdateMaintenanceWindowTask Operation</seealso>
-        public Task<UpdateMaintenanceWindowTaskResponse> UpdateMaintenanceWindowTaskAsync(UpdateMaintenanceWindowTaskRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateMaintenanceWindowTaskResponse> UpdateMaintenanceWindowTaskAsync(UpdateMaintenanceWindowTaskRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateMaintenanceWindowTaskRequestMarshaller();
             var unmarshaller = UpdateMaintenanceWindowTaskResponseUnmarshaller.Instance;
@@ -7266,7 +7283,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateManagedInstanceRole">REST API Reference for UpdateManagedInstanceRole Operation</seealso>
-        public UpdateManagedInstanceRoleResponse UpdateManagedInstanceRole(UpdateManagedInstanceRoleRequest request)
+        public virtual UpdateManagedInstanceRoleResponse UpdateManagedInstanceRole(UpdateManagedInstanceRoleRequest request)
         {
             var marshaller = new UpdateManagedInstanceRoleRequestMarshaller();
             var unmarshaller = UpdateManagedInstanceRoleResponseUnmarshaller.Instance;
@@ -7284,7 +7301,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdateManagedInstanceRole">REST API Reference for UpdateManagedInstanceRole Operation</seealso>
-        public Task<UpdateManagedInstanceRoleResponse> UpdateManagedInstanceRoleAsync(UpdateManagedInstanceRoleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateManagedInstanceRoleResponse> UpdateManagedInstanceRoleAsync(UpdateManagedInstanceRoleRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateManagedInstanceRoleRequestMarshaller();
             var unmarshaller = UpdateManagedInstanceRoleResponseUnmarshaller.Instance;
@@ -7313,7 +7330,7 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdatePatchBaseline">REST API Reference for UpdatePatchBaseline Operation</seealso>
-        public UpdatePatchBaselineResponse UpdatePatchBaseline(UpdatePatchBaselineRequest request)
+        public virtual UpdatePatchBaselineResponse UpdatePatchBaseline(UpdatePatchBaselineRequest request)
         {
             var marshaller = new UpdatePatchBaselineRequestMarshaller();
             var unmarshaller = UpdatePatchBaselineResponseUnmarshaller.Instance;
@@ -7331,7 +7348,7 @@ namespace Amazon.SimpleSystemsManagement
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/UpdatePatchBaseline">REST API Reference for UpdatePatchBaseline Operation</seealso>
-        public Task<UpdatePatchBaselineResponse> UpdatePatchBaselineAsync(UpdatePatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdatePatchBaselineResponse> UpdatePatchBaselineAsync(UpdatePatchBaselineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdatePatchBaselineRequestMarshaller();
             var unmarshaller = UpdatePatchBaselineResponseUnmarshaller.Instance;

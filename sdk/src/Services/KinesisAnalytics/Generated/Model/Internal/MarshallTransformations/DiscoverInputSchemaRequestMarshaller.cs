@@ -67,6 +67,17 @@ namespace Amazon.KinesisAnalytics.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetInputProcessingConfiguration())
+                {
+                    context.Writer.WritePropertyName("InputProcessingConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = InputProcessingConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.InputProcessingConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetInputStartingPositionConfiguration())
                 {
                     context.Writer.WritePropertyName("InputStartingPositionConfiguration");
@@ -88,6 +99,17 @@ namespace Amazon.KinesisAnalytics.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("RoleARN");
                     context.Writer.Write(publicRequest.RoleARN);
+                }
+
+                if(publicRequest.IsSetS3Configuration())
+                {
+                    context.Writer.WritePropertyName("S3Configuration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = S3ConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.S3Configuration, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
         

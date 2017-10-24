@@ -43,8 +43,11 @@ namespace Amazon.Elasticsearch.Model
         private ElasticsearchClusterConfig _elasticsearchClusterConfig;
         private string _elasticsearchVersion;
         private string _endpoint;
+        private Dictionary<string, string> _endpoints = new Dictionary<string, string>();
+        private Dictionary<string, LogPublishingOption> _logPublishingOptions = new Dictionary<string, LogPublishingOption>();
         private bool? _processing;
         private SnapshotOptions _snapshotOptions;
+        private VPCDerivedInfo _vpcOptions;
 
         /// <summary>
         /// Gets and sets the property AccessPolicies. 
@@ -251,6 +254,43 @@ namespace Amazon.Elasticsearch.Model
         }
 
         /// <summary>
+        /// Gets and sets the property Endpoints. 
+        /// <para>
+        /// Map containing the Elasticsearch domain endpoints used to submit index and search
+        /// requests. Example <code>key, value</code>: <code>'vpc','vpc-endpoint-h2dsd34efgyghrtguk5gt6j2foh4.us-east-1.es.amazonaws.com'</code>.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, string> Endpoints
+        {
+            get { return this._endpoints; }
+            set { this._endpoints = value; }
+        }
+
+        // Check to see if Endpoints property is set
+        internal bool IsSetEndpoints()
+        {
+            return this._endpoints != null && this._endpoints.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property LogPublishingOptions. 
+        /// <para>
+        /// Log publishing options for the given domain.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, LogPublishingOption> LogPublishingOptions
+        {
+            get { return this._logPublishingOptions; }
+            set { this._logPublishingOptions = value; }
+        }
+
+        // Check to see if LogPublishingOptions property is set
+        internal bool IsSetLogPublishingOptions()
+        {
+            return this._logPublishingOptions != null && this._logPublishingOptions.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Processing. 
         /// <para>
         /// The status of the Elasticsearch domain configuration. <code>True</code> if Amazon
@@ -286,6 +326,26 @@ namespace Amazon.Elasticsearch.Model
         internal bool IsSetSnapshotOptions()
         {
             return this._snapshotOptions != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property VPCOptions. 
+        /// <para>
+        /// The <code>VPCOptions</code> for the specified domain. For more information, see <a
+        /// href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html"
+        /// target="_blank">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.
+        /// </para>
+        /// </summary>
+        public VPCDerivedInfo VPCOptions
+        {
+            get { return this._vpcOptions; }
+            set { this._vpcOptions = value; }
+        }
+
+        // Check to see if VPCOptions property is set
+        internal bool IsSetVPCOptions()
+        {
+            return this._vpcOptions != null;
         }
 
     }

@@ -232,7 +232,7 @@ namespace Amazon.Pinpoint
         
         #region  CreateApp
 
-        internal CreateAppResponse CreateApp(CreateAppRequest request)
+        internal virtual CreateAppResponse CreateApp(CreateAppRequest request)
         {
             var marshaller = new CreateAppRequestMarshaller();
             var unmarshaller = CreateAppResponseUnmarshaller.Instance;
@@ -250,7 +250,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<CreateAppResponse> CreateAppAsync(CreateAppRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateAppResponse> CreateAppAsync(CreateAppRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateAppRequestMarshaller();
             var unmarshaller = CreateAppResponseUnmarshaller.Instance;
@@ -263,7 +263,7 @@ namespace Amazon.Pinpoint
         
         #region  CreateCampaign
 
-        internal CreateCampaignResponse CreateCampaign(CreateCampaignRequest request)
+        internal virtual CreateCampaignResponse CreateCampaign(CreateCampaignRequest request)
         {
             var marshaller = new CreateCampaignRequestMarshaller();
             var unmarshaller = CreateCampaignResponseUnmarshaller.Instance;
@@ -281,7 +281,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<CreateCampaignResponse> CreateCampaignAsync(CreateCampaignRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateCampaignResponse> CreateCampaignAsync(CreateCampaignRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateCampaignRequestMarshaller();
             var unmarshaller = CreateCampaignResponseUnmarshaller.Instance;
@@ -294,7 +294,7 @@ namespace Amazon.Pinpoint
         
         #region  CreateImportJob
 
-        internal CreateImportJobResponse CreateImportJob(CreateImportJobRequest request)
+        internal virtual CreateImportJobResponse CreateImportJob(CreateImportJobRequest request)
         {
             var marshaller = new CreateImportJobRequestMarshaller();
             var unmarshaller = CreateImportJobResponseUnmarshaller.Instance;
@@ -312,7 +312,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<CreateImportJobResponse> CreateImportJobAsync(CreateImportJobRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateImportJobResponse> CreateImportJobAsync(CreateImportJobRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateImportJobRequestMarshaller();
             var unmarshaller = CreateImportJobResponseUnmarshaller.Instance;
@@ -325,7 +325,7 @@ namespace Amazon.Pinpoint
         
         #region  CreateSegment
 
-        internal CreateSegmentResponse CreateSegment(CreateSegmentRequest request)
+        internal virtual CreateSegmentResponse CreateSegment(CreateSegmentRequest request)
         {
             var marshaller = new CreateSegmentRequestMarshaller();
             var unmarshaller = CreateSegmentResponseUnmarshaller.Instance;
@@ -343,7 +343,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<CreateSegmentResponse> CreateSegmentAsync(CreateSegmentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<CreateSegmentResponse> CreateSegmentAsync(CreateSegmentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new CreateSegmentRequestMarshaller();
             var unmarshaller = CreateSegmentResponseUnmarshaller.Instance;
@@ -354,9 +354,40 @@ namespace Amazon.Pinpoint
 
         #endregion
         
+        #region  DeleteAdmChannel
+
+        internal virtual DeleteAdmChannelResponse DeleteAdmChannel(DeleteAdmChannelRequest request)
+        {
+            var marshaller = new DeleteAdmChannelRequestMarshaller();
+            var unmarshaller = DeleteAdmChannelResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteAdmChannelRequest,DeleteAdmChannelResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteAdmChannel operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteAdmChannel operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<DeleteAdmChannelResponse> DeleteAdmChannelAsync(DeleteAdmChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteAdmChannelRequestMarshaller();
+            var unmarshaller = DeleteAdmChannelResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteAdmChannelRequest,DeleteAdmChannelResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteApnsChannel
 
-        internal DeleteApnsChannelResponse DeleteApnsChannel(DeleteApnsChannelRequest request)
+        internal virtual DeleteApnsChannelResponse DeleteApnsChannel(DeleteApnsChannelRequest request)
         {
             var marshaller = new DeleteApnsChannelRequestMarshaller();
             var unmarshaller = DeleteApnsChannelResponseUnmarshaller.Instance;
@@ -374,7 +405,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DeleteApnsChannelResponse> DeleteApnsChannelAsync(DeleteApnsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteApnsChannelResponse> DeleteApnsChannelAsync(DeleteApnsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteApnsChannelRequestMarshaller();
             var unmarshaller = DeleteApnsChannelResponseUnmarshaller.Instance;
@@ -387,7 +418,7 @@ namespace Amazon.Pinpoint
         
         #region  DeleteApnsSandboxChannel
 
-        internal DeleteApnsSandboxChannelResponse DeleteApnsSandboxChannel(DeleteApnsSandboxChannelRequest request)
+        internal virtual DeleteApnsSandboxChannelResponse DeleteApnsSandboxChannel(DeleteApnsSandboxChannelRequest request)
         {
             var marshaller = new DeleteApnsSandboxChannelRequestMarshaller();
             var unmarshaller = DeleteApnsSandboxChannelResponseUnmarshaller.Instance;
@@ -405,7 +436,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DeleteApnsSandboxChannelResponse> DeleteApnsSandboxChannelAsync(DeleteApnsSandboxChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteApnsSandboxChannelResponse> DeleteApnsSandboxChannelAsync(DeleteApnsSandboxChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteApnsSandboxChannelRequestMarshaller();
             var unmarshaller = DeleteApnsSandboxChannelResponseUnmarshaller.Instance;
@@ -418,7 +449,7 @@ namespace Amazon.Pinpoint
         
         #region  DeleteApp
 
-        internal DeleteAppResponse DeleteApp(DeleteAppRequest request)
+        internal virtual DeleteAppResponse DeleteApp(DeleteAppRequest request)
         {
             var marshaller = new DeleteAppRequestMarshaller();
             var unmarshaller = DeleteAppResponseUnmarshaller.Instance;
@@ -436,7 +467,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DeleteAppResponse> DeleteAppAsync(DeleteAppRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteAppResponse> DeleteAppAsync(DeleteAppRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteAppRequestMarshaller();
             var unmarshaller = DeleteAppResponseUnmarshaller.Instance;
@@ -447,9 +478,40 @@ namespace Amazon.Pinpoint
 
         #endregion
         
+        #region  DeleteBaiduChannel
+
+        internal virtual DeleteBaiduChannelResponse DeleteBaiduChannel(DeleteBaiduChannelRequest request)
+        {
+            var marshaller = new DeleteBaiduChannelRequestMarshaller();
+            var unmarshaller = DeleteBaiduChannelResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteBaiduChannelRequest,DeleteBaiduChannelResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteBaiduChannel operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteBaiduChannel operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<DeleteBaiduChannelResponse> DeleteBaiduChannelAsync(DeleteBaiduChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteBaiduChannelRequestMarshaller();
+            var unmarshaller = DeleteBaiduChannelResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteBaiduChannelRequest,DeleteBaiduChannelResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteCampaign
 
-        internal DeleteCampaignResponse DeleteCampaign(DeleteCampaignRequest request)
+        internal virtual DeleteCampaignResponse DeleteCampaign(DeleteCampaignRequest request)
         {
             var marshaller = new DeleteCampaignRequestMarshaller();
             var unmarshaller = DeleteCampaignResponseUnmarshaller.Instance;
@@ -467,7 +529,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DeleteCampaignResponse> DeleteCampaignAsync(DeleteCampaignRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteCampaignResponse> DeleteCampaignAsync(DeleteCampaignRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteCampaignRequestMarshaller();
             var unmarshaller = DeleteCampaignResponseUnmarshaller.Instance;
@@ -480,7 +542,7 @@ namespace Amazon.Pinpoint
         
         #region  DeleteEmailChannel
 
-        internal DeleteEmailChannelResponse DeleteEmailChannel(DeleteEmailChannelRequest request)
+        internal virtual DeleteEmailChannelResponse DeleteEmailChannel(DeleteEmailChannelRequest request)
         {
             var marshaller = new DeleteEmailChannelRequestMarshaller();
             var unmarshaller = DeleteEmailChannelResponseUnmarshaller.Instance;
@@ -498,7 +560,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DeleteEmailChannelResponse> DeleteEmailChannelAsync(DeleteEmailChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteEmailChannelResponse> DeleteEmailChannelAsync(DeleteEmailChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteEmailChannelRequestMarshaller();
             var unmarshaller = DeleteEmailChannelResponseUnmarshaller.Instance;
@@ -511,7 +573,7 @@ namespace Amazon.Pinpoint
         
         #region  DeleteEventStream
 
-        internal DeleteEventStreamResponse DeleteEventStream(DeleteEventStreamRequest request)
+        internal virtual DeleteEventStreamResponse DeleteEventStream(DeleteEventStreamRequest request)
         {
             var marshaller = new DeleteEventStreamRequestMarshaller();
             var unmarshaller = DeleteEventStreamResponseUnmarshaller.Instance;
@@ -529,7 +591,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DeleteEventStreamResponse> DeleteEventStreamAsync(DeleteEventStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteEventStreamResponse> DeleteEventStreamAsync(DeleteEventStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteEventStreamRequestMarshaller();
             var unmarshaller = DeleteEventStreamResponseUnmarshaller.Instance;
@@ -542,7 +604,7 @@ namespace Amazon.Pinpoint
         
         #region  DeleteGcmChannel
 
-        internal DeleteGcmChannelResponse DeleteGcmChannel(DeleteGcmChannelRequest request)
+        internal virtual DeleteGcmChannelResponse DeleteGcmChannel(DeleteGcmChannelRequest request)
         {
             var marshaller = new DeleteGcmChannelRequestMarshaller();
             var unmarshaller = DeleteGcmChannelResponseUnmarshaller.Instance;
@@ -560,7 +622,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DeleteGcmChannelResponse> DeleteGcmChannelAsync(DeleteGcmChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteGcmChannelResponse> DeleteGcmChannelAsync(DeleteGcmChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteGcmChannelRequestMarshaller();
             var unmarshaller = DeleteGcmChannelResponseUnmarshaller.Instance;
@@ -573,7 +635,7 @@ namespace Amazon.Pinpoint
         
         #region  DeleteSegment
 
-        internal DeleteSegmentResponse DeleteSegment(DeleteSegmentRequest request)
+        internal virtual DeleteSegmentResponse DeleteSegment(DeleteSegmentRequest request)
         {
             var marshaller = new DeleteSegmentRequestMarshaller();
             var unmarshaller = DeleteSegmentResponseUnmarshaller.Instance;
@@ -591,7 +653,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DeleteSegmentResponse> DeleteSegmentAsync(DeleteSegmentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteSegmentResponse> DeleteSegmentAsync(DeleteSegmentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteSegmentRequestMarshaller();
             var unmarshaller = DeleteSegmentResponseUnmarshaller.Instance;
@@ -604,7 +666,7 @@ namespace Amazon.Pinpoint
         
         #region  DeleteSmsChannel
 
-        internal DeleteSmsChannelResponse DeleteSmsChannel(DeleteSmsChannelRequest request)
+        internal virtual DeleteSmsChannelResponse DeleteSmsChannel(DeleteSmsChannelRequest request)
         {
             var marshaller = new DeleteSmsChannelRequestMarshaller();
             var unmarshaller = DeleteSmsChannelResponseUnmarshaller.Instance;
@@ -622,7 +684,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<DeleteSmsChannelResponse> DeleteSmsChannelAsync(DeleteSmsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<DeleteSmsChannelResponse> DeleteSmsChannelAsync(DeleteSmsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new DeleteSmsChannelRequestMarshaller();
             var unmarshaller = DeleteSmsChannelResponseUnmarshaller.Instance;
@@ -633,9 +695,40 @@ namespace Amazon.Pinpoint
 
         #endregion
         
+        #region  GetAdmChannel
+
+        internal virtual GetAdmChannelResponse GetAdmChannel(GetAdmChannelRequest request)
+        {
+            var marshaller = new GetAdmChannelRequestMarshaller();
+            var unmarshaller = GetAdmChannelResponseUnmarshaller.Instance;
+
+            return Invoke<GetAdmChannelRequest,GetAdmChannelResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetAdmChannel operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetAdmChannel operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<GetAdmChannelResponse> GetAdmChannelAsync(GetAdmChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetAdmChannelRequestMarshaller();
+            var unmarshaller = GetAdmChannelResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetAdmChannelRequest,GetAdmChannelResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetApnsChannel
 
-        internal GetApnsChannelResponse GetApnsChannel(GetApnsChannelRequest request)
+        internal virtual GetApnsChannelResponse GetApnsChannel(GetApnsChannelRequest request)
         {
             var marshaller = new GetApnsChannelRequestMarshaller();
             var unmarshaller = GetApnsChannelResponseUnmarshaller.Instance;
@@ -653,7 +746,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetApnsChannelResponse> GetApnsChannelAsync(GetApnsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetApnsChannelResponse> GetApnsChannelAsync(GetApnsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetApnsChannelRequestMarshaller();
             var unmarshaller = GetApnsChannelResponseUnmarshaller.Instance;
@@ -666,7 +759,7 @@ namespace Amazon.Pinpoint
         
         #region  GetApnsSandboxChannel
 
-        internal GetApnsSandboxChannelResponse GetApnsSandboxChannel(GetApnsSandboxChannelRequest request)
+        internal virtual GetApnsSandboxChannelResponse GetApnsSandboxChannel(GetApnsSandboxChannelRequest request)
         {
             var marshaller = new GetApnsSandboxChannelRequestMarshaller();
             var unmarshaller = GetApnsSandboxChannelResponseUnmarshaller.Instance;
@@ -684,7 +777,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetApnsSandboxChannelResponse> GetApnsSandboxChannelAsync(GetApnsSandboxChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetApnsSandboxChannelResponse> GetApnsSandboxChannelAsync(GetApnsSandboxChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetApnsSandboxChannelRequestMarshaller();
             var unmarshaller = GetApnsSandboxChannelResponseUnmarshaller.Instance;
@@ -697,7 +790,7 @@ namespace Amazon.Pinpoint
         
         #region  GetApp
 
-        internal GetAppResponse GetApp(GetAppRequest request)
+        internal virtual GetAppResponse GetApp(GetAppRequest request)
         {
             var marshaller = new GetAppRequestMarshaller();
             var unmarshaller = GetAppResponseUnmarshaller.Instance;
@@ -715,7 +808,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetAppResponse> GetAppAsync(GetAppRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetAppResponse> GetAppAsync(GetAppRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetAppRequestMarshaller();
             var unmarshaller = GetAppResponseUnmarshaller.Instance;
@@ -728,7 +821,7 @@ namespace Amazon.Pinpoint
         
         #region  GetApplicationSettings
 
-        internal GetApplicationSettingsResponse GetApplicationSettings(GetApplicationSettingsRequest request)
+        internal virtual GetApplicationSettingsResponse GetApplicationSettings(GetApplicationSettingsRequest request)
         {
             var marshaller = new GetApplicationSettingsRequestMarshaller();
             var unmarshaller = GetApplicationSettingsResponseUnmarshaller.Instance;
@@ -746,7 +839,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetApplicationSettingsResponse> GetApplicationSettingsAsync(GetApplicationSettingsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetApplicationSettingsResponse> GetApplicationSettingsAsync(GetApplicationSettingsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetApplicationSettingsRequestMarshaller();
             var unmarshaller = GetApplicationSettingsResponseUnmarshaller.Instance;
@@ -759,7 +852,7 @@ namespace Amazon.Pinpoint
         
         #region  GetApps
 
-        internal GetAppsResponse GetApps(GetAppsRequest request)
+        internal virtual GetAppsResponse GetApps(GetAppsRequest request)
         {
             var marshaller = new GetAppsRequestMarshaller();
             var unmarshaller = GetAppsResponseUnmarshaller.Instance;
@@ -777,7 +870,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetAppsResponse> GetAppsAsync(GetAppsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetAppsResponse> GetAppsAsync(GetAppsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetAppsRequestMarshaller();
             var unmarshaller = GetAppsResponseUnmarshaller.Instance;
@@ -788,9 +881,40 @@ namespace Amazon.Pinpoint
 
         #endregion
         
+        #region  GetBaiduChannel
+
+        internal virtual GetBaiduChannelResponse GetBaiduChannel(GetBaiduChannelRequest request)
+        {
+            var marshaller = new GetBaiduChannelRequestMarshaller();
+            var unmarshaller = GetBaiduChannelResponseUnmarshaller.Instance;
+
+            return Invoke<GetBaiduChannelRequest,GetBaiduChannelResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetBaiduChannel operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetBaiduChannel operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<GetBaiduChannelResponse> GetBaiduChannelAsync(GetBaiduChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetBaiduChannelRequestMarshaller();
+            var unmarshaller = GetBaiduChannelResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetBaiduChannelRequest,GetBaiduChannelResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetCampaign
 
-        internal GetCampaignResponse GetCampaign(GetCampaignRequest request)
+        internal virtual GetCampaignResponse GetCampaign(GetCampaignRequest request)
         {
             var marshaller = new GetCampaignRequestMarshaller();
             var unmarshaller = GetCampaignResponseUnmarshaller.Instance;
@@ -808,7 +932,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetCampaignResponse> GetCampaignAsync(GetCampaignRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetCampaignResponse> GetCampaignAsync(GetCampaignRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetCampaignRequestMarshaller();
             var unmarshaller = GetCampaignResponseUnmarshaller.Instance;
@@ -821,7 +945,7 @@ namespace Amazon.Pinpoint
         
         #region  GetCampaignActivities
 
-        internal GetCampaignActivitiesResponse GetCampaignActivities(GetCampaignActivitiesRequest request)
+        internal virtual GetCampaignActivitiesResponse GetCampaignActivities(GetCampaignActivitiesRequest request)
         {
             var marshaller = new GetCampaignActivitiesRequestMarshaller();
             var unmarshaller = GetCampaignActivitiesResponseUnmarshaller.Instance;
@@ -839,7 +963,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetCampaignActivitiesResponse> GetCampaignActivitiesAsync(GetCampaignActivitiesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetCampaignActivitiesResponse> GetCampaignActivitiesAsync(GetCampaignActivitiesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetCampaignActivitiesRequestMarshaller();
             var unmarshaller = GetCampaignActivitiesResponseUnmarshaller.Instance;
@@ -852,7 +976,7 @@ namespace Amazon.Pinpoint
         
         #region  GetCampaigns
 
-        internal GetCampaignsResponse GetCampaigns(GetCampaignsRequest request)
+        internal virtual GetCampaignsResponse GetCampaigns(GetCampaignsRequest request)
         {
             var marshaller = new GetCampaignsRequestMarshaller();
             var unmarshaller = GetCampaignsResponseUnmarshaller.Instance;
@@ -870,7 +994,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetCampaignsResponse> GetCampaignsAsync(GetCampaignsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetCampaignsResponse> GetCampaignsAsync(GetCampaignsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetCampaignsRequestMarshaller();
             var unmarshaller = GetCampaignsResponseUnmarshaller.Instance;
@@ -883,7 +1007,7 @@ namespace Amazon.Pinpoint
         
         #region  GetCampaignVersion
 
-        internal GetCampaignVersionResponse GetCampaignVersion(GetCampaignVersionRequest request)
+        internal virtual GetCampaignVersionResponse GetCampaignVersion(GetCampaignVersionRequest request)
         {
             var marshaller = new GetCampaignVersionRequestMarshaller();
             var unmarshaller = GetCampaignVersionResponseUnmarshaller.Instance;
@@ -901,7 +1025,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetCampaignVersionResponse> GetCampaignVersionAsync(GetCampaignVersionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetCampaignVersionResponse> GetCampaignVersionAsync(GetCampaignVersionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetCampaignVersionRequestMarshaller();
             var unmarshaller = GetCampaignVersionResponseUnmarshaller.Instance;
@@ -914,7 +1038,7 @@ namespace Amazon.Pinpoint
         
         #region  GetCampaignVersions
 
-        internal GetCampaignVersionsResponse GetCampaignVersions(GetCampaignVersionsRequest request)
+        internal virtual GetCampaignVersionsResponse GetCampaignVersions(GetCampaignVersionsRequest request)
         {
             var marshaller = new GetCampaignVersionsRequestMarshaller();
             var unmarshaller = GetCampaignVersionsResponseUnmarshaller.Instance;
@@ -932,7 +1056,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetCampaignVersionsResponse> GetCampaignVersionsAsync(GetCampaignVersionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetCampaignVersionsResponse> GetCampaignVersionsAsync(GetCampaignVersionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetCampaignVersionsRequestMarshaller();
             var unmarshaller = GetCampaignVersionsResponseUnmarshaller.Instance;
@@ -945,7 +1069,7 @@ namespace Amazon.Pinpoint
         
         #region  GetEmailChannel
 
-        internal GetEmailChannelResponse GetEmailChannel(GetEmailChannelRequest request)
+        internal virtual GetEmailChannelResponse GetEmailChannel(GetEmailChannelRequest request)
         {
             var marshaller = new GetEmailChannelRequestMarshaller();
             var unmarshaller = GetEmailChannelResponseUnmarshaller.Instance;
@@ -963,7 +1087,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetEmailChannelResponse> GetEmailChannelAsync(GetEmailChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetEmailChannelResponse> GetEmailChannelAsync(GetEmailChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetEmailChannelRequestMarshaller();
             var unmarshaller = GetEmailChannelResponseUnmarshaller.Instance;
@@ -976,7 +1100,7 @@ namespace Amazon.Pinpoint
         
         #region  GetEndpoint
 
-        internal GetEndpointResponse GetEndpoint(GetEndpointRequest request)
+        internal virtual GetEndpointResponse GetEndpoint(GetEndpointRequest request)
         {
             var marshaller = new GetEndpointRequestMarshaller();
             var unmarshaller = GetEndpointResponseUnmarshaller.Instance;
@@ -994,7 +1118,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetEndpointResponse> GetEndpointAsync(GetEndpointRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetEndpointResponse> GetEndpointAsync(GetEndpointRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetEndpointRequestMarshaller();
             var unmarshaller = GetEndpointResponseUnmarshaller.Instance;
@@ -1007,7 +1131,7 @@ namespace Amazon.Pinpoint
         
         #region  GetEventStream
 
-        internal GetEventStreamResponse GetEventStream(GetEventStreamRequest request)
+        internal virtual GetEventStreamResponse GetEventStream(GetEventStreamRequest request)
         {
             var marshaller = new GetEventStreamRequestMarshaller();
             var unmarshaller = GetEventStreamResponseUnmarshaller.Instance;
@@ -1025,7 +1149,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetEventStreamResponse> GetEventStreamAsync(GetEventStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetEventStreamResponse> GetEventStreamAsync(GetEventStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetEventStreamRequestMarshaller();
             var unmarshaller = GetEventStreamResponseUnmarshaller.Instance;
@@ -1038,7 +1162,7 @@ namespace Amazon.Pinpoint
         
         #region  GetGcmChannel
 
-        internal GetGcmChannelResponse GetGcmChannel(GetGcmChannelRequest request)
+        internal virtual GetGcmChannelResponse GetGcmChannel(GetGcmChannelRequest request)
         {
             var marshaller = new GetGcmChannelRequestMarshaller();
             var unmarshaller = GetGcmChannelResponseUnmarshaller.Instance;
@@ -1056,7 +1180,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetGcmChannelResponse> GetGcmChannelAsync(GetGcmChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetGcmChannelResponse> GetGcmChannelAsync(GetGcmChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetGcmChannelRequestMarshaller();
             var unmarshaller = GetGcmChannelResponseUnmarshaller.Instance;
@@ -1069,7 +1193,7 @@ namespace Amazon.Pinpoint
         
         #region  GetImportJob
 
-        internal GetImportJobResponse GetImportJob(GetImportJobRequest request)
+        internal virtual GetImportJobResponse GetImportJob(GetImportJobRequest request)
         {
             var marshaller = new GetImportJobRequestMarshaller();
             var unmarshaller = GetImportJobResponseUnmarshaller.Instance;
@@ -1087,7 +1211,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetImportJobResponse> GetImportJobAsync(GetImportJobRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetImportJobResponse> GetImportJobAsync(GetImportJobRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetImportJobRequestMarshaller();
             var unmarshaller = GetImportJobResponseUnmarshaller.Instance;
@@ -1100,7 +1224,7 @@ namespace Amazon.Pinpoint
         
         #region  GetImportJobs
 
-        internal GetImportJobsResponse GetImportJobs(GetImportJobsRequest request)
+        internal virtual GetImportJobsResponse GetImportJobs(GetImportJobsRequest request)
         {
             var marshaller = new GetImportJobsRequestMarshaller();
             var unmarshaller = GetImportJobsResponseUnmarshaller.Instance;
@@ -1118,7 +1242,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetImportJobsResponse> GetImportJobsAsync(GetImportJobsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetImportJobsResponse> GetImportJobsAsync(GetImportJobsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetImportJobsRequestMarshaller();
             var unmarshaller = GetImportJobsResponseUnmarshaller.Instance;
@@ -1131,7 +1255,7 @@ namespace Amazon.Pinpoint
         
         #region  GetSegment
 
-        internal GetSegmentResponse GetSegment(GetSegmentRequest request)
+        internal virtual GetSegmentResponse GetSegment(GetSegmentRequest request)
         {
             var marshaller = new GetSegmentRequestMarshaller();
             var unmarshaller = GetSegmentResponseUnmarshaller.Instance;
@@ -1149,7 +1273,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetSegmentResponse> GetSegmentAsync(GetSegmentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSegmentResponse> GetSegmentAsync(GetSegmentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetSegmentRequestMarshaller();
             var unmarshaller = GetSegmentResponseUnmarshaller.Instance;
@@ -1162,7 +1286,7 @@ namespace Amazon.Pinpoint
         
         #region  GetSegmentImportJobs
 
-        internal GetSegmentImportJobsResponse GetSegmentImportJobs(GetSegmentImportJobsRequest request)
+        internal virtual GetSegmentImportJobsResponse GetSegmentImportJobs(GetSegmentImportJobsRequest request)
         {
             var marshaller = new GetSegmentImportJobsRequestMarshaller();
             var unmarshaller = GetSegmentImportJobsResponseUnmarshaller.Instance;
@@ -1180,7 +1304,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetSegmentImportJobsResponse> GetSegmentImportJobsAsync(GetSegmentImportJobsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSegmentImportJobsResponse> GetSegmentImportJobsAsync(GetSegmentImportJobsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetSegmentImportJobsRequestMarshaller();
             var unmarshaller = GetSegmentImportJobsResponseUnmarshaller.Instance;
@@ -1193,7 +1317,7 @@ namespace Amazon.Pinpoint
         
         #region  GetSegments
 
-        internal GetSegmentsResponse GetSegments(GetSegmentsRequest request)
+        internal virtual GetSegmentsResponse GetSegments(GetSegmentsRequest request)
         {
             var marshaller = new GetSegmentsRequestMarshaller();
             var unmarshaller = GetSegmentsResponseUnmarshaller.Instance;
@@ -1211,7 +1335,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetSegmentsResponse> GetSegmentsAsync(GetSegmentsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSegmentsResponse> GetSegmentsAsync(GetSegmentsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetSegmentsRequestMarshaller();
             var unmarshaller = GetSegmentsResponseUnmarshaller.Instance;
@@ -1224,7 +1348,7 @@ namespace Amazon.Pinpoint
         
         #region  GetSegmentVersion
 
-        internal GetSegmentVersionResponse GetSegmentVersion(GetSegmentVersionRequest request)
+        internal virtual GetSegmentVersionResponse GetSegmentVersion(GetSegmentVersionRequest request)
         {
             var marshaller = new GetSegmentVersionRequestMarshaller();
             var unmarshaller = GetSegmentVersionResponseUnmarshaller.Instance;
@@ -1242,7 +1366,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetSegmentVersionResponse> GetSegmentVersionAsync(GetSegmentVersionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSegmentVersionResponse> GetSegmentVersionAsync(GetSegmentVersionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetSegmentVersionRequestMarshaller();
             var unmarshaller = GetSegmentVersionResponseUnmarshaller.Instance;
@@ -1255,7 +1379,7 @@ namespace Amazon.Pinpoint
         
         #region  GetSegmentVersions
 
-        internal GetSegmentVersionsResponse GetSegmentVersions(GetSegmentVersionsRequest request)
+        internal virtual GetSegmentVersionsResponse GetSegmentVersions(GetSegmentVersionsRequest request)
         {
             var marshaller = new GetSegmentVersionsRequestMarshaller();
             var unmarshaller = GetSegmentVersionsResponseUnmarshaller.Instance;
@@ -1273,7 +1397,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetSegmentVersionsResponse> GetSegmentVersionsAsync(GetSegmentVersionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSegmentVersionsResponse> GetSegmentVersionsAsync(GetSegmentVersionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetSegmentVersionsRequestMarshaller();
             var unmarshaller = GetSegmentVersionsResponseUnmarshaller.Instance;
@@ -1286,7 +1410,7 @@ namespace Amazon.Pinpoint
         
         #region  GetSmsChannel
 
-        internal GetSmsChannelResponse GetSmsChannel(GetSmsChannelRequest request)
+        internal virtual GetSmsChannelResponse GetSmsChannel(GetSmsChannelRequest request)
         {
             var marshaller = new GetSmsChannelRequestMarshaller();
             var unmarshaller = GetSmsChannelResponseUnmarshaller.Instance;
@@ -1304,7 +1428,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<GetSmsChannelResponse> GetSmsChannelAsync(GetSmsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<GetSmsChannelResponse> GetSmsChannelAsync(GetSmsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new GetSmsChannelRequestMarshaller();
             var unmarshaller = GetSmsChannelResponseUnmarshaller.Instance;
@@ -1317,7 +1441,7 @@ namespace Amazon.Pinpoint
         
         #region  PutEventStream
 
-        internal PutEventStreamResponse PutEventStream(PutEventStreamRequest request)
+        internal virtual PutEventStreamResponse PutEventStream(PutEventStreamRequest request)
         {
             var marshaller = new PutEventStreamRequestMarshaller();
             var unmarshaller = PutEventStreamResponseUnmarshaller.Instance;
@@ -1335,7 +1459,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<PutEventStreamResponse> PutEventStreamAsync(PutEventStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<PutEventStreamResponse> PutEventStreamAsync(PutEventStreamRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new PutEventStreamRequestMarshaller();
             var unmarshaller = PutEventStreamResponseUnmarshaller.Instance;
@@ -1348,7 +1472,7 @@ namespace Amazon.Pinpoint
         
         #region  SendMessages
 
-        internal SendMessagesResponse SendMessages(SendMessagesRequest request)
+        internal virtual SendMessagesResponse SendMessages(SendMessagesRequest request)
         {
             var marshaller = new SendMessagesRequestMarshaller();
             var unmarshaller = SendMessagesResponseUnmarshaller.Instance;
@@ -1366,7 +1490,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<SendMessagesResponse> SendMessagesAsync(SendMessagesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<SendMessagesResponse> SendMessagesAsync(SendMessagesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new SendMessagesRequestMarshaller();
             var unmarshaller = SendMessagesResponseUnmarshaller.Instance;
@@ -1377,9 +1501,71 @@ namespace Amazon.Pinpoint
 
         #endregion
         
+        #region  SendUsersMessages
+
+        internal virtual SendUsersMessagesResponse SendUsersMessages(SendUsersMessagesRequest request)
+        {
+            var marshaller = new SendUsersMessagesRequestMarshaller();
+            var unmarshaller = SendUsersMessagesResponseUnmarshaller.Instance;
+
+            return Invoke<SendUsersMessagesRequest,SendUsersMessagesResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SendUsersMessages operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SendUsersMessages operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<SendUsersMessagesResponse> SendUsersMessagesAsync(SendUsersMessagesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new SendUsersMessagesRequestMarshaller();
+            var unmarshaller = SendUsersMessagesResponseUnmarshaller.Instance;
+
+            return InvokeAsync<SendUsersMessagesRequest,SendUsersMessagesResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateAdmChannel
+
+        internal virtual UpdateAdmChannelResponse UpdateAdmChannel(UpdateAdmChannelRequest request)
+        {
+            var marshaller = new UpdateAdmChannelRequestMarshaller();
+            var unmarshaller = UpdateAdmChannelResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateAdmChannelRequest,UpdateAdmChannelResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateAdmChannel operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateAdmChannel operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<UpdateAdmChannelResponse> UpdateAdmChannelAsync(UpdateAdmChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateAdmChannelRequestMarshaller();
+            var unmarshaller = UpdateAdmChannelResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateAdmChannelRequest,UpdateAdmChannelResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  UpdateApnsChannel
 
-        internal UpdateApnsChannelResponse UpdateApnsChannel(UpdateApnsChannelRequest request)
+        internal virtual UpdateApnsChannelResponse UpdateApnsChannel(UpdateApnsChannelRequest request)
         {
             var marshaller = new UpdateApnsChannelRequestMarshaller();
             var unmarshaller = UpdateApnsChannelResponseUnmarshaller.Instance;
@@ -1397,7 +1583,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<UpdateApnsChannelResponse> UpdateApnsChannelAsync(UpdateApnsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateApnsChannelResponse> UpdateApnsChannelAsync(UpdateApnsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateApnsChannelRequestMarshaller();
             var unmarshaller = UpdateApnsChannelResponseUnmarshaller.Instance;
@@ -1410,7 +1596,7 @@ namespace Amazon.Pinpoint
         
         #region  UpdateApnsSandboxChannel
 
-        internal UpdateApnsSandboxChannelResponse UpdateApnsSandboxChannel(UpdateApnsSandboxChannelRequest request)
+        internal virtual UpdateApnsSandboxChannelResponse UpdateApnsSandboxChannel(UpdateApnsSandboxChannelRequest request)
         {
             var marshaller = new UpdateApnsSandboxChannelRequestMarshaller();
             var unmarshaller = UpdateApnsSandboxChannelResponseUnmarshaller.Instance;
@@ -1428,7 +1614,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<UpdateApnsSandboxChannelResponse> UpdateApnsSandboxChannelAsync(UpdateApnsSandboxChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateApnsSandboxChannelResponse> UpdateApnsSandboxChannelAsync(UpdateApnsSandboxChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateApnsSandboxChannelRequestMarshaller();
             var unmarshaller = UpdateApnsSandboxChannelResponseUnmarshaller.Instance;
@@ -1441,7 +1627,7 @@ namespace Amazon.Pinpoint
         
         #region  UpdateApplicationSettings
 
-        internal UpdateApplicationSettingsResponse UpdateApplicationSettings(UpdateApplicationSettingsRequest request)
+        internal virtual UpdateApplicationSettingsResponse UpdateApplicationSettings(UpdateApplicationSettingsRequest request)
         {
             var marshaller = new UpdateApplicationSettingsRequestMarshaller();
             var unmarshaller = UpdateApplicationSettingsResponseUnmarshaller.Instance;
@@ -1459,7 +1645,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<UpdateApplicationSettingsResponse> UpdateApplicationSettingsAsync(UpdateApplicationSettingsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateApplicationSettingsResponse> UpdateApplicationSettingsAsync(UpdateApplicationSettingsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateApplicationSettingsRequestMarshaller();
             var unmarshaller = UpdateApplicationSettingsResponseUnmarshaller.Instance;
@@ -1470,9 +1656,40 @@ namespace Amazon.Pinpoint
 
         #endregion
         
+        #region  UpdateBaiduChannel
+
+        internal virtual UpdateBaiduChannelResponse UpdateBaiduChannel(UpdateBaiduChannelRequest request)
+        {
+            var marshaller = new UpdateBaiduChannelRequestMarshaller();
+            var unmarshaller = UpdateBaiduChannelResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateBaiduChannelRequest,UpdateBaiduChannelResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateBaiduChannel operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateBaiduChannel operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<UpdateBaiduChannelResponse> UpdateBaiduChannelAsync(UpdateBaiduChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateBaiduChannelRequestMarshaller();
+            var unmarshaller = UpdateBaiduChannelResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateBaiduChannelRequest,UpdateBaiduChannelResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  UpdateCampaign
 
-        internal UpdateCampaignResponse UpdateCampaign(UpdateCampaignRequest request)
+        internal virtual UpdateCampaignResponse UpdateCampaign(UpdateCampaignRequest request)
         {
             var marshaller = new UpdateCampaignRequestMarshaller();
             var unmarshaller = UpdateCampaignResponseUnmarshaller.Instance;
@@ -1490,7 +1707,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<UpdateCampaignResponse> UpdateCampaignAsync(UpdateCampaignRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateCampaignResponse> UpdateCampaignAsync(UpdateCampaignRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateCampaignRequestMarshaller();
             var unmarshaller = UpdateCampaignResponseUnmarshaller.Instance;
@@ -1503,7 +1720,7 @@ namespace Amazon.Pinpoint
         
         #region  UpdateEmailChannel
 
-        internal UpdateEmailChannelResponse UpdateEmailChannel(UpdateEmailChannelRequest request)
+        internal virtual UpdateEmailChannelResponse UpdateEmailChannel(UpdateEmailChannelRequest request)
         {
             var marshaller = new UpdateEmailChannelRequestMarshaller();
             var unmarshaller = UpdateEmailChannelResponseUnmarshaller.Instance;
@@ -1521,7 +1738,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<UpdateEmailChannelResponse> UpdateEmailChannelAsync(UpdateEmailChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateEmailChannelResponse> UpdateEmailChannelAsync(UpdateEmailChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateEmailChannelRequestMarshaller();
             var unmarshaller = UpdateEmailChannelResponseUnmarshaller.Instance;
@@ -1534,7 +1751,7 @@ namespace Amazon.Pinpoint
         
         #region  UpdateEndpoint
 
-        internal UpdateEndpointResponse UpdateEndpoint(UpdateEndpointRequest request)
+        internal virtual UpdateEndpointResponse UpdateEndpoint(UpdateEndpointRequest request)
         {
             var marshaller = new UpdateEndpointRequestMarshaller();
             var unmarshaller = UpdateEndpointResponseUnmarshaller.Instance;
@@ -1552,7 +1769,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<UpdateEndpointResponse> UpdateEndpointAsync(UpdateEndpointRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateEndpointResponse> UpdateEndpointAsync(UpdateEndpointRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateEndpointRequestMarshaller();
             var unmarshaller = UpdateEndpointResponseUnmarshaller.Instance;
@@ -1565,7 +1782,7 @@ namespace Amazon.Pinpoint
         
         #region  UpdateEndpointsBatch
 
-        internal UpdateEndpointsBatchResponse UpdateEndpointsBatch(UpdateEndpointsBatchRequest request)
+        internal virtual UpdateEndpointsBatchResponse UpdateEndpointsBatch(UpdateEndpointsBatchRequest request)
         {
             var marshaller = new UpdateEndpointsBatchRequestMarshaller();
             var unmarshaller = UpdateEndpointsBatchResponseUnmarshaller.Instance;
@@ -1583,7 +1800,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<UpdateEndpointsBatchResponse> UpdateEndpointsBatchAsync(UpdateEndpointsBatchRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateEndpointsBatchResponse> UpdateEndpointsBatchAsync(UpdateEndpointsBatchRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateEndpointsBatchRequestMarshaller();
             var unmarshaller = UpdateEndpointsBatchResponseUnmarshaller.Instance;
@@ -1596,7 +1813,7 @@ namespace Amazon.Pinpoint
         
         #region  UpdateGcmChannel
 
-        internal UpdateGcmChannelResponse UpdateGcmChannel(UpdateGcmChannelRequest request)
+        internal virtual UpdateGcmChannelResponse UpdateGcmChannel(UpdateGcmChannelRequest request)
         {
             var marshaller = new UpdateGcmChannelRequestMarshaller();
             var unmarshaller = UpdateGcmChannelResponseUnmarshaller.Instance;
@@ -1614,7 +1831,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<UpdateGcmChannelResponse> UpdateGcmChannelAsync(UpdateGcmChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateGcmChannelResponse> UpdateGcmChannelAsync(UpdateGcmChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateGcmChannelRequestMarshaller();
             var unmarshaller = UpdateGcmChannelResponseUnmarshaller.Instance;
@@ -1627,7 +1844,7 @@ namespace Amazon.Pinpoint
         
         #region  UpdateSegment
 
-        internal UpdateSegmentResponse UpdateSegment(UpdateSegmentRequest request)
+        internal virtual UpdateSegmentResponse UpdateSegment(UpdateSegmentRequest request)
         {
             var marshaller = new UpdateSegmentRequestMarshaller();
             var unmarshaller = UpdateSegmentResponseUnmarshaller.Instance;
@@ -1645,7 +1862,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<UpdateSegmentResponse> UpdateSegmentAsync(UpdateSegmentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateSegmentResponse> UpdateSegmentAsync(UpdateSegmentRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateSegmentRequestMarshaller();
             var unmarshaller = UpdateSegmentResponseUnmarshaller.Instance;
@@ -1658,7 +1875,7 @@ namespace Amazon.Pinpoint
         
         #region  UpdateSmsChannel
 
-        internal UpdateSmsChannelResponse UpdateSmsChannel(UpdateSmsChannelRequest request)
+        internal virtual UpdateSmsChannelResponse UpdateSmsChannel(UpdateSmsChannelRequest request)
         {
             var marshaller = new UpdateSmsChannelRequestMarshaller();
             var unmarshaller = UpdateSmsChannelResponseUnmarshaller.Instance;
@@ -1676,7 +1893,7 @@ namespace Amazon.Pinpoint
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        public Task<UpdateSmsChannelResponse> UpdateSmsChannelAsync(UpdateSmsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        public virtual Task<UpdateSmsChannelResponse> UpdateSmsChannelAsync(UpdateSmsChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
             var marshaller = new UpdateSmsChannelRequestMarshaller();
             var unmarshaller = UpdateSmsChannelResponseUnmarshaller.Instance;

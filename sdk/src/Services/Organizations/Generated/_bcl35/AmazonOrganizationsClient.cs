@@ -399,6 +399,15 @@ namespace Amazon.Organizations
         ///  <b>Invitation to join</b> or <b>Approve all features request</b> handshakes: only
         /// a principal from the member account. 
         /// </para>
+        ///  
+        /// <para>
+        /// The user who calls the API for an invitation to join must have the <code>organizations:AcceptHandshake</code>
+        /// permission. If you enabled all features in the organization, then the user must also
+        /// have the <code>iam:CreateServiceLinkedRole</code> permission so that Organizations
+        /// can create the required service-linked role named <i>OrgsServiceLinkedRoleName</i>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integration_service-linked-roles">AWS
+        /// Organizations and Service-Linked Roles</a> in the <i>AWS Organizations User Guide</i>.
+        /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <b>Enable all features final confirmation</b> handshake: only a principal from the
@@ -426,6 +435,11 @@ namespace Amazon.Organizations
         /// is making the request must have at least one IAM permissions policy attached that
         /// grants the required permissions. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
         /// Management</a> in the <i>IAM User Guide</i>.
+        /// </exception>
+        /// <exception cref="Amazon.Organizations.Model.AccessDeniedForDependencyException">
+        /// The operation you attempted requires you to have the <code>iam:CreateServiceLinkedRole</code>
+        /// so that Organizations can create the required service-linked role. You do not have
+        /// that permission.
         /// </exception>
         /// <exception cref="Amazon.Organizations.Model.AWSOrganizationsNotInUseException">
         /// Your account is not a member of an organization. To make this request, you must use
@@ -595,7 +609,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/AcceptHandshake">REST API Reference for AcceptHandshake Operation</seealso>
-        public AcceptHandshakeResponse AcceptHandshake(AcceptHandshakeRequest request)
+        public virtual AcceptHandshakeResponse AcceptHandshake(AcceptHandshakeRequest request)
         {
             var marshaller = new AcceptHandshakeRequestMarshaller();
             var unmarshaller = AcceptHandshakeResponseUnmarshaller.Instance;
@@ -615,7 +629,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAcceptHandshake
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/AcceptHandshake">REST API Reference for AcceptHandshake Operation</seealso>
-        public IAsyncResult BeginAcceptHandshake(AcceptHandshakeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAcceptHandshake(AcceptHandshakeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AcceptHandshakeRequestMarshaller();
             var unmarshaller = AcceptHandshakeResponseUnmarshaller.Instance;
@@ -632,7 +646,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  AcceptHandshakeResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/AcceptHandshake">REST API Reference for AcceptHandshake Operation</seealso>
-        public  AcceptHandshakeResponse EndAcceptHandshake(IAsyncResult asyncResult)
+        public virtual AcceptHandshakeResponse EndAcceptHandshake(IAsyncResult asyncResult)
         {
             return EndInvoke<AcceptHandshakeResponse>(asyncResult);
         }
@@ -718,9 +732,14 @@ namespace Amazon.Organizations
         /// attempting to removing the last SCP from an OU or root, inviting or creating too many
         /// accounts to the organization, or attaching too many policies to an account, OU, or
         /// root. This exception includes a reason that contains additional information about
-        /// the violated limit:
+        /// the violated limit.
         /// 
-        ///   <ul> <li> 
+        ///  <note> 
+        /// <para>
+        /// Some of the reasons in the following list might not be applicable to this specific
+        /// API or operation:
+        /// </para>
+        ///  </note>  <ul> <li> 
         /// <para>
         /// ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of
         /// accounts in an organization. If you need more accounts, contact AWS Support to request
@@ -935,7 +954,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/AttachPolicy">REST API Reference for AttachPolicy Operation</seealso>
-        public AttachPolicyResponse AttachPolicy(AttachPolicyRequest request)
+        public virtual AttachPolicyResponse AttachPolicy(AttachPolicyRequest request)
         {
             var marshaller = new AttachPolicyRequestMarshaller();
             var unmarshaller = AttachPolicyResponseUnmarshaller.Instance;
@@ -955,7 +974,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndAttachPolicy
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/AttachPolicy">REST API Reference for AttachPolicy Operation</seealso>
-        public IAsyncResult BeginAttachPolicy(AttachPolicyRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginAttachPolicy(AttachPolicyRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new AttachPolicyRequestMarshaller();
             var unmarshaller = AttachPolicyResponseUnmarshaller.Instance;
@@ -972,7 +991,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  AttachPolicyResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/AttachPolicy">REST API Reference for AttachPolicy Operation</seealso>
-        public  AttachPolicyResponse EndAttachPolicy(IAsyncResult asyncResult)
+        public virtual AttachPolicyResponse EndAttachPolicy(IAsyncResult asyncResult)
         {
             return EndInvoke<AttachPolicyResponse>(asyncResult);
         }
@@ -1114,7 +1133,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CancelHandshake">REST API Reference for CancelHandshake Operation</seealso>
-        public CancelHandshakeResponse CancelHandshake(CancelHandshakeRequest request)
+        public virtual CancelHandshakeResponse CancelHandshake(CancelHandshakeRequest request)
         {
             var marshaller = new CancelHandshakeRequestMarshaller();
             var unmarshaller = CancelHandshakeResponseUnmarshaller.Instance;
@@ -1134,7 +1153,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCancelHandshake
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CancelHandshake">REST API Reference for CancelHandshake Operation</seealso>
-        public IAsyncResult BeginCancelHandshake(CancelHandshakeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCancelHandshake(CancelHandshakeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CancelHandshakeRequestMarshaller();
             var unmarshaller = CancelHandshakeResponseUnmarshaller.Instance;
@@ -1151,7 +1170,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  CancelHandshakeResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CancelHandshake">REST API Reference for CancelHandshake Operation</seealso>
-        public  CancelHandshakeResponse EndCancelHandshake(IAsyncResult asyncResult)
+        public virtual CancelHandshakeResponse EndCancelHandshake(IAsyncResult asyncResult)
         {
             return EndInvoke<CancelHandshakeResponse>(asyncResult);
         }
@@ -1169,12 +1188,23 @@ namespace Amazon.Organizations
         /// 
         ///  
         /// <para>
-        /// AWS Organizations preconfigures the new member account with a role (named <code>OrganizationAccountAccessRole</code>
-        /// by default) that grants administrator permissions to the new account. Principals in
-        /// the master account can assume the role. AWS Organizations clones the company name
-        /// and address information for the new account from the organization's master account.
+        /// The user who calls the API for an invitation to join must have the <code>organizations:CreateAccount</code>
+        /// permission. If you enabled all features in the organization, then the user must also
+        /// have the <code>iam:CreateServiceLinkedRole</code> permission so that Organizations
+        /// can create the required service-linked role named <i>OrgsServiceLinkedRoleName</i>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integration_service-linked-roles">AWS
+        /// Organizations and Service-Linked Roles</a> in the <i>AWS Organizations User Guide</i>.
         /// </para>
         ///  
+        /// <para>
+        /// The user in the master account who calls this API must also have the <code>iam:CreateRole</code>
+        /// permission because AWS Organizations preconfigures the new member account with a role
+        /// (named <code>OrganizationAccountAccessRole</code> by default) that grants users in
+        /// the master account administrator permissions in the new member account. Principals
+        /// in the master account can assume the role. AWS Organizations clones the company name
+        /// and address information for the new account from the organization's master account.
+        /// </para>
+        ///   
         /// <para>
         /// For more information about creating accounts, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
         /// an AWS Account in Your Organization</a> in the <i>AWS Organizations User Guide</i>.
@@ -1235,9 +1265,14 @@ namespace Amazon.Organizations
         /// attempting to removing the last SCP from an OU or root, inviting or creating too many
         /// accounts to the organization, or attaching too many policies to an account, OU, or
         /// root. This exception includes a reason that contains additional information about
-        /// the violated limit:
+        /// the violated limit.
         /// 
-        ///   <ul> <li> 
+        ///  <note> 
+        /// <para>
+        /// Some of the reasons in the following list might not be applicable to this specific
+        /// API or operation:
+        /// </para>
+        ///  </note>  <ul> <li> 
         /// <para>
         /// ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of
         /// accounts in an organization. If you need more accounts, contact AWS Support to request
@@ -1441,7 +1476,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateAccount">REST API Reference for CreateAccount Operation</seealso>
-        public CreateAccountResponse CreateAccount(CreateAccountRequest request)
+        public virtual CreateAccountResponse CreateAccount(CreateAccountRequest request)
         {
             var marshaller = new CreateAccountRequestMarshaller();
             var unmarshaller = CreateAccountResponseUnmarshaller.Instance;
@@ -1461,7 +1496,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateAccount
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateAccount">REST API Reference for CreateAccount Operation</seealso>
-        public IAsyncResult BeginCreateAccount(CreateAccountRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateAccount(CreateAccountRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateAccountRequestMarshaller();
             var unmarshaller = CreateAccountResponseUnmarshaller.Instance;
@@ -1478,7 +1513,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  CreateAccountResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateAccount">REST API Reference for CreateAccount Operation</seealso>
-        public  CreateAccountResponse EndCreateAccount(IAsyncResult asyncResult)
+        public virtual CreateAccountResponse EndCreateAccount(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateAccountResponse>(asyncResult);
         }
@@ -1517,6 +1552,11 @@ namespace Amazon.Organizations
         /// grants the required permissions. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/access.html">Access
         /// Management</a> in the <i>IAM User Guide</i>.
         /// </exception>
+        /// <exception cref="Amazon.Organizations.Model.AccessDeniedForDependencyException">
+        /// The operation you attempted requires you to have the <code>iam:CreateServiceLinkedRole</code>
+        /// so that Organizations can create the required service-linked role. You do not have
+        /// that permission.
+        /// </exception>
         /// <exception cref="Amazon.Organizations.Model.AlreadyInOrganizationException">
         /// This account is already a member of an organization. An account can belong to only
         /// one organization at a time.
@@ -1530,9 +1570,14 @@ namespace Amazon.Organizations
         /// attempting to removing the last SCP from an OU or root, inviting or creating too many
         /// accounts to the organization, or attaching too many policies to an account, OU, or
         /// root. This exception includes a reason that contains additional information about
-        /// the violated limit:
+        /// the violated limit.
         /// 
-        ///   <ul> <li> 
+        ///  <note> 
+        /// <para>
+        /// Some of the reasons in the following list might not be applicable to this specific
+        /// API or operation:
+        /// </para>
+        ///  </note>  <ul> <li> 
         /// <para>
         /// ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of
         /// accounts in an organization. If you need more accounts, contact AWS Support to request
@@ -1732,7 +1777,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateOrganization">REST API Reference for CreateOrganization Operation</seealso>
-        public CreateOrganizationResponse CreateOrganization(CreateOrganizationRequest request)
+        public virtual CreateOrganizationResponse CreateOrganization(CreateOrganizationRequest request)
         {
             var marshaller = new CreateOrganizationRequestMarshaller();
             var unmarshaller = CreateOrganizationResponseUnmarshaller.Instance;
@@ -1752,7 +1797,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateOrganization
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateOrganization">REST API Reference for CreateOrganization Operation</seealso>
-        public IAsyncResult BeginCreateOrganization(CreateOrganizationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateOrganization(CreateOrganizationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateOrganizationRequestMarshaller();
             var unmarshaller = CreateOrganizationResponseUnmarshaller.Instance;
@@ -1769,7 +1814,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  CreateOrganizationResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateOrganization">REST API Reference for CreateOrganization Operation</seealso>
-        public  CreateOrganizationResponse EndCreateOrganization(IAsyncResult asyncResult)
+        public virtual CreateOrganizationResponse EndCreateOrganization(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateOrganizationResponse>(asyncResult);
         }
@@ -1817,9 +1862,14 @@ namespace Amazon.Organizations
         /// attempting to removing the last SCP from an OU or root, inviting or creating too many
         /// accounts to the organization, or attaching too many policies to an account, OU, or
         /// root. This exception includes a reason that contains additional information about
-        /// the violated limit:
+        /// the violated limit.
         /// 
-        ///   <ul> <li> 
+        ///  <note> 
+        /// <para>
+        /// Some of the reasons in the following list might not be applicable to this specific
+        /// API or operation:
+        /// </para>
+        ///  </note>  <ul> <li> 
         /// <para>
         /// ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of
         /// accounts in an organization. If you need more accounts, contact AWS Support to request
@@ -2025,7 +2075,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateOrganizationalUnit">REST API Reference for CreateOrganizationalUnit Operation</seealso>
-        public CreateOrganizationalUnitResponse CreateOrganizationalUnit(CreateOrganizationalUnitRequest request)
+        public virtual CreateOrganizationalUnitResponse CreateOrganizationalUnit(CreateOrganizationalUnitRequest request)
         {
             var marshaller = new CreateOrganizationalUnitRequestMarshaller();
             var unmarshaller = CreateOrganizationalUnitResponseUnmarshaller.Instance;
@@ -2045,7 +2095,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateOrganizationalUnit
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateOrganizationalUnit">REST API Reference for CreateOrganizationalUnit Operation</seealso>
-        public IAsyncResult BeginCreateOrganizationalUnit(CreateOrganizationalUnitRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreateOrganizationalUnit(CreateOrganizationalUnitRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreateOrganizationalUnitRequestMarshaller();
             var unmarshaller = CreateOrganizationalUnitResponseUnmarshaller.Instance;
@@ -2062,7 +2112,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  CreateOrganizationalUnitResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreateOrganizationalUnit">REST API Reference for CreateOrganizationalUnit Operation</seealso>
-        public  CreateOrganizationalUnitResponse EndCreateOrganizationalUnit(IAsyncResult asyncResult)
+        public virtual CreateOrganizationalUnitResponse EndCreateOrganizationalUnit(IAsyncResult asyncResult)
         {
             return EndInvoke<CreateOrganizationalUnitResponse>(asyncResult);
         }
@@ -2107,9 +2157,14 @@ namespace Amazon.Organizations
         /// attempting to removing the last SCP from an OU or root, inviting or creating too many
         /// accounts to the organization, or attaching too many policies to an account, OU, or
         /// root. This exception includes a reason that contains additional information about
-        /// the violated limit:
+        /// the violated limit.
         /// 
-        ///   <ul> <li> 
+        ///  <note> 
+        /// <para>
+        /// Some of the reasons in the following list might not be applicable to this specific
+        /// API or operation:
+        /// </para>
+        ///  </note>  <ul> <li> 
         /// <para>
         /// ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of
         /// accounts in an organization. If you need more accounts, contact AWS Support to request
@@ -2324,7 +2379,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreatePolicy">REST API Reference for CreatePolicy Operation</seealso>
-        public CreatePolicyResponse CreatePolicy(CreatePolicyRequest request)
+        public virtual CreatePolicyResponse CreatePolicy(CreatePolicyRequest request)
         {
             var marshaller = new CreatePolicyRequestMarshaller();
             var unmarshaller = CreatePolicyResponseUnmarshaller.Instance;
@@ -2344,7 +2399,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreatePolicy
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreatePolicy">REST API Reference for CreatePolicy Operation</seealso>
-        public IAsyncResult BeginCreatePolicy(CreatePolicyRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginCreatePolicy(CreatePolicyRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new CreatePolicyRequestMarshaller();
             var unmarshaller = CreatePolicyResponseUnmarshaller.Instance;
@@ -2361,7 +2416,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  CreatePolicyResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/CreatePolicy">REST API Reference for CreatePolicy Operation</seealso>
-        public  CreatePolicyResponse EndCreatePolicy(IAsyncResult asyncResult)
+        public virtual CreatePolicyResponse EndCreatePolicy(IAsyncResult asyncResult)
         {
             return EndInvoke<CreatePolicyResponse>(asyncResult);
         }
@@ -2503,7 +2558,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeclineHandshake">REST API Reference for DeclineHandshake Operation</seealso>
-        public DeclineHandshakeResponse DeclineHandshake(DeclineHandshakeRequest request)
+        public virtual DeclineHandshakeResponse DeclineHandshake(DeclineHandshakeRequest request)
         {
             var marshaller = new DeclineHandshakeRequestMarshaller();
             var unmarshaller = DeclineHandshakeResponseUnmarshaller.Instance;
@@ -2523,7 +2578,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeclineHandshake
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeclineHandshake">REST API Reference for DeclineHandshake Operation</seealso>
-        public IAsyncResult BeginDeclineHandshake(DeclineHandshakeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeclineHandshake(DeclineHandshakeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeclineHandshakeRequestMarshaller();
             var unmarshaller = DeclineHandshakeResponseUnmarshaller.Instance;
@@ -2540,7 +2595,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DeclineHandshakeResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeclineHandshake">REST API Reference for DeclineHandshake Operation</seealso>
-        public  DeclineHandshakeResponse EndDeclineHandshake(IAsyncResult asyncResult)
+        public virtual DeclineHandshakeResponse EndDeclineHandshake(IAsyncResult asyncResult)
         {
             return EndInvoke<DeclineHandshakeResponse>(asyncResult);
         }
@@ -2667,7 +2722,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeleteOrganization">REST API Reference for DeleteOrganization Operation</seealso>
-        public DeleteOrganizationResponse DeleteOrganization(DeleteOrganizationRequest request)
+        public virtual DeleteOrganizationResponse DeleteOrganization(DeleteOrganizationRequest request)
         {
             var marshaller = new DeleteOrganizationRequestMarshaller();
             var unmarshaller = DeleteOrganizationResponseUnmarshaller.Instance;
@@ -2687,7 +2742,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteOrganization
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeleteOrganization">REST API Reference for DeleteOrganization Operation</seealso>
-        public IAsyncResult BeginDeleteOrganization(DeleteOrganizationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteOrganization(DeleteOrganizationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteOrganizationRequestMarshaller();
             var unmarshaller = DeleteOrganizationResponseUnmarshaller.Instance;
@@ -2704,7 +2759,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DeleteOrganizationResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeleteOrganization">REST API Reference for DeleteOrganization Operation</seealso>
-        public  DeleteOrganizationResponse EndDeleteOrganization(IAsyncResult asyncResult)
+        public virtual DeleteOrganizationResponse EndDeleteOrganization(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteOrganizationResponse>(asyncResult);
         }
@@ -2837,7 +2892,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeleteOrganizationalUnit">REST API Reference for DeleteOrganizationalUnit Operation</seealso>
-        public DeleteOrganizationalUnitResponse DeleteOrganizationalUnit(DeleteOrganizationalUnitRequest request)
+        public virtual DeleteOrganizationalUnitResponse DeleteOrganizationalUnit(DeleteOrganizationalUnitRequest request)
         {
             var marshaller = new DeleteOrganizationalUnitRequestMarshaller();
             var unmarshaller = DeleteOrganizationalUnitResponseUnmarshaller.Instance;
@@ -2857,7 +2912,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteOrganizationalUnit
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeleteOrganizationalUnit">REST API Reference for DeleteOrganizationalUnit Operation</seealso>
-        public IAsyncResult BeginDeleteOrganizationalUnit(DeleteOrganizationalUnitRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeleteOrganizationalUnit(DeleteOrganizationalUnitRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeleteOrganizationalUnitRequestMarshaller();
             var unmarshaller = DeleteOrganizationalUnitResponseUnmarshaller.Instance;
@@ -2874,7 +2929,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DeleteOrganizationalUnitResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeleteOrganizationalUnit">REST API Reference for DeleteOrganizationalUnit Operation</seealso>
-        public  DeleteOrganizationalUnitResponse EndDeleteOrganizationalUnit(IAsyncResult asyncResult)
+        public virtual DeleteOrganizationalUnitResponse EndDeleteOrganizationalUnit(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteOrganizationalUnitResponse>(asyncResult);
         }
@@ -3007,7 +3062,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeletePolicy">REST API Reference for DeletePolicy Operation</seealso>
-        public DeletePolicyResponse DeletePolicy(DeletePolicyRequest request)
+        public virtual DeletePolicyResponse DeletePolicy(DeletePolicyRequest request)
         {
             var marshaller = new DeletePolicyRequestMarshaller();
             var unmarshaller = DeletePolicyResponseUnmarshaller.Instance;
@@ -3027,7 +3082,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeletePolicy
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeletePolicy">REST API Reference for DeletePolicy Operation</seealso>
-        public IAsyncResult BeginDeletePolicy(DeletePolicyRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDeletePolicy(DeletePolicyRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DeletePolicyRequestMarshaller();
             var unmarshaller = DeletePolicyResponseUnmarshaller.Instance;
@@ -3044,7 +3099,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DeletePolicyResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DeletePolicy">REST API Reference for DeletePolicy Operation</seealso>
-        public  DeletePolicyResponse EndDeletePolicy(IAsyncResult asyncResult)
+        public virtual DeletePolicyResponse EndDeletePolicy(IAsyncResult asyncResult)
         {
             return EndInvoke<DeletePolicyResponse>(asyncResult);
         }
@@ -3169,7 +3224,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeAccount">REST API Reference for DescribeAccount Operation</seealso>
-        public DescribeAccountResponse DescribeAccount(DescribeAccountRequest request)
+        public virtual DescribeAccountResponse DescribeAccount(DescribeAccountRequest request)
         {
             var marshaller = new DescribeAccountRequestMarshaller();
             var unmarshaller = DescribeAccountResponseUnmarshaller.Instance;
@@ -3189,7 +3244,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeAccount
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeAccount">REST API Reference for DescribeAccount Operation</seealso>
-        public IAsyncResult BeginDescribeAccount(DescribeAccountRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeAccount(DescribeAccountRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeAccountRequestMarshaller();
             var unmarshaller = DescribeAccountResponseUnmarshaller.Instance;
@@ -3206,7 +3261,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DescribeAccountResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeAccount">REST API Reference for DescribeAccount Operation</seealso>
-        public  DescribeAccountResponse EndDescribeAccount(IAsyncResult asyncResult)
+        public virtual DescribeAccountResponse EndDescribeAccount(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeAccountResponse>(asyncResult);
         }
@@ -3330,7 +3385,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeCreateAccountStatus">REST API Reference for DescribeCreateAccountStatus Operation</seealso>
-        public DescribeCreateAccountStatusResponse DescribeCreateAccountStatus(DescribeCreateAccountStatusRequest request)
+        public virtual DescribeCreateAccountStatusResponse DescribeCreateAccountStatus(DescribeCreateAccountStatusRequest request)
         {
             var marshaller = new DescribeCreateAccountStatusRequestMarshaller();
             var unmarshaller = DescribeCreateAccountStatusResponseUnmarshaller.Instance;
@@ -3350,7 +3405,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeCreateAccountStatus
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeCreateAccountStatus">REST API Reference for DescribeCreateAccountStatus Operation</seealso>
-        public IAsyncResult BeginDescribeCreateAccountStatus(DescribeCreateAccountStatusRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeCreateAccountStatus(DescribeCreateAccountStatusRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeCreateAccountStatusRequestMarshaller();
             var unmarshaller = DescribeCreateAccountStatusResponseUnmarshaller.Instance;
@@ -3367,7 +3422,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DescribeCreateAccountStatusResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeCreateAccountStatus">REST API Reference for DescribeCreateAccountStatus Operation</seealso>
-        public  DescribeCreateAccountStatusResponse EndDescribeCreateAccountStatus(IAsyncResult asyncResult)
+        public virtual DescribeCreateAccountStatusResponse EndDescribeCreateAccountStatus(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeCreateAccountStatusResponse>(asyncResult);
         }
@@ -3498,7 +3553,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeHandshake">REST API Reference for DescribeHandshake Operation</seealso>
-        public DescribeHandshakeResponse DescribeHandshake(DescribeHandshakeRequest request)
+        public virtual DescribeHandshakeResponse DescribeHandshake(DescribeHandshakeRequest request)
         {
             var marshaller = new DescribeHandshakeRequestMarshaller();
             var unmarshaller = DescribeHandshakeResponseUnmarshaller.Instance;
@@ -3518,7 +3573,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeHandshake
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeHandshake">REST API Reference for DescribeHandshake Operation</seealso>
-        public IAsyncResult BeginDescribeHandshake(DescribeHandshakeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeHandshake(DescribeHandshakeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeHandshakeRequestMarshaller();
             var unmarshaller = DescribeHandshakeResponseUnmarshaller.Instance;
@@ -3535,7 +3590,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DescribeHandshakeResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeHandshake">REST API Reference for DescribeHandshake Operation</seealso>
-        public  DescribeHandshakeResponse EndDescribeHandshake(IAsyncResult asyncResult)
+        public virtual DescribeHandshakeResponse EndDescribeHandshake(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeHandshakeResponse>(asyncResult);
         }
@@ -3578,7 +3633,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeOrganization">REST API Reference for DescribeOrganization Operation</seealso>
-        public DescribeOrganizationResponse DescribeOrganization(DescribeOrganizationRequest request)
+        public virtual DescribeOrganizationResponse DescribeOrganization(DescribeOrganizationRequest request)
         {
             var marshaller = new DescribeOrganizationRequestMarshaller();
             var unmarshaller = DescribeOrganizationResponseUnmarshaller.Instance;
@@ -3598,7 +3653,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeOrganization
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeOrganization">REST API Reference for DescribeOrganization Operation</seealso>
-        public IAsyncResult BeginDescribeOrganization(DescribeOrganizationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeOrganization(DescribeOrganizationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeOrganizationRequestMarshaller();
             var unmarshaller = DescribeOrganizationResponseUnmarshaller.Instance;
@@ -3615,7 +3670,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DescribeOrganizationResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeOrganization">REST API Reference for DescribeOrganization Operation</seealso>
-        public  DescribeOrganizationResponse EndDescribeOrganization(IAsyncResult asyncResult)
+        public virtual DescribeOrganizationResponse EndDescribeOrganization(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeOrganizationResponse>(asyncResult);
         }
@@ -3739,7 +3794,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeOrganizationalUnit">REST API Reference for DescribeOrganizationalUnit Operation</seealso>
-        public DescribeOrganizationalUnitResponse DescribeOrganizationalUnit(DescribeOrganizationalUnitRequest request)
+        public virtual DescribeOrganizationalUnitResponse DescribeOrganizationalUnit(DescribeOrganizationalUnitRequest request)
         {
             var marshaller = new DescribeOrganizationalUnitRequestMarshaller();
             var unmarshaller = DescribeOrganizationalUnitResponseUnmarshaller.Instance;
@@ -3759,7 +3814,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeOrganizationalUnit
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeOrganizationalUnit">REST API Reference for DescribeOrganizationalUnit Operation</seealso>
-        public IAsyncResult BeginDescribeOrganizationalUnit(DescribeOrganizationalUnitRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribeOrganizationalUnit(DescribeOrganizationalUnitRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribeOrganizationalUnitRequestMarshaller();
             var unmarshaller = DescribeOrganizationalUnitResponseUnmarshaller.Instance;
@@ -3776,7 +3831,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DescribeOrganizationalUnitResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribeOrganizationalUnit">REST API Reference for DescribeOrganizationalUnit Operation</seealso>
-        public  DescribeOrganizationalUnitResponse EndDescribeOrganizationalUnit(IAsyncResult asyncResult)
+        public virtual DescribeOrganizationalUnitResponse EndDescribeOrganizationalUnit(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribeOrganizationalUnitResponse>(asyncResult);
         }
@@ -3900,7 +3955,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribePolicy">REST API Reference for DescribePolicy Operation</seealso>
-        public DescribePolicyResponse DescribePolicy(DescribePolicyRequest request)
+        public virtual DescribePolicyResponse DescribePolicy(DescribePolicyRequest request)
         {
             var marshaller = new DescribePolicyRequestMarshaller();
             var unmarshaller = DescribePolicyResponseUnmarshaller.Instance;
@@ -3920,7 +3975,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribePolicy
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribePolicy">REST API Reference for DescribePolicy Operation</seealso>
-        public IAsyncResult BeginDescribePolicy(DescribePolicyRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDescribePolicy(DescribePolicyRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DescribePolicyRequestMarshaller();
             var unmarshaller = DescribePolicyResponseUnmarshaller.Instance;
@@ -3937,7 +3992,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DescribePolicyResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DescribePolicy">REST API Reference for DescribePolicy Operation</seealso>
-        public  DescribePolicyResponse EndDescribePolicy(IAsyncResult asyncResult)
+        public virtual DescribePolicyResponse EndDescribePolicy(IAsyncResult asyncResult)
         {
             return EndInvoke<DescribePolicyResponse>(asyncResult);
         }
@@ -3990,9 +4045,14 @@ namespace Amazon.Organizations
         /// attempting to removing the last SCP from an OU or root, inviting or creating too many
         /// accounts to the organization, or attaching too many policies to an account, OU, or
         /// root. This exception includes a reason that contains additional information about
-        /// the violated limit:
+        /// the violated limit.
         /// 
-        ///   <ul> <li> 
+        ///  <note> 
+        /// <para>
+        /// Some of the reasons in the following list might not be applicable to this specific
+        /// API or operation:
+        /// </para>
+        ///  </note>  <ul> <li> 
         /// <para>
         /// ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of
         /// accounts in an organization. If you need more accounts, contact AWS Support to request
@@ -4201,7 +4261,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DetachPolicy">REST API Reference for DetachPolicy Operation</seealso>
-        public DetachPolicyResponse DetachPolicy(DetachPolicyRequest request)
+        public virtual DetachPolicyResponse DetachPolicy(DetachPolicyRequest request)
         {
             var marshaller = new DetachPolicyRequestMarshaller();
             var unmarshaller = DetachPolicyResponseUnmarshaller.Instance;
@@ -4221,7 +4281,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDetachPolicy
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DetachPolicy">REST API Reference for DetachPolicy Operation</seealso>
-        public IAsyncResult BeginDetachPolicy(DetachPolicyRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDetachPolicy(DetachPolicyRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DetachPolicyRequestMarshaller();
             var unmarshaller = DetachPolicyResponseUnmarshaller.Instance;
@@ -4238,7 +4298,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DetachPolicyResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DetachPolicy">REST API Reference for DetachPolicy Operation</seealso>
-        public  DetachPolicyResponse EndDetachPolicy(IAsyncResult asyncResult)
+        public virtual DetachPolicyResponse EndDetachPolicy(IAsyncResult asyncResult)
         {
             return EndInvoke<DetachPolicyResponse>(asyncResult);
         }
@@ -4248,7 +4308,7 @@ namespace Amazon.Organizations
         #region  DisablePolicyType
 
         /// <summary>
-        /// Disables an organizational control policy type in a root. A poicy of a certain type
+        /// Disables an organizational control policy type in a root. A policy of a certain type
         /// can be attached to entities in a root only if that type is enabled in the root. After
         /// you perform this operation, you no longer can attach policies of the specified type
         /// to that root or to any OU or account in that root. You can undo this by using the
@@ -4281,9 +4341,14 @@ namespace Amazon.Organizations
         /// attempting to removing the last SCP from an OU or root, inviting or creating too many
         /// accounts to the organization, or attaching too many policies to an account, OU, or
         /// root. This exception includes a reason that contains additional information about
-        /// the violated limit:
+        /// the violated limit.
         /// 
-        ///   <ul> <li> 
+        ///  <note> 
+        /// <para>
+        /// Some of the reasons in the following list might not be applicable to this specific
+        /// API or operation:
+        /// </para>
+        ///  </note>  <ul> <li> 
         /// <para>
         /// ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of
         /// accounts in an organization. If you need more accounts, contact AWS Support to request
@@ -4492,7 +4557,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DisablePolicyType">REST API Reference for DisablePolicyType Operation</seealso>
-        public DisablePolicyTypeResponse DisablePolicyType(DisablePolicyTypeRequest request)
+        public virtual DisablePolicyTypeResponse DisablePolicyType(DisablePolicyTypeRequest request)
         {
             var marshaller = new DisablePolicyTypeRequestMarshaller();
             var unmarshaller = DisablePolicyTypeResponseUnmarshaller.Instance;
@@ -4512,7 +4577,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDisablePolicyType
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DisablePolicyType">REST API Reference for DisablePolicyType Operation</seealso>
-        public IAsyncResult BeginDisablePolicyType(DisablePolicyTypeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginDisablePolicyType(DisablePolicyTypeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new DisablePolicyTypeRequestMarshaller();
             var unmarshaller = DisablePolicyTypeResponseUnmarshaller.Instance;
@@ -4529,7 +4594,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  DisablePolicyTypeResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/DisablePolicyType">REST API Reference for DisablePolicyType Operation</seealso>
-        public  DisablePolicyTypeResponse EndDisablePolicyType(IAsyncResult asyncResult)
+        public virtual DisablePolicyTypeResponse EndDisablePolicyType(IAsyncResult asyncResult)
         {
             return EndInvoke<DisablePolicyTypeResponse>(asyncResult);
         }
@@ -4739,7 +4804,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/EnableAllFeatures">REST API Reference for EnableAllFeatures Operation</seealso>
-        public EnableAllFeaturesResponse EnableAllFeatures(EnableAllFeaturesRequest request)
+        public virtual EnableAllFeaturesResponse EnableAllFeatures(EnableAllFeaturesRequest request)
         {
             var marshaller = new EnableAllFeaturesRequestMarshaller();
             var unmarshaller = EnableAllFeaturesResponseUnmarshaller.Instance;
@@ -4759,7 +4824,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndEnableAllFeatures
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/EnableAllFeatures">REST API Reference for EnableAllFeatures Operation</seealso>
-        public IAsyncResult BeginEnableAllFeatures(EnableAllFeaturesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginEnableAllFeatures(EnableAllFeaturesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new EnableAllFeaturesRequestMarshaller();
             var unmarshaller = EnableAllFeaturesResponseUnmarshaller.Instance;
@@ -4776,7 +4841,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  EnableAllFeaturesResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/EnableAllFeatures">REST API Reference for EnableAllFeatures Operation</seealso>
-        public  EnableAllFeaturesResponse EndEnableAllFeatures(IAsyncResult asyncResult)
+        public virtual EnableAllFeaturesResponse EndEnableAllFeatures(IAsyncResult asyncResult)
         {
             return EndInvoke<EnableAllFeaturesResponse>(asyncResult);
         }
@@ -4817,9 +4882,14 @@ namespace Amazon.Organizations
         /// attempting to removing the last SCP from an OU or root, inviting or creating too many
         /// accounts to the organization, or attaching too many policies to an account, OU, or
         /// root. This exception includes a reason that contains additional information about
-        /// the violated limit:
+        /// the violated limit.
         /// 
-        ///   <ul> <li> 
+        ///  <note> 
+        /// <para>
+        /// Some of the reasons in the following list might not be applicable to this specific
+        /// API or operation:
+        /// </para>
+        ///  </note>  <ul> <li> 
         /// <para>
         /// ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of
         /// accounts in an organization. If you need more accounts, contact AWS Support to request
@@ -5031,7 +5101,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/EnablePolicyType">REST API Reference for EnablePolicyType Operation</seealso>
-        public EnablePolicyTypeResponse EnablePolicyType(EnablePolicyTypeRequest request)
+        public virtual EnablePolicyTypeResponse EnablePolicyType(EnablePolicyTypeRequest request)
         {
             var marshaller = new EnablePolicyTypeRequestMarshaller();
             var unmarshaller = EnablePolicyTypeResponseUnmarshaller.Instance;
@@ -5051,7 +5121,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndEnablePolicyType
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/EnablePolicyType">REST API Reference for EnablePolicyType Operation</seealso>
-        public IAsyncResult BeginEnablePolicyType(EnablePolicyTypeRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginEnablePolicyType(EnablePolicyTypeRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new EnablePolicyTypeRequestMarshaller();
             var unmarshaller = EnablePolicyTypeResponseUnmarshaller.Instance;
@@ -5068,7 +5138,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  EnablePolicyTypeResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/EnablePolicyType">REST API Reference for EnablePolicyType Operation</seealso>
-        public  EnablePolicyTypeResponse EndEnablePolicyType(IAsyncResult asyncResult)
+        public virtual EnablePolicyTypeResponse EndEnablePolicyType(IAsyncResult asyncResult)
         {
             return EndInvoke<EnablePolicyTypeResponse>(asyncResult);
         }
@@ -5281,7 +5351,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/InviteAccountToOrganization">REST API Reference for InviteAccountToOrganization Operation</seealso>
-        public InviteAccountToOrganizationResponse InviteAccountToOrganization(InviteAccountToOrganizationRequest request)
+        public virtual InviteAccountToOrganizationResponse InviteAccountToOrganization(InviteAccountToOrganizationRequest request)
         {
             var marshaller = new InviteAccountToOrganizationRequestMarshaller();
             var unmarshaller = InviteAccountToOrganizationResponseUnmarshaller.Instance;
@@ -5301,7 +5371,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndInviteAccountToOrganization
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/InviteAccountToOrganization">REST API Reference for InviteAccountToOrganization Operation</seealso>
-        public IAsyncResult BeginInviteAccountToOrganization(InviteAccountToOrganizationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginInviteAccountToOrganization(InviteAccountToOrganizationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new InviteAccountToOrganizationRequestMarshaller();
             var unmarshaller = InviteAccountToOrganizationResponseUnmarshaller.Instance;
@@ -5318,7 +5388,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  InviteAccountToOrganizationResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/InviteAccountToOrganization">REST API Reference for InviteAccountToOrganization Operation</seealso>
-        public  InviteAccountToOrganizationResponse EndInviteAccountToOrganization(IAsyncResult asyncResult)
+        public virtual InviteAccountToOrganizationResponse EndInviteAccountToOrganization(IAsyncResult asyncResult)
         {
             return EndInvoke<InviteAccountToOrganizationResponse>(asyncResult);
         }
@@ -5392,9 +5462,14 @@ namespace Amazon.Organizations
         /// attempting to removing the last SCP from an OU or root, inviting or creating too many
         /// accounts to the organization, or attaching too many policies to an account, OU, or
         /// root. This exception includes a reason that contains additional information about
-        /// the violated limit:
+        /// the violated limit.
         /// 
-        ///   <ul> <li> 
+        ///  <note> 
+        /// <para>
+        /// Some of the reasons in the following list might not be applicable to this specific
+        /// API or operation:
+        /// </para>
+        ///  </note>  <ul> <li> 
         /// <para>
         /// ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of
         /// accounts in an organization. If you need more accounts, contact AWS Support to request
@@ -5599,7 +5674,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/LeaveOrganization">REST API Reference for LeaveOrganization Operation</seealso>
-        public LeaveOrganizationResponse LeaveOrganization(LeaveOrganizationRequest request)
+        public virtual LeaveOrganizationResponse LeaveOrganization(LeaveOrganizationRequest request)
         {
             var marshaller = new LeaveOrganizationRequestMarshaller();
             var unmarshaller = LeaveOrganizationResponseUnmarshaller.Instance;
@@ -5619,7 +5694,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndLeaveOrganization
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/LeaveOrganization">REST API Reference for LeaveOrganization Operation</seealso>
-        public IAsyncResult BeginLeaveOrganization(LeaveOrganizationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginLeaveOrganization(LeaveOrganizationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new LeaveOrganizationRequestMarshaller();
             var unmarshaller = LeaveOrganizationResponseUnmarshaller.Instance;
@@ -5636,7 +5711,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  LeaveOrganizationResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/LeaveOrganization">REST API Reference for LeaveOrganization Operation</seealso>
-        public  LeaveOrganizationResponse EndLeaveOrganization(IAsyncResult asyncResult)
+        public virtual LeaveOrganizationResponse EndLeaveOrganization(IAsyncResult asyncResult)
         {
             return EndInvoke<LeaveOrganizationResponse>(asyncResult);
         }
@@ -5758,7 +5833,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListAccounts">REST API Reference for ListAccounts Operation</seealso>
-        public ListAccountsResponse ListAccounts(ListAccountsRequest request)
+        public virtual ListAccountsResponse ListAccounts(ListAccountsRequest request)
         {
             var marshaller = new ListAccountsRequestMarshaller();
             var unmarshaller = ListAccountsResponseUnmarshaller.Instance;
@@ -5778,7 +5853,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListAccounts
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListAccounts">REST API Reference for ListAccounts Operation</seealso>
-        public IAsyncResult BeginListAccounts(ListAccountsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListAccounts(ListAccountsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListAccountsRequestMarshaller();
             var unmarshaller = ListAccountsResponseUnmarshaller.Instance;
@@ -5795,7 +5870,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListAccountsResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListAccounts">REST API Reference for ListAccounts Operation</seealso>
-        public  ListAccountsResponse EndListAccounts(IAsyncResult asyncResult)
+        public virtual ListAccountsResponse EndListAccounts(IAsyncResult asyncResult)
         {
             return EndInvoke<ListAccountsResponse>(asyncResult);
         }
@@ -5918,7 +5993,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListAccountsForParent">REST API Reference for ListAccountsForParent Operation</seealso>
-        public ListAccountsForParentResponse ListAccountsForParent(ListAccountsForParentRequest request)
+        public virtual ListAccountsForParentResponse ListAccountsForParent(ListAccountsForParentRequest request)
         {
             var marshaller = new ListAccountsForParentRequestMarshaller();
             var unmarshaller = ListAccountsForParentResponseUnmarshaller.Instance;
@@ -5938,7 +6013,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListAccountsForParent
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListAccountsForParent">REST API Reference for ListAccountsForParent Operation</seealso>
-        public IAsyncResult BeginListAccountsForParent(ListAccountsForParentRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListAccountsForParent(ListAccountsForParentRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListAccountsForParentRequestMarshaller();
             var unmarshaller = ListAccountsForParentResponseUnmarshaller.Instance;
@@ -5955,7 +6030,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListAccountsForParentResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListAccountsForParent">REST API Reference for ListAccountsForParent Operation</seealso>
-        public  ListAccountsForParentResponse EndListAccountsForParent(IAsyncResult asyncResult)
+        public virtual ListAccountsForParentResponse EndListAccountsForParent(IAsyncResult asyncResult)
         {
             return EndInvoke<ListAccountsForParentResponse>(asyncResult);
         }
@@ -6076,7 +6151,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListChildren">REST API Reference for ListChildren Operation</seealso>
-        public ListChildrenResponse ListChildren(ListChildrenRequest request)
+        public virtual ListChildrenResponse ListChildren(ListChildrenRequest request)
         {
             var marshaller = new ListChildrenRequestMarshaller();
             var unmarshaller = ListChildrenResponseUnmarshaller.Instance;
@@ -6096,7 +6171,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListChildren
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListChildren">REST API Reference for ListChildren Operation</seealso>
-        public IAsyncResult BeginListChildren(ListChildrenRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListChildren(ListChildrenRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListChildrenRequestMarshaller();
             var unmarshaller = ListChildrenResponseUnmarshaller.Instance;
@@ -6113,7 +6188,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListChildrenResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListChildren">REST API Reference for ListChildren Operation</seealso>
-        public  ListChildrenResponse EndListChildren(IAsyncResult asyncResult)
+        public virtual ListChildrenResponse EndListChildren(IAsyncResult asyncResult)
         {
             return EndInvoke<ListChildrenResponse>(asyncResult);
         }
@@ -6235,7 +6310,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListCreateAccountStatus">REST API Reference for ListCreateAccountStatus Operation</seealso>
-        public ListCreateAccountStatusResponse ListCreateAccountStatus(ListCreateAccountStatusRequest request)
+        public virtual ListCreateAccountStatusResponse ListCreateAccountStatus(ListCreateAccountStatusRequest request)
         {
             var marshaller = new ListCreateAccountStatusRequestMarshaller();
             var unmarshaller = ListCreateAccountStatusResponseUnmarshaller.Instance;
@@ -6255,7 +6330,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListCreateAccountStatus
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListCreateAccountStatus">REST API Reference for ListCreateAccountStatus Operation</seealso>
-        public IAsyncResult BeginListCreateAccountStatus(ListCreateAccountStatusRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListCreateAccountStatus(ListCreateAccountStatusRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListCreateAccountStatusRequestMarshaller();
             var unmarshaller = ListCreateAccountStatusResponseUnmarshaller.Instance;
@@ -6272,7 +6347,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListCreateAccountStatusResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListCreateAccountStatus">REST API Reference for ListCreateAccountStatus Operation</seealso>
-        public  ListCreateAccountStatusResponse EndListCreateAccountStatus(IAsyncResult asyncResult)
+        public virtual ListCreateAccountStatusResponse EndListCreateAccountStatus(IAsyncResult asyncResult)
         {
             return EndInvoke<ListCreateAccountStatusResponse>(asyncResult);
         }
@@ -6400,7 +6475,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListHandshakesForAccount">REST API Reference for ListHandshakesForAccount Operation</seealso>
-        public ListHandshakesForAccountResponse ListHandshakesForAccount(ListHandshakesForAccountRequest request)
+        public virtual ListHandshakesForAccountResponse ListHandshakesForAccount(ListHandshakesForAccountRequest request)
         {
             var marshaller = new ListHandshakesForAccountRequestMarshaller();
             var unmarshaller = ListHandshakesForAccountResponseUnmarshaller.Instance;
@@ -6420,7 +6495,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListHandshakesForAccount
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListHandshakesForAccount">REST API Reference for ListHandshakesForAccount Operation</seealso>
-        public IAsyncResult BeginListHandshakesForAccount(ListHandshakesForAccountRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListHandshakesForAccount(ListHandshakesForAccountRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListHandshakesForAccountRequestMarshaller();
             var unmarshaller = ListHandshakesForAccountResponseUnmarshaller.Instance;
@@ -6437,7 +6512,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListHandshakesForAccountResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListHandshakesForAccount">REST API Reference for ListHandshakesForAccount Operation</seealso>
-        public  ListHandshakesForAccountResponse EndListHandshakesForAccount(IAsyncResult asyncResult)
+        public virtual ListHandshakesForAccountResponse EndListHandshakesForAccount(IAsyncResult asyncResult)
         {
             return EndInvoke<ListHandshakesForAccountResponse>(asyncResult);
         }
@@ -6571,7 +6646,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListHandshakesForOrganization">REST API Reference for ListHandshakesForOrganization Operation</seealso>
-        public ListHandshakesForOrganizationResponse ListHandshakesForOrganization(ListHandshakesForOrganizationRequest request)
+        public virtual ListHandshakesForOrganizationResponse ListHandshakesForOrganization(ListHandshakesForOrganizationRequest request)
         {
             var marshaller = new ListHandshakesForOrganizationRequestMarshaller();
             var unmarshaller = ListHandshakesForOrganizationResponseUnmarshaller.Instance;
@@ -6591,7 +6666,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListHandshakesForOrganization
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListHandshakesForOrganization">REST API Reference for ListHandshakesForOrganization Operation</seealso>
-        public IAsyncResult BeginListHandshakesForOrganization(ListHandshakesForOrganizationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListHandshakesForOrganization(ListHandshakesForOrganizationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListHandshakesForOrganizationRequestMarshaller();
             var unmarshaller = ListHandshakesForOrganizationResponseUnmarshaller.Instance;
@@ -6608,7 +6683,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListHandshakesForOrganizationResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListHandshakesForOrganization">REST API Reference for ListHandshakesForOrganization Operation</seealso>
-        public  ListHandshakesForOrganizationResponse EndListHandshakesForOrganization(IAsyncResult asyncResult)
+        public virtual ListHandshakesForOrganizationResponse EndListHandshakesForOrganization(IAsyncResult asyncResult)
         {
             return EndInvoke<ListHandshakesForOrganizationResponse>(asyncResult);
         }
@@ -6732,7 +6807,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListOrganizationalUnitsForParent">REST API Reference for ListOrganizationalUnitsForParent Operation</seealso>
-        public ListOrganizationalUnitsForParentResponse ListOrganizationalUnitsForParent(ListOrganizationalUnitsForParentRequest request)
+        public virtual ListOrganizationalUnitsForParentResponse ListOrganizationalUnitsForParent(ListOrganizationalUnitsForParentRequest request)
         {
             var marshaller = new ListOrganizationalUnitsForParentRequestMarshaller();
             var unmarshaller = ListOrganizationalUnitsForParentResponseUnmarshaller.Instance;
@@ -6752,7 +6827,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListOrganizationalUnitsForParent
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListOrganizationalUnitsForParent">REST API Reference for ListOrganizationalUnitsForParent Operation</seealso>
-        public IAsyncResult BeginListOrganizationalUnitsForParent(ListOrganizationalUnitsForParentRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListOrganizationalUnitsForParent(ListOrganizationalUnitsForParentRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListOrganizationalUnitsForParentRequestMarshaller();
             var unmarshaller = ListOrganizationalUnitsForParentResponseUnmarshaller.Instance;
@@ -6769,7 +6844,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListOrganizationalUnitsForParentResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListOrganizationalUnitsForParent">REST API Reference for ListOrganizationalUnitsForParent Operation</seealso>
-        public  ListOrganizationalUnitsForParentResponse EndListOrganizationalUnitsForParent(IAsyncResult asyncResult)
+        public virtual ListOrganizationalUnitsForParentResponse EndListOrganizationalUnitsForParent(IAsyncResult asyncResult)
         {
             return EndInvoke<ListOrganizationalUnitsForParentResponse>(asyncResult);
         }
@@ -6901,7 +6976,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListParents">REST API Reference for ListParents Operation</seealso>
-        public ListParentsResponse ListParents(ListParentsRequest request)
+        public virtual ListParentsResponse ListParents(ListParentsRequest request)
         {
             var marshaller = new ListParentsRequestMarshaller();
             var unmarshaller = ListParentsResponseUnmarshaller.Instance;
@@ -6921,7 +6996,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListParents
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListParents">REST API Reference for ListParents Operation</seealso>
-        public IAsyncResult BeginListParents(ListParentsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListParents(ListParentsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListParentsRequestMarshaller();
             var unmarshaller = ListParentsResponseUnmarshaller.Instance;
@@ -6938,7 +7013,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListParentsResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListParents">REST API Reference for ListParents Operation</seealso>
-        public  ListParentsResponse EndListParents(IAsyncResult asyncResult)
+        public virtual ListParentsResponse EndListParents(IAsyncResult asyncResult)
         {
             return EndInvoke<ListParentsResponse>(asyncResult);
         }
@@ -7059,7 +7134,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListPolicies">REST API Reference for ListPolicies Operation</seealso>
-        public ListPoliciesResponse ListPolicies(ListPoliciesRequest request)
+        public virtual ListPoliciesResponse ListPolicies(ListPoliciesRequest request)
         {
             var marshaller = new ListPoliciesRequestMarshaller();
             var unmarshaller = ListPoliciesResponseUnmarshaller.Instance;
@@ -7079,7 +7154,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListPolicies
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListPolicies">REST API Reference for ListPolicies Operation</seealso>
-        public IAsyncResult BeginListPolicies(ListPoliciesRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListPolicies(ListPoliciesRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListPoliciesRequestMarshaller();
             var unmarshaller = ListPoliciesResponseUnmarshaller.Instance;
@@ -7096,7 +7171,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListPoliciesResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListPolicies">REST API Reference for ListPolicies Operation</seealso>
-        public  ListPoliciesResponse EndListPolicies(IAsyncResult asyncResult)
+        public virtual ListPoliciesResponse EndListPolicies(IAsyncResult asyncResult)
         {
             return EndInvoke<ListPoliciesResponse>(asyncResult);
         }
@@ -7222,7 +7297,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListPoliciesForTarget">REST API Reference for ListPoliciesForTarget Operation</seealso>
-        public ListPoliciesForTargetResponse ListPoliciesForTarget(ListPoliciesForTargetRequest request)
+        public virtual ListPoliciesForTargetResponse ListPoliciesForTarget(ListPoliciesForTargetRequest request)
         {
             var marshaller = new ListPoliciesForTargetRequestMarshaller();
             var unmarshaller = ListPoliciesForTargetResponseUnmarshaller.Instance;
@@ -7242,7 +7317,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListPoliciesForTarget
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListPoliciesForTarget">REST API Reference for ListPoliciesForTarget Operation</seealso>
-        public IAsyncResult BeginListPoliciesForTarget(ListPoliciesForTargetRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListPoliciesForTarget(ListPoliciesForTargetRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListPoliciesForTargetRequestMarshaller();
             var unmarshaller = ListPoliciesForTargetResponseUnmarshaller.Instance;
@@ -7259,7 +7334,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListPoliciesForTargetResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListPoliciesForTarget">REST API Reference for ListPoliciesForTarget Operation</seealso>
-        public  ListPoliciesForTargetResponse EndListPoliciesForTarget(IAsyncResult asyncResult)
+        public virtual ListPoliciesForTargetResponse EndListPoliciesForTarget(IAsyncResult asyncResult)
         {
             return EndInvoke<ListPoliciesForTargetResponse>(asyncResult);
         }
@@ -7380,7 +7455,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListRoots">REST API Reference for ListRoots Operation</seealso>
-        public ListRootsResponse ListRoots(ListRootsRequest request)
+        public virtual ListRootsResponse ListRoots(ListRootsRequest request)
         {
             var marshaller = new ListRootsRequestMarshaller();
             var unmarshaller = ListRootsResponseUnmarshaller.Instance;
@@ -7400,7 +7475,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListRoots
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListRoots">REST API Reference for ListRoots Operation</seealso>
-        public IAsyncResult BeginListRoots(ListRootsRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListRoots(ListRootsRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListRootsRequestMarshaller();
             var unmarshaller = ListRootsResponseUnmarshaller.Instance;
@@ -7417,7 +7492,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListRootsResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListRoots">REST API Reference for ListRoots Operation</seealso>
-        public  ListRootsResponse EndListRoots(IAsyncResult asyncResult)
+        public virtual ListRootsResponse EndListRoots(IAsyncResult asyncResult)
         {
             return EndInvoke<ListRootsResponse>(asyncResult);
         }
@@ -7541,7 +7616,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListTargetsForPolicy">REST API Reference for ListTargetsForPolicy Operation</seealso>
-        public ListTargetsForPolicyResponse ListTargetsForPolicy(ListTargetsForPolicyRequest request)
+        public virtual ListTargetsForPolicyResponse ListTargetsForPolicy(ListTargetsForPolicyRequest request)
         {
             var marshaller = new ListTargetsForPolicyRequestMarshaller();
             var unmarshaller = ListTargetsForPolicyResponseUnmarshaller.Instance;
@@ -7561,7 +7636,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListTargetsForPolicy
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListTargetsForPolicy">REST API Reference for ListTargetsForPolicy Operation</seealso>
-        public IAsyncResult BeginListTargetsForPolicy(ListTargetsForPolicyRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginListTargetsForPolicy(ListTargetsForPolicyRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new ListTargetsForPolicyRequestMarshaller();
             var unmarshaller = ListTargetsForPolicyResponseUnmarshaller.Instance;
@@ -7578,7 +7653,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  ListTargetsForPolicyResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/ListTargetsForPolicy">REST API Reference for ListTargetsForPolicy Operation</seealso>
-        public  ListTargetsForPolicyResponse EndListTargetsForPolicy(IAsyncResult asyncResult)
+        public virtual ListTargetsForPolicyResponse EndListTargetsForPolicy(IAsyncResult asyncResult)
         {
             return EndInvoke<ListTargetsForPolicyResponse>(asyncResult);
         }
@@ -7718,7 +7793,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/MoveAccount">REST API Reference for MoveAccount Operation</seealso>
-        public MoveAccountResponse MoveAccount(MoveAccountRequest request)
+        public virtual MoveAccountResponse MoveAccount(MoveAccountRequest request)
         {
             var marshaller = new MoveAccountRequestMarshaller();
             var unmarshaller = MoveAccountResponseUnmarshaller.Instance;
@@ -7738,7 +7813,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndMoveAccount
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/MoveAccount">REST API Reference for MoveAccount Operation</seealso>
-        public IAsyncResult BeginMoveAccount(MoveAccountRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginMoveAccount(MoveAccountRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new MoveAccountRequestMarshaller();
             var unmarshaller = MoveAccountResponseUnmarshaller.Instance;
@@ -7755,7 +7830,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  MoveAccountResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/MoveAccount">REST API Reference for MoveAccount Operation</seealso>
-        public  MoveAccountResponse EndMoveAccount(IAsyncResult asyncResult)
+        public virtual MoveAccountResponse EndMoveAccount(IAsyncResult asyncResult)
         {
             return EndInvoke<MoveAccountResponse>(asyncResult);
         }
@@ -7829,9 +7904,14 @@ namespace Amazon.Organizations
         /// attempting to removing the last SCP from an OU or root, inviting or creating too many
         /// accounts to the organization, or attaching too many policies to an account, OU, or
         /// root. This exception includes a reason that contains additional information about
-        /// the violated limit:
+        /// the violated limit.
         /// 
-        ///   <ul> <li> 
+        ///  <note> 
+        /// <para>
+        /// Some of the reasons in the following list might not be applicable to this specific
+        /// API or operation:
+        /// </para>
+        ///  </note>  <ul> <li> 
         /// <para>
         /// ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of
         /// accounts in an organization. If you need more accounts, contact AWS Support to request
@@ -8036,7 +8116,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/RemoveAccountFromOrganization">REST API Reference for RemoveAccountFromOrganization Operation</seealso>
-        public RemoveAccountFromOrganizationResponse RemoveAccountFromOrganization(RemoveAccountFromOrganizationRequest request)
+        public virtual RemoveAccountFromOrganizationResponse RemoveAccountFromOrganization(RemoveAccountFromOrganizationRequest request)
         {
             var marshaller = new RemoveAccountFromOrganizationRequestMarshaller();
             var unmarshaller = RemoveAccountFromOrganizationResponseUnmarshaller.Instance;
@@ -8056,7 +8136,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndRemoveAccountFromOrganization
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/RemoveAccountFromOrganization">REST API Reference for RemoveAccountFromOrganization Operation</seealso>
-        public IAsyncResult BeginRemoveAccountFromOrganization(RemoveAccountFromOrganizationRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginRemoveAccountFromOrganization(RemoveAccountFromOrganizationRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new RemoveAccountFromOrganizationRequestMarshaller();
             var unmarshaller = RemoveAccountFromOrganizationResponseUnmarshaller.Instance;
@@ -8073,7 +8153,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  RemoveAccountFromOrganizationResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/RemoveAccountFromOrganization">REST API Reference for RemoveAccountFromOrganization Operation</seealso>
-        public  RemoveAccountFromOrganizationResponse EndRemoveAccountFromOrganization(IAsyncResult asyncResult)
+        public virtual RemoveAccountFromOrganizationResponse EndRemoveAccountFromOrganization(IAsyncResult asyncResult)
         {
             return EndInvoke<RemoveAccountFromOrganizationResponse>(asyncResult);
         }
@@ -8206,7 +8286,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/UpdateOrganizationalUnit">REST API Reference for UpdateOrganizationalUnit Operation</seealso>
-        public UpdateOrganizationalUnitResponse UpdateOrganizationalUnit(UpdateOrganizationalUnitRequest request)
+        public virtual UpdateOrganizationalUnitResponse UpdateOrganizationalUnit(UpdateOrganizationalUnitRequest request)
         {
             var marshaller = new UpdateOrganizationalUnitRequestMarshaller();
             var unmarshaller = UpdateOrganizationalUnitResponseUnmarshaller.Instance;
@@ -8226,7 +8306,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateOrganizationalUnit
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/UpdateOrganizationalUnit">REST API Reference for UpdateOrganizationalUnit Operation</seealso>
-        public IAsyncResult BeginUpdateOrganizationalUnit(UpdateOrganizationalUnitRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginUpdateOrganizationalUnit(UpdateOrganizationalUnitRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new UpdateOrganizationalUnitRequestMarshaller();
             var unmarshaller = UpdateOrganizationalUnitResponseUnmarshaller.Instance;
@@ -8243,7 +8323,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  UpdateOrganizationalUnitResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/UpdateOrganizationalUnit">REST API Reference for UpdateOrganizationalUnit Operation</seealso>
-        public  UpdateOrganizationalUnitResponse EndUpdateOrganizationalUnit(IAsyncResult asyncResult)
+        public virtual UpdateOrganizationalUnitResponse EndUpdateOrganizationalUnit(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateOrganizationalUnitResponse>(asyncResult);
         }
@@ -8284,9 +8364,14 @@ namespace Amazon.Organizations
         /// attempting to removing the last SCP from an OU or root, inviting or creating too many
         /// accounts to the organization, or attaching too many policies to an account, OU, or
         /// root. This exception includes a reason that contains additional information about
-        /// the violated limit:
+        /// the violated limit.
         /// 
-        ///   <ul> <li> 
+        ///  <note> 
+        /// <para>
+        /// Some of the reasons in the following list might not be applicable to this specific
+        /// API or operation:
+        /// </para>
+        ///  </note>  <ul> <li> 
         /// <para>
         /// ACCOUNT_NUMBER_LIMIT_EXCEEDED: You attempted to exceed the limit on the number of
         /// accounts in an organization. If you need more accounts, contact AWS Support to request
@@ -8498,7 +8583,7 @@ namespace Amazon.Organizations
         /// against denial-of-service attacks. Try again later.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/UpdatePolicy">REST API Reference for UpdatePolicy Operation</seealso>
-        public UpdatePolicyResponse UpdatePolicy(UpdatePolicyRequest request)
+        public virtual UpdatePolicyResponse UpdatePolicy(UpdatePolicyRequest request)
         {
             var marshaller = new UpdatePolicyRequestMarshaller();
             var unmarshaller = UpdatePolicyResponseUnmarshaller.Instance;
@@ -8518,7 +8603,7 @@ namespace Amazon.Organizations
         /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdatePolicy
         ///         operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/UpdatePolicy">REST API Reference for UpdatePolicy Operation</seealso>
-        public IAsyncResult BeginUpdatePolicy(UpdatePolicyRequest request, AsyncCallback callback, object state)
+        public virtual IAsyncResult BeginUpdatePolicy(UpdatePolicyRequest request, AsyncCallback callback, object state)
         {
             var marshaller = new UpdatePolicyRequestMarshaller();
             var unmarshaller = UpdatePolicyResponseUnmarshaller.Instance;
@@ -8535,7 +8620,7 @@ namespace Amazon.Organizations
         /// 
         /// <returns>Returns a  UpdatePolicyResult from Organizations.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/organizations-2016-11-28/UpdatePolicy">REST API Reference for UpdatePolicy Operation</seealso>
-        public  UpdatePolicyResponse EndUpdatePolicy(IAsyncResult asyncResult)
+        public virtual UpdatePolicyResponse EndUpdatePolicy(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdatePolicyResponse>(asyncResult);
         }

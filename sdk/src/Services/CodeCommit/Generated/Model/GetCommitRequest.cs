@@ -39,7 +39,7 @@ namespace Amazon.CodeCommit.Model
         /// <summary>
         /// Gets and sets the property CommitId. 
         /// <para>
-        /// The commit ID.
+        /// The commit ID. Commit IDs are the full SHA of the commit.
         /// </para>
         /// </summary>
         public string CommitId

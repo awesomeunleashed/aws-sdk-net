@@ -37,7 +37,9 @@ namespace Amazon.Elasticsearch.Model
         private EBSOptionsStatus _ebsOptions;
         private ElasticsearchClusterConfigStatus _elasticsearchClusterConfig;
         private ElasticsearchVersionStatus _elasticsearchVersion;
+        private LogPublishingOptionsStatus _logPublishingOptions;
         private SnapshotOptionsStatus _snapshotOptions;
+        private VPCDerivedInfoStatus _vpcOptions;
 
         /// <summary>
         /// Gets and sets the property AccessPolicies. 
@@ -131,6 +133,24 @@ namespace Amazon.Elasticsearch.Model
         }
 
         /// <summary>
+        /// Gets and sets the property LogPublishingOptions. 
+        /// <para>
+        /// Log publishing options for the given domain.
+        /// </para>
+        /// </summary>
+        public LogPublishingOptionsStatus LogPublishingOptions
+        {
+            get { return this._logPublishingOptions; }
+            set { this._logPublishingOptions = value; }
+        }
+
+        // Check to see if LogPublishingOptions property is set
+        internal bool IsSetLogPublishingOptions()
+        {
+            return this._logPublishingOptions != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property SnapshotOptions. 
         /// <para>
         /// Specifies the <code>SnapshotOptions</code> for the Elasticsearch domain.
@@ -146,6 +166,26 @@ namespace Amazon.Elasticsearch.Model
         internal bool IsSetSnapshotOptions()
         {
             return this._snapshotOptions != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property VPCOptions. 
+        /// <para>
+        /// The <code>VPCOptions</code> for the specified domain. For more information, see <a
+        /// href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html"
+        /// target="_blank">VPC Endpoints for Amazon Elasticsearch Service Domains</a>.
+        /// </para>
+        /// </summary>
+        public VPCDerivedInfoStatus VPCOptions
+        {
+            get { return this._vpcOptions; }
+            set { this._vpcOptions = value; }
+        }
+
+        // Check to see if VPCOptions property is set
+        internal bool IsSetVPCOptions()
+        {
+            return this._vpcOptions != null;
         }
 
     }
