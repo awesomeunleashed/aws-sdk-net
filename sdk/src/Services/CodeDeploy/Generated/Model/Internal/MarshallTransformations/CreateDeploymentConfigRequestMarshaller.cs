@@ -67,6 +67,12 @@ namespace Amazon.CodeDeploy.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetComputePlatform())
+                {
+                    context.Writer.WritePropertyName("computePlatform");
+                    context.Writer.Write(publicRequest.ComputePlatform);
+                }
+
                 if(publicRequest.IsSetDeploymentConfigName())
                 {
                     context.Writer.WritePropertyName("deploymentConfigName");
@@ -80,6 +86,17 @@ namespace Amazon.CodeDeploy.Model.Internal.MarshallTransformations
 
                     var marshaller = MinimumHealthyHostsMarshaller.Instance;
                     marshaller.Marshall(publicRequest.MinimumHealthyHosts, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetTrafficRoutingConfig())
+                {
+                    context.Writer.WritePropertyName("trafficRoutingConfig");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = TrafficRoutingConfigMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.TrafficRoutingConfig, context);
 
                     context.Writer.WriteObjectEnd();
                 }

@@ -40,8 +40,18 @@ namespace Amazon.StepFunctions.Model
         /// <summary>
         /// Gets and sets the property Input. 
         /// <para>
-        /// The JSON input data for the execution.
+        /// The string that contains the JSON input data for the execution, for example:
         /// </para>
+        ///  
+        /// <para>
+        ///  <code>"input": "{\"first_name\" : \"test\"}"</code> 
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// If you don't include any JSON input data, you still must include the two braces, for
+        /// example: <code>"input": "{}"</code> 
+        /// </para>
+        ///  </note>
         /// </summary>
         public string Input
         {
@@ -58,8 +68,60 @@ namespace Amazon.StepFunctions.Model
         /// <summary>
         /// Gets and sets the property Name. 
         /// <para>
-        /// The name of the execution. This name must be unique for your AWS account and region.
+        /// The name of the execution. This name must be unique for your AWS account and region
+        /// for 90 days. For more information, see <a href="http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
+        /// Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer
+        /// Guide</i>.
         /// </para>
+        ///  <important> 
+        /// <para>
+        /// An execution can't use the name of another execution for 90 days.
+        /// </para>
+        ///  
+        /// <para>
+        /// When you make multiple <code>StartExecution</code> calls with the same name, the new
+        /// execution doesn't run and the following rules apply:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// When the original execution is open and the execution input from the new call is <i>different</i>,
+        /// the <code>ExecutionAlreadyExists</code> message is returned.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// When the original execution is open and the execution input from the new call is <i>identical</i>,
+        /// the <code>Success</code> message is returned.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// When the original execution is closed, the <code>ExecutionAlreadyExists</code> message
+        /// is returned regardless of input.
+        /// </para>
+        ///  </li> </ul> </important> 
+        /// <para>
+        /// A name must <i>not</i> contain:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// whitespace
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// brackets <code>&lt; &gt; { } [ ]</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// wildcard characters <code>? *</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         public string Name
         {

@@ -30,6 +30,7 @@ namespace Amazon.Util
         public const string IfMatchHeader = "If-Match";
         public const string IfNoneMatchHeader = "If-None-Match";
         public const string IfUnmodifiedSinceHeader = "If-Unmodified-Since";
+        public const string ConfirmSelfBucketAccess = "x-amz-confirm-remove-self-bucket-access";
         public const string ContentRangeHeader = "Content-Range";
         public const string ContentTypeHeader = "Content-Type";
         public const string ContentLengthHeader = "Content-Length";
@@ -91,6 +92,6 @@ namespace Amazon.Util
         public const string XAmzUserAgentHeader = "x-amz-user-agent";
         public const string XAmzAbortDateHeader = "x-amz-abort-date";
         public const string XAmzAbortRuleIdHeader = "x-amz-abort-rule-id";
-        public const string XAmznTraceIdHeader = " x-amzn-trace-id";
+        public const string XAmznTraceIdHeader = "x-amzn-trace-id";
     }
 }

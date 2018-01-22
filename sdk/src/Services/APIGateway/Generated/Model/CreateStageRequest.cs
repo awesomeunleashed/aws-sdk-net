@@ -36,11 +36,13 @@ namespace Amazon.APIGateway.Model
     {
         private bool? _cacheClusterEnabled;
         private CacheClusterSize _cacheClusterSize;
+        private CanarySettings _canarySettings;
         private string _deploymentId;
         private string _description;
         private string _documentationVersion;
         private string _restApiId;
         private string _stageName;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private Dictionary<string, string> _variables = new Dictionary<string, string>();
 
         /// <summary>
@@ -80,9 +82,27 @@ namespace Amazon.APIGateway.Model
         }
 
         /// <summary>
+        /// Gets and sets the property CanarySettings. 
+        /// <para>
+        /// The canary deployment settings of this stage.
+        /// </para>
+        /// </summary>
+        public CanarySettings CanarySettings
+        {
+            get { return this._canarySettings; }
+            set { this._canarySettings = value; }
+        }
+
+        // Check to see if CanarySettings property is set
+        internal bool IsSetCanarySettings()
+        {
+            return this._canarySettings != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property DeploymentId. 
         /// <para>
-        /// The identifier of the <a>Deployment</a> resource for the <a>Stage</a> resource.
+        /// [Required] The identifier of the <a>Deployment</a> resource for the <a>Stage</a> resource.
         /// </para>
         /// </summary>
         public string DeploymentId
@@ -154,7 +174,7 @@ namespace Amazon.APIGateway.Model
         /// <summary>
         /// Gets and sets the property StageName. 
         /// <para>
-        /// The name for the <a>Stage</a> resource.
+        /// [Required] The name for the <a>Stage</a> resource.
         /// </para>
         /// </summary>
         public string StageName
@@ -167,6 +187,25 @@ namespace Amazon.APIGateway.Model
         internal bool IsSetStageName()
         {
             return this._stageName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// Key/Value map of strings. Valid character set is [a-zA-Z+-=._:/]. Tag key can be up
+        /// to 128 characters and must not start with "aws:". Tag value can be up to 256 characters.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
         /// <summary>

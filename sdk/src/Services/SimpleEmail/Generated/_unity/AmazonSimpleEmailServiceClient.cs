@@ -290,6 +290,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  CreateCustomVerificationEmailTemplate
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateCustomVerificationEmailTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateCustomVerificationEmailTemplate">REST API Reference for CreateCustomVerificationEmailTemplate Operation</seealso>
+        public virtual void CreateCustomVerificationEmailTemplateAsync(CreateCustomVerificationEmailTemplateRequest request, AmazonServiceCallback<CreateCustomVerificationEmailTemplateRequest, CreateCustomVerificationEmailTemplateResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new CreateCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = CreateCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<CreateCustomVerificationEmailTemplateRequest,CreateCustomVerificationEmailTemplateResponse> responseObject 
+                            = new AmazonServiceResult<CreateCustomVerificationEmailTemplateRequest,CreateCustomVerificationEmailTemplateResponse>((CreateCustomVerificationEmailTemplateRequest)req, (CreateCustomVerificationEmailTemplateResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<CreateCustomVerificationEmailTemplateRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  CreateReceiptFilter
 
         /// <summary>
@@ -482,6 +510,34 @@ namespace Amazon.SimpleEmail
                         callback(responseObject); 
                 };
             BeginInvoke<DeleteConfigurationSetTrackingOptionsRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
+        #region  DeleteCustomVerificationEmailTemplate
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteCustomVerificationEmailTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteCustomVerificationEmailTemplate">REST API Reference for DeleteCustomVerificationEmailTemplate Operation</seealso>
+        public virtual void DeleteCustomVerificationEmailTemplateAsync(DeleteCustomVerificationEmailTemplateRequest request, AmazonServiceCallback<DeleteCustomVerificationEmailTemplateRequest, DeleteCustomVerificationEmailTemplateResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new DeleteCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = DeleteCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<DeleteCustomVerificationEmailTemplateRequest,DeleteCustomVerificationEmailTemplateResponse> responseObject 
+                            = new AmazonServiceResult<DeleteCustomVerificationEmailTemplateRequest,DeleteCustomVerificationEmailTemplateResponse>((DeleteCustomVerificationEmailTemplateRequest)req, (DeleteCustomVerificationEmailTemplateResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<DeleteCustomVerificationEmailTemplateRequest>(request, marshaller, unmarshaller, options, callbackHelper);
         }
 
         #endregion
@@ -794,6 +850,62 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  GetAccountSendingEnabled
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetAccountSendingEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetAccountSendingEnabled operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetAccountSendingEnabled">REST API Reference for GetAccountSendingEnabled Operation</seealso>
+        public virtual void GetAccountSendingEnabledAsync(GetAccountSendingEnabledRequest request, AmazonServiceCallback<GetAccountSendingEnabledRequest, GetAccountSendingEnabledResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new GetAccountSendingEnabledRequestMarshaller();
+            var unmarshaller = GetAccountSendingEnabledResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<GetAccountSendingEnabledRequest,GetAccountSendingEnabledResponse> responseObject 
+                            = new AmazonServiceResult<GetAccountSendingEnabledRequest,GetAccountSendingEnabledResponse>((GetAccountSendingEnabledRequest)req, (GetAccountSendingEnabledResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<GetAccountSendingEnabledRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
+        #region  GetCustomVerificationEmailTemplate
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetCustomVerificationEmailTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetCustomVerificationEmailTemplate">REST API Reference for GetCustomVerificationEmailTemplate Operation</seealso>
+        public virtual void GetCustomVerificationEmailTemplateAsync(GetCustomVerificationEmailTemplateRequest request, AmazonServiceCallback<GetCustomVerificationEmailTemplateRequest, GetCustomVerificationEmailTemplateResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new GetCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = GetCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<GetCustomVerificationEmailTemplateRequest,GetCustomVerificationEmailTemplateResponse> responseObject 
+                            = new AmazonServiceResult<GetCustomVerificationEmailTemplateRequest,GetCustomVerificationEmailTemplateResponse>((GetCustomVerificationEmailTemplateRequest)req, (GetCustomVerificationEmailTemplateResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<GetCustomVerificationEmailTemplateRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  GetIdentityDkimAttributes
 
         /// <summary>
@@ -1090,6 +1202,34 @@ namespace Amazon.SimpleEmail
                         callback(responseObject); 
                 };
             BeginInvoke<ListConfigurationSetsRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
+        #region  ListCustomVerificationEmailTemplates
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListCustomVerificationEmailTemplates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListCustomVerificationEmailTemplates operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListCustomVerificationEmailTemplates">REST API Reference for ListCustomVerificationEmailTemplates Operation</seealso>
+        public virtual void ListCustomVerificationEmailTemplatesAsync(ListCustomVerificationEmailTemplatesRequest request, AmazonServiceCallback<ListCustomVerificationEmailTemplatesRequest, ListCustomVerificationEmailTemplatesResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new ListCustomVerificationEmailTemplatesRequestMarshaller();
+            var unmarshaller = ListCustomVerificationEmailTemplatesResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<ListCustomVerificationEmailTemplatesRequest,ListCustomVerificationEmailTemplatesResponse> responseObject 
+                            = new AmazonServiceResult<ListCustomVerificationEmailTemplatesRequest,ListCustomVerificationEmailTemplatesResponse>((ListCustomVerificationEmailTemplatesRequest)req, (ListCustomVerificationEmailTemplatesResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<ListCustomVerificationEmailTemplatesRequest>(request, marshaller, unmarshaller, options, callbackHelper);
         }
 
         #endregion
@@ -1417,6 +1557,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  SendCustomVerificationEmail
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SendCustomVerificationEmail operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SendCustomVerificationEmail operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendCustomVerificationEmail">REST API Reference for SendCustomVerificationEmail Operation</seealso>
+        public virtual void SendCustomVerificationEmailAsync(SendCustomVerificationEmailRequest request, AmazonServiceCallback<SendCustomVerificationEmailRequest, SendCustomVerificationEmailResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new SendCustomVerificationEmailRequestMarshaller();
+            var unmarshaller = SendCustomVerificationEmailResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<SendCustomVerificationEmailRequest,SendCustomVerificationEmailResponse> responseObject 
+                            = new AmazonServiceResult<SendCustomVerificationEmailRequest,SendCustomVerificationEmailResponse>((SendCustomVerificationEmailRequest)req, (SendCustomVerificationEmailResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<SendCustomVerificationEmailRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  SendEmail
 
         /// <summary>
@@ -1725,6 +1893,34 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  UpdateAccountSendingEnabled
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateAccountSendingEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateAccountSendingEnabled operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateAccountSendingEnabled">REST API Reference for UpdateAccountSendingEnabled Operation</seealso>
+        public virtual void UpdateAccountSendingEnabledAsync(UpdateAccountSendingEnabledRequest request, AmazonServiceCallback<UpdateAccountSendingEnabledRequest, UpdateAccountSendingEnabledResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new UpdateAccountSendingEnabledRequestMarshaller();
+            var unmarshaller = UpdateAccountSendingEnabledResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<UpdateAccountSendingEnabledRequest,UpdateAccountSendingEnabledResponse> responseObject 
+                            = new AmazonServiceResult<UpdateAccountSendingEnabledRequest,UpdateAccountSendingEnabledResponse>((UpdateAccountSendingEnabledRequest)req, (UpdateAccountSendingEnabledResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<UpdateAccountSendingEnabledRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  UpdateConfigurationSetEventDestination
 
         /// <summary>
@@ -1753,6 +1949,62 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  UpdateConfigurationSetReputationMetricsEnabled
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateConfigurationSetReputationMetricsEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConfigurationSetReputationMetricsEnabled operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetReputationMetricsEnabled">REST API Reference for UpdateConfigurationSetReputationMetricsEnabled Operation</seealso>
+        public virtual void UpdateConfigurationSetReputationMetricsEnabledAsync(UpdateConfigurationSetReputationMetricsEnabledRequest request, AmazonServiceCallback<UpdateConfigurationSetReputationMetricsEnabledRequest, UpdateConfigurationSetReputationMetricsEnabledResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new UpdateConfigurationSetReputationMetricsEnabledRequestMarshaller();
+            var unmarshaller = UpdateConfigurationSetReputationMetricsEnabledResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<UpdateConfigurationSetReputationMetricsEnabledRequest,UpdateConfigurationSetReputationMetricsEnabledResponse> responseObject 
+                            = new AmazonServiceResult<UpdateConfigurationSetReputationMetricsEnabledRequest,UpdateConfigurationSetReputationMetricsEnabledResponse>((UpdateConfigurationSetReputationMetricsEnabledRequest)req, (UpdateConfigurationSetReputationMetricsEnabledResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<UpdateConfigurationSetReputationMetricsEnabledRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
+        #region  UpdateConfigurationSetSendingEnabled
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateConfigurationSetSendingEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConfigurationSetSendingEnabled operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetSendingEnabled">REST API Reference for UpdateConfigurationSetSendingEnabled Operation</seealso>
+        public virtual void UpdateConfigurationSetSendingEnabledAsync(UpdateConfigurationSetSendingEnabledRequest request, AmazonServiceCallback<UpdateConfigurationSetSendingEnabledRequest, UpdateConfigurationSetSendingEnabledResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new UpdateConfigurationSetSendingEnabledRequestMarshaller();
+            var unmarshaller = UpdateConfigurationSetSendingEnabledResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<UpdateConfigurationSetSendingEnabledRequest,UpdateConfigurationSetSendingEnabledResponse> responseObject 
+                            = new AmazonServiceResult<UpdateConfigurationSetSendingEnabledRequest,UpdateConfigurationSetSendingEnabledResponse>((UpdateConfigurationSetSendingEnabledRequest)req, (UpdateConfigurationSetSendingEnabledResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<UpdateConfigurationSetSendingEnabledRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
         #region  UpdateConfigurationSetTrackingOptions
 
         /// <summary>
@@ -1777,6 +2029,34 @@ namespace Amazon.SimpleEmail
                         callback(responseObject); 
                 };
             BeginInvoke<UpdateConfigurationSetTrackingOptionsRequest>(request, marshaller, unmarshaller, options, callbackHelper);
+        }
+
+        #endregion
+        
+        #region  UpdateCustomVerificationEmailTemplate
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateCustomVerificationEmailTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An Action delegate that is invoked when the operation completes.</param>
+        /// <param name="options">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateCustomVerificationEmailTemplate">REST API Reference for UpdateCustomVerificationEmailTemplate Operation</seealso>
+        public virtual void UpdateCustomVerificationEmailTemplateAsync(UpdateCustomVerificationEmailTemplateRequest request, AmazonServiceCallback<UpdateCustomVerificationEmailTemplateRequest, UpdateCustomVerificationEmailTemplateResponse> callback, AsyncOptions options = null)
+        {
+            options = options == null?new AsyncOptions():options;
+            var marshaller = new UpdateCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = UpdateCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+            Action<AmazonWebServiceRequest, AmazonWebServiceResponse, Exception, AsyncOptions> callbackHelper = null;
+            if(callback !=null )
+                callbackHelper = (AmazonWebServiceRequest req, AmazonWebServiceResponse res, Exception ex, AsyncOptions ao) => { 
+                    AmazonServiceResult<UpdateCustomVerificationEmailTemplateRequest,UpdateCustomVerificationEmailTemplateResponse> responseObject 
+                            = new AmazonServiceResult<UpdateCustomVerificationEmailTemplateRequest,UpdateCustomVerificationEmailTemplateResponse>((UpdateCustomVerificationEmailTemplateRequest)req, (UpdateCustomVerificationEmailTemplateResponse)res, ex , ao.State);    
+                        callback(responseObject); 
+                };
+            BeginInvoke<UpdateCustomVerificationEmailTemplateRequest>(request, marshaller, unmarshaller, options, callbackHelper);
         }
 
         #endregion

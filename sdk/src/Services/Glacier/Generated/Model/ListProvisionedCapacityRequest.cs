@@ -29,7 +29,7 @@ namespace Amazon.Glacier.Model
 {
     /// <summary>
     /// Container for the parameters to the ListProvisionedCapacity operation.
-    /// This operation lists the provisioned capacity for the specified AWS account.
+    /// This operation lists the provisioned capacity units for the specified AWS account.
     /// </summary>
     public partial class ListProvisionedCapacityRequest : AmazonGlacierRequest
     {
@@ -38,11 +38,10 @@ namespace Amazon.Glacier.Model
         /// <summary>
         /// Gets and sets the property AccountId. 
         /// <para>
-        /// The <code>AccountId</code> value is the AWS account ID of the account that owns the
-        /// vault. You can either specify an AWS account ID or optionally a single '-' (hyphen),
-        /// in which case Amazon Glacier uses the AWS account ID associated with the credentials
-        /// used to sign the request. If you use an account ID, don't include any hyphens ('-')
-        /// in the ID. 
+        /// The AWS account ID of the account that owns the vault. You can either specify an AWS
+        /// account ID or optionally a single '-' (hyphen), in which case Amazon Glacier uses
+        /// the AWS account ID associated with the credentials used to sign the request. If you
+        /// use an account ID, don't include any hyphens ('-') in the ID. 
         /// </para>
         /// </summary>
         public string AccountId

@@ -128,8 +128,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property EnableIAMDatabaseAuthentication. 
         /// <para>
-        /// A Boolean value that is true to enable mapping of AWS Identity and Access Management
-        /// (IAM) accounts to database accounts, and otherwise false.
+        /// True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+        /// accounts, and otherwise false.
         /// </para>
         ///  
         /// <para>
@@ -151,7 +151,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        /// The KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
+        /// The AWS KMS key identifier to use when restoring an encrypted DB cluster from an encrypted
         /// DB cluster.
         /// </para>
         ///  
@@ -165,8 +165,7 @@ namespace Amazon.RDS.Model
         /// <para>
         /// You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key
         /// that is different than the KMS key used to encrypt the source DB cluster. The new
-        /// DB cluster will be encrypted with the KMS key identified by the <code>KmsKeyId</code>
-        /// parameter.
+        /// DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.
         /// </para>
         ///  
         /// <para>
@@ -308,7 +307,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// Constraints: You cannot specify <code>copy-on-write</code> if the engine version of
+        /// Constraints: You can't specify <code>copy-on-write</code> if the engine version of
         /// the source DB cluster is earlier than 1.11.
         /// </para>
         ///  

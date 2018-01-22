@@ -33,22 +33,27 @@ namespace Amazon.StepFunctions
     ///
     /// AWS Step Functions 
     /// <para>
-    /// AWS Step Functions is a web service that enables you to coordinate the components
-    /// of distributed applications and microservices using visual workflows. You build applications
-    /// from individual components that each perform a discrete function, or <i>task</i>,
-    /// allowing you to scale and change applications quickly. Step Functions provides a graphical
-    /// console to visualize the components of your application as a series of steps. It automatically
-    /// triggers and tracks each step, and retries when there are errors, so your application
-    /// executes in order and as expected, every time. Step Functions logs the state of each
-    /// step, so when things do go wrong, you can diagnose and debug problems quickly.
+    /// AWS Step Functions is a service that lets you coordinate the components of distributed
+    /// applications and microservices using visual workflows.
     /// </para>
     ///  
     /// <para>
-    /// Step Functions manages the operations and underlying infrastructure for you to ensure
-    /// your application is available at any scale. You can run tasks on the AWS cloud, on
-    /// your own servers, or an any system that has access to AWS. Step Functions can be accessed
-    /// and used with the Step Functions console, the AWS SDKs (included with your Beta release
-    /// invitation email), or an HTTP API (the subject of this document).
+    /// You can use Step Functions to build applications from individual components, each
+    /// of which performs a discrete function, or <i>task</i>, allowing you to scale and change
+    /// applications quickly. Step Functions provides a console that helps visualize the components
+    /// of your application as a series of steps. Step Functions automatically triggers and
+    /// tracks each step, and retries steps when there are errors, so your application executes
+    /// predictably and in the right order every time. Step Functions logs the state of each
+    /// step, so you can quickly diagnose and debug any issues.
+    /// </para>
+    ///  
+    /// <para>
+    /// Step Functions manages operations and underlying infrastructure to ensure your application
+    /// is available at any scale. You can run tasks on AWS, your own servers, or any system
+    /// that has access to AWS. You can access and use Step Functions using the console, the
+    /// AWS SDKs, or an HTTP API. For more information about Step Functions, see the <i> <a
+    /// href="http://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">AWS Step Functions
+    /// Developer Guide</a> </i>.
     /// </para>
     /// </summary>
     public partial interface IAmazonStepFunctions : IAmazonService, IDisposable
@@ -170,6 +175,23 @@ namespace Amazon.StepFunctions
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/DescribeStateMachine">REST API Reference for DescribeStateMachine Operation</seealso>
         Task<DescribeStateMachineResponse> DescribeStateMachineAsync(DescribeStateMachineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DescribeStateMachineForExecution
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeStateMachineForExecution operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeStateMachineForExecution operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/DescribeStateMachineForExecution">REST API Reference for DescribeStateMachineForExecution Operation</seealso>
+        Task<DescribeStateMachineForExecutionResponse> DescribeStateMachineForExecutionAsync(DescribeStateMachineForExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -340,6 +362,23 @@ namespace Amazon.StepFunctions
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/StopExecution">REST API Reference for StopExecution Operation</seealso>
         Task<StopExecutionResponse> StopExecutionAsync(StopExecutionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  UpdateStateMachine
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateStateMachine operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateStateMachine operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/states-2016-11-23/UpdateStateMachine">REST API Reference for UpdateStateMachine Operation</seealso>
+        Task<UpdateStateMachineResponse> UpdateStateMachineAsync(UpdateStateMachineRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

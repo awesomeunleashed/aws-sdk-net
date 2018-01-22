@@ -28,8 +28,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.ElastiCache.Model
 {
     /// <summary>
-    /// Represents a copy of an entire Redis cache cluster as of the time when the snapshot
-    /// was taken.
+    /// Represents a copy of an entire Redis cluster as of the time when the snapshot was
+    /// taken.
     /// </summary>
     public partial class Snapshot
     {
@@ -61,11 +61,12 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property AutomaticFailover. 
         /// <para>
-        /// Indicates the status of Multi-AZ for the source replication group.
+        /// Indicates the status of Multi-AZ with automatic failover for the source Redis replication
+        /// group.
         /// </para>
-        ///  <note> 
+        ///  
         /// <para>
-        /// ElastiCache Multi-AZ replication groups are not supported on:
+        /// Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -73,13 +74,13 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Redis (cluster mode disabled):T1 and T2 cache node types.
+        /// Redis (cluster mode disabled): T1 and T2 cache node types.
         /// </para>
-        ///  
+        ///  </li> <li> 
         /// <para>
         /// Redis (cluster mode enabled): T1 node types.
         /// </para>
-        ///  </li> </ul> </note>
+        ///  </li> </ul>
         /// </summary>
         public AutomaticFailoverStatus AutomaticFailover
         {
@@ -114,7 +115,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property CacheClusterCreateTime. 
         /// <para>
-        /// The date and time when the source cache cluster was created.
+        /// The date and time when the source cluster was created.
         /// </para>
         /// </summary>
         public DateTime CacheClusterCreateTime
@@ -132,7 +133,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property CacheClusterId. 
         /// <para>
-        /// The user-supplied identifier of the source cache cluster.
+        /// The user-supplied identifier of the source cluster.
         /// </para>
         /// </summary>
         public string CacheClusterId
@@ -150,11 +151,13 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property CacheNodeType. 
         /// <para>
-        /// The name of the compute and memory capacity node type for the source cache cluster.
+        /// The name of the compute and memory capacity node type for the source cluster.
         /// </para>
         ///  
         /// <para>
-        /// Valid node types are as follows:
+        /// The following node types are supported by ElastiCache. Generally speaking, the current
+        /// generation types provide more memory and computational power at lower cost when compared
+        /// to their equivalent previous generation counterparts.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -162,33 +165,70 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Current generation: <code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code>,
-        /// <code>cache.m3.medium</code>, <code>cache.m3.large</code>, <code>cache.m3.xlarge</code>,
-        /// <code>cache.m3.2xlarge</code>, <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
+        /// Current generation: 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>T2 node types:</b> <code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code>
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>M3 node types:</b> <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
+        /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>M4 node types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
         /// <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>, <code>cache.m4.10xlarge</code>
         /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Previous generation: <code>cache.t1.micro</code>, <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
+        /// Previous generation: (not recommended)
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>T1 node types:</b> <code>cache.t1.micro</code> 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>M1 node types:</b> <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
         /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> 
         /// </para>
         ///  </li> </ul> </li> <li> 
         /// <para>
-        /// Compute optimized: <code>cache.c1.xlarge</code> 
+        /// Compute optimized:
         /// </para>
-        ///  </li> <li> 
+        ///  <ul> <li> 
+        /// <para>
+        /// Previous generation: (not recommended)
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>C1 node types:</b> <code>cache.c1.xlarge</code> 
+        /// </para>
+        ///  </li> </ul> </li> <li> 
         /// <para>
         /// Memory optimized:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Current generation: <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
-        /// <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code> 
+        /// Current generation: 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>R3 node types:</b> <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
+        /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code>
+        /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Previous generation: <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
+        /// Previous generation: (not recommended)
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>M2 node types:</b> <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
         /// <code>cache.m2.4xlarge</code> 
         /// </para>
         ///  </li> </ul> </li> </ul> 
@@ -201,8 +241,12 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2
-        /// instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.
+        /// Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2
+        /// instances. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -231,7 +275,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property CacheParameterGroupName. 
         /// <para>
-        /// The cache parameter group that is associated with the source cache cluster.
+        /// The cache parameter group that is associated with the source cluster.
         /// </para>
         /// </summary>
         public string CacheParameterGroupName
@@ -249,7 +293,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property CacheSubnetGroupName. 
         /// <para>
-        /// The name of the cache subnet group associated with the source cache cluster.
+        /// The name of the cache subnet group associated with the source cluster.
         /// </para>
         /// </summary>
         public string CacheSubnetGroupName
@@ -268,7 +312,7 @@ namespace Amazon.ElastiCache.Model
         /// Gets and sets the property Engine. 
         /// <para>
         /// The name of the cache engine (<code>memcached</code> or <code>redis</code>) used by
-        /// the source cache cluster.
+        /// the source cluster.
         /// </para>
         /// </summary>
         public string Engine
@@ -286,7 +330,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property EngineVersion. 
         /// <para>
-        /// The version of the cache engine version that is used by the source cache cluster.
+        /// The version of the cache engine version that is used by the source cluster.
         /// </para>
         /// </summary>
         public string EngineVersion
@@ -304,7 +348,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property NodeSnapshots. 
         /// <para>
-        /// A list of the cache nodes in the source cache cluster.
+        /// A list of the cache nodes in the source cluster.
         /// </para>
         /// </summary>
         public List<NodeSnapshot> NodeSnapshots
@@ -322,7 +366,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property NumCacheNodes. 
         /// <para>
-        /// The number of cache nodes in the source cache cluster.
+        /// The number of cache nodes in the source cluster.
         /// </para>
         ///  
         /// <para>
@@ -365,7 +409,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property Port. 
         /// <para>
-        /// The port number used by each cache nodes in the source cache cluster.
+        /// The port number used by each cache nodes in the source cluster.
         /// </para>
         /// </summary>
         public int Port
@@ -383,7 +427,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property PreferredAvailabilityZone. 
         /// <para>
-        /// The name of the Availability Zone in which the source cache cluster is located.
+        /// The name of the Availability Zone in which the source cluster is located.
         /// </para>
         /// </summary>
         public string PreferredAvailabilityZone
@@ -518,8 +562,8 @@ namespace Amazon.ElastiCache.Model
         ///  
         /// <para>
         /// For manual snapshots, this field reflects the <code>SnapshotRetentionLimit</code>
-        /// for the source cache cluster when the snapshot was created. This field is otherwise
-        /// ignored: Manual snapshots do not expire, and can only be deleted using the <code>DeleteSnapshot</code>
+        /// for the source cluster when the snapshot was created. This field is otherwise ignored:
+        /// Manual snapshots do not expire, and can only be deleted using the <code>DeleteSnapshot</code>
         /// operation. 
         /// </para>
         ///  
@@ -582,7 +626,7 @@ namespace Amazon.ElastiCache.Model
         /// Gets and sets the property SnapshotWindow. 
         /// <para>
         /// The daily time range during which ElastiCache takes daily snapshots of the source
-        /// cache cluster.
+        /// cluster.
         /// </para>
         /// </summary>
         public string SnapshotWindow
@@ -600,8 +644,8 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property TopicArn. 
         /// <para>
-        /// The Amazon Resource Name (ARN) for the topic used by the source cache cluster for
-        /// publishing notifications.
+        /// The Amazon Resource Name (ARN) for the topic used by the source cluster for publishing
+        /// notifications.
         /// </para>
         /// </summary>
         public string TopicArn
@@ -620,7 +664,7 @@ namespace Amazon.ElastiCache.Model
         /// Gets and sets the property VpcId. 
         /// <para>
         /// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group for
-        /// the source cache cluster.
+        /// the source cluster.
         /// </para>
         /// </summary>
         public string VpcId

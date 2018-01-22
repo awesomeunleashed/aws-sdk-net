@@ -29,7 +29,8 @@ namespace Amazon.KeyManagementService.Model
 {
     /// <summary>
     /// Container for the parameters to the PutKeyPolicy operation.
-    /// Attaches a key policy to the specified customer master key (CMK).
+    /// Attaches a key policy to the specified customer master key (CMK). You cannot perform
+    /// this operation on a CMK in a different AWS account.
     /// 
     ///  
     /// <para>
@@ -51,8 +52,8 @@ namespace Amazon.KeyManagementService.Model
         /// </para>
         ///  <important> 
         /// <para>
-        /// Setting this value to true increases the likelihood that the CMK becomes unmanageable.
-        /// Do not set this value to true indiscriminately.
+        /// Setting this value to true increases the risk that the CMK becomes unmanageable. Do
+        /// not set this value to true indiscriminately.
         /// </para>
         ///  
         /// <para>
@@ -84,21 +85,29 @@ namespace Amazon.KeyManagementService.Model
         /// <summary>
         /// Gets and sets the property KeyId. 
         /// <para>
-        /// A unique identifier for the CMK.
+        /// A unique identifier for the customer master key (CMK).
         /// </para>
         ///  
         /// <para>
-        /// Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:
+        /// Specify the key ID or the Amazon Resource Name (ARN) of the CMK.
+        /// </para>
+        ///  
+        /// <para>
+        /// For example:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab
+        /// Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+        /// Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+        /// 
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> 
+        /// <para>
+        /// To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
+        /// </para>
         /// </summary>
         public string KeyId
         {
@@ -119,29 +128,30 @@ namespace Amazon.KeyManagementService.Model
         /// </para>
         ///  
         /// <para>
-        /// If you do not set <code>BypassPolicyLockoutSafetyCheck</code> to true, the policy
-        /// must meet the following criteria:
+        /// The key policy must meet the following criteria:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// It must allow the principal that is making the <code>PutKeyPolicy</code> request to
-        /// make a subsequent <code>PutKeyPolicy</code> request on the CMK. This reduces the likelihood
-        /// that the CMK becomes unmanageable. For more information, refer to the scenario in
-        /// the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
-        /// Key Policy</a> section in the <i>AWS Key Management Service Developer Guide</i>.
+        /// If you don't set <code>BypassPolicyLockoutSafetyCheck</code> to true, the key policy
+        /// must allow the principal that is making the <code>PutKeyPolicy</code> request to make
+        /// a subsequent <code>PutKeyPolicy</code> request on the CMK. This reduces the risk that
+        /// the CMK becomes unmanageable. For more information, refer to the scenario in the <a
+        /// href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam">Default
+        /// Key Policy</a> section of the <i>AWS Key Management Service Developer Guide</i>.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// The principals that are specified in the key policy must exist and be visible to AWS
-        /// KMS. When you create a new AWS principal (for example, an IAM user or role), you might
-        /// need to enforce a delay before specifying the new principal in a key policy because
-        /// the new principal might not immediately be visible to AWS KMS. For more information,
-        /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
-        /// that I make are not always immediately visible</a> in the <i>IAM User Guide</i>.
+        /// Each statement in the key policy must contain one or more principals. The principals
+        /// in the key policy must exist and be visible to AWS KMS. When you create a new AWS
+        /// principal (for example, an IAM user or role), you might need to enforce a delay before
+        /// including the new principal in a key policy because the new principal might not be
+        /// immediately visible to AWS KMS. For more information, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
+        /// that I make are not always immediately visible</a> in the <i>AWS Identity and Access
+        /// Management User Guide</i>.
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// The policy size limit is 32 KiB (32768 bytes).
+        /// The key policy size limit is 32 kilobytes (32768 bytes).
         /// </para>
         /// </summary>
         public string Policy
@@ -159,11 +169,7 @@ namespace Amazon.KeyManagementService.Model
         /// <summary>
         /// Gets and sets the property PolicyName. 
         /// <para>
-        /// The name of the key policy.
-        /// </para>
-        ///  
-        /// <para>
-        /// This value must be <code>default</code>.
+        /// The name of the key policy. The only valid value is <code>default</code>.
         /// </para>
         /// </summary>
         public string PolicyName

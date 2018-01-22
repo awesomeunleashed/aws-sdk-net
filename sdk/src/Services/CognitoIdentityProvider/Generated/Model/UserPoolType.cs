@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.CognitoIdentityProvider.Model
 {
     /// <summary>
-    /// A container for information about the user pool type.
+    /// A container for information about the user pool.
     /// </summary>
     public partial class UserPoolType
     {
@@ -37,6 +37,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         private List<string> _autoVerifiedAttributes = new List<string>();
         private DateTime? _creationDate;
         private DeviceConfigurationType _deviceConfiguration;
+        private string _domain;
         private EmailConfigurationType _emailConfiguration;
         private string _emailConfigurationFailure;
         private string _emailVerificationMessage;
@@ -55,6 +56,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         private string _smsVerificationMessage;
         private StatusType _status;
         private List<string> _usernameAttributes = new List<string>();
+        private UserPoolAddOnsType _userPoolAddOns;
         private Dictionary<string, string> _userPoolTags = new Dictionary<string, string>();
         private VerificationMessageTemplateType _verificationMessageTemplate;
 
@@ -146,6 +148,24 @@ namespace Amazon.CognitoIdentityProvider.Model
         internal bool IsSetDeviceConfiguration()
         {
             return this._deviceConfiguration != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Domain. 
+        /// <para>
+        /// Holds the domain prefix if the user pool has a domain associated with it.
+        /// </para>
+        /// </summary>
+        public string Domain
+        {
+            get { return this._domain; }
+            set { this._domain = value; }
+        }
+
+        // Check to see if Domain property is set
+        internal bool IsSetDomain()
+        {
+            return this._domain != null;
         }
 
         /// <summary>
@@ -259,7 +279,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// <summary>
         /// Gets and sets the property LambdaConfig. 
         /// <para>
-        /// A container for the AWS Lambda triggers associated with a user pool.
+        /// The AWS Lambda triggers associated with tue user pool.
         /// </para>
         /// </summary>
         public LambdaConfigType LambdaConfig
@@ -346,7 +366,7 @@ namespace Amazon.CognitoIdentityProvider.Model
         /// <summary>
         /// Gets and sets the property Policies. 
         /// <para>
-        /// A container for the policies associated with a user pool.
+        /// The policies associated with the user pool.
         /// </para>
         /// </summary>
         public UserPoolPolicyType Policies
@@ -486,6 +506,24 @@ namespace Amazon.CognitoIdentityProvider.Model
         internal bool IsSetUsernameAttributes()
         {
             return this._usernameAttributes != null && this._usernameAttributes.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property UserPoolAddOns. 
+        /// <para>
+        /// The user pool add-ons.
+        /// </para>
+        /// </summary>
+        public UserPoolAddOnsType UserPoolAddOns
+        {
+            get { return this._userPoolAddOns; }
+            set { this._userPoolAddOns = value; }
+        }
+
+        // Check to see if UserPoolAddOns property is set
+        internal bool IsSetUserPoolAddOns()
+        {
+            return this._userPoolAddOns != null;
         }
 
         /// <summary>

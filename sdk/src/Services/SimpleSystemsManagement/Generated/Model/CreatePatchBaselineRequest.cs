@@ -30,6 +30,13 @@ namespace Amazon.SimpleSystemsManagement.Model
     /// <summary>
     /// Container for the parameters to the CreatePatchBaseline operation.
     /// Creates a patch baseline.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// For information about valid key and value pairs in <code>PatchFilters</code> for each
+    /// supported operating system type, see <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">PatchFilter</a>.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class CreatePatchBaselineRequest : AmazonSimpleSystemsManagementRequest
     {
@@ -175,9 +182,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property OperatingSystem. 
         /// <para>
-        /// Defines the operating system the patch baseline applies to. Supported operating systems
-        /// include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX. The Default value
-        /// is WINDOWS.
+        /// Defines the operating system the patch baseline applies to. The Default value is WINDOWS.
         /// </para>
         /// </summary>
         public OperatingSystem OperatingSystem

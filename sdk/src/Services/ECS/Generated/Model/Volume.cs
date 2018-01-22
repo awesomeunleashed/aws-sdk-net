@@ -43,6 +43,13 @@ namespace Amazon.ECS.Model
         /// is empty, then the Docker daemon assigns a host path for your data volume, but the
         /// data is not guaranteed to persist after the containers associated with it stop running.
         /// </para>
+        ///  
+        /// <para>
+        /// Windows containers can mount whole directories on the same drive as <code>$env:ProgramData</code>.
+        /// Windows containers cannot mount directories on a different drive, and mount point
+        /// cannot be across drives. For example, you can mount <code>C:\my\path:C:\my\path</code>
+        /// and <code>D:\:D:\</code>, but not <code>D:\my\path:C:\my\path</code> or <code>D:\:C:\my\path</code>.
+        /// </para>
         /// </summary>
         public HostVolumeProperties Host
         {

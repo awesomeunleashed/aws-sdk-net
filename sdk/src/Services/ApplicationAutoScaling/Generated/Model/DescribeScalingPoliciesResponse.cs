@@ -57,7 +57,7 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// <summary>
         /// Gets and sets the property ScalingPolicies. 
         /// <para>
-        /// A list of scaling policy objects.
+        /// Information about the scaling policies.
         /// </para>
         /// </summary>
         public List<ScalingPolicy> ScalingPolicies

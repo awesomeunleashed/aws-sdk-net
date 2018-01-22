@@ -29,7 +29,9 @@ namespace Amazon.Shield.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteSubscription operation.
-    /// Removes AWS Shield Advanced from an account.
+    /// Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year
+    /// subscription commitment. You cannot delete a subscription prior to the completion
+    /// of that commitment.
     /// </summary>
     public partial class DeleteSubscriptionRequest : AmazonShieldRequest
     {

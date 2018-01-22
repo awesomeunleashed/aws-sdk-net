@@ -64,6 +64,12 @@ namespace Amazon.APIGateway.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("accessLogSettings", targetDepth))
+                {
+                    var unmarshaller = AccessLogSettingsUnmarshaller.Instance;
+                    unmarshalledObject.AccessLogSettings = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("cacheClusterEnabled", targetDepth))
                 {
                     var unmarshaller = BoolUnmarshaller.Instance;
@@ -80,6 +86,12 @@ namespace Amazon.APIGateway.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.CacheClusterStatus = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("canarySettings", targetDepth))
+                {
+                    var unmarshaller = CanarySettingsUnmarshaller.Instance;
+                    unmarshalledObject.CanarySettings = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("clientCertificateId", targetDepth))
@@ -128,6 +140,12 @@ namespace Amazon.APIGateway.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.StageName = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("tags", targetDepth))
+                {
+                    var unmarshaller = new DictionaryUnmarshaller<string, string, StringUnmarshaller, StringUnmarshaller>(StringUnmarshaller.Instance, StringUnmarshaller.Instance);
+                    unmarshalledObject.Tags = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("variables", targetDepth))

@@ -29,8 +29,9 @@ namespace Amazon.EC2.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteVpcEndpoints operation.
-    /// Deletes one or more specified VPC endpoints. Deleting the endpoint also deletes the
-    /// endpoint routes in the route tables that were associated with the endpoint.
+    /// Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also deletes
+    /// the endpoint routes in the route tables that were associated with the endpoint. Deleting
+    /// an interface endpoint deletes the endpoint network interfaces.
     /// </summary>
     public partial class DeleteVpcEndpointsRequest : AmazonEC2Request
     {
@@ -39,7 +40,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property VpcEndpointIds. 
         /// <para>
-        /// One or more endpoint IDs.
+        /// One or more VPC endpoint IDs.
         /// </para>
         /// </summary>
         public List<string> VpcEndpointIds

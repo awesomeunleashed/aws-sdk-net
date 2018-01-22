@@ -73,6 +73,12 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.Content);
                 }
 
+                if(publicRequest.IsSetDocumentFormat())
+                {
+                    context.Writer.WritePropertyName("DocumentFormat");
+                    context.Writer.Write(publicRequest.DocumentFormat);
+                }
+
                 if(publicRequest.IsSetDocumentVersion())
                 {
                     context.Writer.WritePropertyName("DocumentVersion");
@@ -83,6 +89,12 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("Name");
                     context.Writer.Write(publicRequest.Name);
+                }
+
+                if(publicRequest.IsSetTargetType())
+                {
+                    context.Writer.WritePropertyName("TargetType");
+                    context.Writer.Write(publicRequest.TargetType);
                 }
 
         

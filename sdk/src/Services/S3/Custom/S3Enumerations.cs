@@ -238,6 +238,10 @@ namespace Amazon.S3
         /// </summary>
         public static readonly S3Region EUW2 = new S3Region("eu-west-2");
         /// <summary>
+        /// Specifies that the S3 Bucket should use the EU-WEST-3 locality.
+        /// </summary>
+        public static readonly S3Region EUW3 = new S3Region("eu-west-3");
+        /// <summary>
         /// Specifies that the S3 Bucket should use the EU-CENTRAL-1 locality.
         /// </summary>
         public static readonly S3Region EUC1 = new S3Region("eu-central-1");
@@ -281,6 +285,10 @@ namespace Amazon.S3
         /// Specifies that the S3 Bucket should use CN-NORTH-1 locality.
         /// </summary>
         public static readonly S3Region CN1 = new S3Region("cn-north-1");
+        /// <summary>
+        /// Specifies that the S3 Bucket should use CN-NORTHWEST-1 locality.
+        /// </summary>
+        public static readonly S3Region CNW1 = new S3Region("cn-northwest-1");
         /// <summary>
         /// Specifies that the S3 Bucket should use CA-CENTRAL-1 locality.
         /// </summary>
@@ -930,6 +938,44 @@ namespace Amazon.S3
             return FindValue(value);
         }
 
+        /// <summary>
+        /// Compares if the ConstantClass instances are equals.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(ConstantClass obj)
+        {
+            if(obj == null)
+            {
+                return false;
+            }
+
+            return this.Equals(obj.Value);
+        }
+
+        /// <summary>
+        /// Compares if the ConstantClass instances are equals. This is ovewritten to handle the 
+        /// discrepancy with S3 events coming from Lambda that don't have the prefix "s3:".
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        protected override bool Equals(string value)
+        {
+            if (value == null)
+            {
+                return false;
+            }
+
+            var thisValue = this.Value;
+            if (!thisValue.StartsWith("s3:", StringComparison.OrdinalIgnoreCase))
+                thisValue = "s3:" + thisValue;
+
+            if (!value.StartsWith("s3:", StringComparison.OrdinalIgnoreCase))
+                value = "s3:" + value;
+
+
+            return StringComparer.OrdinalIgnoreCase.Equals(thisValue, value);
+        }
     }
 
     /// <summary>
@@ -941,6 +987,11 @@ namespace Amazon.S3
         ///  CSV inventory format
         /// </summary>
         public static readonly InventoryFormat CSV = new InventoryFormat("CSV");
+        
+        /// <summary>
+        ///  CSV inventory format
+        /// </summary>
+        public static readonly InventoryFormat ORC = new InventoryFormat("ORC");
 
         /// <summary>
         /// Construct instance of InventoryFormat.
@@ -1098,6 +1149,10 @@ namespace Amazon.S3
         /// </summary>
         public static readonly InventoryOptionalField ReplicationStatus = new InventoryOptionalField("ReplicationStatus");
 
+        /// <summary>
+        ///  InventoryOptionalField for EncryptionStatus
+        /// </summary>
+        public static readonly InventoryOptionalField EncryptionStatus = new InventoryOptionalField("EncryptionStatus");
         /// <summary>
         /// Construct instance of InventoryOptionalField.
         /// </summary>
@@ -1448,6 +1503,223 @@ namespace Amazon.S3
         public static implicit operator RequestCharged(string value)
         {
             return FindValue<RequestCharged>(value);
+        }
+    }
+
+    /// <summary>
+    /// The override value for the owner of the replica object.
+    /// </summary>
+    public sealed class OwnerOverride : ConstantClass
+    {
+        /// <summary>
+        /// Overrides destination bucket's owner.
+        /// </summary>
+        public static readonly OwnerOverride Destination = new OwnerOverride("Destination");
+        
+        public OwnerOverride(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the OwnerOverride instance for the string value
+        /// </summary>
+        public static OwnerOverride FindValue(string value)
+        {
+            return FindValue<OwnerOverride>(value);
+        }
+
+        /// <summary>
+        ///  converts the string to OwnerOverride instance
+        /// </summary>
+        public static implicit operator OwnerOverride(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+    /// <summary>
+    /// The replication for KMS encrypted S3 objects is disabled if status is not Enabled.
+    /// </summary>
+    public sealed class SseKmsEncryptedObjectsStatus : ConstantClass
+    {
+        /// <summary>
+        /// The replication for KMS encrypted S3 objects is enabled.
+        /// </summary>
+        public static readonly SseKmsEncryptedObjectsStatus Enabled = new SseKmsEncryptedObjectsStatus("Enabled");
+        /// <summary>
+        /// The replication for KMS encrypted S3 objects is disabled.
+        /// </summary>
+        public static readonly SseKmsEncryptedObjectsStatus Disabled = new SseKmsEncryptedObjectsStatus("Disabled");
+        
+        /// <summary>
+        /// </summary>
+        /// <param name="value"></param>
+        public SseKmsEncryptedObjectsStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the SseKmsEncryptedObjectsStatus instance for the string value
+        /// </summary>
+        public static SseKmsEncryptedObjectsStatus FindValue(string value)
+        {
+            return FindValue<SseKmsEncryptedObjectsStatus>(value);
+        }
+
+        /// <summary>
+        /// Converts the string to SseKmsEncryptedObjectsStatus instance
+        /// </summary>
+        public static implicit operator SseKmsEncryptedObjectsStatus(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+    /// <summary>
+    /// Specify how headers will be handled.
+    /// </summary>
+    public sealed class FileHeaderInfo : ConstantClass
+    {
+        /// <summary>
+        /// Headers will be usable in SELECT clause. 
+        /// </summary>
+        public static readonly FileHeaderInfo Use = new FileHeaderInfo("USE");
+
+        /// <summary>
+        /// Headers will be skipped
+        /// </summary>
+        public static readonly FileHeaderInfo Ignore = new FileHeaderInfo("IGNORE");
+
+        /// <summary>
+        /// No header is present.
+        /// </summary>
+        public static readonly FileHeaderInfo None = new FileHeaderInfo("NONE");
+
+        private FileHeaderInfo(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the FileHeaderInfo instance for the string value
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static FileHeaderInfo FindValue(string value)
+        {
+            return FindValue<FileHeaderInfo>(value);
+        }
+
+        /// <summary>
+        /// Converts the string to FileHeaderInfo instance
+        /// </summary>
+        public static implicit operator FileHeaderInfo(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+    /// <summary>
+    /// Describes when fields in output should be surrounded with quotes.
+    /// </summary>
+    public sealed class QuoteFields : ConstantClass
+    {
+        /// <summary>
+        /// Specifies that fields in output should always be surrounded in quotes.
+        /// </summary>
+        public static readonly QuoteFields Always = new QuoteFields("ALWAYS");
+
+        /// <summary>
+        /// Specifies that fields in output should be surrounded in quotes as necessary.
+        /// </summary>
+        public static readonly QuoteFields AsNeeded = new QuoteFields("ASNEEDED");
+
+        private QuoteFields(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the QuoteFields instance for the string value
+        /// </summary>
+        /// <param name="value">string value that maps to QuoteFields enum</param>
+        /// <returns>QuoteFields enum</returns>
+        public static QuoteFields FindValue(string value)
+        {
+            return FindValue<QuoteFields>(value);
+        }
+
+        /// <summary>
+        /// Converts the string to QuoteFields instance
+        /// </summary>
+        public static implicit operator QuoteFields(string value)
+        {
+            return FindValue(value);
+        }
+    }
+    
+    /// <summary>
+    /// Type of the expression provided in the Expression member.
+    /// </summary>
+    public sealed class ExpressionType : ConstantClass
+    {
+        /// <summary>
+        /// SQL expression
+        /// </summary>
+        public static readonly ExpressionType SQL = new ExpressionType("SQL");
+
+        private ExpressionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the ExpressionType instance for the string value
+        /// </summary>
+        /// <param name="value">string value that maps to ExpressionType enum</param>
+        /// <returns>ExpressionType enum</returns>
+        public static ExpressionType FindValue(string value)
+        {
+            return FindValue<ExpressionType>(value);
+        }
+
+        /// <summary>
+        /// Converts the string to ExpressionType instance
+        /// </summary>
+        public static implicit operator ExpressionType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+    /// <summary>
+    /// Indicates what type of job is being initiated.
+    /// </summary>
+    public sealed class RestoreRequestType : ConstantClass
+    {
+        public static readonly RestoreRequestType SELECT = new RestoreRequestType("SELECT");
+
+        private RestoreRequestType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the RestoreRequestType instance for the string value
+        /// </summary>
+        public static RestoreRequestType FindValue(string value)
+        {
+            return FindValue<RestoreRequestType>(value);
+        }
+
+        /// <summary>
+        /// Converts the string to RestoreRequestType instance
+        /// </summary>
+        public static implicit operator RestoreRequestType(string value)
+        {
+            return FindValue(value);
         }
     }
 }

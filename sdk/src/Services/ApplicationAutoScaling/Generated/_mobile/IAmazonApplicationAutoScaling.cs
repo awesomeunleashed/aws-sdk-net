@@ -32,8 +32,8 @@ namespace Amazon.ApplicationAutoScaling
     /// Interface for accessing ApplicationAutoScaling
     ///
     /// With Application Auto Scaling, you can automatically scale your AWS resources. The
-    /// experience similar to that of <a href="https://aws.amazon.com/autoscaling/">Auto Scaling</a>.
-    /// You can use Application Auto Scaling to accomplish the following tasks:
+    /// experience is similar to that of <a href="https://aws.amazon.com/autoscaling/">Auto
+    /// Scaling</a>. You can use Application Auto Scaling to accomplish the following tasks:
     /// 
     ///  <ul> <li> 
     /// <para>
@@ -42,6 +42,10 @@ namespace Amazon.ApplicationAutoScaling
     ///  </li> <li> 
     /// <para>
     /// Scale your resources in response to CloudWatch alarms
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Schedule one-time or recurring scaling actions
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -54,7 +58,7 @@ namespace Amazon.ApplicationAutoScaling
     ///  <ul> <li> 
     /// <para>
     /// Amazon ECS services. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
-    /// Auto Scaling</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+    /// Auto Scaling</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -79,6 +83,11 @@ namespace Amazon.ApplicationAutoScaling
     /// Throughput Capacity Automatically with DynamoDB Auto Scaling</a> in the <i>Amazon
     /// DynamoDB Developer Guide</i>.
     /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Aurora Replicas. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Integrating.AutoScaling.html">Using
+    /// Amazon Aurora Auto Scaling with Aurora Replicas</a>.
+    /// </para>
     ///  </li> </ul> 
     /// <para>
     /// For a list of supported regions, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#as-app_region">AWS
@@ -102,6 +111,23 @@ namespace Amazon.ApplicationAutoScaling
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/application-autoscaling-2016-02-06/DeleteScalingPolicy">REST API Reference for DeleteScalingPolicy Operation</seealso>
         Task<DeleteScalingPolicyResponse> DeleteScalingPolicyAsync(DeleteScalingPolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  DeleteScheduledAction
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteScheduledAction operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteScheduledAction operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/application-autoscaling-2016-02-06/DeleteScheduledAction">REST API Reference for DeleteScheduledAction Operation</seealso>
+        Task<DeleteScheduledActionResponse> DeleteScheduledActionAsync(DeleteScheduledActionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 
@@ -173,6 +199,23 @@ namespace Amazon.ApplicationAutoScaling
 
         #endregion
                 
+        #region  DescribeScheduledActions
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeScheduledActions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeScheduledActions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/application-autoscaling-2016-02-06/DescribeScheduledActions">REST API Reference for DescribeScheduledActions Operation</seealso>
+        Task<DescribeScheduledActionsResponse> DescribeScheduledActionsAsync(DescribeScheduledActionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
         #region  PutScalingPolicy
 
 
@@ -187,6 +230,23 @@ namespace Amazon.ApplicationAutoScaling
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/application-autoscaling-2016-02-06/PutScalingPolicy">REST API Reference for PutScalingPolicy Operation</seealso>
         Task<PutScalingPolicyResponse> PutScalingPolicyAsync(PutScalingPolicyRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+                
+        #region  PutScheduledAction
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PutScheduledAction operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PutScheduledAction operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/application-autoscaling-2016-02-06/PutScheduledAction">REST API Reference for PutScheduledAction Operation</seealso>
+        Task<PutScheduledActionResponse> PutScheduledActionAsync(PutScheduledActionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
                 

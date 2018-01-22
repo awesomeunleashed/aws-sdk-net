@@ -28,31 +28,12 @@ using Amazon.Runtime.Internal;
 namespace Amazon.RDS.Model
 {
     /// <summary>
-    /// Contains the result of a successful invocation of the following actions:
+    /// Contains the details of an Amazon RDS DB instance. 
     /// 
-    ///  <ul> <li> 
-    /// <para>
-    ///  <a>CreateDBInstance</a> 
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    ///  <a>DeleteDBInstance</a> 
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    ///  <a>ModifyDBInstance</a> 
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    ///  <a>StopDBInstance</a> 
-    /// </para>
-    ///  </li> <li> 
-    /// <para>
-    ///  <a>StartDBInstance</a> 
-    /// </para>
-    ///  </li> </ul> 
+    ///  
     /// <para>
     /// This data type is used as a response element in the <a>DescribeDBInstances</a> action.
+    /// 
     /// </para>
     /// </summary>
     public partial class DBInstance
@@ -76,6 +57,7 @@ namespace Amazon.RDS.Model
         private List<DBSecurityGroupMembership> _dbSecurityGroups = new List<DBSecurityGroupMembership>();
         private DBSubnetGroup _dbSubnetGroup;
         private List<DomainMembership> _domainMemberships = new List<DomainMembership>();
+        private List<string> _enabledCloudwatchLogsExports = new List<string>();
         private Endpoint _endpoint;
         private string _engine;
         private string _engineVersion;
@@ -112,7 +94,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property AllocatedStorage. 
         /// <para>
-        /// Specifies the allocated storage size specified in gigabytes.
+        /// Specifies the allocated storage size specified in gibibytes.
         /// </para>
         /// </summary>
         public int AllocatedStorage
@@ -350,8 +332,9 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property DbiResourceId. 
         /// <para>
-        /// The region-unique, immutable identifier for the DB instance. This identifier is found
-        /// in AWS CloudTrail log entries whenever the KMS key for the DB instance is accessed.
+        /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is
+        /// found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is
+        /// accessed.
         /// </para>
         /// </summary>
         public string DbiResourceId
@@ -485,6 +468,24 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EnabledCloudwatchLogsExports. 
+        /// <para>
+        /// A list of log types that this DB instance is configured to export to CloudWatch Logs.
+        /// </para>
+        /// </summary>
+        public List<string> EnabledCloudwatchLogsExports
+        {
+            get { return this._enabledCloudwatchLogsExports; }
+            set { this._enabledCloudwatchLogsExports = value; }
+        }
+
+        // Check to see if EnabledCloudwatchLogsExports property is set
+        internal bool IsSetEnabledCloudwatchLogsExports()
+        {
+            return this._enabledCloudwatchLogsExports != null && this._enabledCloudwatchLogsExports.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Endpoint. 
         /// <para>
         /// Specifies the connection endpoint.
@@ -561,7 +562,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property IAMDatabaseAuthenticationEnabled. 
         /// <para>
         /// True if mapping of AWS Identity and Access Management (IAM) accounts to database accounts
-        /// is enabled; otherwise false.
+        /// is enabled, and otherwise false.
         /// </para>
         ///  
         /// <para>
@@ -633,7 +634,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property KmsKeyId. 
         /// <para>
-        ///  If <code>StorageEncrypted</code> is true, the KMS key identifier for the encrypted
+        ///  If <code>StorageEncrypted</code> is true, the AWS KMS key identifier for the encrypted
         /// DB instance. 
         /// </para>
         /// </summary>
@@ -725,8 +726,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property MonitoringRoleArn. 
         /// <para>
-        /// The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to CloudWatch
-        /// Logs.
+        /// The ARN for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon
+        /// CloudWatch Logs.
         /// </para>
         /// </summary>
         public string MonitoringRoleArn
@@ -797,7 +798,10 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
-        /// Gets and sets the property PerformanceInsightsEnabled.
+        /// Gets and sets the property PerformanceInsightsEnabled. 
+        /// <para>
+        /// True if Performance Insights is enabled for the DB instance, and otherwise false.
+        /// </para>
         /// </summary>
         public bool PerformanceInsightsEnabled
         {
@@ -812,7 +816,12 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
-        /// Gets and sets the property PerformanceInsightsKMSKeyId.
+        /// Gets and sets the property PerformanceInsightsKMSKeyId. 
+        /// <para>
+        /// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key
+        /// ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for
+        /// the KMS encryption key.
+        /// </para>
         /// </summary>
         public string PerformanceInsightsKMSKeyId
         {
@@ -909,9 +918,9 @@ namespace Amazon.RDS.Model
         ///  </li> </ul> 
         /// <para>
         /// If no DB subnet group has been specified as part of the request and the PubliclyAccessible
-        /// value has not been set, the DB instance will be publicly accessible. If a specific
-        /// DB subnet group has been specified as part of the request and the PubliclyAccessible
-        /// value has not been set, the DB instance will be private.
+        /// value has not been set, the DB instance is publicly accessible. If a specific DB subnet
+        /// group has been specified as part of the request and the PubliclyAccessible value has
+        /// not been set, the DB instance is private.
         /// </para>
         /// </summary>
         public bool PubliclyAccessible
@@ -1003,8 +1012,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property StatusInfos. 
         /// <para>
-        /// The status of a Read Replica. If the instance is not a Read Replica, this will be
-        /// blank.
+        /// The status of a Read Replica. If the instance is not a Read Replica, this is blank.
         /// </para>
         /// </summary>
         public List<DBInstanceStatusInfo> StatusInfos

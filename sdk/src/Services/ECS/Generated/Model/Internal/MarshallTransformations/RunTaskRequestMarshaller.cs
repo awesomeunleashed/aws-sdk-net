@@ -85,6 +85,23 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.Group);
                 }
 
+                if(publicRequest.IsSetLaunchType())
+                {
+                    context.Writer.WritePropertyName("launchType");
+                    context.Writer.Write(publicRequest.LaunchType);
+                }
+
+                if(publicRequest.IsSetNetworkConfiguration())
+                {
+                    context.Writer.WritePropertyName("networkConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = NetworkConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.NetworkConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetOverrides())
                 {
                     context.Writer.WritePropertyName("overrides");
@@ -126,6 +143,12 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                         context.Writer.WriteObjectEnd();
                     }
                     context.Writer.WriteArrayEnd();
+                }
+
+                if(publicRequest.IsSetPlatformVersion())
+                {
+                    context.Writer.WritePropertyName("platformVersion");
+                    context.Writer.Write(publicRequest.PlatformVersion);
                 }
 
                 if(publicRequest.IsSetStartedBy())

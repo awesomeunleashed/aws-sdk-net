@@ -111,8 +111,35 @@ namespace Amazon.Kinesis.Model
         /// <summary>
         /// Gets and sets the property KeyId. 
         /// <para>
-        /// The GUID for the customer-managed KMS key used for encryption on the stream.
+        /// The GUID for the customer-managed KMS key to use for encryption. This value can be
+        /// a globally unique identifier, a fully specified ARN to either an alias or a key, or
+        /// an alias name prefixed by "alias/".You can also use a master key owned by Kinesis
+        /// Streams by specifying the alias <code>aws/kinesis</code>.
         /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Alias ARN example: <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code>
+        /// 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Alias name example: <code>alias/MyAliasName</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Master key owned by Kinesis Streams: <code>alias/aws/kinesis</code> 
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         public string KeyId
         {
@@ -224,13 +251,13 @@ namespace Amazon.Kinesis.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <code>CREATING</code> - The stream is being created. Amazon Kinesis immediately returns
-        /// and sets <code>StreamStatus</code> to <code>CREATING</code>.
+        ///  <code>CREATING</code> - The stream is being created. Kinesis Streams immediately
+        /// returns and sets <code>StreamStatus</code> to <code>CREATING</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>
         ///  <code>DELETING</code> - The stream is being deleted. The specified stream is in the
-        /// <code>DELETING</code> state until Amazon Kinesis completes the deletion.
+        /// <code>DELETING</code> state until Kinesis Streams completes the deletion.
         /// </para>
         ///  </li> <li> 
         /// <para>

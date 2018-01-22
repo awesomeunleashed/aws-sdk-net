@@ -79,7 +79,7 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property Name. 
         /// <para>
-        /// The name to assign to the new trigger.
+        /// The name of the trigger.
         /// </para>
         /// </summary>
         public string Name
@@ -99,6 +99,10 @@ namespace Amazon.Glue.Model
         /// <para>
         /// A predicate to specify when the new trigger should fire.
         /// </para>
+        ///  
+        /// <para>
+        /// This field is required when the trigger type is CONDITIONAL.
+        /// </para>
         /// </summary>
         public Predicate Predicate
         {
@@ -115,7 +119,13 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property Schedule. 
         /// <para>
-        /// A cron schedule expression for the new trigger.
+        /// A <code>cron</code> expression used to specify the schedule (see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+        /// Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15
+        /// UTC, you would specify: <code>cron(15 12 * * ? *)</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// This field is required when the trigger type is SCHEDULED.
         /// </para>
         /// </summary>
         public string Schedule

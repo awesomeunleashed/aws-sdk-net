@@ -77,6 +77,13 @@ namespace Amazon.EC2.Model
     /// </para>
     ///  </li> </ul> 
     /// <para>
+    /// You can create a <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch
+    /// template</a>, which is a resource that contains the parameters to launch an instance.
+    /// When you launch an instance using <a>RunInstances</a>, you can specify the launch
+    /// template instead of specifying the launch parameters.
+    /// </para>
+    ///  
+    /// <para>
     /// To ensure faster instance launches, break up large requests into smaller batches.
     /// For example, create five separate launch requests for 100 instances each instead of
     /// one launch request for 500 instances.
@@ -108,17 +115,20 @@ namespace Amazon.EC2.Model
         private string _additionalInfo;
         private List<BlockDeviceMapping> _blockDeviceMappings = new List<BlockDeviceMapping>();
         private string _clientToken;
+        private CreditSpecificationRequest _creditSpecification;
         private bool? _disableApiTermination;
         private bool? _ebsOptimized;
         private List<ElasticGpuSpecification> _elasticGpuSpecification = new List<ElasticGpuSpecification>();
         private IamInstanceProfileSpecification _iamInstanceProfile;
         private string _imageId;
         private ShutdownBehavior _instanceInitiatedShutdownBehavior;
+        private InstanceMarketOptionsRequest _instanceMarketOptions;
         private InstanceType _instanceType;
         private int? _ipv6AddressCount;
         private List<InstanceIpv6Address> _ipv6Addresses = new List<InstanceIpv6Address>();
         private string _kernelId;
         private string _keyName;
+        private LaunchTemplateSpecification _launchTemplate;
         private int? _maxCount;
         private int? _minCount;
         private bool? _monitoring;
@@ -140,7 +150,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Instantiates RunInstancesRequest with the parameterized properties
         /// </summary>
-        /// <param name="imageId">The ID of the AMI, which you can get by calling <a>DescribeImages</a>.</param>
+        /// <param name="imageId">The ID of the AMI, which you can get by calling <a>DescribeImages</a>. An AMI is required to launch an instance and must be specified here or in a launch template.</param>
         /// <param name="minCount">The minimum number of instances to launch. If you specify a minimum that is more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches no instances. Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">How many instances can I run in Amazon EC2</a> in the Amazon EC2 General FAQ.</param>
         /// <param name="maxCount">The maximum number of instances to launch. If you specify more instances than Amazon EC2 can launch in the target Availability Zone, Amazon EC2 launches the largest possible number of instances above <code>MinCount</code>. Constraints: Between 1 and the maximum number you're allowed for the specified instance type. For more information about the default limits, and how to request an increase, see <a href="http://aws.amazon.com/ec2/faqs/#How_many_instances_can_I_run_in_Amazon_EC2">How many instances can I run in Amazon EC2</a> in the Amazon EC2 FAQ.</param>
         public RunInstancesRequest(string imageId, int minCount, int maxCount)
@@ -171,17 +181,11 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property BlockDeviceMappings. 
         /// <para>
-        /// The block device mapping.
+        /// One or more block device mapping entries. You can't specify both a snapshot ID and
+        /// an encryption value. This is because only blank volumes can be encrypted on creation.
+        /// If a snapshot is the basis for a volume, it is not blank and its encryption status
+        /// is used for the volume encryption status.
         /// </para>
-        ///  <important> 
-        /// <para>
-        /// Supplying both a snapshot ID and an encryption value as arguments for block-device
-        /// mapping results in an error. This is because only blank volumes can be encrypted on
-        /// start, and these are not created from a snapshot. If a snapshot is the basis for the
-        /// volume, it contains data by definition and its encryption status cannot be changed
-        /// using this action.
-        /// </para>
-        ///  </important>
         /// </summary>
         public List<BlockDeviceMapping> BlockDeviceMappings
         {
@@ -217,6 +221,31 @@ namespace Amazon.EC2.Model
         internal bool IsSetClientToken()
         {
             return this._clientToken != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property CreditSpecification. 
+        /// <para>
+        /// The credit option for CPU usage of the instance. Valid values are <code>standard</code>
+        /// and <code>unlimited</code>. To change this attribute after launch, use <a>ModifyInstanceCreditSpecification</a>.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html">T2
+        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Default: <code>standard</code> 
+        /// </para>
+        /// </summary>
+        public CreditSpecificationRequest CreditSpecification
+        {
+            get { return this._creditSpecification; }
+            set { this._creditSpecification = value; }
+        }
+
+        // Check to see if CreditSpecification property is set
+        internal bool IsSetCreditSpecification()
+        {
+            return this._creditSpecification != null;
         }
 
         /// <summary>
@@ -273,7 +302,7 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ElasticGpuSpecification. 
         /// <para>
-        /// An Elastic GPU to associate with the instance.
+        /// An elastic GPU to associate with the instance.
         /// </para>
         /// </summary>
         public List<ElasticGpuSpecification> ElasticGpuSpecification
@@ -309,7 +338,8 @@ namespace Amazon.EC2.Model
         /// <summary>
         /// Gets and sets the property ImageId. 
         /// <para>
-        /// The ID of the AMI, which you can get by calling <a>DescribeImages</a>.
+        /// The ID of the AMI, which you can get by calling <a>DescribeImages</a>. An AMI is required
+        /// to launch an instance and must be specified here or in a launch template.
         /// </para>
         /// </summary>
         public string ImageId
@@ -345,6 +375,24 @@ namespace Amazon.EC2.Model
         internal bool IsSetInstanceInitiatedShutdownBehavior()
         {
             return this._instanceInitiatedShutdownBehavior != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property InstanceMarketOptions. 
+        /// <para>
+        /// The market (purchasing) option for the instances.
+        /// </para>
+        /// </summary>
+        public InstanceMarketOptionsRequest InstanceMarketOptions
+        {
+            get { return this._instanceMarketOptions; }
+            set { this._instanceMarketOptions = value; }
+        }
+
+        // Check to see if InstanceMarketOptions property is set
+        internal bool IsSetInstanceMarketOptions()
+        {
+            return this._instanceMarketOptions != null;
         }
 
         /// <summary>
@@ -460,6 +508,25 @@ namespace Amazon.EC2.Model
         internal bool IsSetKeyName()
         {
             return this._keyName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property LaunchTemplate. 
+        /// <para>
+        /// The launch template to use to launch the instances. Any parameters that you specify
+        /// in <a>RunInstances</a> override the same parameters in the launch template.
+        /// </para>
+        /// </summary>
+        public LaunchTemplateSpecification LaunchTemplate
+        {
+            get { return this._launchTemplate; }
+            set { this._launchTemplate = value; }
+        }
+
+        // Check to see if LaunchTemplate property is set
+        internal bool IsSetLaunchTemplate()
+        {
+            return this._launchTemplate != null;
         }
 
         /// <summary>

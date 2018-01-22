@@ -56,6 +56,28 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetDevices())
+            {
+                context.Writer.WritePropertyName("devices");
+                context.Writer.WriteArrayStart();
+                foreach(var requestObjectDevicesListValue in requestObject.Devices)
+                {
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = DeviceMarshaller.Instance;
+                    marshaller.Marshall(requestObjectDevicesListValue, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+                context.Writer.WriteArrayEnd();
+            }
+
+            if(requestObject.IsSetInitProcessEnabled())
+            {
+                context.Writer.WritePropertyName("initProcessEnabled");
+                context.Writer.Write(requestObject.InitProcessEnabled);
+            }
+
         }
 
         /// <summary>

@@ -35,15 +35,17 @@ namespace Amazon.ElastiCache.Model
     {
         private PendingAutomaticFailoverStatus _automaticFailoverStatus;
         private string _primaryClusterId;
+        private ReshardingStatus _resharding;
 
         /// <summary>
         /// Gets and sets the property AutomaticFailoverStatus. 
         /// <para>
-        /// Indicates the status of Multi-AZ for this Redis replication group.
+        /// Indicates the status of Multi-AZ with automatic failover for this Redis replication
+        /// group.
         /// </para>
-        ///  <note> 
+        ///  
         /// <para>
-        /// ElastiCache Multi-AZ replication groups are not supported on:
+        /// Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -51,13 +53,13 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Redis (cluster mode disabled):T1 and T2 cache node types.
+        /// Redis (cluster mode disabled): T1 and T2 cache node types.
         /// </para>
-        ///  
+        ///  </li> <li> 
         /// <para>
         /// Redis (cluster mode enabled): T1 node types.
         /// </para>
-        ///  </li> </ul> </note>
+        ///  </li> </ul>
         /// </summary>
         public PendingAutomaticFailoverStatus AutomaticFailoverStatus
         {
@@ -88,6 +90,24 @@ namespace Amazon.ElastiCache.Model
         internal bool IsSetPrimaryClusterId()
         {
             return this._primaryClusterId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Resharding. 
+        /// <para>
+        /// The status of an online resharding operation.
+        /// </para>
+        /// </summary>
+        public ReshardingStatus Resharding
+        {
+            get { return this._resharding; }
+            set { this._resharding = value; }
+        }
+
+        // Check to see if Resharding property is set
+        internal bool IsSetResharding()
+        {
+            return this._resharding != null;
         }
 
     }

@@ -70,6 +70,18 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                     unmarshalledObject.Capabilities = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("devices", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<Device, DeviceUnmarshaller>(DeviceUnmarshaller.Instance);
+                    unmarshalledObject.Devices = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("initProcessEnabled", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    unmarshalledObject.InitProcessEnabled = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

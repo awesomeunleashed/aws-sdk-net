@@ -34,9 +34,9 @@ namespace Amazon.ElastiCache.Model
     /// 
     ///  
     /// <para>
-    /// A Redis (cluster mode disabled) replication group is a collection of cache clusters,
-    /// where one of the cache clusters is a read/write primary and the others are read-only
-    /// replicas. Writes to the primary are asynchronously propagated to the replicas.
+    /// A Redis (cluster mode disabled) replication group is a collection of clusters, where
+    /// one of the clusters is a read/write primary and the others are read-only replicas.
+    /// Writes to the primary are asynchronously propagated to the replicas.
     /// </para>
     ///  
     /// <para>
@@ -64,6 +64,7 @@ namespace Amazon.ElastiCache.Model
     /// </summary>
     public partial class CreateReplicationGroupRequest : AmazonElastiCacheRequest
     {
+        private bool? _atRestEncryptionEnabled;
         private string _authToken;
         private bool? _automaticFailoverEnabled;
         private bool? _autoMinorVersionUpgrade;
@@ -90,6 +91,41 @@ namespace Amazon.ElastiCache.Model
         private int? _snapshotRetentionLimit;
         private string _snapshotWindow;
         private List<Tag> _tags = new List<Tag>();
+        private bool? _transitEncryptionEnabled;
+
+        /// <summary>
+        /// Gets and sets the property AtRestEncryptionEnabled. 
+        /// <para>
+        /// A flag that enables encryption at rest when set to <code>true</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// You cannot modify the value of <code>AtRestEncryptionEnabled</code> after the replication
+        /// group is created. To enable encryption at rest on a replication group you must set
+        /// <code>AtRestEncryptionEnabled</code> to <code>true</code> when you create the replication
+        /// group. 
+        /// </para>
+        ///  <note> 
+        /// <para>
+        /// This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>
+        /// and the cluster is being created in an Amazon VPC.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// Default: <code>false</code> 
+        /// </para>
+        /// </summary>
+        public bool AtRestEncryptionEnabled
+        {
+            get { return this._atRestEncryptionEnabled.GetValueOrDefault(); }
+            set { this._atRestEncryptionEnabled = value; }
+        }
+
+        // Check to see if AtRestEncryptionEnabled property is set
+        internal bool IsSetAtRestEncryptionEnabled()
+        {
+            return this._atRestEncryptionEnabled.HasValue; 
+        }
 
         /// <summary>
         /// Gets and sets the property AuthToken. 
@@ -97,6 +133,19 @@ namespace Amazon.ElastiCache.Model
         ///  <b>Reserved parameter.</b> The password used to access a password protected server.
         /// </para>
         ///  
+        /// <para>
+        /// This parameter is valid only if:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// The parameter <code>TransitEncryptionEnabled</code> was set to <code>true</code> when
+        /// the cluster was created.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// The line <code>requirepass</code> was added to the database configuration file.
+        /// </para>
+        ///  </li> </ul> 
         /// <para>
         /// Password constraints:
         /// </para>
@@ -110,12 +159,12 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Cannot contain any of the following characters: '/', '"', or "@". 
+        /// Cannot contain any of the following characters: '/', '"', or '@'. 
         /// </para>
         ///  </li> </ul> 
         /// <para>
         /// For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
-        /// at Redis.
+        /// at http://redis.io/commands/AUTH.
         /// </para>
         /// </summary>
         public string AuthToken
@@ -150,9 +199,9 @@ namespace Amazon.ElastiCache.Model
         /// <para>
         /// Default: false
         /// </para>
-        ///  <note> 
+        ///  
         /// <para>
-        /// ElastiCache Multi-AZ replication groups is not supported on:
+        /// Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -160,13 +209,13 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Redis (cluster mode disabled): T1 and T2 node types.
+        /// Redis (cluster mode disabled): T1 and T2 cache node types.
         /// </para>
-        ///  
+        ///  </li> <li> 
         /// <para>
-        /// Redis (cluster mode enabled): T2 node types.
+        /// Redis (cluster mode enabled): T1 node types.
         /// </para>
-        ///  </li> </ul> </note>
+        ///  </li> </ul>
         /// </summary>
         public bool AutomaticFailoverEnabled
         {
@@ -205,7 +254,9 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  
         /// <para>
-        /// Valid node types are as follows:
+        /// The following node types are supported by ElastiCache. Generally speaking, the current
+        /// generation types provide more memory and computational power at lower cost when compared
+        /// to their equivalent previous generation counterparts.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -213,33 +264,70 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Current generation: <code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code>,
-        /// <code>cache.m3.medium</code>, <code>cache.m3.large</code>, <code>cache.m3.xlarge</code>,
-        /// <code>cache.m3.2xlarge</code>, <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
+        /// Current generation: 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>T2 node types:</b> <code>cache.t2.micro</code>, <code>cache.t2.small</code>, <code>cache.t2.medium</code>
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>M3 node types:</b> <code>cache.m3.medium</code>, <code>cache.m3.large</code>,
+        /// <code>cache.m3.xlarge</code>, <code>cache.m3.2xlarge</code> 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>M4 node types:</b> <code>cache.m4.large</code>, <code>cache.m4.xlarge</code>,
         /// <code>cache.m4.2xlarge</code>, <code>cache.m4.4xlarge</code>, <code>cache.m4.10xlarge</code>
         /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Previous generation: <code>cache.t1.micro</code>, <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
+        /// Previous generation: (not recommended)
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>T1 node types:</b> <code>cache.t1.micro</code> 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>M1 node types:</b> <code>cache.m1.small</code>, <code>cache.m1.medium</code>,
         /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code> 
         /// </para>
         ///  </li> </ul> </li> <li> 
         /// <para>
-        /// Compute optimized: <code>cache.c1.xlarge</code> 
+        /// Compute optimized:
         /// </para>
-        ///  </li> <li> 
+        ///  <ul> <li> 
+        /// <para>
+        /// Previous generation: (not recommended)
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>C1 node types:</b> <code>cache.c1.xlarge</code> 
+        /// </para>
+        ///  </li> </ul> </li> <li> 
         /// <para>
         /// Memory optimized:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// Current generation: <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>, <code>cache.r3.2xlarge</code>,
-        /// <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code> 
+        /// Current generation: 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>R3 node types:</b> <code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
+        /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code>
+        /// 
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Previous generation: <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
+        /// Previous generation: (not recommended)
+        /// </para>
+        ///  
+        /// <para>
+        ///  <b>M2 node types:</b> <code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
         /// <code>cache.m2.4xlarge</code> 
         /// </para>
         ///  </li> </ul> </li> </ul> 
@@ -252,8 +340,12 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Redis backup/restore is not supported for Redis (cluster mode disabled) T1 and T2
-        /// instances. Backup/restore is supported on Redis (cluster mode enabled) T2 instances.
+        /// Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2
+        /// instances. 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -360,8 +452,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property Engine. 
         /// <para>
-        /// The name of the cache engine to be used for the cache clusters in this replication
-        /// group.
+        /// The name of the cache engine to be used for the clusters in this replication group.
         /// </para>
         /// </summary>
         public string Engine
@@ -379,7 +470,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property EngineVersion. 
         /// <para>
-        /// The version number of the cache engine to be used for the cache clusters in this replication
+        /// The version number of the cache engine to be used for the clusters in this replication
         /// group. To view the supported cache engine versions, use the <code>DescribeCacheEngineVersions</code>
         /// operation.
         /// </para>
@@ -388,8 +479,8 @@ namespace Amazon.ElastiCache.Model
         ///  <b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>) in the <i>ElastiCache User Guide</i>, but you cannot
         /// downgrade to an earlier engine version. If you want to use an earlier engine version,
-        /// you must delete the existing cache cluster or replication group and create it anew
-        /// with the earlier engine version. 
+        /// you must delete the existing cluster or replication group and create it anew with
+        /// the earlier engine version. 
         /// </para>
         /// </summary>
         public string EngineVersion
@@ -437,7 +528,7 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// The Amazon SNS topic owner must be the same as the cache cluster owner.
+        /// The Amazon SNS topic owner must be the same as the cluster owner.
         /// </para>
         ///  </note>
         /// </summary>
@@ -533,9 +624,9 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property PreferredCacheClusterAZs. 
         /// <para>
-        /// A list of EC2 Availability Zones in which the replication group's cache clusters are
-        /// created. The order of the Availability Zones in the list is the order in which clusters
-        /// are allocated. The primary cluster is created in the first AZ in the list.
+        /// A list of EC2 Availability Zones in which the replication group's clusters are created.
+        /// The order of the Availability Zones in the list is the order in which clusters are
+        /// allocated. The primary cluster is created in the first AZ in the list.
         /// </para>
         ///  
         /// <para>
@@ -545,8 +636,8 @@ namespace Amazon.ElastiCache.Model
         ///  <note> 
         /// <para>
         /// If you are creating your replication group in an Amazon VPC (recommended), you can
-        /// only locate cache clusters in Availability Zones associated with the subnets in the
-        /// selected subnet group.
+        /// only locate clusters in Availability Zones associated with the subnets in the selected
+        /// subnet group.
         /// </para>
         ///  
         /// <para>
@@ -572,7 +663,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property PreferredMaintenanceWindow. 
         /// <para>
-        /// Specifies the weekly time range during which maintenance on the cache cluster is performed.
+        /// Specifies the weekly time range during which maintenance on the cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
         /// The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code>
         /// are:
@@ -635,8 +726,8 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property PrimaryClusterId. 
         /// <para>
-        /// The identifier of the cache cluster that serves as the primary for this replication
-        /// group. This cache cluster must already exist and have a status of <code>available</code>.
+        /// The identifier of the cluster that serves as the primary for this replication group.
+        /// This cluster must already exist and have a status of <code>available</code>.
         /// </para>
         ///  
         /// <para>
@@ -761,11 +852,7 @@ namespace Amazon.ElastiCache.Model
         /// <i>NumNodeGroups</i> or the number of node groups configured by <i>NodeGroupConfiguration</i>
         /// regardless of the number of ARNs specified here.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.
-        /// </para>
-        ///  </note> 
+        ///  
         /// <para>
         /// Example of an Amazon S3 ARN: <code>arn:aws:s3:::my_bucket/snapshot1.rdb</code> 
         /// </para>
@@ -789,11 +876,6 @@ namespace Amazon.ElastiCache.Model
         /// The snapshot status changes to <code>restoring</code> while the new replication group
         /// is being created.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.
-        /// </para>
-        ///  </note>
         /// </summary>
         public string SnapshotName
         {
@@ -814,13 +896,9 @@ namespace Amazon.ElastiCache.Model
         /// them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, a snapshot
         /// that was taken today is retained for 5 days before being deleted.
         /// </para>
-        ///  <note> 
+        ///  
         /// <para>
-        /// This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.
-        /// </para>
-        ///  </note> 
-        /// <para>
-        /// Default: 0 (i.e., automatic backups are disabled for this cache cluster).
+        /// Default: 0 (i.e., automatic backups are disabled for this cluster).
         /// </para>
         /// </summary>
         public int SnapshotRetentionLimit
@@ -850,11 +928,6 @@ namespace Amazon.ElastiCache.Model
         /// If you do not specify this parameter, ElastiCache automatically chooses an appropriate
         /// time range.
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.
-        /// </para>
-        ///  </note>
         /// </summary>
         public string SnapshotWindow
         {
@@ -872,7 +945,7 @@ namespace Amazon.ElastiCache.Model
         /// Gets and sets the property Tags. 
         /// <para>
         /// A list of cost allocation tags to be added to this resource. A tag is a key-value
-        /// pair. A tag key must be accompanied by a tag value.
+        /// pair. A tag key does not have to be accompanied by a tag value.
         /// </para>
         /// </summary>
         public List<Tag> Tags
@@ -885,6 +958,44 @@ namespace Amazon.ElastiCache.Model
         internal bool IsSetTags()
         {
             return this._tags != null && this._tags.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property TransitEncryptionEnabled. 
+        /// <para>
+        /// A flag that enables in-transit encryption when set to <code>true</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// You cannot modify the value of <code>TransitEncryptionEnabled</code> after the cluster
+        /// is created. To enable in-transit encryption on a cluster you must set <code>TransitEncryptionEnabled</code>
+        /// to <code>true</code> when you create a cluster.
+        /// </para>
+        ///  
+        /// <para>
+        /// This parameter is valid only if the <code>Engine</code> parameter is <code>redis</code>,
+        /// the <code>EngineVersion</code> parameter is <code>3.2.4</code> or later, and the cluster
+        /// is being created in an Amazon VPC.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you enable in-transit encryption, you must also specify a value for <code>CacheSubnetGroup</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// Default: <code>false</code> 
+        /// </para>
+        /// </summary>
+        public bool TransitEncryptionEnabled
+        {
+            get { return this._transitEncryptionEnabled.GetValueOrDefault(); }
+            set { this._transitEncryptionEnabled = value; }
+        }
+
+        // Check to see if TransitEncryptionEnabled property is set
+        internal bool IsSetTransitEncryptionEnabled()
+        {
+            return this._transitEncryptionEnabled.HasValue; 
         }
 
     }

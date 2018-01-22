@@ -38,7 +38,7 @@ namespace Amazon.SimpleSystemsManagement.Model
         /// <summary>
         /// Gets and sets the property Data. 
         /// <para>
-        /// The data section in the inventory result entity json.
+        /// The data section in the inventory result entity JSON.
         /// </para>
         /// </summary>
         public Dictionary<string, InventoryResultItem> Data

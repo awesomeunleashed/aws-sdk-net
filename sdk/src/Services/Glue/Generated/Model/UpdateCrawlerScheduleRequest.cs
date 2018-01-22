@@ -29,7 +29,7 @@ namespace Amazon.Glue.Model
 {
     /// <summary>
     /// Container for the parameters to the UpdateCrawlerSchedule operation.
-    /// Updates the schedule of a crawler using a Cron expression.
+    /// Updates the schedule of a crawler using a <code>cron</code> expression.
     /// </summary>
     public partial class UpdateCrawlerScheduleRequest : AmazonGlueRequest
     {
@@ -57,7 +57,9 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property Schedule. 
         /// <para>
-        /// Cron expression of the updated schedule.
+        /// The updated <code>cron</code> expression used to specify the schedule (see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+        /// Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15
+        /// UTC, you would specify: <code>cron(15 12 * * ? *)</code>.
         /// </para>
         /// </summary>
         public string Schedule

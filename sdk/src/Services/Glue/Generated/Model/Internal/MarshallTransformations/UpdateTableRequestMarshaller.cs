@@ -79,6 +79,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.DatabaseName);
                 }
 
+                if(publicRequest.IsSetSkipArchive())
+                {
+                    context.Writer.WritePropertyName("SkipArchive");
+                    context.Writer.Write(publicRequest.SkipArchive);
+                }
+
                 if(publicRequest.IsSetTableInput())
                 {
                     context.Writer.WritePropertyName("TableInput");

@@ -53,7 +53,11 @@ namespace Amazon.Organizations.Model
     /// in the master account can assume the role. AWS Organizations clones the company name
     /// and address information for the new account from the organization's master account.
     /// </para>
-    ///   
+    ///  
+    /// <para>
+    /// This operation can be called only from the organization's master account.
+    /// </para>
+    ///  
     /// <para>
     /// For more information about creating accounts, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
     /// an AWS Account in Your Organization</a> in the <i>AWS Organizations User Guide</i>.

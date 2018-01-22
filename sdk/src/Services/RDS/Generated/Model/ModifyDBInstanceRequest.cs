@@ -42,6 +42,7 @@ namespace Amazon.RDS.Model
         private bool? _autoMinorVersionUpgrade;
         private int? _backupRetentionPeriod;
         private string _caCertificateIdentifier;
+        private CloudwatchLogsExportConfiguration _cloudwatchLogsExportConfiguration;
         private bool? _copyTagsToSnapshot;
         private string _dbInstanceClass;
         private string _dbInstanceIdentifier;
@@ -89,115 +90,19 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property AllocatedStorage. 
         /// <para>
-        ///  The new storage capacity of the RDS instance. Changing this setting does not result
-        /// in an outage and the change is applied during the next maintenance window unless <code>ApplyImmediately</code>
-        /// is set to <code>true</code> for this request. 
+        /// The new amount of storage (in gibibytes) to allocate for the DB instance. 
         /// </para>
         ///  
         /// <para>
-        ///  <b>MySQL</b> 
+        /// For MariaDB, MySQL, Oracle, and PostgreSQL, the value supplied must be at least 10%
+        /// greater than the current value. Values that are not at least 10% greater than the
+        /// existing value are rounded up so that they are 10% greater than the current value.
+        /// 
         /// </para>
         ///  
         /// <para>
-        /// Default: Uses existing setting
-        /// </para>
-        ///  
-        /// <para>
-        /// Valid Values: 5-6144
-        /// </para>
-        ///  
-        /// <para>
-        /// Constraints: Value supplied must be at least 10% greater than the current value. Values
-        /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value.
-        /// </para>
-        ///  
-        /// <para>
-        /// Type: Integer
-        /// </para>
-        ///  
-        /// <para>
-        ///  <b>MariaDB</b> 
-        /// </para>
-        ///  
-        /// <para>
-        /// Default: Uses existing setting
-        /// </para>
-        ///  
-        /// <para>
-        /// Valid Values: 5-6144
-        /// </para>
-        ///  
-        /// <para>
-        /// Constraints: Value supplied must be at least 10% greater than the current value. Values
-        /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value.
-        /// </para>
-        ///  
-        /// <para>
-        /// Type: Integer
-        /// </para>
-        ///  
-        /// <para>
-        ///  <b>PostgreSQL</b> 
-        /// </para>
-        ///  
-        /// <para>
-        /// Default: Uses existing setting
-        /// </para>
-        ///  
-        /// <para>
-        /// Valid Values: 5-6144
-        /// </para>
-        ///  
-        /// <para>
-        /// Constraints: Value supplied must be at least 10% greater than the current value. Values
-        /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value.
-        /// </para>
-        ///  
-        /// <para>
-        /// Type: Integer
-        /// </para>
-        ///  
-        /// <para>
-        ///  <b>Oracle</b> 
-        /// </para>
-        ///  
-        /// <para>
-        /// Default: Uses existing setting
-        /// </para>
-        ///  
-        /// <para>
-        /// Valid Values: 10-6144
-        /// </para>
-        ///  
-        /// <para>
-        /// Constraints: Value supplied must be at least 10% greater than the current value. Values
-        /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value.
-        /// </para>
-        ///  
-        /// <para>
-        ///  <b>SQL Server</b> 
-        /// </para>
-        ///  
-        /// <para>
-        /// Cannot be modified.
-        /// </para>
-        ///  
-        /// <para>
-        /// If you choose to migrate your DB instance from using standard storage to using Provisioned
-        /// IOPS, or from using Provisioned IOPS to using standard storage, the process can take
-        /// time. The duration of the migration depends on several factors such as database load,
-        /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
-        /// (if any), and the number of prior scale storage operations. Typical migration times
-        /// are under 24 hours, but the process can take up to several days in some cases. During
-        /// the migration, the DB instance will be available for use, but might experience performance
-        /// degradation. While the migration takes place, nightly backups for the instance will
-        /// be suspended. No other Amazon RDS operations can take place for the instance, including
-        /// modifying the instance, rebooting the instance, deleting the instance, creating a
-        /// Read Replica for the instance, and creating a DB snapshot of the instance.
+        /// For the valid values for allocated storage for each engine, see <a>CreateDBInstance</a>.
+        /// 
         /// </para>
         /// </summary>
         public int AllocatedStorage
@@ -247,11 +152,11 @@ namespace Amazon.RDS.Model
         /// <para>
         ///  If this parameter is set to <code>false</code>, changes to the DB instance are applied
         /// during the next maintenance window. Some parameter changes can cause an outage and
-        /// will be applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.
+        /// are applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.
         /// Review the table of parameters in <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
         /// a DB Instance and Using the Apply Immediately Parameter</a> to see the impact that
         /// setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has
-        /// for each modified parameter and to determine when the changes will be applied. 
+        /// for each modified parameter and to determine when the changes are applied. 
         /// </para>
         ///  
         /// <para>
@@ -273,7 +178,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property AutoMinorVersionUpgrade. 
         /// <para>
-        ///  Indicates that minor version upgrades will be applied automatically to the DB instance
+        ///  Indicates that minor version upgrades are applied automatically to the DB instance
         /// during the maintenance window. Changing this parameter does not result in an outage
         /// except in the following case and the change is asynchronously applied as soon as possible.
         /// An outage will result if this parameter is set to <code>true</code> during the maintenance
@@ -374,9 +279,28 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property CloudwatchLogsExportConfiguration. 
+        /// <para>
+        /// The configuration setting for the log types to be enabled for export to CloudWatch
+        /// Logs for a specific DB instance or DB cluster.
+        /// </para>
+        /// </summary>
+        public CloudwatchLogsExportConfiguration CloudwatchLogsExportConfiguration
+        {
+            get { return this._cloudwatchLogsExportConfiguration; }
+            set { this._cloudwatchLogsExportConfiguration = value; }
+        }
+
+        // Check to see if CloudwatchLogsExportConfiguration property is set
+        internal bool IsSetCloudwatchLogsExportConfiguration()
+        {
+            return this._cloudwatchLogsExportConfiguration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property CopyTagsToSnapshot. 
         /// <para>
-        /// True to copy all tags from the DB instance to snapshots of the DB instance; otherwise
+        /// True to copy all tags from the DB instance to snapshots of the DB instance, and otherwise
         /// false. The default is false.
         /// </para>
         /// </summary>
@@ -395,28 +319,21 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property DBInstanceClass. 
         /// <para>
-        ///  The new compute and memory capacity of the DB instance. To determine the instance
-        /// classes that are available for a particular DB engine, use the <a>DescribeOrderableDBInstanceOptions</a>
-        /// action. Note that not all instance classes are available in all regions for all DB
-        /// engines. 
+        /// The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
+        /// Not all DB instance classes are available in all AWS Regions, or for all database
+        /// engines. For the full list of DB instance classes, and availability for your engine,
+        /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// Instance Class</a> in the Amazon RDS User Guide. 
         /// </para>
         ///  
         /// <para>
-        ///  Passing a value for this setting causes an outage during the change and is applied
-        /// during the next maintenance window, unless <code>ApplyImmediately</code> is specified
-        /// as <code>true</code> for this request. 
+        /// If you modify the DB instance class, an outage occurs during the change. The change
+        /// is applied during the next maintenance window, unless <code>ApplyImmediately</code>
+        /// is specified as <code>true</code> for this request. 
         /// </para>
         ///  
         /// <para>
         /// Default: Uses existing setting
-        /// </para>
-        ///  
-        /// <para>
-        /// Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
-        /// | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge
-        /// | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge
-        /// | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro
-        /// | db.t2.small | db.t2.medium | db.t2.large</code> 
         /// </para>
         /// </summary>
         public string DBInstanceClass
@@ -702,11 +619,11 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property EnableIAMDatabaseAuthentication. 
         /// <para>
         /// True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts; otherwise false.
+        /// accounts, and otherwise false.
         /// </para>
         ///  
         /// <para>
-        ///  You can enable IAM database authentication for the following database engines
+        /// You can enable IAM database authentication for the following database engines
         /// </para>
         ///  
         /// <para>
@@ -747,7 +664,10 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
-        /// Gets and sets the property EnablePerformanceInsights.
+        /// Gets and sets the property EnablePerformanceInsights. 
+        /// <para>
+        /// True to enable Performance Insights for the DB instance, and otherwise false.
+        /// </para>
         /// </summary>
         public bool EnablePerformanceInsights
         {
@@ -796,34 +716,15 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property Iops. 
         /// <para>
-        ///  The new Provisioned IOPS (I/O operations per second) value for the RDS instance.
+        /// The new Provisioned IOPS (I/O operations per second) value for the RDS instance. 
+        /// </para>
+        ///  
+        /// <para>
         /// Changing this setting does not result in an outage and the change is applied during
         /// the next maintenance window unless the <code>ApplyImmediately</code> parameter is
-        /// set to <code>true</code> for this request. 
-        /// </para>
-        ///  
-        /// <para>
-        /// Default: Uses existing setting
-        /// </para>
-        ///  
-        /// <para>
-        /// Constraints: Value supplied must be at least 10% greater than the current value. Values
-        /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value. If you are migrating from Provisioned IOPS
+        /// set to <code>true</code> for this request. If you are migrating from Provisioned IOPS
         /// to standard storage, set this value to 0. The DB instance will require a reboot for
-        /// the change in storage type to take effect.
-        /// </para>
-        ///  
-        /// <para>
-        ///  <b>SQL Server</b> 
-        /// </para>
-        ///  
-        /// <para>
-        /// Setting the IOPS value for the SQL Server database engine is not supported.
-        /// </para>
-        ///  
-        /// <para>
-        /// Type: Integer
+        /// the change in storage type to take effect. 
         /// </para>
         ///  
         /// <para>
@@ -833,11 +734,22 @@ namespace Amazon.RDS.Model
         /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
         /// (if any), and the number of prior scale storage operations. Typical migration times
         /// are under 24 hours, but the process can take up to several days in some cases. During
-        /// the migration, the DB instance will be available for use, but might experience performance
-        /// degradation. While the migration takes place, nightly backups for the instance will
-        /// be suspended. No other Amazon RDS operations can take place for the instance, including
+        /// the migration, the DB instance is available for use, but might experience performance
+        /// degradation. While the migration takes place, nightly backups for the instance are
+        /// suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
-        /// Read Replica for the instance, and creating a DB snapshot of the instance.
+        /// Read Replica for the instance, and creating a DB snapshot of the instance. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL, the value supplied must be
+        /// at least 10% greater than the current value. Values that are not at least 10% greater
+        /// than the existing value are rounded up so that they are 10% greater than the current
+        /// value. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Default: Uses existing setting
         /// </para>
         /// </summary>
         public int Iops
@@ -878,8 +790,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property MasterUserPassword. 
         /// <para>
-        /// The new password for the master user. Can be any printable ASCII character except
-        /// "/", """, or "@".
+        /// The new password for the master user. The password can include any printable ASCII
+        /// character except "/", """, or "@".
         /// </para>
         ///  
         /// <para>
@@ -993,9 +905,9 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property MonitoringRoleArn. 
         /// <para>
-        /// The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch
-        /// Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information
-        /// on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+        /// The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon
+        /// CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.
+        /// For information on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
         /// create an IAM role for Amazon RDS Enhanced Monitoring</a>.
         /// </para>
         ///  
@@ -1019,14 +931,10 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property MultiAZ. 
         /// <para>
-        ///  Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter does
+        /// Specifies if the DB instance is a Multi-AZ deployment. Changing this parameter does
         /// not result in an outage and the change is applied during the next maintenance window
         /// unless the <code>ApplyImmediately</code> parameter is set to <code>true</code> for
         /// this request. 
-        /// </para>
-        ///  
-        /// <para>
-        /// Constraints: Cannot be specified if the DB instance is a Read Replica.
         /// </para>
         /// </summary>
         public bool MultiAZ
@@ -1096,8 +1004,8 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
-        /// be removed from an option group, and that option group cannot be removed from a DB
+        /// Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
+        /// be removed from an option group, and that option group can't be removed from a DB
         /// instance once it is associated with a DB instance
         /// </para>
         /// </summary>
@@ -1114,7 +1022,12 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
-        /// Gets and sets the property PerformanceInsightsKMSKeyId.
+        /// Gets and sets the property PerformanceInsightsKMSKeyId. 
+        /// <para>
+        /// The AWS KMS key identifier for encryption of Performance Insights data. The KMS key
+        /// ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for
+        /// the KMS encryption key.
+        /// </para>
         /// </summary>
         public string PerformanceInsightsKMSKeyId
         {
@@ -1155,7 +1068,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Times should be in Universal Time Coordinated (UTC)
+        /// Must be in Universal Time Coordinated (UTC)
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -1288,7 +1201,26 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property StorageType. 
         /// <para>
-        /// Specifies the storage type to be associated with the DB instance.
+        /// Specifies the storage type to be associated with the DB instance. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If you specify Provisioned IOPS (<code>io1</code>), you must also include a value
+        /// for the <code>Iops</code> parameter. 
+        /// </para>
+        ///  
+        /// <para>
+        /// If you choose to migrate your DB instance from using standard storage to using Provisioned
+        /// IOPS, or from using Provisioned IOPS to using standard storage, the process can take
+        /// time. The duration of the migration depends on several factors such as database load,
+        /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
+        /// (if any), and the number of prior scale storage operations. Typical migration times
+        /// are under 24 hours, but the process can take up to several days in some cases. During
+        /// the migration, the DB instance is available for use, but might experience performance
+        /// degradation. While the migration takes place, nightly backups for the instance are
+        /// suspended. No other Amazon RDS operations can take place for the instance, including
+        /// modifying the instance, rebooting the instance, deleting the instance, creating a
+        /// Read Replica for the instance, and creating a DB snapshot of the instance. 
         /// </para>
         ///  
         /// <para>
@@ -1296,12 +1228,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        ///  If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter. 
-        /// </para>
-        ///  
-        /// <para>
-        ///  Default: <code>io1</code> if the <code>Iops</code> parameter is specified; otherwise
+        /// Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>standard</code> 
         /// </para>
         /// </summary>
@@ -1320,7 +1247,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property TdeCredentialArn. 
         /// <para>
-        /// The ARN from the Key Store with which to associate the instance for TDE encryption.
+        /// The ARN from the key store with which to associate the instance for TDE encryption.
         /// </para>
         /// </summary>
         public string TdeCredentialArn
@@ -1338,7 +1265,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property TdeCredentialPassword. 
         /// <para>
-        /// The password for the given ARN from the Key Store in order to access the device.
+        /// The password for the given ARN from the key store in order to access the device.
         /// </para>
         /// </summary>
         public string TdeCredentialPassword

@@ -29,14 +29,15 @@ namespace Amazon.Rekognition.Model
 {
     /// <summary>
     /// Container for the parameters to the DetectFaces operation.
-    /// Detects faces within an image (JPEG or PNG) that is provided as input.
+    /// Detects faces within an image that is provided as input.
     /// 
     ///  
     /// <para>
-    ///  For each face detected, the operation returns face details including a bounding box
-    /// of the face, a confidence value (that the bounding box contains a face), and a fixed
-    /// set of attributes such as facial landmarks (for example, coordinates of eye and mouth),
-    /// gender, presence of beard, sunglasses, etc. 
+    ///  <code>DetectFaces</code> detects the 100 largest faces in the image. For each face
+    /// detected, the operation returns face details including a bounding box of the face,
+    /// a confidence value (that the bounding box contains a face), and a fixed set of attributes
+    /// such as facial landmarks (for example, coordinates of eye and mouth), gender, presence
+    /// of beard, sunglasses, etc. 
     /// </para>
     ///  
     /// <para>
@@ -44,13 +45,20 @@ namespace Amazon.Rekognition.Model
     /// obscured faces, the algorithm may not detect the faces or might detect faces with
     /// lower confidence. 
     /// </para>
+    ///  
+    /// <para>
+    /// You pass the input image either as base64-encoded image bytes or as a reference to
+    /// an image in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition
+    /// operations, passing image bytes is not supported. The image must be either a PNG or
+    /// JPEG formatted file. 
+    /// </para>
     ///  <note> 
     /// <para>
     /// This is a stateless API operation. That is, the operation does not persist any data.
     /// </para>
     ///  </note> 
     /// <para>
-    /// For an example, see <a>get-started-exercise-detect-faces</a>.
+    /// For an example, see <a>procedure-detecting-faces-in-images</a>.
     /// </para>
     ///  
     /// <para>
@@ -94,7 +102,8 @@ namespace Amazon.Rekognition.Model
         /// <summary>
         /// Gets and sets the property Image. 
         /// <para>
-        /// The image in which you want to detect faces. You can specify a blob or an S3 object.
+        /// The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
+        /// call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
         /// 
         /// </para>
         /// </summary>

@@ -565,6 +565,85 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  CreateCustomVerificationEmailTemplate
+
+        /// <summary>
+        /// Creates a new custom verification email template.
+        /// 
+        ///  
+        /// <para>
+        /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using
+        /// Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateCustomVerificationEmailTemplate service method.</param>
+        /// 
+        /// <returns>The response from the CreateCustomVerificationEmailTemplate service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.CustomVerificationEmailInvalidContentException">
+        /// Indicates that custom verification email template provided content is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.CustomVerificationEmailTemplateAlreadyExistsException">
+        /// Indicates that a custom verification email template with the name you specified already
+        /// exists.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.FromEmailAddressNotVerifiedException">
+        /// Indicates that the sender address specified for a custom verification email is not
+        /// verified, and is therefore not eligible to send the custom verification email.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.LimitExceededException">
+        /// Indicates that a resource could not be created because of service limits. For a list
+        /// of Amazon SES limits, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/limits.html">Amazon
+        /// SES Developer Guide</a>.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateCustomVerificationEmailTemplate">REST API Reference for CreateCustomVerificationEmailTemplate Operation</seealso>
+        public virtual CreateCustomVerificationEmailTemplateResponse CreateCustomVerificationEmailTemplate(CreateCustomVerificationEmailTemplateRequest request)
+        {
+            var marshaller = new CreateCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = CreateCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<CreateCustomVerificationEmailTemplateRequest,CreateCustomVerificationEmailTemplateResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateCustomVerificationEmailTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndCreateCustomVerificationEmailTemplate
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateCustomVerificationEmailTemplate">REST API Reference for CreateCustomVerificationEmailTemplate Operation</seealso>
+        public virtual IAsyncResult BeginCreateCustomVerificationEmailTemplate(CreateCustomVerificationEmailTemplateRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new CreateCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = CreateCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+
+            return BeginInvoke<CreateCustomVerificationEmailTemplateRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  CreateCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginCreateCustomVerificationEmailTemplate.</param>
+        /// 
+        /// <returns>Returns a  CreateCustomVerificationEmailTemplateResult from SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/CreateCustomVerificationEmailTemplate">REST API Reference for CreateCustomVerificationEmailTemplate Operation</seealso>
+        public virtual CreateCustomVerificationEmailTemplateResponse EndCreateCustomVerificationEmailTemplate(IAsyncResult asyncResult)
+        {
+            return EndInvoke<CreateCustomVerificationEmailTemplateResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  CreateReceiptFilter
 
         /// <summary>
@@ -1075,6 +1154,69 @@ namespace Amazon.SimpleEmail
         public virtual DeleteConfigurationSetTrackingOptionsResponse EndDeleteConfigurationSetTrackingOptions(IAsyncResult asyncResult)
         {
             return EndInvoke<DeleteConfigurationSetTrackingOptionsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  DeleteCustomVerificationEmailTemplate
+
+        /// <summary>
+        /// Deletes an existing custom verification email template. 
+        /// 
+        ///  
+        /// <para>
+        /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using
+        /// Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteCustomVerificationEmailTemplate service method.</param>
+        /// 
+        /// <returns>The response from the DeleteCustomVerificationEmailTemplate service method, as returned by SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteCustomVerificationEmailTemplate">REST API Reference for DeleteCustomVerificationEmailTemplate Operation</seealso>
+        public virtual DeleteCustomVerificationEmailTemplateResponse DeleteCustomVerificationEmailTemplate(DeleteCustomVerificationEmailTemplateRequest request)
+        {
+            var marshaller = new DeleteCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = DeleteCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteCustomVerificationEmailTemplateRequest,DeleteCustomVerificationEmailTemplateResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteCustomVerificationEmailTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDeleteCustomVerificationEmailTemplate
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteCustomVerificationEmailTemplate">REST API Reference for DeleteCustomVerificationEmailTemplate Operation</seealso>
+        public virtual IAsyncResult BeginDeleteCustomVerificationEmailTemplate(DeleteCustomVerificationEmailTemplateRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new DeleteCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = DeleteCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+
+            return BeginInvoke<DeleteCustomVerificationEmailTemplateRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DeleteCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDeleteCustomVerificationEmailTemplate.</param>
+        /// 
+        /// <returns>Returns a  DeleteCustomVerificationEmailTemplateResult from SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/DeleteCustomVerificationEmailTemplate">REST API Reference for DeleteCustomVerificationEmailTemplate Operation</seealso>
+        public virtual DeleteCustomVerificationEmailTemplateResponse EndDeleteCustomVerificationEmailTemplate(IAsyncResult asyncResult)
+        {
+            return EndInvoke<DeleteCustomVerificationEmailTemplateResponse>(asyncResult);
         }
 
         #endregion
@@ -1783,6 +1925,131 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  GetAccountSendingEnabled
+
+        /// <summary>
+        /// Returns the email sending status of the Amazon SES account.
+        /// 
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetAccountSendingEnabled service method.</param>
+        /// 
+        /// <returns>The response from the GetAccountSendingEnabled service method, as returned by SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetAccountSendingEnabled">REST API Reference for GetAccountSendingEnabled Operation</seealso>
+        public virtual GetAccountSendingEnabledResponse GetAccountSendingEnabled(GetAccountSendingEnabledRequest request)
+        {
+            var marshaller = new GetAccountSendingEnabledRequestMarshaller();
+            var unmarshaller = GetAccountSendingEnabledResponseUnmarshaller.Instance;
+
+            return Invoke<GetAccountSendingEnabledRequest,GetAccountSendingEnabledResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetAccountSendingEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetAccountSendingEnabled operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetAccountSendingEnabled
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetAccountSendingEnabled">REST API Reference for GetAccountSendingEnabled Operation</seealso>
+        public virtual IAsyncResult BeginGetAccountSendingEnabled(GetAccountSendingEnabledRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new GetAccountSendingEnabledRequestMarshaller();
+            var unmarshaller = GetAccountSendingEnabledResponseUnmarshaller.Instance;
+
+            return BeginInvoke<GetAccountSendingEnabledRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetAccountSendingEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetAccountSendingEnabled.</param>
+        /// 
+        /// <returns>Returns a  GetAccountSendingEnabledResult from SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetAccountSendingEnabled">REST API Reference for GetAccountSendingEnabled Operation</seealso>
+        public virtual GetAccountSendingEnabledResponse EndGetAccountSendingEnabled(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetAccountSendingEnabledResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  GetCustomVerificationEmailTemplate
+
+        /// <summary>
+        /// Returns the custom email verification template for the template name you specify.
+        /// 
+        ///  
+        /// <para>
+        /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using
+        /// Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetCustomVerificationEmailTemplate service method.</param>
+        /// 
+        /// <returns>The response from the GetCustomVerificationEmailTemplate service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.CustomVerificationEmailTemplateDoesNotExistException">
+        /// Indicates that a custom verification email template with the name you specified does
+        /// not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetCustomVerificationEmailTemplate">REST API Reference for GetCustomVerificationEmailTemplate Operation</seealso>
+        public virtual GetCustomVerificationEmailTemplateResponse GetCustomVerificationEmailTemplate(GetCustomVerificationEmailTemplateRequest request)
+        {
+            var marshaller = new GetCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = GetCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<GetCustomVerificationEmailTemplateRequest,GetCustomVerificationEmailTemplateResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetCustomVerificationEmailTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetCustomVerificationEmailTemplate
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetCustomVerificationEmailTemplate">REST API Reference for GetCustomVerificationEmailTemplate Operation</seealso>
+        public virtual IAsyncResult BeginGetCustomVerificationEmailTemplate(GetCustomVerificationEmailTemplateRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new GetCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = GetCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+
+            return BeginInvoke<GetCustomVerificationEmailTemplateRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetCustomVerificationEmailTemplate.</param>
+        /// 
+        /// <returns>Returns a  GetCustomVerificationEmailTemplateResult from SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/GetCustomVerificationEmailTemplate">REST API Reference for GetCustomVerificationEmailTemplate Operation</seealso>
+        public virtual GetCustomVerificationEmailTemplateResponse EndGetCustomVerificationEmailTemplate(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetCustomVerificationEmailTemplateResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  GetIdentityDkimAttributes
 
         /// <summary>
@@ -2419,6 +2686,69 @@ namespace Amazon.SimpleEmail
         public virtual ListConfigurationSetsResponse EndListConfigurationSets(IAsyncResult asyncResult)
         {
             return EndInvoke<ListConfigurationSetsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  ListCustomVerificationEmailTemplates
+
+        /// <summary>
+        /// Lists the existing custom verification email templates for your account.
+        /// 
+        ///  
+        /// <para>
+        /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using
+        /// Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListCustomVerificationEmailTemplates service method.</param>
+        /// 
+        /// <returns>The response from the ListCustomVerificationEmailTemplates service method, as returned by SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListCustomVerificationEmailTemplates">REST API Reference for ListCustomVerificationEmailTemplates Operation</seealso>
+        public virtual ListCustomVerificationEmailTemplatesResponse ListCustomVerificationEmailTemplates(ListCustomVerificationEmailTemplatesRequest request)
+        {
+            var marshaller = new ListCustomVerificationEmailTemplatesRequestMarshaller();
+            var unmarshaller = ListCustomVerificationEmailTemplatesResponseUnmarshaller.Instance;
+
+            return Invoke<ListCustomVerificationEmailTemplatesRequest,ListCustomVerificationEmailTemplatesResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListCustomVerificationEmailTemplates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListCustomVerificationEmailTemplates operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndListCustomVerificationEmailTemplates
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListCustomVerificationEmailTemplates">REST API Reference for ListCustomVerificationEmailTemplates Operation</seealso>
+        public virtual IAsyncResult BeginListCustomVerificationEmailTemplates(ListCustomVerificationEmailTemplatesRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new ListCustomVerificationEmailTemplatesRequestMarshaller();
+            var unmarshaller = ListCustomVerificationEmailTemplatesResponseUnmarshaller.Instance;
+
+            return BeginInvoke<ListCustomVerificationEmailTemplatesRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  ListCustomVerificationEmailTemplates operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginListCustomVerificationEmailTemplates.</param>
+        /// 
+        /// <returns>Returns a  ListCustomVerificationEmailTemplatesResult from SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/ListCustomVerificationEmailTemplates">REST API Reference for ListCustomVerificationEmailTemplates Operation</seealso>
+        public virtual ListCustomVerificationEmailTemplatesResponse EndListCustomVerificationEmailTemplates(IAsyncResult asyncResult)
+        {
+            return EndInvoke<ListCustomVerificationEmailTemplatesResponse>(asyncResult);
         }
 
         #endregion
@@ -3092,8 +3422,24 @@ namespace Amazon.SimpleEmail
         /// <param name="request">Container for the necessary parameters to execute the SendBulkTemplatedEmail service method.</param>
         /// 
         /// <returns>The response from the SendBulkTemplatedEmail service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.AccountSendingPausedException">
+        /// Indicates that email sending is disabled for your entire Amazon SES account.
+        /// 
+        ///  
+        /// <para>
+        /// You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
         /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetSendingPausedException">
+        /// Indicates that email sending is disabled for the configuration set.
+        /// 
+        ///  
+        /// <para>
+        /// You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleEmail.Model.MailFromDomainNotVerifiedException">
         /// Indicates that the message could not be sent because Amazon SES could not read the
@@ -3154,6 +3500,91 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  SendCustomVerificationEmail
+
+        /// <summary>
+        /// Adds an email address to the list of identities for your Amazon SES account and attempts
+        /// to verify it. As a result of executing this operation, a customized verification email
+        /// is sent to the specified address.
+        /// 
+        ///  
+        /// <para>
+        /// To use this operation, you must first create a custom verification email template.
+        /// For more information about creating and using custom verification email templates,
+        /// see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using
+        /// Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the SendCustomVerificationEmail service method.</param>
+        /// 
+        /// <returns>The response from the SendCustomVerificationEmail service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
+        /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.CustomVerificationEmailTemplateDoesNotExistException">
+        /// Indicates that a custom verification email template with the name you specified does
+        /// not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.FromEmailAddressNotVerifiedException">
+        /// Indicates that the sender address specified for a custom verification email is not
+        /// verified, and is therefore not eligible to send the custom verification email.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.MessageRejectedException">
+        /// Indicates that the action failed, and the message could not be sent. Check the error
+        /// stack for more information about what caused the error.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.ProductionAccessNotGrantedException">
+        /// Indicates that the account has not been granted production access.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendCustomVerificationEmail">REST API Reference for SendCustomVerificationEmail Operation</seealso>
+        public virtual SendCustomVerificationEmailResponse SendCustomVerificationEmail(SendCustomVerificationEmailRequest request)
+        {
+            var marshaller = new SendCustomVerificationEmailRequestMarshaller();
+            var unmarshaller = SendCustomVerificationEmailResponseUnmarshaller.Instance;
+
+            return Invoke<SendCustomVerificationEmailRequest,SendCustomVerificationEmailResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the SendCustomVerificationEmail operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the SendCustomVerificationEmail operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndSendCustomVerificationEmail
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendCustomVerificationEmail">REST API Reference for SendCustomVerificationEmail Operation</seealso>
+        public virtual IAsyncResult BeginSendCustomVerificationEmail(SendCustomVerificationEmailRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new SendCustomVerificationEmailRequestMarshaller();
+            var unmarshaller = SendCustomVerificationEmailResponseUnmarshaller.Instance;
+
+            return BeginInvoke<SendCustomVerificationEmailRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  SendCustomVerificationEmail operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginSendCustomVerificationEmail.</param>
+        /// 
+        /// <returns>Returns a  SendCustomVerificationEmailResult from SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/SendCustomVerificationEmail">REST API Reference for SendCustomVerificationEmail Operation</seealso>
+        public virtual SendCustomVerificationEmailResponse EndSendCustomVerificationEmail(IAsyncResult asyncResult)
+        {
+            return EndInvoke<SendCustomVerificationEmailResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  SendEmail
 
         /// <summary>
@@ -3206,8 +3637,24 @@ namespace Amazon.SimpleEmail
         /// <param name="request">Container for the necessary parameters to execute the SendEmail service method.</param>
         /// 
         /// <returns>The response from the SendEmail service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.AccountSendingPausedException">
+        /// Indicates that email sending is disabled for your entire Amazon SES account.
+        /// 
+        ///  
+        /// <para>
+        /// You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
         /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetSendingPausedException">
+        /// Indicates that email sending is disabled for the configuration set.
+        /// 
+        ///  
+        /// <para>
+        /// You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleEmail.Model.MailFromDomainNotVerifiedException">
         /// Indicates that the message could not be sent because Amazon SES could not read the
@@ -3370,8 +3817,24 @@ namespace Amazon.SimpleEmail
         /// <param name="request">Container for the necessary parameters to execute the SendRawEmail service method.</param>
         /// 
         /// <returns>The response from the SendRawEmail service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.AccountSendingPausedException">
+        /// Indicates that email sending is disabled for your entire Amazon SES account.
+        /// 
+        ///  
+        /// <para>
+        /// You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
         /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetSendingPausedException">
+        /// Indicates that email sending is disabled for the configuration set.
+        /// 
+        ///  
+        /// <para>
+        /// You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleEmail.Model.MailFromDomainNotVerifiedException">
         /// Indicates that the message could not be sent because Amazon SES could not read the
@@ -3478,8 +3941,24 @@ namespace Amazon.SimpleEmail
         /// <param name="request">Container for the necessary parameters to execute the SendTemplatedEmail service method.</param>
         /// 
         /// <returns>The response from the SendTemplatedEmail service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.AccountSendingPausedException">
+        /// Indicates that email sending is disabled for your entire Amazon SES account.
+        /// 
+        ///  
+        /// <para>
+        /// You can enable or disable email sending for your Amazon SES account using <a>UpdateAccountSendingEnabled</a>.
+        /// </para>
+        /// </exception>
         /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
         /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetSendingPausedException">
+        /// Indicates that email sending is disabled for the configuration set.
+        /// 
+        ///  
+        /// <para>
+        /// You can enable or disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleEmail.Model.MailFromDomainNotVerifiedException">
         /// Indicates that the message could not be sent because Amazon SES could not read the
@@ -4106,6 +4585,67 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  UpdateAccountSendingEnabled
+
+        /// <summary>
+        /// Enables or disables email sending across your entire Amazon SES account. You can use
+        /// this operation in conjunction with Amazon CloudWatch alarms to temporarily pause email
+        /// sending across your Amazon SES account when reputation metrics (such as your bounce
+        /// on complaint rate) reach certain thresholds.
+        /// 
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateAccountSendingEnabled service method.</param>
+        /// 
+        /// <returns>The response from the UpdateAccountSendingEnabled service method, as returned by SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateAccountSendingEnabled">REST API Reference for UpdateAccountSendingEnabled Operation</seealso>
+        public virtual UpdateAccountSendingEnabledResponse UpdateAccountSendingEnabled(UpdateAccountSendingEnabledRequest request)
+        {
+            var marshaller = new UpdateAccountSendingEnabledRequestMarshaller();
+            var unmarshaller = UpdateAccountSendingEnabledResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateAccountSendingEnabledRequest,UpdateAccountSendingEnabledResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateAccountSendingEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateAccountSendingEnabled operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateAccountSendingEnabled
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateAccountSendingEnabled">REST API Reference for UpdateAccountSendingEnabled Operation</seealso>
+        public virtual IAsyncResult BeginUpdateAccountSendingEnabled(UpdateAccountSendingEnabledRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new UpdateAccountSendingEnabledRequestMarshaller();
+            var unmarshaller = UpdateAccountSendingEnabledResponseUnmarshaller.Instance;
+
+            return BeginInvoke<UpdateAccountSendingEnabledRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateAccountSendingEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateAccountSendingEnabled.</param>
+        /// 
+        /// <returns>Returns a  UpdateAccountSendingEnabledResult from SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateAccountSendingEnabled">REST API Reference for UpdateAccountSendingEnabled Operation</seealso>
+        public virtual UpdateAccountSendingEnabledResponse EndUpdateAccountSendingEnabled(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateAccountSendingEnabledResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  UpdateConfigurationSetEventDestination
 
         /// <summary>
@@ -4192,6 +4732,134 @@ namespace Amazon.SimpleEmail
 
         #endregion
         
+        #region  UpdateConfigurationSetReputationMetricsEnabled
+
+        /// <summary>
+        /// Enables or disables the publishing of reputation metrics for emails sent using a specific
+        /// configuration set. Reputation metrics include bounce and complaint rates. These metrics
+        /// are published to Amazon CloudWatch. By using Amazon CloudWatch, you can create alarms
+        /// when bounce or complaint rates exceed a certain threshold.
+        /// 
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConfigurationSetReputationMetricsEnabled service method.</param>
+        /// 
+        /// <returns>The response from the UpdateConfigurationSetReputationMetricsEnabled service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
+        /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetReputationMetricsEnabled">REST API Reference for UpdateConfigurationSetReputationMetricsEnabled Operation</seealso>
+        public virtual UpdateConfigurationSetReputationMetricsEnabledResponse UpdateConfigurationSetReputationMetricsEnabled(UpdateConfigurationSetReputationMetricsEnabledRequest request)
+        {
+            var marshaller = new UpdateConfigurationSetReputationMetricsEnabledRequestMarshaller();
+            var unmarshaller = UpdateConfigurationSetReputationMetricsEnabledResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateConfigurationSetReputationMetricsEnabledRequest,UpdateConfigurationSetReputationMetricsEnabledResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateConfigurationSetReputationMetricsEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConfigurationSetReputationMetricsEnabled operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateConfigurationSetReputationMetricsEnabled
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetReputationMetricsEnabled">REST API Reference for UpdateConfigurationSetReputationMetricsEnabled Operation</seealso>
+        public virtual IAsyncResult BeginUpdateConfigurationSetReputationMetricsEnabled(UpdateConfigurationSetReputationMetricsEnabledRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new UpdateConfigurationSetReputationMetricsEnabledRequestMarshaller();
+            var unmarshaller = UpdateConfigurationSetReputationMetricsEnabledResponseUnmarshaller.Instance;
+
+            return BeginInvoke<UpdateConfigurationSetReputationMetricsEnabledRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateConfigurationSetReputationMetricsEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateConfigurationSetReputationMetricsEnabled.</param>
+        /// 
+        /// <returns>Returns a  UpdateConfigurationSetReputationMetricsEnabledResult from SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetReputationMetricsEnabled">REST API Reference for UpdateConfigurationSetReputationMetricsEnabled Operation</seealso>
+        public virtual UpdateConfigurationSetReputationMetricsEnabledResponse EndUpdateConfigurationSetReputationMetricsEnabled(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateConfigurationSetReputationMetricsEnabledResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateConfigurationSetSendingEnabled
+
+        /// <summary>
+        /// Enables or disables email sending for messages sent using a specific configuration
+        /// set. You can use this operation in conjunction with Amazon CloudWatch alarms to temporarily
+        /// pause email sending for a configuration set when the reputation metrics for that configuration
+        /// set (such as your bounce on complaint rate) reach certain thresholds.
+        /// 
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConfigurationSetSendingEnabled service method.</param>
+        /// 
+        /// <returns>The response from the UpdateConfigurationSetSendingEnabled service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.ConfigurationSetDoesNotExistException">
+        /// Indicates that the configuration set does not exist.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetSendingEnabled">REST API Reference for UpdateConfigurationSetSendingEnabled Operation</seealso>
+        public virtual UpdateConfigurationSetSendingEnabledResponse UpdateConfigurationSetSendingEnabled(UpdateConfigurationSetSendingEnabledRequest request)
+        {
+            var marshaller = new UpdateConfigurationSetSendingEnabledRequestMarshaller();
+            var unmarshaller = UpdateConfigurationSetSendingEnabledResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateConfigurationSetSendingEnabledRequest,UpdateConfigurationSetSendingEnabledResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateConfigurationSetSendingEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateConfigurationSetSendingEnabled operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateConfigurationSetSendingEnabled
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetSendingEnabled">REST API Reference for UpdateConfigurationSetSendingEnabled Operation</seealso>
+        public virtual IAsyncResult BeginUpdateConfigurationSetSendingEnabled(UpdateConfigurationSetSendingEnabledRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new UpdateConfigurationSetSendingEnabledRequestMarshaller();
+            var unmarshaller = UpdateConfigurationSetSendingEnabledResponseUnmarshaller.Instance;
+
+            return BeginInvoke<UpdateConfigurationSetSendingEnabledRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateConfigurationSetSendingEnabled operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateConfigurationSetSendingEnabled.</param>
+        /// 
+        /// <returns>Returns a  UpdateConfigurationSetSendingEnabledResult from SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateConfigurationSetSendingEnabled">REST API Reference for UpdateConfigurationSetSendingEnabled Operation</seealso>
+        public virtual UpdateConfigurationSetSendingEnabledResponse EndUpdateConfigurationSetSendingEnabled(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateConfigurationSetSendingEnabledResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  UpdateConfigurationSetTrackingOptions
 
         /// <summary>
@@ -4271,6 +4939,80 @@ namespace Amazon.SimpleEmail
         public virtual UpdateConfigurationSetTrackingOptionsResponse EndUpdateConfigurationSetTrackingOptions(IAsyncResult asyncResult)
         {
             return EndInvoke<UpdateConfigurationSetTrackingOptionsResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  UpdateCustomVerificationEmailTemplate
+
+        /// <summary>
+        /// Updates an existing custom verification email template.
+        /// 
+        ///  
+        /// <para>
+        /// For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using
+        /// Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can execute this operation no more than once per second.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateCustomVerificationEmailTemplate service method.</param>
+        /// 
+        /// <returns>The response from the UpdateCustomVerificationEmailTemplate service method, as returned by SimpleEmailService.</returns>
+        /// <exception cref="Amazon.SimpleEmail.Model.CustomVerificationEmailInvalidContentException">
+        /// Indicates that custom verification email template provided content is invalid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.CustomVerificationEmailTemplateDoesNotExistException">
+        /// Indicates that a custom verification email template with the name you specified does
+        /// not exist.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleEmail.Model.FromEmailAddressNotVerifiedException">
+        /// Indicates that the sender address specified for a custom verification email is not
+        /// verified, and is therefore not eligible to send the custom verification email.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateCustomVerificationEmailTemplate">REST API Reference for UpdateCustomVerificationEmailTemplate Operation</seealso>
+        public virtual UpdateCustomVerificationEmailTemplateResponse UpdateCustomVerificationEmailTemplate(UpdateCustomVerificationEmailTemplateRequest request)
+        {
+            var marshaller = new UpdateCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = UpdateCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateCustomVerificationEmailTemplateRequest,UpdateCustomVerificationEmailTemplateResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateCustomVerificationEmailTemplate operation on AmazonSimpleEmailServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateCustomVerificationEmailTemplate
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateCustomVerificationEmailTemplate">REST API Reference for UpdateCustomVerificationEmailTemplate Operation</seealso>
+        public virtual IAsyncResult BeginUpdateCustomVerificationEmailTemplate(UpdateCustomVerificationEmailTemplateRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new UpdateCustomVerificationEmailTemplateRequestMarshaller();
+            var unmarshaller = UpdateCustomVerificationEmailTemplateResponseUnmarshaller.Instance;
+
+            return BeginInvoke<UpdateCustomVerificationEmailTemplateRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateCustomVerificationEmailTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateCustomVerificationEmailTemplate.</param>
+        /// 
+        /// <returns>Returns a  UpdateCustomVerificationEmailTemplateResult from SimpleEmailService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/email-2010-12-01/UpdateCustomVerificationEmailTemplate">REST API Reference for UpdateCustomVerificationEmailTemplate Operation</seealso>
+        public virtual UpdateCustomVerificationEmailTemplateResponse EndUpdateCustomVerificationEmailTemplate(IAsyncResult asyncResult)
+        {
+            return EndInvoke<UpdateCustomVerificationEmailTemplateResponse>(asyncResult);
         }
 
         #endregion
@@ -4626,8 +5368,8 @@ namespace Amazon.SimpleEmail
 
         /// <summary>
         /// Adds an email address to the list of identities for your Amazon SES account and attempts
-        /// to verify it. This operation causes a confirmation email message to be sent to the
-        /// specified address.
+        /// to verify it. As a result of executing this operation, a verification email is sent
+        /// to the specified address.
         /// 
         ///  
         /// <para>

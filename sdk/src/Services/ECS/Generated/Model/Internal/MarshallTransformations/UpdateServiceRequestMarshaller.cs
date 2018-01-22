@@ -90,6 +90,35 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.DesiredCount);
                 }
 
+                if(publicRequest.IsSetForceNewDeployment())
+                {
+                    context.Writer.WritePropertyName("forceNewDeployment");
+                    context.Writer.Write(publicRequest.ForceNewDeployment);
+                }
+
+                if(publicRequest.IsSetHealthCheckGracePeriodSeconds())
+                {
+                    context.Writer.WritePropertyName("healthCheckGracePeriodSeconds");
+                    context.Writer.Write(publicRequest.HealthCheckGracePeriodSeconds);
+                }
+
+                if(publicRequest.IsSetNetworkConfiguration())
+                {
+                    context.Writer.WritePropertyName("networkConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = NetworkConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.NetworkConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetPlatformVersion())
+                {
+                    context.Writer.WritePropertyName("platformVersion");
+                    context.Writer.Write(publicRequest.PlatformVersion);
+                }
+
                 if(publicRequest.IsSetService())
                 {
                     context.Writer.WritePropertyName("service");

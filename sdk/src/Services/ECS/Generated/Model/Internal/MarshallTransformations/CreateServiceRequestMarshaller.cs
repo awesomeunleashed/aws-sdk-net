@@ -96,6 +96,18 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.DesiredCount);
                 }
 
+                if(publicRequest.IsSetHealthCheckGracePeriodSeconds())
+                {
+                    context.Writer.WritePropertyName("healthCheckGracePeriodSeconds");
+                    context.Writer.Write(publicRequest.HealthCheckGracePeriodSeconds);
+                }
+
+                if(publicRequest.IsSetLaunchType())
+                {
+                    context.Writer.WritePropertyName("launchType");
+                    context.Writer.Write(publicRequest.LaunchType);
+                }
+
                 if(publicRequest.IsSetLoadBalancers())
                 {
                     context.Writer.WritePropertyName("loadBalancers");
@@ -110,6 +122,17 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                         context.Writer.WriteObjectEnd();
                     }
                     context.Writer.WriteArrayEnd();
+                }
+
+                if(publicRequest.IsSetNetworkConfiguration())
+                {
+                    context.Writer.WritePropertyName("networkConfiguration");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = NetworkConfigurationMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.NetworkConfiguration, context);
+
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetPlacementConstraints())
@@ -142,6 +165,12 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                         context.Writer.WriteObjectEnd();
                     }
                     context.Writer.WriteArrayEnd();
+                }
+
+                if(publicRequest.IsSetPlatformVersion())
+                {
+                    context.Writer.WritePropertyName("platformVersion");
+                    context.Writer.Write(publicRequest.PlatformVersion);
                 }
 
                 if(publicRequest.IsSetRole())

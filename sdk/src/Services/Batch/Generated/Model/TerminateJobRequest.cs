@@ -29,7 +29,7 @@ namespace Amazon.Batch.Model
 {
     /// <summary>
     /// Container for the parameters to the TerminateJob operation.
-    /// Terminates jobs in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code>
+    /// Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code>
     /// state are terminated, which causes them to transition to <code>FAILED</code>. Jobs
     /// that have not progressed to the <code>STARTING</code> state are cancelled.
     /// </summary>
@@ -41,7 +41,7 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property JobId. 
         /// <para>
-        /// Job IDs to be terminated. Up to 100 jobs can be specified.
+        /// The AWS Batch job ID of the job to terminate.
         /// </para>
         /// </summary>
         public string JobId
@@ -59,7 +59,7 @@ namespace Amazon.Batch.Model
         /// <summary>
         /// Gets and sets the property Reason. 
         /// <para>
-        /// A message to attach to the job that explains the reason for cancelling it. This message
+        /// A message to attach to the job that explains the reason for canceling it. This message
         /// is returned by future <a>DescribeJobs</a> operations on the job. This message is also
         /// recorded in the AWS Batch activity logs. 
         /// </para>

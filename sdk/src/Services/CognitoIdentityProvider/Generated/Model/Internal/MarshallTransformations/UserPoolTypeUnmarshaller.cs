@@ -94,6 +94,12 @@ namespace Amazon.CognitoIdentityProvider.Model.Internal.MarshallTransformations
                     unmarshalledObject.DeviceConfiguration = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("Domain", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.Domain = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("EmailConfiguration", targetDepth))
                 {
                     var unmarshaller = EmailConfigurationTypeUnmarshaller.Instance;
@@ -200,6 +206,12 @@ namespace Amazon.CognitoIdentityProvider.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = new ListUnmarshaller<string, StringUnmarshaller>(StringUnmarshaller.Instance);
                     unmarshalledObject.UsernameAttributes = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("UserPoolAddOns", targetDepth))
+                {
+                    var unmarshaller = UserPoolAddOnsTypeUnmarshaller.Instance;
+                    unmarshalledObject.UserPoolAddOns = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("UserPoolTags", targetDepth))

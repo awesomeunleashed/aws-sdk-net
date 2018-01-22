@@ -64,6 +64,7 @@ namespace Amazon.RDS.Model
         private string _dbSubnetGroupName;
         private string _domain;
         private string _domainIAMRoleName;
+        private List<string> _enableCloudwatchLogsExports = new List<string>();
         private bool? _enableIAMDatabaseAuthentication;
         private string _engine;
         private int? _iops;
@@ -96,7 +97,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property AutoMinorVersionUpgrade. 
         /// <para>
-        /// Indicates that minor version upgrades will be applied automatically to the DB instance
+        /// Indicates that minor version upgrades are applied automatically to the DB instance
         /// during the maintenance window.
         /// </para>
         /// </summary>
@@ -115,7 +116,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property AvailabilityZone. 
         /// <para>
-        /// The EC2 Availability Zone that the database instance will be created in.
+        /// The EC2 Availability Zone that the DB instance is created in.
         /// </para>
         ///  
         /// <para>
@@ -123,7 +124,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
+        /// Constraint: You can't specify the AvailabilityZone parameter if the MultiAZ parameter
         /// is set to <code>true</code>.
         /// </para>
         ///  
@@ -146,8 +147,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property CopyTagsToSnapshot. 
         /// <para>
-        /// True to copy all tags from the restored DB instance to snapshots of the DB instance;
-        /// otherwise false. The default is false.
+        /// True to copy all tags from the restored DB instance to snapshots of the DB instance,
+        /// and otherwise false. The default is false.
         /// </para>
         /// </summary>
         public bool CopyTagsToSnapshot
@@ -165,15 +166,15 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property DBInstanceClass. 
         /// <para>
-        /// The compute and memory capacity of the Amazon RDS DB instance.
+        /// The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
+        /// Not all DB instance classes are available in all AWS Regions, or for all database
+        /// engines. For the full list of DB instance classes, and availability for your engine,
+        /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// Instance Class</a> in the Amazon RDS User Guide. 
         /// </para>
         ///  
         /// <para>
-        /// Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
-        /// | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge
-        /// | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large
-        /// | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small
-        /// | db.t2.medium | db.t2.large</code> 
+        /// Default: The same DBInstanceClass as the original DB instance.
         /// </para>
         /// </summary>
         public string DBInstanceClass
@@ -345,10 +346,28 @@ namespace Amazon.RDS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property EnableCloudwatchLogsExports. 
+        /// <para>
+        /// The list of logs that the restored DB instance is to export to CloudWatch Logs.
+        /// </para>
+        /// </summary>
+        public List<string> EnableCloudwatchLogsExports
+        {
+            get { return this._enableCloudwatchLogsExports; }
+            set { this._enableCloudwatchLogsExports = value; }
+        }
+
+        // Check to see if EnableCloudwatchLogsExports property is set
+        internal bool IsSetEnableCloudwatchLogsExports()
+        {
+            return this._enableCloudwatchLogsExports != null && this._enableCloudwatchLogsExports.Count > 0; 
+        }
+
+        /// <summary>
         /// Gets and sets the property EnableIAMDatabaseAuthentication. 
         /// <para>
         /// True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts; otherwise false.
+        /// accounts, and otherwise false.
         /// </para>
         ///  
         /// <para>
@@ -394,8 +413,8 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// Constraint: Must be compatible with the engine of the source. You can restore a MariaDB
-        /// 10.1 DB instance from a MySQL 5.6 snapshot.
+        /// Constraint: Must be compatible with the engine of the source. For example, you can
+        /// restore a MariaDB 10.1 DB instance from a MySQL 5.6 snapshot.
         /// </para>
         ///  
         /// <para>
@@ -404,6 +423,10 @@ namespace Amazon.RDS.Model
         ///  <ul> <li> 
         /// <para>
         ///  <code>aurora</code> 
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>aurora-postgresql</code> 
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -467,22 +490,20 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property Iops. 
         /// <para>
         /// Specifies the amount of provisioned IOPS for the DB instance, expressed in I/O operations
-        /// per second. If this parameter is not specified, the IOPS value will be taken from
-        /// the backup. If this parameter is set to 0, the new instance will be converted to a
-        /// non-PIOPS instance, which will take additional time, though your DB instance will
-        /// be available for connections before the conversion starts.
+        /// per second. If this parameter is not specified, the IOPS value is taken from the backup.
+        /// If this parameter is set to 0, the new instance is converted to a non-PIOPS instance.
+        /// The conversion takes additional time, though your DB instance is available for connections
+        /// before the conversion starts. 
+        /// </para>
+        ///  
+        /// <para>
+        /// The provisioned IOPS value must follow the requirements for your database engine.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
+        /// RDS Provisioned IOPS Storage to Improve Performance</a>. 
         /// </para>
         ///  
         /// <para>
         /// Constraints: Must be an integer greater than 1000.
-        /// </para>
-        ///  
-        /// <para>
-        ///  <b>SQL Server</b> 
-        /// </para>
-        ///  
-        /// <para>
-        /// Setting the IOPS value for the SQL Server database engine is not supported.
         /// </para>
         /// </summary>
         public int Iops
@@ -531,7 +552,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
+        /// Constraint: You can't specify the AvailabilityZone parameter if the MultiAZ parameter
         /// is set to <code>true</code>.
         /// </para>
         /// </summary>
@@ -554,8 +575,8 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        /// Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
-        /// be removed from an option group, and that option group cannot be removed from a DB
+        /// Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
+        /// be removed from an option group, and that option group can't be removed from a DB
         /// instance once it is associated with a DB instance
         /// </para>
         /// </summary>
@@ -621,9 +642,9 @@ namespace Amazon.RDS.Model
         ///  </li> </ul> 
         /// <para>
         /// If no DB subnet group has been specified as part of the request and the PubliclyAccessible
-        /// value has not been set, the DB instance will be publicly accessible. If a specific
-        /// DB subnet group has been specified as part of the request and the PubliclyAccessible
-        /// value has not been set, the DB instance will be private.
+        /// value has not been set, the DB instance is publicly accessible. If a specific DB subnet
+        /// group has been specified as part of the request and the PubliclyAccessible value has
+        /// not been set, the DB instance is private.
         /// </para>
         /// </summary>
         public bool PubliclyAccessible
@@ -654,7 +675,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  
         /// <para>
-        ///  Default: <code>io1</code> if the <code>Iops</code> parameter is specified; otherwise
+        ///  Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>standard</code> 
         /// </para>
         /// </summary>
@@ -688,7 +709,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property TdeCredentialArn. 
         /// <para>
-        /// The ARN from the Key Store with which to associate the instance for TDE encryption.
+        /// The ARN from the key store with which to associate the instance for TDE encryption.
         /// </para>
         /// </summary>
         public string TdeCredentialArn
@@ -706,7 +727,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property TdeCredentialPassword. 
         /// <para>
-        /// The password for the given ARN from the Key Store in order to access the device.
+        /// The password for the given ARN from the key store in order to access the device.
         /// </para>
         /// </summary>
         public string TdeCredentialPassword

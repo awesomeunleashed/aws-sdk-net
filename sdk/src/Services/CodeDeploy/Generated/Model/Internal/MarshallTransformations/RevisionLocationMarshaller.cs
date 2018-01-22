@@ -73,6 +73,17 @@ namespace Amazon.CodeDeploy.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetString())
+            {
+                context.Writer.WritePropertyName("string");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = RawStringMarshaller.Instance;
+                marshaller.Marshall(requestObject.String, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
         }
 
         /// <summary>

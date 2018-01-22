@@ -65,6 +65,12 @@ namespace Amazon.CloudDirectory.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetMinorVersion())
+                {
+                    context.Writer.WritePropertyName("MinorVersion");
+                    context.Writer.Write(publicRequest.MinorVersion);
+                }
+
                 if(publicRequest.IsSetName())
                 {
                     context.Writer.WritePropertyName("Name");

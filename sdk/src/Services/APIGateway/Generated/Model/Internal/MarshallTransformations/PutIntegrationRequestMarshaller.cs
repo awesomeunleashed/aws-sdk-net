@@ -91,6 +91,18 @@ namespace Amazon.APIGateway.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.CacheNamespace);
                 }
 
+                if(publicRequest.IsSetConnectionId())
+                {
+                    context.Writer.WritePropertyName("connectionId");
+                    context.Writer.Write(publicRequest.ConnectionId);
+                }
+
+                if(publicRequest.IsSetConnectionType())
+                {
+                    context.Writer.WritePropertyName("connectionType");
+                    context.Writer.Write(publicRequest.ConnectionType);
+                }
+
                 if(publicRequest.IsSetContentHandling())
                 {
                     context.Writer.WritePropertyName("contentHandling");
@@ -141,6 +153,12 @@ namespace Amazon.APIGateway.Model.Internal.MarshallTransformations
                             context.Writer.Write(publicRequestRequestTemplatesValue);
                     }
                     context.Writer.WriteObjectEnd();
+                }
+
+                if(publicRequest.IsSetTimeoutInMillis())
+                {
+                    context.Writer.WritePropertyName("timeoutInMillis");
+                    context.Writer.Write(publicRequest.TimeoutInMillis);
                 }
 
                 if(publicRequest.IsSetType())

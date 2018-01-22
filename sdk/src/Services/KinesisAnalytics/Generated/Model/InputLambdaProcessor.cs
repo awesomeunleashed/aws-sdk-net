@@ -28,9 +28,9 @@ using Amazon.Runtime.Internal;
 namespace Amazon.KinesisAnalytics.Model
 {
     /// <summary>
-    /// An object that contains the ARN of the <a href="https://aws.amazon.com/documentation/lambda/">AWS
+    /// An object that contains the Amazon Resource Name (ARN) of the <a href="https://aws.amazon.com/documentation/lambda/">AWS
     /// Lambda</a> function that is used to preprocess records in the stream, and the ARN
-    /// of the IAM role used to access the AWS Lambda function.
+    /// of the IAM role that is used to access the AWS Lambda function.
     /// </summary>
     public partial class InputLambdaProcessor
     {
@@ -59,7 +59,7 @@ namespace Amazon.KinesisAnalytics.Model
         /// <summary>
         /// Gets and sets the property RoleARN. 
         /// <para>
-        /// The ARN of the IAM role used to access the AWS Lambda function.
+        /// The ARN of the IAM role that is used to access the AWS Lambda function.
         /// </para>
         /// </summary>
         public string RoleARN

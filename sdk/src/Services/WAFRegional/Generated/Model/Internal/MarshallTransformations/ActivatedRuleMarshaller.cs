@@ -56,6 +56,17 @@ namespace Amazon.WAFRegional.Model.Internal.MarshallTransformations
                 context.Writer.WriteObjectEnd();
             }
 
+            if(requestObject.IsSetOverrideAction())
+            {
+                context.Writer.WritePropertyName("OverrideAction");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = WafOverrideActionMarshaller.Instance;
+                marshaller.Marshall(requestObject.OverrideAction, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetPriority())
             {
                 context.Writer.WritePropertyName("Priority");

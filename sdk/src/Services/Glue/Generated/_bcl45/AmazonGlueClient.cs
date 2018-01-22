@@ -36,7 +36,10 @@ namespace Amazon.Glue
     /// <summary>
     /// Implementation for accessing Glue
     ///
-    /// Defines service operations used by the GlueFrontendService
+    /// AWS Glue 
+    /// <para>
+    /// Defines the public endpoint for the AWS Glue service.
+    /// </para>
     /// </summary>
     public partial class AmazonGlueClient : AmazonServiceClient, IAmazonGlue
     {
@@ -429,6 +432,57 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  BatchDeleteTableVersion
+
+
+        /// <summary>
+        /// Deletes a specified batch of versions of a table.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchDeleteTableVersion service method.</param>
+        /// 
+        /// <returns>The response from the BatchDeleteTableVersion service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchDeleteTableVersion">REST API Reference for BatchDeleteTableVersion Operation</seealso>
+        public virtual BatchDeleteTableVersionResponse BatchDeleteTableVersion(BatchDeleteTableVersionRequest request)
+        {
+            var marshaller = new BatchDeleteTableVersionRequestMarshaller();
+            var unmarshaller = BatchDeleteTableVersionResponseUnmarshaller.Instance;
+
+            return Invoke<BatchDeleteTableVersionRequest,BatchDeleteTableVersionResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the BatchDeleteTableVersion operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the BatchDeleteTableVersion operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchDeleteTableVersion">REST API Reference for BatchDeleteTableVersion Operation</seealso>
+        public virtual Task<BatchDeleteTableVersionResponse> BatchDeleteTableVersionAsync(BatchDeleteTableVersionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new BatchDeleteTableVersionRequestMarshaller();
+            var unmarshaller = BatchDeleteTableVersionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchDeleteTableVersionRequest,BatchDeleteTableVersionResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  BatchGetPartition
 
 
@@ -480,11 +534,60 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  BatchStopJobRun
+
+
+        /// <summary>
+        /// Stops one or more job runs for a specified Job.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the BatchStopJobRun service method.</param>
+        /// 
+        /// <returns>The response from the BatchStopJobRun service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchStopJobRun">REST API Reference for BatchStopJobRun Operation</seealso>
+        public virtual BatchStopJobRunResponse BatchStopJobRun(BatchStopJobRunRequest request)
+        {
+            var marshaller = new BatchStopJobRunRequestMarshaller();
+            var unmarshaller = BatchStopJobRunResponseUnmarshaller.Instance;
+
+            return Invoke<BatchStopJobRunRequest,BatchStopJobRunResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the BatchStopJobRun operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the BatchStopJobRun operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/BatchStopJobRun">REST API Reference for BatchStopJobRun Operation</seealso>
+        public virtual Task<BatchStopJobRunResponse> BatchStopJobRunAsync(BatchStopJobRunRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new BatchStopJobRunRequestMarshaller();
+            var unmarshaller = BatchStopJobRunResponseUnmarshaller.Instance;
+
+            return InvokeAsync<BatchStopJobRunRequest,BatchStopJobRunResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  CreateClassifier
 
 
         /// <summary>
-        /// Creates a <code>Classifier</code> in the user's account.
+        /// Creates a classifier in the user's account. This may be either a <code>GrokClassifier</code>
+        /// or an <code>XMLClassifier</code>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateClassifier service method.</param>
         /// 
@@ -546,6 +649,9 @@ namespace Amazon.Glue
         /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
         /// The operation timed out.
         /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNumberLimitExceededException">
+        /// A resource numerical limit was exceeded.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateConnection">REST API Reference for CreateConnection Operation</seealso>
         public virtual CreateConnectionResponse CreateConnection(CreateConnectionRequest request)
         {
@@ -580,9 +686,9 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Creates a new <code>Crawler</code> with specified targets, role, configuration, and
-        /// optional schedule. At least one crawl target must be specified, in either the <i>s3Targets</i>
-        /// or the <i>jdbcTargets</i> field.
+        /// Creates a new crawler with specified targets, role, configuration, and optional schedule.
+        /// At least one crawl target must be specified, in either the <i>s3Targets</i> or the
+        /// <i>jdbcTargets</i> field.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateCrawler service method.</param>
         /// 
@@ -758,6 +864,9 @@ namespace Amazon.Glue
         /// <exception cref="Amazon.Glue.Model.AlreadyExistsException">
         /// A resource to be created or added already exists.
         /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ConcurrentModificationException">
+        /// Two processes are trying to modify a resource simultaneously.
+        /// </exception>
         /// <exception cref="Amazon.Glue.Model.IdempotentParameterMismatchException">
         /// The same unique identifier was associated with two different records.
         /// </exception>
@@ -864,7 +973,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Transforms a directed acyclic graph (DAG) into a Python script.
+        /// Transforms a directed acyclic graph (DAG) into code.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateScript service method.</param>
         /// 
@@ -977,6 +1086,12 @@ namespace Amazon.Glue
         /// <exception cref="Amazon.Glue.Model.AlreadyExistsException">
         /// A resource to be created or added already exists.
         /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ConcurrentModificationException">
+        /// Two processes are trying to modify a resource simultaneously.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.IdempotentParameterMismatchException">
+        /// The same unique identifier was associated with two different records.
+        /// </exception>
         /// <exception cref="Amazon.Glue.Model.InternalServiceException">
         /// An internal service error occurred.
         /// </exception>
@@ -1043,6 +1158,9 @@ namespace Amazon.Glue
         /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
         /// The operation timed out.
         /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNumberLimitExceededException">
+        /// A resource numerical limit was exceeded.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/CreateUserDefinedFunction">REST API Reference for CreateUserDefinedFunction Operation</seealso>
         public virtual CreateUserDefinedFunctionResponse CreateUserDefinedFunction(CreateUserDefinedFunctionRequest request)
         {
@@ -1077,7 +1195,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Removes a <code>Classifier</code> from the metadata store.
+        /// Removes a classifier from the Data Catalog.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteClassifier service method.</param>
         /// 
@@ -1167,8 +1285,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Removes a specified <code>Crawler</code> from the metadata store, unless the <code>Crawler</code>
-        /// state is <code>RUNNING</code>.
+        /// Removes a specified crawler from the Data Catalog, unless the crawler state is <code>RUNNING</code>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteCrawler service method.</param>
         /// 
@@ -1321,7 +1438,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Deletes a specified job.
+        /// Deletes a specified job. If the job is not found, no exception is thrown.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteJob service method.</param>
         /// 
@@ -1467,15 +1584,69 @@ namespace Amazon.Glue
 
         #endregion
         
+        #region  DeleteTableVersion
+
+
+        /// <summary>
+        /// Deletes a specified version of a table.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTableVersion service method.</param>
+        /// 
+        /// <returns>The response from the DeleteTableVersion service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteTableVersion">REST API Reference for DeleteTableVersion Operation</seealso>
+        public virtual DeleteTableVersionResponse DeleteTableVersion(DeleteTableVersionRequest request)
+        {
+            var marshaller = new DeleteTableVersionRequestMarshaller();
+            var unmarshaller = DeleteTableVersionResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteTableVersionRequest,DeleteTableVersionResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteTableVersion operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteTableVersion operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/DeleteTableVersion">REST API Reference for DeleteTableVersion Operation</seealso>
+        public virtual Task<DeleteTableVersionResponse> DeleteTableVersionAsync(DeleteTableVersionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteTableVersionRequestMarshaller();
+            var unmarshaller = DeleteTableVersionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteTableVersionRequest,DeleteTableVersionResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteTrigger
 
 
         /// <summary>
-        /// Deletes a specified trigger.
+        /// Deletes a specified trigger. If the trigger is not found, no exception is thrown.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteTrigger service method.</param>
         /// 
         /// <returns>The response from the DeleteTrigger service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.ConcurrentModificationException">
+        /// Two processes are trying to modify a resource simultaneously.
+        /// </exception>
         /// <exception cref="Amazon.Glue.Model.InternalServiceException">
         /// An internal service error occurred.
         /// </exception>
@@ -1615,7 +1786,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Retrieve a <code>Classifier</code> by name.
+        /// Retrieve a classifier by name.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetClassifier service method.</param>
         /// 
@@ -1660,7 +1831,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Lists all Classifier objects in the metadata store.
+        /// Lists all classifier objects in the Data Catalog.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetClassifiers service method.</param>
         /// 
@@ -1792,7 +1963,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Retrieves metadata for a specified <code>Crawler</code>.
+        /// Retrieves metadata for a specified crawler.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetCrawler service method.</param>
         /// 
@@ -1879,7 +2050,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Retrieves metadata for all <code>Crawlers</code> defined in the customer account.
+        /// Retrieves metadata for all crawlers defined in the customer account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetCrawlers service method.</param>
         /// 
@@ -2379,6 +2550,9 @@ namespace Amazon.Glue
         /// <param name="request">Container for the necessary parameters to execute the GetMapping service method.</param>
         /// 
         /// <returns>The response from the GetMapping service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
         /// <exception cref="Amazon.Glue.Model.InternalServiceException">
         /// An internal service error occurred.
         /// </exception>
@@ -2524,7 +2698,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Gets a Python script to perform a specified mapping.
+        /// Gets code to perform a specified mapping.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetPlan service method.</param>
         /// 
@@ -2665,6 +2839,57 @@ namespace Amazon.Glue
             var unmarshaller = GetTablesResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetTablesRequest,GetTablesResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetTableVersion
+
+
+        /// <summary>
+        /// Retrieves a specified version of a table.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetTableVersion service method.</param>
+        /// 
+        /// <returns>The response from the GetTableVersion service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
+        /// A specified entity does not exist
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InternalServiceException">
+        /// An internal service error occurred.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.InvalidInputException">
+        /// The input provided was not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
+        /// The operation timed out.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetTableVersion">REST API Reference for GetTableVersion Operation</seealso>
+        public virtual GetTableVersionResponse GetTableVersion(GetTableVersionRequest request)
+        {
+            var marshaller = new GetTableVersionRequestMarshaller();
+            var unmarshaller = GetTableVersionResponseUnmarshaller.Instance;
+
+            return Invoke<GetTableVersionRequest,GetTableVersionResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetTableVersion operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetTableVersion operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/GetTableVersion">REST API Reference for GetTableVersion Operation</seealso>
+        public virtual Task<GetTableVersionResponse> GetTableVersionAsync(GetTableVersionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetTableVersionRequestMarshaller();
+            var unmarshaller = GetTableVersionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetTableVersionRequest,GetTableVersionResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -3025,8 +3250,8 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Starts a crawl using the specified <code>Crawler</code>, regardless of what is scheduled.
-        /// If the <code>Crawler</code> is already running, does nothing.
+        /// Starts a crawl using the specified crawler, regardless of what is scheduled. If the
+        /// crawler is already running, does nothing.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartCrawler service method.</param>
         /// 
@@ -3186,7 +3411,8 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Starts an existing trigger.
+        /// Starts an existing trigger. See <a href="http://docs.aws.amazon.com/glue/latest/dg/trigger-job.html">Triggering
+        /// Jobs</a> for information about how different types of trigger are started.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartTrigger service method.</param>
         /// 
@@ -3243,7 +3469,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// If the specified <code>Crawler</code> is running, stops the crawl.
+        /// If the specified crawler is running, stops the crawl.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StopCrawler service method.</param>
         /// 
@@ -3351,6 +3577,9 @@ namespace Amazon.Glue
         /// <param name="request">Container for the necessary parameters to execute the StopTrigger service method.</param>
         /// 
         /// <returns>The response from the StopTrigger service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.ConcurrentModificationException">
+        /// Two processes are trying to modify a resource simultaneously.
+        /// </exception>
         /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
         /// A specified entity does not exist
         /// </exception>
@@ -3397,7 +3626,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Modifies an existing <code>Classifier</code>.
+        /// Modifies an existing classifier (either a <code>GrokClassifier</code> or an <code>XMLClassifier</code>).
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateClassifier service method.</param>
         /// 
@@ -3496,8 +3725,8 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Updates a <code>Crawler</code>. If a <code>Crawler</code> is running, you must stop
-        /// it using <code>StopCrawler</code> before updating it.
+        /// Updates a crawler. If a crawler is running, you must stop it using <code>StopCrawler</code>
+        /// before updating it.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateCrawler service method.</param>
         /// 
@@ -3551,7 +3780,7 @@ namespace Amazon.Glue
 
 
         /// <summary>
-        /// Updates the schedule of a crawler using a Cron expression.
+        /// Updates the schedule of a crawler using a <code>cron</code> expression.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateCrawlerSchedule service method.</param>
         /// 
@@ -3715,6 +3944,9 @@ namespace Amazon.Glue
         /// <param name="request">Container for the necessary parameters to execute the UpdateJob service method.</param>
         /// 
         /// <returns>The response from the UpdateJob service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.ConcurrentModificationException">
+        /// Two processes are trying to modify a resource simultaneously.
+        /// </exception>
         /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
         /// A specified entity does not exist
         /// </exception>
@@ -3832,6 +4064,9 @@ namespace Amazon.Glue
         /// <exception cref="Amazon.Glue.Model.OperationTimeoutException">
         /// The operation timed out.
         /// </exception>
+        /// <exception cref="Amazon.Glue.Model.ResourceNumberLimitExceededException">
+        /// A resource numerical limit was exceeded.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/glue-2017-03-31/UpdateTable">REST API Reference for UpdateTable Operation</seealso>
         public virtual UpdateTableResponse UpdateTable(UpdateTableRequest request)
         {
@@ -3871,6 +4106,9 @@ namespace Amazon.Glue
         /// <param name="request">Container for the necessary parameters to execute the UpdateTrigger service method.</param>
         /// 
         /// <returns>The response from the UpdateTrigger service method, as returned by Glue.</returns>
+        /// <exception cref="Amazon.Glue.Model.ConcurrentModificationException">
+        /// Two processes are trying to modify a resource simultaneously.
+        /// </exception>
         /// <exception cref="Amazon.Glue.Model.EntityNotFoundException">
         /// A specified entity does not exist
         /// </exception>

@@ -63,6 +63,18 @@ namespace Amazon.APIGateway.Model.Internal.MarshallTransformations
                     response.CacheNamespace = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("connectionId", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.ConnectionId = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("connectionType", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.ConnectionType = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("contentHandling", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -103,6 +115,12 @@ namespace Amazon.APIGateway.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = new DictionaryUnmarshaller<string, string, StringUnmarshaller, StringUnmarshaller>(StringUnmarshaller.Instance, StringUnmarshaller.Instance);
                     response.RequestTemplates = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("timeoutInMillis", targetDepth))
+                {
+                    var unmarshaller = IntUnmarshaller.Instance;
+                    response.TimeoutInMillis = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("type", targetDepth))

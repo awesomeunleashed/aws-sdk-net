@@ -34,14 +34,42 @@ namespace Amazon.DirectConnect.Model
     ///  
     /// <para>
     /// After the virtual interface owner calls this function, the virtual interface will
-    /// be created and attached to the given virtual private gateway, and will be available
-    /// for handling traffic.
+    /// be created and attached to the given virtual private gateway or direct connect gateway,
+    /// and will be available for handling traffic.
     /// </para>
     /// </summary>
     public partial class ConfirmPrivateVirtualInterfaceRequest : AmazonDirectConnectRequest
     {
+        private string _directConnectGatewayId;
         private string _virtualGatewayId;
         private string _virtualInterfaceId;
+
+        /// <summary>
+        /// Gets and sets the property DirectConnectGatewayId. 
+        /// <para>
+        /// ID of the direct connect gateway that will be attached to the virtual interface.
+        /// </para>
+        ///  
+        /// <para>
+        ///  A direct connect gateway can be managed via the AWS Direct Connect console or the
+        /// <a>CreateDirectConnectGateway</a> action.
+        /// </para>
+        ///  
+        /// <para>
+        /// Default: None
+        /// </para>
+        /// </summary>
+        public string DirectConnectGatewayId
+        {
+            get { return this._directConnectGatewayId; }
+            set { this._directConnectGatewayId = value; }
+        }
+
+        // Check to see if DirectConnectGatewayId property is set
+        internal bool IsSetDirectConnectGatewayId()
+        {
+            return this._directConnectGatewayId != null;
+        }
 
         /// <summary>
         /// Gets and sets the property VirtualGatewayId. 

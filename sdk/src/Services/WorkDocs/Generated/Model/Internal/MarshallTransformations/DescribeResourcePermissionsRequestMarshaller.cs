@@ -67,6 +67,9 @@ namespace Amazon.WorkDocs.Model.Internal.MarshallTransformations
             
             if (publicRequest.IsSetMarker())
                 request.Parameters.Add("marker", StringUtils.FromString(publicRequest.Marker));
+            
+            if (publicRequest.IsSetPrincipalId())
+                request.Parameters.Add("principalId", StringUtils.FromString(publicRequest.PrincipalId));
             request.ResourcePath = uriResourcePath;
         
             if(publicRequest.IsSetAuthenticationToken())

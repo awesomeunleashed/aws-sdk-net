@@ -43,6 +43,7 @@ namespace Amazon.RDS.Model
         private string _licenseModel;
         private string _masterUserPassword;
         private bool? _multiAZ;
+        private PendingCloudwatchLogsExports _pendingCloudwatchLogsExports;
         private int? _port;
         private string _storageType;
 
@@ -55,7 +56,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property AllocatedStorage. 
         /// <para>
         ///  Contains the new <code>AllocatedStorage</code> size for the DB instance that will
-        /// be applied or is in progress. 
+        /// be applied or is currently being applied. 
         /// </para>
         /// </summary>
         public int AllocatedStorage
@@ -110,7 +111,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property DBInstanceClass. 
         /// <para>
         ///  Contains the new <code>DBInstanceClass</code> for the DB instance that will be applied
-        /// or is in progress. 
+        /// or is currently being applied. 
         /// </para>
         /// </summary>
         public string DBInstanceClass
@@ -129,7 +130,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property DBInstanceIdentifier. 
         /// <para>
         ///  Contains the new <code>DBInstanceIdentifier</code> for the DB instance that will
-        /// be applied or is in progress. 
+        /// be applied or is currently being applied. 
         /// </para>
         /// </summary>
         public string DBInstanceIdentifier
@@ -184,7 +185,7 @@ namespace Amazon.RDS.Model
         /// Gets and sets the property Iops. 
         /// <para>
         /// Specifies the new Provisioned IOPS value for the DB instance that will be applied
-        /// or is being applied.
+        /// or is currently being applied.
         /// </para>
         /// </summary>
         public int Iops
@@ -225,7 +226,8 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property MasterUserPassword. 
         /// <para>
-        /// Contains the pending or in-progress change of the master credentials for the DB instance.
+        /// Contains the pending or currently-in-progress change of the master credentials for
+        /// the DB instance.
         /// </para>
         /// </summary>
         public string MasterUserPassword
@@ -256,6 +258,21 @@ namespace Amazon.RDS.Model
         internal bool IsSetMultiAZ()
         {
             return this._multiAZ.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property PendingCloudwatchLogsExports.
+        /// </summary>
+        public PendingCloudwatchLogsExports PendingCloudwatchLogsExports
+        {
+            get { return this._pendingCloudwatchLogsExports; }
+            set { this._pendingCloudwatchLogsExports = value; }
+        }
+
+        // Check to see if PendingCloudwatchLogsExports property is set
+        internal bool IsSetPendingCloudwatchLogsExports()
+        {
+            return this._pendingCloudwatchLogsExports != null;
         }
 
         /// <summary>

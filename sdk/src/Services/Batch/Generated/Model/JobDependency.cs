@@ -33,6 +33,7 @@ namespace Amazon.Batch.Model
     public partial class JobDependency
     {
         private string _jobId;
+        private ArrayJobDependency _type;
 
         /// <summary>
         /// Gets and sets the property JobId. 
@@ -50,6 +51,24 @@ namespace Amazon.Batch.Model
         internal bool IsSetJobId()
         {
             return this._jobId != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Type. 
+        /// <para>
+        /// The type of the job dependency.
+        /// </para>
+        /// </summary>
+        public ArrayJobDependency Type
+        {
+            get { return this._type; }
+            set { this._type = value; }
+        }
+
+        // Check to see if Type property is set
+        internal bool IsSetType()
+        {
+            return this._type != null;
         }
 
     }

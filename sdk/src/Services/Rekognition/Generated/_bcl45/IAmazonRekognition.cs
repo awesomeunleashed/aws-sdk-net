@@ -41,8 +41,8 @@ namespace Amazon.Rekognition
 
 
         /// <summary>
-        /// Compares a face in the <i>source</i> input image with each face detected in the <i>target</i>
-        /// input image. 
+        /// Compares a face in the <i>source</i> input image with each of the 100 largest faces
+        /// detected in the <i>target</i> input image. 
         /// 
         ///  <note> 
         /// <para>
@@ -50,6 +50,13 @@ namespace Amazon.Rekognition
         /// and compares it with each face detected in the target image. 
         /// </para>
         ///  </note> 
+        /// <para>
+        /// You pass the input and target images either as base64-encoded image bytes or as a
+        /// references to images in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon
+        /// Rekognition operations, passing image bytes is not supported. The image must be either
+        /// a PNG or JPEG formatted file. 
+        /// </para>
+        ///  
         /// <para>
         /// In response, the operation returns an array of face matches ordered by similarity
         /// score in descending order. For each face match, the response provides a bounding box
@@ -77,6 +84,11 @@ namespace Amazon.Rekognition
         /// information for the source and target images. Use these values to display the images
         /// with the correct image orientation.
         /// </para>
+        ///  
+        /// <para>
+        /// If no faces are detected in the source or target images, <code>CompareFaces</code>
+        /// returns an <code>InvalidParameterException</code> error. 
+        /// </para>
         ///  <note> 
         /// <para>
         ///  This is a stateless API operation. That is, data returned by this operation doesn't
@@ -84,7 +96,7 @@ namespace Amazon.Rekognition
         /// </para>
         ///  </note> 
         /// <para>
-        /// For an example, see <a>get-started-exercise-compare-faces</a>.
+        /// For an example, see <a>faces-compare-images</a>.
         /// </para>
         ///  
         /// <para>
@@ -159,10 +171,6 @@ namespace Amazon.Rekognition
         /// </para>
         ///  </note> 
         /// <para>
-        /// For an example, see <a>example1</a>. 
-        /// </para>
-        ///  
-        /// <para>
         /// This operation requires permissions to perform the <code>rekognition:CreateCollection</code>
         /// action.
         /// </para>
@@ -208,12 +216,83 @@ namespace Amazon.Rekognition
 
         #endregion
         
+        #region  CreateStreamProcessor
+
+
+        /// <summary>
+        /// Creates an Amazon Rekognition stream processor that you can use to detect and recognize
+        /// faces in a streaming video.
+        /// 
+        ///  
+        /// <para>
+        /// Rekognition Video is a consumer of live video from Amazon Kinesis Video Streams. Rekognition
+        /// Video sends analysis results to Amazon Kinesis Data Streams.
+        /// </para>
+        ///  
+        /// <para>
+        /// You provide as input a Kinesis video stream (<code>Input</code>) and a Kinesis data
+        /// stream (<code>Output</code>) stream. You also specify the face recognition criteria
+        /// in <code>Settings</code>. For example, the collection containing faces that you want
+        /// to recognize. Use <code>Name</code> to assign an identifier for the stream processor.
+        /// You use <code>Name</code> to manage the stream processor. For example, you can start
+        /// processing the source video by calling with the <code>Name</code> field. 
+        /// </para>
+        ///  
+        /// <para>
+        /// After you have finished analyzing a streaming video, use to stop processing. You can
+        /// delete the stream processor by calling .
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateStreamProcessor service method.</param>
+        /// 
+        /// <returns>The response from the CreateStreamProcessor service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.LimitExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceInUseException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/CreateStreamProcessor">REST API Reference for CreateStreamProcessor Operation</seealso>
+        CreateStreamProcessorResponse CreateStreamProcessor(CreateStreamProcessorRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateStreamProcessor operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateStreamProcessor operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/CreateStreamProcessor">REST API Reference for CreateStreamProcessor Operation</seealso>
+        Task<CreateStreamProcessorResponse> CreateStreamProcessorAsync(CreateStreamProcessorRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DeleteCollection
 
 
         /// <summary>
         /// Deletes the specified collection. Note that this operation removes all faces in the
-        /// collection. For an example, see <a>example1</a>.
+        /// collection. For an example, see <a>delete-collection-procedure</a>.
         /// 
         ///  
         /// <para>
@@ -239,7 +318,7 @@ namespace Amazon.Rekognition
         /// limit, contact Amazon Rekognition.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
-        /// Collection specified in the request is not found.
+        /// The collection specified in the request cannot be found.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
@@ -293,7 +372,7 @@ namespace Amazon.Rekognition
         /// limit, contact Amazon Rekognition.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
-        /// Collection specified in the request is not found.
+        /// The collection specified in the request cannot be found.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
@@ -316,18 +395,120 @@ namespace Amazon.Rekognition
 
         #endregion
         
+        #region  DeleteStreamProcessor
+
+
+        /// <summary>
+        /// Deletes the stream processor identified by <code>Name</code>. You assign the value
+        /// for <code>Name</code> when you create the stream processor with . You might not be
+        /// able to use the same name for a stream processor for a few seconds after calling <code>DeleteStreamProcessor</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteStreamProcessor service method.</param>
+        /// 
+        /// <returns>The response from the DeleteStreamProcessor service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceInUseException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DeleteStreamProcessor">REST API Reference for DeleteStreamProcessor Operation</seealso>
+        DeleteStreamProcessorResponse DeleteStreamProcessor(DeleteStreamProcessorRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteStreamProcessor operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteStreamProcessor operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DeleteStreamProcessor">REST API Reference for DeleteStreamProcessor Operation</seealso>
+        Task<DeleteStreamProcessorResponse> DeleteStreamProcessorAsync(DeleteStreamProcessorRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeStreamProcessor
+
+
+        /// <summary>
+        /// Provides information about a stream processor created by . You can get information
+        /// about the input and output streams, the input parameters for the face recognition
+        /// being performed, and the current status of the stream processor.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeStreamProcessor service method.</param>
+        /// 
+        /// <returns>The response from the DescribeStreamProcessor service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DescribeStreamProcessor">REST API Reference for DescribeStreamProcessor Operation</seealso>
+        DescribeStreamProcessorResponse DescribeStreamProcessor(DescribeStreamProcessorRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeStreamProcessor operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeStreamProcessor operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DescribeStreamProcessor">REST API Reference for DescribeStreamProcessor Operation</seealso>
+        Task<DescribeStreamProcessorResponse> DescribeStreamProcessorAsync(DescribeStreamProcessorRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DetectFaces
 
 
         /// <summary>
-        /// Detects faces within an image (JPEG or PNG) that is provided as input.
+        /// Detects faces within an image that is provided as input.
         /// 
         ///  
         /// <para>
-        ///  For each face detected, the operation returns face details including a bounding box
-        /// of the face, a confidence value (that the bounding box contains a face), and a fixed
-        /// set of attributes such as facial landmarks (for example, coordinates of eye and mouth),
-        /// gender, presence of beard, sunglasses, etc. 
+        ///  <code>DetectFaces</code> detects the 100 largest faces in the image. For each face
+        /// detected, the operation returns face details including a bounding box of the face,
+        /// a confidence value (that the bounding box contains a face), and a fixed set of attributes
+        /// such as facial landmarks (for example, coordinates of eye and mouth), gender, presence
+        /// of beard, sunglasses, etc. 
         /// </para>
         ///  
         /// <para>
@@ -335,13 +516,20 @@ namespace Amazon.Rekognition
         /// obscured faces, the algorithm may not detect the faces or might detect faces with
         /// lower confidence. 
         /// </para>
+        ///  
+        /// <para>
+        /// You pass the input image either as base64-encoded image bytes or as a reference to
+        /// an image in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition
+        /// operations, passing image bytes is not supported. The image must be either a PNG or
+        /// JPEG formatted file. 
+        /// </para>
         ///  <note> 
         /// <para>
         /// This is a stateless API operation. That is, the operation does not persist any data.
         /// </para>
         ///  </note> 
         /// <para>
-        /// For an example, see <a>get-started-exercise-detect-faces</a>.
+        /// For an example, see <a>procedure-detecting-faces-in-images</a>.
         /// </para>
         ///  
         /// <para>
@@ -400,11 +588,24 @@ namespace Amazon.Rekognition
 
 
         /// <summary>
-        /// Detects instances of real-world labels within an image (JPEG or PNG) provided as input.
-        /// This includes objects like flower, tree, and table; events like wedding, graduation,
+        /// Detects instances of real-world entities within an image (JPEG or PNG) provided as
+        /// input. This includes objects like flower, tree, and table; events like wedding, graduation,
         /// and birthday party; and concepts like landscape, evening, and nature. For an example,
-        /// see <a>get-started-exercise-detect-labels</a>.
+        /// see <a>images-s3</a>.
         /// 
+        ///  <note> 
+        /// <para>
+        ///  <code>DetectLabels</code> does not support the detection of activities. However,
+        /// activity detection is supported for label detection in videos. For more information,
+        /// see .
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// You pass the input image as base64-encoded image bytes or as a reference to an image
+        /// in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition operations,
+        /// passing image bytes is not supported. The image must be either a PNG or JPEG formatted
+        /// file. 
+        /// </para>
         ///  
         /// <para>
         ///  For each object, scene, and concept the API returns one or more labels. Each label
@@ -450,11 +651,11 @@ namespace Amazon.Rekognition
         /// </para>
         ///  
         /// <para>
-        /// You can provide the input image as an S3 object or as base64-encoded bytes. In response,
-        /// the API returns an array of labels. In addition, the response also includes the orientation
-        /// correction. Optionally, you can specify <code>MinConfidence</code> to control the
-        /// confidence threshold for the labels returned. The default is 50%. You can also add
-        /// the <code>MaxLabels</code> parameter to limit the number of labels returned. 
+        /// In response, the API returns an array of labels. In addition, the response also includes
+        /// the orientation correction. Optionally, you can specify <code>MinConfidence</code>
+        /// to control the confidence threshold for the labels returned. The default is 50%. You
+        /// can also add the <code>MaxLabels</code> parameter to limit the number of labels returned.
+        /// 
         /// </para>
         ///  <note> 
         /// <para>
@@ -531,7 +732,14 @@ namespace Amazon.Rekognition
         /// <para>
         /// To filter images, use the labels returned by <code>DetectModerationLabels</code> to
         /// determine which types of content are appropriate. For information about moderation
-        /// labels, see <a>image-moderation</a>.
+        /// labels, see <a>moderation</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// You pass the input image either as base64-encoded image bytes or as a reference to
+        /// an image in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition
+        /// operations, passing image bytes is not supported. The image must be either a PNG or
+        /// JPEG formatted file. 
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DetectModerationLabels service method.</param>
@@ -581,13 +789,109 @@ namespace Amazon.Rekognition
 
         #endregion
         
+        #region  DetectText
+
+
+        /// <summary>
+        /// Detects text in the input image and converts it into machine-readable text.
+        /// 
+        ///  
+        /// <para>
+        /// Pass the input image as base64-encoded image bytes or as a reference to an image in
+        /// an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations,
+        /// you must pass it as a reference to an image in an Amazon S3 bucket. For the AWS CLI,
+        /// passing image bytes is not supported. The image must be either a .png or .jpeg formatted
+        /// file. 
+        /// </para>
+        ///  
+        /// <para>
+        /// The <code>DetectText</code> operation returns text in an array of elements, <code>TextDetections</code>.
+        /// Each <code>TextDetection</code> element provides information about a single word or
+        /// line of text that was detected in the image. 
+        /// </para>
+        ///  
+        /// <para>
+        /// A word is one or more ISO basic latin script characters that are not separated by
+        /// spaces. <code>DetectText</code> can detect up to 50 words in an image.
+        /// </para>
+        ///  
+        /// <para>
+        /// A line is a string of equally spaced words. A line isn't necessarily a complete sentence.
+        /// For example, a driver's license number is detected as a line. A line ends when there
+        /// is no aligned text after it. Also, a line ends when there is a large gap between words,
+        /// relative to the length of the words. This means, depending on the gap between words,
+        /// Amazon Rekognition may detect multiple lines in text aligned in the same direction.
+        /// Periods don't represent the end of a line. If a sentence spans multiple lines, the
+        /// <code>DetectText</code> operation returns multiple lines.
+        /// </para>
+        ///  
+        /// <para>
+        /// To determine whether a <code>TextDetection</code> element is a line of text or a word,
+        /// use the <code>TextDetection</code> object <code>Type</code> field. 
+        /// </para>
+        ///  
+        /// <para>
+        /// To be detected, text must be within +/- 30 degrees orientation of the horizontal axis.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a>text-detection</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DetectText service method.</param>
+        /// 
+        /// <returns>The response from the DetectText service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ImageTooLargeException">
+        /// The input image size exceeds the allowed limit. For more information, see <a>limits</a>.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidImageFormatException">
+        /// The provided image format is not supported.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidS3ObjectException">
+        /// Amazon Rekognition is unable to access the S3 object specified in the request.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DetectText">REST API Reference for DetectText Operation</seealso>
+        DetectTextResponse DetectText(DetectTextRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DetectText operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DetectText operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/DetectText">REST API Reference for DetectText Operation</seealso>
+        Task<DetectTextResponse> DetectTextAsync(DetectTextRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  GetCelebrityInfo
 
 
         /// <summary>
         /// Gets the name and additional information about a celebrity based on his or her Rekognition
         /// ID. The additional information is returned as an array of URLs. If there is no additional
-        /// information about the celebrity, this list is empty. For more information, see <a>celebrity-recognition</a>.
+        /// information about the celebrity, this list is empty. For more information, see <a>get-celebrity-info-procedure</a>.
         /// 
         ///  
         /// <para>
@@ -613,7 +917,7 @@ namespace Amazon.Rekognition
         /// limit, contact Amazon Rekognition.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
-        /// Collection specified in the request is not found.
+        /// The collection specified in the request cannot be found.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
@@ -636,6 +940,507 @@ namespace Amazon.Rekognition
 
         #endregion
         
+        #region  GetCelebrityRecognition
+
+
+        /// <summary>
+        /// Gets the celebrity recognition results for a Rekognition Video analysis started by
+        /// .
+        /// 
+        ///  
+        /// <para>
+        /// Celebrity recognition in a video is an asynchronous operation. Analysis is started
+        /// by a call to which returns a job identifier (<code>JobId</code>). When the celebrity
+        /// recognition operation finishes, Rekognition Video publishes a completion status to
+        /// the Amazon Simple Notification Service topic registered in the initial call to <code>StartCelebrityRecognition</code>.
+        /// To get the results of the celebrity recognition analysis, first check that the status
+        /// value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetCelebrityDetection</code>
+        /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityDetection</code>.
+        /// For more information, see <a>video</a>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>GetCelebrityRecognition</code> returns detected celebrities and the time(s)
+        /// they are detected in an array (<code>Celebrities</code>) of objects. Each <code>CelebrityRecognition</code>
+        /// contains information about the celebrity in a object and the time, <code>Timestamp</code>,
+        /// the celebrity was detected. 
+        /// </para>
+        ///  
+        /// <para>
+        /// By default, the <code>Celebrities</code> array is sorted by time (milliseconds from
+        /// the start of the video). You can also sort the array by celebrity by specifying the
+        /// value <code>ID</code> in the <code>SortBy</code> input parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// The <code>CelebrityDetail</code> object includes the celebrity identifer and additional
+        /// information urls. If you don't store the additional information urls, you can get
+        /// them later by calling with the celebrity identifer.
+        /// </para>
+        ///  
+        /// <para>
+        /// No information is returned for faces not recognized as celebrities.
+        /// </para>
+        ///  
+        /// <para>
+        /// Use MaxResults parameter to limit the number of labels returned. If there are more
+        /// results than specified in <code>MaxResults</code>, the value of <code>NextToken</code>
+        /// in the operation response contains a pagination token for getting the next set of
+        /// results. To get the next page of results, call <code>GetCelebrityDetection</code>
+        /// and populate the <code>NextToken</code> request parameter with the token value returned
+        /// from the previous call to <code>GetCelebrityRecognition</code>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetCelebrityRecognition service method.</param>
+        /// 
+        /// <returns>The response from the GetCelebrityRecognition service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidPaginationTokenException">
+        /// Pagination token in the request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetCelebrityRecognition">REST API Reference for GetCelebrityRecognition Operation</seealso>
+        GetCelebrityRecognitionResponse GetCelebrityRecognition(GetCelebrityRecognitionRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetCelebrityRecognition operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetCelebrityRecognition operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetCelebrityRecognition">REST API Reference for GetCelebrityRecognition Operation</seealso>
+        Task<GetCelebrityRecognitionResponse> GetCelebrityRecognitionAsync(GetCelebrityRecognitionRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetContentModeration
+
+
+        /// <summary>
+        /// Gets the content moderation analysis results for a Rekognition Video analysis started
+        /// by .
+        /// 
+        ///  
+        /// <para>
+        /// Content moderation analysis of a video is an asynchronous operation. You start analysis
+        /// by calling . which returns a job identifier (<code>JobId</code>). When analysis finishes,
+        /// Rekognition Video publishes a completion status to the Amazon Simple Notification
+        /// Service topic registered in the initial call to <code>StartContentModeration</code>.
+        /// To get the results of the content moderation analysis, first check that the status
+        /// value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call <code>GetCelebrityDetection</code>
+        /// and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityDetection</code>.
+        /// For more information, see <a>video</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>GetContentModeration</code> returns detected content moderation labels, and
+        /// the time they are detected, in an array, <code>ModerationLabels</code>, of objects.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// By default, the moderated labels are returned sorted by time, in milliseconds from
+        /// the start of the video. You can also sort them by moderated label by specifying <code>NAME</code>
+        /// for the <code>SortBy</code> input parameter. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Since video analysis can return a large number of results, use the <code>MaxResults</code>
+        /// parameter to limit the number of labels returned in a single call to <code>GetContentModeration</code>.
+        /// If there are more results than specified in <code>MaxResults</code>, the value of
+        /// <code>NextToken</code> in the operation response contains a pagination token for getting
+        /// the next set of results. To get the next page of results, call <code>GetContentModeration</code>
+        /// and populate the <code>NextToken</code> request parameter with the value of <code>NextToken</code>
+        /// returned from the previous call to <code>GetContentModeration</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a>moderation</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetContentModeration service method.</param>
+        /// 
+        /// <returns>The response from the GetContentModeration service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidPaginationTokenException">
+        /// Pagination token in the request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetContentModeration">REST API Reference for GetContentModeration Operation</seealso>
+        GetContentModerationResponse GetContentModeration(GetContentModerationRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetContentModeration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetContentModeration operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetContentModeration">REST API Reference for GetContentModeration Operation</seealso>
+        Task<GetContentModerationResponse> GetContentModerationAsync(GetContentModerationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetFaceDetection
+
+
+        /// <summary>
+        /// Gets face detection results for a Rekognition Video analysis started by .
+        /// 
+        ///  
+        /// <para>
+        /// Face detection with Rekognition Video is an asynchronous operation. You start face
+        /// detection by calling which returns a job identifier (<code>JobId</code>). When the
+        /// face detection operation finishes, Rekognition Video publishes a completion status
+        /// to the Amazon Simple Notification Service topic registered in the initial call to
+        /// <code>StartFaceDetection</code>. To get the results of the face detection operation,
+        /// first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>.
+        /// If so, call and pass the job identifier (<code>JobId</code>) from the initial call
+        /// to <code>StartFaceDetection</code>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>GetFaceDetection</code> returns an array of detected faces (<code>Faces</code>)
+        /// sorted by the time the faces were detected. 
+        /// </para>
+        ///  
+        /// <para>
+        /// Use MaxResults parameter to limit the number of labels returned. If there are more
+        /// results than specified in <code>MaxResults</code>, the value of <code>NextToken</code>
+        /// in the operation response contains a pagination token for getting the next set of
+        /// results. To get the next page of results, call <code>GetFaceDetection</code> and populate
+        /// the <code>NextToken</code> request parameter with the token value returned from the
+        /// previous call to <code>GetFaceDetection</code>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetFaceDetection service method.</param>
+        /// 
+        /// <returns>The response from the GetFaceDetection service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidPaginationTokenException">
+        /// Pagination token in the request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetFaceDetection">REST API Reference for GetFaceDetection Operation</seealso>
+        GetFaceDetectionResponse GetFaceDetection(GetFaceDetectionRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetFaceDetection operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetFaceDetection operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetFaceDetection">REST API Reference for GetFaceDetection Operation</seealso>
+        Task<GetFaceDetectionResponse> GetFaceDetectionAsync(GetFaceDetectionRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetFaceSearch
+
+
+        /// <summary>
+        /// Gets the face search results for Rekognition Video face search started by . The search
+        /// returns faces in a collection that match the faces of persons detected in a video.
+        /// It also includes the time(s) that faces are matched in the video.
+        /// 
+        ///  
+        /// <para>
+        /// Face search in a video is an asynchronous operation. You start face search by calling
+        /// to which returns a job identifier (<code>JobId</code>). When the search operation
+        /// finishes, Rekognition Video publishes a completion status to the Amazon Simple Notification
+        /// Service topic registered in the initial call to <code>StartFaceSearch</code>. To get
+        /// the search results, first check that the status value published to the Amazon SNS
+        /// topic is <code>SUCCEEDED</code>. If so, call <code>GetFaceSearch</code> and pass the
+        /// job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>.
+        /// For more information, see <a>collections</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// The search results are retured in an array, <code>Persons</code>, of objects. Each<code>PersonMatch</code>
+        /// element contains details about the matching faces in the input collection, person
+        /// information for the matched person, and the time the person was matched in the video.
+        /// </para>
+        ///  
+        /// <para>
+        /// By default, the <code>Persons</code> array is sorted by the time, in milliseconds
+        /// from the start of the video, persons are matched. You can also sort by persons by
+        /// specifying <code>INDEX</code> for the <code>SORTBY</code> input parameter.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetFaceSearch service method.</param>
+        /// 
+        /// <returns>The response from the GetFaceSearch service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidPaginationTokenException">
+        /// Pagination token in the request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetFaceSearch">REST API Reference for GetFaceSearch Operation</seealso>
+        GetFaceSearchResponse GetFaceSearch(GetFaceSearchRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetFaceSearch operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetFaceSearch operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetFaceSearch">REST API Reference for GetFaceSearch Operation</seealso>
+        Task<GetFaceSearchResponse> GetFaceSearchAsync(GetFaceSearchRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetLabelDetection
+
+
+        /// <summary>
+        /// Gets the label detection results of a Rekognition Video analysis started by . 
+        /// 
+        ///  
+        /// <para>
+        /// The label detection operation is started by a call to which returns a job identifier
+        /// (<code>JobId</code>). When the label detection operation finishes, Amazon Rekognition
+        /// publishes a completion status to the Amazon Simple Notification Service topic registered
+        /// in the initial call to <code>StartlabelDetection</code>. To get the results of the
+        /// label detection operation, first check that the status value published to the Amazon
+        /// SNS topic is <code>SUCCEEDED</code>. If so, call and pass the job identifier (<code>JobId</code>)
+        /// from the initial call to <code>StartLabelDetection</code>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>GetLabelDetection</code> returns an array of detected labels (<code>Labels</code>)
+        /// sorted by the time the labels were detected. You can also sort by the label name by
+        /// specifying <code>NAME</code> for the <code>SortBy</code> input parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// The labels returned include the label name, the percentage confidence in the accuracy
+        /// of the detected label, and the time the label was detected in the video.
+        /// </para>
+        ///  
+        /// <para>
+        /// Use MaxResults parameter to limit the number of labels returned. If there are more
+        /// results than specified in <code>MaxResults</code>, the value of <code>NextToken</code>
+        /// in the operation response contains a pagination token for getting the next set of
+        /// results. To get the next page of results, call <code>GetlabelDetection</code> and
+        /// populate the <code>NextToken</code> request parameter with the token value returned
+        /// from the previous call to <code>GetLabelDetection</code>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetLabelDetection service method.</param>
+        /// 
+        /// <returns>The response from the GetLabelDetection service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidPaginationTokenException">
+        /// Pagination token in the request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetLabelDetection">REST API Reference for GetLabelDetection Operation</seealso>
+        GetLabelDetectionResponse GetLabelDetection(GetLabelDetectionRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetLabelDetection operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetLabelDetection operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetLabelDetection">REST API Reference for GetLabelDetection Operation</seealso>
+        Task<GetLabelDetectionResponse> GetLabelDetectionAsync(GetLabelDetectionRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  GetPersonTracking
+
+
+        /// <summary>
+        /// Gets the person tracking results of a Rekognition Video analysis started by .
+        /// 
+        ///  
+        /// <para>
+        /// The person detection operation is started by a call to <code>StartPersonTracking</code>
+        /// which returns a job identifier (<code>JobId</code>). When the person detection operation
+        /// finishes, Rekognition Video publishes a completion status to the Amazon Simple Notification
+        /// Service topic registered in the initial call to <code>StartPersonTracking</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// To get the results of the person tracking operation, first check that the status value
+        /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and pass
+        /// the job identifier (<code>JobId</code>) from the initial call to <code>StartPersonTracking</code>.
+        /// </para>
+        ///  
+        /// <para>
+        ///  <code>GetPersonTracking</code> returns an array, <code>Persons</code>, of tracked
+        /// persons and the time(s) they were tracked in the video. 
+        /// </para>
+        ///  
+        /// <para>
+        /// By default, the array is sorted by the time(s) a person is tracked in the video. You
+        /// can sort by tracked persons by specifying <code>INDEX</code> for the <code>SortBy</code>
+        /// input parameter.
+        /// </para>
+        ///  
+        /// <para>
+        /// Use the <code>MaxResults</code> parameter to limit the number of items returned. If
+        /// there are more results than specified in <code>MaxResults</code>, the value of <code>NextToken</code>
+        /// in the operation response contains a pagination token for getting the next set of
+        /// results. To get the next page of results, call <code>GetPersonTracking</code> and
+        /// populate the <code>NextToken</code> request parameter with the token value returned
+        /// from the previous call to <code>GetPersonTracking</code>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetPersonTracking service method.</param>
+        /// 
+        /// <returns>The response from the GetPersonTracking service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidPaginationTokenException">
+        /// Pagination token in the request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetPersonTracking">REST API Reference for GetPersonTracking Operation</seealso>
+        GetPersonTrackingResponse GetPersonTracking(GetPersonTrackingRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetPersonTracking operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetPersonTracking operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/GetPersonTracking">REST API Reference for GetPersonTracking Operation</seealso>
+        Task<GetPersonTrackingResponse> GetPersonTrackingAsync(GetPersonTrackingRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  IndexFaces
 
 
@@ -644,15 +1449,23 @@ namespace Amazon.Rekognition
         /// 
         ///  
         /// <para>
-        ///  Amazon Rekognition does not save the actual faces detected. Instead, the underlying
+        /// Amazon Rekognition does not save the actual faces detected. Instead, the underlying
         /// detection algorithm first detects the faces in the input image, and for each face
         /// extracts facial features into a feature vector, and stores it in the back-end database.
         /// Amazon Rekognition uses feature vectors when performing face match and search operations
-        /// using the and operations. 
+        /// using the and operations.
         /// </para>
         ///  
         /// <para>
-        /// If you provide the optional <code>externalImageID</code> for the input image you provided,
+        /// If you are using version 1.0 of the face detection model, <code>IndexFaces</code>
+        /// indexes the 15 largest faces in the input image. Later versions of the face detection
+        /// model index the 100 largest faces in the input image. To determine which version of
+        /// the model you are using, check the the value of <code>FaceModelVersion</code> in the
+        /// response from <code>IndexFaces</code>. For more information, see <a>face-detection-model</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you provide the optional <code>ExternalImageID</code> for the input image you provided,
         /// Amazon Rekognition associates this ID with all faces that it detects. When you call
         /// the operation, the response returns the external ID. You can use this external image
         /// ID to create a client-side index to associate the faces with each image. You can then
@@ -673,7 +1486,10 @@ namespace Amazon.Rekognition
         /// </para>
         ///  
         /// <para>
-        /// For an example, see <a>example2</a>.
+        /// The input image is passed either as base64-encoded image bytes or as a reference to
+        /// an image in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition
+        /// operations, passing image bytes is not supported. The image must be either a PNG or
+        /// JPEG formatted file. 
         /// </para>
         ///  
         /// <para>
@@ -708,7 +1524,7 @@ namespace Amazon.Rekognition
         /// limit, contact Amazon Rekognition.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
-        /// Collection specified in the request is not found.
+        /// The collection specified in the request cannot be found.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
@@ -741,7 +1557,7 @@ namespace Amazon.Rekognition
         /// 
         ///  
         /// <para>
-        /// For an example, see <a>example1</a>.
+        /// For an example, see <a>list-collection-procedure</a>.
         /// </para>
         ///  
         /// <para>
@@ -770,7 +1586,7 @@ namespace Amazon.Rekognition
         /// limit, contact Amazon Rekognition.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
-        /// Collection specified in the request is not found.
+        /// The collection specified in the request cannot be found.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
@@ -799,7 +1615,8 @@ namespace Amazon.Rekognition
         /// <summary>
         /// Returns metadata for faces in the specified collection. This metadata includes information
         /// such as the bounding box coordinates, the confidence (that the bounding box contains
-        /// a face), and face ID. For an example, see <a>example3</a>. 
+        /// a face), and face ID. For an example, see <a>list-faces-in-collection-procedure</a>.
+        /// 
         /// 
         ///  
         /// <para>
@@ -828,7 +1645,7 @@ namespace Amazon.Rekognition
         /// limit, contact Amazon Rekognition.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
-        /// Collection specified in the request is not found.
+        /// The collection specified in the request cannot be found.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
@@ -851,28 +1668,74 @@ namespace Amazon.Rekognition
 
         #endregion
         
+        #region  ListStreamProcessors
+
+
+        /// <summary>
+        /// Gets a list of stream processors that you have created with .
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ListStreamProcessors service method.</param>
+        /// 
+        /// <returns>The response from the ListStreamProcessors service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidPaginationTokenException">
+        /// Pagination token in the request is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/ListStreamProcessors">REST API Reference for ListStreamProcessors Operation</seealso>
+        ListStreamProcessorsResponse ListStreamProcessors(ListStreamProcessorsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ListStreamProcessors operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ListStreamProcessors operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/ListStreamProcessors">REST API Reference for ListStreamProcessors Operation</seealso>
+        Task<ListStreamProcessorsResponse> ListStreamProcessorsAsync(ListStreamProcessorsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  RecognizeCelebrities
 
 
         /// <summary>
-        /// Returns an array of celebrities recognized in the input image. The image is passed
-        /// either as base64-encoded image bytes or as a reference to an image in an Amazon S3
-        /// bucket. The image must be either a PNG or JPEG formatted file. For more information,
-        /// see <a>celebrity-recognition</a>. 
+        /// Returns an array of celebrities recognized in the input image. For more information,
+        /// see <a>celebrities</a>. 
         /// 
         ///  
         /// <para>
-        ///  <code>RecognizeCelebrities</code> returns the 15 largest faces in the image. It lists
-        /// recognized celebrities in the <code>CelebrityFaces</code> list and unrecognized faces
-        /// in the <code>UnrecognizedFaces</code> list. The operation doesn't return celebrities
-        /// whose face sizes are smaller than the largest 15 faces in the image.
+        ///  <code>RecognizeCelebrities</code> returns the 100 largest faces in the image. It
+        /// lists recognized celebrities in the <code>CelebrityFaces</code> array and unrecognized
+        /// faces in the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code>
+        /// doesn't return celebrities whose faces are not amongst the largest 100 faces in the
+        /// image.
         /// </para>
         ///  
         /// <para>
-        /// For each celebrity recognized, the API returns a <code>Celebrity</code> object. The
-        /// <code>Celebrity</code> object contains the celebrity name, ID, URL links to additional
-        /// information, match confidence, and a <code>ComparedFace</code> object that you can
-        /// use to locate the celebrity's face on the image.
+        /// For each celebrity recognized, the <code>RecognizeCelebrities</code> returns a <code>Celebrity</code>
+        /// object. The <code>Celebrity</code> object contains the celebrity name, ID, URL links
+        /// to additional information, match confidence, and a <code>ComparedFace</code> object
+        /// that you can use to locate the celebrity's face on the image.
         /// </para>
         ///  
         /// <para>
@@ -884,7 +1747,14 @@ namespace Amazon.Rekognition
         /// </para>
         ///  
         /// <para>
-        /// For an example, see <a>recognize-celebrities-tutorial</a>.
+        /// You pass the imput image either as base64-encoded image bytes or as a reference to
+        /// an image in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition
+        /// operations, passing image bytes is not supported. The image must be either a PNG or
+        /// JPEG formatted file. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For an example, see <a>celebrities-procedure-image</a>.
         /// </para>
         ///  
         /// <para>
@@ -966,7 +1836,7 @@ namespace Amazon.Rekognition
         /// </para>
         ///  
         /// <para>
-        /// For an example, see <a>example3</a>.
+        /// For an example, see <a>search-face-with-id-procedure</a>.
         /// </para>
         ///  
         /// <para>
@@ -992,7 +1862,7 @@ namespace Amazon.Rekognition
         /// limit, contact Amazon Rekognition.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
-        /// Collection specified in the request is not found.
+        /// The collection specified in the request cannot be found.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
@@ -1036,6 +1906,13 @@ namespace Amazon.Rekognition
         /// </para>
         ///  </note> 
         /// <para>
+        /// You pass the input image either as base64-encoded image bytes or as a reference to
+        /// an image in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition
+        /// operations, passing image bytes is not supported. The image must be either a PNG or
+        /// JPEG formatted file. 
+        /// </para>
+        ///  
+        /// <para>
         ///  The response returns an array of faces that match, ordered by similarity score with
         /// the highest similarity first. More specifically, it is an array of metadata for each
         /// face match found. Along with the metadata, the response also includes a <code>similarity</code>
@@ -1045,7 +1922,7 @@ namespace Amazon.Rekognition
         /// </para>
         ///  
         /// <para>
-        /// For an example, see <a>example3</a>.
+        /// For an example, see <a>search-face-with-image-procedure</a>.
         /// </para>
         ///  
         /// <para>
@@ -1080,7 +1957,7 @@ namespace Amazon.Rekognition
         /// limit, contact Amazon Rekognition.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
-        /// Collection specified in the request is not found.
+        /// The collection specified in the request cannot be found.
         /// </exception>
         /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
         /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
@@ -1100,6 +1977,561 @@ namespace Amazon.Rekognition
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/SearchFacesByImage">REST API Reference for SearchFacesByImage Operation</seealso>
         Task<SearchFacesByImageResponse> SearchFacesByImageAsync(SearchFacesByImageRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  StartCelebrityRecognition
+
+
+        /// <summary>
+        /// Starts asynchronous recognition of celebrities in a stored video.
+        /// 
+        ///  
+        /// <para>
+        /// Rekognition Video can detect celebrities in a video must be stored in an Amazon S3
+        /// bucket. Use <a>Video</a> to specify the bucket name and the filename of the video.
+        /// <code>StartCelebrityRecognition</code> returns a job identifier (<code>JobId</code>)
+        /// which you use to get the results of the analysis. When celebrity recognition analysis
+        /// is finished, Rekognition Video publishes a completion status to the Amazon Simple
+        /// Notification Service topic that you specify in <code>NotificationChannel</code>. To
+        /// get the results of the celebrity recognition analysis, first check that the status
+        /// value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and
+        /// pass the job identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityRecognition</code>.
+        /// For more information, see <a>celebrities</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartCelebrityRecognition service method.</param>
+        /// 
+        /// <returns>The response from the StartCelebrityRecognition service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.IdempotentParameterMismatchException">
+        /// A <code>ClientRequestToken</code> input parameter was reused with an operation, but
+        /// at least one of the other input parameters is different from the previous call to
+        /// the operation.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidS3ObjectException">
+        /// Amazon Rekognition is unable to access the S3 object specified in the request.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.LimitExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.VideoTooLargeException">
+        /// The file size or duration of the supplied media is too large. The maximum file size
+        /// is 8GB. The maximum duration is 2 hours.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartCelebrityRecognition">REST API Reference for StartCelebrityRecognition Operation</seealso>
+        StartCelebrityRecognitionResponse StartCelebrityRecognition(StartCelebrityRecognitionRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartCelebrityRecognition operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartCelebrityRecognition operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartCelebrityRecognition">REST API Reference for StartCelebrityRecognition Operation</seealso>
+        Task<StartCelebrityRecognitionResponse> StartCelebrityRecognitionAsync(StartCelebrityRecognitionRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  StartContentModeration
+
+
+        /// <summary>
+        /// Starts asynchronous detection of explicit or suggestive adult content in a stored
+        /// video.
+        /// 
+        ///  
+        /// <para>
+        /// Rekognition Video can moderate content in a video stored in an Amazon S3 bucket. Use
+        /// <a>Video</a> to specify the bucket name and the filename of the video. <code>StartContentModeration</code>
+        /// returns a job identifier (<code>JobId</code>) which you use to get the results of
+        /// the analysis. When content moderation analysis is finished, Rekognition Video publishes
+        /// a completion status to the Amazon Simple Notification Service topic that you specify
+        /// in <code>NotificationChannel</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// To get the results of the content moderation analysis, first check that the status
+        /// value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and
+        /// pass the job identifier (<code>JobId</code>) from the initial call to <code>StartContentModeration</code>.
+        /// For more information, see <a>moderation</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartContentModeration service method.</param>
+        /// 
+        /// <returns>The response from the StartContentModeration service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.IdempotentParameterMismatchException">
+        /// A <code>ClientRequestToken</code> input parameter was reused with an operation, but
+        /// at least one of the other input parameters is different from the previous call to
+        /// the operation.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidS3ObjectException">
+        /// Amazon Rekognition is unable to access the S3 object specified in the request.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.LimitExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.VideoTooLargeException">
+        /// The file size or duration of the supplied media is too large. The maximum file size
+        /// is 8GB. The maximum duration is 2 hours.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartContentModeration">REST API Reference for StartContentModeration Operation</seealso>
+        StartContentModerationResponse StartContentModeration(StartContentModerationRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartContentModeration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartContentModeration operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartContentModeration">REST API Reference for StartContentModeration Operation</seealso>
+        Task<StartContentModerationResponse> StartContentModerationAsync(StartContentModerationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  StartFaceDetection
+
+
+        /// <summary>
+        /// Starts asynchronous detection of faces in a stored video.
+        /// 
+        ///  
+        /// <para>
+        /// Rekognition Video can detect faces in a video stored in an Amazon S3 bucket. Use <a>Video</a>
+        /// to specify the bucket name and the filename of the video. <code>StartFaceDetection</code>
+        /// returns a job identifier (<code>JobId</code>) that you use to get the results of the
+        /// operation. When face detection is finished, Rekognition Video publishes a completion
+        /// status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
+        /// To get the results of the label detection operation, first check that the status value
+        /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and pass
+        /// the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceDetection</code>.
+        /// For more information, see <a>faces-video</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartFaceDetection service method.</param>
+        /// 
+        /// <returns>The response from the StartFaceDetection service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.IdempotentParameterMismatchException">
+        /// A <code>ClientRequestToken</code> input parameter was reused with an operation, but
+        /// at least one of the other input parameters is different from the previous call to
+        /// the operation.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidS3ObjectException">
+        /// Amazon Rekognition is unable to access the S3 object specified in the request.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.LimitExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.VideoTooLargeException">
+        /// The file size or duration of the supplied media is too large. The maximum file size
+        /// is 8GB. The maximum duration is 2 hours.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartFaceDetection">REST API Reference for StartFaceDetection Operation</seealso>
+        StartFaceDetectionResponse StartFaceDetection(StartFaceDetectionRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartFaceDetection operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartFaceDetection operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartFaceDetection">REST API Reference for StartFaceDetection Operation</seealso>
+        Task<StartFaceDetectionResponse> StartFaceDetectionAsync(StartFaceDetectionRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  StartFaceSearch
+
+
+        /// <summary>
+        /// Starts the asynchronous search for faces in a collection that match the faces of persons
+        /// detected in a stored video.
+        /// 
+        ///  
+        /// <para>
+        /// The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket
+        /// name and the filename of the video. <code>StartFaceSearch</code> returns a job identifier
+        /// (<code>JobId</code>) which you use to get the search results once the search has completed.
+        /// When searching is finished, Rekognition Video publishes a completion status to the
+        /// Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
+        /// To get the search results, first check that the status value published to the Amazon
+        /// SNS topic is <code>SUCCEEDED</code>. If so, call and pass the job identifier (<code>JobId</code>)
+        /// from the initial call to <code>StartFaceSearch</code>. For more information, see <a>collections-search-person</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartFaceSearch service method.</param>
+        /// 
+        /// <returns>The response from the StartFaceSearch service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.IdempotentParameterMismatchException">
+        /// A <code>ClientRequestToken</code> input parameter was reused with an operation, but
+        /// at least one of the other input parameters is different from the previous call to
+        /// the operation.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidS3ObjectException">
+        /// Amazon Rekognition is unable to access the S3 object specified in the request.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.LimitExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.VideoTooLargeException">
+        /// The file size or duration of the supplied media is too large. The maximum file size
+        /// is 8GB. The maximum duration is 2 hours.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartFaceSearch">REST API Reference for StartFaceSearch Operation</seealso>
+        StartFaceSearchResponse StartFaceSearch(StartFaceSearchRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartFaceSearch operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartFaceSearch operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartFaceSearch">REST API Reference for StartFaceSearch Operation</seealso>
+        Task<StartFaceSearchResponse> StartFaceSearchAsync(StartFaceSearchRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  StartLabelDetection
+
+
+        /// <summary>
+        /// Starts asynchronous detection of labels in a stored video.
+        /// 
+        ///  
+        /// <para>
+        /// Rekognition Video can detect labels in a video. Labels are instances of real-world
+        /// entities. This includes objects like flower, tree, and table; events like wedding,
+        /// graduation, and birthday party; concepts like landscape, evening, and nature; and
+        /// activities like a person getting out of a car or a person skiing.
+        /// </para>
+        ///  
+        /// <para>
+        /// The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket
+        /// name and the filename of the video. <code>StartLabelDetection</code> returns a job
+        /// identifier (<code>JobId</code>) which you use to get the results of the operation.
+        /// When label detection is finished, Rekognition Video publishes a completion status
+        /// to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
+        /// </para>
+        ///  
+        /// <para>
+        /// To get the results of the label detection operation, first check that the status value
+        /// published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and pass
+        /// the job identifier (<code>JobId</code>) from the initial call to <code>StartLabelDetection</code>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartLabelDetection service method.</param>
+        /// 
+        /// <returns>The response from the StartLabelDetection service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.IdempotentParameterMismatchException">
+        /// A <code>ClientRequestToken</code> input parameter was reused with an operation, but
+        /// at least one of the other input parameters is different from the previous call to
+        /// the operation.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidS3ObjectException">
+        /// Amazon Rekognition is unable to access the S3 object specified in the request.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.LimitExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.VideoTooLargeException">
+        /// The file size or duration of the supplied media is too large. The maximum file size
+        /// is 8GB. The maximum duration is 2 hours.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartLabelDetection">REST API Reference for StartLabelDetection Operation</seealso>
+        StartLabelDetectionResponse StartLabelDetection(StartLabelDetectionRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartLabelDetection operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartLabelDetection operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartLabelDetection">REST API Reference for StartLabelDetection Operation</seealso>
+        Task<StartLabelDetectionResponse> StartLabelDetectionAsync(StartLabelDetectionRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  StartPersonTracking
+
+
+        /// <summary>
+        /// Starts the asynchronous tracking of persons in a stored video.
+        /// 
+        ///  
+        /// <para>
+        /// Rekognition Video can track persons in a video stored in an Amazon S3 bucket. Use
+        /// <a>Video</a> to specify the bucket name and the filename of the video. <code>StartPersonTracking</code>
+        /// returns a job identifier (<code>JobId</code>) which you use to get the results of
+        /// the operation. When label detection is finished, Amazon Rekognition publishes a completion
+        /// status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>.
+        /// 
+        /// </para>
+        ///  
+        /// <para>
+        /// To get the results of the person detection operation, first check that the status
+        /// value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and
+        /// pass the job identifier (<code>JobId</code>) from the initial call to <code>StartPersonTracking</code>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartPersonTracking service method.</param>
+        /// 
+        /// <returns>The response from the StartPersonTracking service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.IdempotentParameterMismatchException">
+        /// A <code>ClientRequestToken</code> input parameter was reused with an operation, but
+        /// at least one of the other input parameters is different from the previous call to
+        /// the operation.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidS3ObjectException">
+        /// Amazon Rekognition is unable to access the S3 object specified in the request.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.LimitExceededException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.VideoTooLargeException">
+        /// The file size or duration of the supplied media is too large. The maximum file size
+        /// is 8GB. The maximum duration is 2 hours.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartPersonTracking">REST API Reference for StartPersonTracking Operation</seealso>
+        StartPersonTrackingResponse StartPersonTracking(StartPersonTrackingRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartPersonTracking operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartPersonTracking operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartPersonTracking">REST API Reference for StartPersonTracking Operation</seealso>
+        Task<StartPersonTrackingResponse> StartPersonTrackingAsync(StartPersonTrackingRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  StartStreamProcessor
+
+
+        /// <summary>
+        /// Starts processing a stream processor. You create a stream processor by calling . To
+        /// tell <code>StartStreamProcessor</code> which stream processor to start, use the value
+        /// of the <code>Name</code> field specified in the call to <code>CreateStreamProcessor</code>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartStreamProcessor service method.</param>
+        /// 
+        /// <returns>The response from the StartStreamProcessor service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceInUseException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartStreamProcessor">REST API Reference for StartStreamProcessor Operation</seealso>
+        StartStreamProcessorResponse StartStreamProcessor(StartStreamProcessorRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartStreamProcessor operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartStreamProcessor operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StartStreamProcessor">REST API Reference for StartStreamProcessor Operation</seealso>
+        Task<StartStreamProcessorResponse> StartStreamProcessorAsync(StartStreamProcessorRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  StopStreamProcessor
+
+
+        /// <summary>
+        /// Stops a running stream processor that was created by .
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StopStreamProcessor service method.</param>
+        /// 
+        /// <returns>The response from the StopStreamProcessor service method, as returned by Rekognition.</returns>
+        /// <exception cref="Amazon.Rekognition.Model.AccessDeniedException">
+        /// You are not authorized to perform the action.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InternalServerErrorException">
+        /// Amazon Rekognition experienced a service issue. Try your call again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.InvalidParameterException">
+        /// Input parameter violated a constraint. Validate your parameter before calling the
+        /// API operation again.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ProvisionedThroughputExceededException">
+        /// The number of requests exceeded your throughput limit. If you want to increase this
+        /// limit, contact Amazon Rekognition.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceInUseException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ResourceNotFoundException">
+        /// The collection specified in the request cannot be found.
+        /// </exception>
+        /// <exception cref="Amazon.Rekognition.Model.ThrottlingException">
+        /// Amazon Rekognition is temporarily unable to process the request. Try your call again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StopStreamProcessor">REST API Reference for StopStreamProcessor Operation</seealso>
+        StopStreamProcessorResponse StopStreamProcessor(StopStreamProcessorRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StopStreamProcessor operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StopStreamProcessor operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/rekognition-2016-06-27/StopStreamProcessor">REST API Reference for StopStreamProcessor Operation</seealso>
+        Task<StopStreamProcessorResponse> StopStreamProcessorAsync(StopStreamProcessorRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         

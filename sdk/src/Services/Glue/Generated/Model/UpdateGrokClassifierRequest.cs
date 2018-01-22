@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Glue.Model
 {
     /// <summary>
-    /// Specifies a Grok classifier to update when passed to UpdateClassifier.
+    /// Specifies a grok classifier to update when passed to <code>UpdateClassifier</code>.
     /// </summary>
     public partial class UpdateGrokClassifierRequest
     {
@@ -40,8 +40,8 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property Classification. 
         /// <para>
-        /// The type of result that the classifier matches, such as Twitter Json, Omniture logs,
-        /// Cloudwatch logs, and so forth.
+        /// An identifier of the data format that the classifier matches, such as Twitter, JSON,
+        /// Omniture logs, Amazon CloudWatch Logs, and so on.
         /// </para>
         /// </summary>
         public string Classification
@@ -59,7 +59,7 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property CustomPatterns. 
         /// <para>
-        /// Custom grok patterns used by this classifier.
+        /// Optional custom grok patterns used by this classifier.
         /// </para>
         /// </summary>
         public string CustomPatterns

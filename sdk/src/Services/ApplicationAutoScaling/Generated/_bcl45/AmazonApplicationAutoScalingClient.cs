@@ -37,8 +37,8 @@ namespace Amazon.ApplicationAutoScaling
     /// Implementation for accessing ApplicationAutoScaling
     ///
     /// With Application Auto Scaling, you can automatically scale your AWS resources. The
-    /// experience similar to that of <a href="https://aws.amazon.com/autoscaling/">Auto Scaling</a>.
-    /// You can use Application Auto Scaling to accomplish the following tasks:
+    /// experience is similar to that of <a href="https://aws.amazon.com/autoscaling/">Auto
+    /// Scaling</a>. You can use Application Auto Scaling to accomplish the following tasks:
     /// 
     ///  <ul> <li> 
     /// <para>
@@ -47,6 +47,10 @@ namespace Amazon.ApplicationAutoScaling
     ///  </li> <li> 
     /// <para>
     /// Scale your resources in response to CloudWatch alarms
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Schedule one-time or recurring scaling actions
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -59,7 +63,7 @@ namespace Amazon.ApplicationAutoScaling
     ///  <ul> <li> 
     /// <para>
     /// Amazon ECS services. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
-    /// Auto Scaling</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+    /// Auto Scaling</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para>
     ///  </li> <li> 
     /// <para>
@@ -83,6 +87,11 @@ namespace Amazon.ApplicationAutoScaling
     /// indexes. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/AutoScaling.html">Managing
     /// Throughput Capacity Automatically with DynamoDB Auto Scaling</a> in the <i>Amazon
     /// DynamoDB Developer Guide</i>.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Amazon Aurora Replicas. For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Integrating.AutoScaling.html">Using
+    /// Amazon Aurora Auto Scaling with Aurora Replicas</a>.
     /// </para>
     ///  </li> </ul> 
     /// <para>
@@ -304,12 +313,11 @@ namespace Amazon.ApplicationAutoScaling
         /// The service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.ApplicationAutoScaling.Model.ObjectNotFoundException">
-        /// The specified object could not be found. For any <code>Put</code> or <code>Register</code>
-        /// API operation, which depends on the existence of a scalable target, this exception
-        /// is thrown if the scalable target with the specified service namespace, resource ID,
-        /// and scalable dimension does not exist. For any <code>Delete</code> or <code>Deregister</code>
-        /// API operation, this exception is thrown if the resource that is to be deleted or deregistered
-        /// cannot be found.
+        /// The specified object could not be found. For any operation that depends on the existence
+        /// of a scalable target, this exception is thrown if the scalable target with the specified
+        /// service namespace, resource ID, and scalable dimension does not exist. For any operation
+        /// that deletes or deregisters a resource, this exception is thrown if the resource cannot
+        /// be found.
         /// </exception>
         /// <exception cref="Amazon.ApplicationAutoScaling.Model.ValidationException">
         /// An exception was thrown for a validation issue. Review the available parameters for
@@ -345,6 +353,63 @@ namespace Amazon.ApplicationAutoScaling
 
         #endregion
         
+        #region  DeleteScheduledAction
+
+
+        /// <summary>
+        /// Deletes the specified Application Auto Scaling scheduled action.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteScheduledAction service method.</param>
+        /// 
+        /// <returns>The response from the DeleteScheduledAction service method, as returned by ApplicationAutoScaling.</returns>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.ConcurrentUpdateException">
+        /// Concurrent updates caused an exception, for example, if you request an update to an
+        /// Application Auto Scaling resource that already has a pending update.
+        /// </exception>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.InternalServiceException">
+        /// The service encountered an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.ObjectNotFoundException">
+        /// The specified object could not be found. For any operation that depends on the existence
+        /// of a scalable target, this exception is thrown if the scalable target with the specified
+        /// service namespace, resource ID, and scalable dimension does not exist. For any operation
+        /// that deletes or deregisters a resource, this exception is thrown if the resource cannot
+        /// be found.
+        /// </exception>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.ValidationException">
+        /// An exception was thrown for a validation issue. Review the available parameters for
+        /// the API request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/application-autoscaling-2016-02-06/DeleteScheduledAction">REST API Reference for DeleteScheduledAction Operation</seealso>
+        public virtual DeleteScheduledActionResponse DeleteScheduledAction(DeleteScheduledActionRequest request)
+        {
+            var marshaller = new DeleteScheduledActionRequestMarshaller();
+            var unmarshaller = DeleteScheduledActionResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteScheduledActionRequest,DeleteScheduledActionResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteScheduledAction operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteScheduledAction operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/application-autoscaling-2016-02-06/DeleteScheduledAction">REST API Reference for DeleteScheduledAction Operation</seealso>
+        public virtual Task<DeleteScheduledActionResponse> DeleteScheduledActionAsync(DeleteScheduledActionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteScheduledActionRequestMarshaller();
+            var unmarshaller = DeleteScheduledActionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteScheduledActionRequest,DeleteScheduledActionResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeregisterScalableTarget
 
 
@@ -372,12 +437,11 @@ namespace Amazon.ApplicationAutoScaling
         /// The service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.ApplicationAutoScaling.Model.ObjectNotFoundException">
-        /// The specified object could not be found. For any <code>Put</code> or <code>Register</code>
-        /// API operation, which depends on the existence of a scalable target, this exception
-        /// is thrown if the scalable target with the specified service namespace, resource ID,
-        /// and scalable dimension does not exist. For any <code>Delete</code> or <code>Deregister</code>
-        /// API operation, this exception is thrown if the resource that is to be deleted or deregistered
-        /// cannot be found.
+        /// The specified object could not be found. For any operation that depends on the existence
+        /// of a scalable target, this exception is thrown if the scalable target with the specified
+        /// service namespace, resource ID, and scalable dimension does not exist. For any operation
+        /// that deletes or deregisters a resource, this exception is thrown if the resource cannot
+        /// be found.
         /// </exception>
         /// <exception cref="Amazon.ApplicationAutoScaling.Model.ValidationException">
         /// An exception was thrown for a validation issue. Review the available parameters for
@@ -417,7 +481,7 @@ namespace Amazon.ApplicationAutoScaling
 
 
         /// <summary>
-        /// Provides descriptive information about the scalable targets in the specified namespace.
+        /// Gets information about the scalable targets in the specified namespace.
         /// 
         ///  
         /// <para>
@@ -547,7 +611,7 @@ namespace Amazon.ApplicationAutoScaling
 
 
         /// <summary>
-        /// Provides descriptive information about the scaling policies in the specified namespace.
+        /// Describes the scaling policies for the specified service namespace.
         /// 
         ///  
         /// <para>
@@ -572,7 +636,7 @@ namespace Amazon.ApplicationAutoScaling
         /// Auto Scaling is unable to retrieve the alarms associated with a scaling policy due
         /// to a client error, for example, if the role ARN specified for a scalable target does
         /// not have permission to call the CloudWatch <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a>
-        /// API operation on behalf of your account.
+        /// on your behalf.
         /// </exception>
         /// <exception cref="Amazon.ApplicationAutoScaling.Model.InternalServiceException">
         /// The service encountered an internal error.
@@ -614,6 +678,70 @@ namespace Amazon.ApplicationAutoScaling
 
         #endregion
         
+        #region  DescribeScheduledActions
+
+
+        /// <summary>
+        /// Describes the scheduled actions for the specified service namespace.
+        /// 
+        ///  
+        /// <para>
+        /// You can filter the results using the <code>ResourceId</code>, <code>ScalableDimension</code>,
+        /// and <code>ScheduledActionNames</code> parameters.
+        /// </para>
+        ///  
+        /// <para>
+        /// To create a scheduled action or update an existing one, see <a>PutScheduledAction</a>.
+        /// If you are no longer using a scheduled action, you can delete it using <a>DeleteScheduledAction</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeScheduledActions service method.</param>
+        /// 
+        /// <returns>The response from the DescribeScheduledActions service method, as returned by ApplicationAutoScaling.</returns>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.ConcurrentUpdateException">
+        /// Concurrent updates caused an exception, for example, if you request an update to an
+        /// Application Auto Scaling resource that already has a pending update.
+        /// </exception>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.InternalServiceException">
+        /// The service encountered an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.InvalidNextTokenException">
+        /// The next token supplied was invalid.
+        /// </exception>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.ValidationException">
+        /// An exception was thrown for a validation issue. Review the available parameters for
+        /// the API request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/application-autoscaling-2016-02-06/DescribeScheduledActions">REST API Reference for DescribeScheduledActions Operation</seealso>
+        public virtual DescribeScheduledActionsResponse DescribeScheduledActions(DescribeScheduledActionsRequest request)
+        {
+            var marshaller = new DescribeScheduledActionsRequestMarshaller();
+            var unmarshaller = DescribeScheduledActionsResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeScheduledActionsRequest,DescribeScheduledActionsResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeScheduledActions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeScheduledActions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/application-autoscaling-2016-02-06/DescribeScheduledActions">REST API Reference for DescribeScheduledActions Operation</seealso>
+        public virtual Task<DescribeScheduledActionsResponse> DescribeScheduledActionsAsync(DescribeScheduledActionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DescribeScheduledActionsRequestMarshaller();
+            var unmarshaller = DescribeScheduledActionsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeScheduledActionsRequest,DescribeScheduledActionsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  PutScalingPolicy
 
 
@@ -624,8 +752,8 @@ namespace Amazon.ApplicationAutoScaling
         /// <para>
         /// Each scalable target is identified by a service namespace, resource ID, and scalable
         /// dimension. A scaling policy applies to the scalable target identified by those three
-        /// attributes. You cannot create a scaling policy without first registering a scalable
-        /// target using <a>RegisterScalableTarget</a>.
+        /// attributes. You cannot create a scaling policy until you register the scalable target
+        /// using <a>RegisterScalableTarget</a>.
         /// </para>
         ///  
         /// <para>
@@ -650,23 +778,21 @@ namespace Amazon.ApplicationAutoScaling
         /// Auto Scaling is unable to retrieve the alarms associated with a scaling policy due
         /// to a client error, for example, if the role ARN specified for a scalable target does
         /// not have permission to call the CloudWatch <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarms.html">DescribeAlarms</a>
-        /// API operation on behalf of your account.
+        /// on your behalf.
         /// </exception>
         /// <exception cref="Amazon.ApplicationAutoScaling.Model.InternalServiceException">
         /// The service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.ApplicationAutoScaling.Model.LimitExceededException">
-        /// Your account exceeded a limit. This exception is thrown when a per-account resource
-        /// limit is exceeded. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_as-app">Application
+        /// A per-account resource limit is exceeded. For more information, see <a href="http://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html">Application
         /// Auto Scaling Limits</a>.
         /// </exception>
         /// <exception cref="Amazon.ApplicationAutoScaling.Model.ObjectNotFoundException">
-        /// The specified object could not be found. For any <code>Put</code> or <code>Register</code>
-        /// API operation, which depends on the existence of a scalable target, this exception
-        /// is thrown if the scalable target with the specified service namespace, resource ID,
-        /// and scalable dimension does not exist. For any <code>Delete</code> or <code>Deregister</code>
-        /// API operation, this exception is thrown if the resource that is to be deleted or deregistered
-        /// cannot be found.
+        /// The specified object could not be found. For any operation that depends on the existence
+        /// of a scalable target, this exception is thrown if the scalable target with the specified
+        /// service namespace, resource ID, and scalable dimension does not exist. For any operation
+        /// that deletes or deregisters a resource, this exception is thrown if the resource cannot
+        /// be found.
         /// </exception>
         /// <exception cref="Amazon.ApplicationAutoScaling.Model.ValidationException">
         /// An exception was thrown for a validation issue. Review the available parameters for
@@ -702,21 +828,101 @@ namespace Amazon.ApplicationAutoScaling
 
         #endregion
         
+        #region  PutScheduledAction
+
+
+        /// <summary>
+        /// Creates or updates a scheduled action for an Application Auto Scaling scalable target.
+        /// 
+        ///  
+        /// <para>
+        /// Each scalable target is identified by a service namespace, resource ID, and scalable
+        /// dimension. A scheduled action applies to the scalable target identified by those three
+        /// attributes. You cannot create a scheduled action until you register the scalable target
+        /// using <a>RegisterScalableTarget</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// To update an action, specify its name and the parameters that you want to change.
+        /// If you don't specify start and end times, the old values are deleted. Any other parameters
+        /// that you don't specify are not changed by this update request.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can view the scheduled actions using <a>DescribeScheduledActions</a>. If you are
+        /// no longer using a scheduled action, you can delete it using <a>DeleteScheduledAction</a>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the PutScheduledAction service method.</param>
+        /// 
+        /// <returns>The response from the PutScheduledAction service method, as returned by ApplicationAutoScaling.</returns>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.ConcurrentUpdateException">
+        /// Concurrent updates caused an exception, for example, if you request an update to an
+        /// Application Auto Scaling resource that already has a pending update.
+        /// </exception>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.InternalServiceException">
+        /// The service encountered an internal error.
+        /// </exception>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.LimitExceededException">
+        /// A per-account resource limit is exceeded. For more information, see <a href="http://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html">Application
+        /// Auto Scaling Limits</a>.
+        /// </exception>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.ObjectNotFoundException">
+        /// The specified object could not be found. For any operation that depends on the existence
+        /// of a scalable target, this exception is thrown if the scalable target with the specified
+        /// service namespace, resource ID, and scalable dimension does not exist. For any operation
+        /// that deletes or deregisters a resource, this exception is thrown if the resource cannot
+        /// be found.
+        /// </exception>
+        /// <exception cref="Amazon.ApplicationAutoScaling.Model.ValidationException">
+        /// An exception was thrown for a validation issue. Review the available parameters for
+        /// the API request.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/application-autoscaling-2016-02-06/PutScheduledAction">REST API Reference for PutScheduledAction Operation</seealso>
+        public virtual PutScheduledActionResponse PutScheduledAction(PutScheduledActionRequest request)
+        {
+            var marshaller = new PutScheduledActionRequestMarshaller();
+            var unmarshaller = PutScheduledActionResponseUnmarshaller.Instance;
+
+            return Invoke<PutScheduledActionRequest,PutScheduledActionResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the PutScheduledAction operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the PutScheduledAction operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/application-autoscaling-2016-02-06/PutScheduledAction">REST API Reference for PutScheduledAction Operation</seealso>
+        public virtual Task<PutScheduledActionResponse> PutScheduledActionAsync(PutScheduledActionRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new PutScheduledActionRequestMarshaller();
+            var unmarshaller = PutScheduledActionResponseUnmarshaller.Instance;
+
+            return InvokeAsync<PutScheduledActionRequest,PutScheduledActionResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  RegisterScalableTarget
 
 
         /// <summary>
         /// Registers or updates a scalable target. A scalable target is a resource that Application
         /// Auto Scaling can scale out or scale in. After you have registered a scalable target,
-        /// you can use this operation to update the minimum and maximum values for your scalable
+        /// you can use this operation to update the minimum and maximum values for its scalable
         /// dimension.
         /// 
         ///  
         /// <para>
         /// After you register a scalable target, you can create and apply scaling policies using
         /// <a>PutScalingPolicy</a>. You can view the scaling policies for a service namespace
-        /// using <a>DescribeScalableTargets</a>. If you are no longer using a scalable target,
-        /// you can deregister it using <a>DeregisterScalableTarget</a>.
+        /// using <a>DescribeScalableTargets</a>. If you no longer need a scalable target, you
+        /// can deregister it using <a>DeregisterScalableTarget</a>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterScalableTarget service method.</param>
@@ -730,8 +936,7 @@ namespace Amazon.ApplicationAutoScaling
         /// The service encountered an internal error.
         /// </exception>
         /// <exception cref="Amazon.ApplicationAutoScaling.Model.LimitExceededException">
-        /// Your account exceeded a limit. This exception is thrown when a per-account resource
-        /// limit is exceeded. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_as-app">Application
+        /// A per-account resource limit is exceeded. For more information, see <a href="http://docs.aws.amazon.com/ApplicationAutoScaling/latest/userguide/application-auto-scaling-limits.html">Application
         /// Auto Scaling Limits</a>.
         /// </exception>
         /// <exception cref="Amazon.ApplicationAutoScaling.Model.ValidationException">

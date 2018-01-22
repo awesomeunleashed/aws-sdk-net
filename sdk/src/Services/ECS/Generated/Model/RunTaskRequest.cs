@@ -36,22 +36,52 @@ namespace Amazon.ECS.Model
     /// You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS
     /// places tasks using placement constraints and placement strategies. For more information,
     /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
-    /// Tasks</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+    /// Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para>
     ///  
     /// <para>
     /// Alternatively, you can use <a>StartTask</a> to use your own scheduler or place tasks
     /// manually on specific container instances.
     /// </para>
+    ///  
+    /// <para>
+    /// The Amazon ECS API follows an eventual consistency model, due to the distributed nature
+    /// of the system supporting the API. This means that the result of an API command you
+    /// run that affects your Amazon ECS resources might not be immediately visible to all
+    /// subsequent commands you run. You should keep this in mind when you carry out an API
+    /// command that immediately follows a previous API command.
+    /// </para>
+    ///  
+    /// <para>
+    /// To manage eventual consistency, you can do the following:
+    /// </para>
+    ///  <ul> <li> 
+    /// <para>
+    /// Confirm the state of the resource before you run a command to modify it. Run the DescribeTasks
+    /// command using an exponential backoff algorithm to ensure that you allow enough time
+    /// for the previous command to propagate through the system. To do this, run the DescribeTasks
+    /// command repeatedly, starting with a couple of seconds of wait time, and increasing
+    /// gradually up to five minutes of wait time.
+    /// </para>
+    ///  </li> <li> 
+    /// <para>
+    /// Add wait time between subsequent commands, even if the DescribeTasks command returns
+    /// an accurate response. Apply an exponential backoff algorithm starting with a couple
+    /// of seconds of wait time, and increase gradually up to about five minutes of wait time.
+    /// </para>
+    ///  </li> </ul>
     /// </summary>
     public partial class RunTaskRequest : AmazonECSRequest
     {
         private string _cluster;
         private int? _count;
         private string _group;
+        private LaunchType _launchType;
+        private NetworkConfiguration _networkConfiguration;
         private TaskOverride _overrides;
         private List<PlacementConstraint> _placementConstraints = new List<PlacementConstraint>();
         private List<PlacementStrategy> _placementStrategy = new List<PlacementStrategy>();
+        private string _platformVersion;
         private string _startedBy;
         private string _taskDefinition;
 
@@ -113,6 +143,46 @@ namespace Amazon.ECS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property LaunchType. 
+        /// <para>
+        /// The launch type on which to run your task.
+        /// </para>
+        /// </summary>
+        public LaunchType LaunchType
+        {
+            get { return this._launchType; }
+            set { this._launchType = value; }
+        }
+
+        // Check to see if LaunchType property is set
+        internal bool IsSetLaunchType()
+        {
+            return this._launchType != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property NetworkConfiguration. 
+        /// <para>
+        /// The network configuration for the task. This parameter is required for task definitions
+        /// that use the <code>awsvpc</code> network mode to receive their own Elastic Network
+        /// Interface, and it is not supported for other network modes. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
+        /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        public NetworkConfiguration NetworkConfiguration
+        {
+            get { return this._networkConfiguration; }
+            set { this._networkConfiguration = value; }
+        }
+
+        // Check to see if NetworkConfiguration property is set
+        internal bool IsSetNetworkConfiguration()
+        {
+            return this._networkConfiguration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Overrides. 
         /// <para>
         /// A list of container overrides in JSON format that specify the name of a container
@@ -164,7 +234,7 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property PlacementStrategy. 
         /// <para>
-        /// The placement strategy objects to use for the task. You can specify a maximum of 5
+        /// The placement strategy objects to use for the task. You can specify a maximum of five
         /// strategy rules per task.
         /// </para>
         /// </summary>
@@ -178,6 +248,25 @@ namespace Amazon.ECS.Model
         internal bool IsSetPlacementStrategy()
         {
             return this._placementStrategy != null && this._placementStrategy.Count > 0; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property PlatformVersion. 
+        /// <para>
+        /// The platform version on which to run your task. If one is not specified, the latest
+        /// version is used by default.
+        /// </para>
+        /// </summary>
+        public string PlatformVersion
+        {
+            get { return this._platformVersion; }
+            set { this._platformVersion = value; }
+        }
+
+        // Check to see if PlatformVersion property is set
+        internal bool IsSetPlatformVersion()
+        {
+            return this._platformVersion != null;
         }
 
         /// <summary>
@@ -212,8 +301,8 @@ namespace Amazon.ECS.Model
         /// Gets and sets the property TaskDefinition. 
         /// <para>
         /// The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full Amazon Resource Name (ARN) of the task definition to run. If a <code>revision</code>
-        /// is not specified, the latest <code>ACTIVE</code> revision is used.
+        /// full ARN of the task definition to run. If a <code>revision</code> is not specified,
+        /// the latest <code>ACTIVE</code> revision is used.
         /// </para>
         /// </summary>
         public string TaskDefinition

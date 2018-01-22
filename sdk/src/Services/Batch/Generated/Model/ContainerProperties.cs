@@ -79,10 +79,15 @@ namespace Amazon.Batch.Model
         /// </para>
         ///  <important> 
         /// <para>
-        /// We do not recommend using plain text environment variables for sensitive information,
+        /// We do not recommend using plaintext environment variables for sensitive information,
         /// such as credential data.
         /// </para>
-        ///  </important>
+        ///  </important> <note> 
+        /// <para>
+        /// Environment variables must not start with <code>AWS_BATCH</code>; this naming convention
+        /// is reserved for variables that are set by the AWS Batch service.
+        /// </para>
+        ///  </note>
         /// </summary>
         public List<KeyValuePair> Environment
         {
@@ -303,7 +308,7 @@ namespace Amazon.Batch.Model
         /// in the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/">Docker
         /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least 1
+        /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one
         /// vCPU.
         /// </para>
         /// </summary>

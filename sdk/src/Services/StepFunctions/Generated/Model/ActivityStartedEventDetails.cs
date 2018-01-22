@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.StepFunctions.Model
 {
     /// <summary>
-    /// 
+    /// Contains details about the start of an activity during an execution.
     /// </summary>
     public partial class ActivityStartedEventDetails
     {
@@ -37,8 +37,8 @@ namespace Amazon.StepFunctions.Model
         /// <summary>
         /// Gets and sets the property WorkerName. 
         /// <para>
-        /// The name of the worker that the task was assigned to. These names are provided by
-        /// the workers when calling <a>GetActivityTask</a>.
+        /// The name of the worker that the task is assigned to. These names are provided by the
+        /// workers when calling <a>GetActivityTask</a>.
         /// </para>
         /// </summary>
         public string WorkerName

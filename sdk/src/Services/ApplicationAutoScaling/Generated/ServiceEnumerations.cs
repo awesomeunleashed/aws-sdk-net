@@ -201,6 +201,10 @@ namespace Amazon.ApplicationAutoScaling
     {
 
         /// <summary>
+        /// Constant ALBRequestCountPerTarget for MetricType
+        /// </summary>
+        public static readonly MetricType ALBRequestCountPerTarget = new MetricType("ALBRequestCountPerTarget");
+        /// <summary>
         /// Constant DynamoDBReadCapacityUtilization for MetricType
         /// </summary>
         public static readonly MetricType DynamoDBReadCapacityUtilization = new MetricType("DynamoDBReadCapacityUtilization");
@@ -208,6 +212,34 @@ namespace Amazon.ApplicationAutoScaling
         /// Constant DynamoDBWriteCapacityUtilization for MetricType
         /// </summary>
         public static readonly MetricType DynamoDBWriteCapacityUtilization = new MetricType("DynamoDBWriteCapacityUtilization");
+        /// <summary>
+        /// Constant EC2SpotFleetRequestAverageCPUUtilization for MetricType
+        /// </summary>
+        public static readonly MetricType EC2SpotFleetRequestAverageCPUUtilization = new MetricType("EC2SpotFleetRequestAverageCPUUtilization");
+        /// <summary>
+        /// Constant EC2SpotFleetRequestAverageNetworkIn for MetricType
+        /// </summary>
+        public static readonly MetricType EC2SpotFleetRequestAverageNetworkIn = new MetricType("EC2SpotFleetRequestAverageNetworkIn");
+        /// <summary>
+        /// Constant EC2SpotFleetRequestAverageNetworkOut for MetricType
+        /// </summary>
+        public static readonly MetricType EC2SpotFleetRequestAverageNetworkOut = new MetricType("EC2SpotFleetRequestAverageNetworkOut");
+        /// <summary>
+        /// Constant ECSServiceAverageCPUUtilization for MetricType
+        /// </summary>
+        public static readonly MetricType ECSServiceAverageCPUUtilization = new MetricType("ECSServiceAverageCPUUtilization");
+        /// <summary>
+        /// Constant ECSServiceAverageMemoryUtilization for MetricType
+        /// </summary>
+        public static readonly MetricType ECSServiceAverageMemoryUtilization = new MetricType("ECSServiceAverageMemoryUtilization");
+        /// <summary>
+        /// Constant RDSReaderAverageCPUUtilization for MetricType
+        /// </summary>
+        public static readonly MetricType RDSReaderAverageCPUUtilization = new MetricType("RDSReaderAverageCPUUtilization");
+        /// <summary>
+        /// Constant RDSReaderAverageDatabaseConnections for MetricType
+        /// </summary>
+        public static readonly MetricType RDSReaderAverageDatabaseConnections = new MetricType("RDSReaderAverageDatabaseConnections");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -332,6 +364,10 @@ namespace Amazon.ApplicationAutoScaling
         /// Constant ElasticmapreduceInstancegroupInstanceCount for ScalableDimension
         /// </summary>
         public static readonly ScalableDimension ElasticmapreduceInstancegroupInstanceCount = new ScalableDimension("elasticmapreduce:instancegroup:InstanceCount");
+        /// <summary>
+        /// Constant RdsClusterReadReplicaCount for ScalableDimension
+        /// </summary>
+        public static readonly ScalableDimension RdsClusterReadReplicaCount = new ScalableDimension("rds:cluster:ReadReplicaCount");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant
@@ -460,6 +496,10 @@ namespace Amazon.ApplicationAutoScaling
         /// Constant Elasticmapreduce for ServiceNamespace
         /// </summary>
         public static readonly ServiceNamespace Elasticmapreduce = new ServiceNamespace("elasticmapreduce");
+        /// <summary>
+        /// Constant Rds for ServiceNamespace
+        /// </summary>
+        public static readonly ServiceNamespace Rds = new ServiceNamespace("rds");
 
         /// <summary>
         /// This constant constructor does not need to be called if the constant

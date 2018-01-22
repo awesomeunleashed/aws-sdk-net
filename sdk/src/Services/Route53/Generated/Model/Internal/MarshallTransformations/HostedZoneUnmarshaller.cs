@@ -85,6 +85,12 @@ namespace Amazon.Route53.Model.Internal.MarshallTransformations
                         unmarshalledObject.ResourceRecordSetCount = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("LinkedService", targetDepth))
+                    {
+                        var unmarshaller = LinkedServiceUnmarshaller.Instance;
+                        unmarshalledObject.LinkedService = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                 }
                 else if (context.IsEndElement && context.CurrentDepth < originalDepth)
                 {

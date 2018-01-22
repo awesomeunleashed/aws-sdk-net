@@ -353,6 +353,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.InvalidSubnetException">
         /// The specified subnet is out of available addresses.
         /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.OperationNotPermittedException">
+        /// This operation is not allowed.
+        /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.ResourceInUseException">
         /// A specified resource is in use.
         /// </exception>
@@ -578,6 +581,9 @@ namespace Amazon.ElasticLoadBalancingV2
         /// </exception>
         /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.OperationNotPermittedException">
         /// This operation is not allowed.
+        /// </exception>
+        /// <exception cref="Amazon.ElasticLoadBalancingV2.Model.ResourceInUseException">
+        /// A specified resource is in use.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/elasticloadbalancingv2-2015-12-01/DeleteLoadBalancer">REST API Reference for DeleteLoadBalancer Operation</seealso>
         DeleteLoadBalancerResponse DeleteLoadBalancer(DeleteLoadBalancerRequest request);

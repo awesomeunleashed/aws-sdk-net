@@ -82,6 +82,12 @@ namespace Amazon.KinesisAnalytics.Model.Internal.MarshallTransformations
                     unmarshalledObject.KinesisStreamsOutputDescription = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("LambdaOutputDescription", targetDepth))
+                {
+                    var unmarshaller = LambdaOutputDescriptionUnmarshaller.Instance;
+                    unmarshalledObject.LambdaOutputDescription = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Name", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

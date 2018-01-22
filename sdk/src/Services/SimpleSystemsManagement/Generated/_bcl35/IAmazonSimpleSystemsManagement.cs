@@ -29,20 +29,20 @@ namespace Amazon.SimpleSystemsManagement
     /// <summary>
     /// Interface for accessing SimpleSystemsManagement
     ///
-    /// Amazon EC2 Systems Manager 
+    /// AWS Systems Manager 
     /// <para>
-    /// Amazon EC2 Systems Manager is a collection of capabilities that helps you automate
-    /// management tasks such as collecting system inventory, applying operating system (OS)
-    /// patches, automating the creation of Amazon Machine Images (AMIs), and configuring
-    /// operating systems (OSs) and applications at scale. Systems Manager lets you remotely
-    /// and securely manage the configuration of your managed instances. A <i>managed instance</i>
-    /// is any Amazon EC2 instance or on-premises machine in your hybrid environment that
-    /// has been configured for Systems Manager.
+    /// AWS Systems Manager is a collection of capabilities that helps you automate management
+    /// tasks such as collecting system inventory, applying operating system (OS) patches,
+    /// automating the creation of Amazon Machine Images (AMIs), and configuring operating
+    /// systems (OSs) and applications at scale. Systems Manager lets you remotely and securely
+    /// manage the configuration of your managed instances. A <i>managed instance</i> is any
+    /// Amazon EC2 instance or on-premises machine in your hybrid environment that has been
+    /// configured for Systems Manager.
     /// </para>
     ///  
     /// <para>
-    /// This reference is intended to be used with the <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/">Amazon
-    /// EC2 Systems Manager User Guide</a>.
+    /// This reference is intended to be used with the <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/">AWS
+    /// Systems Manager User Guide</a>.
     /// </para>
     ///  
     /// <para>
@@ -77,7 +77,7 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         ///  
         /// <para>
-        /// Each resource can have a maximum of 10 tags. 
+        /// Each resource can have a maximum of 50 tags. 
         /// </para>
         ///  
         /// <para>
@@ -661,7 +661,7 @@ namespace Amazon.SimpleSystemsManagement
         /// or more running instances.
         /// </para>
         /// </summary>
-        /// <param name="content">A valid JSON string.</param>
+        /// <param name="content">A valid JSON or YAML string.</param>
         /// <param name="name">A name for the Systems Manager document.</param>
         /// 
         /// <returns>The response from the CreateDocument service method, as returned by SimpleSystemsManagement.</returns>
@@ -764,8 +764,14 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourceLimitExceededException">
-        /// Error returned when the caller has exceeded the default resource limits (e.g. too
-        /// many Maintenance Windows have been created).
+        /// Error returned when the caller has exceeded the default resource limits. For example,
+        /// too many Maintenance Windows or Patch baselines have been created.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreateMaintenanceWindow">REST API Reference for CreateMaintenanceWindow Operation</seealso>
         CreateMaintenanceWindowResponse CreateMaintenanceWindow(CreateMaintenanceWindowRequest request);
@@ -803,6 +809,13 @@ namespace Amazon.SimpleSystemsManagement
 
         /// <summary>
         /// Creates a patch baseline.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// For information about valid key and value pairs in <code>PatchFilters</code> for each
+        /// supported operating system type, see <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">PatchFilter</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePatchBaseline service method.</param>
         /// 
@@ -815,8 +828,14 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourceLimitExceededException">
-        /// Error returned when the caller has exceeded the default resource limits (e.g. too
-        /// many Maintenance Windows have been created).
+        /// Error returned when the caller has exceeded the default resource limits. For example,
+        /// too many Maintenance Windows or Patch baselines have been created.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/CreatePatchBaseline">REST API Reference for CreatePatchBaseline Operation</seealso>
         CreatePatchBaselineResponse CreatePatchBaseline(CreatePatchBaselineRequest request);
@@ -856,8 +875,7 @@ namespace Amazon.SimpleSystemsManagement
         /// Creates a resource data sync configuration to a single bucket in Amazon S3. This is
         /// an asynchronous operation that returns immediately. After a successful initial sync
         /// is completed, the system continuously syncs data to the Amazon S3 bucket. To check
-        /// the status of the sync, use the <a href="API_ListResourceDataSync.html">ListResourceDataSync</a>
-        /// operation.
+        /// the status of the sync, use the <a>ListResourceDataSync</a>.
         /// 
         ///  
         /// <para>
@@ -1551,8 +1569,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the DeregisterTargetFromMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -1602,8 +1626,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the DeregisterTaskFromMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -1694,7 +1724,11 @@ namespace Amazon.SimpleSystemsManagement
 
 
         /// <summary>
-        /// Describes the associations for the specified Systems Manager document or instance.
+        /// Describes the association for the specified target or instance. If you created the
+        /// association by using the <code>Targets</code> parameter, then you must retrieve the
+        /// association by using the association ID. If you created the association by specifying
+        /// an instance ID and a Systems Manager document, then you retrieve the association by
+        /// specifying the document name and the instance ID.
         /// </summary>
         /// <param name="instanceId">The instance ID.</param>
         /// <param name="name">The name of the Systems Manager document.</param>
@@ -1742,7 +1776,11 @@ namespace Amazon.SimpleSystemsManagement
         DescribeAssociationResponse DescribeAssociation(string instanceId, string name);
 
         /// <summary>
-        /// Describes the associations for the specified Systems Manager document or instance.
+        /// Describes the association for the specified target or instance. If you created the
+        /// association by using the <code>Targets</code> parameter, then you must retrieve the
+        /// association by using the association ID. If you created the association by specifying
+        /// an instance ID and a Systems Manager document, then you retrieve the association by
+        /// specifying the document name and the instance ID.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAssociation service method.</param>
         /// 
@@ -1828,6 +1866,12 @@ namespace Amazon.SimpleSystemsManagement
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
         /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
+        /// The specified key is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterValueException">
+        /// The filter value is not valid. Verify the value and try again.
+        /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidNextTokenException">
         /// The specified token is not valid.
         /// </exception>
@@ -1859,6 +1903,62 @@ namespace Amazon.SimpleSystemsManagement
         /// <returns>Returns a  DescribeAutomationExecutionsResult from SimpleSystemsManagement.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAutomationExecutions">REST API Reference for DescribeAutomationExecutions Operation</seealso>
         DescribeAutomationExecutionsResponse EndDescribeAutomationExecutions(IAsyncResult asyncResult);
+
+        #endregion
+        
+        #region  DescribeAutomationStepExecutions
+
+
+        /// <summary>
+        /// Information about all active and terminated step executions in an Automation workflow.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeAutomationStepExecutions service method.</param>
+        /// 
+        /// <returns>The response from the DescribeAutomationStepExecutions service method, as returned by SimpleSystemsManagement.</returns>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.AutomationExecutionNotFoundException">
+        /// There is no automation execution information for the requested automation execution
+        /// ID.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
+        /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterKeyException">
+        /// The specified key is not valid.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidFilterValueException">
+        /// The filter value is not valid. Verify the value and try again.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidNextTokenException">
+        /// The specified token is not valid.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAutomationStepExecutions">REST API Reference for DescribeAutomationStepExecutions Operation</seealso>
+        DescribeAutomationStepExecutionsResponse DescribeAutomationStepExecutions(DescribeAutomationStepExecutionsRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeAutomationStepExecutions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeAutomationStepExecutions operation on AmazonSimpleSystemsManagementClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndDescribeAutomationStepExecutions
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAutomationStepExecutions">REST API Reference for DescribeAutomationStepExecutions Operation</seealso>
+        IAsyncResult BeginDescribeAutomationStepExecutions(DescribeAutomationStepExecutionsRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  DescribeAutomationStepExecutions operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginDescribeAutomationStepExecutions.</param>
+        /// 
+        /// <returns>Returns a  DescribeAutomationStepExecutionsResult from SimpleSystemsManagement.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/DescribeAutomationStepExecutions">REST API Reference for DescribeAutomationStepExecutions Operation</seealso>
+        DescribeAutomationStepExecutionsResponse EndDescribeAutomationStepExecutions(IAsyncResult asyncResult);
 
         #endregion
         
@@ -2105,8 +2205,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the DescribeEffectivePatchesForPatchBaseline service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -2575,8 +2681,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the DescribeMaintenanceWindowExecutionTaskInvocations service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -2622,8 +2734,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the DescribeMaintenanceWindowExecutionTasks service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -2712,8 +2830,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the DescribeMaintenanceWindowTargets service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -2759,8 +2883,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the DescribeMaintenanceWindowTasks service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -3395,8 +3525,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the GetMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -3442,8 +3578,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the GetMaintenanceWindowExecution service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -3490,8 +3632,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the GetMaintenanceWindowExecutionTask service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -3538,8 +3686,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the GetMaintenanceWindowExecutionTaskInvocation service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -3585,8 +3739,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the GetMaintenanceWindowTask service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -3790,6 +3950,11 @@ namespace Amazon.SimpleSystemsManagement
         /// You can specify the <code>NextToken</code> in a subsequent call to get the next set
         /// of results.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// This API action doesn't support filtering by tags. 
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetParametersByPath service method.</param>
         /// 
@@ -3854,8 +4019,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the GetPatchBaseline service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -4902,6 +5073,76 @@ namespace Amazon.SimpleSystemsManagement
         /// This action lets you register custom compliance details with a resource. This call
         /// overwrites existing compliance information on the resource, so you must provide a
         /// full list of compliance items each time that you send the request.
+        /// 
+        ///  
+        /// <para>
+        /// ComplianceType can be one of the following:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// ExecutionId: The execution ID when the patch, association, or custom compliance item
+        /// was applied.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// ExecutionType: Specify patch, association, or Custom:<code>string</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// ExecutionTime. The time the patch, association, or custom compliance item was applied
+        /// to the instance.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Id: The patch, association, or custom compliance ID.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Title: A title.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Status: The status of the compliance item. For example, <code>approved</code> for
+        /// patches, or <code>Failed</code> for associations.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Severity: A patch severity. For example, <code>critical</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DocumentName: A SSM document name. For example, AWS-RunPatchBaseline.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// DocumentVersion: An SSM document version number. For example, 4.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Classification: A patch classification. For example, <code>security updates</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// PatchBaselineId: A patch baseline ID.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// PatchSeverity: A patch severity. For example, <code>Critical</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// PatchState: A patch state. For example, <code>InstancesWithFailedPatches</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// PatchGroup: The name of a patch group.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// InstalledTime: The time the association, patch, or custom compliance item was applied
+        /// to the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutComplianceItems service method.</param>
         /// 
@@ -5073,17 +5314,8 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the PutParameter service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.HierarchyLevelLimitExceededException">
-        /// A hierarchy can have a maximum of five levels. For example:
-        /// 
-        ///  
-        /// <para>
-        /// /Finance/Prod/IAD/OS/WinServ2016/license15
-        /// </para>
-        ///  
-        /// <para>
-        /// For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html">Working
-        /// with Systems Manager Parameters</a>. 
-        /// </para>
+        /// A hierarchy can have a maximum of 15 levels. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html">Working
+        /// with Systems Manager Parameters</a>.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.HierarchyTypeMismatchException">
         /// Parameter Store does not support changing a parameter type in a hierarchy. For example,
@@ -5159,8 +5391,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the RegisterDefaultPatchBaseline service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -5213,8 +5451,14 @@ namespace Amazon.SimpleSystemsManagement
         /// that is already registered with a different patch baseline.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -5223,8 +5467,14 @@ namespace Amazon.SimpleSystemsManagement
         /// The resource ID is not valid. Verify that you entered the correct ID and try again.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourceLimitExceededException">
-        /// Error returned when the caller has exceeded the default resource limits (e.g. too
-        /// many Maintenance Windows have been created).
+        /// Error returned when the caller has exceeded the default resource limits. For example,
+        /// too many Maintenance Windows or Patch baselines have been created.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RegisterPatchBaselineForPatchGroup">REST API Reference for RegisterPatchBaselineForPatchGroup Operation</seealso>
         RegisterPatchBaselineForPatchGroupResponse RegisterPatchBaselineForPatchGroup(RegisterPatchBaselineForPatchGroupRequest request);
@@ -5267,8 +5517,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the RegisterTargetWithMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.IdempotentParameterMismatchException">
         /// Error returned when an idempotent operation is retried and the parameters don't match
@@ -5278,8 +5534,14 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourceLimitExceededException">
-        /// Error returned when the caller has exceeded the default resource limits (e.g. too
-        /// many Maintenance Windows have been created).
+        /// Error returned when the caller has exceeded the default resource limits. For example,
+        /// too many Maintenance Windows or Patch baselines have been created.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RegisterTargetWithMaintenanceWindow">REST API Reference for RegisterTargetWithMaintenanceWindow Operation</seealso>
         RegisterTargetWithMaintenanceWindowResponse RegisterTargetWithMaintenanceWindow(RegisterTargetWithMaintenanceWindowRequest request);
@@ -5322,8 +5584,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the RegisterTaskWithMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.FeatureNotAvailableException">
         /// You attempted to register a LAMBDA or STEP_FUNCTION task in a region where the corresponding
@@ -5337,8 +5605,14 @@ namespace Amazon.SimpleSystemsManagement
         /// An error occurred on the server side.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.ResourceLimitExceededException">
-        /// Error returned when the caller has exceeded the default resource limits (e.g. too
-        /// many Maintenance Windows have been created).
+        /// Error returned when the caller has exceeded the default resource limits. For example,
+        /// too many Maintenance Windows or Patch baselines have been created.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/RegisterTaskWithMaintenanceWindow">REST API Reference for RegisterTaskWithMaintenanceWindow Operation</seealso>
         RegisterTaskWithMaintenanceWindowResponse RegisterTaskWithMaintenanceWindow(RegisterTaskWithMaintenanceWindowRequest request);
@@ -5435,6 +5709,10 @@ namespace Amazon.SimpleSystemsManagement
         /// There is no automation execution information for the requested automation execution
         /// ID.
         /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.AutomationStepNotFoundException">
+        /// The specified step name and execution ID don't exist. Verify the information and try
+        /// again.
+        /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
         /// </exception>
@@ -5530,8 +5808,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The role name can't contain invalid characters. Also verify that you specified an
         /// IAM role for notifications that includes the required trust policy. For information
         /// about configuring the IAM role for Run Command notifications, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring
-        /// Amazon SNS Notifications for Run Command</a> in the <i>Amazon EC2 Systems Manager
-        /// User Guide</i>.
+        /// Amazon SNS Notifications for Run Command</a> in the <i>AWS Systems Manager User Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.MaxDocumentSizeExceededException">
         /// The size limit of a document is 64 KB.
@@ -5597,8 +5874,7 @@ namespace Amazon.SimpleSystemsManagement
         /// The role name can't contain invalid characters. Also verify that you specified an
         /// IAM role for notifications that includes the required trust policy. For information
         /// about configuring the IAM role for Run Command notifications, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring
-        /// Amazon SNS Notifications for Run Command</a> in the <i>Amazon EC2 Systems Manager
-        /// User Guide</i>.
+        /// Amazon SNS Notifications for Run Command</a> in the <i>AWS Systems Manager User Guide</i>.
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.MaxDocumentSizeExceededException">
         /// The size limit of a document is 64 KB.
@@ -5669,6 +5945,10 @@ namespace Amazon.SimpleSystemsManagement
         /// For example, they may not match the set of parameters permitted for the specified
         /// Automation document.
         /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidTargetException">
+        /// The target is not valid or does not exist. It might not be configured for EC2 Systems
+        /// Manager or you might not have permission to perform the operation.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StartAutomationExecution">REST API Reference for StartAutomationExecution Operation</seealso>
         StartAutomationExecutionResponse StartAutomationExecution(StartAutomationExecutionRequest request);
 
@@ -5715,6 +5995,9 @@ namespace Amazon.SimpleSystemsManagement
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
+        /// </exception>
+        /// <exception cref="Amazon.SimpleSystemsManagement.Model.InvalidAutomationStatusUpdateException">
+        /// The specified update status operation is not valid.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ssm-2014-11-06/StopAutomationExecution">REST API Reference for StopAutomationExecution Operation</seealso>
         StopAutomationExecutionResponse StopAutomationExecution(StopAutomationExecutionRequest request);
@@ -6035,8 +6318,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the UpdateMaintenanceWindow service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -6112,8 +6401,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the UpdateMaintenanceWindowTarget service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -6193,8 +6488,14 @@ namespace Amazon.SimpleSystemsManagement
         /// 
         /// <returns>The response from the UpdateMaintenanceWindowTask service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.
@@ -6304,13 +6605,26 @@ namespace Amazon.SimpleSystemsManagement
         /// <summary>
         /// Modifies an existing patch baseline. Fields not specified in the request are left
         /// unchanged.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// For information about valid key and value pairs in <code>PatchFilters</code> for each
+        /// supported operating system type, see <a href="http://docs.aws.amazon.com/systems-manager/latest/APIReference/API_PatchFilter.html">PatchFilter</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdatePatchBaseline service method.</param>
         /// 
         /// <returns>The response from the UpdatePatchBaseline service method, as returned by SimpleSystemsManagement.</returns>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.DoesNotExistException">
-        /// Error returned when the ID specified for a resource (e.g. a Maintenance Window) doesn't
-        /// exist.
+        /// Error returned when the ID specified for a resource, such as a Maintenance Window
+        /// or Patch baseline, doesn't exist.
+        /// 
+        ///  
+        /// <para>
+        /// For information about resource limits in Systems Manager, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_ssm">AWS
+        /// Systems Manager Limits</a>.
+        /// </para>
         /// </exception>
         /// <exception cref="Amazon.SimpleSystemsManagement.Model.InternalServerErrorException">
         /// An error occurred on the server side.

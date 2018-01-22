@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Glue.Model
 {
     /// <summary>
-    /// A classifier that uses <code>grok</code>.
+    /// A classifier that uses <code>grok</code> patterns.
     /// </summary>
     public partial class GrokClassifier
     {
@@ -43,8 +43,8 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property Classification. 
         /// <para>
-        /// The data form that the classifier matches, such as Twitter, JSON, Omniture Logs, and
-        /// so forth.
+        /// An identifier of the data format that the classifier matches, such as Twitter, JSON,
+        /// Omniture logs, and so on.
         /// </para>
         /// </summary>
         public string Classification
@@ -80,7 +80,9 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property CustomPatterns. 
         /// <para>
-        /// Custom grok patterns used by this classifier.
+        /// Optional custom grok patterns defined by this classifier. For more information, see
+        /// custom patterns in <a href="http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing
+        /// Custom Classifers</a>.
         /// </para>
         /// </summary>
         public string CustomPatterns
@@ -98,7 +100,9 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property GrokPattern. 
         /// <para>
-        /// The grok pattern used by this classifier.
+        /// The grok pattern applied to a data store by this classifier. For more information,
+        /// see built-in patterns in <a href="http://docs.aws.amazon.com/glue/latest/dg/custom-classifier.html">Writing
+        /// Custom Classifers</a>.
         /// </para>
         /// </summary>
         public string GrokPattern

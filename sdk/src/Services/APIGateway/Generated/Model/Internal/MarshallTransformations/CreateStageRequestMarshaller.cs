@@ -80,6 +80,17 @@ namespace Amazon.APIGateway.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.CacheClusterSize);
                 }
 
+                if(publicRequest.IsSetCanarySettings())
+                {
+                    context.Writer.WritePropertyName("canarySettings");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = CanarySettingsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.CanarySettings, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetDeploymentId())
                 {
                     context.Writer.WritePropertyName("deploymentId");
@@ -102,6 +113,20 @@ namespace Amazon.APIGateway.Model.Internal.MarshallTransformations
                 {
                     context.Writer.WritePropertyName("stageName");
                     context.Writer.Write(publicRequest.StageName);
+                }
+
+                if(publicRequest.IsSetTags())
+                {
+                    context.Writer.WritePropertyName("tags");
+                    context.Writer.WriteObjectStart();
+                    foreach (var publicRequestTagsKvp in publicRequest.Tags)
+                    {
+                        context.Writer.WritePropertyName(publicRequestTagsKvp.Key);
+                        var publicRequestTagsValue = publicRequestTagsKvp.Value;
+
+                            context.Writer.Write(publicRequestTagsValue);
+                    }
+                    context.Writer.WriteObjectEnd();
                 }
 
                 if(publicRequest.IsSetVariables())

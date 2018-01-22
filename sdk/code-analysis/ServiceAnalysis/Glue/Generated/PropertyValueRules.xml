@@ -46,6 +46,21 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Glue.Model.BatchDeleteTableVersionRequest.CatalogId</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.BatchDeleteTableVersionRequest.DatabaseName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.BatchDeleteTableVersionRequest.TableName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Glue.Model.BatchGetPartitionRequest.CatalogId</property>
     <min>1</min>
     <max>255</max>
@@ -57,6 +72,11 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.BatchGetPartitionRequest.TableName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.BatchStopJobRunRequest.JobName</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>
@@ -74,10 +94,6 @@
     <property>Amazon.Glue.Model.CreateCrawlerRequest.Name</property>
     <min>1</min>
     <max>255</max>
-  </property-value-rule>
-  <property-value-rule>
-    <property>Amazon.Glue.Model.CreateCrawlerRequest.Role</property>
-    <pattern>arn:aws:iam::\d{12}:role/.*</pattern>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.CreateCrawlerRequest.TablePrefix</property>
@@ -229,6 +245,26 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.DeleteTableRequest.Name</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.DeleteTableVersionRequest.CatalogId</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.DeleteTableVersionRequest.DatabaseName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.DeleteTableVersionRequest.TableName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.DeleteTableVersionRequest.VersionId</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>
@@ -438,6 +474,26 @@
     <max>1000</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Glue.Model.GetTableVersionRequest.CatalogId</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.GetTableVersionRequest.DatabaseName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.GetTableVersionRequest.TableName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.GetTableVersionRequest.VersionId</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Glue.Model.GetTableVersionsRequest.CatalogId</property>
     <min>1</min>
     <max>255</max>
@@ -588,10 +644,6 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
-    <property>Amazon.Glue.Model.UpdateCrawlerRequest.Role</property>
-    <pattern>arn:aws:iam::\d{12}:role/.*</pattern>
-  </property-value-rule>
-  <property-value-rule>
     <property>Amazon.Glue.Model.UpdateCrawlerRequest.TablePrefix</property>
     <min>0</min>
     <max>128</max>
@@ -668,6 +720,26 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.Action.JobName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.BatchStopJobRunError.JobName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.BatchStopJobRunError.JobRunId</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.BatchStopJobRunSuccessfulSubmission.JobName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.BatchStopJobRunSuccessfulSubmission.JobRunId</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>
@@ -760,10 +832,6 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
-    <property>Amazon.Glue.Model.Crawler.Role</property>
-    <pattern>arn:aws:iam::\d{12}:role/.*</pattern>
-  </property-value-rule>
-  <property-value-rule>
     <property>Amazon.Glue.Model.Crawler.TablePrefix</property>
     <min>0</min>
     <max>128</max>
@@ -809,6 +877,11 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.CreateGrokClassifierRequest.Name</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.CreateXMLClassifierRequest.Name</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>
@@ -1039,11 +1112,11 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.Table.ViewExpandedText</property>
-    <max>2048</max>
+    <max>409600</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.Table.ViewOriginalText</property>
-    <max>2048</max>
+    <max>409600</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.TableError.TableName</property>
@@ -1075,14 +1148,24 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.TableInput.ViewExpandedText</property>
-    <max>2048</max>
+    <max>409600</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.TableInput.ViewOriginalText</property>
-    <max>2048</max>
+    <max>409600</max>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.TableVersion.VersionId</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.TableVersionError.TableName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.TableVersionError.VersionId</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>
@@ -1127,6 +1210,11 @@
     <max>255</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.Glue.Model.UpdateXMLClassifierRequest.Name</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.Glue.Model.UserDefinedFunction.ClassName</property>
     <min>1</min>
     <max>255</max>
@@ -1153,6 +1241,11 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.Glue.Model.UserDefinedFunctionInput.OwnerName</property>
+    <min>1</min>
+    <max>255</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.Glue.Model.XMLClassifier.Name</property>
     <min>1</min>
     <max>255</max>
   </property-value-rule>

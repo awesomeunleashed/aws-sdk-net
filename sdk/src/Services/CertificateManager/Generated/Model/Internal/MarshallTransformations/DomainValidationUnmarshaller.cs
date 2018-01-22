@@ -70,6 +70,12 @@ namespace Amazon.CertificateManager.Model.Internal.MarshallTransformations
                     unmarshalledObject.DomainName = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("ResourceRecord", targetDepth))
+                {
+                    var unmarshaller = ResourceRecordUnmarshaller.Instance;
+                    unmarshalledObject.ResourceRecord = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("ValidationDomain", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -80,6 +86,12 @@ namespace Amazon.CertificateManager.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = new ListUnmarshaller<string, StringUnmarshaller>(StringUnmarshaller.Instance);
                     unmarshalledObject.ValidationEmails = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("ValidationMethod", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.ValidationMethod = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("ValidationStatus", targetDepth))

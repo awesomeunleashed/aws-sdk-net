@@ -131,8 +131,15 @@ namespace Amazon.S3.Internal
                     headers.Remove(HeaderKeys.XAmzDateHeader);
             }
 
+            IDictionary<string, string> headersAndParameters = new Dictionary<string, string>(headers);
+            foreach (var pair in parameters)
+            {
+                // If there's a key that's both a header and a parameter then the header will take precedence.
+                if (!headersAndParameters.ContainsKey(pair.Key))
+                    headersAndParameters.Add(pair.Key, pair.Value);
+            }
             sb.Append("\n");
-            sb.Append(BuildCanonicalizedHeaders(headers));
+            sb.Append(BuildCanonicalizedHeaders(headersAndParameters));
 
             var canonicalizedResource = BuildCanonicalizedResource(request);
             if (!string.IsNullOrEmpty(canonicalizedResource))

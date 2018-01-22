@@ -29,8 +29,8 @@ namespace Amazon.CloudDirectory.Model
 {
     /// <summary>
     /// Container for the parameters to the ApplySchema operation.
-    /// Copies the input published schema into the <a>Directory</a> with the same name and
-    /// version as that of the published schema .
+    /// Copies the input published schema, at the specified version, into the <a>Directory</a>
+    /// with the same name and version as that of the published schema.
     /// </summary>
     public partial class ApplySchemaRequest : AmazonCloudDirectoryRequest
     {

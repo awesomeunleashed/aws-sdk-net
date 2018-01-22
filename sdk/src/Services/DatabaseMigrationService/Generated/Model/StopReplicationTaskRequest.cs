@@ -38,7 +38,7 @@ namespace Amazon.DatabaseMigrationService.Model
         /// <summary>
         /// Gets and sets the property ReplicationTaskArn. 
         /// <para>
-        /// The Amazon Resource Number(ARN) of the replication task to be stopped.
+        /// The Amazon Resource Name(ARN) of the replication task to be stopped.
         /// </para>
         /// </summary>
         public string ReplicationTaskArn

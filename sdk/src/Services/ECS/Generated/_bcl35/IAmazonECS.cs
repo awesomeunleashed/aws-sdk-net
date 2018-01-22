@@ -29,19 +29,27 @@ namespace Amazon.ECS
     /// <summary>
     /// Interface for accessing ECS
     ///
-    /// Amazon EC2 Container Service (Amazon ECS) is a highly scalable, fast, container management
-    /// service that makes it easy to run, stop, and manage Docker containers on a cluster
-    /// of EC2 instances. Amazon ECS lets you launch and stop container-enabled applications
-    /// with simple API calls, allows you to get the state of your cluster from a centralized
-    /// service, and gives you access to many familiar Amazon EC2 features like security groups,
-    /// Amazon EBS volumes, and IAM roles.
+    /// Amazon Elastic Container Service (Amazon ECS) is a highly scalable, fast, container
+    /// management service that makes it easy to run, stop, and manage Docker containers on
+    /// a cluster. You can host your cluster on a serverless infrastructure that is managed
+    /// by Amazon ECS by launching your services or tasks using the Fargate launch type. For
+    /// more control, you can host your tasks on a cluster of Amazon Elastic Compute Cloud
+    /// (Amazon EC2) instances that you manage by using the EC2 launch type. For more information
+    /// about launch types, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/launch_types.html">Amazon
+    /// ECS Launch Types</a>.
     /// 
+    ///  
+    /// <para>
+    /// Amazon ECS lets you launch and stop container-based applications with simple API calls,
+    /// allows you to get the state of your cluster from a centralized service, and gives
+    /// you access to many familiar Amazon EC2 features.
+    /// </para>
     ///  
     /// <para>
     /// You can use Amazon ECS to schedule the placement of containers across your cluster
     /// based on your resource needs, isolation policies, and availability requirements. Amazon
-    /// EC2 Container Service eliminates the need for you to operate your own cluster management
-    /// and configuration management systems or worry about scaling your management infrastructure.
+    /// ECS eliminates the need for you to operate your own cluster management and configuration
+    /// management systems or worry about scaling your management infrastructure.
     /// </para>
     /// </summary>
     public partial interface IAmazonECS : IAmazonService, IDisposable
@@ -55,13 +63,25 @@ namespace Amazon.ECS
         /// Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code>
         /// cluster when you launch your first container instance. However, you can create your
         /// own cluster with a unique name with the <code>CreateCluster</code> action.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to create
+        /// the service-linked role for your account so that required resources in other AWS services
+        /// can be managed on your behalf. However, if the IAM user that makes the call does not
+        /// have permissions to create the service-linked role, it is not created. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+        /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
+        /// Developer Guide</i>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateCluster service method.</param>
         /// 
         /// <returns>The response from the CreateCluster service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
@@ -115,14 +135,15 @@ namespace Amazon.ECS
         /// In addition to maintaining the desired count of tasks in your service, you can optionally
         /// run your service behind a load balancer. The load balancer distributes traffic across
         /// the tasks that are associated with the service. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
-        /// Load Balancing</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+        /// Load Balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         ///  
         /// <para>
-        /// You can optionally specify a deployment configuration for your service. During a deployment
-        /// (which is triggered by changing the task definition or the desired count of a service
-        /// with an <a>UpdateService</a> operation), the service scheduler uses the <code>minimumHealthyPercent</code>
-        /// and <code>maximumPercent</code> parameters to determine the deployment strategy.
+        /// You can optionally specify a deployment configuration for your service. During a deployment,
+        /// the service scheduler uses the <code>minimumHealthyPercent</code> and <code>maximumPercent</code>
+        /// parameters to determine the deployment strategy. The deployment is triggered by changing
+        /// the task definition or the desired count of a service with an <a>UpdateService</a>
+        /// operation.
         /// </para>
         ///  
         /// <para>
@@ -185,9 +206,12 @@ namespace Amazon.ECS
         /// <param name="request">Container for the necessary parameters to execute the CreateService service method.</param>
         /// 
         /// <returns>The response from the CreateService service method, as returned by ECS.</returns>
+        /// <exception cref="Amazon.ECS.Model.AccessDeniedException">
+        /// You do not have authorization to perform the requested action.
+        /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -197,8 +221,17 @@ namespace Amazon.ECS
         /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
         /// The specified parameter is invalid. Review the available parameters for the API request.
         /// </exception>
+        /// <exception cref="Amazon.ECS.Model.PlatformTaskDefinitionIncompatibilityException">
+        /// The specified platform version does not satisfy the task definition’s required capabilities.
+        /// </exception>
+        /// <exception cref="Amazon.ECS.Model.PlatformUnknownException">
+        /// The specified platform version does not exist.
+        /// </exception>
         /// <exception cref="Amazon.ECS.Model.ServerException">
         /// These errors are usually caused by a server issue.
+        /// </exception>
+        /// <exception cref="Amazon.ECS.Model.UnsupportedFeatureException">
+        /// The specified task is not supported in this region.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/CreateService">REST API Reference for CreateService Operation</seealso>
         CreateServiceResponse CreateService(CreateServiceRequest request);
@@ -296,7 +329,7 @@ namespace Amazon.ECS
         /// <returns>The response from the DeleteCluster service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterContainsContainerInstancesException">
@@ -308,6 +341,9 @@ namespace Amazon.ECS
         /// You cannot delete a cluster that contains services. You must first update the service
         /// to reduce its desired task count to 0 and then delete the service. For more information,
         /// see <a>UpdateService</a> and <a>DeleteService</a>.
+        /// </exception>
+        /// <exception cref="Amazon.ECS.Model.ClusterContainsTasksException">
+        /// You cannot delete a cluster that has active tasks.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
         /// The specified cluster could not be found. You can view your available clusters with
@@ -366,10 +402,10 @@ namespace Amazon.ECS
         /// service is no longer visible in the console or in <a>ListServices</a> API operations.
         /// After the tasks have stopped, then the service status moves from <code>DRAINING</code>
         /// to <code>INACTIVE</code>. Services in the <code>DRAINING</code> or <code>INACTIVE</code>
-        /// status can still be viewed with <a>DescribeServices</a> API operations; however, in
+        /// status can still be viewed with <a>DescribeServices</a> API operations. However, in
         /// the future, <code>INACTIVE</code> services may be cleaned up and purged from Amazon
-        /// ECS record keeping, and <a>DescribeServices</a> API operations on those services will
-        /// return a <code>ServiceNotFoundException</code> error.
+        /// ECS record keeping, and <a>DescribeServices</a> API operations on those services return
+        /// a <code>ServiceNotFoundException</code> error.
         /// </para>
         ///  </note>
         /// </summary>
@@ -378,7 +414,7 @@ namespace Amazon.ECS
         /// <returns>The response from the DeleteService service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -436,8 +472,8 @@ namespace Amazon.ECS
         ///  
         /// <para>
         /// If you intend to use the container instance for some other purpose after deregistration,
-        /// you should stop all of the tasks running on the container instance before deregistration
-        /// to avoid any orphaned tasks from consuming resources.
+        /// you should stop all of the tasks running on the container instance before deregistration.
+        /// That prevents any orphaned tasks from consuming resources.
         /// </para>
         ///  
         /// <para>
@@ -458,7 +494,7 @@ namespace Amazon.ECS
         /// <returns>The response from the DeregisterContainerInstance service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -516,14 +552,14 @@ namespace Amazon.ECS
         /// <para>
         /// You cannot use an <code>INACTIVE</code> task definition to run new tasks or create
         /// new services, and you cannot update an existing service to reference an <code>INACTIVE</code>
-        /// task definition (although there may be up to a 10 minute window following deregistration
+        /// task definition (although there may be up to a 10-minute window following deregistration
         /// where these restrictions have not yet taken effect).
         /// </para>
         ///  <note> 
         /// <para>
         /// At this time, <code>INACTIVE</code> task definitions remain discoverable in your account
         /// indefinitely; however, this behavior is subject to change in the future, so you should
-        /// not rely on <code>INACTIVE</code> task definitions persisting beyond the life cycle
+        /// not rely on <code>INACTIVE</code> task definitions persisting beyond the lifecycle
         /// of any associated tasks and services.
         /// </para>
         ///  </note>
@@ -533,7 +569,7 @@ namespace Amazon.ECS
         /// <returns>The response from the DeregisterTaskDefinition service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
@@ -584,7 +620,7 @@ namespace Amazon.ECS
         /// <returns>The response from the DescribeClusters service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
@@ -628,7 +664,7 @@ namespace Amazon.ECS
 
 
         /// <summary>
-        /// Describes Amazon EC2 Container Service container instances. Returns metadata about
+        /// Describes Amazon Elastic Container Service container instances. Returns metadata about
         /// registered and remaining resources on each container instance requested.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeContainerInstances service method.</param>
@@ -636,7 +672,7 @@ namespace Amazon.ECS
         /// <returns>The response from the DescribeContainerInstances service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -691,7 +727,7 @@ namespace Amazon.ECS
         /// <returns>The response from the DescribeServices service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -755,7 +791,7 @@ namespace Amazon.ECS
         /// <returns>The response from the DescribeTaskDefinition service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
@@ -806,7 +842,7 @@ namespace Amazon.ECS
         /// <returns>The response from the DescribeTasks service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -913,7 +949,7 @@ namespace Amazon.ECS
         /// <returns>The response from the ListClusters service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
@@ -960,14 +996,14 @@ namespace Amazon.ECS
         /// Returns a list of container instances in a specified cluster. You can filter the results
         /// of a <code>ListContainerInstances</code> operation with cluster query language statements
         /// inside the <code>filter</code> parameter. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster
-        /// Query Language</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+        /// Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListContainerInstances service method.</param>
         /// 
         /// <returns>The response from the ListContainerInstances service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -1022,7 +1058,7 @@ namespace Amazon.ECS
         /// <returns>The response from the ListServices service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -1086,7 +1122,7 @@ namespace Amazon.ECS
         /// <returns>The response from the ListTaskDefinitionFamilies service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
@@ -1139,7 +1175,7 @@ namespace Amazon.ECS
         /// <returns>The response from the ListTaskDefinitions service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
@@ -1190,7 +1226,7 @@ namespace Amazon.ECS
         /// 
         ///  
         /// <para>
-        /// Recently-stopped tasks might appear in the returned results. Currently, stopped tasks
+        /// Recently stopped tasks might appear in the returned results. Currently, stopped tasks
         /// appear in the returned results for at least one hour. 
         /// </para>
         /// </summary>
@@ -1199,7 +1235,7 @@ namespace Amazon.ECS
         /// <returns>The response from the ListTasks service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -1255,7 +1291,7 @@ namespace Amazon.ECS
         /// exist, it is created. If the attribute exists, its value is replaced with the specified
         /// value. To delete an attribute, use <a>DeleteAttributes</a>. For more information,
         /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a>
-        /// in the <i>Amazon EC2 Container Service Developer Guide</i>.
+        /// in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutAttributes service method.</param>
         /// 
@@ -1316,7 +1352,7 @@ namespace Amazon.ECS
         /// Optionally, you can add data volumes to your containers with the <code>volumes</code>
         /// parameter. For more information about task definition parameters and defaults, see
         /// <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html">Amazon
-        /// ECS Task Definitions</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+        /// ECS Task Definitions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// 
         ///  
         /// <para>
@@ -1324,14 +1360,18 @@ namespace Amazon.ECS
         /// When you specify an IAM role for a task, its containers can then use the latest versions
         /// of the AWS CLI or SDKs to make API requests to the AWS services that are specified
         /// in the IAM policy associated with the role. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html">IAM
-        /// Roles for Tasks</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+        /// Roles for Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// You can specify a Docker networking mode for the containers in your task definition
         /// with the <code>networkMode</code> parameter. The available network modes correspond
         /// to those described in <a href="https://docs.docker.com/engine/reference/run/#/network-settings">Network
-        /// settings</a> in the Docker run reference.
+        /// settings</a> in the Docker run reference. If you specify the <code>awsvpc</code> network
+        /// mode, the task is allocated an Elastic Network Interface, and you must specify a <a>NetworkConfiguration</a>
+        /// when you create a service or run a task with the task definition. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
+        /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterTaskDefinition service method.</param>
@@ -1339,7 +1379,7 @@ namespace Amazon.ECS
         /// <returns>The response from the RegisterTaskDefinition service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
@@ -1390,20 +1430,54 @@ namespace Amazon.ECS
         /// You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS
         /// places tasks using placement constraints and placement strategies. For more information,
         /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
-        /// Tasks</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+        /// Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         ///  
         /// <para>
         /// Alternatively, you can use <a>StartTask</a> to use your own scheduler or place tasks
         /// manually on specific container instances.
         /// </para>
+        ///  
+        /// <para>
+        /// The Amazon ECS API follows an eventual consistency model, due to the distributed nature
+        /// of the system supporting the API. This means that the result of an API command you
+        /// run that affects your Amazon ECS resources might not be immediately visible to all
+        /// subsequent commands you run. You should keep this in mind when you carry out an API
+        /// command that immediately follows a previous API command.
+        /// </para>
+        ///  
+        /// <para>
+        /// To manage eventual consistency, you can do the following:
+        /// </para>
+        ///  <ul> <li> 
+        /// <para>
+        /// Confirm the state of the resource before you run a command to modify it. Run the DescribeTasks
+        /// command using an exponential backoff algorithm to ensure that you allow enough time
+        /// for the previous command to propagate through the system. To do this, run the DescribeTasks
+        /// command repeatedly, starting with a couple of seconds of wait time, and increasing
+        /// gradually up to five minutes of wait time.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Add wait time between subsequent commands, even if the DescribeTasks command returns
+        /// an accurate response. Apply an exponential backoff algorithm starting with a couple
+        /// of seconds of wait time, and increase gradually up to about five minutes of wait time.
+        /// </para>
+        ///  </li> </ul>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RunTask service method.</param>
         /// 
         /// <returns>The response from the RunTask service method, as returned by ECS.</returns>
+        /// <exception cref="Amazon.ECS.Model.AccessDeniedException">
+        /// You do not have authorization to perform the requested action.
+        /// </exception>
+        /// <exception cref="Amazon.ECS.Model.BlockedException">
+        /// Your AWS account has been blocked. <a href="http://aws.amazon.com/contact-us/">Contact
+        /// AWS Customer Support</a> for more information.
+        /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -1413,8 +1487,17 @@ namespace Amazon.ECS
         /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
         /// The specified parameter is invalid. Review the available parameters for the API request.
         /// </exception>
+        /// <exception cref="Amazon.ECS.Model.PlatformTaskDefinitionIncompatibilityException">
+        /// The specified platform version does not satisfy the task definition’s required capabilities.
+        /// </exception>
+        /// <exception cref="Amazon.ECS.Model.PlatformUnknownException">
+        /// The specified platform version does not exist.
+        /// </exception>
         /// <exception cref="Amazon.ECS.Model.ServerException">
         /// These errors are usually caused by a server issue.
+        /// </exception>
+        /// <exception cref="Amazon.ECS.Model.UnsupportedFeatureException">
+        /// The specified task is not supported in this region.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ecs-2014-11-13/RunTask">REST API Reference for RunTask Operation</seealso>
         RunTaskResponse RunTask(RunTaskRequest request);
@@ -1458,7 +1541,7 @@ namespace Amazon.ECS
         /// <para>
         /// Alternatively, you can use <a>RunTask</a> to place tasks for you. For more information,
         /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
-        /// Tasks</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+        /// Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the StartTask service method.</param>
@@ -1466,7 +1549,7 @@ namespace Amazon.ECS
         /// <returns>The response from the StartTask service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -1530,7 +1613,7 @@ namespace Amazon.ECS
         /// The default 30-second timeout can be configured on the Amazon ECS container agent
         /// with the <code>ECS_CONTAINER_STOP_TIMEOUT</code> variable. For more information, see
         /// <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon
-        /// ECS Container Agent Configuration</a> in the <i>Amazon EC2 Container Service Developer
+        /// ECS Container Agent Configuration</a> in the <i>Amazon Elastic Container Service Developer
         /// Guide</i>.
         /// </para>
         ///  </note>
@@ -1540,7 +1623,7 @@ namespace Amazon.ECS
         /// <returns>The response from the StopTask service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -1599,7 +1682,7 @@ namespace Amazon.ECS
         ///  <code>UpdateContainerAgent</code> requires the Amazon ECS-optimized AMI or Amazon
         /// Linux with the <code>ecs-init</code> service installed and running. For help updating
         /// the Amazon ECS container agent on other operating systems, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually
-        /// Updating the Amazon ECS Container Agent</a> in the <i>Amazon EC2 Container Service
+        /// Updating the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service
         /// Developer Guide</i>.
         /// </para>
         /// </summary>
@@ -1608,7 +1691,7 @@ namespace Amazon.ECS
         /// <returns>The response from the UpdateContainerAgent service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -1693,9 +1776,9 @@ namespace Amazon.ECS
         ///  
         /// <para>
         /// Service tasks on the container instance that are in the <code>RUNNING</code> state
-        /// are stopped and replaced according the service's deployment configuration parameters,
-        /// <code>minimumHealthyPercent</code> and <code>maximumPercent</code>. Note that you
-        /// can change the deployment configuration of your service using <a>UpdateService</a>.
+        /// are stopped and replaced according to the service's deployment configuration parameters,
+        /// <code>minimumHealthyPercent</code> and <code>maximumPercent</code>. You can change
+        /// the deployment configuration of your service using <a>UpdateService</a>.
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -1739,7 +1822,7 @@ namespace Amazon.ECS
         /// <returns>The response from the UpdateContainerInstancesState service method, as returned by ECS.</returns>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -1787,8 +1870,8 @@ namespace Amazon.ECS
 
 
         /// <summary>
-        /// Modifies the desired count, deployment configuration, or task definition used in a
-        /// service.
+        /// Modifies the desired count, deployment configuration, network configuration, or task
+        /// definition used in a service.
         /// 
         ///  
         /// <para>
@@ -1886,9 +1969,12 @@ namespace Amazon.ECS
         /// <param name="request">Container for the necessary parameters to execute the UpdateService service method.</param>
         /// 
         /// <returns>The response from the UpdateService service method, as returned by ECS.</returns>
+        /// <exception cref="Amazon.ECS.Model.AccessDeniedException">
+        /// You do not have authorization to perform the requested action.
+        /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClientException">
         /// These errors are usually caused by a client action, such as using an action or resource
-        /// on behalf of a user that doesn't have permission to use the action or resource, or
+        /// on behalf of a user that doesn't have permissions to use the action or resource, or
         /// specifying an identifier that is not valid.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ClusterNotFoundException">
@@ -1898,11 +1984,17 @@ namespace Amazon.ECS
         /// <exception cref="Amazon.ECS.Model.InvalidParameterException">
         /// The specified parameter is invalid. Review the available parameters for the API request.
         /// </exception>
+        /// <exception cref="Amazon.ECS.Model.PlatformTaskDefinitionIncompatibilityException">
+        /// The specified platform version does not satisfy the task definition’s required capabilities.
+        /// </exception>
+        /// <exception cref="Amazon.ECS.Model.PlatformUnknownException">
+        /// The specified platform version does not exist.
+        /// </exception>
         /// <exception cref="Amazon.ECS.Model.ServerException">
         /// These errors are usually caused by a server issue.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ServiceNotActiveException">
-        /// The specified service is not active. You cannot update a service that is not active.
+        /// The specified service is not active. You can't update a service that is inactive.
         /// If you have previously deleted a service, you can re-create it with <a>CreateService</a>.
         /// </exception>
         /// <exception cref="Amazon.ECS.Model.ServiceNotFoundException">

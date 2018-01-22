@@ -34,6 +34,7 @@ namespace Amazon.CodeDeploy.Model
     public partial class CreateApplicationRequest : AmazonCodeDeployRequest
     {
         private string _applicationName;
+        private ComputePlatform _computePlatform;
 
         /// <summary>
         /// Gets and sets the property ApplicationName. 
@@ -52,6 +53,24 @@ namespace Amazon.CodeDeploy.Model
         internal bool IsSetApplicationName()
         {
             return this._applicationName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ComputePlatform. 
+        /// <para>
+        ///  The destination platform type for the deployment (<code>Lambda</code> or <code>Server</code>).
+        /// </para>
+        /// </summary>
+        public ComputePlatform ComputePlatform
+        {
+            get { return this._computePlatform; }
+            set { this._computePlatform = value; }
+        }
+
+        // Check to see if ComputePlatform property is set
+        internal bool IsSetComputePlatform()
+        {
+            return this._computePlatform != null;
         }
 
     }

@@ -30,7 +30,7 @@ namespace Amazon.StorageGateway.Model
     /// <summary>
     /// Container for the parameters to the DeleteFileShare operation.
     /// Deletes a file share from a file gateway. This operation is only supported in the
-    /// file gateway architecture.
+    /// file gateway type.
     /// </summary>
     public partial class DeleteFileShareRequest : AmazonStorageGatewayRequest
     {
@@ -58,9 +58,10 @@ namespace Amazon.StorageGateway.Model
         /// <summary>
         /// Gets and sets the property ForceDelete. 
         /// <para>
-        /// If set to true, deletes a file share immediately and aborts all data uploads to AWS.
-        /// Otherwise the file share is not deleted until all data is uploaded to AWS. This process
-        /// aborts the data upload process and the file share enters the FORCE_DELETING status.
+        /// If this value is set to true, the operation deletes a file share immediately and aborts
+        /// all data uploads to AWS. Otherwise, the file share is not deleted until all data is
+        /// uploaded to AWS. This process aborts the data upload process, and the file share enters
+        /// the FORCE_DELETING status.
         /// </para>
         /// </summary>
         public bool ForceDelete

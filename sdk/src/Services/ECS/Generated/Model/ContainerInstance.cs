@@ -35,6 +35,7 @@ namespace Amazon.ECS.Model
     {
         private bool? _agentConnected;
         private AgentUpdateStatus _agentUpdateStatus;
+        private List<Attachment> _attachments = new List<Attachment>();
         private List<Attribute> _attributes = new List<Attribute>();
         private string _containerInstanceArn;
         private string _ec2InstanceId;
@@ -50,9 +51,9 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property AgentConnected. 
         /// <para>
-        /// This parameter returns <code>true</code> if the agent is actually connected to Amazon
-        /// ECS. Registered instances with an agent that may be unhealthy or stopped return <code>false</code>,
-        /// and instances without a connected agent cannot accept placement requests.
+        /// This parameter returns <code>true</code> if the agent is connected to Amazon ECS.
+        /// Registered instances with an agent that may be unhealthy or stopped return <code>false</code>.
+        /// Instances without a connected agent can't accept placement requests.
         /// </para>
         /// </summary>
         public bool AgentConnected
@@ -84,6 +85,24 @@ namespace Amazon.ECS.Model
         internal bool IsSetAgentUpdateStatus()
         {
             return this._agentUpdateStatus != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Attachments. 
+        /// <para>
+        /// The Elastic Network Interfaces associated with the container instance.
+        /// </para>
+        /// </summary>
+        public List<Attachment> Attachments
+        {
+            get { return this._attachments; }
+            set { this._attachments = value; }
+        }
+
+        // Check to see if Attachments property is set
+        internal bool IsSetAttachments()
+        {
+            return this._attachments != null && this._attachments.Count > 0; 
         }
 
         /// <summary>
@@ -167,7 +186,7 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property RegisteredAt. 
         /// <para>
-        /// The Unix timestamp for when the container instance was registered.
+        /// The Unix time stamp for when the container instance was registered.
         /// </para>
         /// </summary>
         public DateTime RegisteredAt
@@ -252,7 +271,7 @@ namespace Amazon.ECS.Model
         /// can accept tasks. <code>DRAINING</code> indicates that new tasks are not placed on
         /// the container instance and any service tasks running on the container instance are
         /// removed if possible. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container
-        /// Instance Draining</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+        /// Instance Draining</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>
         /// </summary>
         public string Status
@@ -272,9 +291,9 @@ namespace Amazon.ECS.Model
         /// <para>
         /// The version counter for the container instance. Every time a container instance experiences
         /// a change that triggers a CloudWatch event, the version counter is incremented. If
-        /// you are replicating your Amazon ECS container instance state with CloudWatch events,
+        /// you are replicating your Amazon ECS container instance state with CloudWatch Events,
         /// you can compare the version of a container instance reported by the Amazon ECS APIs
-        /// with the version reported in CloudWatch events for the container instance (inside
+        /// with the version reported in CloudWatch Events for the container instance (inside
         /// the <code>detail</code> object) to verify that the version in your event stream is
         /// current.
         /// </para>

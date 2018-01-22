@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Glue.Model
 {
     /// <summary>
-    /// 
+    /// Defines an action to be initiated by a trigger.
     /// </summary>
     public partial class Action
     {
@@ -36,7 +36,27 @@ namespace Amazon.Glue.Model
         private string _jobName;
 
         /// <summary>
-        /// Gets and sets the property Arguments.
+        /// Gets and sets the property Arguments. 
+        /// <para>
+        /// Arguments to be passed to the job.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can specify arguments here that your own job-execution script consumes, as well
+        /// as arguments that AWS Glue itself consumes.
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about how to specify and consume your own Job arguments, see the <a
+        /// href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling
+        /// AWS Glue APIs in Python</a> topic in the developer guide.
+        /// </para>
+        ///  
+        /// <para>
+        /// For information about the key-value pairs that AWS Glue consumes to set up your job,
+        /// see the <a href="http://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-glue-arguments.html">Special
+        /// Parameters Used by AWS Glue</a> topic in the developer guide.
+        /// </para>
         /// </summary>
         public Dictionary<string, string> Arguments
         {
@@ -51,7 +71,10 @@ namespace Amazon.Glue.Model
         }
 
         /// <summary>
-        /// Gets and sets the property JobName.
+        /// Gets and sets the property JobName. 
+        /// <para>
+        /// The name of a job to be executed.
+        /// </para>
         /// </summary>
         public string JobName
         {

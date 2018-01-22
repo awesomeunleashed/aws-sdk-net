@@ -67,6 +67,12 @@ namespace Amazon.DirectConnect.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetDirectConnectGatewayId())
+                {
+                    context.Writer.WritePropertyName("directConnectGatewayId");
+                    context.Writer.Write(publicRequest.DirectConnectGatewayId);
+                }
+
                 if(publicRequest.IsSetVirtualGatewayId())
                 {
                     context.Writer.WritePropertyName("virtualGatewayId");

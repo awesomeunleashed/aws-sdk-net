@@ -70,6 +70,12 @@ namespace Amazon.Glue.Model.Internal.MarshallTransformations
                     unmarshalledObject.GrokClassifier = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("XMLClassifier", targetDepth))
+                {
+                    var unmarshaller = XMLClassifierUnmarshaller.Instance;
+                    unmarshalledObject.XMLClassifier = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

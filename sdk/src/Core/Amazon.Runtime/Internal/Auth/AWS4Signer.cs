@@ -51,7 +51,7 @@ namespace Amazon.Runtime.Internal.Auth
         static readonly Regex CompressWhitespaceRegex = new Regex("\\s+");
         const SigningAlgorithm SignerAlgorithm = SigningAlgorithm.HmacSHA256;
 
-        private static IEnumerable<string> _headersToIgnoreWhenSigning = new HashSet<string>{
+        private static IEnumerable<string> _headersToIgnoreWhenSigning = new HashSet<string>(StringComparer.OrdinalIgnoreCase) {
             HeaderKeys.XAmznTraceIdHeader
         };
 
@@ -447,8 +447,9 @@ namespace Amazon.Runtime.Internal.Auth
                 }
             }
 
+
             // set the header if needed and return it
-            return (computedContentHash != null) ? SetPayloadSignatureHeader(request, computedContentHash) : null;
+            return SetPayloadSignatureHeader(request, computedContentHash ?? UnsignedPayload);
         }
 
         /// <summary>

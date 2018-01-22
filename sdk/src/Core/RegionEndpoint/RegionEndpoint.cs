@@ -71,6 +71,11 @@ namespace Amazon
         public static readonly RegionEndpoint EUWest2 = NewEndpoint("eu-west-2", "EU West (London)");
 
         /// <summary>
+        /// The EU West (Paris) endpoint.
+        /// </summary>
+        public static readonly RegionEndpoint EUWest3 = NewEndpoint("eu-west-3", "EU West (Paris)");
+
+        /// <summary>
         /// The EU Central (Frankfurt) endpoint.
         /// </summary>
         public static readonly RegionEndpoint EUCentral1 = NewEndpoint("eu-central-1", "EU Central (Frankfurt)");
@@ -114,6 +119,11 @@ namespace Amazon
         /// The China (Beijing) endpoint.
         /// </summary>
         public static readonly RegionEndpoint CNNorth1 = NewEndpoint("cn-north-1", "China (Beijing)");
+
+        /// <summary>
+        /// The China (Ningxia) endpoint.
+        /// </summary>
+        public static readonly RegionEndpoint CNNorthWest1 = NewEndpoint("cn-northwest-1", "China (Ningxia)");
 
         /// <summary>
         /// The Canada (Central) endpoint.

@@ -88,6 +88,12 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
                     unmarshalledObject.TotalCodeSize = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("UnreservedConcurrentExecutions", targetDepth))
+                {
+                    var unmarshaller = IntUnmarshaller.Instance;
+                    unmarshalledObject.UnreservedConcurrentExecutions = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

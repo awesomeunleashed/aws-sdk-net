@@ -45,6 +45,11 @@ namespace Amazon.ECS.Model
         /// on the host container instance, the Docker daemon creates it. If the location does
         /// exist, the contents of the source path folder are exported.
         /// </para>
+        ///  
+        /// <para>
+        /// If you are using the Fargate launch type, the <code>sourcePath</code> parameter is
+        /// not supported.
+        /// </para>
         /// </summary>
         public string SourcePath
         {

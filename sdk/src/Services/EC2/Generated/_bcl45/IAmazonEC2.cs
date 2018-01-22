@@ -34,8 +34,8 @@ namespace Amazon.EC2
     /// Amazon Elastic Compute Cloud 
     /// <para>
     /// Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing capacity in
-    /// the Amazon Web Services (AWS) cloud. Using Amazon EC2 eliminates your need to invest
-    /// in hardware up front, so you can develop and deploy applications faster.
+    /// the AWS Cloud. Using Amazon EC2 eliminates your need to invest in hardware up front,
+    /// so you can develop and deploy applications faster.
     /// </para>
     /// </summary>
     public partial interface IAmazonEC2 : IAmazonService, IDisposable
@@ -70,6 +70,34 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  AcceptVpcEndpointConnections
+
+
+        /// <summary>
+        /// Accepts one or more interface VPC endpoint connection requests to your VPC endpoint
+        /// service.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the AcceptVpcEndpointConnections service method.</param>
+        /// 
+        /// <returns>The response from the AcceptVpcEndpointConnections service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AcceptVpcEndpointConnections">REST API Reference for AcceptVpcEndpointConnections Operation</seealso>
+        AcceptVpcEndpointConnectionsResponse AcceptVpcEndpointConnections(AcceptVpcEndpointConnectionsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the AcceptVpcEndpointConnections operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the AcceptVpcEndpointConnections operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/AcceptVpcEndpointConnections">REST API Reference for AcceptVpcEndpointConnections Operation</seealso>
+        Task<AcceptVpcEndpointConnectionsResponse> AcceptVpcEndpointConnectionsAsync(AcceptVpcEndpointConnectionsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  AcceptVpcPeeringConnection
 
 
@@ -78,6 +106,12 @@ namespace Amazon.EC2
         /// must be in the <code>pending-acceptance</code> state, and you must be the owner of
         /// the peer VPC. Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
         /// peering connection requests.
+        /// 
+        ///  
+        /// <para>
+        /// For an inter-region VPC peering connection request, you must accept the VPC peering
+        /// connection in the region of the accepter VPC.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the AcceptVpcPeeringConnection service method.</param>
         /// 
@@ -1042,14 +1076,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Cancels the specified Spot fleet requests.
+        /// Cancels the specified Spot Fleet requests.
         /// 
         ///  
         /// <para>
-        /// After you cancel a Spot fleet request, the Spot fleet launches no new Spot instances.
-        /// You must specify whether the Spot fleet should also terminate its Spot instances.
-        /// If you terminate the instances, the Spot fleet request enters the <code>cancelled_terminating</code>
-        /// state. Otherwise, the Spot fleet request enters the <code>cancelled_running</code>
+        /// After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
+        /// You must specify whether the Spot Fleet should also terminate its Spot Instances.
+        /// If you terminate the instances, the Spot Fleet request enters the <code>cancelled_terminating</code>
+        /// state. Otherwise, the Spot Fleet request enters the <code>cancelled_running</code>
         /// state and the instances continue to run until they are interrupted or you terminate
         /// them manually.
         /// </para>
@@ -1079,15 +1113,14 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Cancels one or more Spot instance requests. Spot instances are instances that Amazon
-        /// EC2 starts on your behalf when the bid price that you specify exceeds the current
-        /// Spot price. Amazon EC2 periodically sets the Spot price based on available Spot instance
-        /// capacity and current Spot instance requests. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
+        /// Cancels one or more Spot Instance requests. Spot Instances are instances that Amazon
+        /// EC2 starts on your behalf when the maximum price that you specify exceeds the current
+        /// Spot price. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
         /// Instance Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// 
         ///  <important> 
         /// <para>
-        /// Canceling a Spot instance request does not terminate running Spot instances associated
+        /// Canceling a Spot Instance request does not terminate running Spot Instances associated
         /// with the request.
         /// </para>
         ///  </important>
@@ -1314,6 +1347,36 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateCustomerGateway">REST API Reference for CreateCustomerGateway Operation</seealso>
         Task<CreateCustomerGatewayResponse> CreateCustomerGatewayAsync(CreateCustomerGatewayRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CreateDefaultSubnet
+
+
+        /// <summary>
+        /// Creates a default subnet with a size <code>/20</code> IPv4 CIDR block in the specified
+        /// Availability Zone in your default VPC. You can have only one default subnet per Availability
+        /// Zone. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/default-vpc.html#create-default-subnet">Creating
+        /// a Default Subnet</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateDefaultSubnet service method.</param>
+        /// 
+        /// <returns>The response from the CreateDefaultSubnet service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateDefaultSubnet">REST API Reference for CreateDefaultSubnet Operation</seealso>
+        CreateDefaultSubnetResponse CreateDefaultSubnet(CreateDefaultSubnetRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateDefaultSubnet operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateDefaultSubnet operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateDefaultSubnet">REST API Reference for CreateDefaultSubnet Operation</seealso>
+        Task<CreateDefaultSubnetResponse> CreateDefaultSubnetAsync(CreateDefaultSubnetRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1697,7 +1760,7 @@ namespace Amazon.EC2
         /// <summary>
         /// Creates a 2048-bit RSA key pair with the specified name. Amazon EC2 stores the public
         /// key and displays the private key for you to save to a file. The private key is returned
-        /// as an unencrypted PEM encoded PKCS#8 private key. If a key with the specified name
+        /// as an unencrypted PEM encoded PKCS#1 private key. If a key with the specified name
         /// already exists, Amazon EC2 returns an error.
         /// 
         ///  
@@ -1707,11 +1770,12 @@ namespace Amazon.EC2
         ///  
         /// <para>
         /// The key pair returned to you is available only in the region in which you create it.
-        /// To create a key pair that is available in all regions, use <a>ImportKeyPair</a>.
+        /// If you prefer, you can create your own key pair using a third-party tool and upload
+        /// it to any region using <a>ImportKeyPair</a>.
         /// </para>
         ///  
         /// <para>
-        /// For more information about key pairs, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key
         /// Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
@@ -1733,6 +1797,69 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateKeyPair">REST API Reference for CreateKeyPair Operation</seealso>
         Task<CreateKeyPairResponse> CreateKeyPairAsync(CreateKeyPairRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CreateLaunchTemplate
+
+
+        /// <summary>
+        /// Creates a launch template. A launch template contains the parameters to launch an
+        /// instance. When you launch an instance using <a>RunInstances</a>, you can specify a
+        /// launch template instead of providing the launch parameters in the request.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateLaunchTemplate service method.</param>
+        /// 
+        /// <returns>The response from the CreateLaunchTemplate service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateLaunchTemplate">REST API Reference for CreateLaunchTemplate Operation</seealso>
+        CreateLaunchTemplateResponse CreateLaunchTemplate(CreateLaunchTemplateRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateLaunchTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateLaunchTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateLaunchTemplate">REST API Reference for CreateLaunchTemplate Operation</seealso>
+        Task<CreateLaunchTemplateResponse> CreateLaunchTemplateAsync(CreateLaunchTemplateRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CreateLaunchTemplateVersion
+
+
+        /// <summary>
+        /// Creates a new version for a launch template. You can specify an existing version of
+        /// launch template from which to base the new version.
+        /// 
+        ///  
+        /// <para>
+        /// Launch template versions are numbered in the order in which they are created. You
+        /// cannot specify, change, or replace the numbering of launch template versions.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateLaunchTemplateVersion service method.</param>
+        /// 
+        /// <returns>The response from the CreateLaunchTemplateVersion service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateLaunchTemplateVersion">REST API Reference for CreateLaunchTemplateVersion Operation</seealso>
+        CreateLaunchTemplateVersionResponse CreateLaunchTemplateVersion(CreateLaunchTemplateVersionRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateLaunchTemplateVersion operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateLaunchTemplateVersion operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateLaunchTemplateVersion">REST API Reference for CreateLaunchTemplateVersion Operation</seealso>
+        Task<CreateLaunchTemplateVersionResponse> CreateLaunchTemplateVersionAsync(CreateLaunchTemplateVersionRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -1921,13 +2048,19 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a placement group that you launch cluster instances into. Give the group a
-        /// name that's unique within the scope of your account.
+        /// Creates a placement group in which to launch instances. The strategy of the placement
+        /// group determines how the instances are organized within the group. 
         /// 
         ///  
         /// <para>
-        /// For more information about placement groups and cluster instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Cluster
-        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// A <code>cluster</code> placement group is a logical grouping of instances within a
+        /// single Availability Zone that benefit from low network latency, high network throughput.
+        /// A <code>spread</code> placement group places instances on distinct hardware.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePlacementGroup service method.</param>
@@ -2234,7 +2367,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a data feed for Spot instances, enabling you to view Spot instance usage logs.
+        /// Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
         /// You can create one data feed per AWS account. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
         /// Instance Data Feed</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
@@ -2472,15 +2605,29 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a VPC endpoint for a specified AWS service. An endpoint enables you to create
-        /// a private connection between your VPC and another AWS service in your account. You
-        /// can specify an endpoint policy to attach to the endpoint that will control access
-        /// to the service from your VPC. You can also specify the VPC route tables that use the
-        /// endpoint.
+        /// Creates a VPC endpoint for a specified service. An endpoint enables you to create
+        /// a private connection between your VPC and the service. The service may be provided
+        /// by AWS, an AWS Marketplace partner, or another AWS account. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC
+        /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// 
         ///  
         /// <para>
-        /// Use <a>DescribeVpcEndpointServices</a> to get a list of supported AWS services.
+        /// A <code>gateway</code> endpoint serves as a target for a route in your route table
+        /// for traffic destined for the AWS service. You can specify an endpoint policy to attach
+        /// to the endpoint that will control access to the service from your VPC. You can also
+        /// specify the VPC route tables that use the endpoint.
+        /// </para>
+        ///  
+        /// <para>
+        /// An <code>interface</code> endpoint is a network interface in your subnet that serves
+        /// as an endpoint for communicating with the specified service. You can specify the subnets
+        /// in which to create an endpoint, and the security groups to associate with the endpoint
+        /// network interface.
+        /// </para>
+        ///  
+        /// <para>
+        /// Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpcEndpoint service method.</param>
@@ -2504,24 +2651,102 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  CreateVpcEndpointConnectionNotification
+
+
+        /// <summary>
+        /// Creates a connection notification for a specified VPC endpoint or VPC endpoint service.
+        /// A connection notification notifies you of specific endpoint events. You must create
+        /// an SNS topic to receive notifications. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Create
+        /// a Topic</a> in the <i>Amazon Simple Notification Service Developer Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// You can create a connection notification for interface endpoints only.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateVpcEndpointConnectionNotification service method.</param>
+        /// 
+        /// <returns>The response from the CreateVpcEndpointConnectionNotification service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpcEndpointConnectionNotification">REST API Reference for CreateVpcEndpointConnectionNotification Operation</seealso>
+        CreateVpcEndpointConnectionNotificationResponse CreateVpcEndpointConnectionNotification(CreateVpcEndpointConnectionNotificationRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateVpcEndpointConnectionNotification operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateVpcEndpointConnectionNotification operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpcEndpointConnectionNotification">REST API Reference for CreateVpcEndpointConnectionNotification Operation</seealso>
+        Task<CreateVpcEndpointConnectionNotificationResponse> CreateVpcEndpointConnectionNotificationAsync(CreateVpcEndpointConnectionNotificationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  CreateVpcEndpointServiceConfiguration
+
+
+        /// <summary>
+        /// Creates a VPC endpoint service configuration to which service consumers (AWS accounts,
+        /// IAM users, and IAM roles) can connect. Service consumers can create an interface VPC
+        /// endpoint to connect to your service.
+        /// 
+        ///  
+        /// <para>
+        /// To create an endpoint service configuration, you must first create a Network Load
+        /// Balancer for your service. For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html">VPC
+        /// Endpoint Services</a> in the <i>Amazon Virtual Private Cloud User Guide</i>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateVpcEndpointServiceConfiguration service method.</param>
+        /// 
+        /// <returns>The response from the CreateVpcEndpointServiceConfiguration service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpcEndpointServiceConfiguration">REST API Reference for CreateVpcEndpointServiceConfiguration Operation</seealso>
+        CreateVpcEndpointServiceConfigurationResponse CreateVpcEndpointServiceConfiguration(CreateVpcEndpointServiceConfigurationRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateVpcEndpointServiceConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateVpcEndpointServiceConfiguration operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/CreateVpcEndpointServiceConfiguration">REST API Reference for CreateVpcEndpointServiceConfiguration Operation</seealso>
+        Task<CreateVpcEndpointServiceConfigurationResponse> CreateVpcEndpointServiceConfigurationAsync(CreateVpcEndpointServiceConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  CreateVpcPeeringConnection
 
 
         /// <summary>
         /// Requests a VPC peering connection between two VPCs: a requester VPC that you own and
-        /// a peer VPC with which to create the connection. The peer VPC can belong to another
-        /// AWS account. The requester VPC and peer VPC cannot have overlapping CIDR blocks.
+        /// an accepter VPC with which to create the connection. The accepter VPC can belong to
+        /// another AWS account and can be in a different region to the requester VPC. The requester
+        /// VPC and accepter VPC cannot have overlapping CIDR blocks.
         /// 
-        ///  
+        ///  <note> 
         /// <para>
-        /// The owner of the peer VPC must accept the peering request to activate the peering
+        /// Limitations and rules apply to a VPC peering connection. For more information, see
+        /// the <a href="http://docs.aws.amazon.com/AmazonVPC/latest/PeeringGuide/vpc-peering-basics.html#vpc-peering-limitations">limitations</a>
+        /// section in the <i>VPC Peering Guide</i>.
+        /// </para>
+        ///  </note> 
+        /// <para>
+        /// The owner of the accepter VPC must accept the peering request to activate the peering
         /// connection. The VPC peering connection request expires after 7 days, after which it
         /// cannot be accepted or rejected.
         /// </para>
         ///  
         /// <para>
-        /// If you try to create a VPC peering connection between VPCs that have overlapping CIDR
-        /// blocks, the VPC peering connection status goes to <code>failed</code>.
+        /// If you create a VPC peering connection request between VPCs with overlapping CIDR
+        /// blocks, the VPC peering connection has a status of <code>failed</code>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateVpcPeeringConnection service method.</param>
@@ -2863,6 +3088,63 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DeleteLaunchTemplate
+
+
+        /// <summary>
+        /// Deletes a launch template. Deleting a launch template deletes all of its versions.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteLaunchTemplate service method.</param>
+        /// 
+        /// <returns>The response from the DeleteLaunchTemplate service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteLaunchTemplate">REST API Reference for DeleteLaunchTemplate Operation</seealso>
+        DeleteLaunchTemplateResponse DeleteLaunchTemplate(DeleteLaunchTemplateRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteLaunchTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteLaunchTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteLaunchTemplate">REST API Reference for DeleteLaunchTemplate Operation</seealso>
+        Task<DeleteLaunchTemplateResponse> DeleteLaunchTemplateAsync(DeleteLaunchTemplateRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DeleteLaunchTemplateVersions
+
+
+        /// <summary>
+        /// Deletes one or more versions of a launch template. You cannot delete the default version
+        /// of a launch template; you must first assign a different version as the default. If
+        /// the default version is the only version for the launch template, you must delete the
+        /// entire launch template using <a>DeleteLaunchTemplate</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteLaunchTemplateVersions service method.</param>
+        /// 
+        /// <returns>The response from the DeleteLaunchTemplateVersions service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteLaunchTemplateVersions">REST API Reference for DeleteLaunchTemplateVersions Operation</seealso>
+        DeleteLaunchTemplateVersionsResponse DeleteLaunchTemplateVersions(DeleteLaunchTemplateVersionsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteLaunchTemplateVersions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteLaunchTemplateVersions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteLaunchTemplateVersions">REST API Reference for DeleteLaunchTemplateVersions Operation</seealso>
+        Task<DeleteLaunchTemplateVersionsResponse> DeleteLaunchTemplateVersionsAsync(DeleteLaunchTemplateVersionsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DeleteNatGateway
 
 
@@ -3009,9 +3291,8 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Deletes the specified placement group. You must terminate all instances in the placement
-        /// group before you can delete the placement group. For more information about placement
-        /// groups and cluster instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Cluster
-        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// group before you can delete the placement group. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeletePlacementGroup service method.</param>
         /// 
@@ -3173,7 +3454,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Deletes the data feed for Spot instances.
+        /// Deletes the data feed for Spot Instances.
         /// </summary>
         /// 
         /// <returns>The response from the DeleteSpotDatafeedSubscription service method, as returned by EC2.</returns>
@@ -3182,7 +3463,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Deletes the data feed for Spot instances.
+        /// Deletes the data feed for Spot Instances.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteSpotDatafeedSubscription service method.</param>
         /// 
@@ -3192,7 +3473,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Deletes the data feed for Spot instances.
+        /// Deletes the data feed for Spot Instances.
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -3348,12 +3629,40 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DeleteVpcEndpointConnectionNotifications
+
+
+        /// <summary>
+        /// Deletes one or more VPC endpoint connection notifications.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteVpcEndpointConnectionNotifications service method.</param>
+        /// 
+        /// <returns>The response from the DeleteVpcEndpointConnectionNotifications service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpcEndpointConnectionNotifications">REST API Reference for DeleteVpcEndpointConnectionNotifications Operation</seealso>
+        DeleteVpcEndpointConnectionNotificationsResponse DeleteVpcEndpointConnectionNotifications(DeleteVpcEndpointConnectionNotificationsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteVpcEndpointConnectionNotifications operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteVpcEndpointConnectionNotifications operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpcEndpointConnectionNotifications">REST API Reference for DeleteVpcEndpointConnectionNotifications Operation</seealso>
+        Task<DeleteVpcEndpointConnectionNotificationsResponse> DeleteVpcEndpointConnectionNotificationsAsync(DeleteVpcEndpointConnectionNotificationsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DeleteVpcEndpoints
 
 
         /// <summary>
-        /// Deletes one or more specified VPC endpoints. Deleting the endpoint also deletes the
-        /// endpoint routes in the route tables that were associated with the endpoint.
+        /// Deletes one or more specified VPC endpoints. Deleting a gateway endpoint also deletes
+        /// the endpoint routes in the route tables that were associated with the endpoint. Deleting
+        /// an interface endpoint deletes the endpoint network interfaces.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpcEndpoints service method.</param>
         /// 
@@ -3376,12 +3685,42 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DeleteVpcEndpointServiceConfigurations
+
+
+        /// <summary>
+        /// Deletes one or more VPC endpoint service configurations in your account. Before you
+        /// delete the endpoint service configuration, you must reject any <code>Available</code>
+        /// or <code>PendingAcceptance</code> interface endpoint connections that are attached
+        /// to the service.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteVpcEndpointServiceConfigurations service method.</param>
+        /// 
+        /// <returns>The response from the DeleteVpcEndpointServiceConfigurations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpcEndpointServiceConfigurations">REST API Reference for DeleteVpcEndpointServiceConfigurations Operation</seealso>
+        DeleteVpcEndpointServiceConfigurationsResponse DeleteVpcEndpointServiceConfigurations(DeleteVpcEndpointServiceConfigurationsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteVpcEndpointServiceConfigurations operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteVpcEndpointServiceConfigurations operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DeleteVpcEndpointServiceConfigurations">REST API Reference for DeleteVpcEndpointServiceConfigurations Operation</seealso>
+        Task<DeleteVpcEndpointServiceConfigurationsResponse> DeleteVpcEndpointServiceConfigurationsAsync(DeleteVpcEndpointServiceConfigurationsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DeleteVpcPeeringConnection
 
 
         /// <summary>
         /// Deletes a VPC peering connection. Either the owner of the requester VPC or the owner
-        /// of the peer VPC can delete the VPC peering connection if it's in the <code>active</code>
+        /// of the accepter VPC can delete the VPC peering connection if it's in the <code>active</code>
         /// state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code>
         /// state.
         /// </summary>
@@ -4166,7 +4505,7 @@ namespace Amazon.EC2
 
         /// <summary>
         /// Describes the Elastic GPUs associated with your instances. For more information about
-        /// Elastic GPUs, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-gpus.html">Amazon
+        /// Elastic GPUs, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/elastic-gpus.html">Amazon
         /// EC2 Elastic GPUs</a>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeElasticGpus service method.</param>
@@ -4727,6 +5066,59 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeInstanceCreditSpecifications
+
+
+        /// <summary>
+        /// Describes the credit option for CPU usage of one or more of your T2 instances. The
+        /// credit options are <code>standard</code> and <code>unlimited</code>.
+        /// 
+        ///  
+        /// <para>
+        /// If you do not specify an instance ID, Amazon EC2 returns only the T2 instances with
+        /// the <code>unlimited</code> credit option. If you specify one or more instance IDs,
+        /// Amazon EC2 returns the credit option (<code>standard</code> or <code>unlimited</code>)
+        /// of those instances. If you specify an instance ID that is not valid, such as an instance
+        /// that is not a T2 instance, an error is returned.
+        /// </para>
+        ///  
+        /// <para>
+        /// Recently terminated instances might appear in the returned results. This interval
+        /// is usually less than one hour.
+        /// </para>
+        ///  
+        /// <para>
+        /// If an Availability Zone is experiencing a service disruption and you specify instance
+        /// IDs in the affected zone, or do not specify any instance IDs at all, the call fails.
+        /// If you specify only instance IDs in an unaffected zone, the call works normally.
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html">T2
+        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceCreditSpecifications service method.</param>
+        /// 
+        /// <returns>The response from the DescribeInstanceCreditSpecifications service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceCreditSpecifications">REST API Reference for DescribeInstanceCreditSpecifications Operation</seealso>
+        DescribeInstanceCreditSpecificationsResponse DescribeInstanceCreditSpecifications(DescribeInstanceCreditSpecificationsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeInstanceCreditSpecifications operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeInstanceCreditSpecifications operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeInstanceCreditSpecifications">REST API Reference for DescribeInstanceCreditSpecifications Operation</seealso>
+        Task<DescribeInstanceCreditSpecificationsResponse> DescribeInstanceCreditSpecificationsAsync(DescribeInstanceCreditSpecificationsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DescribeInstances
 
 
@@ -5084,6 +5476,61 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeLaunchTemplates
+
+
+        /// <summary>
+        /// Describes one or more launch templates.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLaunchTemplates service method.</param>
+        /// 
+        /// <returns>The response from the DescribeLaunchTemplates service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeLaunchTemplates">REST API Reference for DescribeLaunchTemplates Operation</seealso>
+        DescribeLaunchTemplatesResponse DescribeLaunchTemplates(DescribeLaunchTemplatesRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeLaunchTemplates operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLaunchTemplates operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeLaunchTemplates">REST API Reference for DescribeLaunchTemplates Operation</seealso>
+        Task<DescribeLaunchTemplatesResponse> DescribeLaunchTemplatesAsync(DescribeLaunchTemplatesRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeLaunchTemplateVersions
+
+
+        /// <summary>
+        /// Describes one or more versions of a specified launch template. You can describe all
+        /// versions, individual versions, or a range of versions.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLaunchTemplateVersions service method.</param>
+        /// 
+        /// <returns>The response from the DescribeLaunchTemplateVersions service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeLaunchTemplateVersions">REST API Reference for DescribeLaunchTemplateVersions Operation</seealso>
+        DescribeLaunchTemplateVersionsResponse DescribeLaunchTemplateVersions(DescribeLaunchTemplateVersionsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeLaunchTemplateVersions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeLaunchTemplateVersions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeLaunchTemplateVersions">REST API Reference for DescribeLaunchTemplateVersions Operation</seealso>
+        Task<DescribeLaunchTemplateVersionsResponse> DescribeLaunchTemplateVersionsAsync(DescribeLaunchTemplateVersionsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DescribeMovingAddresses
 
 
@@ -5312,9 +5759,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your placement groups. For more information about placement
-        /// groups and cluster instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Cluster
-        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// Describes one or more of your placement groups. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// 
         /// <returns>The response from the DescribePlacementGroups service method, as returned by EC2.</returns>
@@ -5323,9 +5769,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your placement groups. For more information about placement
-        /// groups and cluster instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Cluster
-        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// Describes one or more of your placement groups. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribePlacementGroups service method.</param>
         /// 
@@ -5335,9 +5780,8 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes one or more of your placement groups. For more information about placement
-        /// groups and cluster instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Cluster
-        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// Describes one or more of your placement groups. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+        /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
@@ -5369,7 +5813,7 @@ namespace Amazon.EC2
         /// Describes available AWS services in a prefix list format, which includes the prefix
         /// list name and prefix list ID of the service and the IP address range for the service.
         /// A prefix list ID is required for creating an outbound security group rule that allows
-        /// traffic from a VPC to access an AWS service through a VPC endpoint.
+        /// traffic from a VPC to access an AWS service through a gateway VPC endpoint.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribePrefixLists service method.</param>
         /// 
@@ -6356,7 +6800,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the data feed for Spot instances. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
+        /// Describes the data feed for Spot Instances. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
         /// Instance Data Feed</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// 
@@ -6366,7 +6810,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the data feed for Spot instances. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
+        /// Describes the data feed for Spot Instances. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
         /// Instance Data Feed</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSpotDatafeedSubscription service method.</param>
@@ -6377,7 +6821,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the data feed for Spot instances. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
+        /// Describes the data feed for Spot Instances. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
         /// Instance Data Feed</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// <param name="cancellationToken">
@@ -6407,7 +6851,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the running instances for the specified Spot fleet.
+        /// Describes the running instances for the specified Spot Fleet.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeSpotFleetInstances service method.</param>
         /// 
@@ -6434,11 +6878,11 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the events for the specified Spot fleet request during the specified time.
+        /// Describes the events for the specified Spot Fleet request during the specified time.
         /// 
         ///  
         /// <para>
-        /// Spot fleet events are delayed by up to 30 seconds before they can be described. This
+        /// Spot Fleet events are delayed by up to 30 seconds before they can be described. This
         /// ensures that you can query by the last evaluated time and not miss a recorded event.
         /// </para>
         /// </summary>
@@ -6467,11 +6911,11 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes your Spot fleet requests.
+        /// Describes your Spot Fleet requests.
         /// 
         ///  
         /// <para>
-        /// Spot fleet requests are deleted 48 hours after they are canceled and their instances
+        /// Spot Fleet requests are deleted 48 hours after they are canceled and their instances
         /// are terminated.
         /// </para>
         /// </summary>
@@ -6500,24 +6944,22 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the Spot instance requests that belong to your account. Spot instances are
-        /// instances that Amazon EC2 launches when the bid price that you specify exceeds the
-        /// current Spot price. Amazon EC2 periodically sets the Spot price based on available
-        /// Spot instance capacity and current Spot instance requests. For more information, see
-        /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
+        /// Describes the Spot Instance requests that belong to your account. Spot Instances are
+        /// instances that Amazon EC2 launches when the Spot price that you specify exceeds the
+        /// current Spot price. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
         /// Instance Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// 
         ///  
         /// <para>
-        /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot instance
-        /// by examining the response. If the status of the Spot instance is <code>fulfilled</code>,
+        /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance
+        /// by examining the response. If the status of the Spot Instance is <code>fulfilled</code>,
         /// the instance ID appears in the response and contains the identifier of the instance.
         /// Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances
         /// where the instance lifecycle is <code>spot</code>.
         /// </para>
         ///  
         /// <para>
-        /// Spot instance requests are deleted 4 hours after they are canceled and their instances
+        /// Spot Instance requests are deleted 4 hours after they are canceled and their instances
         /// are terminated.
         /// </para>
         /// </summary>
@@ -6528,24 +6970,22 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the Spot instance requests that belong to your account. Spot instances are
-        /// instances that Amazon EC2 launches when the bid price that you specify exceeds the
-        /// current Spot price. Amazon EC2 periodically sets the Spot price based on available
-        /// Spot instance capacity and current Spot instance requests. For more information, see
-        /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
+        /// Describes the Spot Instance requests that belong to your account. Spot Instances are
+        /// instances that Amazon EC2 launches when the Spot price that you specify exceeds the
+        /// current Spot price. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
         /// Instance Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// 
         ///  
         /// <para>
-        /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot instance
-        /// by examining the response. If the status of the Spot instance is <code>fulfilled</code>,
+        /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance
+        /// by examining the response. If the status of the Spot Instance is <code>fulfilled</code>,
         /// the instance ID appears in the response and contains the identifier of the instance.
         /// Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances
         /// where the instance lifecycle is <code>spot</code>.
         /// </para>
         ///  
         /// <para>
-        /// Spot instance requests are deleted 4 hours after they are canceled and their instances
+        /// Spot Instance requests are deleted 4 hours after they are canceled and their instances
         /// are terminated.
         /// </para>
         /// </summary>
@@ -6557,24 +6997,22 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Describes the Spot instance requests that belong to your account. Spot instances are
-        /// instances that Amazon EC2 launches when the bid price that you specify exceeds the
-        /// current Spot price. Amazon EC2 periodically sets the Spot price based on available
-        /// Spot instance capacity and current Spot instance requests. For more information, see
-        /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
+        /// Describes the Spot Instance requests that belong to your account. Spot Instances are
+        /// instances that Amazon EC2 launches when the Spot price that you specify exceeds the
+        /// current Spot price. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
         /// Instance Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// 
         ///  
         /// <para>
-        /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot instance
-        /// by examining the response. If the status of the Spot instance is <code>fulfilled</code>,
+        /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance
+        /// by examining the response. If the status of the Spot Instance is <code>fulfilled</code>,
         /// the instance ID appears in the response and contains the identifier of the instance.
         /// Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances
         /// where the instance lifecycle is <code>spot</code>.
         /// </para>
         ///  
         /// <para>
-        /// Spot instance requests are deleted 4 hours after they are canceled and their instances
+        /// Spot Instance requests are deleted 4 hours after they are canceled and their instances
         /// are terminated.
         /// </para>
         /// </summary>
@@ -7279,6 +7717,61 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeVpcEndpointConnectionNotifications
+
+
+        /// <summary>
+        /// Describes the connection notifications for VPC endpoints and VPC endpoint services.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpointConnectionNotifications service method.</param>
+        /// 
+        /// <returns>The response from the DescribeVpcEndpointConnectionNotifications service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpointConnectionNotifications">REST API Reference for DescribeVpcEndpointConnectionNotifications Operation</seealso>
+        DescribeVpcEndpointConnectionNotificationsResponse DescribeVpcEndpointConnectionNotifications(DescribeVpcEndpointConnectionNotificationsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeVpcEndpointConnectionNotifications operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpointConnectionNotifications operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpointConnectionNotifications">REST API Reference for DescribeVpcEndpointConnectionNotifications Operation</seealso>
+        Task<DescribeVpcEndpointConnectionNotificationsResponse> DescribeVpcEndpointConnectionNotificationsAsync(DescribeVpcEndpointConnectionNotificationsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeVpcEndpointConnections
+
+
+        /// <summary>
+        /// Describes the VPC endpoint connections to your VPC endpoint services, including any
+        /// endpoints that are pending your acceptance.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpointConnections service method.</param>
+        /// 
+        /// <returns>The response from the DescribeVpcEndpointConnections service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpointConnections">REST API Reference for DescribeVpcEndpointConnections Operation</seealso>
+        DescribeVpcEndpointConnectionsResponse DescribeVpcEndpointConnections(DescribeVpcEndpointConnectionsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeVpcEndpointConnections operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpointConnections operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpointConnections">REST API Reference for DescribeVpcEndpointConnections Operation</seealso>
+        Task<DescribeVpcEndpointConnectionsResponse> DescribeVpcEndpointConnectionsAsync(DescribeVpcEndpointConnectionsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DescribeVpcEndpoints
 
 
@@ -7306,11 +7799,66 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  DescribeVpcEndpointServiceConfigurations
+
+
+        /// <summary>
+        /// Describes the VPC endpoint service configurations in your account (your services).
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpointServiceConfigurations service method.</param>
+        /// 
+        /// <returns>The response from the DescribeVpcEndpointServiceConfigurations service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpointServiceConfigurations">REST API Reference for DescribeVpcEndpointServiceConfigurations Operation</seealso>
+        DescribeVpcEndpointServiceConfigurationsResponse DescribeVpcEndpointServiceConfigurations(DescribeVpcEndpointServiceConfigurationsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeVpcEndpointServiceConfigurations operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpointServiceConfigurations operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpointServiceConfigurations">REST API Reference for DescribeVpcEndpointServiceConfigurations Operation</seealso>
+        Task<DescribeVpcEndpointServiceConfigurationsResponse> DescribeVpcEndpointServiceConfigurationsAsync(DescribeVpcEndpointServiceConfigurationsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  DescribeVpcEndpointServicePermissions
+
+
+        /// <summary>
+        /// Describes the principals (service consumers) that are permitted to discover your VPC
+        /// endpoint service.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpointServicePermissions service method.</param>
+        /// 
+        /// <returns>The response from the DescribeVpcEndpointServicePermissions service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpointServicePermissions">REST API Reference for DescribeVpcEndpointServicePermissions Operation</seealso>
+        DescribeVpcEndpointServicePermissionsResponse DescribeVpcEndpointServicePermissions(DescribeVpcEndpointServicePermissionsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeVpcEndpointServicePermissions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpointServicePermissions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeVpcEndpointServicePermissions">REST API Reference for DescribeVpcEndpointServicePermissions Operation</seealso>
+        Task<DescribeVpcEndpointServicePermissionsResponse> DescribeVpcEndpointServicePermissionsAsync(DescribeVpcEndpointServicePermissionsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  DescribeVpcEndpointServices
 
 
         /// <summary>
-        /// Describes all supported AWS services that can be specified when creating a VPC endpoint.
+        /// Describes available services to which you can create a VPC endpoint.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeVpcEndpointServices service method.</param>
         /// 
@@ -8224,6 +8772,34 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  GetLaunchTemplateData
+
+
+        /// <summary>
+        /// Retrieves the configuration data of the specified instance. You can use this data
+        /// to create a launch template.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetLaunchTemplateData service method.</param>
+        /// 
+        /// <returns>The response from the GetLaunchTemplateData service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetLaunchTemplateData">REST API Reference for GetLaunchTemplateData Operation</seealso>
+        GetLaunchTemplateDataResponse GetLaunchTemplateData(GetLaunchTemplateDataRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetLaunchTemplateData operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetLaunchTemplateData operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/GetLaunchTemplateData">REST API Reference for GetLaunchTemplateData Operation</seealso>
+        Task<GetLaunchTemplateDataResponse> GetLaunchTemplateDataAsync(GetLaunchTemplateDataRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  GetPasswordData
 
 
@@ -8701,6 +9277,40 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  ModifyInstanceCreditSpecification
+
+
+        /// <summary>
+        /// Modifies the credit option for CPU usage on a running or stopped T2 instance. The
+        /// credit options are <code>standard</code> and <code>unlimited</code>.
+        /// 
+        ///  
+        /// <para>
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html">T2
+        /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyInstanceCreditSpecification service method.</param>
+        /// 
+        /// <returns>The response from the ModifyInstanceCreditSpecification service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceCreditSpecification">REST API Reference for ModifyInstanceCreditSpecification Operation</seealso>
+        ModifyInstanceCreditSpecificationResponse ModifyInstanceCreditSpecification(ModifyInstanceCreditSpecificationRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyInstanceCreditSpecification operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyInstanceCreditSpecification operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstanceCreditSpecification">REST API Reference for ModifyInstanceCreditSpecification Operation</seealso>
+        Task<ModifyInstanceCreditSpecificationResponse> ModifyInstanceCreditSpecificationAsync(ModifyInstanceCreditSpecificationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  ModifyInstancePlacement
 
 
@@ -8750,6 +9360,35 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyInstancePlacement">REST API Reference for ModifyInstancePlacement Operation</seealso>
         Task<ModifyInstancePlacementResponse> ModifyInstancePlacementAsync(ModifyInstancePlacementRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ModifyLaunchTemplate
+
+
+        /// <summary>
+        /// Modifies a launch template. You can specify which version of the launch template to
+        /// set as the default version. When launching an instance, the default version applies
+        /// when a launch template version is not specified.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyLaunchTemplate service method.</param>
+        /// 
+        /// <returns>The response from the ModifyLaunchTemplate service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyLaunchTemplate">REST API Reference for ModifyLaunchTemplate Operation</seealso>
+        ModifyLaunchTemplateResponse ModifyLaunchTemplate(ModifyLaunchTemplateRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyLaunchTemplate operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyLaunchTemplate operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyLaunchTemplate">REST API Reference for ModifyLaunchTemplate Operation</seealso>
+        Task<ModifyLaunchTemplateResponse> ModifyLaunchTemplateAsync(ModifyLaunchTemplateRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -8862,33 +9501,38 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies the specified Spot fleet request.
+        /// Modifies the specified Spot Fleet request.
         /// 
         ///  
         /// <para>
-        /// While the Spot fleet request is being modified, it is in the <code>modifying</code>
+        /// While the Spot Fleet request is being modified, it is in the <code>modifying</code>
         /// state.
         /// </para>
         ///  
         /// <para>
-        /// To scale up your Spot fleet, increase its target capacity. The Spot fleet launches
-        /// the additional Spot instances according to the allocation strategy for the Spot fleet
-        /// request. If the allocation strategy is <code>lowestPrice</code>, the Spot fleet launches
+        /// To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches
+        /// the additional Spot Instances according to the allocation strategy for the Spot Fleet
+        /// request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches
         /// instances using the Spot pool with the lowest price. If the allocation strategy is
-        /// <code>diversified</code>, the Spot fleet distributes the instances across the Spot
+        /// <code>diversified</code>, the Spot Fleet distributes the instances across the Spot
         /// pools.
         /// </para>
         ///  
         /// <para>
-        /// To scale down your Spot fleet, decrease its target capacity. First, the Spot fleet
-        /// cancels any open bids that exceed the new target capacity. You can request that the
-        /// Spot fleet terminate Spot instances until the size of the fleet no longer exceeds
+        /// To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet
+        /// cancels any open requests that exceed the new target capacity. You can request that
+        /// the Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds
         /// the new target capacity. If the allocation strategy is <code>lowestPrice</code>, the
-        /// Spot fleet terminates the instances with the highest price per unit. If the allocation
-        /// strategy is <code>diversified</code>, the Spot fleet terminates instances across the
-        /// Spot pools. Alternatively, you can request that the Spot fleet keep the fleet at its
-        /// current size, but not replace any Spot instances that are interrupted or that you
+        /// Spot Fleet terminates the instances with the highest price per unit. If the allocation
+        /// strategy is <code>diversified</code>, the Spot Fleet terminates instances across the
+        /// Spot pools. Alternatively, you can request that the Spot Fleet keep the fleet at its
+        /// current size, but not replace any Spot Instances that are interrupted or that you
         /// terminate manually.
+        /// </para>
+        ///  
+        /// <para>
+        /// If you are finished with your Spot Fleet for now, but will use it again later, you
+        /// can set the target capacity to 0.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifySpotFleetRequest service method.</param>
@@ -9079,8 +9723,10 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Modifies attributes of a specified VPC endpoint. You can modify the policy associated
-        /// with the endpoint, and you can add and remove route tables associated with the endpoint.
+        /// Modifies attributes of a specified VPC endpoint. The attributes that you can modify
+        /// depend on the type of VPC endpoint (interface or gateway). For more information, see
+        /// <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC
+        /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpoint service method.</param>
         /// 
@@ -9100,6 +9746,93 @@ namespace Amazon.EC2
         /// <returns>The task object representing the asynchronous operation.</returns>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcEndpoint">REST API Reference for ModifyVpcEndpoint Operation</seealso>
         Task<ModifyVpcEndpointResponse> ModifyVpcEndpointAsync(ModifyVpcEndpointRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ModifyVpcEndpointConnectionNotification
+
+
+        /// <summary>
+        /// Modifies a connection notification for VPC endpoint or VPC endpoint service. You can
+        /// change the SNS topic for the notification, or the events for which to be notified.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpointConnectionNotification service method.</param>
+        /// 
+        /// <returns>The response from the ModifyVpcEndpointConnectionNotification service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcEndpointConnectionNotification">REST API Reference for ModifyVpcEndpointConnectionNotification Operation</seealso>
+        ModifyVpcEndpointConnectionNotificationResponse ModifyVpcEndpointConnectionNotification(ModifyVpcEndpointConnectionNotificationRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyVpcEndpointConnectionNotification operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpointConnectionNotification operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcEndpointConnectionNotification">REST API Reference for ModifyVpcEndpointConnectionNotification Operation</seealso>
+        Task<ModifyVpcEndpointConnectionNotificationResponse> ModifyVpcEndpointConnectionNotificationAsync(ModifyVpcEndpointConnectionNotificationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ModifyVpcEndpointServiceConfiguration
+
+
+        /// <summary>
+        /// Modifies the attributes of your VPC endpoint service configuration. You can change
+        /// the Network Load Balancers for your service, and you can specify whether acceptance
+        /// is required for requests to connect to your endpoint service through an interface
+        /// VPC endpoint.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpointServiceConfiguration service method.</param>
+        /// 
+        /// <returns>The response from the ModifyVpcEndpointServiceConfiguration service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcEndpointServiceConfiguration">REST API Reference for ModifyVpcEndpointServiceConfiguration Operation</seealso>
+        ModifyVpcEndpointServiceConfigurationResponse ModifyVpcEndpointServiceConfiguration(ModifyVpcEndpointServiceConfigurationRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyVpcEndpointServiceConfiguration operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpointServiceConfiguration operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcEndpointServiceConfiguration">REST API Reference for ModifyVpcEndpointServiceConfiguration Operation</seealso>
+        Task<ModifyVpcEndpointServiceConfigurationResponse> ModifyVpcEndpointServiceConfigurationAsync(ModifyVpcEndpointServiceConfigurationRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
+        #region  ModifyVpcEndpointServicePermissions
+
+
+        /// <summary>
+        /// Modifies the permissions for your <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/endpoint-service.html">VPC
+        /// endpoint service</a>. You can add or remove permissions for service consumers (IAM
+        /// users, IAM roles, and AWS accounts) to connect to your endpoint service.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpointServicePermissions service method.</param>
+        /// 
+        /// <returns>The response from the ModifyVpcEndpointServicePermissions service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcEndpointServicePermissions">REST API Reference for ModifyVpcEndpointServicePermissions Operation</seealso>
+        ModifyVpcEndpointServicePermissionsResponse ModifyVpcEndpointServicePermissions(ModifyVpcEndpointServicePermissionsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the ModifyVpcEndpointServicePermissions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the ModifyVpcEndpointServicePermissions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/ModifyVpcEndpointServicePermissions">REST API Reference for ModifyVpcEndpointServicePermissions Operation</seealso>
+        Task<ModifyVpcEndpointServicePermissionsResponse> ModifyVpcEndpointServicePermissionsAsync(ModifyVpcEndpointServicePermissionsRequest request, CancellationToken cancellationToken = default(CancellationToken));
 
         #endregion
         
@@ -9481,6 +10214,33 @@ namespace Amazon.EC2
 
         #endregion
         
+        #region  RejectVpcEndpointConnections
+
+
+        /// <summary>
+        /// Rejects one or more VPC endpoint connection requests to your VPC endpoint service.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the RejectVpcEndpointConnections service method.</param>
+        /// 
+        /// <returns>The response from the RejectVpcEndpointConnections service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RejectVpcEndpointConnections">REST API Reference for RejectVpcEndpointConnections Operation</seealso>
+        RejectVpcEndpointConnectionsResponse RejectVpcEndpointConnections(RejectVpcEndpointConnectionsRequest request);
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the RejectVpcEndpointConnections operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the RejectVpcEndpointConnections operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/RejectVpcEndpointConnections">REST API Reference for RejectVpcEndpointConnections Operation</seealso>
+        Task<RejectVpcEndpointConnectionsResponse> RejectVpcEndpointConnectionsAsync(RejectVpcEndpointConnectionsRequest request, CancellationToken cancellationToken = default(CancellationToken));
+
+        #endregion
+        
         #region  RejectVpcPeeringConnection
 
 
@@ -9648,6 +10408,11 @@ namespace Amazon.EC2
         /// a subnet, it's automatically associated with the default network ACL. For more information
         /// about network ACLs, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html">Network
         /// ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// 
+        ///  
+        /// <para>
+        /// This is an idempotent operation.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ReplaceNetworkAclAssociation service method.</param>
         /// 
@@ -9811,7 +10576,7 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a Spot fleet request.
+        /// Creates a Spot Fleet request.
         /// 
         ///  
         /// <para>
@@ -9820,16 +10585,21 @@ namespace Amazon.EC2
         /// </para>
         ///  
         /// <para>
-        /// By default, the Spot fleet requests Spot instances in the Spot pool where the price
+        /// By default, the Spot Fleet requests Spot Instances in the Spot pool where the price
         /// per unit is the lowest. Each launch specification can include its own instance weighting
         /// that reflects the value of the instance type to your application workload.
         /// </para>
         ///  
         /// <para>
-        /// Alternatively, you can specify that the Spot fleet distribute the target capacity
+        /// Alternatively, you can specify that the Spot Fleet distribute the target capacity
         /// across the Spot pools included in its launch specifications. By ensuring that the
-        /// Spot instances in your Spot fleet are in different Spot pools, you can improve the
+        /// Spot Instances in your Spot Fleet are in different Spot pools, you can improve the
         /// availability of your fleet.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can specify tags for the Spot Instances. You cannot tag other resource types in
+        /// a Spot Fleet request; only the <code>instance</code> resource type is supported.
         /// </para>
         ///  
         /// <para>
@@ -9862,10 +10632,9 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Creates a Spot instance request. Spot instances are instances that Amazon EC2 launches
-        /// when the bid price that you specify exceeds the current Spot price. Amazon EC2 periodically
-        /// sets the Spot price based on available Spot Instance capacity and current Spot instance
-        /// requests. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
+        /// Creates a Spot Instance request. Spot Instances are instances that Amazon EC2 launches
+        /// when the maximum price that you specify exceeds the current Spot price. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
         /// Instance Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RequestSpotInstances service method.</param>
@@ -10221,6 +10990,13 @@ namespace Amazon.EC2
         /// the request fails.
         /// </para>
         ///  </li> </ul> 
+        /// <para>
+        /// You can create a <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch
+        /// template</a>, which is a resource that contains the parameters to launch an instance.
+        /// When you launch an instance using <a>RunInstances</a>, you can specify the launch
+        /// template instead of specifying the launch parameters.
+        /// </para>
+        ///  
         /// <para>
         /// To ensure faster instance launches, break up large requests into smaller batches.
         /// For example, create five separate launch requests for 100 instances each instead of

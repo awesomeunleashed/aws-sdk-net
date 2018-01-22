@@ -29,8 +29,15 @@ namespace Amazon.StepFunctions.Model
 {
     /// <summary>
     /// Container for the parameters to the DeleteStateMachine operation.
-    /// Deletes a state machine. This is an asynchronous operation-- it sets the state machine's
-    /// status to "DELETING" and begins the delete process.
+    /// Deletes a state machine. This is an asynchronous operation: It sets the state machine's
+    /// status to <code>DELETING</code> and begins the deletion process. Each state machine
+    /// execution is deleted the next time it makes a state transition.
+    /// 
+    ///  <note> 
+    /// <para>
+    /// The state machine itself is deleted after all executions are completed or deleted.
+    /// </para>
+    ///  </note>
     /// </summary>
     public partial class DeleteStateMachineRequest : AmazonStepFunctionsRequest
     {

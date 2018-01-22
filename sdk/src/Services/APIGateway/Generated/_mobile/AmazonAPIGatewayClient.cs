@@ -39,8 +39,8 @@ namespace Amazon.APIGateway
     /// Amazon API Gateway 
     /// <para>
     /// Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and
-    /// web application back ends. Amazon API Gateway allows developers to securely connect
-    /// mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly
+    /// web application back ends. API Gateway allows developers to securely connect mobile
+    /// and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly
     /// addressable web services that are hosted outside of AWS.
     /// </para>
     /// </summary>
@@ -678,6 +678,37 @@ namespace Amazon.APIGateway
 
         #endregion
         
+        #region  CreateVpcLink
+
+        internal virtual CreateVpcLinkResponse CreateVpcLink(CreateVpcLinkRequest request)
+        {
+            var marshaller = new CreateVpcLinkRequestMarshaller();
+            var unmarshaller = CreateVpcLinkResponseUnmarshaller.Instance;
+
+            return Invoke<CreateVpcLinkRequest,CreateVpcLinkResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateVpcLink operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateVpcLink operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<CreateVpcLinkResponse> CreateVpcLinkAsync(CreateVpcLinkRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new CreateVpcLinkRequestMarshaller();
+            var unmarshaller = CreateVpcLinkResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateVpcLinkRequest,CreateVpcLinkResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  DeleteApiKey
 
         internal virtual DeleteApiKeyResponse DeleteApiKey(DeleteApiKeyRequest request)
@@ -1293,6 +1324,37 @@ namespace Amazon.APIGateway
             var unmarshaller = DeleteUsagePlanKeyResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteUsagePlanKeyRequest,DeleteUsagePlanKeyResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteVpcLink
+
+        internal virtual DeleteVpcLinkResponse DeleteVpcLink(DeleteVpcLinkRequest request)
+        {
+            var marshaller = new DeleteVpcLinkRequestMarshaller();
+            var unmarshaller = DeleteVpcLinkResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteVpcLinkRequest,DeleteVpcLinkResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteVpcLink operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteVpcLink operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<DeleteVpcLinkResponse> DeleteVpcLinkAsync(DeleteVpcLinkRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteVpcLinkRequestMarshaller();
+            var unmarshaller = DeleteVpcLinkResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteVpcLinkRequest,DeleteVpcLinkResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -2569,6 +2631,37 @@ namespace Amazon.APIGateway
 
         #endregion
         
+        #region  GetTags
+
+        internal virtual GetTagsResponse GetTags(GetTagsRequest request)
+        {
+            var marshaller = new GetTagsRequestMarshaller();
+            var unmarshaller = GetTagsResponseUnmarshaller.Instance;
+
+            return Invoke<GetTagsRequest,GetTagsResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetTags operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetTags operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<GetTagsResponse> GetTagsAsync(GetTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetTagsRequestMarshaller();
+            var unmarshaller = GetTagsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetTagsRequest,GetTagsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetUsage
 
         internal virtual GetUsageResponse GetUsage(GetUsageRequest request)
@@ -2719,6 +2812,68 @@ namespace Amazon.APIGateway
             var unmarshaller = GetUsagePlansResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetUsagePlansRequest,GetUsagePlansResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetVpcLink
+
+        internal virtual GetVpcLinkResponse GetVpcLink(GetVpcLinkRequest request)
+        {
+            var marshaller = new GetVpcLinkRequestMarshaller();
+            var unmarshaller = GetVpcLinkResponseUnmarshaller.Instance;
+
+            return Invoke<GetVpcLinkRequest,GetVpcLinkResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetVpcLink operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetVpcLink operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<GetVpcLinkResponse> GetVpcLinkAsync(GetVpcLinkRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetVpcLinkRequestMarshaller();
+            var unmarshaller = GetVpcLinkResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetVpcLinkRequest,GetVpcLinkResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetVpcLinks
+
+        internal virtual GetVpcLinksResponse GetVpcLinks(GetVpcLinksRequest request)
+        {
+            var marshaller = new GetVpcLinksRequestMarshaller();
+            var unmarshaller = GetVpcLinksResponseUnmarshaller.Instance;
+
+            return Invoke<GetVpcLinksRequest,GetVpcLinksResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetVpcLinks operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetVpcLinks operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<GetVpcLinksResponse> GetVpcLinksAsync(GetVpcLinksRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetVpcLinksRequestMarshaller();
+            var unmarshaller = GetVpcLinksResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetVpcLinksRequest,GetVpcLinksResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -3003,6 +3158,37 @@ namespace Amazon.APIGateway
 
         #endregion
         
+        #region  TagResource
+
+        internal virtual TagResourceResponse TagResource(TagResourceRequest request)
+        {
+            var marshaller = new TagResourceRequestMarshaller();
+            var unmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<TagResourceRequest,TagResourceResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the TagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the TagResource operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<TagResourceResponse> TagResourceAsync(TagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new TagResourceRequestMarshaller();
+            var unmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<TagResourceRequest,TagResourceResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  TestInvokeAuthorizer
 
         internal virtual TestInvokeAuthorizerResponse TestInvokeAuthorizer(TestInvokeAuthorizerRequest request)
@@ -3060,6 +3246,37 @@ namespace Amazon.APIGateway
             var unmarshaller = TestInvokeMethodResponseUnmarshaller.Instance;
 
             return InvokeAsync<TestInvokeMethodRequest,TestInvokeMethodResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UntagResource
+
+        internal virtual UntagResourceResponse UntagResource(UntagResourceRequest request)
+        {
+            var marshaller = new UntagResourceRequestMarshaller();
+            var unmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<UntagResourceRequest,UntagResourceResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UntagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<UntagResourceResponse> UntagResourceAsync(UntagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UntagResourceRequestMarshaller();
+            var unmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UntagResourceRequest,UntagResourceResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -3711,6 +3928,37 @@ namespace Amazon.APIGateway
             var unmarshaller = UpdateUsagePlanResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateUsagePlanRequest,UpdateUsagePlanResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateVpcLink
+
+        internal virtual UpdateVpcLinkResponse UpdateVpcLink(UpdateVpcLinkRequest request)
+        {
+            var marshaller = new UpdateVpcLinkRequestMarshaller();
+            var unmarshaller = UpdateVpcLinkResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateVpcLinkRequest,UpdateVpcLinkResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateVpcLink operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateVpcLink operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<UpdateVpcLinkResponse> UpdateVpcLinkAsync(UpdateVpcLinkRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateVpcLinkRequestMarshaller();
+            var unmarshaller = UpdateVpcLinkResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateVpcLinkRequest,UpdateVpcLinkResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 

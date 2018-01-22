@@ -31,15 +31,15 @@ namespace Amazon.ApplicationAutoScaling.Model
     /// Container for the parameters to the RegisterScalableTarget operation.
     /// Registers or updates a scalable target. A scalable target is a resource that Application
     /// Auto Scaling can scale out or scale in. After you have registered a scalable target,
-    /// you can use this operation to update the minimum and maximum values for your scalable
+    /// you can use this operation to update the minimum and maximum values for its scalable
     /// dimension.
     /// 
     ///  
     /// <para>
     /// After you register a scalable target, you can create and apply scaling policies using
     /// <a>PutScalingPolicy</a>. You can view the scaling policies for a service namespace
-    /// using <a>DescribeScalableTargets</a>. If you are no longer using a scalable target,
-    /// you can deregister it using <a>DeregisterScalableTarget</a>.
+    /// using <a>DescribeScalableTargets</a>. If you no longer need a scalable target, you
+    /// can deregister it using <a>DeregisterScalableTarget</a>.
     /// </para>
     /// </summary>
     public partial class RegisterScalableTargetRequest : AmazonApplicationAutoScalingRequest
@@ -55,8 +55,7 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// Gets and sets the property MaxCapacity. 
         /// <para>
         /// The maximum value to scale to in response to a scale out event. This parameter is
-        /// required if you are registering a scalable target and optional if you are updating
-        /// one.
+        /// required if you are registering a scalable target.
         /// </para>
         /// </summary>
         public int MaxCapacity
@@ -75,7 +74,7 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// Gets and sets the property MinCapacity. 
         /// <para>
         /// The minimum value to scale to in response to a scale in event. This parameter is required
-        /// if you are registering a scalable target and optional if you are updating one.
+        /// if you are registering a scalable target.
         /// </para>
         /// </summary>
         public int MinCapacity
@@ -126,6 +125,11 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// DynamoDB global secondary index - The resource type is <code>index</code> and the
         /// unique identifier is the resource ID. Example: <code>table/my-table/index/my-table-index</code>.
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier
+        /// is the cluster name. Example: <code>cluster:my-db-cluster</code>.
+        /// </para>
         ///  </li> </ul>
         /// </summary>
         public string ResourceId
@@ -143,9 +147,15 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// <summary>
         /// Gets and sets the property RoleARN. 
         /// <para>
-        /// The ARN of an IAM role that allows Application Auto Scaling to modify the scalable
-        /// target on your behalf. This parameter is required when you register a scalable target
-        /// and optional when you update one.
+        /// Application Auto Scaling creates a service-linked role that grants it permissions
+        /// to modify the scalable target on your behalf. For more information, see <a href="http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/application-autoscaling-service-linked-roles.html">Service-Linked
+        /// Roles for Application Auto Scaling</a>.
+        /// </para>
+        ///  
+        /// <para>
+        /// For resources that are not supported using a service-linked role, this parameter is
+        /// required and must specify the ARN of an IAM role that allows Application Auto Scaling
+        /// to modify the scalable target on your behalf.
         /// </para>
         /// </summary>
         public string RoleARN
@@ -204,6 +214,11 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// <para>
         ///  <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for
         /// a DynamoDB global secondary index.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
+        /// DB cluster. Available for Aurora MySQL-compatible edition.
         /// </para>
         ///  </li> </ul>
         /// </summary>

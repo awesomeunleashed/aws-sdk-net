@@ -22,12 +22,15 @@
   </ProjectOptions>
   <Targets>
     <AssemblyReferenceDirectories>
+      <Directory>$(ProjectDir)/src/Services/alexaforbusiness/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/apigateway/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/applicationautoscaling/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/applicationdiscoveryservice/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/appstream/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/appsync/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/athena/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/autoscaling/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/autoscalingplans/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/awshealth/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/awsmarketplacecommerceanalytics/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/awsmarketplacemetering/bin/Release/net35/</Directory>
@@ -35,6 +38,7 @@
       <Directory>$(ProjectDir)/src/Services/batch/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/budgets/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/certificatemanager/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/cloud9/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/clouddirectory/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/cloudformation/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/cloudfront/bin/Release/net35/</Directory>
@@ -54,8 +58,10 @@
       <Directory>$(ProjectDir)/src/Services/cognitoidentity/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/cognitoidentityprovider/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/cognitosync/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/comprehend/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/configservice/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/costandusagereport/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/costexplorer/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/databasemigrationservice/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/datapipeline/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/dax/bin/Release/net35/</Directory>
@@ -78,40 +84,57 @@
       <Directory>$(ProjectDir)/src/Services/glacier/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/glue/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/greengrass/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/guardduty/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/identitymanagement/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/importexport/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/inspector/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/iot/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/iotdata/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/iotjobsdataplane/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/keymanagementservice/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/kinesis/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/kinesisanalytics/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/kinesisfirehose/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/kinesisvideo/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/kinesisvideoarchivedmedia/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/kinesisvideomedia/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/lambda/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/lex/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/lexmodelbuildingservice/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/lightsail/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/machinelearning/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/marketplaceentitlementservice/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/mediaconvert/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/medialive/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/mediapackage/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/mediastore/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/mediastoredata/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/migrationhub/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/mobile/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/mobileanalytics/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/mq/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/mturk/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/opsworks/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/opsworkscm/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/organizations/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/pinpoint/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/polly/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/pricing/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/rds/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/redshift/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/rekognition/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/resourcegroups/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/resourcegroupstaggingapi/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/route53/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/route53domains/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/s3/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/sagemaker/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/sagemakerruntime/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/securitytoken/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/serverlessapplicationrepository/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/servermigrationservice/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/servicecatalog/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/servicediscovery/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/shield/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/simpledb/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/simpleemail/bin/Release/net35/</Directory>
@@ -122,19 +145,25 @@
       <Directory>$(ProjectDir)/src/Services/sqs/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/stepfunctions/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/storagegateway/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/transcribeservice/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/translate/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/waf/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/wafregional/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/workdocs/bin/Release/net35/</Directory>
+      <Directory>$(ProjectDir)/src/Services/workmail/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/workspaces/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Services/xray/bin/Release/net35/</Directory>
       <Directory>$(ProjectDir)/src/Core/bin/Release/net35/</Directory>
     </AssemblyReferenceDirectories>
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.AlexaForBusiness.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.APIGateway.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ApplicationAutoScaling.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ApplicationDiscoveryService.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.AppStream.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.AppSync.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Athena.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.AutoScaling.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.AutoScalingPlans.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.AWSHealth.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.AWSMarketplaceMetering.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -142,6 +171,7 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Batch.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Budgets.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.CertificateManager.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Cloud9.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.CloudDirectory.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.CloudFormation.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.CloudFront.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -161,8 +191,10 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.CognitoIdentity.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.CognitoIdentityProvider.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.CognitoSync.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Comprehend.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ConfigService.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.CostAndUsageReport.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.CostExplorer.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.DatabaseMigrationService.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.DataPipeline.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.DAX.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -185,40 +217,57 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Glacier.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Glue.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Greengrass.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.GuardDuty.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IdentityManagement.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ImportExport.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Inspector.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IoT.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IotData.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.IoTJobsDataPlane.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.KeyManagementService.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Kinesis.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.KinesisAnalytics.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.KinesisFirehose.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.KinesisVideo.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.KinesisVideoArchivedMedia.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.KinesisVideoMedia.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Lambda.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Lex.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.LexModelBuildingService.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Lightsail.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MachineLearning.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MarketplaceEntitlementService.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaConvert.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaLive.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaPackage.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaStore.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MediaStoreData.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MigrationHub.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Mobile.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MobileAnalytics.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MQ.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.MTurk.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.OpsWorks.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.OpsWorksCM.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Organizations.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Pinpoint.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Polly.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Pricing.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.RDS.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Redshift.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Rekognition.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ResourceGroups.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ResourceGroupsTaggingAPI.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Route53.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Route53Domains.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.S3.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.SageMaker.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.SageMakerRuntime.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.SecurityToken.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ServerlessApplicationRepository.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ServerMigrationService.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ServiceCatalog.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.ServiceDiscovery.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Shield.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.SimpleDB.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.SimpleEmail.dll" Analyze="True" AnalyzeAllChildren="True" />
@@ -229,9 +278,12 @@
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.SQS.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.StepFunctions.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.StorageGateway.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.TranscribeService.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Translate.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.WAF.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.WAFRegional.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.WorkDocs.dll" Analyze="True" AnalyzeAllChildren="True" />
+    <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.WorkMail.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.WorkSpaces.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.XRay.dll" Analyze="True" AnalyzeAllChildren="True" />
     <Target Name="$(ProjectDir)\..\Deployment\assemblies\net35\AWSSDK.Core.dll" Analyze="True" AnalyzeAllChildren="False">

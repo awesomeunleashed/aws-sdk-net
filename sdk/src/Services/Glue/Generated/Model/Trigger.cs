@@ -80,7 +80,7 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property Id. 
         /// <para>
-        /// The trigger ID.
+        /// Reserved for future use.
         /// </para>
         /// </summary>
         public string Id
@@ -116,7 +116,7 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property Predicate. 
         /// <para>
-        /// The predicate of this trigger.
+        /// The predicate of this trigger, which defines when it will fire.
         /// </para>
         /// </summary>
         public Predicate Predicate
@@ -134,7 +134,9 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property Schedule. 
         /// <para>
-        /// A cron schedule expression.
+        /// A <code>cron</code> expression used to specify the schedule (see <a href="http://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html">Time-Based
+        /// Schedules for Jobs and Crawlers</a>. For example, to run something every day at 12:15
+        /// UTC, you would specify: <code>cron(15 12 * * ? *)</code>.
         /// </para>
         /// </summary>
         public string Schedule

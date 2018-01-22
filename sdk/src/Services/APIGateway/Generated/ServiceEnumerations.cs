@@ -71,6 +71,56 @@ namespace Amazon.APIGateway
 
 
     /// <summary>
+    /// Constants used for properties of type ApiKeySourceType.
+    /// </summary>
+    public class ApiKeySourceType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AUTHORIZER for ApiKeySourceType
+        /// </summary>
+        public static readonly ApiKeySourceType AUTHORIZER = new ApiKeySourceType("AUTHORIZER");
+        /// <summary>
+        /// Constant HEADER for ApiKeySourceType
+        /// </summary>
+        public static readonly ApiKeySourceType HEADER = new ApiKeySourceType("HEADER");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ApiKeySourceType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ApiKeySourceType FindValue(string value)
+        {
+            return FindValue<ApiKeySourceType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ApiKeySourceType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type AuthorizerType.
     /// </summary>
     public class AuthorizerType : ConstantClass
@@ -261,6 +311,56 @@ namespace Amazon.APIGateway
 
 
     /// <summary>
+    /// Constants used for properties of type ConnectionType.
+    /// </summary>
+    public class ConnectionType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant INTERNET for ConnectionType
+        /// </summary>
+        public static readonly ConnectionType INTERNET = new ConnectionType("INTERNET");
+        /// <summary>
+        /// Constant VPC_LINK for ConnectionType
+        /// </summary>
+        public static readonly ConnectionType VPC_LINK = new ConnectionType("VPC_LINK");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public ConnectionType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static ConnectionType FindValue(string value)
+        {
+            return FindValue<ConnectionType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator ConnectionType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
     /// Constants used for properties of type ContentHandlingStrategy.
     /// </summary>
     public class ContentHandlingStrategy : ConstantClass
@@ -394,6 +494,56 @@ namespace Amazon.APIGateway
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator DocumentationPartType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type EndpointType.
+    /// </summary>
+    public class EndpointType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant EDGE for EndpointType
+        /// </summary>
+        public static readonly EndpointType EDGE = new EndpointType("EDGE");
+        /// <summary>
+        /// Constant REGIONAL for EndpointType
+        /// </summary>
+        public static readonly EndpointType REGIONAL = new EndpointType("REGIONAL");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public EndpointType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static EndpointType FindValue(string value)
+        {
+            return FindValue<EndpointType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator EndpointType(string value)
         {
             return FindValue(value);
         }
@@ -578,6 +728,56 @@ namespace Amazon.APIGateway
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator IntegrationType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type LocationStatusType.
+    /// </summary>
+    public class LocationStatusType : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant DOCUMENTED for LocationStatusType
+        /// </summary>
+        public static readonly LocationStatusType DOCUMENTED = new LocationStatusType("DOCUMENTED");
+        /// <summary>
+        /// Constant UNDOCUMENTED for LocationStatusType
+        /// </summary>
+        public static readonly LocationStatusType UNDOCUMENTED = new LocationStatusType("UNDOCUMENTED");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public LocationStatusType(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static LocationStatusType FindValue(string value)
+        {
+            return FindValue<LocationStatusType>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator LocationStatusType(string value)
         {
             return FindValue(value);
         }
@@ -802,6 +1002,64 @@ namespace Amazon.APIGateway
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator UnauthorizedCacheControlHeaderStrategy(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type VpcLinkStatus.
+    /// </summary>
+    public class VpcLinkStatus : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant AVAILABLE for VpcLinkStatus
+        /// </summary>
+        public static readonly VpcLinkStatus AVAILABLE = new VpcLinkStatus("AVAILABLE");
+        /// <summary>
+        /// Constant DELETING for VpcLinkStatus
+        /// </summary>
+        public static readonly VpcLinkStatus DELETING = new VpcLinkStatus("DELETING");
+        /// <summary>
+        /// Constant FAILED for VpcLinkStatus
+        /// </summary>
+        public static readonly VpcLinkStatus FAILED = new VpcLinkStatus("FAILED");
+        /// <summary>
+        /// Constant PENDING for VpcLinkStatus
+        /// </summary>
+        public static readonly VpcLinkStatus PENDING = new VpcLinkStatus("PENDING");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public VpcLinkStatus(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static VpcLinkStatus FindValue(string value)
+        {
+            return FindValue<VpcLinkStatus>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator VpcLinkStatus(string value)
         {
             return FindValue(value);
         }

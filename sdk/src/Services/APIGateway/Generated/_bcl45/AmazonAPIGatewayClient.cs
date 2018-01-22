@@ -39,8 +39,8 @@ namespace Amazon.APIGateway
     /// Amazon API Gateway 
     /// <para>
     /// Amazon API Gateway helps developers deliver robust, secure, and scalable mobile and
-    /// web application back ends. Amazon API Gateway allows developers to securely connect
-    /// mobile and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly
+    /// web application back ends. API Gateway allows developers to securely connect mobile
+    /// and web applications to APIs that run on AWS Lambda, Amazon EC2, or other publicly
     /// addressable web services that are hosted outside of AWS.
     /// </para>
     /// </summary>
@@ -1007,6 +1007,55 @@ namespace Amazon.APIGateway
             var unmarshaller = CreateUsagePlanKeyResponseUnmarshaller.Instance;
 
             return InvokeAsync<CreateUsagePlanKeyRequest,CreateUsagePlanKeyResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  CreateVpcLink
+
+
+        /// <summary>
+        /// Creates a VPC link, under the caller's account in a selected region, in an asynchronous
+        /// operation that typically takes 2-4 minutes to complete and become operational. The
+        /// caller must have permissions to create and update VPC Endpoint services.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the CreateVpcLink service method.</param>
+        /// 
+        /// <returns>The response from the CreateVpcLink service method, as returned by APIGateway.</returns>
+        /// <exception cref="Amazon.APIGateway.Model.BadRequestException">
+        /// The submitted request is not valid, for example, the input is incomplete or incorrect.
+        /// See the accompanying error message for details.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.TooManyRequestsException">
+        /// The request has reached its throttling limit. Retry after the specified time period.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.UnauthorizedException">
+        /// The request is denied because the caller has insufficient permissions.
+        /// </exception>
+        public virtual CreateVpcLinkResponse CreateVpcLink(CreateVpcLinkRequest request)
+        {
+            var marshaller = new CreateVpcLinkRequestMarshaller();
+            var unmarshaller = CreateVpcLinkResponseUnmarshaller.Instance;
+
+            return Invoke<CreateVpcLinkRequest,CreateVpcLinkResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the CreateVpcLink operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the CreateVpcLink operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<CreateVpcLinkResponse> CreateVpcLinkAsync(CreateVpcLinkRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new CreateVpcLinkRequestMarshaller();
+            var unmarshaller = CreateVpcLinkResponseUnmarshaller.Instance;
+
+            return InvokeAsync<CreateVpcLinkRequest,CreateVpcLinkResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -2036,6 +2085,56 @@ namespace Amazon.APIGateway
             var unmarshaller = DeleteUsagePlanKeyResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteUsagePlanKeyRequest,DeleteUsagePlanKeyResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DeleteVpcLink
+
+
+        /// <summary>
+        /// Deletes an existing <a>VpcLink</a> of a specified identifier.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DeleteVpcLink service method.</param>
+        /// 
+        /// <returns>The response from the DeleteVpcLink service method, as returned by APIGateway.</returns>
+        /// <exception cref="Amazon.APIGateway.Model.BadRequestException">
+        /// The submitted request is not valid, for example, the input is incomplete or incorrect.
+        /// See the accompanying error message for details.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.NotFoundException">
+        /// The requested resource is not found. Make sure that the request URI is correct.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.TooManyRequestsException">
+        /// The request has reached its throttling limit. Retry after the specified time period.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.UnauthorizedException">
+        /// The request is denied because the caller has insufficient permissions.
+        /// </exception>
+        public virtual DeleteVpcLinkResponse DeleteVpcLink(DeleteVpcLinkRequest request)
+        {
+            var marshaller = new DeleteVpcLinkRequestMarshaller();
+            var unmarshaller = DeleteVpcLinkResponseUnmarshaller.Instance;
+
+            return Invoke<DeleteVpcLinkRequest,DeleteVpcLinkResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DeleteVpcLink operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DeleteVpcLink operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<DeleteVpcLinkResponse> DeleteVpcLinkAsync(DeleteVpcLinkRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DeleteVpcLinkRequestMarshaller();
+            var unmarshaller = DeleteVpcLinkResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DeleteVpcLinkRequest,DeleteVpcLinkResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -3109,8 +3208,8 @@ namespace Amazon.APIGateway
         /// <summary>
         /// Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API
         /// developer has not added any definitions for gateway responses, the result will be
-        /// the Amazon API Gateway-generated default <a>GatewayResponses</a> collection for the
-        /// supported response types.
+        /// the API Gateway-generated default <a>GatewayResponses</a> collection for the supported
+        /// response types.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetGatewayResponses service method.</param>
         /// 
@@ -3160,7 +3259,7 @@ namespace Amazon.APIGateway
 
 
         /// <summary>
-        /// Represents a get integration.
+        /// Get the integration settings.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetIntegration service method.</param>
         /// 
@@ -4006,6 +4105,59 @@ namespace Amazon.APIGateway
 
         #endregion
         
+        #region  GetTags
+
+
+        /// <summary>
+        /// Gets the Tags collection for a given resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetTags service method.</param>
+        /// 
+        /// <returns>The response from the GetTags service method, as returned by APIGateway.</returns>
+        /// <exception cref="Amazon.APIGateway.Model.BadRequestException">
+        /// The submitted request is not valid, for example, the input is incomplete or incorrect.
+        /// See the accompanying error message for details.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.LimitExceededException">
+        /// The request exceeded the rate limit. Retry after the specified time period.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.NotFoundException">
+        /// The requested resource is not found. Make sure that the request URI is correct.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.TooManyRequestsException">
+        /// The request has reached its throttling limit. Retry after the specified time period.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.UnauthorizedException">
+        /// The request is denied because the caller has insufficient permissions.
+        /// </exception>
+        public virtual GetTagsResponse GetTags(GetTagsRequest request)
+        {
+            var marshaller = new GetTagsRequestMarshaller();
+            var unmarshaller = GetTagsResponseUnmarshaller.Instance;
+
+            return Invoke<GetTagsRequest,GetTagsResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetTags operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetTags operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<GetTagsResponse> GetTagsAsync(GetTagsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetTagsRequestMarshaller();
+            var unmarshaller = GetTagsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetTagsRequest,GetTagsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  GetUsage
 
 
@@ -4260,6 +4412,99 @@ namespace Amazon.APIGateway
 
         #endregion
         
+        #region  GetVpcLink
+
+
+        /// <summary>
+        /// Gets a specified VPC link under the caller's account in a region.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetVpcLink service method.</param>
+        /// 
+        /// <returns>The response from the GetVpcLink service method, as returned by APIGateway.</returns>
+        /// <exception cref="Amazon.APIGateway.Model.NotFoundException">
+        /// The requested resource is not found. Make sure that the request URI is correct.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.TooManyRequestsException">
+        /// The request has reached its throttling limit. Retry after the specified time period.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.UnauthorizedException">
+        /// The request is denied because the caller has insufficient permissions.
+        /// </exception>
+        public virtual GetVpcLinkResponse GetVpcLink(GetVpcLinkRequest request)
+        {
+            var marshaller = new GetVpcLinkRequestMarshaller();
+            var unmarshaller = GetVpcLinkResponseUnmarshaller.Instance;
+
+            return Invoke<GetVpcLinkRequest,GetVpcLinkResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetVpcLink operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetVpcLink operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<GetVpcLinkResponse> GetVpcLinkAsync(GetVpcLinkRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetVpcLinkRequestMarshaller();
+            var unmarshaller = GetVpcLinkResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetVpcLinkRequest,GetVpcLinkResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  GetVpcLinks
+
+
+        /// <summary>
+        /// Gets the <a>VpcLinks</a> collection under the caller's account in a selected region.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetVpcLinks service method.</param>
+        /// 
+        /// <returns>The response from the GetVpcLinks service method, as returned by APIGateway.</returns>
+        /// <exception cref="Amazon.APIGateway.Model.BadRequestException">
+        /// The submitted request is not valid, for example, the input is incomplete or incorrect.
+        /// See the accompanying error message for details.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.TooManyRequestsException">
+        /// The request has reached its throttling limit. Retry after the specified time period.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.UnauthorizedException">
+        /// The request is denied because the caller has insufficient permissions.
+        /// </exception>
+        public virtual GetVpcLinksResponse GetVpcLinks(GetVpcLinksRequest request)
+        {
+            var marshaller = new GetVpcLinksRequestMarshaller();
+            var unmarshaller = GetVpcLinksResponseUnmarshaller.Instance;
+
+            return Invoke<GetVpcLinksRequest,GetVpcLinksResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetVpcLinks operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetVpcLinks operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<GetVpcLinksResponse> GetVpcLinksAsync(GetVpcLinksRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new GetVpcLinksRequestMarshaller();
+            var unmarshaller = GetVpcLinksResponseUnmarshaller.Instance;
+
+            return InvokeAsync<GetVpcLinksRequest,GetVpcLinksResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
         #region  ImportApiKeys
 
 
@@ -4373,8 +4618,8 @@ namespace Amazon.APIGateway
 
 
         /// <summary>
-        /// A feature of the Amazon API Gateway control service for creating a new API from an
-        /// external API definition file.
+        /// A feature of the API Gateway control service for creating a new API from an external
+        /// API definition file.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ImportRestApi service method.</param>
         /// 
@@ -4702,9 +4947,9 @@ namespace Amazon.APIGateway
 
 
         /// <summary>
-        /// A feature of the Amazon API Gateway control service for updating an existing API with
-        /// an input of external API definitions. The update can take the form of merging the
-        /// supplied definition into the existing API or overwriting the existing API.
+        /// A feature of the API Gateway control service for updating an existing API with an
+        /// input of external API definitions. The update can take the form of merging the supplied
+        /// definition into the existing API or overwriting the existing API.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PutRestApi service method.</param>
         /// 
@@ -4751,6 +4996,62 @@ namespace Amazon.APIGateway
             var unmarshaller = PutRestApiResponseUnmarshaller.Instance;
 
             return InvokeAsync<PutRestApiRequest,PutRestApiResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  TagResource
+
+
+        /// <summary>
+        /// Adds or updates Tags on a gievn resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the TagResource service method.</param>
+        /// 
+        /// <returns>The response from the TagResource service method, as returned by APIGateway.</returns>
+        /// <exception cref="Amazon.APIGateway.Model.BadRequestException">
+        /// The submitted request is not valid, for example, the input is incomplete or incorrect.
+        /// See the accompanying error message for details.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.ConflictException">
+        /// The request configuration has conflicts. For details, see the accompanying error message.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.LimitExceededException">
+        /// The request exceeded the rate limit. Retry after the specified time period.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.NotFoundException">
+        /// The requested resource is not found. Make sure that the request URI is correct.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.TooManyRequestsException">
+        /// The request has reached its throttling limit. Retry after the specified time period.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.UnauthorizedException">
+        /// The request is denied because the caller has insufficient permissions.
+        /// </exception>
+        public virtual TagResourceResponse TagResource(TagResourceRequest request)
+        {
+            var marshaller = new TagResourceRequestMarshaller();
+            var unmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<TagResourceRequest,TagResourceResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the TagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the TagResource operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<TagResourceResponse> TagResourceAsync(TagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new TagResourceRequestMarshaller();
+            var unmarshaller = TagResourceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<TagResourceRequest,TagResourceResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -4856,6 +5157,59 @@ namespace Amazon.APIGateway
             var unmarshaller = TestInvokeMethodResponseUnmarshaller.Instance;
 
             return InvokeAsync<TestInvokeMethodRequest,TestInvokeMethodResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UntagResource
+
+
+        /// <summary>
+        /// Removes Tags from a given resource.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource service method.</param>
+        /// 
+        /// <returns>The response from the UntagResource service method, as returned by APIGateway.</returns>
+        /// <exception cref="Amazon.APIGateway.Model.BadRequestException">
+        /// The submitted request is not valid, for example, the input is incomplete or incorrect.
+        /// See the accompanying error message for details.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.ConflictException">
+        /// The request configuration has conflicts. For details, see the accompanying error message.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.NotFoundException">
+        /// The requested resource is not found. Make sure that the request URI is correct.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.TooManyRequestsException">
+        /// The request has reached its throttling limit. Retry after the specified time period.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.UnauthorizedException">
+        /// The request is denied because the caller has insufficient permissions.
+        /// </exception>
+        public virtual UntagResourceResponse UntagResource(UntagResourceRequest request)
+        {
+            var marshaller = new UntagResourceRequestMarshaller();
+            var unmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return Invoke<UntagResourceRequest,UntagResourceResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UntagResource operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UntagResource operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<UntagResourceResponse> UntagResourceAsync(UntagResourceRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UntagResourceRequestMarshaller();
+            var unmarshaller = UntagResourceResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UntagResourceRequest,UntagResourceResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -5962,6 +6316,59 @@ namespace Amazon.APIGateway
             var unmarshaller = UpdateUsagePlanResponseUnmarshaller.Instance;
 
             return InvokeAsync<UpdateUsagePlanRequest,UpdateUsagePlanResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateVpcLink
+
+
+        /// <summary>
+        /// Updates an existing <a>VpcLink</a> of a specified identifier.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateVpcLink service method.</param>
+        /// 
+        /// <returns>The response from the UpdateVpcLink service method, as returned by APIGateway.</returns>
+        /// <exception cref="Amazon.APIGateway.Model.BadRequestException">
+        /// The submitted request is not valid, for example, the input is incomplete or incorrect.
+        /// See the accompanying error message for details.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.ConflictException">
+        /// The request configuration has conflicts. For details, see the accompanying error message.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.NotFoundException">
+        /// The requested resource is not found. Make sure that the request URI is correct.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.TooManyRequestsException">
+        /// The request has reached its throttling limit. Retry after the specified time period.
+        /// </exception>
+        /// <exception cref="Amazon.APIGateway.Model.UnauthorizedException">
+        /// The request is denied because the caller has insufficient permissions.
+        /// </exception>
+        public virtual UpdateVpcLinkResponse UpdateVpcLink(UpdateVpcLinkRequest request)
+        {
+            var marshaller = new UpdateVpcLinkRequestMarshaller();
+            var unmarshaller = UpdateVpcLinkResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateVpcLinkRequest,UpdateVpcLinkResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateVpcLink operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateVpcLink operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        public virtual Task<UpdateVpcLinkResponse> UpdateVpcLinkAsync(UpdateVpcLinkRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateVpcLinkRequestMarshaller();
+            var unmarshaller = UpdateVpcLinkResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateVpcLinkRequest,UpdateVpcLinkResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 

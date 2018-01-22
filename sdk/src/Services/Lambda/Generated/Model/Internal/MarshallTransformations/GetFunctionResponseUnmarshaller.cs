@@ -57,6 +57,12 @@ namespace Amazon.Lambda.Model.Internal.MarshallTransformations
                     response.Code = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("Concurrency", targetDepth))
+                {
+                    var unmarshaller = ConcurrencyUnmarshaller.Instance;
+                    response.Concurrency = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("Configuration", targetDepth))
                 {
                     var unmarshaller = FunctionConfigurationUnmarshaller.Instance;

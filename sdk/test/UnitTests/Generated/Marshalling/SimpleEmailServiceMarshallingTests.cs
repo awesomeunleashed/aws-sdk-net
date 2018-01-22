@@ -140,6 +140,25 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("SimpleEmail")]
+        public void CreateCustomVerificationEmailTemplateMarshallTest()
+        {
+            var operation = service_model.FindOperation("CreateCustomVerificationEmailTemplate");
+
+            var request = InstantiateClassGenerator.Execute<CreateCustomVerificationEmailTemplateRequest>();
+            var marshaller = new CreateCustomVerificationEmailTemplateRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("SimpleEmail")]
         public void CreateReceiptFilterMarshallTest()
         {
             var operation = service_model.FindOperation("CreateReceiptFilter");
@@ -300,6 +319,25 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var response = DeleteConfigurationSetTrackingOptionsResponseUnmarshaller.Instance.Unmarshall(context)
                 as DeleteConfigurationSetTrackingOptionsResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("SimpleEmail")]
+        public void DeleteCustomVerificationEmailTemplateMarshallTest()
+        {
+            var operation = service_model.FindOperation("DeleteCustomVerificationEmailTemplate");
+
+            var request = InstantiateClassGenerator.Execute<DeleteCustomVerificationEmailTemplateRequest>();
+            var marshaller = new DeleteCustomVerificationEmailTemplateRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
         }
 
         
@@ -567,6 +605,54 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("SimpleEmail")]
+        public void GetAccountSendingEnabledMarshallTest()
+        {
+            var operation = service_model.FindOperation("GetAccountSendingEnabled");
+
+            var request = InstantiateClassGenerator.Execute<GetAccountSendingEnabledRequest>();
+            var marshaller = new GetAccountSendingEnabledRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = GetAccountSendingEnabledResponseUnmarshaller.Instance.Unmarshall(context)
+                as GetAccountSendingEnabledResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("SimpleEmail")]
+        public void GetCustomVerificationEmailTemplateMarshallTest()
+        {
+            var operation = service_model.FindOperation("GetCustomVerificationEmailTemplate");
+
+            var request = InstantiateClassGenerator.Execute<GetCustomVerificationEmailTemplateRequest>();
+            var marshaller = new GetCustomVerificationEmailTemplateRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = GetCustomVerificationEmailTemplateResponseUnmarshaller.Instance.Unmarshall(context)
+                as GetCustomVerificationEmailTemplateResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("SimpleEmail")]
         public void GetIdentityDkimAttributesMarshallTest()
         {
             var operation = service_model.FindOperation("GetIdentityDkimAttributes");
@@ -774,6 +860,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
             var response = ListConfigurationSetsResponseUnmarshaller.Instance.Unmarshall(context)
                 as ListConfigurationSetsResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("SimpleEmail")]
+        public void ListCustomVerificationEmailTemplatesMarshallTest()
+        {
+            var operation = service_model.FindOperation("ListCustomVerificationEmailTemplates");
+
+            var request = InstantiateClassGenerator.Execute<ListCustomVerificationEmailTemplatesRequest>();
+            var marshaller = new ListCustomVerificationEmailTemplatesRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = ListCustomVerificationEmailTemplatesResponseUnmarshaller.Instance.Unmarshall(context)
+                as ListCustomVerificationEmailTemplatesResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
@@ -1014,6 +1124,30 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
             var response = SendBulkTemplatedEmailResponseUnmarshaller.Instance.Unmarshall(context)
                 as SendBulkTemplatedEmailResponse;   
+            InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("SimpleEmail")]
+        public void SendCustomVerificationEmailMarshallTest()
+        {
+            var operation = service_model.FindOperation("SendCustomVerificationEmail");
+
+            var request = InstantiateClassGenerator.Execute<SendCustomVerificationEmailRequest>();
+            var marshaller = new SendCustomVerificationEmailRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+            var payloadResponse = new XmlSampleGenerator(service_model, operation).Execute();
+            var context = new XmlUnmarshallerContext(Utils.CreateStreamFromString(payloadResponse), false, null);
+            var response = SendCustomVerificationEmailResponseUnmarshaller.Instance.Unmarshall(context)
+                as SendCustomVerificationEmailResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
         }
 
@@ -1287,6 +1421,25 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("SimpleEmail")]
+        public void UpdateAccountSendingEnabledMarshallTest()
+        {
+            var operation = service_model.FindOperation("UpdateAccountSendingEnabled");
+
+            var request = InstantiateClassGenerator.Execute<UpdateAccountSendingEnabledRequest>();
+            var marshaller = new UpdateAccountSendingEnabledRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("SimpleEmail")]
         public void UpdateConfigurationSetEventDestinationMarshallTest()
         {
             var operation = service_model.FindOperation("UpdateConfigurationSetEventDestination");
@@ -1311,6 +1464,44 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
         [TestCategory("UnitTest")]
         [TestCategory("Query")]
         [TestCategory("SimpleEmail")]
+        public void UpdateConfigurationSetReputationMetricsEnabledMarshallTest()
+        {
+            var operation = service_model.FindOperation("UpdateConfigurationSetReputationMetricsEnabled");
+
+            var request = InstantiateClassGenerator.Execute<UpdateConfigurationSetReputationMetricsEnabledRequest>();
+            var marshaller = new UpdateConfigurationSetReputationMetricsEnabledRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("SimpleEmail")]
+        public void UpdateConfigurationSetSendingEnabledMarshallTest()
+        {
+            var operation = service_model.FindOperation("UpdateConfigurationSetSendingEnabled");
+
+            var request = InstantiateClassGenerator.Execute<UpdateConfigurationSetSendingEnabledRequest>();
+            var marshaller = new UpdateConfigurationSetSendingEnabledRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("SimpleEmail")]
         public void UpdateConfigurationSetTrackingOptionsMarshallTest()
         {
             var operation = service_model.FindOperation("UpdateConfigurationSetTrackingOptions");
@@ -1327,6 +1518,25 @@ namespace AWSSDK_DotNet35.UnitTests.Marshalling
             var response = UpdateConfigurationSetTrackingOptionsResponseUnmarshaller.Instance.Unmarshall(context)
                 as UpdateConfigurationSetTrackingOptionsResponse;   
             InstantiateClassGenerator.ValidateObjectFullyInstantiated(response);       
+        }
+
+        
+
+        [TestMethod]
+        [TestCategory("UnitTest")]
+        [TestCategory("Query")]
+        [TestCategory("SimpleEmail")]
+        public void UpdateCustomVerificationEmailTemplateMarshallTest()
+        {
+            var operation = service_model.FindOperation("UpdateCustomVerificationEmailTemplate");
+
+            var request = InstantiateClassGenerator.Execute<UpdateCustomVerificationEmailTemplateRequest>();
+            var marshaller = new UpdateCustomVerificationEmailTemplateRequestMarshaller();
+            var internalRequest = marshaller.Marshall(request);
+            var validator = new AWSQueryValidator(internalRequest.Parameters, request, service_model, operation);
+            validator.Validate();
+
+
         }
 
         

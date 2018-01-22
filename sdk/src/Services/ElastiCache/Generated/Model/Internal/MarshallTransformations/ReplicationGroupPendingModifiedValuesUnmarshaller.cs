@@ -66,6 +66,12 @@ namespace Amazon.ElastiCache.Model.Internal.MarshallTransformations
                         unmarshalledObject.PrimaryClusterId = unmarshaller.Unmarshall(context);
                         continue;
                     }
+                    if (context.TestExpression("Resharding", targetDepth))
+                    {
+                        var unmarshaller = ReshardingStatusUnmarshaller.Instance;
+                        unmarshalledObject.Resharding = unmarshaller.Unmarshall(context);
+                        continue;
+                    }
                 }
                 else if (context.IsEndElement && context.CurrentDepth < originalDepth)
                 {

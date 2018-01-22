@@ -29,7 +29,7 @@ namespace Amazon.ApplicationAutoScaling.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeScalingPolicies operation.
-    /// Provides descriptive information about the scaling policies in the specified namespace.
+    /// Describes the scaling policies for the specified service namespace.
     /// 
     ///  
     /// <para>
@@ -54,8 +54,8 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// <summary>
         /// Gets and sets the property MaxResults. 
         /// <para>
-        /// The maximum number of scalable target results. This value can be between 1 and 50.
-        /// The default value is 50.
+        /// The maximum number of scalable targets. This value can be between 1 and 50. The default
+        /// value is 50.
         /// </para>
         ///  
         /// <para>
@@ -151,6 +151,11 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// DynamoDB global secondary index - The resource type is <code>index</code> and the
         /// unique identifier is the resource ID. Example: <code>table/my-table/index/my-table-index</code>.
         /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier
+        /// is the cluster name. Example: <code>cluster:my-db-cluster</code>.
+        /// </para>
         ///  </li> </ul>
         /// </summary>
         public string ResourceId
@@ -210,6 +215,11 @@ namespace Amazon.ApplicationAutoScaling.Model
         /// <para>
         ///  <code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for
         /// a DynamoDB global secondary index.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        ///  <code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
+        /// DB cluster. Available for Aurora MySQL-compatible edition.
         /// </para>
         ///  </li> </ul>
         /// </summary>

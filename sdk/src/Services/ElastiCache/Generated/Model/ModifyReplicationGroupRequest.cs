@@ -106,9 +106,9 @@ namespace Amazon.ElastiCache.Model
         /// <para>
         /// Valid values: <code>true</code> | <code>false</code> 
         /// </para>
-        ///  <note> 
+        ///  
         /// <para>
-        /// ElastiCache Multi-AZ replication groups are not supported on:
+        /// Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:
         /// </para>
         ///  <ul> <li> 
         /// <para>
@@ -116,13 +116,13 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Redis (cluster mode disabled):T1 and T2 cache node types.
+        /// Redis (cluster mode disabled): T1 and T2 cache node types.
         /// </para>
-        ///  
+        ///  </li> <li> 
         /// <para>
         /// Redis (cluster mode enabled): T1 node types.
         /// </para>
-        ///  </li> </ul> </note>
+        ///  </li> </ul>
         /// </summary>
         public bool AutomaticFailoverEnabled
         {
@@ -201,7 +201,7 @@ namespace Amazon.ElastiCache.Model
         /// </para>
         ///  
         /// <para>
-        /// This parameter can be used only with replication group containing cache clusters running
+        /// This parameter can be used only with replication group containing clusters running
         /// outside of an Amazon Virtual Private Cloud (Amazon VPC).
         /// </para>
         ///  
@@ -224,7 +224,7 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property EngineVersion. 
         /// <para>
-        /// The upgraded version of the cache engine to be run on the cache clusters in the replication
+        /// The upgraded version of the cache engine to be run on the clusters in the replication
         /// group.
         /// </para>
         ///  
@@ -427,12 +427,12 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property SecurityGroupIds. 
         /// <para>
-        /// Specifies the VPC Security Groups associated with the cache clusters in the replication
+        /// Specifies the VPC Security Groups associated with the clusters in the replication
         /// group.
         /// </para>
         ///  
         /// <para>
-        /// This parameter can be used only with replication group containing cache clusters running
+        /// This parameter can be used only with replication group containing clusters running
         /// in an Amazon Virtual Private Cloud (Amazon VPC).
         /// </para>
         /// </summary>
@@ -476,8 +476,8 @@ namespace Amazon.ElastiCache.Model
         /// <summary>
         /// Gets and sets the property SnapshottingClusterId. 
         /// <para>
-        /// The cache cluster ID that is used as the daily snapshot source for the replication
-        /// group. This parameter cannot be set for Redis (cluster mode enabled) replication groups.
+        /// The cluster ID that is used as the daily snapshot source for the replication group.
+        /// This parameter cannot be set for Redis (cluster mode enabled) replication groups.
         /// </para>
         /// </summary>
         public string SnapshottingClusterId

@@ -28,7 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.Glue.Model
 {
     /// <summary>
-    /// 
+    /// Defines a condition under which a trigger fires.
     /// </summary>
     public partial class Condition
     {
@@ -37,7 +37,11 @@ namespace Amazon.Glue.Model
         private JobRunState _state;
 
         /// <summary>
-        /// Gets and sets the property JobName.
+        /// Gets and sets the property JobName. 
+        /// <para>
+        /// The name of the Job to whose JobRuns this condition applies and on which this trigger
+        /// waits.
+        /// </para>
         /// </summary>
         public string JobName
         {
@@ -52,7 +56,10 @@ namespace Amazon.Glue.Model
         }
 
         /// <summary>
-        /// Gets and sets the property LogicalOperator.
+        /// Gets and sets the property LogicalOperator. 
+        /// <para>
+        /// A logical operator.
+        /// </para>
         /// </summary>
         public LogicalOperator LogicalOperator
         {
@@ -67,7 +74,10 @@ namespace Amazon.Glue.Model
         }
 
         /// <summary>
-        /// Gets and sets the property State.
+        /// Gets and sets the property State. 
+        /// <para>
+        /// The condition state. Currently, the values supported are SUCCEEDED, STOPPED and FAILED.
+        /// </para>
         /// </summary>
         public JobRunState State
         {

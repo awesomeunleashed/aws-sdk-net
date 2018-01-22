@@ -56,7 +56,7 @@ namespace Amazon.Glue.Model
         /// <summary>
         /// Gets and sets the property TableName. 
         /// <para>
-        /// Name of the table.
+        /// Name of the table. For Hive compatibility, this must be entirely lowercase.
         /// </para>
         /// </summary>
         public string TableName

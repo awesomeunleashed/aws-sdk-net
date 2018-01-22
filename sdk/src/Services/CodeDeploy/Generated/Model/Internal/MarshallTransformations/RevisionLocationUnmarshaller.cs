@@ -82,6 +82,12 @@ namespace Amazon.CodeDeploy.Model.Internal.MarshallTransformations
                     unmarshalledObject.S3Location = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("string", targetDepth))
+                {
+                    var unmarshaller = RawStringUnmarshaller.Instance;
+                    unmarshalledObject.String = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

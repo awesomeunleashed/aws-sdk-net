@@ -42,7 +42,7 @@ namespace Amazon.RDS.Model
         /// </para>
         ///  <note> 
         /// <para>
-        /// You cannot delete default option groups.
+        /// You can't delete default option groups.
         /// </para>
         ///  </note>
         /// </summary>

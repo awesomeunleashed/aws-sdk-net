@@ -33,15 +33,23 @@ namespace Amazon.Rekognition.Model
     /// 
     ///  
     /// <para>
-    ///  Amazon Rekognition does not save the actual faces detected. Instead, the underlying
+    /// Amazon Rekognition does not save the actual faces detected. Instead, the underlying
     /// detection algorithm first detects the faces in the input image, and for each face
     /// extracts facial features into a feature vector, and stores it in the back-end database.
     /// Amazon Rekognition uses feature vectors when performing face match and search operations
-    /// using the and operations. 
+    /// using the and operations.
     /// </para>
     ///  
     /// <para>
-    /// If you provide the optional <code>externalImageID</code> for the input image you provided,
+    /// If you are using version 1.0 of the face detection model, <code>IndexFaces</code>
+    /// indexes the 15 largest faces in the input image. Later versions of the face detection
+    /// model index the 100 largest faces in the input image. To determine which version of
+    /// the model you are using, check the the value of <code>FaceModelVersion</code> in the
+    /// response from <code>IndexFaces</code>. For more information, see <a>face-detection-model</a>.
+    /// </para>
+    ///  
+    /// <para>
+    /// If you provide the optional <code>ExternalImageID</code> for the input image you provided,
     /// Amazon Rekognition associates this ID with all faces that it detects. When you call
     /// the operation, the response returns the external ID. You can use this external image
     /// ID to create a client-side index to associate the faces with each image. You can then
@@ -62,7 +70,10 @@ namespace Amazon.Rekognition.Model
     /// </para>
     ///  
     /// <para>
-    /// For an example, see <a>example2</a>.
+    /// The input image is passed either as base64-encoded image bytes or as a reference to
+    /// an image in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition
+    /// operations, passing image bytes is not supported. The image must be either a PNG or
+    /// JPEG formatted file. 
     /// </para>
     ///  
     /// <para>
@@ -145,7 +156,9 @@ namespace Amazon.Rekognition.Model
         /// <summary>
         /// Gets and sets the property Image. 
         /// <para>
-        /// The input image as bytes or an S3 object.
+        /// The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
+        /// call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
+        /// 
         /// </para>
         /// </summary>
         public Image Image

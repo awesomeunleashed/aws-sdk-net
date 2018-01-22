@@ -39,14 +39,15 @@ namespace Amazon.ECS.Model
     /// In addition to maintaining the desired count of tasks in your service, you can optionally
     /// run your service behind a load balancer. The load balancer distributes traffic across
     /// the tasks that are associated with the service. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
-    /// Load Balancing</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+    /// Load Balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para>
     ///  
     /// <para>
-    /// You can optionally specify a deployment configuration for your service. During a deployment
-    /// (which is triggered by changing the task definition or the desired count of a service
-    /// with an <a>UpdateService</a> operation), the service scheduler uses the <code>minimumHealthyPercent</code>
-    /// and <code>maximumPercent</code> parameters to determine the deployment strategy.
+    /// You can optionally specify a deployment configuration for your service. During a deployment,
+    /// the service scheduler uses the <code>minimumHealthyPercent</code> and <code>maximumPercent</code>
+    /// parameters to determine the deployment strategy. The deployment is triggered by changing
+    /// the task definition or the desired count of a service with an <a>UpdateService</a>
+    /// operation.
     /// </para>
     ///  
     /// <para>
@@ -112,9 +113,13 @@ namespace Amazon.ECS.Model
         private string _cluster;
         private DeploymentConfiguration _deploymentConfiguration;
         private int? _desiredCount;
+        private int? _healthCheckGracePeriodSeconds;
+        private LaunchType _launchType;
         private List<LoadBalancer> _loadBalancers = new List<LoadBalancer>();
+        private NetworkConfiguration _networkConfiguration;
         private List<PlacementConstraint> _placementConstraints = new List<PlacementConstraint>();
         private List<PlacementStrategy> _placementStrategy = new List<PlacementStrategy>();
+        private string _platformVersion;
         private string _role;
         private string _serviceName;
         private string _taskDefinition;
@@ -196,6 +201,48 @@ namespace Amazon.ECS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property HealthCheckGracePeriodSeconds. 
+        /// <para>
+        /// The period of time, in seconds, that the Amazon ECS service scheduler should ignore
+        /// unhealthy Elastic Load Balancing target health checks after a task has first started.
+        /// This is only valid if your service is configured to use a load balancer. If your service's
+        /// tasks take a while to start and respond to ELB health checks, you can specify a health
+        /// check grace period of up to 1,800 seconds during which the ECS service scheduler will
+        /// ignore ELB health check status. This grace period can prevent the ECS service scheduler
+        /// from marking tasks as unhealthy and stopping them before they have time to come up.
+        /// </para>
+        /// </summary>
+        public int HealthCheckGracePeriodSeconds
+        {
+            get { return this._healthCheckGracePeriodSeconds.GetValueOrDefault(); }
+            set { this._healthCheckGracePeriodSeconds = value; }
+        }
+
+        // Check to see if HealthCheckGracePeriodSeconds property is set
+        internal bool IsSetHealthCheckGracePeriodSeconds()
+        {
+            return this._healthCheckGracePeriodSeconds.HasValue; 
+        }
+
+        /// <summary>
+        /// Gets and sets the property LaunchType. 
+        /// <para>
+        /// The launch type on which to run your service.
+        /// </para>
+        /// </summary>
+        public LaunchType LaunchType
+        {
+            get { return this._launchType; }
+            set { this._launchType = value; }
+        }
+
+        // Check to see if LaunchType property is set
+        internal bool IsSetLaunchType()
+        {
+            return this._launchType != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property LoadBalancers. 
         /// <para>
         /// A load balancer object representing the load balancer to use with your service. Currently,
@@ -232,6 +279,28 @@ namespace Amazon.ECS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property NetworkConfiguration. 
+        /// <para>
+        /// The network configuration for the service. This parameter is required for task definitions
+        /// that use the <code>awsvpc</code> network mode to receive their own Elastic Network
+        /// Interface, and it is not supported for other network modes. For more information,
+        /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
+        /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
+        /// </para>
+        /// </summary>
+        public NetworkConfiguration NetworkConfiguration
+        {
+            get { return this._networkConfiguration; }
+            set { this._networkConfiguration = value; }
+        }
+
+        // Check to see if NetworkConfiguration property is set
+        internal bool IsSetNetworkConfiguration()
+        {
+            return this._networkConfiguration != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property PlacementConstraints. 
         /// <para>
         /// An array of placement constraint objects to use for tasks in your service. You can
@@ -255,7 +324,7 @@ namespace Amazon.ECS.Model
         /// Gets and sets the property PlacementStrategy. 
         /// <para>
         /// The placement strategy objects to use for tasks in your service. You can specify a
-        /// maximum of 5 strategy rules per service.
+        /// maximum of five strategy rules per service.
         /// </para>
         /// </summary>
         public List<PlacementStrategy> PlacementStrategy
@@ -271,15 +340,43 @@ namespace Amazon.ECS.Model
         }
 
         /// <summary>
+        /// Gets and sets the property PlatformVersion. 
+        /// <para>
+        /// The platform version on which to run your service. If one is not specified, the latest
+        /// version is used by default.
+        /// </para>
+        /// </summary>
+        public string PlatformVersion
+        {
+            get { return this._platformVersion; }
+            set { this._platformVersion = value; }
+        }
+
+        // Check to see if PlatformVersion property is set
+        internal bool IsSetPlatformVersion()
+        {
+            return this._platformVersion != null;
+        }
+
+        /// <summary>
         /// Gets and sets the property Role. 
         /// <para>
         /// The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS
-        /// to make calls to your load balancer on your behalf. This parameter is required if
-        /// you are using a load balancer with your service. If you specify the <code>role</code>
-        /// parameter, you must also specify a load balancer object with the <code>loadBalancers</code>
-        /// parameter.
+        /// to make calls to your load balancer on your behalf. This parameter is only permitted
+        /// if you are using a load balancer with your service and your task definition does not
+        /// use the <code>awsvpc</code> network mode. If you specify the <code>role</code> parameter,
+        /// you must also specify a load balancer object with the <code>loadBalancers</code> parameter.
         /// </para>
-        ///  
+        ///  <important> 
+        /// <para>
+        /// If your account has already created the Amazon ECS service-linked role, that role
+        /// is used by default for your service unless you specify a role here. The service-linked
+        /// role is required if your task definition uses the <code>awsvpc</code> network mode,
+        /// in which case you should not specify a role here. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+        /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
+        /// Developer Guide</i>.
+        /// </para>
+        ///  </important> 
         /// <para>
         /// If your specified role has a path other than <code>/</code>, then you must either
         /// specify the full role ARN (this is recommended) or prefix the role name with the path.
@@ -326,9 +423,8 @@ namespace Amazon.ECS.Model
         /// Gets and sets the property TaskDefinition. 
         /// <para>
         /// The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full Amazon Resource Name (ARN) of the task definition to run in your service. If
-        /// a <code>revision</code> is not specified, the latest <code>ACTIVE</code> revision
-        /// is used.
+        /// full ARN of the task definition to run in your service. If a <code>revision</code>
+        /// is not specified, the latest <code>ACTIVE</code> revision is used.
         /// </para>
         /// </summary>
         public string TaskDefinition

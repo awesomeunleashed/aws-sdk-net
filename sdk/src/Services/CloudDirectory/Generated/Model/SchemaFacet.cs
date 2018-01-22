@@ -56,7 +56,9 @@ namespace Amazon.CloudDirectory.Model
         /// <summary>
         /// Gets and sets the property SchemaArn. 
         /// <para>
-        /// The ARN of the schema that contains the facet.
+        /// The ARN of the schema that contains the facet with no minor component. See <a>arns</a>
+        /// and <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/inplaceschemaupgrade.html">In-Place
+        /// Schema Upgrade</a> for a description of when to provide minor versions.
         /// </para>
         /// </summary>
         public string SchemaArn

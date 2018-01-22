@@ -39,7 +39,8 @@ namespace Amazon.KinesisAnalytics.Model
         /// <summary>
         /// Gets and sets the property ResourceARNUpdate. 
         /// <para>
-        /// ARN of the input Amazon Kinesis Firehose delivery stream to read.
+        /// Amazon Resource Name (ARN) of the input Amazon Kinesis Firehose delivery stream to
+        /// read.
         /// </para>
         /// </summary>
         public string ResourceARNUpdate
@@ -57,9 +58,8 @@ namespace Amazon.KinesisAnalytics.Model
         /// <summary>
         /// Gets and sets the property RoleARNUpdate. 
         /// <para>
-        /// Amazon Resource Name (ARN) of the IAM role that Amazon Kinesis Analytics can assume
-        /// to access the stream on your behalf. You need to grant necessary permissions to this
-        /// role.
+        /// ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream
+        /// on your behalf. You need to grant necessary permissions to this role.
         /// </para>
         /// </summary>
         public string RoleARNUpdate

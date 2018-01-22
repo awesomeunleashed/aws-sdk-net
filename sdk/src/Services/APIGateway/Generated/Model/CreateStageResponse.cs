@@ -36,9 +36,11 @@ namespace Amazon.APIGateway.Model
     /// </summary>
     public partial class CreateStageResponse : AmazonWebServiceResponse
     {
+        private AccessLogSettings _accessLogSettings;
         private bool? _cacheClusterEnabled;
         private CacheClusterSize _cacheClusterSize;
         private CacheClusterStatus _cacheClusterStatus;
+        private CanarySettings _canarySettings;
         private string _clientCertificateId;
         private DateTime? _createdDate;
         private string _deploymentId;
@@ -47,7 +49,26 @@ namespace Amazon.APIGateway.Model
         private DateTime? _lastUpdatedDate;
         private Dictionary<string, MethodSetting> _methodSettings = new Dictionary<string, MethodSetting>();
         private string _stageName;
+        private Dictionary<string, string> _tags = new Dictionary<string, string>();
         private Dictionary<string, string> _variables = new Dictionary<string, string>();
+
+        /// <summary>
+        /// Gets and sets the property AccessLogSettings. 
+        /// <para>
+        /// Settings for logging access in this stage.
+        /// </para>
+        /// </summary>
+        public AccessLogSettings AccessLogSettings
+        {
+            get { return this._accessLogSettings; }
+            set { this._accessLogSettings = value; }
+        }
+
+        // Check to see if AccessLogSettings property is set
+        internal bool IsSetAccessLogSettings()
+        {
+            return this._accessLogSettings != null;
+        }
 
         /// <summary>
         /// Gets and sets the property CacheClusterEnabled. 
@@ -101,6 +122,24 @@ namespace Amazon.APIGateway.Model
         internal bool IsSetCacheClusterStatus()
         {
             return this._cacheClusterStatus != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property CanarySettings. 
+        /// <para>
+        /// Settings for the canary deployment in this stage.
+        /// </para>
+        /// </summary>
+        public CanarySettings CanarySettings
+        {
+            get { return this._canarySettings; }
+            set { this._canarySettings = value; }
+        }
+
+        // Check to see if CanarySettings property is set
+        internal bool IsSetCanarySettings()
+        {
+            return this._canarySettings != null;
         }
 
         /// <summary>
@@ -236,7 +275,7 @@ namespace Amazon.APIGateway.Model
         /// Gets and sets the property StageName. 
         /// <para>
         /// The name of the stage is the first path segment in the Uniform Resource Identifier
-        /// (URI) of a call to Amazon API Gateway.
+        /// (URI) of a call to API Gateway.
         /// </para>
         /// </summary>
         public string StageName
@@ -249,6 +288,24 @@ namespace Amazon.APIGateway.Model
         internal bool IsSetStageName()
         {
             return this._stageName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Tags. 
+        /// <para>
+        /// A collection of Tags associated with a given resource.
+        /// </para>
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get { return this._tags; }
+            set { this._tags = value; }
+        }
+
+        // Check to see if Tags property is set
+        internal bool IsSetTags()
+        {
+            return this._tags != null && this._tags.Count > 0; 
         }
 
         /// <summary>

@@ -57,6 +57,12 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
                     response.Content = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("DocumentFormat", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.DocumentFormat = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("DocumentType", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
