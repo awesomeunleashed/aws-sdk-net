@@ -24,7 +24,7 @@ namespace Amazon.Runtime.Internal
             {
                 throw new InvalidOperationException("UnityWebRequest is not supported in the current version of unity");
             }
-            instance = new UnityWebRequest();
+            instance = new UnityWebRequest { chunkedTransfer = false };
         }
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Amazon.Runtime.Internal
         /// <param name="method">The HTTP Methods</param>
         public UnityWebRequestWrapper(string url, string method)
         {
-            instance = new UnityWebRequest(url, method);
+            instance = new UnityWebRequest(url, method) { chunkedTransfer = false };
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace Amazon.Runtime.Internal
                 throw new ArgumentNullException(nameof(uploadHandler));
             }
 
-            instance = new UnityWebRequest(url, method, downloadHandler.Instance, uploadHandler.Instance);
+            instance = new UnityWebRequest(url, method, downloadHandler.Instance, uploadHandler.Instance) { chunkedTransfer = false };
         }
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace Amazon.Runtime.Internal
         /// <returns></returns>
         public AsyncOperation Send()
         {
-            return instance.Send();
+            return instance.SendWebRequest();
         }
 
         /// <summary>
