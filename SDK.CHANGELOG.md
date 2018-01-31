@@ -1,3 +1,30 @@
+### 3.3.227.0 (2018-01-26 22:17 UTC)
+* DeviceFarm (3.3.4.0)
+	* Add InteractionMode in CreateRemoteAccessSession for DirectDeviceAccess feature.
+* MediaLive (3.3.1.0)
+	* Add InputSpecification to CreateChannel (specification of input attributes is used for channel sizing and affects pricing);  add NotFoundException to DeleteInputSecurityGroups.
+* MTurk (3.3.1.4)
+	* Documentation updates for mturk-requester
+
+### 3.3.226.0 (2018-01-25 22:41 UTC)
+* AlexaForBusiness (3.3.1.0)
+	* Supports new field for DeviceStatusInfo which provides details about the DeviceStatus following a DeviceSync operation.
+* CodeBuild (3.3.8.0)
+	* Adding support for Shallow Clone and GitHub Enterprise in AWS CodeBuild.
+* GuardDuty (3.3.1.0)
+	* Added the missing AccessKeyDetails object to the resource shape.
+* Lambda (3.3.12.0)
+	* AWS Lambda now supports Revision ID on your function versions and aliases, to track and apply conditional updates when you are updating your function version or alias resources.
+* Core 3.3.21.9
+	* Added service signing name.
+This API update is to support Amazon AppStream 2.0's launch into the Asia Pacific (Singapore) and Asia Pacific (Sydney) regions.
+
+
+
+### 3.3.225.0 (2018-01-23 02:32 UTC)
+* Budgets (3.3.6.0)
+	* Add additional costTypes: IncludeDiscount, UseAmortized,  to support finer control for different charges included in a cost budget.
+
 ### 3.3.224.0 (2018-01-19 20:44 UTC)
 * Glue (3.3.4.0)
 	* New AWS Glue DataCatalog APIs to manage table versions and a new feature to skip archiving of the old table version when updating table.

@@ -64,6 +64,12 @@ namespace Amazon.GuardDuty.Model.Internal.MarshallTransformations
             int targetDepth = context.CurrentDepth;
             while (context.ReadAtDepth(targetDepth))
             {
+                if (context.TestExpression("accessKeyDetails", targetDepth))
+                {
+                    var unmarshaller = AccessKeyDetailsUnmarshaller.Instance;
+                    unmarshalledObject.AccessKeyDetails = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("instanceDetails", targetDepth))
                 {
                     var unmarshaller = InstanceDetailsUnmarshaller.Instance;
