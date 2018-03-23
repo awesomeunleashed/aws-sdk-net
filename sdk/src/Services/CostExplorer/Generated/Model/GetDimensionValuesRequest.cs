@@ -29,9 +29,8 @@ namespace Amazon.CostExplorer.Model
 {
     /// <summary>
     /// Container for the parameters to the GetDimensionValues operation.
-    /// You can use <code>GetDimensionValues</code> to retrieve all available filter values
-    /// for a specific filter over a period of time. You can search the dimension values for
-    /// an arbitrary string.
+    /// Retrieves all available filter values for a specific filter over a period of time.
+    /// You can search the dimension values for an arbitrary string.
     /// </summary>
     public partial class GetDimensionValuesRequest : AmazonCostExplorerRequest
     {
@@ -44,11 +43,11 @@ namespace Amazon.CostExplorer.Model
         /// <summary>
         /// Gets and sets the property Context. 
         /// <para>
-        /// The context for the call to <code>GetDimensionValues</code>. This can be <code>RESERVED_INSTANCE</code>
+        /// The context for the call to <code>GetDimensionValues</code>. This can be <code>RESERVATIONS</code>
         /// or <code>COST_AND_USAGE</code>. The default value is <code>COST_AND_USAGE</code>.
-        /// If the context is set to <code>RESERVED_INSTANCE</code>, the resulting dimension values
-        /// can be used in the <code>GetReservationUtilization</code> action. If the context is
-        /// set to <code>COST_AND_USAGE</code>, , the resulting dimension values can be used in
+        /// If the context is set to <code>RESERVATIONS</code>, the resulting dimension values
+        /// can be used in the <code>GetReservationUtilization</code> operation. If the context
+        /// is set to <code>COST_AND_USAGE</code> the resulting dimension values can be used in
         /// the <code>GetCostAndUsage</code> operation.
         /// </para>
         ///  
@@ -58,80 +57,82 @@ namespace Amazon.CostExplorer.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// AZ - The Availability Zone. An example is us-east-1a.
+        /// AZ - The Availability Zone. An example is <code>us-east-1a</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// InstanceType - The type of EC2 instance. An example is m4.xlarge.
+        /// INSTANCE_TYPE - The type of instance. An example is an EC2 <code>m4.xlarge</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// LinkedAccount - The description in the attribute map that includes the full name of
-        /// the member account. The value field contains the AWS ID of the member account
+        /// LINKED_ACCOUNT - The description in the attribute map that includes the full name
+        /// of the member account. The value field contains the AWS ID of the member account.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Operation - The action performed. Examples include RunInstance and CreateBucket.
+        /// OPERATION - The action performed. Examples include <code>RunInstance</code> and <code>CreateBucket</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// PurchaseType - The reservation type of the purchase to which this usage is related.
-        /// Examples include: On Demand Instances and Standard Reserved Instances
+        /// PURCHASE_TYPE - The reservation type of the purchase to which this usage is related.
+        /// Examples include On-Demand Instances and Standard Reserved Instances.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Service - The AWS service such as DynamoDB.
+        /// SERVICE - The AWS service such as DynamoDB.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// UsageType -The type of usage. An example is DataTransfer-In-Bytes. The response for
-        /// the GetDimensionValues action includes a unit attribute, examples of which include
-        /// GB and Hrs.
+        /// USAGE_TYPE - The type of usage. An example is <code>DataTransfer-In-Bytes</code>.
+        /// The response for the <code>GetDimensionValues</code> operation includes a unit attribute,
+        /// examples of which include GB and Hrs.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// UsageTypeGroup - The grouping of common usage types. An example is EC2: CloudWatch
-        /// – Alarms. The response for this action includes a unit attribute.
+        /// USAGE_TYPE_GROUP - The grouping of common usage types. An example is EC2: CloudWatch
+        /// – Alarms. The response for this operation includes a unit attribute.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// RecordType - The different types of charges such as RI fees, usage costs, tax refunds,
-        /// and credits
+        /// RECORD_TYPE - The different types of charges such as RI fees, usage costs, tax refunds,
+        /// and credits.
         /// </para>
         ///  </li> </ul> 
         /// <para>
-        /// If you set the context to <code>ReservedInstance</code>, you can use the following
-        /// dimensions for searching:
+        /// If you set the context to <code>RESERVATIONS</code>, you can use the following dimensions
+        /// for searching:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// AZ - The Availability Zone. An example is us-east-1a.
+        /// AZ - The Availability Zone. An example is <code>us-east-1a</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// InstanceType - The type of EC2 instance. An example is m4.xlarge.
+        /// INSTANCE_TYPE - The type of instance. An example is an EC2 <code>m4.xlarge</code>.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// LinkedAccount - The description in the attribute map that includes the full name of
-        /// the member account. The value field contains the AWS ID of the member account
+        /// LINKED_ACCOUNT - The description in the attribute map that includes the full name
+        /// of the member account. The value field contains the AWS ID of the member account.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Platform - The operating system. Examples are Windows or Linux.
+        /// PLATFORM - The specific combination of operating system, license model, and software
+        /// on an instance. For example, a Windows instance with SQL Server Web and no license,
+        /// or a Red Hat Enterprise Linux instance.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Region - The AWS region.
+        /// REGION - The AWS Region.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Scope - The scope of a reserved instance (RI). Values are regional or a single availability
-        /// zone.
+        /// SCOPE - The scope of a Reserved Instance (RI). Values are regional or a single Availability
+        /// Zone.
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Tenancy - The tenancy of a resource. Examples are shared or dedicated.
+        /// TENANCY - The tenancy of a resource. Examples are shared or dedicated.
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -150,8 +151,8 @@ namespace Amazon.CostExplorer.Model
         /// <summary>
         /// Gets and sets the property Dimension. 
         /// <para>
-        /// The name of the dimension. Different <code>Dimensions</code>are available for different
-        /// <code>Context</code>s. For more information, see <code>Context</code>.
+        /// The name of the dimension. Each <code>Dimension</code> is available for different
+        /// a <code>Context</code>. For more information, see <code>Context</code>.
         /// </para>
         /// </summary>
         public Dimension Dimension

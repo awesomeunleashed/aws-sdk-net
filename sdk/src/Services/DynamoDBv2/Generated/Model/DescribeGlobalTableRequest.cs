@@ -29,7 +29,7 @@ namespace Amazon.DynamoDBv2.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeGlobalTable operation.
-    /// Returns information about the global table.
+    /// Returns information about the specified global table.
     /// </summary>
     public partial class DescribeGlobalTableRequest : AmazonDynamoDBRequest
     {

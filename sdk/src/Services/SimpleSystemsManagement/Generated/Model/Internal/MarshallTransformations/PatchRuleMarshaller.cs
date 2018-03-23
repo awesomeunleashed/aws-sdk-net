@@ -57,6 +57,12 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
                 context.Writer.Write(requestObject.ComplianceLevel);
             }
 
+            if(requestObject.IsSetEnableNonSecurity())
+            {
+                context.Writer.WritePropertyName("EnableNonSecurity");
+                context.Writer.Write(requestObject.EnableNonSecurity);
+            }
+
             if(requestObject.IsSetPatchFilterGroup())
             {
                 context.Writer.WritePropertyName("PatchFilterGroup");

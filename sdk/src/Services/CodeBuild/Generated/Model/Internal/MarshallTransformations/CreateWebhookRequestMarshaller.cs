@@ -67,6 +67,12 @@ namespace Amazon.CodeBuild.Model.Internal.MarshallTransformations
                 JsonWriter writer = new JsonWriter(stringWriter);
                 writer.WriteObjectStart();
                 var context = new JsonMarshallerContext(request, writer);
+                if(publicRequest.IsSetBranchFilter())
+                {
+                    context.Writer.WritePropertyName("branchFilter");
+                    context.Writer.Write(publicRequest.BranchFilter);
+                }
+
                 if(publicRequest.IsSetProjectName())
                 {
                     context.Writer.WritePropertyName("projectName");

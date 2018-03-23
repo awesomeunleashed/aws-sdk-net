@@ -678,5 +678,101 @@ namespace Amazon.MediaLive
 
         #endregion
         
+        #region  UpdateChannel
+
+        internal virtual UpdateChannelResponse UpdateChannel(UpdateChannelRequest request)
+        {
+            var marshaller = new UpdateChannelRequestMarshaller();
+            var unmarshaller = UpdateChannelResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateChannelRequest,UpdateChannelResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateChannel operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateChannel operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateChannel">REST API Reference for UpdateChannel Operation</seealso>
+        public virtual Task<UpdateChannelResponse> UpdateChannelAsync(UpdateChannelRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateChannelRequestMarshaller();
+            var unmarshaller = UpdateChannelResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateChannelRequest,UpdateChannelResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateInput
+
+        internal virtual UpdateInputResponse UpdateInput(UpdateInputRequest request)
+        {
+            var marshaller = new UpdateInputRequestMarshaller();
+            var unmarshaller = UpdateInputResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateInputRequest,UpdateInputResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateInput operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateInput operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateInput">REST API Reference for UpdateInput Operation</seealso>
+        public virtual Task<UpdateInputResponse> UpdateInputAsync(UpdateInputRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateInputRequestMarshaller();
+            var unmarshaller = UpdateInputResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateInputRequest,UpdateInputResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateInputSecurityGroup
+
+        internal virtual UpdateInputSecurityGroupResponse UpdateInputSecurityGroup(UpdateInputSecurityGroupRequest request)
+        {
+            var marshaller = new UpdateInputSecurityGroupRequestMarshaller();
+            var unmarshaller = UpdateInputSecurityGroupResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateInputSecurityGroupRequest,UpdateInputSecurityGroupResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateInputSecurityGroup operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateInputSecurityGroup operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/medialive-2017-10-14/UpdateInputSecurityGroup">REST API Reference for UpdateInputSecurityGroup Operation</seealso>
+        public virtual Task<UpdateInputSecurityGroupResponse> UpdateInputSecurityGroupAsync(UpdateInputSecurityGroupRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateInputSecurityGroupRequestMarshaller();
+            var unmarshaller = UpdateInputSecurityGroupResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateInputSecurityGroupRequest,UpdateInputSecurityGroupResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
     }
 }

@@ -1304,10 +1304,9 @@ namespace Amazon.LexModelBuildingService
         /// 
         ///  
         /// <para>
-        /// Amazon Lex stores the utterances that users send to your bot unless the <code>childDirected</code>
-        /// field in the bot is set to <code>true</code>. Utterances are stored for 15 days for
-        /// use with the <a>GetUtterancesView</a> operation, and then stored indefinitely for
-        /// use in improving the ability of your bot to respond to user input.
+        /// Amazon Lex stores the utterances that users send to your bot. Utterances are stored
+        /// for 15 days for use with the <a>GetUtterancesView</a> operation, and then stored indefinitely
+        /// for use in improving the ability of your bot to respond to user input.
         /// </para>
         ///  
         /// <para>
@@ -2178,6 +2177,72 @@ namespace Amazon.LexModelBuildingService
 
         #endregion
         
+        #region  GetImport
+
+        /// <summary>
+        /// Gets information about an import job started with the <code>StartImport</code> operation.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the GetImport service method.</param>
+        /// 
+        /// <returns>The response from the GetImport service method, as returned by LexModelBuildingService.</returns>
+        /// <exception cref="Amazon.LexModelBuildingService.Model.BadRequestException">
+        /// The request is not well formed. For example, a value is invalid or a required field
+        /// is missing. Check the field values, and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelBuildingService.Model.InternalFailureException">
+        /// An internal Amazon Lex error occurred. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelBuildingService.Model.LimitExceededException">
+        /// The request exceeded a limit. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelBuildingService.Model.NotFoundException">
+        /// The resource specified in the request was not found. Check the resource and try again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/GetImport">REST API Reference for GetImport Operation</seealso>
+        public virtual GetImportResponse GetImport(GetImportRequest request)
+        {
+            var marshaller = new GetImportRequestMarshaller();
+            var unmarshaller = GetImportResponseUnmarshaller.Instance;
+
+            return Invoke<GetImportRequest,GetImportResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the GetImport operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the GetImport operation on AmazonLexModelBuildingServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndGetImport
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/GetImport">REST API Reference for GetImport Operation</seealso>
+        public virtual IAsyncResult BeginGetImport(GetImportRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new GetImportRequestMarshaller();
+            var unmarshaller = GetImportResponseUnmarshaller.Instance;
+
+            return BeginInvoke<GetImportRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  GetImport operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginGetImport.</param>
+        /// 
+        /// <returns>Returns a  GetImportResult from LexModelBuildingService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/GetImport">REST API Reference for GetImport Operation</seealso>
+        public virtual GetImportResponse EndGetImport(IAsyncResult asyncResult)
+        {
+            return EndInvoke<GetImportResponse>(asyncResult);
+        }
+
+        #endregion
+        
         #region  GetIntent
 
         /// <summary>
@@ -2674,19 +2739,13 @@ namespace Amazon.LexModelBuildingService
         /// After you publish a new version of a bot, you can get information about the old version
         /// and the new so that you can compare the performance across the two versions. 
         /// </para>
-        ///  
+        ///  <note> 
         /// <para>
-        /// Data is available for the last 15 days. You can request information for up to 5 versions
-        /// in each request. The response contains information about a maximum of 100 utterances
-        /// for each version.
+        /// Utterance statistics are generated once a day. Data is available for the last 15 days.
+        /// You can request information for up to 5 versions in each request. The response contains
+        /// information about a maximum of 100 utterances for each version.
         /// </para>
-        ///  
-        /// <para>
-        /// If the bot's <code>childDirected</code> field is set to <code>true</code>, utterances
-        /// for the bot are not stored and cannot be retrieved with the <code>GetUtterancesView</code>
-        /// operation. For more information, see <a>PutBot</a>.
-        /// </para>
-        ///  
+        ///  </note> 
         /// <para>
         /// This operation requires permissions for the <code>lex:GetUtterancesView</code> action.
         /// </para>
@@ -2753,11 +2812,12 @@ namespace Amazon.LexModelBuildingService
 
         /// <summary>
         /// Creates an Amazon Lex conversational bot or replaces an existing bot. When you create
-        /// or update a bot you are only required to specify a name. You can use this to add intents
-        /// later, or to remove intents from an existing bot. When you create a bot with a name
-        /// only, the bot is created or updated but Amazon Lex returns the <code/> response <code>FAILED</code>.
-        /// You can build the bot after you add one or more intents. For more information about
-        /// Amazon Lex bots, see <a>how-it-works</a>. 
+        /// or update a bot you are only required to specify a name, a locale, and whether the
+        /// bot is directed toward children under age 13. You can use this to add intents later,
+        /// or to remove intents from an existing bot. When you create a bot with the minimum
+        /// information, the bot is created or updated but Amazon Lex returns the <code/> response
+        /// <code>FAILED</code>. You can build the bot after you add one or more intents. For
+        /// more information about Amazon Lex bots, see <a>how-it-works</a>. 
         /// 
         ///  
         /// <para>
@@ -3141,6 +3201,69 @@ namespace Amazon.LexModelBuildingService
         public virtual PutSlotTypeResponse EndPutSlotType(IAsyncResult asyncResult)
         {
             return EndInvoke<PutSlotTypeResponse>(asyncResult);
+        }
+
+        #endregion
+        
+        #region  StartImport
+
+        /// <summary>
+        /// Starts a job to import a resource to Amazon Lex.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the StartImport service method.</param>
+        /// 
+        /// <returns>The response from the StartImport service method, as returned by LexModelBuildingService.</returns>
+        /// <exception cref="Amazon.LexModelBuildingService.Model.BadRequestException">
+        /// The request is not well formed. For example, a value is invalid or a required field
+        /// is missing. Check the field values, and try again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelBuildingService.Model.InternalFailureException">
+        /// An internal Amazon Lex error occurred. Try your request again.
+        /// </exception>
+        /// <exception cref="Amazon.LexModelBuildingService.Model.LimitExceededException">
+        /// The request exceeded a limit. Try your request again.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/StartImport">REST API Reference for StartImport Operation</seealso>
+        public virtual StartImportResponse StartImport(StartImportRequest request)
+        {
+            var marshaller = new StartImportRequestMarshaller();
+            var unmarshaller = StartImportResponseUnmarshaller.Instance;
+
+            return Invoke<StartImportRequest,StartImportResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the StartImport operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the StartImport operation on AmazonLexModelBuildingServiceClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndStartImport
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/StartImport">REST API Reference for StartImport Operation</seealso>
+        public virtual IAsyncResult BeginStartImport(StartImportRequest request, AsyncCallback callback, object state)
+        {
+            var marshaller = new StartImportRequestMarshaller();
+            var unmarshaller = StartImportResponseUnmarshaller.Instance;
+
+            return BeginInvoke<StartImportRequest>(request, marshaller, unmarshaller,
+                callback, state);
+        }
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  StartImport operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginStartImport.</param>
+        /// 
+        /// <returns>Returns a  StartImportResult from LexModelBuildingService.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/lex-models-2017-04-19/StartImport">REST API Reference for StartImport Operation</seealso>
+        public virtual StartImportResponse EndStartImport(IAsyncResult asyncResult)
+        {
+            return EndInvoke<StartImportResponse>(asyncResult);
         }
 
         #endregion

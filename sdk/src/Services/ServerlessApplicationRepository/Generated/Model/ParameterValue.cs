@@ -36,9 +36,12 @@ namespace Amazon.ServerlessApplicationRepository.Model
         private string _value;
 
         /// <summary>
-        /// Gets and sets the property Name. The key associated with the parameter. If you don't
-        /// specify a key and value for a particular parameter, AWS CloudFormation\n uses the
-        /// default value that is specified in your template.
+        /// Gets and sets the property Name. 
+        /// <para>
+        /// The key associated with the parameter. If you don't specify a key and value for a
+        /// particular parameter, AWS CloudFormation uses the default value that is specified
+        /// in your template.
+        /// </para>
         /// </summary>
         public string Name
         {
@@ -53,7 +56,10 @@ namespace Amazon.ServerlessApplicationRepository.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Value. The input value associated with the parameter.
+        /// Gets and sets the property Value. 
+        /// <para>
+        /// The input value associated with the parameter.
+        /// </para>
         /// </summary>
         public string Value
         {

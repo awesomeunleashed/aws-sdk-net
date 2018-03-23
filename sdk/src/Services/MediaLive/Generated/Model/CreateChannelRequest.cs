@@ -135,7 +135,8 @@ namespace Amazon.MediaLive.Model
         }
 
         /// <summary>
-        /// Gets and sets the property Reserved. Reserved for future use.
+        /// Gets and sets the property Reserved. Deprecated field that's only usable by whitelisted
+        /// customers.
         /// </summary>
         public string Reserved
         {

@@ -122,6 +122,7 @@ namespace Amazon.ECS.Model
         private string _platformVersion;
         private string _role;
         private string _serviceName;
+        private List<ServiceRegistry> _serviceRegistries = new List<ServiceRegistry>();
         private string _taskDefinition;
 
         /// <summary>
@@ -206,10 +207,11 @@ namespace Amazon.ECS.Model
         /// The period of time, in seconds, that the Amazon ECS service scheduler should ignore
         /// unhealthy Elastic Load Balancing target health checks after a task has first started.
         /// This is only valid if your service is configured to use a load balancer. If your service's
-        /// tasks take a while to start and respond to ELB health checks, you can specify a health
-        /// check grace period of up to 1,800 seconds during which the ECS service scheduler will
-        /// ignore ELB health check status. This grace period can prevent the ECS service scheduler
-        /// from marking tasks as unhealthy and stopping them before they have time to come up.
+        /// tasks take a while to start and respond to Elastic Load Balancing health checks, you
+        /// can specify a health check grace period of up to 1,800 seconds during which the ECS
+        /// service scheduler ignores health check status. This grace period can prevent the ECS
+        /// service scheduler from marking tasks as unhealthy and stopping them before they have
+        /// time to come up.
         /// </para>
         /// </summary>
         public int HealthCheckGracePeriodSeconds
@@ -417,6 +419,26 @@ namespace Amazon.ECS.Model
         internal bool IsSetServiceName()
         {
             return this._serviceName != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property ServiceRegistries. 
+        /// <para>
+        /// The details of the service discovery registries you want to assign to this service.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguideservice-discovery.html">Service
+        /// Discovery</a>.
+        /// </para>
+        /// </summary>
+        public List<ServiceRegistry> ServiceRegistries
+        {
+            get { return this._serviceRegistries; }
+            set { this._serviceRegistries = value; }
+        }
+
+        // Check to see if ServiceRegistries property is set
+        internal bool IsSetServiceRegistries()
+        {
+            return this._serviceRegistries != null && this._serviceRegistries.Count > 0; 
         }
 
         /// <summary>

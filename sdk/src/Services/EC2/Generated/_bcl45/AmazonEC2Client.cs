@@ -39,7 +39,7 @@ namespace Amazon.EC2
     /// Amazon Elastic Compute Cloud 
     /// <para>
     /// Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing capacity in
-    /// the AWS Cloud. Using Amazon EC2 eliminates your need to invest in hardware up front,
+    /// the AWS Cloud. Using Amazon EC2 eliminates the need to invest in hardware up front,
     /// so you can develop and deploy applications faster.
     /// </para>
     /// </summary>
@@ -2196,6 +2196,11 @@ namespace Amazon.EC2
         /// In your request, you must also specify an IAM role that has permission to publish
         /// logs to CloudWatch Logs.
         /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html">VPC
+        /// Flow Logs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateFlowLogs service method.</param>
         /// 
@@ -3202,6 +3207,11 @@ namespace Amazon.EC2
         /// Snapshots that are taken from encrypted volumes are automatically encrypted. Volumes
         /// that are created from encrypted snapshots are also automatically encrypted. Your encrypted
         /// volumes and any associated snapshots always remain protected.
+        /// </para>
+        ///  
+        /// <para>
+        /// You can tag your snapshots during creation. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
+        /// Your Amazon EC2 Resources</a>.
         /// </para>
         ///  
         /// <para>
@@ -5075,6 +5085,7 @@ namespace Amazon.EC2
         /// Deletes a VPC peering connection. Either the owner of the requester VPC or the owner
         /// of the accepter VPC can delete the VPC peering connection if it's in the <code>active</code>
         /// state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code>
+        /// state. You cannot delete a VPC peering connection that's in the <code>failed</code>
         /// state.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeleteVpcPeeringConnection service method.</param>
@@ -5311,7 +5322,7 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>max-instances</code>: The maximum number of On-Demand instances that you can
+        ///  <code>max-instances</code>: The maximum number of On-Demand Instances that you can
         /// run.
         /// </para>
         ///  </li> <li> 
@@ -5355,7 +5366,7 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>max-instances</code>: The maximum number of On-Demand instances that you can
+        ///  <code>max-instances</code>: The maximum number of On-Demand Instances that you can
         /// run.
         /// </para>
         ///  </li> <li> 
@@ -5403,7 +5414,7 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>max-instances</code>: The maximum number of On-Demand instances that you can
+        ///  <code>max-instances</code>: The maximum number of On-Demand Instances that you can
         /// run.
         /// </para>
         ///  </li> <li> 
@@ -5535,6 +5546,66 @@ namespace Amazon.EC2
             var unmarshaller = DescribeAddressesResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeAddressesRequest,DescribeAddressesResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeAggregateIdFormat
+
+
+        /// <summary>
+        /// Describes the longer ID format settings for all resource types in a specific region.
+        /// This request is useful for performing a quick audit to determine whether a specific
+        /// region is fully opted in for longer IDs (17-character IDs).
+        /// 
+        ///  
+        /// <para>
+        /// This request only returns information about resource types that support longer IDs.
+        /// </para>
+        ///  
+        /// <para>
+        /// The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code>
+        /// | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code>
+        /// | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code>
+        /// | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code>
+        /// | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code>
+        /// | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code>
+        /// | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code>
+        /// | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code>
+        /// | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code>
+        /// | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code>
+        /// | <code>vpn-gateway</code>.
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribeAggregateIdFormat service method.</param>
+        /// 
+        /// <returns>The response from the DescribeAggregateIdFormat service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAggregateIdFormat">REST API Reference for DescribeAggregateIdFormat Operation</seealso>
+        public virtual DescribeAggregateIdFormatResponse DescribeAggregateIdFormat(DescribeAggregateIdFormatRequest request)
+        {
+            var marshaller = new DescribeAggregateIdFormatRequestMarshaller();
+            var unmarshaller = DescribeAggregateIdFormatResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeAggregateIdFormatRequest,DescribeAggregateIdFormatResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeAggregateIdFormat operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeAggregateIdFormat operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAggregateIdFormat">REST API Reference for DescribeAggregateIdFormat Operation</seealso>
+        public virtual Task<DescribeAggregateIdFormatResponse> DescribeAggregateIdFormatAsync(DescribeAggregateIdFormatRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DescribeAggregateIdFormatRequestMarshaller();
+            var unmarshaller = DescribeAggregateIdFormatResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeAggregateIdFormatRequest,DescribeAggregateIdFormatResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -6470,8 +6541,17 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>
-        /// | <code>snapshot</code> | <code>volume</code>. 
+        /// The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code>
+        /// | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code>
+        /// | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code>
+        /// | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code>
+        /// | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code>
+        /// | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code>
+        /// | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code>
+        /// | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code>
+        /// | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code>
+        /// | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code>
+        /// | <code>vpn-gateway</code>. 
         /// </para>
         ///  
         /// <para>
@@ -6523,8 +6603,17 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>
-        /// | <code>snapshot</code> | <code>volume</code>. 
+        /// The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code>
+        /// | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code>
+        /// | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code>
+        /// | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code>
+        /// | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code>
+        /// | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code>
+        /// | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code>
+        /// | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code>
+        /// | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code>
+        /// | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code>
+        /// | <code>vpn-gateway</code>. 
         /// </para>
         ///  
         /// <para>
@@ -7804,6 +7893,67 @@ namespace Amazon.EC2
             var unmarshaller = DescribePrefixListsResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribePrefixListsRequest,DescribePrefixListsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribePrincipalIdFormat
+
+
+        /// <summary>
+        /// Describes the ID format settings for the root user and all IAM roles and IAM users
+        /// that have explicitly specified a longer ID (17-character ID) preference. 
+        /// 
+        ///  
+        /// <para>
+        /// By default, all IAM roles and IAM users default to the same ID settings as the root
+        /// user, unless they explicitly override the settings. This request is useful for identifying
+        /// those IAM users and IAM roles that have overridden the default ID settings.
+        /// </para>
+        ///  
+        /// <para>
+        /// The following resource types support longer IDs: <code>bundle</code> | <code>conversion-task</code>
+        /// | <code>customer-gateway</code> | <code>dhcp-options</code> | <code>elastic-ip-allocation</code>
+        /// | <code>elastic-ip-association</code> | <code>export-task</code> | <code>flow-log</code>
+        /// | <code>image</code> | <code>import-task</code> | <code>instance</code> | <code>internet-gateway</code>
+        /// | <code>network-acl</code> | <code>network-acl-association</code> | <code>network-interface</code>
+        /// | <code>network-interface-attachment</code> | <code>prefix-list</code> | <code>reservation</code>
+        /// | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code>
+        /// | <code>snapshot</code> | <code>subnet</code> | <code>subnet-cidr-block-association</code>
+        /// | <code>volume</code> | <code>vpc</code> | <code>vpc-cidr-block-association</code>
+        /// | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code>
+        /// | <code>vpn-gateway</code>. 
+        /// </para>
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the DescribePrincipalIdFormat service method.</param>
+        /// 
+        /// <returns>The response from the DescribePrincipalIdFormat service method, as returned by EC2.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePrincipalIdFormat">REST API Reference for DescribePrincipalIdFormat Operation</seealso>
+        public virtual DescribePrincipalIdFormatResponse DescribePrincipalIdFormat(DescribePrincipalIdFormatRequest request)
+        {
+            var marshaller = new DescribePrincipalIdFormatRequestMarshaller();
+            var unmarshaller = DescribePrincipalIdFormatResponseUnmarshaller.Instance;
+
+            return Invoke<DescribePrincipalIdFormatRequest,DescribePrincipalIdFormatResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribePrincipalIdFormat operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribePrincipalIdFormat operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePrincipalIdFormat">REST API Reference for DescribePrincipalIdFormat Operation</seealso>
+        public virtual Task<DescribePrincipalIdFormatResponse> DescribePrincipalIdFormatAsync(DescribePrincipalIdFormatRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DescribePrincipalIdFormatRequestMarshaller();
+            var unmarshaller = DescribePrincipalIdFormatResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribePrincipalIdFormatRequest,DescribePrincipalIdFormatResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -12002,8 +12152,21 @@ namespace Amazon.EC2
         /// 
         ///  
         /// <para>
-        /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>
-        /// | <code>snapshot</code> | <code>volume</code>. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
+        /// This request can only be used to modify longer ID settings for resource types that
+        /// are within the opt-in period. Resources currently in their opt-in period include:
+        /// <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code>
+        /// | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code>
+        /// | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code>
+        /// | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code>
+        /// | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code>
+        /// | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code>
+        /// | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code>
+        /// | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code>
+        /// | <code>vpn-connection</code> | <code>vpn-gateway</code>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource
         /// IDs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. 
         /// </para>
         ///  
@@ -12057,9 +12220,21 @@ namespace Amazon.EC2
         /// <summary>
         /// Modifies the ID format for the specified resource on a per-region basis. You can specify
         /// that resources should receive longer IDs (17-character IDs) when they are created.
-        /// The following resource types support longer IDs: <code>instance</code> | <code>reservation</code>
-        /// | <code>snapshot</code> | <code>volume</code>.
         /// 
+        ///  
+        /// <para>
+        /// This request can only be used to modify longer ID settings for resource types that
+        /// are within the opt-in period. Resources currently in their opt-in period include:
+        /// <code>bundle</code> | <code>conversion-task</code> | <code>customer-gateway</code>
+        /// | <code>dhcp-options</code> | <code>elastic-ip-allocation</code> | <code>elastic-ip-association</code>
+        /// | <code>export-task</code> | <code>flow-log</code> | <code>image</code> | <code>import-task</code>
+        /// | <code>internet-gateway</code> | <code>network-acl</code> | <code>network-acl-association</code>
+        /// | <code>network-interface</code> | <code>network-interface-attachment</code> | <code>prefix-list</code>
+        /// | <code>route-table</code> | <code>route-table-association</code> | <code>security-group</code>
+        /// | <code>subnet</code> | <code>subnet-cidr-block-association</code> | <code>vpc</code>
+        /// | <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code>
+        /// | <code>vpn-connection</code> | <code>vpn-gateway</code>.
+        /// </para>
         ///  
         /// <para>
         /// This setting applies to the IAM user who makes the request; it does not apply to the
@@ -12259,31 +12434,39 @@ namespace Amazon.EC2
 
 
         /// <summary>
-        /// Set the instance affinity value for a specific stopped instance and modify the instance
-        /// tenancy setting.
+        /// Modifies the placement attributes for a specified instance. You can do the following:
         /// 
-        ///  
+        ///  <ul> <li> 
         /// <para>
-        /// Instance affinity is disabled by default. When instance affinity is <code>host</code>
-        /// and it is not associated with a specific Dedicated Host, the next time it is launched
-        /// it will automatically be associated with the host it lands on. This relationship will
-        /// persist if the instance is stopped/started, or rebooted.
+        /// Modify the affinity between an instance and a <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
+        /// Host</a>. When affinity is set to <code>host</code> and the instance is not associated
+        /// with a specific Dedicated Host, the next time the instance is launched, it is automatically
+        /// associated with the host on which it lands. If the instance is restarted or rebooted,
+        /// this relationship persists.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Change the Dedicated Host with which an instance is associated.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Change the instance tenancy of an instance from <code>host</code> to <code>dedicated</code>,
+        /// or from <code>dedicated</code> to <code>host</code>.
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Move an instance to or from a <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">placement
+        /// group</a>.
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// At least one attribute for affinity, host ID, tenancy, or placement group name must
+        /// be specified in the request. Affinity and tenancy can be modified in the same request.
         /// </para>
         ///  
         /// <para>
-        /// You can modify the host ID associated with a stopped instance. If a stopped instance
-        /// has a new host ID association, the instance will target that host when restarted.
-        /// </para>
-        ///  
-        /// <para>
-        /// You can modify the tenancy of a stopped instance with a tenancy of <code>host</code>
-        /// or <code>dedicated</code>.
-        /// </para>
-        ///  
-        /// <para>
-        /// Affinity, hostID, and tenancy are not required parameters, but at least one of them
-        /// must be specified in the request. Affinity and tenancy can be modified in the same
-        /// request, but tenancy can only be modified on instances that are stopped.
+        /// To modify the host ID, tenancy, or placement group for an instance, the instance must
+        /// be in the <code>stopped</code> state.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ModifyInstancePlacement service method.</param>
@@ -12967,7 +13150,7 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Enable/disable a local VPC to resolve public DNS hostnames to private IP addresses
+        /// Enable/disable the ability to resolve public DNS hostnames to private IP addresses
         /// when queried from instances in the peer VPC.
         /// </para>
         ///  </li> </ul> 

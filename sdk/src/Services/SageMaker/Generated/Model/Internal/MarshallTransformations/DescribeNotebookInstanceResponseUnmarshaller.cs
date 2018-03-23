@@ -57,6 +57,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     response.CreationTime = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("DirectInternetAccess", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.DirectInternetAccess = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("FailureReason", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
@@ -91,6 +97,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     response.NotebookInstanceArn = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("NotebookInstanceLifecycleConfigName", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    response.NotebookInstanceLifecycleConfigName = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("NotebookInstanceName", targetDepth))

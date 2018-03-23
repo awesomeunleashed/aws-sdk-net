@@ -112,6 +112,12 @@ namespace Amazon.GameLift.Model.Internal.MarshallTransformations
                     unmarshalledObject.IpAddress = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("MatchmakerData", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.MatchmakerData = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("MaximumPlayerSessionCount", targetDepth))
                 {
                     var unmarshaller = IntUnmarshaller.Instance;
@@ -140,6 +146,12 @@ namespace Amazon.GameLift.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = StringUnmarshaller.Instance;
                     unmarshalledObject.Status = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("StatusReason", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.StatusReason = unmarshaller.Unmarshall(context);
                     continue;
                 }
                 if (context.TestExpression("TerminationTime", targetDepth))

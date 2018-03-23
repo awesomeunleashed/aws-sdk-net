@@ -40,10 +40,20 @@ namespace Amazon.ECS.Model
     /// </para>
     ///  
     /// <para>
-    /// You can use <a>UpdateService</a> to modify your task definition and deploy a new version
-    /// of your service.
+    /// If you have updated the Docker image of your application, you can create a new task
+    /// definition with that image and deploy it to your service. The service scheduler uses
+    /// the minimum healthy percent and maximum percent parameters (in the service's deployment
+    /// configuration) to determine the deployment strategy.
     /// </para>
-    ///  
+    ///  <note> 
+    /// <para>
+    /// If your updated Docker image uses the same tag as what is in the existing task definition
+    /// for your service (for example, <code>my_image:latest</code>), you do not need to create
+    /// a new revision of your task definition. You can update the service using the <code>forceNewDeployment</code>
+    /// option. The new tasks launched by the deployment pull the current image/tag combination
+    /// from your repository when they start.
+    /// </para>
+    ///  </note> 
     /// <para>
     /// You can also update the deployment configuration of a service. When a deployment is
     /// triggered by updating the task definition of a service, the service scheduler uses
@@ -196,7 +206,11 @@ namespace Amazon.ECS.Model
         /// <summary>
         /// Gets and sets the property ForceNewDeployment. 
         /// <para>
-        /// Whether or not to force a new deployment of the service.
+        /// Whether to force a new deployment of the service. Deployments are not forced by default.
+        /// You can use this option to trigger a new deployment with no service definition changes.
+        /// For example, you can update a service's tasks to use a newer Docker image with the
+        /// same image/tag combination (<code>my_image:latest</code>) or to roll Fargate tasks
+        /// onto a newer platform version.
         /// </para>
         /// </summary>
         public bool ForceNewDeployment
@@ -217,10 +231,11 @@ namespace Amazon.ECS.Model
         /// The period of time, in seconds, that the Amazon ECS service scheduler should ignore
         /// unhealthy Elastic Load Balancing target health checks after a task has first started.
         /// This is only valid if your service is configured to use a load balancer. If your service's
-        /// tasks take a while to start and respond to ELB health checks, you can specify a health
-        /// check grace period of up to 1,800 seconds during which the ECS service scheduler will
-        /// ignore ELB health check status. This grace period can prevent the ECS service scheduler
-        /// from marking tasks as unhealthy and stopping them before they have time to come up.
+        /// tasks take a while to start and respond to Elastic Load Balancing health checks, you
+        /// can specify a health check grace period of up to 1,800 seconds during which the ECS
+        /// service scheduler ignores the Elastic Load Balancing health check status. This grace
+        /// period can prevent the ECS service scheduler from marking tasks as unhealthy and stopping
+        /// them before they have time to come up.
         /// </para>
         /// </summary>
         public int HealthCheckGracePeriodSeconds
@@ -239,8 +254,8 @@ namespace Amazon.ECS.Model
         /// Gets and sets the property NetworkConfiguration. 
         /// <para>
         /// The network configuration for the service. This parameter is required for task definitions
-        /// that use the <code>awsvpc</code> network mode to receive their own Elastic Network
-        /// Interface, and it is not supported for other network modes. For more information,
+        /// that use the <code>awsvpc</code> network mode to receive their own elastic network
+        /// interface, and it is not supported for other network modes. For more information,
         /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
         /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
         /// </para>

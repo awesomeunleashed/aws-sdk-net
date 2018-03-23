@@ -88,6 +88,12 @@ namespace Amazon.GuardDuty.Model.Internal.MarshallTransformations
                     unmarshalledObject.NetworkConnectionAction = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("portProbeAction", targetDepth))
+                {
+                    var unmarshaller = PortProbeActionUnmarshaller.Instance;
+                    unmarshalledObject.PortProbeAction = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

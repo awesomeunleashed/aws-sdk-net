@@ -39,7 +39,7 @@ namespace Amazon.CodeCommit.Model
         /// <summary>
         /// Gets and sets the property Date. 
         /// <para>
-        /// The date when the specified commit was pushed to the repository.
+        /// The date when the specified commit was commited, in timestamp format with GMT offset.
         /// </para>
         /// </summary>
         public string Date

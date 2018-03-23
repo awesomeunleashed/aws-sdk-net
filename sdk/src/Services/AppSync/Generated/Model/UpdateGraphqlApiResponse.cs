@@ -37,7 +37,7 @@ namespace Amazon.AppSync.Model
         /// <summary>
         /// Gets and sets the property GraphqlApi. 
         /// <para>
-        /// The udpated <code>GraphqlApi</code> object.
+        /// The updated <code>GraphqlApi</code> object.
         /// </para>
         /// </summary>
         public GraphqlApi GraphqlApi

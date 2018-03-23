@@ -76,6 +76,12 @@ namespace Amazon.SimpleSystemsManagement.Model.Internal.MarshallTransformations
                     unmarshalledObject.ComplianceLevel = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("EnableNonSecurity", targetDepth))
+                {
+                    var unmarshaller = BoolUnmarshaller.Instance;
+                    unmarshalledObject.EnableNonSecurity = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("PatchFilterGroup", targetDepth))
                 {
                     var unmarshaller = PatchFilterGroupUnmarshaller.Instance;

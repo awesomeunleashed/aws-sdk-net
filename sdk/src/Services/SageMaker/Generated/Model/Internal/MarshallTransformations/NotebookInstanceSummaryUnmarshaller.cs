@@ -88,6 +88,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     unmarshalledObject.NotebookInstanceArn = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("NotebookInstanceLifecycleConfigName", targetDepth))
+                {
+                    var unmarshaller = StringUnmarshaller.Instance;
+                    unmarshalledObject.NotebookInstanceLifecycleConfigName = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("NotebookInstanceName", targetDepth))
                 {
                     var unmarshaller = StringUnmarshaller.Instance;

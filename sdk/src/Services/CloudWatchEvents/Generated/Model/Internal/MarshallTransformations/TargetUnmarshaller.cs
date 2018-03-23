@@ -70,6 +70,12 @@ namespace Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations
                     unmarshalledObject.Arn = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("BatchParameters", targetDepth))
+                {
+                    var unmarshaller = BatchParametersUnmarshaller.Instance;
+                    unmarshalledObject.BatchParameters = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("EcsParameters", targetDepth))
                 {
                     var unmarshaller = EcsParametersUnmarshaller.Instance;
@@ -116,6 +122,12 @@ namespace Amazon.CloudWatchEvents.Model.Internal.MarshallTransformations
                 {
                     var unmarshaller = RunCommandParametersUnmarshaller.Instance;
                     unmarshalledObject.RunCommandParameters = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("SqsParameters", targetDepth))
+                {
+                    var unmarshaller = SqsParametersUnmarshaller.Instance;
+                    unmarshalledObject.SqsParameters = unmarshaller.Unmarshall(context);
                     continue;
                 }
             }

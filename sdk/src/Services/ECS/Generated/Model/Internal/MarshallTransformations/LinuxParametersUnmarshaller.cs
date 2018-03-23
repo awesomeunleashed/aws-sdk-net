@@ -82,6 +82,18 @@ namespace Amazon.ECS.Model.Internal.MarshallTransformations
                     unmarshalledObject.InitProcessEnabled = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("sharedMemorySize", targetDepth))
+                {
+                    var unmarshaller = IntUnmarshaller.Instance;
+                    unmarshalledObject.SharedMemorySize = unmarshaller.Unmarshall(context);
+                    continue;
+                }
+                if (context.TestExpression("tmpfs", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<Tmpfs, TmpfsUnmarshaller>(TmpfsUnmarshaller.Instance);
+                    unmarshalledObject.Tmpfs = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

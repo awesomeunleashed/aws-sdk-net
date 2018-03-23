@@ -69,9 +69,9 @@ namespace Amazon.GameLift.Model
         /// <summary>
         /// Gets and sets the property EndTime. 
         /// <para>
-        /// Time stamp indicating when the matchmaking request stopped being processed due to
-        /// successful completion, timeout, or cancellation. Format is a number expressed in Unix
-        /// time as milliseconds (for example "1469498468.057").
+        /// Time stamp indicating when this matchmaking request stopped being processed due to
+        /// success, failure, or cancellation. Format is a number expressed in Unix time as milliseconds
+        /// (for example "1469498468.057").
         /// </para>
         /// </summary>
         public DateTime EndTime
@@ -199,8 +199,7 @@ namespace Amazon.GameLift.Model
         ///  </li> <li> 
         /// <para>
         ///  <b>FAILED</b> -- The matchmaking request was not completed. Tickets with players
-        /// who fail to accept a proposed match are placed in <code>FAILED</code> status; new
-        /// matchmaking requests can be submitted for these players.
+        /// who fail to accept a proposed match are placed in <code>FAILED</code> status.
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -208,11 +207,15 @@ namespace Amazon.GameLift.Model
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b>TIMED_OUT</b> -- The matchmaking request was not completed within the duration
-        /// specified in the matchmaking configuration. Matchmaking requests that time out can
-        /// be resubmitted.
+        ///  <b>TIMED_OUT</b> -- The matchmaking request was not successful within the duration
+        /// specified in the matchmaking configuration. 
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> <note> 
+        /// <para>
+        /// Matchmaking requests that fail to successfully complete (statuses FAILED, CANCELLED,
+        /// TIMED_OUT) can be resubmitted as new requests with new ticket IDs.
+        /// </para>
+        ///  </note>
         /// </summary>
         public MatchmakingConfigurationStatus Status
         {

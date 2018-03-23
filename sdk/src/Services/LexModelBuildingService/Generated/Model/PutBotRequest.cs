@@ -30,11 +30,12 @@ namespace Amazon.LexModelBuildingService.Model
     /// <summary>
     /// Container for the parameters to the PutBot operation.
     /// Creates an Amazon Lex conversational bot or replaces an existing bot. When you create
-    /// or update a bot you are only required to specify a name. You can use this to add intents
-    /// later, or to remove intents from an existing bot. When you create a bot with a name
-    /// only, the bot is created or updated but Amazon Lex returns the <code/> response <code>FAILED</code>.
-    /// You can build the bot after you add one or more intents. For more information about
-    /// Amazon Lex bots, see <a>how-it-works</a>. 
+    /// or update a bot you are only required to specify a name, a locale, and whether the
+    /// bot is directed toward children under age 13. You can use this to add intents later,
+    /// or to remove intents from an existing bot. When you create a bot with the minimum
+    /// information, the bot is created or updated but Amazon Lex returns the <code/> response
+    /// <code>FAILED</code>. You can build the bot after you add one or more intents. For
+    /// more information about Amazon Lex bots, see <a>how-it-works</a>. 
     /// 
     ///  
     /// <para>
@@ -56,6 +57,7 @@ namespace Amazon.LexModelBuildingService.Model
         private string _checksum;
         private bool? _childDirected;
         private Prompt _clarificationPrompt;
+        private bool? _createVersion;
         private string _description;
         private int? _idleSessionTTLInSeconds;
         private List<Intent> _intents = new List<Intent>();
@@ -199,6 +201,21 @@ namespace Amazon.LexModelBuildingService.Model
         }
 
         /// <summary>
+        /// Gets and sets the property CreateVersion.
+        /// </summary>
+        public bool CreateVersion
+        {
+            get { return this._createVersion.GetValueOrDefault(); }
+            set { this._createVersion = value; }
+        }
+
+        // Check to see if CreateVersion property is set
+        internal bool IsSetCreateVersion()
+        {
+            return this._createVersion.HasValue; 
+        }
+
+        /// <summary>
         /// Gets and sets the property Description. 
         /// <para>
         /// A description of the bot.
@@ -321,13 +338,13 @@ namespace Amazon.LexModelBuildingService.Model
         /// <summary>
         /// Gets and sets the property ProcessBehavior. 
         /// <para>
-        /// If you set the <code>processBehavior</code> element to <code>Build</code>, Amazon
-        /// Lex builds the bot so that it can be run. If you set the element to <code>Save</code>Amazon
-        /// Lex saves the bot, but doesn't build it. 
+        /// If you set the <code>processBehavior</code> element to <code>BUILD</code>, Amazon
+        /// Lex builds the bot so that it can be run. If you set the element to <code>SAVE</code>
+        /// Amazon Lex saves the bot, but doesn't build it. 
         /// </para>
         ///  
         /// <para>
-        /// If you don't specify this value, the default value is <code>Save</code>.
+        /// If you don't specify this value, the default value is <code>BUILD</code>.
         /// </para>
         /// </summary>
         public ProcessBehavior ProcessBehavior

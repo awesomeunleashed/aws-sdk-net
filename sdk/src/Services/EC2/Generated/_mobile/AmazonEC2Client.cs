@@ -39,7 +39,7 @@ namespace Amazon.EC2
     /// Amazon Elastic Compute Cloud 
     /// <para>
     /// Amazon Elastic Compute Cloud (Amazon EC2) provides resizable computing capacity in
-    /// the AWS Cloud. Using Amazon EC2 eliminates your need to invest in hardware up front,
+    /// the AWS Cloud. Using Amazon EC2 eliminates the need to invest in hardware up front,
     /// so you can develop and deploy applications faster.
     /// </para>
     /// </summary>
@@ -3558,7 +3558,7 @@ namespace Amazon.EC2
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <code>max-instances</code>: The maximum number of On-Demand instances that you can
+        ///  <code>max-instances</code>: The maximum number of On-Demand Instances that you can
         /// run.
         /// </para>
         ///  </li> <li> 
@@ -3664,6 +3664,38 @@ namespace Amazon.EC2
             var unmarshaller = DescribeAddressesResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeAddressesRequest,DescribeAddressesResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribeAggregateIdFormat
+
+        internal virtual DescribeAggregateIdFormatResponse DescribeAggregateIdFormat(DescribeAggregateIdFormatRequest request)
+        {
+            var marshaller = new DescribeAggregateIdFormatRequestMarshaller();
+            var unmarshaller = DescribeAggregateIdFormatResponseUnmarshaller.Instance;
+
+            return Invoke<DescribeAggregateIdFormatRequest,DescribeAggregateIdFormatResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribeAggregateIdFormat operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribeAggregateIdFormat operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribeAggregateIdFormat">REST API Reference for DescribeAggregateIdFormat Operation</seealso>
+        public virtual Task<DescribeAggregateIdFormatResponse> DescribeAggregateIdFormatAsync(DescribeAggregateIdFormatRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DescribeAggregateIdFormatRequestMarshaller();
+            var unmarshaller = DescribeAggregateIdFormatResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribeAggregateIdFormatRequest,DescribeAggregateIdFormatResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 
@@ -5254,6 +5286,38 @@ namespace Amazon.EC2
             var unmarshaller = DescribePrefixListsResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribePrefixListsRequest,DescribePrefixListsResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  DescribePrincipalIdFormat
+
+        internal virtual DescribePrincipalIdFormatResponse DescribePrincipalIdFormat(DescribePrincipalIdFormatRequest request)
+        {
+            var marshaller = new DescribePrincipalIdFormatRequestMarshaller();
+            var unmarshaller = DescribePrincipalIdFormatResponseUnmarshaller.Instance;
+
+            return Invoke<DescribePrincipalIdFormatRequest,DescribePrincipalIdFormatResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the DescribePrincipalIdFormat operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the DescribePrincipalIdFormat operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/ec2-2016-11-15/DescribePrincipalIdFormat">REST API Reference for DescribePrincipalIdFormat Operation</seealso>
+        public virtual Task<DescribePrincipalIdFormatResponse> DescribePrincipalIdFormatAsync(DescribePrincipalIdFormatRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new DescribePrincipalIdFormatRequestMarshaller();
+            var unmarshaller = DescribePrincipalIdFormatResponseUnmarshaller.Instance;
+
+            return InvokeAsync<DescribePrincipalIdFormatRequest,DescribePrincipalIdFormatResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 

@@ -334,7 +334,7 @@ namespace AWSSDK_DotNet.IntegrationTests.Tests.S3
                 ServiceURL = "https://s3-external-1.amazonaws.com",
                 SignatureVersion = "4"
             });
-            var testBucketName = "testBucket" + random.Next();
+            var testBucketName = "aws-net-sdk-external" + random.Next();
             var key = "testKey";
             try
             {
@@ -380,6 +380,26 @@ namespace AWSSDK_DotNet.IntegrationTests.Tests.S3
                     Assert.IsTrue(response.ETag.Length > 0);
                 }
             }
+        }
+
+        [TestMethod]
+        [TestCategory("S3")]
+        public void PutObjectKeyWithUrlEncodedCharacters()
+        {
+            PutObjectRequest request = new PutObjectRequest()
+            {
+                BucketName = bucketName,
+                Key = "X$abc,xyz",
+                ContentBody = testContent,
+                CannedACL = S3CannedACL.AuthenticatedRead
+            };
+            request.Metadata.Add("Subject", "Content-As-Object");
+            PutObjectResponse response = Client.PutObject(request);
+
+            Console.WriteLine("S3 generated ETag: {0}", response.ETag);
+            Assert.IsTrue(response.ETag.Length > 0);
+
+            VerifyPut(testContent, request);
         }
 
         [TestMethod]

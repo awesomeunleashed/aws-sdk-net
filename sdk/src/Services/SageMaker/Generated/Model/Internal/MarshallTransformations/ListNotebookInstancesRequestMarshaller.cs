@@ -109,6 +109,12 @@ namespace Amazon.SageMaker.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.NextToken);
                 }
 
+                if(publicRequest.IsSetNotebookInstanceLifecycleConfigNameContains())
+                {
+                    context.Writer.WritePropertyName("NotebookInstanceLifecycleConfigNameContains");
+                    context.Writer.Write(publicRequest.NotebookInstanceLifecycleConfigNameContains);
+                }
+
                 if(publicRequest.IsSetSortBy())
                 {
                     context.Writer.WritePropertyName("SortBy");

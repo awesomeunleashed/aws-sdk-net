@@ -98,26 +98,28 @@ namespace Amazon.ECS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// 256 (.25 vCPU) - Available <code>memory</code> values: 0.5GB, 1GB, 2GB
+        /// 256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB),
+        /// 2048 (2 GB)
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// 512 (.5 vCPU) - Available <code>memory</code> values: 1GB, 2GB, 3GB, 4GB
+        /// 512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1 GB), 2048 (2 GB), 3072
+        /// (3 GB), 4096 (4 GB)
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// 1024 (1 vCPU) - Available <code>memory</code> values: 2GB, 3GB, 4GB, 5GB, 6GB, 7GB,
-        /// 8GB
+        /// 1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096
+        /// (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// 2048 (2 vCPU) - Available <code>memory</code> values: Between 4GB and 16GB in 1GB
-        /// increments
+        /// 2048 (2 vCPU) - Available <code>memory</code> values: Between 4096 (4 GB) and 16384
+        /// (16 GB) in increments of 1024 (1 GB)
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// 4096 (4 vCPU) - Available <code>memory</code> values: Between 8GB and 30GB in 1GB
-        /// increments
+        /// 4096 (4 vCPU) - Available <code>memory</code> values: Between 8192 (8 GB) and 30720
+        /// (30 GB) in increments of 1024 (1 GB)
         /// </para>
         ///  </li> </ul>
         /// </summary>
@@ -180,25 +182,28 @@ namespace Amazon.ECS.Model
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        /// 0.5GB, 1GB, 2GB - Available <code>cpu</code> values: 256 (.25 vCPU)
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// 1GB, 2GB, 3GB, 4GB - Available <code>cpu</code> values: 512 (.5 vCPU)
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// 2GB, 3GB, 4GB, 5GB, 6GB, 7GB, 8GB - Available <code>cpu</code> values: 1024 (1 vCPU)
-        /// </para>
-        ///  </li> <li> 
-        /// <para>
-        /// Between 4GB and 16GB in 1GB increments - Available <code>cpu</code> values: 2048 (2
+        /// 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB) - Available <code>cpu</code> values: 256 (.25
         /// vCPU)
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Between 8GB and 30GB in 1GB increments - Available <code>cpu</code> values: 4096 (4
-        /// vCPU)
+        /// 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB) - Available <code>cpu</code> values:
+        /// 512 (.5 vCPU)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192
+        /// (8 GB) - Available <code>cpu</code> values: 1024 (1 vCPU)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Between 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB) - Available <code>cpu</code>
+        /// values: 2048 (2 vCPU)
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Between 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB) - Available <code>cpu</code>
+        /// values: 4096 (4 vCPU)
         /// </para>
         ///  </li> </ul>
         /// </summary>

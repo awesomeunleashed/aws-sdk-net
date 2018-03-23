@@ -29,9 +29,9 @@ namespace Amazon.ServiceDiscovery
     /// <summary>
     /// Interface for accessing ServiceDiscovery
     ///
-    /// Amazon Route 53 autonaming lets you configure public or private namespaces that your
+    /// Amazon Route 53 auto naming lets you configure public or private namespaces that your
     /// microservice applications run in. When instances of the service become available,
-    /// you can call the autonaming API to register the instance, and Amazon Route 53 automatically
+    /// you can call the auto naming API to register the instance, and Route 53 automatically
     /// creates up to five DNS records and an optional health check. Clients that submit DNS
     /// queries for the service receive an answer that contains up to eight healthy records.
     /// </summary>
@@ -46,14 +46,16 @@ namespace Amazon.ServiceDiscovery
         /// Creates a private namespace based on DNS, which will be visible only inside a specified
         /// Amazon VPC. The namespace defines your service naming scheme. For example, if you
         /// name your namespace <code>example.com</code> and name your service <code>backend</code>,
-        /// the resulting DNS name for the service will be <code>backend.example.com</code>. You
-        /// can associate more than one service with the same namespace.
+        /// the resulting DNS name for the service will be <code>backend.example.com</code>. For
+        /// the current limit on the number of namespaces that you can create using the same AWS
+        /// account, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-autonaming">Limits
+        /// on Auto Naming</a> in the <i>Route 53 Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePrivateDnsNamespace service method.</param>
         /// 
         /// <returns>The response from the CreatePrivateDnsNamespace service method, as returned by ServiceDiscovery.</returns>
         /// <exception cref="Amazon.ServiceDiscovery.Model.DuplicateRequestException">
-        /// This request tried to create an object that already exists.
+        /// The operation is already in progress.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
         /// One or more specified values aren't valid. For example, when you're creating a namespace,
@@ -103,14 +105,16 @@ namespace Amazon.ServiceDiscovery
         /// Creates a public namespace based on DNS, which will be visible on the internet. The
         /// namespace defines your service naming scheme. For example, if you name your namespace
         /// <code>example.com</code> and name your service <code>backend</code>, the resulting
-        /// DNS name for the service will be <code>backend.example.com</code>. You can associate
-        /// more than one service with the same namespace.
+        /// DNS name for the service will be <code>backend.example.com</code>. For the current
+        /// limit on the number of namespaces that you can create using the same AWS account,
+        /// see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-autonaming">Limits
+        /// on Auto Naming</a> in the <i>Route 53 Developer Guide</i>.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreatePublicDnsNamespace service method.</param>
         /// 
         /// <returns>The response from the CreatePublicDnsNamespace service method, as returned by ServiceDiscovery.</returns>
         /// <exception cref="Amazon.ServiceDiscovery.Model.DuplicateRequestException">
-        /// This request tried to create an object that already exists.
+        /// The operation is already in progress.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
         /// One or more specified values aren't valid. For example, when you're creating a namespace,
@@ -157,11 +161,11 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Creates a service, which defines a template for the following entities:
+        /// Creates a service, which defines the configuration for the following entities:
         /// 
         ///  <ul> <li> 
         /// <para>
-        /// One to five resource record sets
+        /// Up to three records (A, AAAA, and SRV) or one CNAME record
         /// </para>
         ///  </li> <li> 
         /// <para>
@@ -170,8 +174,13 @@ namespace Amazon.ServiceDiscovery
         ///  </li> </ul> 
         /// <para>
         /// After you create the service, you can submit a <a>RegisterInstance</a> request, and
-        /// Amazon Route 53 uses the values in the template to create the specified entities.
-        /// 
+        /// Amazon Route 53 uses the values in the configuration to create the specified entities.
+        /// </para>
+        ///  
+        /// <para>
+        /// For the current limit on the number of instances that you can register using the same
+        /// namespace and using the same service, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-autonaming">Limits
+        /// on Auto Naming</a> in the <i>Route 53 Developer Guide</i>.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the CreateService service method.</param>
@@ -232,7 +241,7 @@ namespace Amazon.ServiceDiscovery
         /// 
         /// <returns>The response from the DeleteNamespace service method, as returned by ServiceDiscovery.</returns>
         /// <exception cref="Amazon.ServiceDiscovery.Model.DuplicateRequestException">
-        /// This request tried to create an object that already exists.
+        /// The operation is already in progress.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
         /// One or more specified values aren't valid. For example, when you're creating a namespace,
@@ -332,17 +341,18 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Deletes the resource record sets and the health check, if any, that Amazon Route 53
-        /// created for the specified instance.
+        /// Deletes the records and the health check, if any, that Amazon Route 53 created for
+        /// the specified instance.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DeregisterInstance service method.</param>
         /// 
         /// <returns>The response from the DeregisterInstance service method, as returned by ServiceDiscovery.</returns>
         /// <exception cref="Amazon.ServiceDiscovery.Model.DuplicateRequestException">
-        /// This request tried to create an object that already exists.
+        /// The operation is already in progress.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InstanceNotFoundException">
-        /// No instance exists with the specified ID.
+        /// No instance exists with the specified ID, or the instance was recently registered,
+        /// and information about the instance hasn't propagated yet.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
         /// One or more specified values aren't valid. For example, when you're creating a namespace,
@@ -396,7 +406,8 @@ namespace Amazon.ServiceDiscovery
         /// 
         /// <returns>The response from the GetInstance service method, as returned by ServiceDiscovery.</returns>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InstanceNotFoundException">
-        /// No instance exists with the specified ID.
+        /// No instance exists with the specified ID, or the instance was recently registered,
+        /// and information about the instance hasn't propagated yet.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
         /// One or more specified values aren't valid. For example, when you're creating a namespace,
@@ -442,12 +453,20 @@ namespace Amazon.ServiceDiscovery
         /// <summary>
         /// Gets the current health status (<code>Healthy</code>, <code>Unhealthy</code>, or <code>Unknown</code>)
         /// of one or more instances that are associated with a specified service.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// There is a brief delay between when you register an instance and when the health status
+        /// for the instance is available. 
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetInstancesHealthStatus service method.</param>
         /// 
         /// <returns>The response from the GetInstancesHealthStatus service method, as returned by ServiceDiscovery.</returns>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InstanceNotFoundException">
-        /// No instance exists with the specified ID.
+        /// No instance exists with the specified ID, or the instance was recently registered,
+        /// and information about the instance hasn't propagated yet.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
         /// One or more specified values aren't valid. For example, when you're creating a namespace,
@@ -539,8 +558,13 @@ namespace Amazon.ServiceDiscovery
 
         /// <summary>
         /// Gets information about any operation that returns an operation ID in the response,
-        /// such as a <code>CreateService</code> request. To get a list of operations that match
-        /// specified criteria, see <a>ListOperations</a>.
+        /// such as a <code>CreateService</code> request.
+        /// 
+        ///  <note> 
+        /// <para>
+        /// To get a list of operations that match specified criteria, see <a>ListOperations</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the GetOperation service method.</param>
         /// 
@@ -630,7 +654,7 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Gets summary information about the instances that you created by using a specified
+        /// Lists summary information about the instances that you registered by using a specified
         /// service.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListInstances service method.</param>
@@ -678,7 +702,8 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Gets information about the namespaces that were created by the current AWS account.
+        /// Lists summary information about the namespaces that were created by the current AWS
+        /// account.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListNamespaces service method.</param>
         /// 
@@ -766,12 +791,16 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Gets settings for all the services that are associated with one or more specified
-        /// namespaces.
+        /// Lists summary information for all the services that are associated with one or more
+        /// specified namespaces.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the ListServices service method.</param>
         /// 
         /// <returns>The response from the ListServices service method, as returned by ServiceDiscovery.</returns>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
+        /// One or more specified values aren't valid. For example, when you're creating a namespace,
+        /// the value of <code>Name</code> might not be a valid DNS name.
+        /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/ListServices">REST API Reference for ListServices Operation</seealso>
         ListServicesResponse ListServices(ListServicesRequest request);
 
@@ -807,27 +836,29 @@ namespace Amazon.ServiceDiscovery
 
 
         /// <summary>
-        /// Creates one or more resource record sets and optionally a health check based on the
+        /// Creates or updates one or more records and optionally a health check based on the
         /// settings in a specified service. When you submit a <code>RegisterInstance</code> request,
         /// Amazon Route 53 does the following:
         /// 
         ///  <ul> <li> 
         /// <para>
-        /// Creates a resource record set for each resource record set template in the service
+        /// For each DNS record that you define in the service specified by <code>ServiceId</code>,
+        /// creates or updates a record in the hosted zone that is associated with the corresponding
+        /// namespace
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Creates a health check based on the settings in the health check template in the service,
-        /// if any
+        /// If the service includes <code>HealthCheckConfig</code>, creates or updates a health
+        /// check based on the settings in the health check configuration
         /// </para>
         ///  </li> <li> 
         /// <para>
-        /// Associates the health check, if any, with each of the resource record sets
+        /// Associates the health check, if any, with each of the records
         /// </para>
         ///  </li> </ul> <important> 
         /// <para>
         /// One <code>RegisterInstance</code> request must complete before you can submit another
-        /// request and specify the same service and instance ID.
+        /// request and specify the same service ID and instance ID.
         /// </para>
         ///  </important> 
         /// <para>
@@ -835,30 +866,34 @@ namespace Amazon.ServiceDiscovery
         /// </para>
         ///  
         /// <para>
-        /// When Amazon Route 53 receives a DNS query for the specified DNS name, it returns the
-        /// applicable value:
+        /// When Route 53 receives a DNS query for the specified DNS name, it returns the applicable
+        /// value:
         /// </para>
         ///  <ul> <li> 
         /// <para>
-        ///  <b>If the health check is healthy</b>: returns all the resource record sets
+        ///  <b>If the health check is healthy</b>: returns all the records
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b>If the health check is unhealthy</b>: returns the IP address of the last healthy
-        /// instance
+        ///  <b>If the health check is unhealthy</b>: returns the applicable value for the last
+        /// healthy instance
         /// </para>
         ///  </li> <li> 
         /// <para>
-        ///  <b>If you didn't specify a health check template</b>: returns all the resource record
-        /// sets
+        ///  <b>If you didn't specify a health check configuration</b>: returns all the records
         /// </para>
-        ///  </li> </ul>
+        ///  </li> </ul> 
+        /// <para>
+        /// For the current limit on the number of instances that you can register using the same
+        /// namespace and using the same service, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-autonaming">Limits
+        /// on Auto Naming</a> in the <i>Route 53 Developer Guide</i>.
+        /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RegisterInstance service method.</param>
         /// 
         /// <returns>The response from the RegisterInstance service method, as returned by ServiceDiscovery.</returns>
         /// <exception cref="Amazon.ServiceDiscovery.Model.DuplicateRequestException">
-        /// This request tried to create an object that already exists.
+        /// The operation is already in progress.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
         /// One or more specified values aren't valid. For example, when you're creating a namespace,
@@ -905,27 +940,96 @@ namespace Amazon.ServiceDiscovery
 
         #endregion
         
+        #region  UpdateInstanceCustomHealthStatus
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateInstanceCustomHealthStatus service method.</param>
+        /// 
+        /// <returns>The response from the UpdateInstanceCustomHealthStatus service method, as returned by ServiceDiscovery.</returns>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.CustomHealthNotFoundException">
+        /// 
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.InstanceNotFoundException">
+        /// No instance exists with the specified ID, or the instance was recently registered,
+        /// and information about the instance hasn't propagated yet.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
+        /// One or more specified values aren't valid. For example, when you're creating a namespace,
+        /// the value of <code>Name</code> might not be a valid DNS name.
+        /// </exception>
+        /// <exception cref="Amazon.ServiceDiscovery.Model.ServiceNotFoundException">
+        /// No service exists with the specified ID.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdateInstanceCustomHealthStatus">REST API Reference for UpdateInstanceCustomHealthStatus Operation</seealso>
+        UpdateInstanceCustomHealthStatusResponse UpdateInstanceCustomHealthStatus(UpdateInstanceCustomHealthStatusRequest request);
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateInstanceCustomHealthStatus operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateInstanceCustomHealthStatus operation on AmazonServiceDiscoveryClient.</param>
+        /// <param name="callback">An AsyncCallback delegate that is invoked when the operation completes.</param>
+        /// <param name="state">A user-defined state object that is passed to the callback procedure. Retrieve this object from within the callback
+        ///          procedure using the AsyncState property.</param>
+        /// 
+        /// <returns>An IAsyncResult that can be used to poll or wait for results, or both; this value is also needed when invoking EndUpdateInstanceCustomHealthStatus
+        ///         operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdateInstanceCustomHealthStatus">REST API Reference for UpdateInstanceCustomHealthStatus Operation</seealso>
+        IAsyncResult BeginUpdateInstanceCustomHealthStatus(UpdateInstanceCustomHealthStatusRequest request, AsyncCallback callback, object state);
+
+
+
+        /// <summary>
+        /// Finishes the asynchronous execution of the  UpdateInstanceCustomHealthStatus operation.
+        /// </summary>
+        /// 
+        /// <param name="asyncResult">The IAsyncResult returned by the call to BeginUpdateInstanceCustomHealthStatus.</param>
+        /// 
+        /// <returns>Returns a  UpdateInstanceCustomHealthStatusResult from ServiceDiscovery.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdateInstanceCustomHealthStatus">REST API Reference for UpdateInstanceCustomHealthStatus Operation</seealso>
+        UpdateInstanceCustomHealthStatusResponse EndUpdateInstanceCustomHealthStatus(IAsyncResult asyncResult);
+
+        #endregion
+        
         #region  UpdateService
 
 
         /// <summary>
-        /// Updates the TTL setting for a specified service. You must specify all the resource
-        /// record set templates (and, optionally, a health check template) that you want to appear
-        /// in the updated service. Any current resource record set templates (or health check
-        /// template) that don't appear in an <code>UpdateService</code> request are deleted.
+        /// Submits a request to perform the following operations:
         /// 
+        ///  <ul> <li> 
+        /// <para>
+        /// Add or delete <code>DnsRecords</code> configurations
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Update the TTL setting for existing <code>DnsRecords</code> configurations
+        /// </para>
+        ///  </li> <li> 
+        /// <para>
+        /// Add, update, or delete <code>HealthCheckConfig</code> for a specified service
+        /// </para>
+        ///  </li> </ul> 
+        /// <para>
+        /// You must specify all <code>DnsRecords</code> configurations (and, optionally, <code>HealthCheckConfig</code>)
+        /// that you want to appear in the updated service. Any current configurations that don't
+        /// appear in an <code>UpdateService</code> request are deleted.
+        /// </para>
         ///  
         /// <para>
         /// When you update the TTL setting for a service, Amazon Route 53 also updates the corresponding
-        /// settings in all the resource record sets and health checks that were created by using
-        /// the specified service.
+        /// settings in all the records and health checks that were created by using the specified
+        /// service.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the UpdateService service method.</param>
         /// 
         /// <returns>The response from the UpdateService service method, as returned by ServiceDiscovery.</returns>
         /// <exception cref="Amazon.ServiceDiscovery.Model.DuplicateRequestException">
-        /// This request tried to create an object that already exists.
+        /// The operation is already in progress.
         /// </exception>
         /// <exception cref="Amazon.ServiceDiscovery.Model.InvalidInputException">
         /// One or more specified values aren't valid. For example, when you're creating a namespace,

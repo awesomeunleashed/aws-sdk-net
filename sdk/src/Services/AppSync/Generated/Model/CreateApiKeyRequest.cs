@@ -35,6 +35,7 @@ namespace Amazon.AppSync.Model
     {
         private string _apiId;
         private string _description;
+        private long? _expires;
 
         /// <summary>
         /// Gets and sets the property ApiId. 
@@ -70,6 +71,26 @@ namespace Amazon.AppSync.Model
         internal bool IsSetDescription()
         {
             return this._description != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property Expires. 
+        /// <para>
+        /// The time after which the API key expires. The date is represented as seconds since
+        /// the epoch, rounded down to the nearest hour. The default value for this parameter
+        /// is 7 days from creation time.
+        /// </para>
+        /// </summary>
+        public long Expires
+        {
+            get { return this._expires.GetValueOrDefault(); }
+            set { this._expires = value; }
+        }
+
+        // Check to see if Expires property is set
+        internal bool IsSetExpires()
+        {
+            return this._expires.HasValue; 
         }
 
     }

@@ -38,7 +38,7 @@ namespace Amazon.CostExplorer.Model
         /// <summary>
         /// Gets and sets the property Keys. 
         /// <para>
-        /// The keys included in this group.
+        /// The keys that are included in this group.
         /// </para>
         /// </summary>
         public List<string> Keys
@@ -56,7 +56,7 @@ namespace Amazon.CostExplorer.Model
         /// <summary>
         /// Gets and sets the property Metrics. 
         /// <para>
-        /// The metrics included in this group.
+        /// The metrics that are included in this group.
         /// </para>
         /// </summary>
         public Dictionary<string, MetricValue> Metrics

@@ -32,8 +32,10 @@ namespace Amazon.ServiceDiscovery.Model
     /// Creates a private namespace based on DNS, which will be visible only inside a specified
     /// Amazon VPC. The namespace defines your service naming scheme. For example, if you
     /// name your namespace <code>example.com</code> and name your service <code>backend</code>,
-    /// the resulting DNS name for the service will be <code>backend.example.com</code>. You
-    /// can associate more than one service with the same namespace.
+    /// the resulting DNS name for the service will be <code>backend.example.com</code>. For
+    /// the current limit on the number of namespaces that you can create using the same AWS
+    /// account, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html#limits-api-entities-autonaming">Limits
+    /// on Auto Naming</a> in the <i>Route 53 Developer Guide</i>.
     /// </summary>
     public partial class CreatePrivateDnsNamespaceRequest : AmazonServiceDiscoveryRequest
     {
@@ -45,8 +47,9 @@ namespace Amazon.ServiceDiscovery.Model
         /// <summary>
         /// Gets and sets the property CreatorRequestId. 
         /// <para>
-        /// An optional parameter that you can use to resolve concurrent creation requests. <code>CreatorRequestId</code>
-        /// helps to determine if a specific client owns the namespace.
+        /// A unique string that identifies the request and that allows failed <code>CreatePrivateDnsNamespace</code>
+        /// requests to be retried without the risk of executing the operation twice. <code>CreatorRequestId</code>
+        /// can be any unique string, for example, a date/time stamp.
         /// </para>
         /// </summary>
         public string CreatorRequestId

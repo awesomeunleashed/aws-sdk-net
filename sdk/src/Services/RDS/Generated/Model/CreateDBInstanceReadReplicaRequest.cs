@@ -36,14 +36,14 @@ namespace Amazon.RDS.Model
     /// 
     ///  
     /// <para>
-    /// Amazon Aurora does not support this action. You must call the <code>CreateDBInstance</code>
+    /// Amazon Aurora doesn't support this action. You must call the <code>CreateDBInstance</code>
     /// action to create a DB instance for an Aurora DB cluster. 
     /// </para>
     ///  
     /// <para>
     /// All Read Replica DB instances are created with backups disabled. All other DB instance
     /// attributes (including DB security groups and DB parameter groups) are inherited from
-    /// the source DB instance, except as specified below. 
+    /// the source DB instance, except as specified following. 
     /// </para>
     ///  <important> 
     /// <para>
@@ -451,7 +451,7 @@ namespace Amazon.RDS.Model
         /// <summary>
         /// Gets and sets the property MultiAZ. 
         /// <para>
-        /// Specifies whether the read replica is in a Multi-AZ deployment. 
+        /// Specifies whether the Read Replica is in a Multi-AZ deployment. 
         /// </para>
         ///  
         /// <para>
@@ -460,11 +460,6 @@ namespace Amazon.RDS.Model
         /// your Read Replica as a Multi-AZ DB instance is independent of whether the source database
         /// is a Multi-AZ DB instance. 
         /// </para>
-        ///  <note> 
-        /// <para>
-        /// Currently PostgreSQL Read Replicas can only be created as single-AZ DB instances.
-        /// </para>
-        ///  </note>
         /// </summary>
         public bool MultiAZ
         {

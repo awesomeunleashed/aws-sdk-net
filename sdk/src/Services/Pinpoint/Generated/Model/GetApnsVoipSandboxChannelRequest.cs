@@ -29,7 +29,7 @@ namespace Amazon.Pinpoint.Model
 {
     /// <summary>
     /// Container for the parameters to the GetApnsVoipSandboxChannel operation.
-    /// Get an APNS VoipSandbox channel
+    /// Get an APNS VoIPSandbox channel
     /// </summary>
     public partial class GetApnsVoipSandboxChannelRequest : AmazonPinpointRequest
     {

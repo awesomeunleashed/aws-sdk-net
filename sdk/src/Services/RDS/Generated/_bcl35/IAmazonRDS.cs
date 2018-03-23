@@ -638,10 +638,6 @@ namespace Amazon.RDS
         /// </para>
         ///  
         /// <para>
-        /// You can't copy an encrypted, shared DB snapshot from one AWS Region to another.
-        /// </para>
-        ///  
-        /// <para>
         /// For more information about copying snapshots, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CopyDBSnapshot.html">Copying
         /// a DB Snapshot</a> in the Amazon RDS User Guide. 
         /// </para>
@@ -1102,14 +1098,14 @@ namespace Amazon.RDS
         /// 
         ///  
         /// <para>
-        /// Amazon Aurora does not support this action. You must call the <code>CreateDBInstance</code>
+        /// Amazon Aurora doesn't support this action. You must call the <code>CreateDBInstance</code>
         /// action to create a DB instance for an Aurora DB cluster. 
         /// </para>
         ///  
         /// <para>
         /// All Read Replica DB instances are created with backups disabled. All other DB instance
         /// attributes (including DB security groups and DB parameter groups) are inherited from
-        /// the source DB instance, except as specified below. 
+        /// the source DB instance, except as specified following. 
         /// </para>
         ///  <important> 
         /// <para>
@@ -2149,7 +2145,7 @@ namespace Amazon.RDS
         /// 
         ///  
         /// <para>
-        /// This command does not take any parameters.
+        /// This command doesn't take any parameters.
         /// </para>
         /// </summary>
         /// 
@@ -2165,7 +2161,7 @@ namespace Amazon.RDS
         /// 
         ///  
         /// <para>
-        /// This command does not take any parameters.
+        /// This command doesn't take any parameters.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeAccountAttributes service method.</param>
@@ -4490,14 +4486,20 @@ namespace Amazon.RDS
         /// <summary>
         /// Promotes a Read Replica DB instance to a standalone DB instance.
         /// 
-        ///  <note> 
+        ///  <note> <ul> <li> 
         /// <para>
-        /// We recommend that you enable automated backups on your Read Replica before promoting
-        /// the Read Replica. This ensures that no backup is taken during the promotion process.
-        /// Once the instance is promoted to a primary instance, backups are taken based on your
-        /// backup settings.
+        /// Backup duration is a function of the amount of changes to the database since the previous
+        /// backup. If you plan to promote a Read Replica to a standalone instance, we recommend
+        /// that you enable backups and complete at least one backup prior to promotion. In addition,
+        /// a Read Replica cannot be promoted to a standalone instance when it is in the <code>backing-up</code>
+        /// status. If you have enabled backups on your Read Replica, configure the automated
+        /// backup window so that daily backups do not interfere with Read Replica promotion.
         /// </para>
-        ///  </note>
+        ///  </li> <li> 
+        /// <para>
+        /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
+        /// </para>
+        ///  </li> </ul> </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the PromoteReadReplica service method.</param>
         /// 
@@ -5301,7 +5303,7 @@ namespace Amazon.RDS
         /// <para>
         /// If your intent is to replace your original DB instance with the new, restored DB instance,
         /// then rename your original DB instance before you call the RestoreDBInstanceFromDBSnapshot
-        /// action. RDS does not allow two DB instances with the same name. Once you have renamed
+        /// action. RDS doesn't allow two DB instances with the same name. Once you have renamed
         /// your original DB instance with a different identifier, then you can pass the original
         /// name of the DB instance as the DBInstanceIdentifier in the call to the RestoreDBInstanceFromDBSnapshot
         /// action. The result is that you will replace the original DB instance with the DB instance
@@ -5312,6 +5314,12 @@ namespace Amazon.RDS
         /// If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
         /// must be the ARN of the shared DB snapshot.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use
+        /// <a>RestoreDBClusterFromSnapshot</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RestoreDBInstanceFromDBSnapshot service method.</param>
         /// 
@@ -5532,6 +5540,12 @@ namespace Amazon.RDS
         /// that is associated with mirroring; in this case, the instance becomes a mirrored deployment
         /// and not a single-AZ deployment.
         /// </para>
+        ///  <note> 
+        /// <para>
+        /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL. For Aurora, use
+        /// <a>RestoreDBClusterToPointInTime</a>.
+        /// </para>
+        ///  </note>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RestoreDBInstanceToPointInTime service method.</param>
         /// 
@@ -5702,7 +5716,7 @@ namespace Amazon.RDS
         /// 
         ///  <note> 
         /// <para>
-        /// This command does not apply to Aurora MySQL and Aurora PostgreSQL.
+        /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
         /// </para>
         ///  </note>
         /// </summary>
@@ -5794,7 +5808,7 @@ namespace Amazon.RDS
         /// 
         ///  <note> 
         /// <para>
-        /// This command does not apply to Aurora MySQL and Aurora PostgreSQL.
+        /// This command doesn't apply to Aurora MySQL and Aurora PostgreSQL.
         /// </para>
         ///  </note>
         /// </summary>

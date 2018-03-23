@@ -45,6 +45,17 @@ namespace Amazon.Pinpoint.Model.Internal.MarshallTransformations
         /// <returns></returns>
         public void Marshall(WriteApplicationSettingsRequest requestObject, JsonMarshallerContext context)
         {
+            if(requestObject.IsSetCampaignHook())
+            {
+                context.Writer.WritePropertyName("CampaignHook");
+                context.Writer.WriteObjectStart();
+
+                var marshaller = CampaignHookMarshaller.Instance;
+                marshaller.Marshall(requestObject.CampaignHook, context);
+
+                context.Writer.WriteObjectEnd();
+            }
+
             if(requestObject.IsSetLimits())
             {
                 context.Writer.WritePropertyName("Limits");

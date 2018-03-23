@@ -106,6 +106,17 @@ namespace Amazon.ServiceDiscovery.Model.Internal.MarshallTransformations
                     context.Writer.WriteObjectEnd();
                 }
 
+                if(publicRequest.IsSetHealthCheckCustomConfig())
+                {
+                    context.Writer.WritePropertyName("HealthCheckCustomConfig");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = HealthCheckCustomConfigMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.HealthCheckCustomConfig, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetName())
                 {
                     context.Writer.WritePropertyName("Name");

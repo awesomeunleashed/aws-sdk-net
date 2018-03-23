@@ -32,9 +32,9 @@ namespace Amazon.GameLift.Model
     /// Defines a new matchmaking configuration for use with FlexMatch. A matchmaking configuration
     /// sets out guidelines for matching players and getting the matches into games. You can
     /// set up multiple matchmaking configurations to handle the scenarios needed for your
-    /// game. Each matchmaking request (<a>StartMatchmaking</a>) specifies a configuration
-    /// for the match and provides player attributes to support the configuration being used.
-    /// 
+    /// game. Each matchmaking ticket (<a>StartMatchmaking</a> or <a>StartMatchBackfill</a>)
+    /// specifies a configuration for the match and provides player attributes to support
+    /// the configuration being used. 
     /// 
     ///  
     /// <para>
@@ -209,9 +209,9 @@ namespace Amazon.GameLift.Model
         /// <summary>
         /// Gets and sets the property GameProperties. 
         /// <para>
-        /// Set of developer-defined properties for a game session, formatted as a set of type:value
-        /// pairs. These properties are included in the <a>GameSession</a> object, which is passed
-        /// to the game server with a request to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// Set of custom properties for a game session, formatted as key:value pairs. These properties
+        /// are passed to a game server process in the <a>GameSession</a> object with a request
+        /// to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
         /// that is created for a successful match. 
         /// </para>
@@ -231,9 +231,9 @@ namespace Amazon.GameLift.Model
         /// <summary>
         /// Gets and sets the property GameSessionData. 
         /// <para>
-        /// Set of developer-defined game session properties, formatted as a single string value.
-        /// This data is included in the <a>GameSession</a> object, which is passed to the game
-        /// server with a request to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// Set of custom game session properties, formatted as a single string value. This data
+        /// is passed to a game server process in the <a>GameSession</a> object with a request
+        /// to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
         /// a Game Session</a>). This information is added to the new <a>GameSession</a> object
         /// that is created for a successful match.
         /// </para>

@@ -128,6 +128,10 @@ namespace Amazon.GameLift.Model
     /// <para>
     ///  <a>AcceptMatch</a> 
     /// </para>
+    ///  </li> <li> 
+    /// <para>
+    ///  <a>StartMatchBackfill</a> 
+    /// </para>
     ///  </li> </ul>
     /// </summary>
     public partial class StartMatchmakingRequest : AmazonGameLiftRequest
@@ -179,8 +183,9 @@ namespace Amazon.GameLift.Model
         /// <summary>
         /// Gets and sets the property TicketId. 
         /// <para>
-        /// Unique identifier for a matchmaking ticket. Use this identifier to track the matchmaking
-        /// ticket status and retrieve match results.
+        /// Unique identifier for a matchmaking ticket. If no ticket ID is specified here, Amazon
+        /// GameLift will generate one in the form of a UUID. Use this identifier to track the
+        /// matchmaking ticket status and retrieve match results.
         /// </para>
         /// </summary>
         public string TicketId

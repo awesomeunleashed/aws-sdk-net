@@ -36,9 +36,9 @@ namespace Amazon.ServiceDiscovery
     /// <summary>
     /// Implementation for accessing ServiceDiscovery
     ///
-    /// Amazon Route 53 autonaming lets you configure public or private namespaces that your
+    /// Amazon Route 53 auto naming lets you configure public or private namespaces that your
     /// microservice applications run in. When instances of the service become available,
-    /// you can call the autonaming API to register the instance, and Amazon Route 53 automatically
+    /// you can call the auto naming API to register the instance, and Route 53 automatically
     /// creates up to five DNS records and an optional health check. Clients that submit DNS
     /// queries for the service receive an answer that contains up to eight healthy records.
     /// </summary>
@@ -741,6 +741,38 @@ namespace Amazon.ServiceDiscovery
             var unmarshaller = RegisterInstanceResponseUnmarshaller.Instance;
 
             return InvokeAsync<RegisterInstanceRequest,RegisterInstanceResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateInstanceCustomHealthStatus
+
+        internal virtual UpdateInstanceCustomHealthStatusResponse UpdateInstanceCustomHealthStatus(UpdateInstanceCustomHealthStatusRequest request)
+        {
+            var marshaller = new UpdateInstanceCustomHealthStatusRequestMarshaller();
+            var unmarshaller = UpdateInstanceCustomHealthStatusResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateInstanceCustomHealthStatusRequest,UpdateInstanceCustomHealthStatusResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateInstanceCustomHealthStatus operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateInstanceCustomHealthStatus operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/servicediscovery-2017-03-14/UpdateInstanceCustomHealthStatus">REST API Reference for UpdateInstanceCustomHealthStatus Operation</seealso>
+        public virtual Task<UpdateInstanceCustomHealthStatusResponse> UpdateInstanceCustomHealthStatusAsync(UpdateInstanceCustomHealthStatusRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = new UpdateInstanceCustomHealthStatusRequestMarshaller();
+            var unmarshaller = UpdateInstanceCustomHealthStatusResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateInstanceCustomHealthStatusRequest,UpdateInstanceCustomHealthStatusResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 

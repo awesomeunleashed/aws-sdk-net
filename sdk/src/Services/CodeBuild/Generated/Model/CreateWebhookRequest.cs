@@ -48,12 +48,34 @@ namespace Amazon.CodeBuild.Model
     /// </summary>
     public partial class CreateWebhookRequest : AmazonCodeBuildRequest
     {
+        private string _branchFilter;
         private string _projectName;
+
+        /// <summary>
+        /// Gets and sets the property BranchFilter. 
+        /// <para>
+        /// A regular expression used to determine which branches in a repository are built when
+        /// a webhook is triggered. If the name of a branch matches the regular expression, then
+        /// it is built. If it doesn't match, then it is not. If branchFilter is empty, then all
+        /// branches are built.
+        /// </para>
+        /// </summary>
+        public string BranchFilter
+        {
+            get { return this._branchFilter; }
+            set { this._branchFilter = value; }
+        }
+
+        // Check to see if BranchFilter property is set
+        internal bool IsSetBranchFilter()
+        {
+            return this._branchFilter != null;
+        }
 
         /// <summary>
         /// Gets and sets the property ProjectName. 
         /// <para>
-        /// The name of the build project.
+        /// The name of the AWS CodeBuild project.
         /// </para>
         /// </summary>
         public string ProjectName

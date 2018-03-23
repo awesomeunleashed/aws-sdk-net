@@ -33,6 +33,7 @@ namespace Amazon.Redshift.Model
     public partial class AvailabilityZone
     {
         private string _name;
+        private List<SupportedPlatform> _supportedPlatforms = new List<SupportedPlatform>();
 
         /// <summary>
         /// Gets and sets the property Name. 
@@ -50,6 +51,21 @@ namespace Amazon.Redshift.Model
         internal bool IsSetName()
         {
             return this._name != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property SupportedPlatforms.
+        /// </summary>
+        public List<SupportedPlatform> SupportedPlatforms
+        {
+            get { return this._supportedPlatforms; }
+            set { this._supportedPlatforms = value; }
+        }
+
+        // Check to see if SupportedPlatforms property is set
+        internal bool IsSetSupportedPlatforms()
+        {
+            return this._supportedPlatforms != null && this._supportedPlatforms.Count > 0; 
         }
 
     }

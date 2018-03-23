@@ -41,6 +41,7 @@ namespace Amazon.SageMaker.Model
         private int? _maxResults;
         private string _nameContains;
         private string _nextToken;
+        private string _notebookInstanceLifecycleConfigNameContains;
         private NotebookInstanceSortKey _sortBy;
         private NotebookInstanceSortOrder _sortOrder;
         private NotebookInstanceStatus _statusEquals;
@@ -143,7 +144,7 @@ namespace Amazon.SageMaker.Model
         /// Gets and sets the property NameContains. 
         /// <para>
         /// A string in the notebook instances' name. This filter returns only notebook instances
-        /// whose name contains the specified string. 
+        /// whose name contains the specified string.
         /// </para>
         /// </summary>
         public string NameContains
@@ -183,6 +184,26 @@ namespace Amazon.SageMaker.Model
         internal bool IsSetNextToken()
         {
             return this._nextToken != null;
+        }
+
+        /// <summary>
+        /// Gets and sets the property NotebookInstanceLifecycleConfigNameContains. 
+        /// <para>
+        /// A string in the name of a notebook instances lifecycle configuration associated with
+        /// this notebook instance. This filter returns only notebook instances associated with
+        /// a lifecycle configuration with a name that contains the specified string.
+        /// </para>
+        /// </summary>
+        public string NotebookInstanceLifecycleConfigNameContains
+        {
+            get { return this._notebookInstanceLifecycleConfigNameContains; }
+            set { this._notebookInstanceLifecycleConfigNameContains = value; }
+        }
+
+        // Check to see if NotebookInstanceLifecycleConfigNameContains property is set
+        internal bool IsSetNotebookInstanceLifecycleConfigNameContains()
+        {
+            return this._notebookInstanceLifecycleConfigNameContains != null;
         }
 
         /// <summary>

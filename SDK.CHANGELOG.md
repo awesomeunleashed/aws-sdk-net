@@ -1,3 +1,253 @@
+### 3.3.253.0 (2018-03-22 22:05 UTC)
+* AppStream (3.3.11.0)
+	* Feedback URL allows admins to provide a feedback link or a survey link for collecting user feedback while streaming sessions. When a feedback link is provided, streaming users will see a "Send Feedback" choice in their streaming session toolbar. On selecting this choice, user will be redirected to the link provided in a new browser tab. If a feedback link is not provided, users will not see the "Send Feedback" option. 
+* CodeBuild (3.3.9.0)
+	* Adding support for branch filtering when using webhooks with AWS CodeBuild. 
+* ECS (3.3.13.0)
+	* Amazon Elastic Container Service (ECS) now includes integrated Service Discovery using Route 53 Auto Naming. Customers can now specify a Route 53 Auto Naming service as part of an ECS service. ECS will register task IPs with Route 53, making them available via DNS in your VPC.
+
+### 3.3.252.1 (2018-03-21 21:19 UTC)
+* ServerlessApplicationRepository (3.3.1.3)
+	* Documentation updates for Serverless Application Respository
+* Core 3.3.21.17
+	* Elemental MediaPackage is now available in the ICN and GRU regions.
+
+
+
+### 3.3.252.0 (2018-03-20 21:17 UTC)
+* CloudWatchEvents (3.3.5.0)
+	* Added SQS FIFO queue target support
+* ConfigService (3.3.14.0)
+	* AWS Config adds support for BatchGetResourceConfig API, allowing you to batch-retrieve the current state of one or more of your resources.
+* CostExplorer (3.3.2.0)
+	* This launch will allow customers to access their Amazon EC2 Reserved Instance (RI) purchase recommendations programmatically via the AWS Cost Explorer API. 
+* ECS (3.3.12.0)
+	* Amazon ECS users can now mount a temporary volume in memory in containers and specify the shared memory that a container can use through the use of docker's 'tmpfs' and 'shm-size' features respectively. These fields can be specified under linuxParameters in ContainerDefinition in the Task Definition Template.
+* ElasticBeanstalk (3.3.7.1)
+	* Documentation updates for the new Elastic Beanstalk API DescribeAccountAttributes.
+* Glue (3.3.6.0)
+	* API Updates for DevEndpoint: PublicKey is now optional for CreateDevEndpoint. The new DevEndpoint field PrivateAddress will be populated for DevEndpoints associated with a VPC.
+* MediaLive (3.3.4.0)
+	* AWS Elemental MediaLive has added support for updating Inputs and Input Security Groups. You can update Input Security Groups at any time and it will update all channels using that Input Security Group. Inputs can be updated as long as they are not attached to a currently running channel.
+
+### 3.3.251.0 (2018-03-16 20:40 UTC)
+* ElasticBeanstalk (3.3.7.0)
+	* AWS Elastic Beanstalk is launching a new public API named DescribeAccountAttributes which allows customers to access account level attributes. In this release, the API will support quotas for resources such as applications, application versions, and environments.
+
+### 3.3.250.0 (2018-03-15 19:47 UTC)
+* Organizations (3.3.8.0)
+	* This release adds additional reason codes to improve clarity to exceptions that can occur.
+* Pinpoint (3.3.7.0)
+	* With this release, you can delete endpoints from your Amazon Pinpoint projects. Customers can now specify one of their leased dedicated long or short codes to send text messages.
+* SageMaker (3.3.3.0)
+	* This release provides support for ml.p3.xlarge instance types for notebook instances.  Lifecycle configuration is now available to customize your notebook instances on start; the configuration can be reused between multiple notebooks.  If a notebook instance is attached to a VPC you can now opt out of internet access that by default is provided by SageMaker.
+
+### 3.3.249.2 (2018-03-14 22:38 UTC)
+* Core 3.3.21.16
+	* This change allows endpoint specific clock skew adjustment.
+	* All services packages updated to require new Core
+
+### 3.3.249.1 (2018-03-14 20:20 UTC)
+* Lightsail (3.3.5.2)
+	* Updates to existing Lightsail documentation
+
+### 3.3.249.0 (2018-03-13 19:15 UTC)
+* ServiceDiscovery (3.3.2.0)
+	* This release adds support for custom health checks, which let you check the health of resources that aren't accessible over the internet. For example, you can use a custom health check when the instance is in an Amazon VPC.
+
+### 3.3.248.0 (2018-03-12 22:42 UTC)
+* ApplicationDiscoveryService (3.3.3.6)
+	* Documentation updates for discovery
+* CloudHSMV2 (3.3.1.0)
+	* CreateCluster can now take both 8 and 17 character Subnet IDs. DeleteHsm can now take both 8 and 17 character ENI IDs.
+* IoT (3.3.9.0)
+	* We added new fields to the response of the following APIs. (1) describe-certificate: added new generationId, customerVersion fields (2) describe-ca-certificate: added new generationId, customerVersion and lastModifiedDate fields (3) get-policy: added generationId, creationDate and lastModifiedDate fields
+* Redshift (3.3.4.0)
+	* DescribeClusterSnapshotsMessage with ClusterExists flag returns snapshots of existing clusters. Else both existing and deleted cluster snapshots are returned
+
+### 3.3.247.0 (2018-03-09 00:26 UTC)
+* ECS (3.3.11.0)
+	* Amazon Elastic Container Service (ECS) now supports container health checks. Customers can now specify a docker container health check command and parameters in their task definition. ECS will monitor, report and take scheduling action based on the health status.
+* MigrationHub (3.3.1.0)
+	* Unused key LABEL removed from ResourceAttrbute
+* Pinpoint (3.3.6.0)
+	* With this release, you can export endpoints from your Amazon Pinpoint projects. You can export a) all of the endpoints assigned to a project or b) the subset of endpoints assigned to a segment.
+* RDS (3.3.21.2)
+	* Documentation updates for RDS
+
+### 3.3.246.0 (2018-03-08 00:42 UTC)
+* MediaLive (3.3.3.0)
+	* Updates API to model required traits and minimum/maximum constraints.
+
+### 3.3.245.2 (2018-03-06 21:07 UTC)
+* ECS (3.3.10.2)
+	* Documentation updates for Amazon ECS
+
+### 3.3.245.1 (2018-03-03 00:50 UTC)
+* Core 3.3.21.15
+	* URL encode resource path segments before canonicalization for all services except S3.
+	* All services packages updated to require new Core
+
+### 3.3.245.0 (2018-03-01 23:43 UTC)
+* CloudWatchEvents (3.3.4.0)
+	* Added BatchParameters to the PutTargets API
+* EC2 (3.3.47.0)
+	* Added support for modifying Placement Group association of instances via ModifyInstancePlacement API.
+* ServiceCatalog (3.3.8.0)
+	* This release of ServiceCatalog adds the DeleteTagOption API.
+* SimpleSystemsManagement (3.3.17.0)
+	* This Inventory release supports the status message details reported by the last sync for the resource data sync API.
+* StorageGateway (3.3.7.0)
+	* AWS Storage Gateway (File) support for two new file share attributes are added.           1. Users can specify the S3 Canned ACL to use for new objects created in the file share.         2. Users can create file shares for requester-pays buckets.
+
+### 3.3.244.0 (2018-02-28 22:16 UTC)
+* ApplicationAutoScaling (3.3.9.0)
+	* Application Auto Scaling now supports automatic scaling of SageMaker Production Variants on an Endpoint.
+
+### 3.3.243.1 (2018-02-28 02:38 UTC)
+* ECR (3.3.3.3)
+	* Documentation updates for Amazon ECR.
+
+### 3.3.243.0 (2018-02-27 16:47 UTC)
+* Route53 (3.3.15.0)
+	* Added support for creating LBR rules using ap-northeast-3 region.
+* SecurityToken (3.3.3.4)
+	* Increased SAMLAssertion parameter size from 50000 to 100000 for AWS Security Token Service AssumeRoleWithSAML API to allow customers to pass bigger SAML assertions
+
+### 3.3.242.0 (2018-02-24 01:00 UTC)
+* EC2 (3.3.46.0)
+	* Updated to use new Core, version 3.3.21.14
+	* You can now use AWS_EC2_METADATA_DISABLED environment variable to control SDK access to EC2 IMDS service.
+* Core 3.3.21.14
+	* You can now use  AWS_EC2_METADATA_DISABLED environment variable to control SDK access to EC2 IMDS service.  This release also removes InstanceProfileAWSCredentials from PCL.
+
+### 3.3.241.0 (2018-02-23 19:52 UTC)
+* AppStream (3.3.10.0)
+	* This API update is to enable customers to copy their Amazon AppStream 2.0 images within and between AWS Regions
+
+### 3.3.240.0 (2018-02-22 19:30 UTC)
+* CostExplorer (3.3.1.0)
+	* Added GetReservationCoverage API for retrieving reservation coverage information.
+* ElasticLoadBalancingV2 (3.3.8.1)
+	* Added a new load balancer attribute related to Network Load Balancers that enables cross zone capabilities. This feature allows Network Load Balancers to distribute requests regardless of Availability Zone.
+
+### 3.3.239.0 (2018-02-21 20:41 UTC)
+* CodeCommit (3.3.4.0)
+	* This release adds an API for adding a file directly to an AWS CodeCommit repository without requiring a Git client.
+* EC2 (3.3.45.0)
+	* Adds support for tagging an EBS snapshot as part of the API call that creates the EBS snapshot
+* ServerlessApplicationRepository (3.3.1.0)
+	* Added support for delete-application API and the ability for developers to set a homepage for their application. The homepage is a URL with more information about the application, for example the location of your GitHub repository for the application. 
+* Core 3.3.21.13
+	* Mediapackage expands their service to FRA and CDG regions.
+
+
+
+### 3.3.238.0 (2018-02-20 22:50 UTC)
+* AutoScaling (3.3.4.0)
+	* Amazon EC2 Auto Scaling support for service-linked roles
+* WAF (3.3.5.0)
+	* The new PermissionPolicy APIs in AWS WAF Regional allow customers to attach resource-based policies to their entities.
+* WAFRegional (3.3.4.0)
+	* The new PermissionPolicy APIs in AWS WAF Regional allow customers to attach resource-based policies to their entities.
+
+### 3.3.237.0 (2018-02-19 20:50 UTC)
+* ConfigService (3.3.13.0)
+	* With this release, AWS Config updated the ConfigurationItemStatus enum values. The values prior to this update did not represent appropriate values returned by GetResourceConfigHistory. You must update your code to enumerate the new enum values so this is a breaking change.  To map old properties to new properties, use the following descriptions: New discovered resource - Old property: Discovered, New property: ResourceDiscovered. Updated resource - Old property: Ok, New property: OK. Deleted resource - Old property: Deleted, New property: ResourceDeleted or ResourceDeletedNotRecorded. Not-recorded resource - Old property: N/A, New property: ResourceNotRecorded or ResourceDeletedNotRecorded.
+
+### 3.3.236.0 (2018-02-16 20:53 UTC)
+* RDS (3.3.21.0)
+	* Updates RDS API to indicate whether a DBEngine supports read replicas.
+
+### 3.3.235.0 (2018-02-15 22:56 UTC)
+* GameLift (3.3.11.0)
+	* Updates to allow Fleets to run on On-Demand or Spot instances.
+* MediaConvert (3.3.1.0)
+	* Nielsen ID3 tags can now be inserted into transport stream (TS) and HLS outputs. For more information on Nielsen configuration you can go to https://docs.aws.amazon.com/mediaconvert/latest/apireference/jobs.html#jobs-nielsenconfiguration
+* Core 3.3.21.12
+	* Launch AWS CodeStar in the Asia Pacific Northeast 2 (ICN) region.
+
+
+
+### 3.3.234.0 (2018-02-14 23:24 UTC)
+* AppSync (3.3.1.0)
+	* AWS AppSync now supports for None Data Source, CreateApiKey now supports setting expiration on API keys, new API UpdateApiKey supports updating expiration on API keys. 
+* LexModelBuildingService (3.3.6.0)
+	* Amazon Lex now provides the ability to export and import your Amazon Lex chatbot definition as a JSON file.
+
+### 3.3.233.0 (2018-02-13 22:15 UTC)
+* Glacier (3.3.2.1)
+	* Documentation updates for glacier
+* Route53 (3.3.14.0)
+	* Added support for creating Private Hosted Zones and metric-based healthchecks in the ap-northeast-3 region for whitelisted customers.
+
+### 3.3.232.0 (2018-02-12 23:33 UTC)
+* CognitoIdentityProvider (3.3.9.0)
+	* Support for user migration using AWS Lambda trigger. Support to obtain signing certificate for user pools.
+* EC2 (3.3.44.0)
+	* Network interfaces now supply the following additional status of "associated" to better distinguish the current status.
+* GuardDuty (3.3.2.0)
+	* Added PortProbeAction information to the Action section of the port probe-type finding.
+* KeyManagementService (3.3.5.0)
+	* This release of AWS Key Management Service includes support for InvalidArnException in the RetireGrant API.
+* RDS (3.3.20.1)
+	* Aurora MySQL now supports MySQL 5.7.
+
+### 3.3.231.0 (2018-02-09 22:53 UTC)
+* EC2 (3.3.43.0)
+	* Users can now better understand the longer ID opt-in status of their account using the two new APIs DescribeAggregateIdFormat and DescribePrincipalIdFormat
+* Lex (3.3.3.0)
+	* You can now define a response for your Amazon Lex chatbot directly from the AWS console. A response consists of messages dynamically selected from a group of pre-defined messages, populated by the developer.
+* LexModelBuildingService (3.3.5.0)
+	* You can now define a response for your Amazon Lex chatbot directly from the AWS console. A response consists of messages dynamically selected from a group of pre-defined messages, populated by the developer.
+
+### 3.3.230.0 (2018-02-08 23:07 UTC)
+* AppStream (3.3.9.0)
+	* Adds support for allowing customers to provide a redirect URL for a stack. Users will be redirected to the link provided by the admin at the end of their streaming session. 
+* Budgets (3.3.7.0)
+	* Making budgetLimit and timePeriod optional, and updating budgets docs. 
+* DatabaseMigrationService (3.3.6.0)
+	* This release includes the addition of two new APIs: describe replication instance task logs and reboot instance. The first allows user to see how much storage each log for a task on a given instance is occupying. The second gives users the option to reboot the application software on the instance and force a fail over for MAZ instances to test robustness of their integration with our service. 
+* DirectoryService (3.3.4.0)
+	* Updated the regex of some input parameters to support longer EC2 identifiers.
+* DynamoDBv2 (3.3.6.0)
+	* Amazon DynamoDB now supports server-side encryption using a default service key (alias/aws/dynamodb) from the AWS Key Management Service (KMS). AWS KMS is a service that combines secure, highly available hardware and software to provide a key management system scaled for the cloud. AWS KMS is used via the AWS Management Console or APIs to centrally create encryption keys, define the policies that control how keys can be used, and audit key usage to prove they are being used correctly. For more information, see the Amazon DynamoDB Developer Guide.
+* GameLift (3.3.10.0)
+	* Amazon GameLift FlexMatch added the StartMatchBackfill API.  This API allows developers to add new players to an existing game session using the same matchmaking rules and player data that were used to initially create the session.
+* MediaLive (3.3.2.0)
+	* AWS Elemental MediaLive has added support for updating channel settings for idle channels. You can now update channel name, channel outputs and output destinations, encoder settings, user role ARN, and input specifications. Channel settings can be updated in the console or with API calls. Please note that running channels need to be stopped before they can be updated. We've also deprecated the 'Reserved' field.
+* MediaStore (3.3.1.0)
+	* AWS Elemental MediaStore now supports per-container CORS configuration.
+* Core 3.3.21.11
+	* We marked Inspector GA yesterday. 2/.5/18.
+
+
+
+### 3.3.229.0 (2018-02-06 22:00 UTC)
+* Glue (3.3.5.0)
+	* This new feature will now allow customers to add a customized json classifier. They can specify a json path to indicate the object, array or field of the json documents they'd like crawlers to inspect when they crawl json files. 
+* ServiceCatalog (3.3.7.0)
+	* This release of Service Catalog adds SearchProvisionedProducts API and ProvisionedProductPlan APIs.
+* ServiceDiscovery (3.3.1.0)
+	* This release adds support for registering CNAME record types and creating Route 53 alias records that route traffic to Amazon Elastic Load Balancers using Amazon Route 53 Auto Naming APIs.
+* SimpleSystemsManagement (3.3.16.0)
+	* This Patch Manager release supports configuring Linux repos as part of patch baselines, controlling updates of non-OS security packages and also creating patch baselines for SUSE12
+
+### 3.3.228.0 (2018-02-05 21:19 UTC)
+* CertificateManager (3.3.3.1)
+	* Documentation updates for acm
+* Cloud9 (3.3.0.1)
+	* API usage examples for AWS Cloud9.
+* Kinesis (3.3.5.0)
+	* Using ListShards a Kinesis Data Streams customer or client can get information about shards in a data stream (including meta-data for each shard) without obtaining data stream level information.
+* OpsWorks (3.3.3.0)
+	* AWS OpsWorks Stacks supports EBS encryption and HDD volume types. Also, a new DescribeOperatingSystems API is available, which lists all operating systems supported by OpsWorks Stacks.
+* S3 (3.3.17.0)
+	* Fix incorrect marshaller for S3 RestoreObject request.
+* Core 3.3.21.10
+	* Validate the role paramater when creating InstanceProfileAWSCredentials.
+
+
 ### 3.3.227.0 (2018-01-26 22:17 UTC)
 * DeviceFarm (3.3.4.0)
 	* Add InteractionMode in CreateRemoteAccessSession for DirectDeviceAccess feature.

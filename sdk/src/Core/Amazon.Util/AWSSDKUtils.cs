@@ -27,6 +27,7 @@ using System.Text;
 using System.Linq;
 using System.Net;
 using Amazon.Runtime.Internal;
+using Amazon.Runtime;
 
 namespace Amazon.Util
 {
@@ -258,7 +259,7 @@ namespace Amazon.Util
         }
 
         /// <summary>
-        /// Returns the canonicalized resource path for the service endpoint
+        /// Returns the canonicalized resource path for the service endpoint with single URL encoded path segments.
         /// </summary>
         /// <param name="endpoint">Endpoint URL for the request</param>
         /// <param name="resourcePath">Resource path for the request</param>
@@ -268,6 +269,24 @@ namespace Amazon.Util
         /// </remarks>
         /// <returns>Canonicalized resource path for the endpoint</returns>
         public static string CanonicalizeResourcePath(Uri endpoint, string resourcePath)
+        {
+            // This overload is kept for backward compatibility in existing code bases.
+            return CanonicalizeResourcePath(endpoint, resourcePath, false);
+        }
+
+        /// <summary>
+        /// Returns the canonicalized resource path for the service endpoint
+        /// </summary>
+        /// <param name="endpoint">Endpoint URL for the request</param>
+        /// <param name="resourcePath">Resource path for the request</param>
+        /// <param name="detectPreEncode">If true pre URL encode path segments if necessary.
+        /// S3 is currently the only service that does not expect pre URL encoded segments.</param>
+        /// <remarks>
+        /// If resourcePath begins or ends with slash, the resulting canonicalized
+        /// path will follow suit.
+        /// </remarks>
+        /// <returns>Canonicalized resource path for the endpoint</returns>
+        public static string CanonicalizeResourcePath(Uri endpoint, string resourcePath, bool detectPreEncode)
         {
             if (endpoint != null)
             {
@@ -290,13 +309,34 @@ namespace Amazon.Util
             // split path at / into segments
             var pathSegments = resourcePath.Split(new char[] { SlashChar }, StringSplitOptions.None);
 
-            // url encode the segments
-            var encodedSegments = pathSegments
-                .Select(segment => AWSSDKUtils.UrlEncode(segment, false))
-                .ToArray();
+            IEnumerable<string> encodedSegments = pathSegments;
+            var pathWasPreEncoded = false;
+            if (detectPreEncode)
+            {
+                if (endpoint == null)
+                    throw new ArgumentNullException(nameof(endpoint), "A non-null endpoint is necessary to decide whether or not to pre URL encode.");
+
+                // S3 is a special case.  For S3 skip the pre encode.
+                // For everything else URL pre encode the resource path segments.
+                if (!S3Uri.IsS3Uri(endpoint))
+                {
+                    encodedSegments = encodedSegments.Select(segment => UrlEncode(segment, true));
+                    pathWasPreEncoded = true;
+                }
+            }
+
+            // Encode for canonicalization
+            encodedSegments = encodedSegments.Select(segment => UrlEncode(segment, false));
 
             // join the encoded segments with /
-            var canonicalizedResourcePath = string.Join(Slash, encodedSegments);
+            var canonicalizedResourcePath = string.Join(Slash, encodedSegments.ToArray());
+
+            // Get the logger each time (it's cached) because we shouldn't store it in a static variable.
+            Logger.GetLogger(typeof(AWSSDKUtils)).DebugFormat("{0} encoded {1}{2} for canonicalization: {3}",
+                pathWasPreEncoded ? "Double" : "Single",
+                resourcePath,
+                endpoint == null ? "" : " with endpoint " + endpoint.AbsoluteUri,
+                canonicalizedResourcePath);
 
             return canonicalizedResourcePath;
         }
@@ -637,7 +677,9 @@ namespace Amazon.Util
         {
             get
             {
+#pragma warning disable CS0618 // Type or member is obsolete
                 DateTime dateTime = AWSSDKUtils.CorrectedUtcNow;
+#pragma warning restore CS0618 // Type or member is obsolete
                 DateTime formatted = new DateTime(
                     dateTime.Year,
                     dateTime.Month,
@@ -654,6 +696,8 @@ namespace Amazon.Util
                     );
             }
         }
+
+
 
         /// <summary>
         /// Formats the current date as ISO 8601 timestamp
@@ -678,7 +722,18 @@ namespace Amazon.Util
         /// <returns>The ISO8601 formatted future timestamp.</returns>
         public static string GetFormattedTimestampISO8601(int minutesFromNow)
         {
-            DateTime dateTime = AWSSDKUtils.CorrectedUtcNow.AddMinutes(minutesFromNow);
+#pragma warning disable CS0618 // Type or member is obsolete
+            return GetFormattedTimestampISO8601(AWSSDKUtils.CorrectedUtcNow.AddMinutes(minutesFromNow));
+#pragma warning restore CS0618 // Type or member is obsolete
+        }
+
+        internal static string GetFormattedTimestampISO8601(IClientConfig config)
+        {
+            return GetFormattedTimestampISO8601(config.CorrectedUtcNow);
+        }
+
+        private static string GetFormattedTimestampISO8601(DateTime dateTime)
+        {
             DateTime formatted = new DateTime(
                 dateTime.Year,
                 dateTime.Month,
@@ -718,7 +773,9 @@ namespace Amazon.Util
         /// <returns>The ISO8601 formatted future timestamp.</returns>
         public static string GetFormattedTimestampRFC822(int minutesFromNow)
         {
+#pragma warning disable CS0612 // Type or member is obsolete
             DateTime dateTime = AWSSDKUtils.CorrectedUtcNow.AddMinutes(minutesFromNow);
+#pragma warning restore CS0612 // Type or member is obsolete
             DateTime formatted = new DateTime(
                 dateTime.Year,
                 dateTime.Month,
@@ -827,11 +884,9 @@ namespace Amazon.Util
         /// <summary>
         /// Returns DateTime.UtcNow + ManualClockCorrection when
         /// <seealso cref="AWSConfigs.ManualClockCorrection"/> is set.
-        /// Otherwise returns DateTime.UtcNow + ClockOffset when
-        /// <seealso cref="AWSConfigs.CorrectForClockSkew"/> is true.
-        /// This value should be used when constructing requests, as it
-        /// will represent accurate time w.r.t. AWS servers.
+        /// This value should be used instead of DateTime.UtcNow to factor in manual clock correction
         /// </summary>
+        [Obsolete("This property does not account for endpoint specific clock skew.  Use CorrectClockSkew.GetCorrectedUtcNowForEndpoint() instead.")]
         public static DateTime CorrectedUtcNow
         {
             get
@@ -839,8 +894,6 @@ namespace Amazon.Util
                 var now = AWSConfigs.utcNowSource();
                 if (AWSConfigs.ManualClockCorrection.HasValue)
                     now += AWSConfigs.ManualClockCorrection.Value;
-                else if (AWSConfigs.CorrectForClockSkew)
-                    now += AWSConfigs.ClockOffset;
                 return now;
             }
         }

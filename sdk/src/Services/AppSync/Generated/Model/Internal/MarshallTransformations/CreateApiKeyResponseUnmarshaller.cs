@@ -76,6 +76,10 @@ namespace Amazon.AppSync.Model.Internal.MarshallTransformations
             {
                 return new ApiKeyLimitExceededException(errorResponse.Message, innerException, errorResponse.Type, errorResponse.Code, errorResponse.RequestId, statusCode);
             }
+            if (errorResponse.Code != null && errorResponse.Code.Equals("ApiKeyValidityOutOfBoundsException"))
+            {
+                return new ApiKeyValidityOutOfBoundsException(errorResponse.Message, innerException, errorResponse.Type, errorResponse.Code, errorResponse.RequestId, statusCode);
+            }
             if (errorResponse.Code != null && errorResponse.Code.Equals("BadRequestException"))
             {
                 return new BadRequestException(errorResponse.Message, innerException, errorResponse.Type, errorResponse.Code, errorResponse.RequestId, statusCode);

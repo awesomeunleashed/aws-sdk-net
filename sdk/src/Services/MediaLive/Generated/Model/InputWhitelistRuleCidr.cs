@@ -35,7 +35,7 @@ namespace Amazon.MediaLive.Model
         private string _cidr;
 
         /// <summary>
-        /// Gets and sets the property Cidr. The IPv4 CIDR to whitelist
+        /// Gets and sets the property Cidr. The IPv4 CIDR to whitelist.
         /// </summary>
         public string Cidr
         {

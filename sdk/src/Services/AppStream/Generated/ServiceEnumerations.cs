@@ -525,6 +525,10 @@ namespace Amazon.AppStream
         /// </summary>
         public static readonly ImageState AVAILABLE = new ImageState("AVAILABLE");
         /// <summary>
+        /// Constant COPYING for ImageState
+        /// </summary>
+        public static readonly ImageState COPYING = new ImageState("COPYING");
+        /// <summary>
         /// Constant DELETING for ImageState
         /// </summary>
         public static readonly ImageState DELETING = new ImageState("DELETING");
@@ -582,6 +586,10 @@ namespace Amazon.AppStream
         /// Constant IMAGE_BUILDER_NOT_AVAILABLE for ImageStateChangeReasonCode
         /// </summary>
         public static readonly ImageStateChangeReasonCode IMAGE_BUILDER_NOT_AVAILABLE = new ImageStateChangeReasonCode("IMAGE_BUILDER_NOT_AVAILABLE");
+        /// <summary>
+        /// Constant IMAGE_COPY_FAILURE for ImageStateChangeReasonCode
+        /// </summary>
+        public static readonly ImageStateChangeReasonCode IMAGE_COPY_FAILURE = new ImageStateChangeReasonCode("IMAGE_COPY_FAILURE");
         /// <summary>
         /// Constant INTERNAL_ERROR for ImageStateChangeReasonCode
         /// </summary>
@@ -662,6 +670,64 @@ namespace Amazon.AppStream
         /// <param name="value">The string value to convert to the constant class.</param>
         /// <returns></returns>
         public static implicit operator PlatformType(string value)
+        {
+            return FindValue(value);
+        }
+    }
+
+
+    /// <summary>
+    /// Constants used for properties of type StackAttribute.
+    /// </summary>
+    public class StackAttribute : ConstantClass
+    {
+
+        /// <summary>
+        /// Constant FEEDBACK_URL for StackAttribute
+        /// </summary>
+        public static readonly StackAttribute FEEDBACK_URL = new StackAttribute("FEEDBACK_URL");
+        /// <summary>
+        /// Constant REDIRECT_URL for StackAttribute
+        /// </summary>
+        public static readonly StackAttribute REDIRECT_URL = new StackAttribute("REDIRECT_URL");
+        /// <summary>
+        /// Constant STORAGE_CONNECTORS for StackAttribute
+        /// </summary>
+        public static readonly StackAttribute STORAGE_CONNECTORS = new StackAttribute("STORAGE_CONNECTORS");
+        /// <summary>
+        /// Constant THEME_NAME for StackAttribute
+        /// </summary>
+        public static readonly StackAttribute THEME_NAME = new StackAttribute("THEME_NAME");
+
+        /// <summary>
+        /// This constant constructor does not need to be called if the constant
+        /// you are attempting to use is already defined as a static instance of 
+        /// this class.
+        /// This constructor should be used to construct constants that are not
+        /// defined as statics, for instance if attempting to use a feature that is
+        /// newer than the current version of the SDK.
+        /// </summary>
+        public StackAttribute(string value)
+            : base(value)
+        {
+        }
+
+        /// <summary>
+        /// Finds the constant for the unique value.
+        /// </summary>
+        /// <param name="value">The unique value for the constant</param>
+        /// <returns>The constant for the unique value</returns>
+        public static StackAttribute FindValue(string value)
+        {
+            return FindValue<StackAttribute>(value);
+        }
+
+        /// <summary>
+        /// Utility method to convert strings to the constant class.
+        /// </summary>
+        /// <param name="value">The string value to convert to the constant class.</param>
+        /// <returns></returns>
+        public static implicit operator StackAttribute(string value)
         {
             return FindValue(value);
         }

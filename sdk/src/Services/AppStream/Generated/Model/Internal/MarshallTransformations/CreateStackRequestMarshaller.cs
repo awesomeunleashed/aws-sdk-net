@@ -79,10 +79,22 @@ namespace Amazon.AppStream.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.DisplayName);
                 }
 
+                if(publicRequest.IsSetFeedbackURL())
+                {
+                    context.Writer.WritePropertyName("FeedbackURL");
+                    context.Writer.Write(publicRequest.FeedbackURL);
+                }
+
                 if(publicRequest.IsSetName())
                 {
                     context.Writer.WritePropertyName("Name");
                     context.Writer.Write(publicRequest.Name);
+                }
+
+                if(publicRequest.IsSetRedirectURL())
+                {
+                    context.Writer.WritePropertyName("RedirectURL");
+                    context.Writer.Write(publicRequest.RedirectURL);
                 }
 
                 if(publicRequest.IsSetStorageConnectors())
