@@ -39,5 +39,19 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
 
             return request;
         }
+
+        private static DeleteBucketEncryptionRequestMarshaller _instance;
+
+        public static DeleteBucketEncryptionRequestMarshaller Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new DeleteBucketEncryptionRequestMarshaller();
+                }
+                return _instance;
+            }
+        }
     }
 }

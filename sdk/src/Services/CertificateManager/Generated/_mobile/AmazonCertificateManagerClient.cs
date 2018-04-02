@@ -243,7 +243,7 @@ namespace Amazon.CertificateManager
 
         internal virtual AddTagsToCertificateResponse AddTagsToCertificate(AddTagsToCertificateRequest request)
         {
-            var marshaller = new AddTagsToCertificateRequestMarshaller();
+            var marshaller = AddTagsToCertificateRequestMarshaller.Instance;
             var unmarshaller = AddTagsToCertificateResponseUnmarshaller.Instance;
 
             return Invoke<AddTagsToCertificateRequest,AddTagsToCertificateResponse>(request, marshaller, unmarshaller);
@@ -262,7 +262,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/AddTagsToCertificate">REST API Reference for AddTagsToCertificate Operation</seealso>
         public virtual Task<AddTagsToCertificateResponse> AddTagsToCertificateAsync(AddTagsToCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new AddTagsToCertificateRequestMarshaller();
+            var marshaller = AddTagsToCertificateRequestMarshaller.Instance;
             var unmarshaller = AddTagsToCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<AddTagsToCertificateRequest,AddTagsToCertificateResponse>(request, marshaller, 
@@ -275,7 +275,7 @@ namespace Amazon.CertificateManager
 
         internal virtual DeleteCertificateResponse DeleteCertificate(DeleteCertificateRequest request)
         {
-            var marshaller = new DeleteCertificateRequestMarshaller();
+            var marshaller = DeleteCertificateRequestMarshaller.Instance;
             var unmarshaller = DeleteCertificateResponseUnmarshaller.Instance;
 
             return Invoke<DeleteCertificateRequest,DeleteCertificateResponse>(request, marshaller, unmarshaller);
@@ -290,12 +290,12 @@ namespace Amazon.CertificateManager
         /// 
         ///  <note> 
         /// <para>
-        /// You cannot delete an ACM Certificate that is being used by another AWS service. To
+        /// You cannot delete an ACM certificate that is being used by another AWS service. To
         /// delete a certificate that is in use, the certificate association must first be removed.
         /// </para>
         ///  </note>
         /// </summary>
-        /// <param name="certificateArn">String that contains the ARN of the ACM Certificate to be deleted. This must be of the form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
+        /// <param name="certificateArn">String that contains the ARN of the ACM certificate to be deleted. This must be of the form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -309,7 +309,7 @@ namespace Amazon.CertificateManager
         /// association and try again.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DeleteCertificate">REST API Reference for DeleteCertificate Operation</seealso>
@@ -333,7 +333,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DeleteCertificate">REST API Reference for DeleteCertificate Operation</seealso>
         public virtual Task<DeleteCertificateResponse> DeleteCertificateAsync(DeleteCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new DeleteCertificateRequestMarshaller();
+            var marshaller = DeleteCertificateRequestMarshaller.Instance;
             var unmarshaller = DeleteCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteCertificateRequest,DeleteCertificateResponse>(request, marshaller, 
@@ -346,7 +346,7 @@ namespace Amazon.CertificateManager
 
         internal virtual DescribeCertificateResponse DescribeCertificate(DescribeCertificateRequest request)
         {
-            var marshaller = new DescribeCertificateRequestMarshaller();
+            var marshaller = DescribeCertificateRequestMarshaller.Instance;
             var unmarshaller = DescribeCertificateResponseUnmarshaller.Instance;
 
             return Invoke<DescribeCertificateRequest,DescribeCertificateResponse>(request, marshaller, unmarshaller);
@@ -354,9 +354,9 @@ namespace Amazon.CertificateManager
 
 
         /// <summary>
-        /// Returns detailed metadata about the specified ACM Certificate.
+        /// Returns detailed metadata about the specified ACM certificate.
         /// </summary>
-        /// <param name="certificateArn">The Amazon Resource Name (ARN) of the ACM Certificate. The ARN must have the following form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
+        /// <param name="certificateArn">The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -366,7 +366,7 @@ namespace Amazon.CertificateManager
         /// The requested Amazon Resource Name (ARN) does not refer to an existing resource.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DescribeCertificate">REST API Reference for DescribeCertificate Operation</seealso>
@@ -390,7 +390,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DescribeCertificate">REST API Reference for DescribeCertificate Operation</seealso>
         public virtual Task<DescribeCertificateResponse> DescribeCertificateAsync(DescribeCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new DescribeCertificateRequestMarshaller();
+            var marshaller = DescribeCertificateRequestMarshaller.Instance;
             var unmarshaller = DescribeCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeCertificateRequest,DescribeCertificateResponse>(request, marshaller, 
@@ -403,7 +403,7 @@ namespace Amazon.CertificateManager
 
         internal virtual GetCertificateResponse GetCertificate(GetCertificateRequest request)
         {
-            var marshaller = new GetCertificateRequestMarshaller();
+            var marshaller = GetCertificateRequestMarshaller.Instance;
             var unmarshaller = GetCertificateResponseUnmarshaller.Instance;
 
             return Invoke<GetCertificateRequest,GetCertificateResponse>(request, marshaller, unmarshaller);
@@ -431,7 +431,7 @@ namespace Amazon.CertificateManager
         /// yet been issued.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/GetCertificate">REST API Reference for GetCertificate Operation</seealso>
@@ -455,7 +455,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/GetCertificate">REST API Reference for GetCertificate Operation</seealso>
         public virtual Task<GetCertificateResponse> GetCertificateAsync(GetCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new GetCertificateRequestMarshaller();
+            var marshaller = GetCertificateRequestMarshaller.Instance;
             var unmarshaller = GetCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetCertificateRequest,GetCertificateResponse>(request, marshaller, 
@@ -468,7 +468,7 @@ namespace Amazon.CertificateManager
 
         internal virtual ImportCertificateResponse ImportCertificate(ImportCertificateRequest request)
         {
-            var marshaller = new ImportCertificateRequestMarshaller();
+            var marshaller = ImportCertificateRequestMarshaller.Instance;
             var unmarshaller = ImportCertificateResponseUnmarshaller.Instance;
 
             return Invoke<ImportCertificateRequest,ImportCertificateResponse>(request, marshaller, unmarshaller);
@@ -487,7 +487,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ImportCertificate">REST API Reference for ImportCertificate Operation</seealso>
         public virtual Task<ImportCertificateResponse> ImportCertificateAsync(ImportCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new ImportCertificateRequestMarshaller();
+            var marshaller = ImportCertificateRequestMarshaller.Instance;
             var unmarshaller = ImportCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<ImportCertificateRequest,ImportCertificateResponse>(request, marshaller, 
@@ -504,7 +504,7 @@ namespace Amazon.CertificateManager
         }
         internal virtual ListCertificatesResponse ListCertificates(ListCertificatesRequest request)
         {
-            var marshaller = new ListCertificatesRequestMarshaller();
+            var marshaller = ListCertificatesRequestMarshaller.Instance;
             var unmarshaller = ListCertificatesResponseUnmarshaller.Instance;
 
             return Invoke<ListCertificatesRequest,ListCertificatesResponse>(request, marshaller, unmarshaller);
@@ -540,7 +540,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ListCertificates">REST API Reference for ListCertificates Operation</seealso>
         public virtual Task<ListCertificatesResponse> ListCertificatesAsync(ListCertificatesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new ListCertificatesRequestMarshaller();
+            var marshaller = ListCertificatesRequestMarshaller.Instance;
             var unmarshaller = ListCertificatesResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListCertificatesRequest,ListCertificatesResponse>(request, marshaller, 
@@ -553,7 +553,7 @@ namespace Amazon.CertificateManager
 
         internal virtual ListTagsForCertificateResponse ListTagsForCertificate(ListTagsForCertificateRequest request)
         {
-            var marshaller = new ListTagsForCertificateRequestMarshaller();
+            var marshaller = ListTagsForCertificateRequestMarshaller.Instance;
             var unmarshaller = ListTagsForCertificateResponseUnmarshaller.Instance;
 
             return Invoke<ListTagsForCertificateRequest,ListTagsForCertificateResponse>(request, marshaller, unmarshaller);
@@ -572,7 +572,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ListTagsForCertificate">REST API Reference for ListTagsForCertificate Operation</seealso>
         public virtual Task<ListTagsForCertificateResponse> ListTagsForCertificateAsync(ListTagsForCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new ListTagsForCertificateRequestMarshaller();
+            var marshaller = ListTagsForCertificateRequestMarshaller.Instance;
             var unmarshaller = ListTagsForCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListTagsForCertificateRequest,ListTagsForCertificateResponse>(request, marshaller, 
@@ -585,7 +585,7 @@ namespace Amazon.CertificateManager
 
         internal virtual RemoveTagsFromCertificateResponse RemoveTagsFromCertificate(RemoveTagsFromCertificateRequest request)
         {
-            var marshaller = new RemoveTagsFromCertificateRequestMarshaller();
+            var marshaller = RemoveTagsFromCertificateRequestMarshaller.Instance;
             var unmarshaller = RemoveTagsFromCertificateResponseUnmarshaller.Instance;
 
             return Invoke<RemoveTagsFromCertificateRequest,RemoveTagsFromCertificateResponse>(request, marshaller, unmarshaller);
@@ -604,7 +604,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RemoveTagsFromCertificate">REST API Reference for RemoveTagsFromCertificate Operation</seealso>
         public virtual Task<RemoveTagsFromCertificateResponse> RemoveTagsFromCertificateAsync(RemoveTagsFromCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new RemoveTagsFromCertificateRequestMarshaller();
+            var marshaller = RemoveTagsFromCertificateRequestMarshaller.Instance;
             var unmarshaller = RemoveTagsFromCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<RemoveTagsFromCertificateRequest,RemoveTagsFromCertificateResponse>(request, marshaller, 
@@ -617,7 +617,7 @@ namespace Amazon.CertificateManager
 
         internal virtual RequestCertificateResponse RequestCertificate(RequestCertificateRequest request)
         {
-            var marshaller = new RequestCertificateRequestMarshaller();
+            var marshaller = RequestCertificateRequestMarshaller.Instance;
             var unmarshaller = RequestCertificateResponseUnmarshaller.Instance;
 
             return Invoke<RequestCertificateRequest,RequestCertificateResponse>(request, marshaller, unmarshaller);
@@ -625,25 +625,30 @@ namespace Amazon.CertificateManager
 
 
         /// <summary>
-        /// Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
+        /// Requests an ACM certificate for use with other AWS services. To request an ACM certificate,
         /// you must specify the fully qualified domain name (FQDN) for your site in the <code>DomainName</code>
         /// parameter. You can also specify additional FQDNs in the <code>SubjectAlternativeNames</code>
-        /// parameter if users can reach your site by using other names. 
+        /// parameter. 
         /// 
         ///  
         /// <para>
-        /// For each domain name you specify, email is sent to the domain owner to request approval
-        /// to issue the certificate. Email is sent to three registered contact addresses in the
-        /// WHOIS database and to five common system administration addresses formed from the
-        /// <code>DomainName</code> you enter or the optional <code>ValidationDomain</code> parameter.
-        /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate.html">Validate
-        /// Domain Ownership</a>. 
+        /// Each domain name that you specify must be validated to verify that you own or control
+        /// the domain. You can use <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS
+        /// validation</a> or <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email
+        /// validation</a>. We recommend that you use DNS validation. 
         /// </para>
         ///  
         /// <para>
-        /// After receiving approval from the domain owner, the ACM Certificate is issued. For
-        /// more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS
-        /// Certificate Manager User Guide</a>. 
+        /// If you choose email validation, email is sent to the domain owner to request approval
+        /// to issue the certificate. Email is sent to three registered contact addresses in the
+        /// WHOIS database and to five common system administration addresses formed from the
+        /// <code>DomainName</code> you enter or the optional <code>ValidationDomain</code> parameter.
+        /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">Validate
+        /// with Email</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// After receiving approval from the domain owner, the ACM certificate is issued.
         /// </para>
         /// </summary>
         /// <param name="domainName"> Fully qualified domain name (FQDN), such as www.example.com, of the site that you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.   The first domain name you enter cannot exceed 63 octets, including periods. Each subsequent Subject Alternative Name (SAN), however, can be up to 253 octets in length. </param>
@@ -656,11 +661,7 @@ namespace Amazon.CertificateManager
         /// One or more values in the <a>DomainValidationOption</a> structure is incorrect.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.LimitExceededException">
-        /// An ACM limit has been exceeded. For example, you may have input more domains than
-        /// are allowed or you've requested too many certificates for your account. See the exception
-        /// message returned by ACM to determine which limit you have violated. For more information
-        /// about ACM limits, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>
-        /// topic.
+        /// An ACM limit has been exceeded.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RequestCertificate">REST API Reference for RequestCertificate Operation</seealso>
         public virtual Task<RequestCertificateResponse> RequestCertificateAsync(string domainName, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -683,7 +684,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RequestCertificate">REST API Reference for RequestCertificate Operation</seealso>
         public virtual Task<RequestCertificateResponse> RequestCertificateAsync(RequestCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new RequestCertificateRequestMarshaller();
+            var marshaller = RequestCertificateRequestMarshaller.Instance;
             var unmarshaller = RequestCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<RequestCertificateRequest,RequestCertificateResponse>(request, marshaller, 
@@ -696,7 +697,7 @@ namespace Amazon.CertificateManager
 
         internal virtual ResendValidationEmailResponse ResendValidationEmail(ResendValidationEmailRequest request)
         {
-            var marshaller = new ResendValidationEmailRequestMarshaller();
+            var marshaller = ResendValidationEmailRequestMarshaller.Instance;
             var unmarshaller = ResendValidationEmailResponseUnmarshaller.Instance;
 
             return Invoke<ResendValidationEmailRequest,ResendValidationEmailResponse>(request, marshaller, unmarshaller);
@@ -715,10 +716,42 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ResendValidationEmail">REST API Reference for ResendValidationEmail Operation</seealso>
         public virtual Task<ResendValidationEmailResponse> ResendValidationEmailAsync(ResendValidationEmailRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new ResendValidationEmailRequestMarshaller();
+            var marshaller = ResendValidationEmailRequestMarshaller.Instance;
             var unmarshaller = ResendValidationEmailResponseUnmarshaller.Instance;
 
             return InvokeAsync<ResendValidationEmailRequest,ResendValidationEmailResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateCertificateOptions
+
+        internal virtual UpdateCertificateOptionsResponse UpdateCertificateOptions(UpdateCertificateOptionsRequest request)
+        {
+            var marshaller = UpdateCertificateOptionsRequestMarshaller.Instance;
+            var unmarshaller = UpdateCertificateOptionsResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateCertificateOptionsRequest,UpdateCertificateOptionsResponse>(request, marshaller, unmarshaller);
+        }
+
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateCertificateOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateCertificateOptions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/UpdateCertificateOptions">REST API Reference for UpdateCertificateOptions Operation</seealso>
+        public virtual Task<UpdateCertificateOptionsResponse> UpdateCertificateOptionsAsync(UpdateCertificateOptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = UpdateCertificateOptionsRequestMarshaller.Instance;
+            var unmarshaller = UpdateCertificateOptionsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateCertificateOptionsRequest,UpdateCertificateOptionsResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 

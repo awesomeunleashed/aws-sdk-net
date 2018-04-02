@@ -70,6 +70,12 @@ namespace Amazon.DynamoDBv2.Model.Internal.MarshallTransformations
                     unmarshalledObject.ContinuousBackupsStatus = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("PointInTimeRecoveryDescription", targetDepth))
+                {
+                    var unmarshaller = PointInTimeRecoveryDescriptionUnmarshaller.Instance;
+                    unmarshalledObject.PointInTimeRecoveryDescription = unmarshaller.Unmarshall(context);
+                    continue;
+                }
             }
           
             return unmarshalledObject;

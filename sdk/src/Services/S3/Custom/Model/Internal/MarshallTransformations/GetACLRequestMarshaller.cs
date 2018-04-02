@@ -48,6 +48,20 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             
             return request;
         }
+
+        private static GetACLRequestMarshaller _instance;
+
+        public static GetACLRequestMarshaller Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new GetACLRequestMarshaller();
+                }
+                return _instance;
+            }
+        }
     }
 }
     

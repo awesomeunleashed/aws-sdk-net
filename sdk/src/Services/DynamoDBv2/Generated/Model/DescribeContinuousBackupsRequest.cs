@@ -29,9 +29,23 @@ namespace Amazon.DynamoDBv2.Model
 {
     /// <summary>
     /// Container for the parameters to the DescribeContinuousBackups operation.
-    /// Checks the status of the backup restore settings on the specified table. If backups
-    /// are enabled, <code>ContinuousBackupsStatus</code> will bet set to ENABLED.
+    /// Checks the status of continuous backups and point in time recovery on the specified
+    /// table. Continuous backups are <code>ENABLED</code> on all tables at table creation.
+    /// If point in time recovery is enabled, <code>PointInTimeRecoveryStatus</code> will
+    /// be set to ENABLED.
     /// 
+    ///  
+    /// <para>
+    ///  Once continuous backups and point in time recovery are enabled, you can restore to
+    /// any point in time within <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
+    /// 
+    /// </para>
+    ///  
+    /// <para>
+    ///  <code>LatestRestorableDateTime</code> is typically 5 minutes before the current time.
+    /// You can restore your table to any point in time during the last 35 days with a 1-minute
+    /// granularity. 
+    /// </para>
     ///  
     /// <para>
     /// You can call <code>DescribeContinuousBackups</code> at a maximum rate of 10 times
@@ -45,7 +59,8 @@ namespace Amazon.DynamoDBv2.Model
         /// <summary>
         /// Gets and sets the property TableName. 
         /// <para>
-        /// Name of the table for which the customer wants to check the backup and restore settings.
+        /// Name of the table for which the customer wants to check the continuous backups and
+        /// point in time recovery settings.
         /// </para>
         /// </summary>
         public string TableName

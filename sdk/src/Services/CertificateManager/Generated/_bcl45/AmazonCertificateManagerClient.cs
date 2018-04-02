@@ -238,7 +238,7 @@ namespace Amazon.CertificateManager
 
 
         /// <summary>
-        /// Adds one or more tags to an ACM Certificate. Tags are labels that you can use to identify
+        /// Adds one or more tags to an ACM certificate. Tags are labels that you can use to identify
         /// and organize your AWS resources. Each tag consists of a <code>key</code> and an optional
         /// <code>value</code>. You specify the certificate on input by its Amazon Resource Name
         /// (ARN). You specify the tag by using a key-value pair. 
@@ -249,10 +249,10 @@ namespace Amazon.CertificateManager
         /// of that certificate, or you can apply the same tag to multiple certificates if you
         /// want to filter for a common relationship among those certificates. Similarly, you
         /// can apply the same tag to multiple resources if you want to specify a relationship
-        /// among those resources. For example, you can add the same tag to an ACM Certificate
+        /// among those resources. For example, you can add the same tag to an ACM certificate
         /// and an Elastic Load Balancing load balancer to indicate that they are both used by
         /// the same website. For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/tags.html">Tagging
-        /// ACM Certificates</a>. 
+        /// ACM certificates</a>. 
         /// </para>
         ///  
         /// <para>
@@ -272,7 +272,7 @@ namespace Amazon.CertificateManager
         /// you cannot specify a tag value that begins with <code>aws:</code>.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.TooManyTagsException">
@@ -281,7 +281,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/AddTagsToCertificate">REST API Reference for AddTagsToCertificate Operation</seealso>
         public virtual AddTagsToCertificateResponse AddTagsToCertificate(AddTagsToCertificateRequest request)
         {
-            var marshaller = new AddTagsToCertificateRequestMarshaller();
+            var marshaller = AddTagsToCertificateRequestMarshaller.Instance;
             var unmarshaller = AddTagsToCertificateResponseUnmarshaller.Instance;
 
             return Invoke<AddTagsToCertificateRequest,AddTagsToCertificateResponse>(request, marshaller, unmarshaller);
@@ -299,7 +299,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/AddTagsToCertificate">REST API Reference for AddTagsToCertificate Operation</seealso>
         public virtual Task<AddTagsToCertificateResponse> AddTagsToCertificateAsync(AddTagsToCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new AddTagsToCertificateRequestMarshaller();
+            var marshaller = AddTagsToCertificateRequestMarshaller.Instance;
             var unmarshaller = AddTagsToCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<AddTagsToCertificateRequest,AddTagsToCertificateResponse>(request, marshaller, 
@@ -319,12 +319,12 @@ namespace Amazon.CertificateManager
         /// 
         ///  <note> 
         /// <para>
-        /// You cannot delete an ACM Certificate that is being used by another AWS service. To
+        /// You cannot delete an ACM certificate that is being used by another AWS service. To
         /// delete a certificate that is in use, the certificate association must first be removed.
         /// </para>
         ///  </note>
         /// </summary>
-        /// <param name="certificateArn">String that contains the ARN of the ACM Certificate to be deleted. This must be of the form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
+        /// <param name="certificateArn">String that contains the ARN of the ACM certificate to be deleted. This must be of the form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
         /// 
         /// <returns>The response from the DeleteCertificate service method, as returned by CertificateManager.</returns>
         /// <exception cref="Amazon.CertificateManager.Model.InvalidArnException">
@@ -335,7 +335,7 @@ namespace Amazon.CertificateManager
         /// association and try again.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DeleteCertificate">REST API Reference for DeleteCertificate Operation</seealso>
@@ -355,7 +355,7 @@ namespace Amazon.CertificateManager
         /// 
         ///  <note> 
         /// <para>
-        /// You cannot delete an ACM Certificate that is being used by another AWS service. To
+        /// You cannot delete an ACM certificate that is being used by another AWS service. To
         /// delete a certificate that is in use, the certificate association must first be removed.
         /// </para>
         ///  </note>
@@ -371,13 +371,13 @@ namespace Amazon.CertificateManager
         /// association and try again.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DeleteCertificate">REST API Reference for DeleteCertificate Operation</seealso>
         public virtual DeleteCertificateResponse DeleteCertificate(DeleteCertificateRequest request)
         {
-            var marshaller = new DeleteCertificateRequestMarshaller();
+            var marshaller = DeleteCertificateRequestMarshaller.Instance;
             var unmarshaller = DeleteCertificateResponseUnmarshaller.Instance;
 
             return Invoke<DeleteCertificateRequest,DeleteCertificateResponse>(request, marshaller, unmarshaller);
@@ -392,12 +392,12 @@ namespace Amazon.CertificateManager
         /// 
         ///  <note> 
         /// <para>
-        /// You cannot delete an ACM Certificate that is being used by another AWS service. To
+        /// You cannot delete an ACM certificate that is being used by another AWS service. To
         /// delete a certificate that is in use, the certificate association must first be removed.
         /// </para>
         ///  </note>
         /// </summary>
-        /// <param name="certificateArn">String that contains the ARN of the ACM Certificate to be deleted. This must be of the form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
+        /// <param name="certificateArn">String that contains the ARN of the ACM certificate to be deleted. This must be of the form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -411,7 +411,7 @@ namespace Amazon.CertificateManager
         /// association and try again.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DeleteCertificate">REST API Reference for DeleteCertificate Operation</seealso>
@@ -434,7 +434,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DeleteCertificate">REST API Reference for DeleteCertificate Operation</seealso>
         public virtual Task<DeleteCertificateResponse> DeleteCertificateAsync(DeleteCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new DeleteCertificateRequestMarshaller();
+            var marshaller = DeleteCertificateRequestMarshaller.Instance;
             var unmarshaller = DeleteCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<DeleteCertificateRequest,DeleteCertificateResponse>(request, marshaller, 
@@ -447,16 +447,16 @@ namespace Amazon.CertificateManager
 
 
         /// <summary>
-        /// Returns detailed metadata about the specified ACM Certificate.
+        /// Returns detailed metadata about the specified ACM certificate.
         /// </summary>
-        /// <param name="certificateArn">The Amazon Resource Name (ARN) of the ACM Certificate. The ARN must have the following form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
+        /// <param name="certificateArn">The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
         /// 
         /// <returns>The response from the DescribeCertificate service method, as returned by CertificateManager.</returns>
         /// <exception cref="Amazon.CertificateManager.Model.InvalidArnException">
         /// The requested Amazon Resource Name (ARN) does not refer to an existing resource.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DescribeCertificate">REST API Reference for DescribeCertificate Operation</seealso>
@@ -469,7 +469,7 @@ namespace Amazon.CertificateManager
 
 
         /// <summary>
-        /// Returns detailed metadata about the specified ACM Certificate.
+        /// Returns detailed metadata about the specified ACM certificate.
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the DescribeCertificate service method.</param>
         /// 
@@ -478,13 +478,13 @@ namespace Amazon.CertificateManager
         /// The requested Amazon Resource Name (ARN) does not refer to an existing resource.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DescribeCertificate">REST API Reference for DescribeCertificate Operation</seealso>
         public virtual DescribeCertificateResponse DescribeCertificate(DescribeCertificateRequest request)
         {
-            var marshaller = new DescribeCertificateRequestMarshaller();
+            var marshaller = DescribeCertificateRequestMarshaller.Instance;
             var unmarshaller = DescribeCertificateResponseUnmarshaller.Instance;
 
             return Invoke<DescribeCertificateRequest,DescribeCertificateResponse>(request, marshaller, unmarshaller);
@@ -492,9 +492,9 @@ namespace Amazon.CertificateManager
 
 
         /// <summary>
-        /// Returns detailed metadata about the specified ACM Certificate.
+        /// Returns detailed metadata about the specified ACM certificate.
         /// </summary>
-        /// <param name="certificateArn">The Amazon Resource Name (ARN) of the ACM Certificate. The ARN must have the following form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
+        /// <param name="certificateArn">The Amazon Resource Name (ARN) of the ACM certificate. The ARN must have the following form:  <code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code>  For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</param>
         /// <param name="cancellationToken">
         ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
         /// </param>
@@ -504,7 +504,7 @@ namespace Amazon.CertificateManager
         /// The requested Amazon Resource Name (ARN) does not refer to an existing resource.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DescribeCertificate">REST API Reference for DescribeCertificate Operation</seealso>
@@ -527,7 +527,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/DescribeCertificate">REST API Reference for DescribeCertificate Operation</seealso>
         public virtual Task<DescribeCertificateResponse> DescribeCertificateAsync(DescribeCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new DescribeCertificateRequestMarshaller();
+            var marshaller = DescribeCertificateRequestMarshaller.Instance;
             var unmarshaller = DescribeCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<DescribeCertificateRequest,DescribeCertificateResponse>(request, marshaller, 
@@ -557,7 +557,7 @@ namespace Amazon.CertificateManager
         /// yet been issued.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/GetCertificate">REST API Reference for GetCertificate Operation</seealso>
@@ -587,13 +587,13 @@ namespace Amazon.CertificateManager
         /// yet been issued.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/GetCertificate">REST API Reference for GetCertificate Operation</seealso>
         public virtual GetCertificateResponse GetCertificate(GetCertificateRequest request)
         {
-            var marshaller = new GetCertificateRequestMarshaller();
+            var marshaller = GetCertificateRequestMarshaller.Instance;
             var unmarshaller = GetCertificateResponseUnmarshaller.Instance;
 
             return Invoke<GetCertificateRequest,GetCertificateResponse>(request, marshaller, unmarshaller);
@@ -621,7 +621,7 @@ namespace Amazon.CertificateManager
         /// yet been issued.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/GetCertificate">REST API Reference for GetCertificate Operation</seealso>
@@ -644,7 +644,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/GetCertificate">REST API Reference for GetCertificate Operation</seealso>
         public virtual Task<GetCertificateResponse> GetCertificateAsync(GetCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new GetCertificateRequestMarshaller();
+            var marshaller = GetCertificateRequestMarshaller.Instance;
             var unmarshaller = GetCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<GetCertificateRequest,GetCertificateResponse>(request, marshaller, 
@@ -733,20 +733,16 @@ namespace Amazon.CertificateManager
         /// 
         /// <returns>The response from the ImportCertificate service method, as returned by CertificateManager.</returns>
         /// <exception cref="Amazon.CertificateManager.Model.LimitExceededException">
-        /// An ACM limit has been exceeded. For example, you may have input more domains than
-        /// are allowed or you've requested too many certificates for your account. See the exception
-        /// message returned by ACM to determine which limit you have violated. For more information
-        /// about ACM limits, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>
-        /// topic.
+        /// An ACM limit has been exceeded.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ImportCertificate">REST API Reference for ImportCertificate Operation</seealso>
         public virtual ImportCertificateResponse ImportCertificate(ImportCertificateRequest request)
         {
-            var marshaller = new ImportCertificateRequestMarshaller();
+            var marshaller = ImportCertificateRequestMarshaller.Instance;
             var unmarshaller = ImportCertificateResponseUnmarshaller.Instance;
 
             return Invoke<ImportCertificateRequest,ImportCertificateResponse>(request, marshaller, unmarshaller);
@@ -764,7 +760,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ImportCertificate">REST API Reference for ImportCertificate Operation</seealso>
         public virtual Task<ImportCertificateResponse> ImportCertificateAsync(ImportCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new ImportCertificateRequestMarshaller();
+            var marshaller = ImportCertificateRequestMarshaller.Instance;
             var unmarshaller = ImportCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<ImportCertificateRequest,ImportCertificateResponse>(request, marshaller, 
@@ -801,7 +797,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ListCertificates">REST API Reference for ListCertificates Operation</seealso>
         public virtual ListCertificatesResponse ListCertificates(ListCertificatesRequest request)
         {
-            var marshaller = new ListCertificatesRequestMarshaller();
+            var marshaller = ListCertificatesRequestMarshaller.Instance;
             var unmarshaller = ListCertificatesResponseUnmarshaller.Instance;
 
             return Invoke<ListCertificatesRequest,ListCertificatesResponse>(request, marshaller, unmarshaller);
@@ -835,7 +831,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ListCertificates">REST API Reference for ListCertificates Operation</seealso>
         public virtual Task<ListCertificatesResponse> ListCertificatesAsync(ListCertificatesRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new ListCertificatesRequestMarshaller();
+            var marshaller = ListCertificatesRequestMarshaller.Instance;
             var unmarshaller = ListCertificatesResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListCertificatesRequest,ListCertificatesResponse>(request, marshaller, 
@@ -848,8 +844,8 @@ namespace Amazon.CertificateManager
 
 
         /// <summary>
-        /// Lists the tags that have been applied to the ACM Certificate. Use the certificate's
-        /// Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM Certificate,
+        /// Lists the tags that have been applied to the ACM certificate. Use the certificate's
+        /// Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate,
         /// use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a>
         /// action.
         /// </summary>
@@ -860,13 +856,13 @@ namespace Amazon.CertificateManager
         /// The requested Amazon Resource Name (ARN) does not refer to an existing resource.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ListTagsForCertificate">REST API Reference for ListTagsForCertificate Operation</seealso>
         public virtual ListTagsForCertificateResponse ListTagsForCertificate(ListTagsForCertificateRequest request)
         {
-            var marshaller = new ListTagsForCertificateRequestMarshaller();
+            var marshaller = ListTagsForCertificateRequestMarshaller.Instance;
             var unmarshaller = ListTagsForCertificateResponseUnmarshaller.Instance;
 
             return Invoke<ListTagsForCertificateRequest,ListTagsForCertificateResponse>(request, marshaller, unmarshaller);
@@ -884,7 +880,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ListTagsForCertificate">REST API Reference for ListTagsForCertificate Operation</seealso>
         public virtual Task<ListTagsForCertificateResponse> ListTagsForCertificateAsync(ListTagsForCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new ListTagsForCertificateRequestMarshaller();
+            var marshaller = ListTagsForCertificateRequestMarshaller.Instance;
             var unmarshaller = ListTagsForCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<ListTagsForCertificateRequest,ListTagsForCertificateResponse>(request, marshaller, 
@@ -897,7 +893,7 @@ namespace Amazon.CertificateManager
 
 
         /// <summary>
-        /// Remove one or more tags from an ACM Certificate. A tag consists of a key-value pair.
+        /// Remove one or more tags from an ACM certificate. A tag consists of a key-value pair.
         /// If you do not specify the value portion of the tag when calling this function, the
         /// tag will be removed regardless of value. If you specify a value, the tag is removed
         /// only if it is associated with the specified value. 
@@ -905,7 +901,7 @@ namespace Amazon.CertificateManager
         ///  
         /// <para>
         /// To add tags to a certificate, use the <a>AddTagsToCertificate</a> action. To view
-        /// all of the tags that have been applied to a specific ACM Certificate, use the <a>ListTagsForCertificate</a>
+        /// all of the tags that have been applied to a specific ACM certificate, use the <a>ListTagsForCertificate</a>
         /// action. 
         /// </para>
         /// </summary>
@@ -920,13 +916,13 @@ namespace Amazon.CertificateManager
         /// you cannot specify a tag value that begins with <code>aws:</code>.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RemoveTagsFromCertificate">REST API Reference for RemoveTagsFromCertificate Operation</seealso>
         public virtual RemoveTagsFromCertificateResponse RemoveTagsFromCertificate(RemoveTagsFromCertificateRequest request)
         {
-            var marshaller = new RemoveTagsFromCertificateRequestMarshaller();
+            var marshaller = RemoveTagsFromCertificateRequestMarshaller.Instance;
             var unmarshaller = RemoveTagsFromCertificateResponseUnmarshaller.Instance;
 
             return Invoke<RemoveTagsFromCertificateRequest,RemoveTagsFromCertificateResponse>(request, marshaller, unmarshaller);
@@ -944,7 +940,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RemoveTagsFromCertificate">REST API Reference for RemoveTagsFromCertificate Operation</seealso>
         public virtual Task<RemoveTagsFromCertificateResponse> RemoveTagsFromCertificateAsync(RemoveTagsFromCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new RemoveTagsFromCertificateRequestMarshaller();
+            var marshaller = RemoveTagsFromCertificateRequestMarshaller.Instance;
             var unmarshaller = RemoveTagsFromCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<RemoveTagsFromCertificateRequest,RemoveTagsFromCertificateResponse>(request, marshaller, 
@@ -957,25 +953,30 @@ namespace Amazon.CertificateManager
 
 
         /// <summary>
-        /// Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
+        /// Requests an ACM certificate for use with other AWS services. To request an ACM certificate,
         /// you must specify the fully qualified domain name (FQDN) for your site in the <code>DomainName</code>
         /// parameter. You can also specify additional FQDNs in the <code>SubjectAlternativeNames</code>
-        /// parameter if users can reach your site by using other names. 
+        /// parameter. 
         /// 
         ///  
         /// <para>
-        /// For each domain name you specify, email is sent to the domain owner to request approval
-        /// to issue the certificate. Email is sent to three registered contact addresses in the
-        /// WHOIS database and to five common system administration addresses formed from the
-        /// <code>DomainName</code> you enter or the optional <code>ValidationDomain</code> parameter.
-        /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate.html">Validate
-        /// Domain Ownership</a>. 
+        /// Each domain name that you specify must be validated to verify that you own or control
+        /// the domain. You can use <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS
+        /// validation</a> or <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email
+        /// validation</a>. We recommend that you use DNS validation. 
         /// </para>
         ///  
         /// <para>
-        /// After receiving approval from the domain owner, the ACM Certificate is issued. For
-        /// more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS
-        /// Certificate Manager User Guide</a>. 
+        /// If you choose email validation, email is sent to the domain owner to request approval
+        /// to issue the certificate. Email is sent to three registered contact addresses in the
+        /// WHOIS database and to five common system administration addresses formed from the
+        /// <code>DomainName</code> you enter or the optional <code>ValidationDomain</code> parameter.
+        /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">Validate
+        /// with Email</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// After receiving approval from the domain owner, the ACM certificate is issued.
         /// </para>
         /// </summary>
         /// <param name="domainName"> Fully qualified domain name (FQDN), such as www.example.com, of the site that you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.   The first domain name you enter cannot exceed 63 octets, including periods. Each subsequent Subject Alternative Name (SAN), however, can be up to 253 octets in length. </param>
@@ -985,11 +986,7 @@ namespace Amazon.CertificateManager
         /// One or more values in the <a>DomainValidationOption</a> structure is incorrect.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.LimitExceededException">
-        /// An ACM limit has been exceeded. For example, you may have input more domains than
-        /// are allowed or you've requested too many certificates for your account. See the exception
-        /// message returned by ACM to determine which limit you have violated. For more information
-        /// about ACM limits, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>
-        /// topic.
+        /// An ACM limit has been exceeded.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RequestCertificate">REST API Reference for RequestCertificate Operation</seealso>
         public virtual RequestCertificateResponse RequestCertificate(string domainName)
@@ -1001,25 +998,30 @@ namespace Amazon.CertificateManager
 
 
         /// <summary>
-        /// Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
+        /// Requests an ACM certificate for use with other AWS services. To request an ACM certificate,
         /// you must specify the fully qualified domain name (FQDN) for your site in the <code>DomainName</code>
         /// parameter. You can also specify additional FQDNs in the <code>SubjectAlternativeNames</code>
-        /// parameter if users can reach your site by using other names. 
+        /// parameter. 
         /// 
         ///  
         /// <para>
-        /// For each domain name you specify, email is sent to the domain owner to request approval
-        /// to issue the certificate. Email is sent to three registered contact addresses in the
-        /// WHOIS database and to five common system administration addresses formed from the
-        /// <code>DomainName</code> you enter or the optional <code>ValidationDomain</code> parameter.
-        /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate.html">Validate
-        /// Domain Ownership</a>. 
+        /// Each domain name that you specify must be validated to verify that you own or control
+        /// the domain. You can use <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS
+        /// validation</a> or <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email
+        /// validation</a>. We recommend that you use DNS validation. 
         /// </para>
         ///  
         /// <para>
-        /// After receiving approval from the domain owner, the ACM Certificate is issued. For
-        /// more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS
-        /// Certificate Manager User Guide</a>. 
+        /// If you choose email validation, email is sent to the domain owner to request approval
+        /// to issue the certificate. Email is sent to three registered contact addresses in the
+        /// WHOIS database and to five common system administration addresses formed from the
+        /// <code>DomainName</code> you enter or the optional <code>ValidationDomain</code> parameter.
+        /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">Validate
+        /// with Email</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// After receiving approval from the domain owner, the ACM certificate is issued.
         /// </para>
         /// </summary>
         /// <param name="request">Container for the necessary parameters to execute the RequestCertificate service method.</param>
@@ -1029,16 +1031,12 @@ namespace Amazon.CertificateManager
         /// One or more values in the <a>DomainValidationOption</a> structure is incorrect.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.LimitExceededException">
-        /// An ACM limit has been exceeded. For example, you may have input more domains than
-        /// are allowed or you've requested too many certificates for your account. See the exception
-        /// message returned by ACM to determine which limit you have violated. For more information
-        /// about ACM limits, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>
-        /// topic.
+        /// An ACM limit has been exceeded.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RequestCertificate">REST API Reference for RequestCertificate Operation</seealso>
         public virtual RequestCertificateResponse RequestCertificate(RequestCertificateRequest request)
         {
-            var marshaller = new RequestCertificateRequestMarshaller();
+            var marshaller = RequestCertificateRequestMarshaller.Instance;
             var unmarshaller = RequestCertificateResponseUnmarshaller.Instance;
 
             return Invoke<RequestCertificateRequest,RequestCertificateResponse>(request, marshaller, unmarshaller);
@@ -1046,25 +1044,30 @@ namespace Amazon.CertificateManager
 
 
         /// <summary>
-        /// Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
+        /// Requests an ACM certificate for use with other AWS services. To request an ACM certificate,
         /// you must specify the fully qualified domain name (FQDN) for your site in the <code>DomainName</code>
         /// parameter. You can also specify additional FQDNs in the <code>SubjectAlternativeNames</code>
-        /// parameter if users can reach your site by using other names. 
+        /// parameter. 
         /// 
         ///  
         /// <para>
-        /// For each domain name you specify, email is sent to the domain owner to request approval
-        /// to issue the certificate. Email is sent to three registered contact addresses in the
-        /// WHOIS database and to five common system administration addresses formed from the
-        /// <code>DomainName</code> you enter or the optional <code>ValidationDomain</code> parameter.
-        /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate.html">Validate
-        /// Domain Ownership</a>. 
+        /// Each domain name that you specify must be validated to verify that you own or control
+        /// the domain. You can use <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS
+        /// validation</a> or <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email
+        /// validation</a>. We recommend that you use DNS validation. 
         /// </para>
         ///  
         /// <para>
-        /// After receiving approval from the domain owner, the ACM Certificate is issued. For
-        /// more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS
-        /// Certificate Manager User Guide</a>. 
+        /// If you choose email validation, email is sent to the domain owner to request approval
+        /// to issue the certificate. Email is sent to three registered contact addresses in the
+        /// WHOIS database and to five common system administration addresses formed from the
+        /// <code>DomainName</code> you enter or the optional <code>ValidationDomain</code> parameter.
+        /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">Validate
+        /// with Email</a>. 
+        /// </para>
+        ///  
+        /// <para>
+        /// After receiving approval from the domain owner, the ACM certificate is issued.
         /// </para>
         /// </summary>
         /// <param name="domainName"> Fully qualified domain name (FQDN), such as www.example.com, of the site that you want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate that protects several sites in the same domain. For example, *.example.com protects www.example.com, site.example.com, and images.example.com.   The first domain name you enter cannot exceed 63 octets, including periods. Each subsequent Subject Alternative Name (SAN), however, can be up to 253 octets in length. </param>
@@ -1077,11 +1080,7 @@ namespace Amazon.CertificateManager
         /// One or more values in the <a>DomainValidationOption</a> structure is incorrect.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.LimitExceededException">
-        /// An ACM limit has been exceeded. For example, you may have input more domains than
-        /// are allowed or you've requested too many certificates for your account. See the exception
-        /// message returned by ACM to determine which limit you have violated. For more information
-        /// about ACM limits, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>
-        /// topic.
+        /// An ACM limit has been exceeded.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RequestCertificate">REST API Reference for RequestCertificate Operation</seealso>
         public virtual Task<RequestCertificateResponse> RequestCertificateAsync(string domainName, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
@@ -1103,7 +1102,7 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/RequestCertificate">REST API Reference for RequestCertificate Operation</seealso>
         public virtual Task<RequestCertificateResponse> RequestCertificateAsync(RequestCertificateRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new RequestCertificateRequestMarshaller();
+            var marshaller = RequestCertificateRequestMarshaller.Instance;
             var unmarshaller = RequestCertificateResponseUnmarshaller.Instance;
 
             return InvokeAsync<RequestCertificateRequest,RequestCertificateResponse>(request, marshaller, 
@@ -1117,12 +1116,12 @@ namespace Amazon.CertificateManager
 
         /// <summary>
         /// Resends the email that requests domain ownership validation. The domain owner or an
-        /// authorized representative must approve the ACM Certificate before it can be issued.
+        /// authorized representative must approve the ACM certificate before it can be issued.
         /// The certificate can be approved by clicking a link in the mail to navigate to the
         /// Amazon certificate approval website and then clicking <b>I Approve</b>. However, the
         /// validation email can be blocked by spam filters. Therefore, if you do not receive
         /// the original mail, you can request that the mail be resent within 72 hours of requesting
-        /// the ACM Certificate. If more than 72 hours have elapsed since your original request
+        /// the ACM certificate. If more than 72 hours have elapsed since your original request
         /// or since your last attempt to resend validation mail, you must request a new certificate.
         /// For more information about setting up your contact email addresses, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/setup-email.html">Configure
         /// Email for your Domain</a>.
@@ -1137,19 +1136,16 @@ namespace Amazon.CertificateManager
         /// One or more values in the <a>DomainValidationOption</a> structure is incorrect.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.InvalidStateException">
-        /// Processing has reached an invalid state. For example, this exception can occur if
-        /// the specified domain is not using email validation, or the current certificate status
-        /// does not permit the requested operation. See the exception message returned by ACM
-        /// to determine which state is not valid.
+        /// Processing has reached an invalid state.
         /// </exception>
         /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
-        /// The specified certificate cannot be found in the caller's account, or the caller's
+        /// The specified certificate cannot be found in the caller's account or the caller's
         /// account cannot be found.
         /// </exception>
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ResendValidationEmail">REST API Reference for ResendValidationEmail Operation</seealso>
         public virtual ResendValidationEmailResponse ResendValidationEmail(ResendValidationEmailRequest request)
         {
-            var marshaller = new ResendValidationEmailRequestMarshaller();
+            var marshaller = ResendValidationEmailRequestMarshaller.Instance;
             var unmarshaller = ResendValidationEmailResponseUnmarshaller.Instance;
 
             return Invoke<ResendValidationEmailRequest,ResendValidationEmailResponse>(request, marshaller, unmarshaller);
@@ -1167,10 +1163,68 @@ namespace Amazon.CertificateManager
         /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/ResendValidationEmail">REST API Reference for ResendValidationEmail Operation</seealso>
         public virtual Task<ResendValidationEmailResponse> ResendValidationEmailAsync(ResendValidationEmailRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
         {
-            var marshaller = new ResendValidationEmailRequestMarshaller();
+            var marshaller = ResendValidationEmailRequestMarshaller.Instance;
             var unmarshaller = ResendValidationEmailResponseUnmarshaller.Instance;
 
             return InvokeAsync<ResendValidationEmailRequest,ResendValidationEmailResponse>(request, marshaller, 
+                unmarshaller, cancellationToken);
+        }
+
+        #endregion
+        
+        #region  UpdateCertificateOptions
+
+
+        /// <summary>
+        /// Updates a certificate. Currently, you can use this function to specify whether to
+        /// opt in to or out of recording your certificate in a certificate transparency log.
+        /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency">
+        /// Opting Out of Certificate Transparency Logging</a>.
+        /// </summary>
+        /// <param name="request">Container for the necessary parameters to execute the UpdateCertificateOptions service method.</param>
+        /// 
+        /// <returns>The response from the UpdateCertificateOptions service method, as returned by CertificateManager.</returns>
+        /// <exception cref="Amazon.CertificateManager.Model.InvalidArnException">
+        /// The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+        /// </exception>
+        /// <exception cref="Amazon.CertificateManager.Model.InvalidArnException">
+        /// The requested Amazon Resource Name (ARN) does not refer to an existing resource.
+        /// </exception>
+        /// <exception cref="Amazon.CertificateManager.Model.InvalidStateException">
+        /// Processing has reached an invalid state.
+        /// </exception>
+        /// <exception cref="Amazon.CertificateManager.Model.LimitExceededException">
+        /// An ACM limit has been exceeded.
+        /// </exception>
+        /// <exception cref="Amazon.CertificateManager.Model.ResourceNotFoundException">
+        /// The specified certificate cannot be found in the caller's account or the caller's
+        /// account cannot be found.
+        /// </exception>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/UpdateCertificateOptions">REST API Reference for UpdateCertificateOptions Operation</seealso>
+        public virtual UpdateCertificateOptionsResponse UpdateCertificateOptions(UpdateCertificateOptionsRequest request)
+        {
+            var marshaller = UpdateCertificateOptionsRequestMarshaller.Instance;
+            var unmarshaller = UpdateCertificateOptionsResponseUnmarshaller.Instance;
+
+            return Invoke<UpdateCertificateOptionsRequest,UpdateCertificateOptionsResponse>(request, marshaller, unmarshaller);
+        }
+
+        /// <summary>
+        /// Initiates the asynchronous execution of the UpdateCertificateOptions operation.
+        /// </summary>
+        /// 
+        /// <param name="request">Container for the necessary parameters to execute the UpdateCertificateOptions operation.</param>
+        /// <param name="cancellationToken">
+        ///     A cancellation token that can be used by other objects or threads to receive notice of cancellation.
+        /// </param>
+        /// <returns>The task object representing the asynchronous operation.</returns>
+        /// <seealso href="http://docs.aws.amazon.com/goto/WebAPI/acm-2015-12-08/UpdateCertificateOptions">REST API Reference for UpdateCertificateOptions Operation</seealso>
+        public virtual Task<UpdateCertificateOptionsResponse> UpdateCertificateOptionsAsync(UpdateCertificateOptionsRequest request, System.Threading.CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var marshaller = UpdateCertificateOptionsRequestMarshaller.Instance;
+            var unmarshaller = UpdateCertificateOptionsResponseUnmarshaller.Instance;
+
+            return InvokeAsync<UpdateCertificateOptionsRequest,UpdateCertificateOptionsResponse>(request, marshaller, 
                 unmarshaller, cancellationToken);
         }
 

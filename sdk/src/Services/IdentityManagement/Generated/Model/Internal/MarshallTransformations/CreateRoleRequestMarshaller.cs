@@ -66,6 +66,10 @@ namespace Amazon.IdentityManagement.Model.Internal.MarshallTransformations
                 {
                     request.Parameters.Add("Description", StringUtils.FromString(publicRequest.Description));
                 }
+                if(publicRequest.IsSetMaxSessionDuration())
+                {
+                    request.Parameters.Add("MaxSessionDuration", StringUtils.FromInt(publicRequest.MaxSessionDuration));
+                }
                 if(publicRequest.IsSetPath())
                 {
                     request.Parameters.Add("Path", StringUtils.FromString(publicRequest.Path));
@@ -77,5 +81,23 @@ namespace Amazon.IdentityManagement.Model.Internal.MarshallTransformations
             }
             return request;
         }
+                    private static CreateRoleRequestMarshaller _instance = new CreateRoleRequestMarshaller();        
+
+        internal static CreateRoleRequestMarshaller GetInstance()
+        {
+            return _instance;
+        }
+
+        /// <summary>
+        /// Gets the singleton.
+        /// </summary>  
+        public static CreateRoleRequestMarshaller Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+
     }
 }

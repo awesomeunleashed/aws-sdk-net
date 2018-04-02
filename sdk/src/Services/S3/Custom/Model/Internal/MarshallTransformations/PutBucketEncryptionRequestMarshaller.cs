@@ -101,5 +101,19 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
             return request;
         }
 
+        private static PutBucketEncryptionRequestMarshaller _instance;
+
+        public static PutBucketEncryptionRequestMarshaller Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new PutBucketEncryptionRequestMarshaller();
+                }
+                return _instance;
+            }
+        }
+
     }
 }

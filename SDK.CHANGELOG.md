@@ -1,3 +1,63 @@
+### 3.3.258.0 (2018-03-30 20:23 UTC)
+* CertificateManager (3.3.4.2)
+	* Documentation updates for acm
+* Connect (3.3.0.0)
+	* Amazon Connect is a contact center as a service (CCaS) solution that offers easy, self-service configuration and enables dynamic, personal, and natural customer engagement at any scale. With this release of the Amazon Connect SDK, Outbound APIs (StartOutboundVoiceContact, StopContact) are now generally available. This release supports CTR generation for calls generated through the new APIs. Additionally IAM permissions are supported for the new APIs. 
+* Core 3.3.21.20
+	* Adding FIPS endpoint for CodeBuild service
+
+
+
+### 3.3.257.0 (2018-03-30 00:18 UTC)
+* AlexaForBusiness (3.3.2.0)
+	* Adds operations for creating and managing address books of phone contacts for use in A4B managed shared devices.
+* CloudFormation (3.3.10.0)
+	* Enabling resource level permission control for StackSets APIs. Adding support for customers to use customized AdministrationRole to create security boundaries between different users.
+* Greengrass (3.3.3.0)
+	* Greengrass APIs now support creating Machine Learning resource types and configuring binary data as the input payload for Greengrass Lambda functions.
+* SimpleSystemsManagement (3.3.18.0)
+	* This Patch Manager release supports creating patch baselines for CentOS.
+
+### 3.3.256.1 (2018-03-29 06:46 UTC)
+* CloudFront (3.3.6.4)
+	* Fixed issue with Url siginer not supporting IPv6
+* RDS (3.3.21.5)
+	* Fixed encoding issue when computing a presigned URL.
+* S3 (3.3.17.3)	
+	* Add configuration on PutObject and UploadPart to turn off chunk encoding.
+* Core 3.3.21.19
+	* Convert all request marshallers to singletons
+	* Isolate usage of HttpClient to better handle different platforms the SDK runs on
+	* Lower default chunked upload size to avoid creating LOH sized objects.
+	* Remove an unnecessary await in DefaultRetryPolicy
+	* Ensure service url has a trailing '/' to avoid issues when concatenating host and resource path.
+	* All services packages updated to require new Core
+
+### 3.3.256.0 (2018-03-28 23:32 UTC)
+* IdentityManagement (3.3.6.0)
+	* Add support for Longer Role Sessions. Four APIs manage max session duration: GetRole, ListRoles, CreateRole, and the new API UpdateRole. The max session duration integer attribute is measured in seconds.
+* MTurk (3.3.2.0)
+	* Added a new attribute "ActionsGuarded" to QualificationRequirement: This update allows MTurk Requester customers using the AWS SDK to control which Workers can see and preview their HITs. We now support hiding HITs from unqualified Workers' search results.
+* SecurityToken (3.3.4.0)
+	* Change utilizes the Max Session Duration attribute introduced for IAM Roles and allows STS customers to request session duration up to the Max Session Duration of 12 hours from AssumeRole based APIs.
+* Core 3.3.21.18
+	* Amazon GuardDuty API operations are now supported in the EU (Paris) region.
+Amazon Workspaces is now available in ap-northeast-2
+
+
+
+### 3.3.255.0 (2018-03-27 19:18 UTC)
+* CertificateManager (3.3.4.0)
+	* AWS Certificate Manager has added support for customers to disable Certificate Transparency logging on a per-certificate basis.
+
+### 3.3.254.0 (2018-03-26 22:30 UTC)
+* DynamoDBv2 (3.3.7.0)
+	* Point-in-time recovery (PITR) provides continuous backups of your DynamoDB table data. With PITR, you do not have to worry about creating, maintaining, or scheduling backups. You enable PITR on your table and your backup is available for restore at any point in time from the moment you enable it, up to a maximum of the 35 preceding days. PITR provides continuous backups until you explicitly disable it. For more information, see the Amazon DynamoDB Developer Guide.
+
+### 3.3.253.1 (2018-03-23 18:07 UTC)
+* RDS (3.3.21.4)
+	* Documentation updates for RDS
+
 ### 3.3.253.0 (2018-03-22 22:05 UTC)
 * AppStream (3.3.11.0)
 	* Feedback URL allows admins to provide a feedback link or a survey link for collecting user feedback while streaming sessions. When a feedback link is provided, streaming users will see a "Send Feedback" choice in their streaming session toolbar. On selecting this choice, user will be redirected to the link provided in a new browser tab. If a feedback link is not provided, users will not see the "Send Feedback" option. 

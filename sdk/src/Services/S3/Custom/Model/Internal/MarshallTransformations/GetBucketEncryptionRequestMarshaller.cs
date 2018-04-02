@@ -40,5 +40,19 @@ namespace Amazon.S3.Model.Internal.MarshallTransformations
 
             return request;
         }
+
+        private static GetBucketEncryptionRequestMarshaller _instance;
+
+        public static GetBucketEncryptionRequestMarshaller Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new GetBucketEncryptionRequestMarshaller();
+                }
+                return _instance;
+            }
+        }
     }
 }
