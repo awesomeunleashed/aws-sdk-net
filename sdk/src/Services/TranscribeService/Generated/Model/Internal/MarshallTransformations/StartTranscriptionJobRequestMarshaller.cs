@@ -96,6 +96,17 @@ namespace Amazon.TranscribeService.Model.Internal.MarshallTransformations
                     context.Writer.Write(publicRequest.MediaSampleRateHertz);
                 }
 
+                if(publicRequest.IsSetSettings())
+                {
+                    context.Writer.WritePropertyName("Settings");
+                    context.Writer.WriteObjectStart();
+
+                    var marshaller = SettingsMarshaller.Instance;
+                    marshaller.Marshall(publicRequest.Settings, context);
+
+                    context.Writer.WriteObjectEnd();
+                }
+
                 if(publicRequest.IsSetTranscriptionJobName())
                 {
                     context.Writer.WritePropertyName("TranscriptionJobName");

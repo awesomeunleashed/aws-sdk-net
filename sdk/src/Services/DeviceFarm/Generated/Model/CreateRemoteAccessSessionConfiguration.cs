@@ -28,8 +28,7 @@ using Amazon.Runtime.Internal;
 namespace Amazon.DeviceFarm.Model
 {
     /// <summary>
-    /// Creates the configuration settings for a remote access session, including the device
-    /// model and type.
+    /// Configuration settings for a remote access session, including billing method.
     /// </summary>
     public partial class CreateRemoteAccessSessionConfiguration
     {
@@ -38,7 +37,7 @@ namespace Amazon.DeviceFarm.Model
         /// <summary>
         /// Gets and sets the property BillingMethod. 
         /// <para>
-        /// Returns the billing method for purposes of configuring a remote access session.
+        /// The billing method for the remote access session.
         /// </para>
         /// </summary>
         public BillingMethod BillingMethod

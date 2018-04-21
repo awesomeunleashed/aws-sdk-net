@@ -129,7 +129,7 @@ namespace Amazon.MediaPackage.Model
         /// Gets and sets the property ProgramDateTimeIntervalSeconds. The interval (in seconds)
         /// between each EXT-X-PROGRAM-DATE-TIME taginserted into manifests. Additionally, when
         /// an interval is specifiedID3Timed Metadata messages will be generated every 5 seconds
-        /// using the ingest time of the content.If the interval is not specified, or set to 0,
+        /// using theingest time of the content.If the interval is not specified, or set to 0,
         /// thenno EXT-X-PROGRAM-DATE-TIME tags will be inserted into manifests and noID3Timed
         /// Metadata messages will be generated. Note that irrespectiveof this parameter, if any
         /// ID3 Timed Metadata is found in HTTP Live Streaming (HLS) input,it will be passed through

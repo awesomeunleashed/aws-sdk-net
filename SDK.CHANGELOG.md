@@ -1,3 +1,94 @@
+### 3.3.267.0 (2018-04-20 19:05 UTC)
+* KinesisFirehose (3.3.4.0)
+	* With this release, Amazon Kinesis Data Firehose allows you to tag your delivery streams. Tags are metadata that you can create and use to manage your delivery streams. For more information about tagging, see AWS Tagging Strategies. For technical documentation, look for the tagging operations in the Amazon Kinesis Firehose API reference.
+* MediaLive (3.3.5.0)
+	* With AWS Elemental MediaLive you can now output live channels as RTMP (Real-Time Messaging Protocol) and RTMPS as the encrypted version of the protocol (Secure, over SSL/TLS). RTMP is the preferred protocol for sending live streams to popular social platforms which  means you can send live channel content to social and sharing platforms in a secure and reliable way while continuing to stream to your own website, app or network.
+
+### 3.3.266.0 (2018-04-20 04:18 UTC)
+* Core 3.3.22.0
+	* For the .NET Framework 3.5 and .NET Framework 4.5 environments AWS service clients will now add TLS 1.1 and TLS 1.2 to the chain of supported security protocols if the environment has been patched to support TLS 1.1 and TLS 1.2
+	* All services packages updated to require new Core
+
+### 3.3.265.0 (2018-04-20 00:33 UTC)
+* CodePipeline (3.3.3.0)
+	* Added new SourceRevision structure to Execution Summary with accompanying definitions as needed in the AWS CodePipeline API Guide.
+* CostExplorer (3.3.3.0)
+	* Starting today, you can identify opportunities for Amazon RDS cost savings using AWS Cost Explorer's API to access your Amazon RDS Reserved Instance Purchase Recommendations
+* DeviceFarm (3.3.6.0)
+	* Adding support for VPCEndpoint feature. Allows customers to be able to access their private endpoints/services running in their VPC during test automation.
+* EC2 (3.3.48.0)
+	* Added support for customers to see the time at which a Dedicated Host was allocated or released.
+* RDS (3.3.22.0)
+	* The ModifyDBCluster operation now includes an EngineVersion parameter. You can use this to upgrade the engine for a clustered database.
+* SecretsManager (3.3.0.1)
+	* Documentation updates
+* SimpleSystemsManagement (3.3.20.0)
+	* Added new APIs DeleteInventory and DescribeInventoryDeletions, for customers to delete their custom inventory data.
+* Core 3.3.21.21
+	* The new CloudHSM is now available in the AWS GovCloud (US).
+
+
+
+### 3.3.264.0 (2018-04-10 23:42 UTC)
+* DatabaseMigrationService (3.3.7.0)
+	* Native Change Data Capture start point and task recovery support in Database Migration Service.  
+* Glue (3.3.7.0)
+	* "AWS Glue now supports timeout values for ETL jobs. With this release, all new ETL jobs have a default timeout value of 48 hours. AWS Glue also now supports the ability to start a schedule or job events trigger when it is created."
+* MediaPackage (3.3.1.0)
+	* Adds a new OriginEndpoint package type CmafPackage in MediaPackage. Origin endpoints can now be configured to use the Common Media Application Format (CMAF) media streaming format. This version of CmafPackage only supports HTTP Live Streaming (HLS) manifests with fragmented MP4.
+* SimpleSystemsManagement (3.3.19.0)
+	* Added TooManyUpdates exception for AddTagsToResource and RemoveTagsFromResource API
+* WorkMail (3.3.1.0)
+	* Amazon WorkMail adds the ability to grant users and groups with "Full Access", "Send As" and "Send on Behalf" permissions on a given mailbox.
+
+### 3.3.263.0 (2018-04-10 00:37 UTC)
+* CloudDirectory (3.3.7.0)
+	* Cloud Directory customers can fetch attributes within a facet on an object with the new GetObjectAttributes API and can fetch attributes from multiple facets or objects with the BatchGetObjectAttributes operation.
+
+### 3.3.262.0 (2018-04-06 19:43 UTC)
+* Batch (3.3.5.0)
+	* Support for Timeout in SubmitJob and RegisterJobDefinition
+
+### 3.3.261.1 (2018-04-05 19:28 UTC)
+* SimpleSystemsManagement (3.3.18.1)
+	* Documentation updates for ec2
+
+### 3.3.261.0 (2018-04-04 18:20 UTC)
+* ACMPCA (3.3.0.0)
+	* AWS Certificate Manager (ACM) Private Certificate Authority (CA) is a managed private CA service that helps you easily and securely manage the lifecycle of your private certificates. ACM Private CA provides you a highly-available private CA service without the upfront investment and ongoing maintenance costs of operating your own private CA. ACM Private CA extends ACM's certificate management capabilities to private certificates, enabling you to manage public and private certificates centrally.
+* CertificateManager (3.3.5.0)
+	* AWS Certificate Manager has added support for AWS Certificate Manager Private Certificate Authority (CA). Customers can now request private certificates with the RequestCertificate API, and also export private certificates with the ExportCertificate API.
+* CloudWatch (3.3.6.0)
+	* The new GetMetricData API enables you to collect batch amounts of metric data and optionally perform math expressions on the data. With one GetMetricData call you can retrieve as many as 100 different metrics and a total of 100,800 data points.
+* ConfigService (3.3.15.0)
+	* AWS Config introduces multi-account multi-region data aggregation features. Customers can create an aggregator (a new resource type) in AWS Config that collects AWS Config data from multiple source accounts and regions into an aggregator account. Customers can aggregate data from individual account(s) or an organization and multiple regions. In this release, AWS Config adds several API's for multi-account multi-region data aggregation.
+* FMS (3.3.0.0)
+	* This release is the initial release version for AWS Firewall Manager, a new AWS service that makes it easy for customers to centrally configure WAF rules across all their resources (ALBs and CloudFront distributions) and across accounts.
+* S3 (3.3.18.0)
+	* ONEZONE_IA storage class stores object data in only one Availability Zone at a lower price than STANDARD_IA. This SDK release provides API support for this new storage class.
+* SageMaker (3.3.4.0)
+	* SageMaker is now supporting many additional instance types in previously supported families for Notebooks, Training Jobs, and Endpoints. Training Jobs and Endpoints now support instances in the m5 family in addition to the previously supported instance families. For specific instance types supported please see the documentation for the SageMaker API.
+* SecretsManager (3.3.0.0)
+	* AWS Secrets Manager enables you to easily create and manage the secrets that you use in your customer-facing apps.  Instead of embedding credentials into your source code, you can dynamically query Secrets Manager from your app whenever you need credentials.  You can automatically and frequently rotate your secrets without having to deploy updates to your apps.  All secret values are encrypted when they're at rest with AWS KMS, and while they're in transit with HTTPS and TLS.
+* TranscribeService (3.3.1.0)
+	* Amazon Transcribe is an automatic speech recognition (ASR) service that makes it easy for developers to add speech to text capability to their applications. 
+
+### 3.3.260.0 (2018-04-03 22:20 UTC)
+* DeviceFarm (3.3.5.0)
+	* Added Private Device Management feature. Customers can now manage their private devices efficiently - view their status, set labels and apply profiles on them. Customers can also schedule automated tests and remote access sessions on individual instances in their private device fleet.
+* Lambda (3.3.13.0)
+	* added nodejs8.10 as a valid runtime
+* Translate (3.3.1.0)
+	* This release increases the maximum size of input text to 5,000 bytes. Amazon Translate now supports automatic language detection of the input text. The translation models have been improved to increase accuracy. See the documentation for more information.
+
+### 3.3.259.0 (2018-04-02 20:49 UTC)
+* APIGateway (3.3.17.0)
+	* Amazon API Gateway now supports resource policies for APIs making it easier to set access controls for invoking APIs.
+* CloudFront (3.3.7.0)
+	* You can now use a new Amazon CloudFront capability called Field-Level Encryption to further enhance the security of sensitive data, such as credit card numbers or personally identifiable information (PII) like social security numbers. CloudFront's field-level encryption further encrypts sensitive data in an HTTPS form using field-specific encryption keys (which you supply) before a POST request is forwarded to your origin. This ensures that sensitive data can only be decrypted and viewed by certain components or services in your application stack. Field-level encryption is easy to setup. Simply configure the fields that have to be further encrypted by CloudFront using the public keys you specify and you can reduce attack surface for your sensitive data.
+* Elasticsearch (3.3.5.0)
+	* This adds Amazon Cognito authentication support to Kibana.
+
 ### 3.3.258.0 (2018-03-30 20:23 UTC)
 * CertificateManager (3.3.4.2)
 	* Documentation updates for acm

@@ -30,8 +30,9 @@ namespace Amazon.KinesisFirehose.Model
     /// <summary>
     /// Container for the parameters to the DescribeDeliveryStream operation.
     /// Describes the specified delivery stream and gets the status. For example, after your
-    /// delivery stream is created, call <a>DescribeDeliveryStream</a> to see if the delivery
-    /// stream is <code>ACTIVE</code> and therefore ready for data to be sent to it.
+    /// delivery stream is created, call <code>DescribeDeliveryStream</code> to see whether
+    /// the delivery stream is <code>ACTIVE</code> and therefore ready for data to be sent
+    /// to it.
     /// </summary>
     public partial class DescribeDeliveryStreamRequest : AmazonKinesisFirehoseRequest
     {
@@ -61,7 +62,7 @@ namespace Amazon.KinesisFirehose.Model
         /// Gets and sets the property ExclusiveStartDestinationId. 
         /// <para>
         /// The ID of the destination to start returning the destination information. Currently,
-        /// Kinesis Firehose supports one destination per delivery stream.
+        /// Kinesis Data Firehose supports one destination per delivery stream.
         /// </para>
         /// </summary>
         public string ExclusiveStartDestinationId

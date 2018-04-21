@@ -29,7 +29,8 @@ namespace Amazon.CloudDirectory.Model
 {
     /// <summary>
     /// Container for the parameters to the AddFacetToObject operation.
-    /// Adds a new <a>Facet</a> to an object.
+    /// Adds a new <a>Facet</a> to an object. An object can have more than one facet applied
+    /// on it.
     /// </summary>
     public partial class AddFacetToObjectRequest : AmazonCloudDirectoryRequest
     {

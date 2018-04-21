@@ -76,6 +76,12 @@ namespace Amazon.MediaPackage.Model.Internal.MarshallTransformations
                     unmarshalledObject.ChannelId = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("cmafPackage", targetDepth))
+                {
+                    var unmarshaller = CmafPackageUnmarshaller.Instance;
+                    unmarshalledObject.CmafPackage = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("dashPackage", targetDepth))
                 {
                     var unmarshaller = DashPackageUnmarshaller.Instance;

@@ -28,7 +28,8 @@ using Amazon.Runtime.Internal;
 namespace Amazon.KinesisFirehose.Model
 {
     /// <summary>
-    /// The stream and role ARNs for a Kinesis stream used as the source for a delivery stream.
+    /// The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as
+    /// the source for a delivery stream.
     /// </summary>
     public partial class KinesisStreamSourceConfiguration
     {
@@ -38,7 +39,7 @@ namespace Amazon.KinesisFirehose.Model
         /// <summary>
         /// Gets and sets the property KinesisStreamARN. 
         /// <para>
-        /// The ARN of the source Kinesis stream.
+        /// The ARN of the source Kinesis data stream.
         /// </para>
         /// </summary>
         public string KinesisStreamARN
@@ -56,7 +57,7 @@ namespace Amazon.KinesisFirehose.Model
         /// <summary>
         /// Gets and sets the property RoleARN. 
         /// <para>
-        /// The ARN of the role that provides access to the source Kinesis stream.
+        /// The ARN of the role that provides access to the source Kinesis data stream.
         /// </para>
         /// </summary>
         public string RoleARN

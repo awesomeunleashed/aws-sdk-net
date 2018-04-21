@@ -40,8 +40,8 @@ namespace Amazon.TranscribeService.Model
         /// Gets and sets the property NextToken. 
         /// <para>
         /// The <code>ListTranscriptionJobs</code> operation returns a page of jobs at a time.
-        /// The size of the page is set by the <code>MaxResults</code> parameter. If there are
-        /// more jobs in the list than the page size, Amazon Transcribe returns the <code>NextPage</code>
+        /// The maximum size of the page is set by the <code>MaxResults</code> parameter. If there
+        /// are more jobs in the list than the page size, Amazon Transcribe returns the <code>NextPage</code>
         /// token. Include the token in the next request to the <code>ListTranscriptionJobs</code>
         /// operation to return in the next page of jobs.
         /// </para>

@@ -15,6 +15,16 @@
     <min>32</min>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.CreateInstanceProfileRequest.Description</property>
+    <min>0</min>
+    <max>16384</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.CreateInstanceProfileRequest.Name</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.DeviceFarm.Model.CreateNetworkProfileRequest.Description</property>
     <min>0</min>
     <max>16384</max>
@@ -50,6 +60,10 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.DeviceFarm.Model.CreateRemoteAccessSessionRequest.DeviceArn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.CreateRemoteAccessSessionRequest.InstanceArn</property>
     <min>32</min>
   </property-value-rule>
   <property-value-rule>
@@ -90,7 +104,31 @@
     <min>32</min>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.CreateVPCEConfigurationRequest.ServiceDnsName</property>
+    <min>0</min>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.CreateVPCEConfigurationRequest.VpceConfigurationDescription</property>
+    <min>0</min>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.CreateVPCEConfigurationRequest.VpceConfigurationName</property>
+    <min>0</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.CreateVPCEConfigurationRequest.VpceServiceName</property>
+    <min>0</min>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.DeviceFarm.Model.DeleteDevicePoolRequest.Arn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.DeleteInstanceProfileRequest.Arn</property>
     <min>32</min>
   </property-value-rule>
   <property-value-rule>
@@ -114,7 +152,15 @@
     <min>32</min>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.DeleteVPCEConfigurationRequest.Arn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.DeviceFarm.Model.GetDeviceRequest.Arn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.GetDeviceInstanceRequest.Arn</property>
     <min>32</min>
   </property-value-rule>
   <property-value-rule>
@@ -127,6 +173,10 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityRequest.DevicePoolArn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.GetInstanceProfileRequest.Arn</property>
     <min>32</min>
   </property-value-rule>
   <property-value-rule>
@@ -172,6 +222,10 @@
     <min>32</min>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.GetVPCEConfigurationRequest.Arn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.DeviceFarm.Model.InstallToRemoteAccessSessionRequest.AppArn</property>
     <min>32</min>
   </property-value-rule>
@@ -190,6 +244,16 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.DeviceFarm.Model.ListArtifactsResponse.NextToken</property>
+    <min>4</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.ListDeviceInstancesRequest.NextToken</property>
+    <min>4</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.ListDeviceInstancesResponse.NextToken</property>
     <min>4</min>
     <max>1024</max>
   </property-value-rule>
@@ -218,6 +282,16 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.DeviceFarm.Model.ListDevicesResponse.NextToken</property>
+    <min>4</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.ListInstanceProfilesRequest.NextToken</property>
+    <min>4</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.ListInstanceProfilesResponse.NextToken</property>
     <min>4</min>
     <max>1024</max>
   </property-value-rule>
@@ -392,6 +466,16 @@
     <max>1024</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.ListVPCEConfigurationsRequest.NextToken</property>
+    <min>4</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.ListVPCEConfigurationsResponse.NextToken</property>
+    <min>4</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.DeviceFarm.Model.PurchaseOfferingRequest.OfferingId</property>
     <min>32</min>
   </property-value-rule>
@@ -429,6 +513,14 @@
     <min>32</min>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.UpdateDeviceInstanceRequest.Arn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.UpdateDeviceInstanceRequest.ProfileArn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.DeviceFarm.Model.UpdateDevicePoolRequest.Arn</property>
     <min>32</min>
   </property-value-rule>
@@ -439,6 +531,20 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.DeviceFarm.Model.UpdateDevicePoolRequest.Name</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.UpdateInstanceProfileRequest.Arn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.UpdateInstanceProfileRequest.Description</property>
+    <min>0</min>
+    <max>16384</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.UpdateInstanceProfileRequest.Name</property>
     <min>0</min>
     <max>256</max>
   </property-value-rule>
@@ -476,6 +582,30 @@
     <max>256</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.UpdateVPCEConfigurationRequest.Arn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.UpdateVPCEConfigurationRequest.ServiceDnsName</property>
+    <min>0</min>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.UpdateVPCEConfigurationRequest.VpceConfigurationDescription</property>
+    <min>0</min>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.UpdateVPCEConfigurationRequest.VpceConfigurationName</property>
+    <min>0</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.UpdateVPCEConfigurationRequest.VpceServiceName</property>
+    <min>0</min>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.DeviceFarm.Model.AccountSettings.AwsAccountNumber</property>
     <min>2</min>
     <max>16</max>
@@ -509,6 +639,14 @@
     <max>256</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.DeviceInstance.Arn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.DeviceInstance.DeviceArn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.DeviceFarm.Model.DevicePool.Arn</property>
     <min>32</min>
   </property-value-rule>
@@ -533,7 +671,30 @@
     <max>16384</max>
   </property-value-rule>
   <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.InstanceProfile.Arn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.InstanceProfile.Description</property>
+    <min>0</min>
+    <max>16384</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.InstanceProfile.Name</property>
+    <min>0</min>
+    <max>256</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.InvalidOperationException.Message</property>
+    <min>0</min>
+    <max>16384</max>
+  </property-value-rule>
+  <property-value-rule>
     <property>Amazon.DeviceFarm.Model.Job.Arn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.Job.InstanceArn</property>
     <min>32</min>
   </property-value-rule>
   <property-value-rule>
@@ -646,6 +807,10 @@
   <property-value-rule>
     <property>Amazon.DeviceFarm.Model.RemoteAccessSession.HostAddress</property>
     <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.RemoteAccessSession.InstanceArn</property>
+    <min>32</min>
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.DeviceFarm.Model.RemoteAccessSession.InteractionMode</property>
@@ -778,6 +943,30 @@
   </property-value-rule>
   <property-value-rule>
     <property>Amazon.DeviceFarm.Model.Upload.Url</property>
+    <min>0</min>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.VPCEConfiguration.Arn</property>
+    <min>32</min>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.VPCEConfiguration.ServiceDnsName</property>
+    <min>0</min>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.VPCEConfiguration.VpceConfigurationDescription</property>
+    <min>0</min>
+    <max>2048</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.VPCEConfiguration.VpceConfigurationName</property>
+    <min>0</min>
+    <max>1024</max>
+  </property-value-rule>
+  <property-value-rule>
+    <property>Amazon.DeviceFarm.Model.VPCEConfiguration.VpceServiceName</property>
     <min>0</min>
     <max>2048</max>
   </property-value-rule>

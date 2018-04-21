@@ -37,26 +37,8 @@ namespace Amazon.TranscribeService.Model
         /// <summary>
         /// Gets and sets the property TranscriptFileUri. 
         /// <para>
-        /// The S3 location where the transcription result is stored. The general form of this
-        /// Uri is:
-        /// </para>
-        ///  
-        /// <para>
-        ///  <code> https://&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt;
-        /// </code> 
-        /// </para>
-        ///  
-        /// <para>
-        /// For example:
-        /// </para>
-        ///  
-        /// <para>
-        ///  <code>https://s3-us-west-2.amazonaws.com/examplebucket/example.json</code> 
-        /// </para>
-        ///  
-        /// <para>
-        ///  <code>https://s3-us-west-2.amazonaws.com/examplebucket/mediadocs/example.json</code>
-        /// 
+        /// The S3 location where the transcription result is stored. Use this URI to access the
+        /// results of the transcription job. 
         /// </para>
         /// </summary>
         public string TranscriptFileUri

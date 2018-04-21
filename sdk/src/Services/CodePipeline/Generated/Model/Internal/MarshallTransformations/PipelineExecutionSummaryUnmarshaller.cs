@@ -76,6 +76,12 @@ namespace Amazon.CodePipeline.Model.Internal.MarshallTransformations
                     unmarshalledObject.PipelineExecutionId = unmarshaller.Unmarshall(context);
                     continue;
                 }
+                if (context.TestExpression("sourceRevisions", targetDepth))
+                {
+                    var unmarshaller = new ListUnmarshaller<SourceRevision, SourceRevisionUnmarshaller>(SourceRevisionUnmarshaller.Instance);
+                    unmarshalledObject.SourceRevisions = unmarshaller.Unmarshall(context);
+                    continue;
+                }
                 if (context.TestExpression("startTime", targetDepth))
                 {
                     var unmarshaller = DateTimeUnmarshaller.Instance;
